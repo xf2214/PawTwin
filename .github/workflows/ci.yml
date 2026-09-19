@@ -1,0 +1,54 @@
+name: Baseline checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  baseline:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    env:
+      PAWTWIN_MODE: local
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          version: '0.9.9'
+          python-version: '3.12'
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install Python dependencies
+        run: uv sync --frozen
+      - name: Python checks
+        run: uv run --frozen pytest
+      - name: Lint
+        run: uv run --frozen ruff check .
+      - name: Contracts current
+        run: uv run --frozen python scripts/export_contracts.py --check
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci
+      - name: Frontend types
+        working-directory: frontend
+        run: npm run typecheck
+      - name: Frontend build
+        working-directory: frontend
+        run: npm run build
+      - name: Browser setup
+        working-directory: frontend
+        run: npx playwright install --with-deps chromium
+      - name: Browser smoke
+        working-directory: frontend
+        run: npm run test:e2e
