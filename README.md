@@ -2,7 +2,7 @@
 
 宠物照护 Agent 项目，面向 AWS 黑客松原型开发。产品范围为一只宠物、一个家庭、一个网页和一个照护 Agent。
 
-当前处于**项目骨架初始化阶段**：提供运行环境、共享数据模型、前后端连接检查和多 Agent 协作入口。完整照护流程、登录、数据库、Bedrock、AgentCore Memory 和 AWS 部署仍待后续开发，不能将此版本作为完整参赛原型。
+**项目骨架已初始化并通过本地检查**：提供运行环境、共享数据模型、前后端连接检查和多 Agent 协作入口。完整照护流程、登录、数据库、Bedrock、AgentCore Memory 和 AWS 部署仍待后续开发，不能将此版本作为完整参赛原型。
 
 ## 快速入口
 
@@ -57,6 +57,8 @@
 
 脚本使用与开发脚本一致的兼容 Node。首次安装 Chromium 会下载测试浏览器；不安装或修改用户的桌面浏览器。已安装后可省略 `-InstallBrowser`。具体本机已执行的结果见状态文档。
 
+测试默认使用前端端口 4173、后端端口 8000。前端测试端口被占用时可设置 `$env:PAWTWIN_E2E_PORT = '4174'`；受限网络下已有可用 Chromium 时可将 `PAWTWIN_BROWSER_EXECUTABLE` 设置为其可执行文件绝对路径。默认仍使用 Playwright 管理的浏览器。测试不会复用或终止其他任务的服务；后端 8000 须空闲。
+
 ## API 与共享契约
 
 - `/healthz`：进程存活，不调用 AWS。
@@ -66,6 +68,13 @@
 - `contracts/` 下领域模型 schema：后续 Agent 共享的数据边界。
 
 完整业务接口仍属于计划；不会用返回成功的空接口冒充实现。Python 模型是契约来源，生成文件不要手动修改。修改模型后运行导出工具并纳入同一个审查提交。
+
+```powershell
+uv run --frozen python scripts/export_contracts.py
+uv run --frozen python scripts/export_contracts.py --check
+```
+
+领域 schema 表达基础类型与范围；动作类型和投喂克数的组合约束由 Python 模型校验，消费者仍须以服务端验证结果为准。
 
 ## 多 Agent 如何开始
 

@@ -23,6 +23,8 @@
 
 总负责人：README.md、AGENTS.md、docs/、.github/、根级版本控制约定。
 
+2026-09-22 恢复执行时已明确转交总负责人：Dockerfile、.dockerignore、.env.example、contracts/、scripts/node-runtime.ps1、scripts/preflight.ps1、scripts/verify.ps1、scripts/export_contracts.py。其余代码由实现 Agent 完成，双方按实际所有权分别提交。
+
 独立审查 Agent：只读，不改文件；向总负责人报告可复现发现。
 
 ## 接口与实现顺序
