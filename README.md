@@ -49,15 +49,13 @@
 ./scripts/verify.ps1
 ```
 
-脚本检查后端测试、静态检查、契约是否需要重新导出、前端类型和构建。浏览器 smoke 另外执行：
+脚本检查后端测试、静态检查、契约是否需要重新导出、前端类型和构建。浏览器 smoke 另外在项目根目录执行：
 
 ```powershell
-Set-Location frontend
-npm.cmd exec playwright install chromium
-npm.cmd run test:e2e
+./scripts/test-e2e.ps1 -InstallBrowser
 ```
 
-运行 npm 前确保当前进程使用兼容 Node。首次安装 Chromium 会下载浏览器；不安装或修改用户的桌面浏览器。具体本机已执行的结果见状态文档。
+脚本使用与开发脚本一致的兼容 Node。首次安装 Chromium 会下载测试浏览器；不安装或修改用户的桌面浏览器。已安装后可省略 `-InstallBrowser`。具体本机已执行的结果见状态文档。
 
 ## API 与共享契约
 
