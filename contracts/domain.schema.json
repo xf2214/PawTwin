@@ -1,0 +1,220 @@
+{
+  "$defs": {
+    "Action": {
+      "additionalProperties": false,
+      "properties": {
+        "grams": {
+          "default": 0,
+          "maximum": 15,
+          "minimum": 0,
+          "title": "Grams",
+          "type": "integer"
+        },
+        "kind": {
+          "enum": [
+            "dispense_food",
+            "create_play_task",
+            "observe"
+          ],
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "title": "Action",
+      "type": "object"
+    },
+    "ApprovalIn": {
+      "additionalProperties": false,
+      "properties": {
+        "action_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Action Digest",
+          "type": "string"
+        },
+        "decision": {
+          "enum": [
+            "approve",
+            "decline"
+          ],
+          "title": "Decision",
+          "type": "string"
+        },
+        "proposal_version": {
+          "exclusiveMinimum": 0,
+          "title": "Proposal Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "decision",
+        "proposal_version",
+        "action_digest"
+      ],
+      "title": "ApprovalIn",
+      "type": "object"
+    },
+    "EventIn": {
+      "additionalProperties": false,
+      "properties": {
+        "event_id": {
+          "format": "uuid",
+          "title": "Event Id",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "food_request",
+            "attention_request"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "note": {
+          "default": "",
+          "maxLength": 500,
+          "title": "Note",
+          "type": "string"
+        },
+        "pet_id": {
+          "const": "mochi",
+          "default": "mochi",
+          "title": "Pet Id",
+          "type": "string"
+        },
+        "room": {
+          "enum": [
+            "kitchen",
+            "living_room",
+            "unknown"
+          ],
+          "title": "Room",
+          "type": "string"
+        },
+        "source": {
+          "const": "simulator",
+          "default": "simulator",
+          "title": "Source",
+          "type": "string"
+        }
+      },
+      "required": [
+        "event_id",
+        "kind",
+        "room"
+      ],
+      "title": "EventIn",
+      "type": "object"
+    },
+    "FeedbackIn": {
+      "additionalProperties": false,
+      "properties": {
+        "scope": {
+          "enum": [
+            "observation",
+            "today_only"
+          ],
+          "title": "Scope",
+          "type": "string"
+        },
+        "text": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text",
+        "scope"
+      ],
+      "title": "FeedbackIn",
+      "type": "object"
+    },
+    "Proposal": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/Action"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "explanation": {
+          "maxLength": 1200,
+          "title": "Explanation",
+          "type": "string"
+        },
+        "missing_fields": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Missing Fields",
+          "type": "array"
+        }
+      },
+      "required": [
+        "action",
+        "explanation"
+      ],
+      "title": "Proposal",
+      "type": "object"
+    },
+    "Receipt": {
+      "additionalProperties": false,
+      "properties": {
+        "command_id": {
+          "format": "uuid",
+          "title": "Command Id",
+          "type": "string"
+        },
+        "simulated": {
+          "const": true,
+          "default": true,
+          "title": "Simulated",
+          "type": "boolean"
+        },
+        "status": {
+          "enum": [
+            "succeeded",
+            "failed",
+            "unknown"
+          ],
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "command_id",
+        "status"
+      ],
+      "title": "Receipt",
+      "type": "object"
+    },
+    "RunState": {
+      "enum": [
+        "queued",
+        "analyzing",
+        "needs_info",
+        "blocked",
+        "awaiting_approval",
+        "declined",
+        "expired",
+        "executing",
+        "succeeded",
+        "failed",
+        "unknown"
+      ],
+      "title": "RunState",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PawTwin Domain Models"
+}
