@@ -11,7 +11,8 @@ DOMAIN_MODELS = (EventIn, Action, Proposal, ApprovalIn, FeedbackIn, Receipt)
 
 
 def build_openapi_schema() -> dict[str, Any]:
-    return create_app(Settings()).openapi()
+    offline_settings = Settings(mode="local", _env_file=None)
+    return create_app(offline_settings).openapi()
 
 
 def build_domain_schema() -> dict[str, Any]:

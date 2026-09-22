@@ -1,3 +1,6 @@
+from pathlib import Path
+
+import pytest
 from pawtwin.contracts import build_domain_schema, build_openapi_schema
 
 
@@ -6,6 +9,19 @@ def test_openapi_contains_only_active_scaffold_routes() -> None:
 
     assert set(schema["paths"]) == {"/healthz", "/readyz", "/api/bootstrap"}
     assert not any("run" in path or "approval" in path for path in schema["paths"])
+
+
+def test_openapi_export_is_offline_local_even_when_runtime_requests_aws(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("PAWTWIN_MODE", "aws")
+    (tmp_path / ".env").write_text("PAWTWIN_MODE=aws\n", encoding="utf-8")
+
+    schema = build_openapi_schema()
+
+    assert set(schema["paths"]) == {"/healthz", "/readyz", "/api/bootstrap"}
 
 
 def test_domain_schema_exports_each_shared_model_with_forbidden_extras() -> None:
