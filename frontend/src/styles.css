@@ -244,3 +244,220 @@ footer {
     margin-top: 22px;
   }
 }
+
+/* --- Day-1 business UI -------------------------------------------------- */
+
+button {
+  padding: 11px 16px;
+  border: 1px solid rgba(24, 54, 45, 0.22);
+  border-radius: 9px;
+  background: #fffdf8;
+  color: #1d3a30;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+button.primary {
+  background: #2f6b57;
+  border-color: #2f6b57;
+  color: #fff;
+}
+
+button.danger {
+  background: #b4553f;
+  border-color: #b4553f;
+  color: #fff;
+}
+
+button.ghost {
+  background: transparent;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.panel {
+  padding: 22px;
+  border: 1px solid rgba(24, 54, 45, 0.16);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.panel h2 {
+  margin: 4px 0 16px;
+  font-size: 1.6rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.actions button {
+  flex: 1 1 140px;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 0;
+}
+
+.facts div {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(24, 54, 45, 0.05);
+}
+
+.facts dt {
+  color: #6b7d76;
+  font-size: 0.76rem;
+}
+
+.facts dd {
+  margin: 4px 0 0;
+  font-weight: 700;
+}
+
+.state {
+  display: inline-block;
+  margin: 0 0 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #193b31;
+  color: #f6f1e7;
+  font-weight: 700;
+}
+
+.proposal .action {
+  margin: 0 0 6px;
+  font-size: 1.2rem;
+  font-weight: 750;
+}
+
+.proposal .explanation {
+  margin: 0 0 8px;
+  color: #46584f;
+  line-height: 1.6;
+}
+
+.proposal .evidence {
+  margin: 0;
+  color: #7b8b84;
+  font-size: 0.82rem;
+}
+
+.receipt {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(47, 107, 87, 0.12);
+  font-weight: 650;
+}
+
+.runs {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.runlink {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+}
+
+.runlink small {
+  color: #7b8b84;
+}
+
+.placeholder {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px dashed rgba(24, 54, 45, 0.25);
+  color: #6b7d76;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.demo {
+  margin-top: 22px;
+}
+
+.demo-body {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 18px;
+  border: 1px solid rgba(24, 54, 45, 0.16);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.demo-body input,
+.demo-body select,
+.login input {
+  padding: 10px 12px;
+  border: 1px solid rgba(24, 54, 45, 0.25);
+  border-radius: 9px;
+  background: #fff;
+}
+
+.login {
+  max-width: 420px;
+  margin-top: 28px;
+}
+
+.login form {
+  display: grid;
+  gap: 12px;
+}
+
+.error {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(180, 85, 63, 0.14);
+  color: #8f3d2a;
+  font-weight: 650;
+}
+
+.warn {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(210, 138, 53, 0.16);
+  color: #7d5410;
+}
+
+.hint,
+.muted {
+  color: #7b8b84;
+  font-size: 0.85rem;
+}
+
+.connection button.ghost {
+  margin-left: auto;
+}
+
+@media (max-width: 900px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+}
