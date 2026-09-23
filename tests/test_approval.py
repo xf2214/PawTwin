@@ -197,3 +197,41 @@ def test_attention_event_proposes_non_feeding_and_awaits_approval(workflow: Work
     assert record.proposal is not None
     assert record.proposal.action.kind == "create_play_task"
     assert record.proposal.action.grams == 0
+
+
+def test_blocked_run_cannot_be_force_approved(
+    workflow: Workflow, repo: SqliteRepository, food_event: EventIn
+) -> None:
+    # A recent feed makes the proposal policy-BLOCKED at intake.
+    repo.update_facts(DEMO_OWNER_ID, last_fed_minutes_ago=15)
+    record = workflow.handle_event(DEMO_OWNER_ID, food_event)
+    assert record.state == RunState.BLOCKED
+
+    # Even a well-formed approval echoing the blocked proposal cannot execute it:
+    # hard limits are never overridable by approval (A08/A11).
+    with pytest.raises(ApprovalRejected) as exc:
+        workflow.handle_approval(DEMO_OWNER_ID, record.run_id, _approval(record, "approve"))
+
+    assert exc.value.reason == "NOT_AWAITING_APPROVAL"
+    still = repo.get_run(record.run_id)
+    assert still is not None
+    assert still.state == RunState.BLOCKED
+    assert repo.count_receipts(record.run_id) == 0
+    assert repo.get_facts(DEMO_OWNER_ID).daily_dispensed_grams == 0
+
+
+def test_declined_run_cannot_be_reapproved(
+    workflow: Workflow, repo: SqliteRepository, food_event: EventIn
+) -> None:
+    record = workflow.handle_event(DEMO_OWNER_ID, food_event)
+    workflow.handle_approval(DEMO_OWNER_ID, record.run_id, _approval(record, "decline"))
+
+    # A retry with the same binding must not flip a decline into an execution (A02).
+    with pytest.raises(ApprovalRejected) as exc:
+        workflow.handle_approval(DEMO_OWNER_ID, record.run_id, _approval(record, "approve"))
+
+    assert exc.value.reason == "NOT_AWAITING_APPROVAL"
+    still = repo.get_run(record.run_id)
+    assert still is not None
+    assert still.state == RunState.DECLINED
+    assert repo.count_receipts(record.run_id) == 0

@@ -38,7 +38,7 @@
 
 - **门 0 契约冻结**：`models.py` 公开响应 DTO + 共享 `compute_action_digest`/`make_command_id`；`main.py` 业务 router 先于 `StaticFiles('/')` 注册；`contracts/openapi.json` 重生成含业务路由，`--check` 通过；基线测试同步（`test_contracts.py` 两处路径相等断言扩为业务集合并删旧否定断言；`test_app.py` 保 `/api/bootstrap` 语义、`readyz` 仍 degraded、新增 `/api/runs` 404 JSON 回归）。
 - **裁定落地**：`command_id=uuid5(run_id:proposal_version)`；`action_digest=sha256(canonical_json(Action))` 匹配 `^[0-9a-f]{64}$`；CSRF 同步令牌 + `SameSite=Lax`，本地 HTTP 仅省 `Secure`。**新增裁定**：`RunView` 暴露 `proposal_version/action_digest`（审批防篡改须由客户端回显，否则冻结的 `ApprovalIn` 无法构造）；`owner_id/attempt_count/lease_*` 仍不入响应。
-- **本地检查**：`pytest` 69 通过、`ruff` 无告警、契约 current、`typecheck`/`build` 通过、浏览器 e2e 3 通过（拒绝闭环 reload 仍「已拒绝」、零执行）、`verify.ps1` 全绿。
+- **本地检查**：`pytest` 71 通过（二次检查补强 2 条审批安全测试）、`ruff` 无告警、契约 current、`typecheck`/`build` 通过、浏览器 e2e 3 通过（拒绝闭环 reload 仍「已拒绝」、零执行）、`verify.ps1` 全绿。
 - **环境修复**：重建工作区 `.venv`（复制来的 `pytest.exe` 启动器指向旧源码树，致 pytest 导入旧 `pawtwin`）。
 - **边界**：真实 Bedrock/AgentCore/DynamoDB 真表/跨进程双批准/真实重启/部署**未验证**，不以 SQLite 或本地替身冒充云端完成。
 - **提交**：已按逻辑分组提交到 `chore/bootstrap`（用户授权，未推送远程）；**冻结提交 ID = `94216df`**；后续 `f2927cb`(后端测试)/`e20336d`(AI)/`f45edb8`(前端)/本提交(OPS+文档)。

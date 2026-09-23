@@ -2,7 +2,7 @@
 
 宠物照护 Agent 项目，面向 AWS 黑客松原型开发。产品范围为一只宠物、一个家庭、一个网页和一个照护 Agent。
 
-**项目骨架已初始化并通过本地检查**：提供运行环境、共享数据模型、前后端连接检查和多 Agent 协作入口。完整照护流程、登录、数据库、Bedrock、AgentCore Memory 和 AWS 部署仍待后续开发，不能将此版本作为完整参赛原型。
+**Day-1 本地核心已实现并通过检查**：在骨架（运行环境、共享契约、多 Agent 协作入口）之上，已落地演示登录/会话/CSRF、事件摄入与去重、SQLite 持久化、硬性策略、审批状态机、模拟执行与回执，以及拒绝闭环（浏览器 e2e + 集成测试双证据）。**真实 Bedrock 推理、AgentCore 记忆、DynamoDB 真表与 AWS 部署仍待后续开发**；本地通过与云端未验证分列，不能将此版本作为完整参赛原型。详见 [当前状态与验证](docs/STATUS.md)。
 
 ## 快速入口
 
@@ -39,7 +39,7 @@
 ./scripts/dev-frontend.ps1
 ```
 
-开发页面默认 `http://127.0.0.1:5173`，后端默认 `http://127.0.0.1:8000`。端口被占用时应更改配置或停止自己启动的进程，不终止其他任务的服务。页面由实际 `/api/bootstrap` 响应显示连接状态，不生成虚假业务结果。
+开发页面默认 `http://127.0.0.1:5173`（Vite 代理 `/api` 到 `:8000`），后端默认 `http://127.0.0.1:8000`（同源服务已构建的 `frontend/dist` 与 API）。端口被占用时应更改配置或停止自己启动的进程，不终止其他任务的服务。页面从真实 `/api/state` 显示模式与业务状态（`/api/bootstrap` 仅为非敏感骨架状态，不作业务源），不生成虚假业务结果。登录口令取自 `PAWTWIN_DEMO_PASSPHRASE`（本地默认值为非秘密演示门禁；评委口令经私有测试说明交付，不写入公开源码）。
 
 配置字段参见 `.env.example`。启动参数与环境变量以 `backend/pawtwin/config.py` 为准；不要假设配置示例已设置到环境中，更不要把凭据写进前端。
 
@@ -57,17 +57,18 @@
 
 脚本使用与开发脚本一致的兼容 Node。首次安装 Chromium 会下载测试浏览器；不安装或修改用户的桌面浏览器。已安装后可省略 `-InstallBrowser`。具体本机已执行的结果见状态文档。
 
-测试默认使用前端端口 4173、后端端口 8000。前端测试端口被占用时可设置 `$env:PAWTWIN_E2E_PORT = '4174'`；受限网络下已有可用 Chromium 时可将 `PAWTWIN_BROWSER_EXECUTABLE` 设置为其可执行文件绝对路径。默认仍使用 Playwright 管理的浏览器。测试不会复用或终止其他任务的服务；后端 8000 须空闲。
+浏览器 e2e 直指后端同源 `http://127.0.0.1:8000`（`main.py` 服务已构建的 `frontend/dist` 与 API，无需 Vite preview/proxy）；运行前先 `npm run build`（`scripts/test-e2e.ps1` 会自动构建）。受限网络下已有可用 Chromium 时可将 `PAWTWIN_BROWSER_EXECUTABLE` 设置为其可执行文件绝对路径；默认仍使用 Playwright 管理的浏览器。测试不会复用或终止其他任务的服务；后端 8000 须空闲。
 
 ## API 与共享契约
 
 - `/healthz`：进程存活，不调用 AWS。
-- `/readyz`：初始化阶段返回 degraded/503，表示业务尚未就绪。
-- `/api/bootstrap`：不含秘密的开发状态，仅用于前后端连接验证。
-- `contracts/openapi.json`：当前真实路由。
-- `contracts/` 下领域模型 schema：后续 Agent 共享的数据边界。
+- `/readyz`：Day-1 仍返回 degraded/503——正常闭环证据与云端依赖尚未齐备（保守报告，不夸大就绪）。
+- `/api/bootstrap`：不含秘密的骨架状态（`stage`/`capabilities`），仅供连接验证，非业务源。
+- 业务路由（需登录；写操作需 CSRF）：`POST /api/login`、`POST /api/logout`、`GET /api/state`、`POST /api/events`、`GET /api/runs/{run_id}`、`POST /api/runs/{run_id}/approval`。未授权返回 401，CSRF 失败返回 403。
+- `contracts/openapi.json`：当前真实路由（含上述业务路由）。
+- `contracts/domain.schema.json`：仅 6 个输入模型 + `RunState`；公开响应 DTO 只出现在 OpenAPI，不进领域 schema。
 
-完整业务接口仍属于计划；不会用返回成功的空接口冒充实现。Python 模型是契约来源，生成文件不要手动修改。修改模型后运行导出工具并纳入同一个审查提交。
+`demo/facts`、`demo/device-mode`、`feedback`/记忆端点仍属计划（Day-2/Day-3），不会用返回成功的空接口冒充实现。Python 模型是契约来源，生成文件不要手动修改。修改模型后运行导出工具并纳入同一个审查提交。
 
 ```powershell
 uv run --frozen python scripts/export_contracts.py

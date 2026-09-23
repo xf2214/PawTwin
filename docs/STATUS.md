@@ -28,7 +28,7 @@ Day-1 主线已完成并通过本地全部检查：**门 0 契约冻结 → BE-0
 
 | 检查 | 命令 | 结果 |
 |---|---|---|
-| 后端测试 | `uv run --frozen pytest` | **69 项通过**（基线 26 + Day-1 新增 43），1 项第三方弃用警告（不影响通过） |
+| 后端测试 | `uv run --frozen pytest` | **71 项通过**（基线 26 + Day-1 新增 45），1 项第三方弃用警告（不影响通过） |
 | 静态检查 | `uv run --frozen ruff check .` | 无告警 |
 | 契约一致性 | `python scripts/export_contracts.py --check` | Contracts are current |
 | 前端类型/构建 | `npm run typecheck` / `npm run build` | 通过（Node 24.19.0；系统 Node 22.11.0 低于 Vite 要求，用项目脚本选择的运行时） |
@@ -36,6 +36,18 @@ Day-1 主线已完成并通过本地全部检查：**门 0 契约冻结 → BE-0
 | 集成 baseline | `scripts/verify.ps1` | 全绿 |
 
 浏览器 e2e 通过 `PAWTWIN_BROWSER_EXECUTABLE` 使用本机已缓存的 Chromium 1194；Playwright 1.63 默认浏览器版本未下载。e2e 直指后端同源 `:8000`（`main.py` 服务 `frontend/dist`），非 vite preview、非 mock。
+
+## 二次检查（Day-1，2026-09-24）
+
+在已提交的 HEAD（`5d2b750`）上以新鲜视角复核，非仅重跑测试：
+
+- **重跑全绿**：`verify.ps1` 通过（pytest/ruff/契约 `--check`/typecheck/build）；浏览器 e2e 3 通过；工作树干净。
+- **契约核验**：`domain.schema.json` 恰为 6 输入模型 + `RunState`，无响应 DTO 泄漏；`EventIn.event_id` 为普通 UUID（`format: uuid`），`command_id` 才是 `uuid5(run_id:proposal_version)`；`ApprovalIn.action_digest` 正则 `^[0-9a-f]{64}$` 已在 schema 确认；`openapi.json` 含 9 条路径。
+- **安全**：全仓 grep 无 AWS 密钥/私钥/api_key，无秘密入库。
+- **逻辑复核**：审批路径五道闸（owner→404、惰性过期→EXPIRED、须 AWAITING_APPROVAL、digest+version 绑定、facts_version 变更重分析、执行前策略复评）逐行确认；`claim_run` 参数化无注入；`record_receipt_once` 事务内 `INSERT OR IGNORE`+rowcount 守卫，仅成功记账一次。
+- **补强（本次新增）**：`test_approval.py` 增 2 条——policy-BLOCKED 运行不可被强行批准、已拒绝运行不可被重新批准为执行（A02/A08/A11）；后端测试 69→**71**。
+- **文档修正**：README 原称“登录/数据库仍待开发”“页面读 /api/bootstrap”已过时，改为反映 Day-1 本地实现与 `/api/state` 业务源；e2e 段删除已废弃的 `PAWTWIN_E2E_PORT`/preview 说法改为同源 `:8000`；`.env.example` 补 `PAWTWIN_DB_PATH`/`PAWTWIN_DEMO_PASSPHRASE` 占位（标注非秘密）。
+- **如实保留的已知边界（非缺陷，顺延）**：`/api/bootstrap` 的 `capabilities:"planned"` 按计划冻结未改（前端不以其为业务源，属保守低报，Day-2 连同 `test_app` 一并上调）；审批过期为惰性转换，前端未做倒计时（服务端已保证过期不可批准）；摄入热路径未接租约（Day-2 worker）；会话仅进程内存（Day-3）；OpenAPI 未声明 401/403/404/409（Day-2 补 responses）。
 
 ## 本地通过 vs 云端未验证（分列）
 

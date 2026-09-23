@@ -50,7 +50,7 @@
 
 | 命令 | 结果 |
 |---|---|
-| `uv run --frozen pytest` | **69 passed**（基线 26 + 新增 43），1 项第三方弃用警告 |
+| `uv run --frozen pytest` | **71 passed**（基线 26 + 新增 45；含二次检查补强 2 条），1 项第三方弃用警告 |
 | `uv run --frozen ruff check .` | All checks passed |
 | `python scripts/export_contracts.py --check` | Contracts are current |
 | `npm run typecheck` / `npm run build` | 通过（Node 24.19.0） |
@@ -81,3 +81,11 @@
 1. **推送/发布**：分逻辑提交已完成（见上），未推送远程；推送或公开发布需另行明确授权。
 2. **Day-2**：接入真实 Bedrock（换 `workflow` 的 inline proposer 为 `agent.analyze_event`）、`demo/facts`+`demo/device-mode` 现场注入、45s 超时终止、证据可追溯。
 3. **账号就绪**：按 `infra/cloud-access-checklist.md` 做最小云端验证（Bedrock 往返、DynamoDB 条件写、memory ACTIVE），本地/云端结果分列。
+
+## 二次检查补强（2026-09-24）
+
+在已提交 HEAD 上复核（详 `docs/STATUS.md` “二次检查”节）：重跑全绿、契约/无秘密/审批五道闸逐行确认。修正项：
+
+- 新增 2 条审批安全测试（BLOCKED 不可强批、DECLINED 不可重批为执行），后端测试 69→**71**。
+- README 修正陈旧描述（登录/数据库已本地实现、页面业务源为 `/api/state`、e2e 同源 `:8000`）；`.env.example` 补 `PAWTWIN_DB_PATH`/`PAWTWIN_DEMO_PASSPHRASE` 占位。
+- 保留已知边界（`/api/bootstrap` 冻结语义、惰性过期、摄入未接租约、内存会话、OpenAPI 错误响应）均顺延 Day-2/3，未夸大完成。
