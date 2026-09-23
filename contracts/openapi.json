@@ -1,4 +1,457 @@
 {
+  "components": {
+    "schemas": {
+      "Action": {
+        "additionalProperties": false,
+        "properties": {
+          "grams": {
+            "default": 0,
+            "maximum": 15.0,
+            "minimum": 0.0,
+            "title": "Grams",
+            "type": "integer"
+          },
+          "kind": {
+            "enum": [
+              "dispense_food",
+              "create_play_task",
+              "observe"
+            ],
+            "title": "Kind",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind"
+        ],
+        "title": "Action",
+        "type": "object"
+      },
+      "ApprovalIn": {
+        "additionalProperties": false,
+        "properties": {
+          "action_digest": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Action Digest",
+            "type": "string"
+          },
+          "decision": {
+            "enum": [
+              "approve",
+              "decline"
+            ],
+            "title": "Decision",
+            "type": "string"
+          },
+          "proposal_version": {
+            "exclusiveMinimum": 0.0,
+            "title": "Proposal Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "decision",
+          "proposal_version",
+          "action_digest"
+        ],
+        "title": "ApprovalIn",
+        "type": "object"
+      },
+      "EventAccepted": {
+        "additionalProperties": false,
+        "properties": {
+          "run_id": {
+            "format": "uuid",
+            "title": "Run Id",
+            "type": "string"
+          },
+          "state": {
+            "$ref": "#/components/schemas/RunState"
+          }
+        },
+        "required": [
+          "run_id",
+          "state"
+        ],
+        "title": "EventAccepted",
+        "type": "object"
+      },
+      "EventIn": {
+        "additionalProperties": false,
+        "properties": {
+          "event_id": {
+            "format": "uuid",
+            "title": "Event Id",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "food_request",
+              "attention_request"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "note": {
+            "default": "",
+            "maxLength": 500,
+            "title": "Note",
+            "type": "string"
+          },
+          "pet_id": {
+            "const": "mochi",
+            "default": "mochi",
+            "title": "Pet Id",
+            "type": "string"
+          },
+          "room": {
+            "enum": [
+              "kitchen",
+              "living_room",
+              "unknown"
+            ],
+            "title": "Room",
+            "type": "string"
+          },
+          "source": {
+            "const": "simulator",
+            "default": "simulator",
+            "title": "Source",
+            "type": "string"
+          }
+        },
+        "required": [
+          "event_id",
+          "kind",
+          "room"
+        ],
+        "title": "EventIn",
+        "type": "object"
+      },
+      "FactsView": {
+        "additionalProperties": false,
+        "properties": {
+          "daily_dispensed_grams": {
+            "title": "Daily Dispensed Grams",
+            "type": "integer"
+          },
+          "daily_limit_grams": {
+            "title": "Daily Limit Grams",
+            "type": "integer"
+          },
+          "facts_version": {
+            "title": "Facts Version",
+            "type": "integer"
+          },
+          "last_fed_minutes_ago": {
+            "title": "Last Fed Minutes Ago",
+            "type": "integer"
+          },
+          "minimum_interval_minutes": {
+            "title": "Minimum Interval Minutes",
+            "type": "integer"
+          },
+          "single_serving_grams": {
+            "title": "Single Serving Grams",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "last_fed_minutes_ago",
+          "daily_dispensed_grams",
+          "daily_limit_grams",
+          "single_serving_grams",
+          "minimum_interval_minutes",
+          "facts_version"
+        ],
+        "title": "FactsView",
+        "type": "object"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "title": "Detail",
+            "type": "array"
+          }
+        },
+        "title": "HTTPValidationError",
+        "type": "object"
+      },
+      "LoginRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "passphrase": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Passphrase",
+            "type": "string"
+          }
+        },
+        "required": [
+          "passphrase"
+        ],
+        "title": "LoginRequest",
+        "type": "object"
+      },
+      "LoginResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "csrf_token": {
+            "title": "Csrf Token",
+            "type": "string"
+          }
+        },
+        "required": [
+          "csrf_token"
+        ],
+        "title": "LoginResponse",
+        "type": "object"
+      },
+      "Proposal": {
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/Action"
+          },
+          "evidence_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Evidence Ids",
+            "type": "array"
+          },
+          "explanation": {
+            "maxLength": 1200,
+            "title": "Explanation",
+            "type": "string"
+          },
+          "missing_fields": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Missing Fields",
+            "type": "array"
+          }
+        },
+        "required": [
+          "action",
+          "explanation"
+        ],
+        "title": "Proposal",
+        "type": "object"
+      },
+      "Receipt": {
+        "additionalProperties": false,
+        "properties": {
+          "command_id": {
+            "format": "uuid",
+            "title": "Command Id",
+            "type": "string"
+          },
+          "simulated": {
+            "const": true,
+            "default": true,
+            "title": "Simulated",
+            "type": "boolean"
+          },
+          "status": {
+            "enum": [
+              "succeeded",
+              "failed",
+              "unknown"
+            ],
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "command_id",
+          "status"
+        ],
+        "title": "Receipt",
+        "type": "object"
+      },
+      "RunState": {
+        "enum": [
+          "queued",
+          "analyzing",
+          "needs_info",
+          "blocked",
+          "awaiting_approval",
+          "declined",
+          "expired",
+          "executing",
+          "succeeded",
+          "failed",
+          "unknown"
+        ],
+        "title": "RunState",
+        "type": "string"
+      },
+      "RunView": {
+        "additionalProperties": false,
+        "properties": {
+          "action_digest": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Action Digest"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "expires_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expires At"
+          },
+          "facts_version": {
+            "title": "Facts Version",
+            "type": "integer"
+          },
+          "proposal": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Proposal"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "proposal_version": {
+            "default": 0,
+            "title": "Proposal Version",
+            "type": "integer"
+          },
+          "receipt": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Receipt"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "run_id": {
+            "format": "uuid",
+            "title": "Run Id",
+            "type": "string"
+          },
+          "state": {
+            "$ref": "#/components/schemas/RunState"
+          }
+        },
+        "required": [
+          "run_id",
+          "state",
+          "facts_version",
+          "created_at"
+        ],
+        "title": "RunView",
+        "type": "object"
+      },
+      "StateView": {
+        "additionalProperties": false,
+        "properties": {
+          "aws_connected": {
+            "title": "Aws Connected",
+            "type": "boolean"
+          },
+          "facts": {
+            "$ref": "#/components/schemas/FactsView"
+          },
+          "mode": {
+            "enum": [
+              "local",
+              "aws"
+            ],
+            "title": "Mode",
+            "type": "string"
+          },
+          "pet_id": {
+            "const": "mochi",
+            "default": "mochi",
+            "title": "Pet Id",
+            "type": "string"
+          },
+          "runs": {
+            "items": {
+              "$ref": "#/components/schemas/RunView"
+            },
+            "title": "Runs",
+            "type": "array"
+          }
+        },
+        "required": [
+          "mode",
+          "aws_connected",
+          "facts",
+          "runs"
+        ],
+        "title": "StateView",
+        "type": "object"
+      },
+      "ValidationError": {
+        "properties": {
+          "ctx": {
+            "title": "Context",
+            "type": "object"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "title": "Location",
+            "type": "array"
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError",
+        "type": "object"
+      }
+    }
+  },
   "info": {
     "title": "PawTwin",
     "version": "0.1.0"
@@ -23,6 +476,201 @@
           }
         },
         "summary": "Bootstrap"
+      }
+    },
+    "/api/events": {
+      "post": {
+        "operationId": "post_event_api_events_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EventIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventAccepted"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Post Event"
+      }
+    },
+    "/api/login": {
+      "post": {
+        "operationId": "login_api_login_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Login"
+      }
+    },
+    "/api/logout": {
+      "post": {
+        "operationId": "logout_api_logout_post",
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Logout"
+      }
+    },
+    "/api/runs/{run_id}": {
+      "get": {
+        "operationId": "get_run_api_runs__run_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Run Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Run"
+      }
+    },
+    "/api/runs/{run_id}/approval": {
+      "post": {
+        "operationId": "post_approval_api_runs__run_id__approval_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Run Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApprovalIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Post Approval"
+      }
+    },
+    "/api/state": {
+      "get": {
+        "operationId": "get_state_api_state_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StateView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Get State"
       }
     },
     "/healthz": {

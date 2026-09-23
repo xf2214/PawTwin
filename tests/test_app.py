@@ -57,3 +57,20 @@ def test_static_frontend_serves_root_without_turning_api_404s_into_html(tmp_path
     assert unknown_api.headers["content-type"].startswith("application/json")
     assert json.loads(unknown_api.text) == {"detail": "Not Found"}
     assert client.get("/future-page").status_code == 404
+
+
+def test_business_routes_keep_unknown_api_json_and_require_auth(tmp_path: Path) -> None:
+    (tmp_path / "index.html").write_text("<main>PawTwin</main>", encoding="utf-8")
+    client = TestClient(create_app(Settings(), frontend_dist=tmp_path))
+
+    # /api/runs/{run_id} now exists, but the bare collection path must still be a
+    # JSON 404 (router registered before the catch-all static mount).
+    bare = client.get("/api/runs")
+    assert bare.status_code == 404
+    assert bare.headers["content-type"].startswith("application/json")
+    assert json.loads(bare.text) == {"detail": "Not Found"}
+
+    # A well-formed run id is protected: unauthenticated access is 401, not 404,
+    # so existence is never leaked without a session.
+    guarded = client.get("/api/runs/00000000-0000-0000-0000-000000000000")
+    assert guarded.status_code == 401

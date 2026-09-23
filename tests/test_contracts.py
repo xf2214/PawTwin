@@ -3,12 +3,29 @@ from pathlib import Path
 import pytest
 from pawtwin.contracts import build_domain_schema, build_openapi_schema
 
+# Frozen Day-1 contract: the scaffold health routes plus the business API needed
+# for the login -> event -> approval (decline) loop. Demo/feedback routes are
+# intentionally deferred (Day-2/Day-3) and are NOT part of this set yet.
+ACTIVE_PATHS = {
+    "/healthz",
+    "/readyz",
+    "/api/bootstrap",
+    "/api/login",
+    "/api/logout",
+    "/api/state",
+    "/api/events",
+    "/api/runs/{run_id}",
+    "/api/runs/{run_id}/approval",
+}
 
-def test_openapi_contains_only_active_scaffold_routes() -> None:
+
+def test_openapi_contains_the_frozen_business_routes() -> None:
     schema = build_openapi_schema()
 
-    assert set(schema["paths"]) == {"/healthz", "/readyz", "/api/bootstrap"}
-    assert not any("run" in path or "approval" in path for path in schema["paths"])
+    assert set(schema["paths"]) == ACTIVE_PATHS
+    # The decline-loop routes are now part of the frozen contract.
+    assert "/api/events" in schema["paths"]
+    assert "/api/runs/{run_id}/approval" in schema["paths"]
 
 
 def test_openapi_export_is_offline_local_even_when_runtime_requests_aws(
@@ -21,7 +38,7 @@ def test_openapi_export_is_offline_local_even_when_runtime_requests_aws(
 
     schema = build_openapi_schema()
 
-    assert set(schema["paths"]) == {"/healthz", "/readyz", "/api/bootstrap"}
+    assert set(schema["paths"]) == ACTIVE_PATHS
 
 
 def test_domain_schema_exports_each_shared_model_with_forbidden_extras() -> None:

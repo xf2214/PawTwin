@@ -25,6 +25,14 @@ class Settings(BaseSettings):
         default=None,
         validation_alias="AGENTCORE_MEMORY_ID",
     )
+    database_path: str | None = Field(default=None, validation_alias="PAWTWIN_DB_PATH")
+    # Non-secret LOCAL demo gate. The real judge passphrase is supplied via the
+    # PAWTWIN_DEMO_PASSPHRASE environment variable and private test
+    # instructions; it is never committed to source or shipped in the frontend.
+    demo_passphrase: str = Field(
+        default="local-demo-passphrase",
+        validation_alias="PAWTWIN_DEMO_PASSPHRASE",
+    )
 
     @model_validator(mode="after")
     def require_aws_configuration(self) -> "Settings":
