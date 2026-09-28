@@ -27,6 +27,89 @@
         "title": "Action",
         "type": "object"
       },
+      "AnalysisTelemetry": {
+        "additionalProperties": false,
+        "description": "Auditable model-call record (Day-2 acceptance: call records are checkable).\n\n``request_id`` stays ``None`` until a real Bedrock call happens, so a local\nrun can never be mistaken for a cloud one. Counts/durations/identifiers only.",
+        "properties": {
+          "backend": {
+            "enum": [
+              "inline",
+              "local_fake",
+              "bedrock"
+            ],
+            "title": "Backend",
+            "type": "string"
+          },
+          "duration_ms": {
+            "default": 0,
+            "minimum": 0.0,
+            "title": "Duration Ms",
+            "type": "integer"
+          },
+          "finished_at": {
+            "format": "date-time",
+            "title": "Finished At",
+            "type": "string"
+          },
+          "limit_exceeded": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Limit Exceeded"
+          },
+          "model_calls": {
+            "default": 0,
+            "minimum": 0.0,
+            "title": "Model Calls",
+            "type": "integer"
+          },
+          "model_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Id"
+          },
+          "output_tokens": {
+            "default": 0,
+            "minimum": 0.0,
+            "title": "Output Tokens",
+            "type": "integer"
+          },
+          "request_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Request Id"
+          },
+          "started_at": {
+            "format": "date-time",
+            "title": "Started At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "backend",
+          "started_at",
+          "finished_at"
+        ],
+        "title": "AnalysisTelemetry",
+        "type": "object"
+      },
       "ApprovalIn": {
         "additionalProperties": false,
         "properties": {
@@ -55,6 +138,121 @@
           "action_digest"
         ],
         "title": "ApprovalIn",
+        "type": "object"
+      },
+      "DemoAck": {
+        "additionalProperties": false,
+        "description": "Echoes what changed so the UI never has to guess the new facts_version.",
+        "properties": {
+          "device_mode": {
+            "anyOf": [
+              {
+                "enum": [
+                  "succeeded",
+                  "failed",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Device Mode"
+          },
+          "facts": {
+            "$ref": "#/components/schemas/FactsView"
+          }
+        },
+        "required": [
+          "facts"
+        ],
+        "title": "DemoAck",
+        "type": "object"
+      },
+      "DemoDeviceModeIn": {
+        "additionalProperties": false,
+        "description": "Injects the SIMULATED actuator outcome for NEW commands only.",
+        "properties": {
+          "mode": {
+            "enum": [
+              "succeeded",
+              "failed",
+              "unknown"
+            ],
+            "title": "Mode",
+            "type": "string"
+          }
+        },
+        "required": [
+          "mode"
+        ],
+        "title": "DemoDeviceModeIn",
+        "type": "object"
+      },
+      "DemoFactsIn": {
+        "additionalProperties": false,
+        "description": "Demo-only fact injection (Day-2 ruling 13).\n\n``extra='forbid'`` IS the hard-quota guard: the limits themselves\n(``daily_limit_grams`` / ``single_serving_grams`` / ``minimum_interval_minutes``)\ncan never be edited through this endpoint, so a demo request cannot raise the\ndaily budget. ``clear`` distinguishes \"leave unchanged\" from \"set to unknown\";\nnaming a field in both places is a conflict and is rejected.",
+        "properties": {
+          "clear": {
+            "items": {
+              "enum": [
+                "last_fed_minutes_ago",
+                "daily_dispensed_grams"
+              ],
+              "type": "string"
+            },
+            "title": "Clear",
+            "type": "array"
+          },
+          "daily_dispensed_grams": {
+            "anyOf": [
+              {
+                "maximum": 10000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Daily Dispensed Grams"
+          },
+          "last_fed_minutes_ago": {
+            "anyOf": [
+              {
+                "maximum": 1440.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Fed Minutes Ago"
+          },
+          "reset": {
+            "default": false,
+            "title": "Reset",
+            "type": "boolean"
+          }
+        },
+        "title": "DemoFactsIn",
+        "type": "object"
+      },
+      "ErrorResponse": {
+        "additionalProperties": false,
+        "description": "Shared error body, declared in OpenAPI ``responses`` (401/403/404/409).",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "string"
+          }
+        },
+        "required": [
+          "detail"
+        ],
+        "title": "ErrorResponse",
         "type": "object"
       },
       "EventAccepted": {
@@ -128,12 +326,67 @@
         "title": "EventIn",
         "type": "object"
       },
+      "EvidenceItem": {
+        "additionalProperties": false,
+        "description": "One read-only tool call that really happened.\n\nTool name, source, timestamp and a bounded summary only: never hidden\nreasoning, never the raw event note, never the full model request.",
+        "properties": {
+          "evidence_id": {
+            "title": "Evidence Id",
+            "type": "string"
+          },
+          "retrieved_at": {
+            "format": "date-time",
+            "title": "Retrieved At",
+            "type": "string"
+          },
+          "source": {
+            "enum": [
+              "repository",
+              "policy",
+              "memory"
+            ],
+            "title": "Source",
+            "type": "string"
+          },
+          "summary": {
+            "default": "",
+            "maxLength": 300,
+            "title": "Summary",
+            "type": "string"
+          },
+          "tool": {
+            "enum": [
+              "get_pet_facts",
+              "get_recent_events",
+              "search_owner_memory",
+              "get_policy_summary"
+            ],
+            "title": "Tool",
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence_id",
+          "tool",
+          "source",
+          "retrieved_at"
+        ],
+        "title": "EvidenceItem",
+        "type": "object"
+      },
       "FactsView": {
         "additionalProperties": false,
         "properties": {
           "daily_dispensed_grams": {
-            "title": "Daily Dispensed Grams",
-            "type": "integer"
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Daily Dispensed Grams"
           },
           "daily_limit_grams": {
             "title": "Daily Limit Grams",
@@ -144,8 +397,15 @@
             "type": "integer"
           },
           "last_fed_minutes_ago": {
-            "title": "Last Fed Minutes Ago",
-            "type": "integer"
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Fed Minutes Ago"
           },
           "minimum_interval_minutes": {
             "title": "Minimum Interval Minutes",
@@ -165,6 +425,98 @@
           "facts_version"
         ],
         "title": "FactsView",
+        "type": "object"
+      },
+      "FeedbackIn": {
+        "additionalProperties": false,
+        "properties": {
+          "scope": {
+            "enum": [
+              "observation",
+              "today_only"
+            ],
+            "title": "Scope",
+            "type": "string"
+          },
+          "text": {
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "text",
+          "scope"
+        ],
+        "title": "FeedbackIn",
+        "type": "object"
+      },
+      "FeedbackView": {
+        "additionalProperties": false,
+        "description": "Owner feedback plus its HONEST long-term-memory lifecycle.\n\n``memory_status='saved'`` means the raw text is stored in the business\ndatabase; it never implies extraction. ``memory_backend`` is carried alongside\nso a judge can never read ``saved`` as \"AgentCore memory available\"\n(AGENTS.md L18). ``available`` only ever appears with real retrieval evidence.",
+        "properties": {
+          "conversation_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Conversation Id"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "feedback_id": {
+            "format": "uuid",
+            "title": "Feedback Id",
+            "type": "string"
+          },
+          "memory_backend": {
+            "enum": [
+              "not_implemented",
+              "agentcore"
+            ],
+            "title": "Memory Backend",
+            "type": "string"
+          },
+          "memory_status": {
+            "enum": [
+              "saved",
+              "processing",
+              "available",
+              "failed"
+            ],
+            "title": "Memory Status",
+            "type": "string"
+          },
+          "scope": {
+            "enum": [
+              "observation",
+              "today_only"
+            ],
+            "title": "Scope",
+            "type": "string"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "feedback_id",
+          "scope",
+          "text",
+          "memory_status",
+          "memory_backend",
+          "created_at"
+        ],
+        "title": "FeedbackView",
         "type": "object"
       },
       "HTTPValidationError": {
@@ -208,6 +560,21 @@
           "csrf_token"
         ],
         "title": "LoginResponse",
+        "type": "object"
+      },
+      "NewSessionView": {
+        "additionalProperties": false,
+        "description": "Result of ``POST /api/demo/new-session``: a fresh conversation id.\n\nPet memory, facts and the login session are preserved; only the conversation\n(the AgentCore session id) rotates, which is what makes cross-session\nretrieval demonstrable. The conversation id is never a pet identity.",
+        "properties": {
+          "conversation_id": {
+            "title": "Conversation Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "conversation_id"
+        ],
+        "title": "NewSessionView",
         "type": "object"
       },
       "Proposal": {
@@ -310,6 +677,13 @@
             "title": "Created At",
             "type": "string"
           },
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/EvidenceItem"
+            },
+            "title": "Evidence",
+            "type": "array"
+          },
           "expires_at": {
             "anyOf": [
               {
@@ -325,6 +699,28 @@
           "facts_version": {
             "title": "Facts Version",
             "type": "integer"
+          },
+          "failure_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Failure Reason"
+          },
+          "policy_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Policy Reason"
           },
           "proposal": {
             "anyOf": [
@@ -358,6 +754,16 @@
           },
           "state": {
             "$ref": "#/components/schemas/RunState"
+          },
+          "telemetry": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AnalysisTelemetry"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "required": [
@@ -372,12 +778,58 @@
       "StateView": {
         "additionalProperties": false,
         "properties": {
+          "analyzer": {
+            "enum": [
+              "inline",
+              "local_fake",
+              "bedrock"
+            ],
+            "title": "Analyzer",
+            "type": "string"
+          },
           "aws_connected": {
             "title": "Aws Connected",
             "type": "boolean"
           },
+          "conversation_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Conversation Id"
+          },
+          "device_mode": {
+            "default": "succeeded",
+            "enum": [
+              "succeeded",
+              "failed",
+              "unknown"
+            ],
+            "title": "Device Mode",
+            "type": "string"
+          },
           "facts": {
             "$ref": "#/components/schemas/FactsView"
+          },
+          "feedback": {
+            "items": {
+              "$ref": "#/components/schemas/FeedbackView"
+            },
+            "title": "Feedback",
+            "type": "array"
+          },
+          "memory": {
+            "default": "not_implemented",
+            "enum": [
+              "not_implemented",
+              "agentcore"
+            ],
+            "title": "Memory",
+            "type": "string"
           },
           "mode": {
             "enum": [
@@ -399,11 +851,21 @@
             },
             "title": "Runs",
             "type": "array"
+          },
+          "storage": {
+            "default": "sqlite",
+            "enum": [
+              "sqlite",
+              "dynamodb"
+            ],
+            "title": "Storage",
+            "type": "string"
           }
         },
         "required": [
           "mode",
           "aws_connected",
+          "analyzer",
           "facts",
           "runs"
         ],
@@ -478,6 +940,163 @@
         "summary": "Bootstrap"
       }
     },
+    "/api/demo/device-mode": {
+      "post": {
+        "description": "Inject the SIMULATED actuator outcome for NEW commands only.\n\nProcess-local by design: it is not persisted, so a restart returns to the\ndocumented default instead of surprising the next demo with a stale failure.",
+        "operationId": "post_demo_device_mode_api_demo_device_mode_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DemoDeviceModeIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DemoAck"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "No valid demo session."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Missing or invalid X-CSRF-Token."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Request body failed validation."
+          }
+        },
+        "summary": "Post Demo Device Mode"
+      }
+    },
+    "/api/demo/facts": {
+      "post": {
+        "description": "Inject demo facts. Only the two injectable fields; never the hard limits.",
+        "operationId": "post_demo_facts_api_demo_facts_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DemoFactsIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DemoAck"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "No valid demo session."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Missing or invalid X-CSRF-Token."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Request body failed validation."
+          }
+        },
+        "summary": "Post Demo Facts"
+      }
+    },
+    "/api/demo/new-session": {
+      "post": {
+        "description": "Rotate the conversation id; login, facts and pet memory stay intact.\n\nThe conversation id is the AgentCore session id, never a pet identity: memory\nretrieval is namespaced by owner/pet, so a fresh conversation still reaches the\nsame long-term memory (that is what makes cross-session retrieval honest).",
+        "operationId": "post_new_session_api_demo_new_session_post",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewSessionView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "No valid demo session."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Missing or invalid X-CSRF-Token."
+          }
+        },
+        "summary": "Post New Session"
+      }
+    },
     "/api/events": {
       "post": {
         "operationId": "post_event_api_events_post",
@@ -502,6 +1121,145 @@
             },
             "description": "Successful Response"
           },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "No valid demo session."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Missing or invalid X-CSRF-Token."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Request body failed validation."
+          }
+        },
+        "summary": "Post Event"
+      }
+    },
+    "/api/feedback": {
+      "post": {
+        "description": "Store raw owner feedback, then ask the memory backend to process it.\n\nThe raw text is persisted FIRST (T5) so a retry carrying the same\n``Idempotency-Key`` header reuses the stored feedback id and never submits\ntwice. The honest lifecycle is decided by the memory backend: locally it stays\n``saved`` (nothing is extracted), so it is never reported as ``available``.",
+        "operationId": "post_feedback_api_feedback_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FeedbackIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeedbackView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "No valid demo session."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Missing or invalid X-CSRF-Token."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Request body failed validation."
+          }
+        },
+        "summary": "Post Feedback"
+      }
+    },
+    "/api/feedback/{feedback_id}": {
+      "get": {
+        "operationId": "get_feedback_api_feedback__feedback_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "feedback_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Feedback Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeedbackView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "No valid demo session."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Run not found for this owner."
+          },
           "422": {
             "content": {
               "application/json": {
@@ -513,7 +1271,7 @@
             "description": "Validation Error"
           }
         },
-        "summary": "Post Event"
+        "summary": "Get Feedback"
       }
     },
     "/api/login": {
@@ -540,15 +1298,25 @@
             },
             "description": "Successful Response"
           },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "No valid demo session."
+          },
           "422": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             },
-            "description": "Validation Error"
+            "description": "Request body failed validation."
           }
         },
         "summary": "Login"
@@ -560,6 +1328,16 @@
         "responses": {
           "204": {
             "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "No valid demo session."
           }
         },
         "summary": "Logout"
@@ -590,6 +1368,26 @@
               }
             },
             "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "No valid demo session."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Run not found for this owner."
           },
           "422": {
             "content": {
@@ -641,15 +1439,55 @@
             },
             "description": "Successful Response"
           },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "No valid demo session."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Missing or invalid X-CSRF-Token."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Run not found for this owner."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Rejected: state, approval binding or policy conflict."
+          },
           "422": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             },
-            "description": "Validation Error"
+            "description": "Request body failed validation."
           }
         },
         "summary": "Post Approval"
@@ -668,6 +1506,16 @@
               }
             },
             "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "No valid demo session."
           }
         },
         "summary": "Get State"
@@ -703,9 +1551,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "additionalProperties": {
-                    "type": "string"
-                  },
+                  "additionalProperties": true,
                   "title": "Response Readyz Readyz Get",
                   "type": "object"
                 }

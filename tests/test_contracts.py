@@ -3,9 +3,11 @@ from pathlib import Path
 import pytest
 from pawtwin.contracts import build_domain_schema, build_openapi_schema
 
-# Frozen Day-1 contract: the scaffold health routes plus the business API needed
-# for the login -> event -> approval (decline) loop. Demo/feedback routes are
-# intentionally deferred (Day-2/Day-3) and are NOT part of this set yet.
+# Frozen contract: the scaffold health routes, the business API for the
+# login -> event -> approval loop, the demo injection endpoints, and the Day-3
+# owner-feedback + new-session routes. The real AgentCore retrieval behind the
+# feedback routes is a CONDITIONAL (no-account) item, but the routes themselves are
+# part of the frozen surface and must always be present.
 ACTIVE_PATHS = {
     "/healthz",
     "/readyz",
@@ -16,6 +18,11 @@ ACTIVE_PATHS = {
     "/api/events",
     "/api/runs/{run_id}",
     "/api/runs/{run_id}/approval",
+    "/api/demo/facts",
+    "/api/demo/device-mode",
+    "/api/demo/new-session",
+    "/api/feedback",
+    "/api/feedback/{feedback_id}",
 }
 
 
@@ -45,7 +52,10 @@ def test_domain_schema_exports_each_shared_model_with_forbidden_extras() -> None
     schema = build_domain_schema()
 
     models = {"EventIn", "Action", "Proposal", "ApprovalIn", "FeedbackIn", "Receipt"}
-    assert models | {"RunState"} <= set(schema["$defs"])
+    # Exact equality on purpose: response DTOs (EvidenceItem, AnalysisTelemetry,
+    # RunView, DemoFactsIn, ...) must never leak into the domain schema, and a
+    # subset assertion would not notice if one did.
+    assert set(schema["$defs"]) == models | {"RunState"}
     for name in models:
         assert schema["$defs"][name]["additionalProperties"] is False
 

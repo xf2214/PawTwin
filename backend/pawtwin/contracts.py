@@ -11,7 +11,15 @@ DOMAIN_MODELS = (EventIn, Action, Proposal, ApprovalIn, FeedbackIn, Receipt)
 
 
 def build_openapi_schema() -> dict[str, Any]:
-    offline_settings = Settings(mode="local", _env_file=None)
+    # Pinned explicitly: a host environment (PAWTWIN_MODEL_BACKEND,
+    # PAWTWIN_WORKER_MODE, ...) must never change the exported contract, and the
+    # export must stay offline and thread-free.
+    offline_settings = Settings(
+        _env_file=None,
+        mode="local",
+        model_backend="local_fake",
+        worker_mode="inline",
+    )
     return create_app(offline_settings).openapi()
 
 
