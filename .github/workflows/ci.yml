@@ -31,6 +31,11 @@ jobs:
           cache-dependency-path: frontend/package-lock.json
       - name: Install Python dependencies
         run: uv sync --frozen
+      - name: Lockfile matches pyproject
+        # `uv sync --frozen` does NOT assert that the lock is current, so a new
+        # dependency with a stale lock would install nothing and fail later as an
+        # ImportError. This step turns that into an explicit, early failure.
+        run: uv lock --check
       - name: Python checks
         run: uv run --frozen pytest
       - name: Lint
