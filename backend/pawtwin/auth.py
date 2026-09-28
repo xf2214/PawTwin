@@ -26,6 +26,10 @@ class Session:
     session_id: str
     owner_id: str
     csrf_token: str
+    # Day-3 (ruling 5): the current AgentCore conversation/session id. Rotated by
+    # POST /api/demo/new-session WITHOUT re-authenticating; pet memory and facts
+    # survive the rotation. In-memory, so it resets on restart (ruling 6).
+    conversation_id: str = field(default_factory=lambda: secrets.token_hex(8))
     created_at: datetime = field(default_factory=lambda: datetime.now(UTC))
 
 
@@ -63,6 +67,20 @@ class AuthService:
     def logout(self, session_id: str | None) -> None:
         if session_id:
             self._sessions.pop(session_id, None)
+
+    def new_conversation(self, session_id: str | None) -> str | None:
+        """Rotate the conversation id for a live session (``demo/new-session``).
+
+        The login, the pet facts and any stored feedback are untouched; only the
+        AgentCore conversation rotates, which is what makes a cross-session
+        retrieval demonstrable. Returns ``None`` when the session is gone.
+        """
+
+        session = self.get_session(session_id)
+        if session is None:
+            return None
+        session.conversation_id = secrets.token_hex(8)
+        return session.conversation_id
 
     def check_csrf(self, session: Session, token: str | None) -> bool:
         if not token:

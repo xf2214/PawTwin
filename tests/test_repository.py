@@ -37,7 +37,9 @@ def test_new_run_starts_queued_and_persists_transitions(
     record.proposal = Proposal(
         action=Action(kind="dispense_food", grams=15),
         explanation="Deterministic local proposal.",
-        evidence_ids=["pet_facts"],
+        # Not "pet_facts": that is not an evidence id any tool can return, and
+        # leaving it here would normalise an id the validator must reject.
+        evidence_ids=[],
     )
     record.proposal_version = 1
     record.action_digest = "a" * 64

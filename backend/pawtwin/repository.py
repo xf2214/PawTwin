@@ -2,9 +2,13 @@
 
 The internal ``RunRecord`` carries bookkeeping fields (``owner_id``,
 ``proposal_version``, ``action_digest``, ``attempt_count``, ``lease_owner``,
-``lease_until``) that are deliberately NOT part of any public response DTO.
-Adapters (SQLite now, DynamoDB later) implement the same ``Repository``
-protocol so the workflow never depends on a specific backend.
+``lease_until``, ``model_calls_used``) that are deliberately NOT part of any
+public response DTO. Adapters (SQLite now, DynamoDB later) implement the same
+``Repository`` protocol so the workflow never depends on a specific backend.
+
+Day-2 adds the concurrency primitives the worker needs: an explicit claimable
+whitelist, lease renewal/release, a compare-and-set state transition, and an
+idempotent schema migration.
 """
 
 from __future__ import annotations
@@ -14,7 +18,17 @@ from datetime import datetime
 from typing import Protocol
 from uuid import UUID
 
-from pawtwin.models import EventIn, Proposal, Receipt, RunState
+from pawtwin.models import (
+    AnalysisTelemetry,
+    EventIn,
+    EvidenceItem,
+    FeedbackScope,
+    MemoryBackend,
+    MemoryStatus,
+    Proposal,
+    Receipt,
+    RunState,
+)
 
 # Terminal states must never be re-processed or re-dispensed.
 TERMINAL_STATES: frozenset[RunState] = frozenset(
@@ -26,6 +40,26 @@ TERMINAL_STATES: frozenset[RunState] = frozenset(
         RunState.UNKNOWN,
     }
 )
+
+# Day-2 ruling 7: claimable states are an explicit WHITELIST. "not terminal" is
+# NOT the same as "safe to re-analyze" -- ``awaiting_approval``/``needs_info``/
+# ``blocked`` have finished analysis and are waiting on a human, and
+# ``EXECUTING`` must be reconciled (never re-analyzed): re-analysis would mint a
+# new ``command_id`` from the bumped ``proposal_version`` and account the quota a
+# second time.
+CLAIMABLE_STATES: frozenset[RunState] = frozenset({RunState.QUEUED, RunState.ANALYZING})
+
+
+class _Unset:
+    """Sentinel separating "leave this column alone" from "write NULL"."""
+
+    __slots__ = ()
+
+    def __repr__(self) -> str:  # pragma: no cover - diagnostic only
+        return "UNSET"
+
+
+UNSET = _Unset()
 
 
 @dataclass
@@ -45,6 +79,13 @@ class RunRecord:
     lease_until: datetime | None = None
     attempt_count: int = 0
     policy_reason: str | None = None
+    # Day-2: durable failure reason, evidence ledger, call telemetry and the
+    # cross-attempt model-call budget (an in-process counter alone could be reset
+    # by a restart, which would silently lift the <=4 calls ceiling).
+    failure_reason: str | None = None
+    evidence: list[EvidenceItem] = field(default_factory=list)
+    telemetry: AnalysisTelemetry | None = None
+    model_calls_used: int = 0
     event: EventIn | None = field(default=None, repr=False)
 
 
@@ -60,6 +101,31 @@ class FactsSnapshot:
     facts_version: int
 
 
+@dataclass
+class FeedbackRecord:
+    """Internal owner-feedback record (NOT a public response DTO).
+
+    Holds the raw owner text, its HONEST memory lifecycle and the AgentCore
+    bookkeeping (event id, extracted record ids). ``memory_status='saved'`` means
+    the RAW text is stored in the business database; it never implies extraction
+    (see :mod:`pawtwin.memory`). ``owner_id``/``idempotency_key`` stay internal,
+    exactly like ``RunRecord``'s bookkeeping fields.
+    """
+
+    feedback_id: UUID
+    owner_id: str
+    pet_id: str
+    text: str
+    scope: FeedbackScope
+    memory_status: MemoryStatus
+    memory_backend: MemoryBackend
+    created_at: datetime
+    conversation_id: str | None = None
+    agentcore_event_id: str | None = None
+    memory_record_ids: list[str] = field(default_factory=list)
+    idempotency_key: str | None = field(default=None, repr=False)
+
+
 class Repository(Protocol):
     """Storage semantics shared by the SQLite and (future) DynamoDB adapters."""
 
@@ -73,16 +139,49 @@ class Repository(Protocol):
     def list_runs(self, owner_id: str) -> list[RunRecord]:
         ...
 
+    def list_claimable_runs(self, limit: int = 10) -> list[RunRecord]:
+        """Runs a worker may try to claim: whitelisted state and no live lease."""
+        ...
+
     def count_runs(self, owner_id: str) -> int:
         """Test/adapter helper: number of runs owned by ``owner_id``."""
         ...
 
     def save_run(self, record: RunRecord) -> None:
-        """Persist a state transition atomically."""
+        """Persist analysis/approval fields atomically.
+
+        Lease fields and ``attempt_count`` are NOT written here: they are owned by
+        :meth:`claim_run` / :meth:`renew_lease` / :meth:`release_run` so a worker
+        can never clear its own lease by saving a record.
+        """
         ...
 
-    def claim_run(self, run_id: UUID, worker_id: str, lease_until: datetime) -> bool:
-        """Acquire a lease; expired leases are re-claimable, terminal states are not."""
+    def claim_run(
+        self,
+        run_id: UUID,
+        worker_id: str,
+        lease_until: datetime,
+        *,
+        max_attempts: int | None = None,
+    ) -> bool:
+        """Acquire a lease and atomically bump ``attempt_count``.
+
+        Only :data:`CLAIMABLE_STATES` with an absent or expired lease can be
+        claimed. A live lease cannot be stolen -- and cannot be "renewed" through
+        this method either; use :meth:`renew_lease`.
+        """
+        ...
+
+    def renew_lease(self, run_id: UUID, worker_id: str, lease_until: datetime) -> bool:
+        """Extend the lease; succeeds only for the current owner."""
+        ...
+
+    def release_run(self, run_id: UUID, worker_id: str) -> None:
+        """Drop the lease once processing finished (only if still owned)."""
+        ...
+
+    def transition_run(self, run_id: UUID, expected: RunState, new: RunState) -> bool:
+        """Compare-and-set a state transition; the guard behind "execute once"."""
         ...
 
     def get_facts(self, owner_id: str) -> FactsSnapshot:
@@ -92,10 +191,19 @@ class Repository(Protocol):
         self,
         owner_id: str,
         *,
-        last_fed_minutes_ago: int | None = None,
-        daily_dispensed_grams: int | None = None,
+        last_fed_minutes_ago: int | None | _Unset = UNSET,
+        daily_dispensed_grams: int | None | _Unset = UNSET,
     ) -> FactsSnapshot:
-        """Update mutable demo facts and bump ``facts_version``."""
+        """Update mutable demo facts and bump ``facts_version``.
+
+        ``UNSET`` leaves a column untouched; ``None`` writes SQL NULL so the fact
+        becomes UNKNOWN and feeding fails closed (A09). The hard limits are not
+        parameters here and cannot be edited at all.
+        """
+        ...
+
+    def reset_facts(self, owner_id: str) -> FactsSnapshot:
+        """Restore the documented demo defaults (also bumps ``facts_version``)."""
         ...
 
     def record_receipt_once(
@@ -115,4 +223,48 @@ class Repository(Protocol):
 
     def count_receipts(self, run_id: UUID) -> int:
         """Test/adapter helper: number of logical receipts for a run."""
+        ...
+
+    # -- owner feedback (Day-3 / T5) ----------------------------------------
+
+    def save_feedback(
+        self,
+        *,
+        owner_id: str,
+        pet_id: str,
+        text: str,
+        scope: FeedbackScope,
+        memory_status: MemoryStatus,
+        memory_backend: MemoryBackend,
+        conversation_id: str | None = None,
+        idempotency_key: str | None = None,
+    ) -> FeedbackRecord:
+        """Persist the raw owner feedback.
+
+        Idempotent on ``(owner_id, idempotency_key)``: a retry with the same key
+        returns the EXISTING record instead of storing a duplicate, so one feedback
+        item is never submitted to AgentCore twice (T5).
+        """
+        ...
+
+    def get_feedback(self, feedback_id: UUID) -> FeedbackRecord | None:
+        ...
+
+    def list_feedback(self, owner_id: str) -> list[FeedbackRecord]:
+        """Owner feedback, newest first."""
+        ...
+
+    def set_feedback_status(
+        self,
+        feedback_id: UUID,
+        *,
+        memory_status: MemoryStatus,
+        agentcore_event_id: str | None = None,
+        memory_record_ids: list[str] | None = None,
+    ) -> FeedbackRecord | None:
+        """Update the honest memory lifecycle after an extraction attempt.
+
+        Never writes ``available`` unless the caller really holds AgentCore record
+        ids; the local backend leaves the status at ``saved``.
+        """
         ...
