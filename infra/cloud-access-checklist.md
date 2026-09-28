@@ -45,6 +45,17 @@
 
 预算提醒**不是**硬性停费；应用限额也**不能**停止底层容器与负载均衡计费。默认不添加 NAT 网关或自定义域名。App Runner 对新客户关闭，不作为默认。
 
+### 3.1 Bedrock 用量估算（Day-2 补）
+
+**模型尚未选定，单价必须在账号就绪后于 Bedrock 控制台核实；本清单不预填任何价格数字，也不声称已算出具体金额。**
+
+- 已落地的应用侧硬限额：每任务 ≤4 次模型调用（`PAWTWIN_MAX_MODEL_CALLS`）、单次输出 ≤800 tokens（`PAWTWIN_MAX_OUTPUT_TOKENS`）、单次分析 45 秒超时（`PAWTWIN_ANALYSIS_TIMEOUT_SECONDS`）、每任务 ≤2 次处理尝试（`PAWTWIN_MAX_ATTEMPTS`）、会话内 1 / 全站 2 并发（**仅进程内**）。超限一律 fail-closed，不回退替身。
+- 输入侧量级：系统提示 ≈0.2k tokens + 事件数据 ≈0.1k + 四次只读工具返回 ≈0.3k ≈ **每次调用 0.6k 输入 tokens**。
+- 按「每天 50 次演示分析」的**上限**：≤200 次调用、输出 ≤160k tokens、输入 ≤120k tokens。
+- 实际预期远低于上限：本地替身为 **0 次**调用；真实模型通常 1–2 次调用即产出结构化结果，故日均更可能落在 50–100 次调用、≤40k 输出 tokens。
+- 计费公式 = (输入 tokens × 模型输入单价) + (输出 tokens × 模型输出单价)。**在拿到实际单价前不给出金额**，避免用编造数字误导预算决策。
+- 跨副本并发上限需要数据库级计数，Day-2 未实现；部署多副本前必须重新核算调用量上限。
+
 ## 4 部署与清理（脚本在实现前不存在，不提供伪装成功的空脚本）
 
 计划入口形态（**编写后才能运行**）：
@@ -61,14 +72,36 @@
 
 ## 5 账号就绪后的最小云端验证（Day-2 起，不晚于 T7）
 
-- [ ] 一次真实 Bedrock 工具往返，记录 request ID/时间。
+- [ ] 一次真实 Bedrock 工具往返，记录 request ID/时间。**入口已就位**：`./scripts/bedrock-smoke.ps1`（需先 `uv sync --frozen --extra bedrock` 并设置 `BEDROCK_MODEL_ID`/`AWS_REGION` 与已授权凭据）。无凭据时它输出「NOT EXECUTED」并以退出码 2 结束，**绝不虚报成功**；一旦运行即产生计费调用。
 - [ ] 一次 DynamoDB 条件写入（去重语义），**不用 SQLite PASS 替代**。
-- [ ] 一个 AgentCore memory strategy `ACTIVE` 检查。
+- [ ] 一个 AgentCore memory strategy `ACTIVE` 检查。**入口已就位**：`./scripts/agentcore-smoke.ps1`（需先 `uv sync --frozen --extra memory` 并设置 `AGENTCORE_MEMORY_ID`/`AWS_REGION` 与已授权凭据）。无凭据时它输出「NOT EXECUTED」并以退出码 2 结束，**绝不虚报已检索**；一旦运行即产生计费调用。提炼为异步，smoke 只做 submit + 一次 search，`available` 需另行验证轮询生命周期。
 - [ ] 从未登录浏览器验证拒绝访问，再登录完成三场景。
 - [ ] 证据写入 `docs/evidence/`，移除任何秘密；本地通过与云端验证**分列**。
 
-## 6 Day-1 实际状态
+只读前提核对：`./scripts/preflight.ps1` 现已输出 Bedrock 就绪度（后端、模型 ID/区域是否设置、`bedrock` extra 是否安装、凭据来源是否存在），全部只读、不发起任何 AWS 调用，也不由环境变量推断已连通。
+
+## 6 实际状态
+
+### Day-1（2026-09-23）
 
 - 只读 preflight：**未执行**（无授权身份）。
 - 创建资源：**无**。调用收费模型：**无**。费用：**无**。远程推送：**无**。
 - 本地 Docker/AWS CLI 未在 PATH 中发现；镜像构建与 Linux/云端验证顺延到有账号与 Docker 环境时进行。
+
+### Day-2（2026-09-25）
+
+- 账号：**仍无**。因此本节全部云端验证项**依旧未执行**，`docs/evidence/day2-cloud-blocked.md` 逐项记录了阻塞原因。
+- 已就位但未执行的入口：`scripts/bedrock-smoke.ps1` + `scripts/bedrock_smoke.py`（本次运行结果为 `NOT EXECUTED`，退出码 2）、`scripts/preflight.ps1` 的 Bedrock 只读段（输出 `credential source present: False`）。
+- 依赖：`strands-agents==1.57.0` 已作为 **optional extra `bedrock`** 写入 `pyproject.toml` 与 `uv.lock`；`uv lock --check` 与 `uv sync --frozen --extra bedrock` 均已在本地验证可复现。**CI 与默认本地环境不安装它**，因此 bedrock 代码路径在 CI 中**未被执行**，属已命名的未覆盖面。
+- 创建资源：**无**。调用收费模型：**无**。费用：**无**。远程推送：**无**。
+- Docker：`Dockerfile` 已加 `--extra bedrock` 与 `PAWTWIN_WORKER_MODE=background`、并明确单进程；本机 PATH 仍无 Docker，**镜像未构建验证**。
+- 部署/清理脚本（`deploy.ps1`/`cleanup.ps1`）：**仍未编写**，不提供伪装成功的空脚本；属 T7。
+
+### Day-3（2026-09-26）
+
+- 账号：**仍无**。故本节全部云端验证项**依旧未执行**，`docs/evidence/day3-cloud-blocked.md` 逐项记录阻塞原因（AgentCore 提炼/检索、场景 C 真实记忆影响、跨会话 retrieve）。
+- 记忆后端：新增 `PAWTWIN_MEMORY_BACKEND=not_implemented|agentcore`（默认 local→`not_implemented`）。本地反馈**仅保存原文**（`memory_status=saved`），`search_owner_memory` 返回空且**不记** memory 证据，**绝不**以 `saved` 冒充「已提炼/已检索」（AGENTS.md L18）。
+- 依赖：`boto3==1.43.102` 作为 **optional extra `memory`** 写入 `pyproject.toml` 与 `uv.lock`（boto3 本已是 strands-agents 的传递依赖，无新增下载）；`uv lock --check` 与 `uv sync --frozen --extra memory` 均已本地验证可复现（硬门通过）。**CI 与默认本地环境不安装它**，故 agentcore 代码路径在 CI 中**未被执行**，属已命名的未覆盖面。
+- 已就位但未执行的入口：`scripts/agentcore-smoke.ps1` + `scripts/agentcore_smoke.py`（本次运行结果 `NOT EXECUTED`，退出码 2）、`scripts/preflight.ps1` 的 AgentCore 只读段（输出 `AGENTCORE_MEMORY_ID set: False`、`'memory' extra (boto3) installed: False`）。
+- 创建资源：**无**。调用收费模型/记忆：**无**。费用：**无**。远程推送：**无**。
+- Docker：`Dockerfile` 已加 `--extra memory`（与 `--extra bedrock` 并列）；本机 PATH 仍无 Docker，**镜像未构建验证**。

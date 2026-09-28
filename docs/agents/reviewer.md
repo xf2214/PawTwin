@@ -7,3 +7,9 @@
 重点核查真实/模拟边界、配置失败方式、模型权限、证据归因、审批与并发、错误/超时、凭据、脚本可移植性和生成契约一致性。初始化只核查已实现范围，不要求跑尚不存在的产品功能。
 
 优先使用已有测试证据；仅在具体问题需要复现时追加检查。不能从成功截图推断后台副作用正确，也不能从本地替身测试推断 AWS 已通过。
+
+## Day-2 审查要点
+
+当日分解与 25 条裁定见 `docs/plans/PawTwin_Day2_开发计划.md`。除通用范围/质量结论外，Day-2 必须逐条核实：`claim_run` 的可领取白名单是否真的排除 `EXECUTING`/`AWAITING_APPROVAL`/`BLOCKED`/`NEEDS_INFO`；批准路径是否**先 CAS 再**调用执行器；`attempt_count` 是否在 claim 的同一条 UPDATE 内原子自增；`save_run` 是否已不再写租约与尝试次数；schema 迁移是否有**文件库**测试（`:memory:` 永远发现不了缺列）；分析失败是否一律 fail-closed 且未回退 inline/替身；A03 重评估是否 `model_calls == 0` 且未伪造 `retrieved_at`；`RunView` 是否仍不包含 `owner_id`/`attempt_count`/`lease_*`/`model_calls_used`。
+
+诚实性同样在审查范围内：`readyz`/`bootstrap` 既不得高报也不得**低报**（业务已实现却称未就绪同样是失真）；`request_id` 为 null 时必须如实呈现；离线 stub 与本地替身的通过**不得**被写成云端验证；`docs/evidence/day2-local.md` 每条应写清「命令 / 结果 / 这不证明什么」。审查者不得由对应代码的作者充当。
