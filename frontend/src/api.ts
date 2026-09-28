@@ -1,6 +1,7 @@
 // Typed API client. Types are hand-written from the FROZEN contract
 // (contracts/openapi.json + domain.schema.json) — the single source of truth.
-// No new dependencies are added on Day-1 (see plan §3.3).
+// Still zero runtime dependencies on Day-2: nothing here needs a code generator
+// or a request library.
 
 export type RunState =
   | 'queued'
@@ -14,6 +15,14 @@ export type RunState =
   | 'succeeded'
   | 'failed'
   | 'unknown'
+
+export type AnalyzerBackend = 'inline' | 'local_fake' | 'bedrock'
+export type DeviceMode = 'succeeded' | 'failed' | 'unknown'
+export type ToolName =
+  | 'get_pet_facts'
+  | 'get_recent_events'
+  | 'search_owner_memory'
+  | 'get_policy_summary'
 
 export interface Action {
   kind: 'dispense_food' | 'create_play_task' | 'observe'
@@ -33,9 +42,35 @@ export interface Receipt {
   simulated: true
 }
 
+// One read-only tool call that really happened. Bounded summary only: never the
+// raw event note and never hidden reasoning.
+export interface EvidenceItem {
+  evidence_id: string
+  tool: ToolName
+  source: 'repository' | 'policy' | 'memory'
+  retrieved_at: string
+  summary: string
+}
+
+// Auditable model-call record. request_id stays null until a REAL Bedrock call
+// happens, so a local run can never be mistaken for a cloud one.
+export interface AnalysisTelemetry {
+  backend: AnalyzerBackend
+  model_id: string | null
+  model_calls: number
+  output_tokens: number
+  duration_ms: number
+  started_at: string
+  finished_at: string
+  request_id: string | null
+  limit_exceeded: string | null
+}
+
 export interface FactsView {
-  last_fed_minutes_ago: number
-  daily_dispensed_grams: number
+  // null means UNKNOWN. It is never rendered as 0: the policy judges
+  // MISSING_FACTS on null, and showing "0 minutes ago" would contradict it.
+  last_fed_minutes_ago: number | null
+  daily_dispensed_grams: number | null
   daily_limit_grams: number
   single_serving_grams: number
   minimum_interval_minutes: number
@@ -52,14 +87,25 @@ export interface RunView {
   created_at: string
   proposal_version: number
   action_digest: string | null
+  policy_reason: string | null
+  failure_reason: string | null
+  evidence: EvidenceItem[]
+  telemetry: AnalysisTelemetry | null
 }
 
 export interface StateView {
   pet_id: 'mochi'
   mode: 'local' | 'aws'
   aws_connected: boolean
+  analyzer: AnalyzerBackend
+  storage: 'sqlite' | 'dynamodb'
+  memory: MemoryBackend
+  device_mode: DeviceMode
+  // Rotated by POST /api/demo/new-session; pet memory and facts survive it.
+  conversation_id: string | null
   facts: FactsView
   runs: RunView[]
+  feedback: FeedbackView[]
 }
 
 export interface EventAccepted {
@@ -82,20 +128,53 @@ export interface ApprovalIn {
   action_digest: string
 }
 
-// Polling stops once a run settles. awaiting_approval is settled (it waits for a
-// human) but not terminal; the rest are terminal (no further automatic change).
+// Only the two injectable facts. The hard limits are not expressible here, which
+// is the point: no request from this page can raise the daily quota.
+export interface DemoFactsIn {
+  last_fed_minutes_ago?: number
+  daily_dispensed_grams?: number
+  clear?: ('last_fed_minutes_ago' | 'daily_dispensed_grams')[]
+  reset?: boolean
+}
+
+export interface DemoAck {
+  facts: FactsView
+  device_mode: DeviceMode | null
+}
+
+// Long-term memory (Day-3). ``memory_status='saved'`` means the RAW owner text is
+// stored in the business database -- it NEVER means it was extracted into AgentCore
+// memory. ``memory_backend`` is carried alongside so a local 'saved' can never be
+// read as 'retrieved memory'. 'available' only ever appears with real retrieval.
+export type MemoryStatus = 'saved' | 'processing' | 'available' | 'failed'
+export type MemoryBackend = 'not_implemented' | 'agentcore'
+export type FeedbackScope = 'observation' | 'today_only'
+
+export interface FeedbackView {
+  feedback_id: string
+  scope: FeedbackScope
+  text: string
+  memory_status: MemoryStatus
+  memory_backend: MemoryBackend
+  created_at: string
+  conversation_id: string | null
+}
+
+export interface FeedbackIn {
+  text: string
+  scope: FeedbackScope
+}
+
+export interface NewSessionView {
+  conversation_id: string
+}
+
+// States after which nothing changes by itself. NOTE: this is NOT the backend's
+// terminal set (declined/expired/succeeded/failed/unknown) -- blocked/needs_info
+// are settled for the UI but are deliberately excluded from the backend's
+// claimable/terminal logic. Renamed on Day-2 to stop the two being confused.
 const SETTLED: RunState[] = [
   'awaiting_approval',
-  'declined',
-  'succeeded',
-  'failed',
-  'expired',
-  'blocked',
-  'needs_info',
-  'unknown',
-]
-
-export const TERMINAL: RunState[] = [
   'declined',
   'succeeded',
   'failed',
@@ -189,25 +268,50 @@ export const postApproval = (runId: string, approval: ApprovalIn): Promise<RunVi
     body: JSON.stringify(approval),
   })
 
+export const postDemoFacts = (body: DemoFactsIn): Promise<DemoAck> =>
+  request<DemoAck>('/api/demo/facts', { method: 'POST', body: JSON.stringify(body) })
+
+export const postDeviceMode = (mode: DeviceMode): Promise<DemoAck> =>
+  request<DemoAck>('/api/demo/device-mode', { method: 'POST', body: JSON.stringify({ mode }) })
+
+export const postFeedback = (body: FeedbackIn): Promise<FeedbackView> =>
+  request<FeedbackView>('/api/feedback', { method: 'POST', body: JSON.stringify(body) })
+
+export const getFeedback = (feedbackId: string): Promise<FeedbackView> =>
+  request<FeedbackView>(`/api/feedback/${feedbackId}`)
+
+// Rotates the AgentCore conversation id; login, facts and pet memory stay intact.
+export const postNewSession = (): Promise<NewSessionView> =>
+  request<NewSessionView>('/api/demo/new-session', { method: 'POST' })
+
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
-// Poll a run every intervalMs until it settles or the deadline passes. The final
-// observed run is always returned so the caller can show an explicit
-// failure/unknown state instead of an endless spinner.
+// The backend analysis deadline is 45s. The client budget must be strictly
+// larger, otherwise the page gives up in the same instant the server writes
+// FAILED and the owner is left staring at "analyzing" forever.
+export const POLL_TIMEOUT_MS = 75_000
+
+// Poll a run until it settles or the deadline passes. The final observed run is
+// always returned so the caller can show an explicit "still working" notice
+// instead of an endless spinner. The client never declares a failure itself.
 export async function pollRun(
   runId: string,
   onUpdate: (run: RunView) => void,
   opts: { intervalMs?: number; timeoutMs?: number } = {},
 ): Promise<RunView> {
   const intervalMs = opts.intervalMs ?? 2000
-  const timeoutMs = opts.timeoutMs ?? 45_000
+  const timeoutMs = opts.timeoutMs ?? POLL_TIMEOUT_MS
   const deadline = Date.now() + timeoutMs
   let last: RunView = await getRun(runId)
   onUpdate(last)
+  let waited = 0
   while (!isSettled(last.state) && Date.now() < deadline) {
-    await sleep(intervalMs)
+    // Back off after 15s: nothing new is learned by hammering a 45s analysis.
+    const delay = waited < 15_000 ? intervalMs : Math.max(intervalMs, 5000)
+    await sleep(delay)
+    waited += delay
     last = await getRun(runId)
     onUpdate(last)
   }

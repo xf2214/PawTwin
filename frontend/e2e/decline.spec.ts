@@ -1,14 +1,12 @@
 import { expect, test } from '@playwright/test'
 
-declare const process: { env: Record<string, string | undefined> }
-
-// Non-secret LOCAL demo default; override via PAWTWIN_DEMO_PASSPHRASE.
-const PASSPHRASE = process.env.PAWTWIN_DEMO_PASSPHRASE ?? 'local-demo-passphrase'
+import { login, resetDemo } from './helpers'
 
 test('decline never becomes simulated execution and survives reload', async ({ page }) => {
-  await page.goto('/')
-  await page.getByLabel('演示口令').fill(PASSPHRASE)
-  await page.getByRole('button', { name: '登录演示' }).click()
+  test.setTimeout(120_000)
+  await login(page)
+  // Shared in-memory database: reset instead of trusting the file order.
+  await resetDemo(page)
 
   // Send a simulated food request; the run settles at awaiting_approval.
   await page.getByRole('button', { name: '发送吃饭请求' }).click()
@@ -19,6 +17,7 @@ test('decline never becomes simulated execution and survives reload', async ({ p
   await page.getByTestId('decline').click()
   await expect(page.getByTestId('run-status')).toHaveText('已拒绝')
   await expect(page.getByTestId('receipt')).toHaveCount(0)
+  await expect(page.getByTestId('facts')).toContainText('0 / 30 克')
 
   // Reload: the durable decision persists and never shows a simulated success.
   await page.reload()

@@ -461,3 +461,216 @@ button.ghost {
     grid-template-columns: 1fr;
   }
 }
+
+/* --- Day-2: component labels, evidence ledger, telemetry, demo fieldsets ----- */
+
+.impl-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border: 1px dashed rgba(24, 54, 45, 0.22);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.45);
+  color: #46584f;
+  font-size: 0.84rem;
+}
+
+.notice {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(47, 107, 87, 0.1);
+  color: #24564a;
+}
+
+.reason {
+  margin: 0 0 10px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(210, 138, 53, 0.14);
+  color: #7d5410;
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+
+.reason.error {
+  background: rgba(180, 85, 63, 0.14);
+  color: #8f3d2a;
+}
+
+.evidence {
+  margin-top: 12px;
+}
+
+.evidence-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.evidence-list li {
+  display: grid;
+  gap: 3px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(47, 107, 87, 0.07);
+}
+
+.evidence-list .tag {
+  justify-self: start;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: rgba(24, 54, 45, 0.1);
+  color: #46584f;
+  font-size: 0.75rem;
+}
+
+.evidence-list time,
+.evidence-list code {
+  color: #7b8b84;
+  font-size: 0.76rem;
+  word-break: break-all;
+}
+
+.evidence-list p {
+  margin: 0;
+  color: #46584f;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.telemetry {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 14px;
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(24, 54, 45, 0.05);
+  font-size: 0.82rem;
+}
+
+.telemetry div {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.telemetry dt {
+  color: #7b8b84;
+}
+
+.telemetry dd {
+  margin: 0;
+  font-weight: 650;
+  text-align: right;
+}
+
+.demo-body fieldset {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 14px;
+  border: 1px solid rgba(24, 54, 45, 0.16);
+  border-radius: 12px;
+}
+
+.demo-body legend {
+  padding: 0 6px;
+  color: #2f6b57;
+  font-weight: 700;
+}
+
+.demo-body fieldset:disabled {
+  opacity: 0.6;
+}
+
+.demo-body label:has(input[type='checkbox']) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86rem;
+}
+
+@media (max-width: 900px) {
+  .telemetry {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Day-3: owner feedback and long-term memory area ---------------------- */
+
+.memory {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(24, 54, 45, 0.14);
+}
+
+.memory-backend {
+  margin: 0 0 12px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(24, 54, 45, 0.05);
+  color: #46584f;
+  font-size: 0.82rem;
+}
+
+.feedback-form {
+  display: grid;
+  gap: 8px;
+}
+
+.feedback-form label {
+  color: #6b7d76;
+  font-size: 0.8rem;
+}
+
+.feedback-form textarea,
+.feedback-form select {
+  padding: 10px 12px;
+  border: 1px solid rgba(24, 54, 45, 0.25);
+  border-radius: 9px;
+  background: #fff;
+  font: inherit;
+}
+
+.feedback-form textarea {
+  resize: vertical;
+}
+
+.feedback-list {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.feedback-list li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(210, 138, 53, 0.08);
+}
+
+.feedback-list .tag {
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: rgba(24, 54, 45, 0.1);
+  color: #46584f;
+  font-size: 0.75rem;
+}
+
+.feedback-list li p {
+  flex: 1 0 100%;
+  margin: 0;
+  color: #46584f;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}

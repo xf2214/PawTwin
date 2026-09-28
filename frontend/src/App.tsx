@@ -1,17 +1,28 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import {
   ApiError,
+  type AnalyzerBackend,
+  type DemoFactsIn,
+  type DeviceMode,
+  type FeedbackScope,
+  type MemoryStatus,
   type RunState,
   type RunView,
   type StateView,
+  getRun,
   getState,
   hasCsrf,
+  isSettled,
   login,
   logout,
   pollRun,
   postApproval,
+  postDemoFacts,
+  postDeviceMode,
   postEvent,
+  postFeedback,
+  postNewSession,
 } from './api'
 
 const STATE_LABELS: Record<RunState, string> = {
@@ -34,10 +45,102 @@ const ACTION_LABELS: Record<string, string> = {
   observe: '仅观察',
 }
 
+const BACKEND_LABELS: Record<AnalyzerBackend, string> = {
+  inline: '确定性测试后端',
+  local_fake: '本地替身（非真实模型）',
+  bedrock: 'AWS Bedrock（真实模型）',
+}
+
+const TOOL_LABELS: Record<string, string> = {
+  get_pet_facts: '查询宠物当前事实',
+  get_recent_events: '查询近期事件',
+  search_owner_memory: '检索主人长期记忆',
+  get_policy_summary: '读取策略摘要',
+}
+
+const SOURCE_LABELS: Record<string, string> = {
+  repository: '业务数据库',
+  policy: '硬性策略',
+  memory: '长期记忆',
+}
+
+const DEVICE_LABELS: Record<DeviceMode, string> = {
+  succeeded: 'succeeded（成功回执）',
+  failed: 'failed（失败回执）',
+  unknown: 'unknown（未知回执）',
+}
+
+// ``saved`` is the ONLY status a local (no-account) run can reach: it means the raw
+// owner text is stored, never that a memory was extracted or retrieved.
+const MEMORY_STATUS_LABELS: Record<MemoryStatus, string> = {
+  saved: '已保存原文（未提炼）',
+  processing: '处理中（等待提炼）',
+  available: '已可检索（真实记忆）',
+  failed: '提炼失败',
+}
+
+const SCOPE_LABELS: Record<FeedbackScope, string> = {
+  observation: '观察（可长期提炼）',
+  today_only: '仅今天（不成为永久偏好）',
+}
+
+const POLICY_LABELS: Record<string, string> = {
+  ALLOWED: '策略允许',
+  NON_FEEDING: '非喂食动作，不占配额',
+  MISSING_FACTS: '缺少必要事实，已停止喂食建议',
+  RECENT_FEED: '距上次喂食过近',
+  SINGLE_SERVING_EXCEEDED: '超过单次上限',
+  DAILY_LIMIT_EXCEEDED: '超过当日配额',
+}
+
+const FAILURE_LABELS: Record<string, string> = {
+  UNKNOWN_EVIDENCE: '建议引用了未真实检索到的依据，已拒绝',
+  MODEL_INVALID_OUTPUT: '模型输出不符合契约，已拒绝',
+  MODEL_CALL_LIMIT: '超过每任务模型调用上限',
+  TOKEN_LIMIT: '超过单次输出 token 上限',
+  ANALYSIS_TIMEOUT: '分析超时（45 秒），未产生建议',
+  ATTEMPTS_EXHAUSTED: '处理尝试次数已用尽',
+  BACKEND_UNAVAILABLE: '真实模型后端不可用（未回退到替身）',
+  ANALYZER_ERROR: '分析器异常，已失败关闭',
+}
+
+// A 409 is not a bug: it is the state machine refusing something. Say which.
+const CONFLICT_HINTS: Array<[string, string]> = [
+  ['STALE_APPROVAL_FACTS_CHANGED', '事实已变化，旧批准失效。系统已按新事实重评策略（未调用模型），请重新确认。'],
+  ['APPROVAL_MISMATCH', '批准参数与当前建议不匹配，已拒绝执行。'],
+  ['POLICY_BLOCKED_ON_EXECUTE', '执行前复查策略未通过，本次动作已被阻止。'],
+  ['NOT_AWAITING_APPROVAL', '该任务已不在等待确认状态（可能已处理、过期或被另一处批准）。'],
+  ['RUN_NOT_FOUND', '找不到该任务。'],
+]
+
 function describeAction(run: RunView | null): string {
   if (!run?.proposal) return '暂无建议'
   const { kind, grams } = run.proposal.action
   return kind === 'dispense_food' ? `${ACTION_LABELS[kind]} ${grams} 克` : ACTION_LABELS[kind]
+}
+
+function stateLabel(run: RunView): string {
+  // "failed" covers two different things; tell them apart instead of misleading.
+  if (run.state === 'failed') return run.receipt ? '执行失败' : '分析失败'
+  return STATE_LABELS[run.state]
+}
+
+function formatTime(iso: string): string {
+  const date = new Date(iso)
+  return Number.isNaN(date.getTime()) ? iso : date.toLocaleString()
+}
+
+function conflictHint(detail: string): string | null {
+  const found = CONFLICT_HINTS.find(([code]) => detail.includes(code))
+  return found ? found[1] : null
+}
+
+function factMinutes(value: number | null | undefined): string {
+  return value == null ? '未知' : `${value} 分钟`
+}
+
+function factGrams(value: number | null | undefined, limit: number | undefined): string {
+  return value == null ? `未知 / ${limit ?? '—'} 克` : `${value} / ${limit ?? '—'} 克`
 }
 
 export default function App() {
@@ -45,12 +148,23 @@ export default function App() {
   const [authed, setAuthed] = useState(false)
   const [activeRun, setActiveRun] = useState<RunView | null>(null)
   const [busy, setBusy] = useState(false)
+  const [polling, setPolling] = useState(false)
+  const [elapsed, setElapsed] = useState(0)
+  const [pollDeadline, setPollDeadline] = useState(false)
+  const [notice, setNotice] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [passphrase, setPassphrase] = useState('')
   const [canAct, setCanAct] = useState(hasCsrf())
   const [demoOpen, setDemoOpen] = useState(false)
   const [note, setNote] = useState('')
   const [room, setRoom] = useState<'kitchen' | 'living_room' | 'unknown'>('kitchen')
+  const [feedbackText, setFeedbackText] = useState('')
+  const [feedbackScope, setFeedbackScope] = useState<FeedbackScope>('observation')
+  const [factLastFed, setFactLastFed] = useState('')
+  const [factDispensed, setFactDispensed] = useState('')
+  const [clearLastFed, setClearLastFed] = useState(false)
+  const [clearDispensed, setClearDispensed] = useState(false)
+  const pollingRef = useRef(false)
 
   const handleError = useCallback((err: unknown) => {
     if (err instanceof ApiError) {
@@ -93,10 +207,45 @@ export default function App() {
     void refresh()
   }, [refresh])
 
-  // After a (re)load, surface the most recent run so its durable state is visible.
+  // Follow a run until the backend settles it. The client never decides the
+  // verdict itself: on deadline it says "still working", not "failed".
+  const trackRun = useCallback(
+    async (runId: string) => {
+      if (pollingRef.current) return
+      pollingRef.current = true
+      setPolling(true)
+      setPollDeadline(false)
+      setElapsed(0)
+      const startedAt = Date.now()
+      const timer = window.setInterval(
+        () => setElapsed(Math.round((Date.now() - startedAt) / 1000)),
+        500,
+      )
+      try {
+        const run = await pollRun(runId, setActiveRun)
+        if (!isSettled(run.state)) setPollDeadline(true)
+        await refresh()
+      } catch (err) {
+        handleError(err)
+      } finally {
+        window.clearInterval(timer)
+        setPolling(false)
+        pollingRef.current = false
+        setCanAct(hasCsrf())
+      }
+    },
+    [handleError, refresh],
+  )
+
+  // After a (re)load, surface the most recent run and keep following it if the
+  // backend has not settled it yet.
   useEffect(() => {
-    if (activeRun === null && state && state.runs.length > 0) setActiveRun(state.runs[0])
-  }, [state, activeRun])
+    if (activeRun === null && state && state.runs.length > 0) {
+      const latest = state.runs[0]
+      setActiveRun(latest)
+      if (!isSettled(latest.state)) void trackRun(latest.run_id)
+    }
+  }, [state, activeRun, trackRun])
 
   async function onLogin(event: React.FormEvent) {
     event.preventDefault()
@@ -126,14 +275,17 @@ export default function App() {
   async function sendEvent(kind: 'food_request' | 'attention_request', customNote = '') {
     setBusy(true)
     setError(null)
+    setNotice(null)
+    setPollDeadline(false)
     try {
       const accepted = await postEvent(kind, room, customNote)
-      const run = await pollRun(accepted.run_id, setActiveRun)
-      setActiveRun(run)
-      await refresh()
+      // Release the buttons at once: analysis may take seconds and the demo
+      // controls must stay usable while it runs.
+      setBusy(false)
+      setCanAct(hasCsrf())
+      await trackRun(accepted.run_id)
     } catch (err) {
       handleError(err)
-    } finally {
       setBusy(false)
       setCanAct(hasCsrf())
     }
@@ -143,6 +295,7 @@ export default function App() {
     if (!activeRun || activeRun.action_digest === null) return
     setBusy(true)
     setError(null)
+    setNotice(null)
     try {
       const run = await postApproval(activeRun.run_id, {
         decision,
@@ -152,8 +305,100 @@ export default function App() {
       setActiveRun(run)
       await refresh()
     } catch (err) {
-      handleError(err)
+      if (err instanceof ApiError && err.status === 409) {
+        setNotice(conflictHint(err.message) ?? `操作被拒绝（409）：${err.message}`)
+        // The backend has usually already moved the run (A03 re-evaluates it), so
+        // re-read it instead of leaving a stale "awaiting approval" on screen.
+        try {
+          setActiveRun(await getRun(activeRun.run_id))
+        } catch {
+          // The refresh below is the fallback.
+        }
+      } else {
+        handleError(err)
+      }
       await refresh()
+    } finally {
+      setBusy(false)
+      setCanAct(hasCsrf())
+    }
+  }
+
+  async function applyFacts(body: DemoFactsIn) {
+    setBusy(true)
+    setError(null)
+    setNotice(null)
+    try {
+      await postDemoFacts(body)
+      setNotice(
+        body.reset
+          ? '已恢复演示事实默认值。'
+          : '事实已更新，facts_version 递增；此前待批准的建议将失效并要求重新确认。',
+      )
+      setFactLastFed('')
+      setFactDispensed('')
+      setClearLastFed(false)
+      setClearDispensed(false)
+      await refresh()
+    } catch (err) {
+      handleError(err)
+    } finally {
+      setBusy(false)
+      setCanAct(hasCsrf())
+    }
+  }
+
+  async function applyDeviceMode(mode: DeviceMode) {
+    setBusy(true)
+    setError(null)
+    try {
+      await postDeviceMode(mode)
+      setNotice(`模拟执行器模式已设为 ${mode}，仅影响之后的新命令；本进程内有效，重启后复位。`)
+      await refresh()
+    } catch (err) {
+      handleError(err)
+    } finally {
+      setBusy(false)
+      setCanAct(hasCsrf())
+    }
+  }
+
+  async function submitFeedback(event: React.FormEvent) {
+    event.preventDefault()
+    const text = feedbackText.trim()
+    if (text.length === 0) return
+    setBusy(true)
+    setError(null)
+    setNotice(null)
+    try {
+      await postFeedback({ text, scope: feedbackScope })
+      setFeedbackText('')
+      setNotice(
+        feedbackScope === 'today_only'
+          ? '已保存为「仅今天」的业务记录，不会成为永久偏好；未接入 AgentCore，不提炼为长期记忆。'
+          : '已保存主人观察原文（归因为主人，非模型推断）；未接入 AgentCore，不提炼为长期记忆。',
+      )
+      await refresh()
+    } catch (err) {
+      handleError(err)
+    } finally {
+      setBusy(false)
+      setCanAct(hasCsrf())
+    }
+  }
+
+  async function startNewSession() {
+    setBusy(true)
+    setError(null)
+    setNotice(null)
+    try {
+      const result = await postNewSession()
+      setNotice(
+        `已开启新会话（conversation ${result.conversation_id.slice(0, 8)}…）；宠物记忆、事实与登录均保留。`,
+      )
+      await refresh()
+    } catch (err) {
+      handleError(err)
     } finally {
       setBusy(false)
       setCanAct(hasCsrf())
@@ -225,7 +470,21 @@ export default function App() {
         <div><strong>{state?.aws_connected ? 'AWS 已连接' : 'AWS 未连接'}</strong><span>本地替身与云端状态分别标注</span></div>
       </section>
 
+      {state ? (
+        <p className="impl-labels" data-testid="impl-labels">
+          <span>分析器：{BACKEND_LABELS[state.analyzer]}</span>
+          <span>存储：{state.storage === 'sqlite' ? 'SQLite（本地，未经云端验证）' : 'DynamoDB'}</span>
+          <span>长期记忆：{state.memory === 'not_implemented' ? '未实现（无 AWS 账号）' : 'AgentCore（真实检索）'}</span>
+        </p>
+      ) : null}
+
       {error ? <p className="error" role="alert">{error}</p> : null}
+      {notice ? <p className="notice" data-testid="notice" role="status">{notice}</p> : null}
+      {pollDeadline ? (
+        <p className="warn" data-testid="poll-deadline">
+          已超过客户端等待上限（75 秒），任务仍在后端处理。页面不会自行判定失败，请刷新查看最新状态。
+        </p>
+      ) : null}
       {!canAct ? (
         <p className="warn" data-testid="reauth-hint">
           会话可查看，但执行批准/拒绝需要操作令牌。请重新登录以继续操作。
@@ -237,8 +496,11 @@ export default function App() {
           <p className="section-label">宠物与请求</p>
           <h2>🐱 Mochi</h2>
           <dl className="facts" data-testid="facts">
-            <div><dt>上次喂食距今</dt><dd>{facts?.last_fed_minutes_ago ?? '—'} 分钟</dd></div>
-            <div><dt>当日已出粮</dt><dd>{facts?.daily_dispensed_grams ?? '—'} / {facts?.daily_limit_grams ?? '—'} 克</dd></div>
+            <div><dt>上次喂食距今</dt><dd>{factMinutes(facts?.last_fed_minutes_ago)}</dd></div>
+            <div>
+              <dt>当日已出粮</dt>
+              <dd>{factGrams(facts?.daily_dispensed_grams, facts?.daily_limit_grams)}</dd>
+            </div>
             <div><dt>单次上限</dt><dd>{facts?.single_serving_grams ?? '—'} 克</dd></div>
             <div><dt>最短间隔</dt><dd>{facts?.minimum_interval_minutes ?? '—'} 分钟</dd></div>
           </dl>
@@ -257,19 +519,61 @@ export default function App() {
           {activeRun ? (
             <>
               <p className="state" data-testid="run-status">
-                {STATE_LABELS[activeRun.state]}
+                {stateLabel(activeRun)}
               </p>
+              {polling ? (
+                <p className="muted" data-testid="run-elapsed">正在等待后端结论，已等待 {elapsed} 秒…</p>
+              ) : null}
+              {activeRun.policy_reason && activeRun.policy_reason !== 'ALLOWED' ? (
+                <p className="reason" data-testid="policy-reason">
+                  策略结论：{POLICY_LABELS[activeRun.policy_reason] ?? activeRun.policy_reason}
+                </p>
+              ) : null}
+              {activeRun.failure_reason ? (
+                <p className="reason error" data-testid="failure-reason">
+                  失败原因：{FAILURE_LABELS[activeRun.failure_reason] ?? activeRun.failure_reason}
+                </p>
+              ) : null}
               {activeRun.proposal ? (
                 <div className="proposal">
                   <p className="action" data-testid="proposal-action">{describeAction(activeRun)}</p>
                   <p className="explanation">{activeRun.proposal.explanation}</p>
-                  <p className="evidence">
-                    依据：{activeRun.proposal.evidence_ids.join('、') || '无'}
-                  </p>
                 </div>
               ) : (
                 <p className="muted">当前任务没有可执行的建议。</p>
               )}
+              {activeRun.evidence.length > 0 ? (
+                <div className="evidence">
+                  <p className="section-label">真实查询证据</p>
+                  <ul className="evidence-list" data-testid="evidence-list">
+                    {activeRun.evidence.map((item) => (
+                      <li key={item.evidence_id} data-testid="evidence-item">
+                        <strong>{TOOL_LABELS[item.tool] ?? item.tool}</strong>
+                        <span className="tag">{SOURCE_LABELS[item.source] ?? item.source}</span>
+                        <time dateTime={item.retrieved_at}>{formatTime(item.retrieved_at)}</time>
+                        <code>{item.evidence_id}</code>
+                        <p>{item.summary}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <p className="muted" data-testid="evidence-empty">
+                  本次分析没有检索记录（确定性测试后端不产生证据）。
+                </p>
+              )}
+              {activeRun.telemetry ? (
+                <dl className="telemetry" data-testid="telemetry">
+                  <div><dt>分析后端</dt><dd>{BACKEND_LABELS[activeRun.telemetry.backend]}</dd></div>
+                  <div><dt>模型调用</dt><dd>{activeRun.telemetry.model_calls} 次（上限 4）</dd></div>
+                  <div><dt>输出 tokens</dt><dd>{activeRun.telemetry.output_tokens}（上限 800）</dd></div>
+                  <div><dt>耗时</dt><dd>{activeRun.telemetry.duration_ms} ms</dd></div>
+                  <div>
+                    <dt>云端 request id</dt>
+                    <dd>{activeRun.telemetry.request_id ?? '无（未发生真实云调用）'}</dd>
+                  </div>
+                </dl>
+              ) : null}
               {activeRun.receipt ? (
                 <p className="receipt" data-testid="receipt">
                   {activeRun.receipt.status === 'succeeded'
@@ -312,16 +616,79 @@ export default function App() {
             {(state?.runs ?? []).map((run) => (
               <li key={run.run_id}>
                 <button type="button" className="runlink" onClick={() => setActiveRun(run)}>
-                  <span>{STATE_LABELS[run.state]}</span>
+                  <span>{stateLabel(run)}</span>
                   <small>{describeAction(run)}</small>
                 </button>
               </li>
             ))}
             {(state?.runs ?? []).length === 0 ? <li className="muted">尚无任务。</li> : null}
           </ul>
-          <p className="placeholder" data-testid="memory-placeholder">
-            长期记忆与主人反馈检索将于 Day-3 接入（AgentCore）。当前不展示任何伪造记忆。
-          </p>
+          <div className="memory" data-testid="memory-area">
+            <p className="section-label">主人反馈与长期记忆</p>
+            <p className="memory-backend" data-testid="memory-backend">
+              长期记忆：
+              {state?.memory === 'agentcore' ? 'AgentCore（真实检索）' : '未实现（无 AWS 账号）'}
+              {state?.conversation_id ? ` · 当前会话 ${state.conversation_id.slice(0, 8)}…` : ''}
+            </p>
+            <form className="feedback-form" onSubmit={submitFeedback}>
+              <label htmlFor="feedback-text">记录一条主人观察（归因为主人，非模型推断）</label>
+              <textarea
+                id="feedback-text"
+                data-testid="feedback-text"
+                value={feedbackText}
+                maxLength={500}
+                rows={2}
+                disabled={busy || !canAct}
+                onChange={(e) => setFeedbackText(e.target.value)}
+              />
+              <label htmlFor="feedback-scope">范围</label>
+              <select
+                id="feedback-scope"
+                data-testid="feedback-scope"
+                value={feedbackScope}
+                disabled={busy || !canAct}
+                onChange={(e) => setFeedbackScope(e.target.value as FeedbackScope)}
+              >
+                <option value="observation">观察（可长期提炼）</option>
+                <option value="today_only">仅今天（不成为永久偏好）</option>
+              </select>
+              <div className="actions">
+                <button
+                  type="submit"
+                  data-testid="submit-feedback"
+                  disabled={busy || !canAct || feedbackText.trim().length === 0}
+                >
+                  保存反馈
+                </button>
+                <button
+                  type="button"
+                  data-testid="new-session"
+                  onClick={() => void startNewSession()}
+                  disabled={busy || !canAct}
+                >
+                  开启新会话
+                </button>
+              </div>
+            </form>
+            <ul className="feedback-list" data-testid="feedback-list">
+              {(state?.feedback ?? []).map((item) => (
+                <li key={item.feedback_id} data-testid="feedback-item">
+                  <span className="tag" data-testid="feedback-status">
+                    {MEMORY_STATUS_LABELS[item.memory_status] ?? item.memory_status}
+                  </span>
+                  <span className="tag">{SCOPE_LABELS[item.scope] ?? item.scope}</span>
+                  <p>{item.text}</p>
+                </li>
+              ))}
+              {(state?.feedback ?? []).length === 0 ? (
+                <li className="muted" data-testid="feedback-empty">尚无主人反馈。</li>
+              ) : null}
+            </ul>
+            <p className="hint">
+              本地「已保存原文」仅表示反馈已存入业务库；未接入 AgentCore 时不会提炼为长期记忆，
+              页面也不会谎称记忆检索成功。反馈归因为主人观察，不等同于模型推断的宠物意图。
+            </p>
+          </div>
         </section>
       </div>
 
@@ -331,18 +698,105 @@ export default function App() {
         </button>
         {demoOpen ? (
           <div className="demo-body">
-            <label htmlFor="room">事件房间</label>
-            <select id="room" value={room} onChange={(e) => setRoom(e.target.value as typeof room)}>
-              <option value="kitchen">kitchen</option>
-              <option value="living_room">living_room</option>
-              <option value="unknown">unknown</option>
-            </select>
-            <label htmlFor="note">事件备注（视为资料，不作为策略输入）</label>
-            <input id="note" value={note} maxLength={500} onChange={(e) => setNote(e.target.value)} />
-            <button type="button" onClick={() => sendEvent('food_request', note)} disabled={busy || !canAct}>
-              注入自定义吃饭事件
-            </button>
-            <p className="hint">现场修改喂食事实与注入设备回执（成功/失败/未知）将于 Day-2 接入。</p>
+            <fieldset disabled={busy || !canAct}>
+              <legend>注入事件</legend>
+              <label htmlFor="room">事件房间</label>
+              <select id="room" value={room} onChange={(e) => setRoom(e.target.value as typeof room)}>
+                <option value="kitchen">kitchen</option>
+                <option value="living_room">living_room</option>
+                <option value="unknown">unknown</option>
+              </select>
+              <label htmlFor="note">事件备注（视为资料，不作为策略输入）</label>
+              <input id="note" value={note} maxLength={500} onChange={(e) => setNote(e.target.value)} />
+              <button type="button" onClick={() => sendEvent('food_request', note)}>
+                注入自定义吃饭事件
+              </button>
+            </fieldset>
+
+            <fieldset disabled={busy || !canAct}>
+              <legend>修改演示事实</legend>
+              <label htmlFor="fact-last-fed">上次喂食距今（分钟，0–1440）</label>
+              <input
+                id="fact-last-fed"
+                type="number"
+                min={0}
+                max={1440}
+                value={factLastFed}
+                disabled={clearLastFed}
+                onChange={(e) => setFactLastFed(e.target.value)}
+              />
+              <label htmlFor="clear-last-fed">
+                <input
+                  id="clear-last-fed"
+                  type="checkbox"
+                  checked={clearLastFed}
+                  onChange={(e) => setClearLastFed(e.target.checked)}
+                />
+                设为未知（触发信息不足）
+              </label>
+              <label htmlFor="fact-dispensed">当日已出粮（克）</label>
+              <input
+                id="fact-dispensed"
+                type="number"
+                min={0}
+                value={factDispensed}
+                disabled={clearDispensed}
+                onChange={(e) => setFactDispensed(e.target.value)}
+              />
+              <label htmlFor="clear-dispensed">
+                <input
+                  id="clear-dispensed"
+                  type="checkbox"
+                  checked={clearDispensed}
+                  onChange={(e) => setClearDispensed(e.target.checked)}
+                />
+                设为未知（触发信息不足）
+              </label>
+              <div className="actions">
+                <button
+                  type="button"
+                  data-testid="apply-facts"
+                  onClick={() => {
+                    const body: DemoFactsIn = {}
+                    const clear: DemoFactsIn['clear'] = []
+                    if (clearLastFed) clear.push('last_fed_minutes_ago')
+                    else if (factLastFed !== '') body.last_fed_minutes_ago = Number(factLastFed)
+                    if (clearDispensed) clear.push('daily_dispensed_grams')
+                    else if (factDispensed !== '') body.daily_dispensed_grams = Number(factDispensed)
+                    if (clear.length > 0) body.clear = clear
+                    void applyFacts(body)
+                  }}
+                >
+                  应用事实变更
+                </button>
+                <button type="button" data-testid="reset-facts" onClick={() => void applyFacts({ reset: true })}>
+                  恢复默认事实
+                </button>
+              </div>
+              <p className="hint">
+                只能修改这两项事实；日配额、单次上限与最短间隔是硬性限制，不可经演示端点修改。
+                变更会递增 facts_version，此前待批准的建议将失效（返回 409）并要求重新确认。
+              </p>
+            </fieldset>
+
+            <fieldset disabled={busy || !canAct}>
+              <legend>注入模拟回执</legend>
+              <label htmlFor="device-mode">模拟执行器模式</label>
+              <select
+                id="device-mode"
+                data-testid="device-mode"
+                value={state?.device_mode ?? 'succeeded'}
+                onChange={(e) => void applyDeviceMode(e.target.value as DeviceMode)}
+              >
+                <option value="succeeded">succeeded（成功）</option>
+                <option value="failed">failed（失败）</option>
+                <option value="unknown">unknown（未知）</option>
+              </select>
+              <p className="hint">
+                仅影响之后的新命令，不追溯已记录的回执；保存在进程内，重启后复位为 succeeded。
+                执行器始终是模拟对象，不驱动真实硬件。
+              </p>
+            </fieldset>
           </div>
         ) : null}
       </section>
