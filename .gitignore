@@ -14,6 +14,9 @@ frontend/test-results/
 !.env.example
 *.log
 *.sqlite*
+# Local file databases created via PAWTWIN_DB_PATH (restart-recovery tests).
+*.db
+*.db-journal
 data/
 .worktrees/
 .superpowers/

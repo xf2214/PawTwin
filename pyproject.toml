@@ -13,6 +13,25 @@ dependencies = [
   "uvicorn[standard]==0.53.0",
 ]
 
+[project.optional-dependencies]
+# Day-2 ruling 24: the real-model dependency is an OPTIONAL extra, pinned like the
+# runtime deps above. CI and the container image do not install it by default, so
+# the bedrock code path stays a named, uncovered surface rather than a silent risk.
+# pawtwin.agent imports strands lazily and fails closed when it is missing.
+bedrock = [
+  "strands-agents==1.57.0",
+]
+# Day-3 ruling 11: the real AgentCore Memory adapter talks to boto3's
+# ``bedrock-agentcore`` client. boto3 is ALREADY resolved (a transitive dependency of
+# strands-agents above), so this extra adds no new download; it only makes the
+# dependency explicit for the memory code path and pins the already-locked version.
+# pawtwin.agentcore_client imports boto3 LAZILY and fails closed (MemoryUnavailable)
+# when it is missing, so CI and the default install never need it and the AgentCore
+# path stays a named, uncovered surface rather than a silent risk.
+memory = [
+  "boto3==1.43.102",
+]
+
 [dependency-groups]
 dev = [
   "httpx==0.28.1",
@@ -25,7 +44,16 @@ packages = ["backend/pawtwin"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-q"
+# ``bedrock_live`` makes a real, billable AWS call and is excluded by default so a
+# blocked check is NAMED rather than silently missing (AGENTS.md). Run it only
+# inside an authorised budget: uv run --frozen pytest -m bedrock_live
+addopts = "-q -m 'not bedrock_live and not agentcore_live'"
+markers = [
+  "bedrock_offline: offline adapter tests for the Bedrock path; NOT cloud evidence",
+  "bedrock_live: real AWS Bedrock round trip; needs an authorised account and budget",
+  "agentcore_live: real AWS AgentCore Memory round trip; needs an authorised account",
+  "restart: real OS-process restart recovery; spawns a short-lived subprocess",
+]
 
 [tool.ruff]
 target-version = "py312"
