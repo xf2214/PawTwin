@@ -62,3 +62,19 @@ uv run --frozen pytest -q -o addopts=""               # 全量（当前 192 pass
 ./scripts/cleanup.ps1; $LASTEXITCODE                  # 期望 2
 ./scripts/verify.ps1                                  # 期望 EXIT=0
 ```
+
+## 7 第二轮独立审查（同日，覆盖 `c4ae5f8..63f3de6` 全部 Day-4 本地提交，2026-09-29 晚）
+
+第一轮「零发现」后，总负责人对 Day-4 全部本地改动（含第一轮审查之后的提交）另起**第二轮非作者审查**。结论 **PASS-WITH-NITS：0 阻断 / 4 重要 / 8 nit**——第一轮的「无 important」判定在覆盖面扩大后**不成立**，本轮发现已全部回源码核实并处理：
+
+| # | 级别 | 发现 | 处置 |
+|---|---|---|---|
+| 1 | 重要 | `X-Forwarded-Proto` 被**无条件采信**，偏离裁定 5/降级预案 A（「受信开关默认关闭」）；伪造头可让自身会话 cookie 在 http 上带 `Secure`，表现为静默登录循环 | ✅ 已修（`a575a61`）：新增 `PAWTWIN_TRUST_PROXY_HEADERS`（默认 false），采信仅在开关打开时发生；配对测试含「伪造头默认无效」；负向验证（删守卫行→转红）已做 |
+| 2 | 重要 | 诚实标签 `available`/`processing` 自身含 e2e 禁串「可检索」——云端合法解锁当日两条 e2e 必假红，且「收紧禁串」的注释前提不成立 | ✅ 已修（`a575a61`）：措辞改为不含禁串的生命周期表述；新增 `tests/test_frontend_labels.py` 2 项源码级耦合守卫（标签禁串 + 「真实模型」只允许出现在证据配对行） |
+| 3 | 重要 | 文档高报验证广度：「本机干跑全部路径/全部分支实测」——实际所有组合停在 Gate 1（无 AWS CLI），Gate 2–4 与「过门仍拒」路径从未被执行 | ✅ 已修（`a575a61`）：`infrastructure.md`/`cloud-access-checklist.md` 更正为「5+4 组合实测 exit 2 均停 Gate 1；其余仅代码审读」，并披露参数绑定错误退出码为 1 的边界 |
+| 4 | 重要→更正 | 390px 修复注释失真：所称 nowrap 行实际基线已 `flex-wrap: wrap`；算式 `140*3+2*10+44=384` 应为 484；死规则冗余 | ✅ 已修（`a575a61`）：删死规则、注释改正确机制（两 140px 按钮/行 → min-content≈334 + 证据行长 token）；`overflow-wrap: anywhere` 的「桌面不变」降级为「预计不变、未逐项测量」 |
+| 5–12 | nit | 静态守卫只证字面量写入（盲区未声明）/ `get_status` 零调用者不变式未固化为断言 / 「真实模型」未与 `backend==='bedrock'` 相与 / `replace('（已配置…）','')` 字符串耦合 / `.truth-strip{overflow:hidden}` 文档级断言盲区 / preflight「恒 0」绝对化（工具缺失时 throw） / 授权令牌两种拼法 / e2e 视口「这不证明什么」措辞 | ✅ 前五项已在 `a575a61` 落地（盲区声明、`get_status` 不变式断言、证据相与、常量拆分、断言措辞）；令牌命名与 preflight 措辞已随 #3 一并更正 |
+
+**复跑（第二轮修复后，干净 HEAD）**：`pytest` **195 passed, 10 skipped**（具名不变）、`ruff` 无告警、契约 current（14 路径）、`typecheck`/`build` 通过、e2e **16 passed**、`deploy.ps1`/`cleanup.ps1` 仍全组合 `NOT EXECUTED`+exit 2。
+
+**对第一轮结论的更正**：§1「无 important」仅对第一轮自身覆盖范围成立；§5.4 所指工作产物 `_review_diff_day4.txt` 已删除（曾一度误入库，`ebe3e11` 移出）。第一轮 §4 的三项独立复核未发现上述问题，说明**同一作者视角的复核不能替代覆盖面更广的第二轮审查**——此教训适用于后续各日。

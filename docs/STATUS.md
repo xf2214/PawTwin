@@ -1,8 +1,8 @@
-# 当前开发状态
+﻿# 当前开发状态
 
 更新日期：2026-09-29（Day-4）。
 
-Day-4 主线已完成并通过本地全部检查：**S0 基线入库（7 组提交，Day-2/Day-3 全量落库）→ G1 干净树全量回归实测 → G2 访问控制补口 → G3 健康检查端点硬裁定 → G4/G5 fail-closed 部署与清理脚本 + 文档一致性修正 → G7 标签证据驱动与 `available` 反伪造守卫 → G6 浏览器验收矩阵（e2e 10 → 16）→ G9 文档与上报**。本地必过门 **G0–G9 全部达成**；**G8 非作者独立审查结论 = PASS**（无 blocker/important/nit，见 [reviews/day4.md](reviews/day4.md)）——因 Day-2/Day-3 均为 PASS-WITH-NITS，本轮「零发现」被当作待验证断言，总负责人已亲自复核其中三条最易自我美化的判断（均成立）。当日计划与 14 条技术裁定见 [Day-4 开发计划](plans/PawTwin_Day4_开发计划.md)。
+Day-4 主线已完成并通过本地全部检查：**S0 基线入库（7 组提交，Day-2/Day-3 全量落库）→ G1 干净树全量回归实测 → G2 访问控制补口 → G3 健康检查端点硬裁定 → G4/G5 fail-closed 部署与清理脚本 + 文档一致性修正 → G7 标签证据驱动与 `available` 反伪造守卫 → G6 浏览器验收矩阵（e2e 10 → 16）→ G9 文档与上报**。本地必过门 **G0–G9 全部达成**。**G8 非作者独立审查共两轮**：第一轮结论 PASS（零发现，见 [reviews/day4.md](reviews/day4.md) §1–§4）；总负责人对 Day-4 全部本地提交（`c4ae5f8..63f3de6`）另起**第二轮**独立审查，结论 **PASS-WITH-NITS（0 阻断 / 4 重要 / 8 nit）**，4 项重要已全部修复并复跑（`a575a61`，后记见 reviews/day4.md §7）：①`X-Forwarded-Proto` 无条件采信偏离裁定 5 → 改为默认关闭的受信开关；②诚实标签自身含 e2e 禁串「可检索」（云端解锁时必假红）→ 重写措辞并新增源码耦合守卫 2 项；③文档高报「干跑全部路径实测」→ 更正为「全部组合停在 Gate 1，Gate 2–4 仅经代码审读」；④样式修复注释失真（算式/机制错误）→ 已改正。当日计划与 14 条技术裁定见 [Day-4 开发计划](plans/PawTwin_Day4_开发计划.md)。
 
 **Day-4 的字面验收（总方案 L103「HTTPS 演示可访问；访问控制、刷新、重启和失败回执通过；可部署可删除」）整体不可达成，已上报而非拆成半通过**：①无 AWS 账号与凭据；②本机无 Docker/AWS CLI/CDK（用户已裁定不安装 Docker）；③`infra/` 无任何 IaC 源、`deploy.ps1 -Apply`/`cleanup.ps1 -Destroy` 明确未实现；④`create_app` 对 `mode == "aws"` 无条件 `raise NotImplementedError`（`main.py:81-82`，**这是 fail-closed 设计而非缺陷**：`repo_dynamo` 未实现前移除它等于用 SQLite 冒充云端存储）。按总方案 L106/L153：云端里程碑整体顺延，**无 AWS 验证时 Day-5 产物须命名为「本地验证候选（非参赛版）」**。逐条阻断与解锁前提见 [day4-cloud-blocked](evidence/day4-cloud-blocked.md)。
 
@@ -20,7 +20,7 @@ Day-4 主线已完成并通过本地全部检查：**S0 基线入库（7 组提�
 | **必过 G5** | 镜像**静态审读**（仍「未构建」）+ 修 `pyproject.toml` 的 extra 假陈述 + `uv sync --frozen --extra bedrock --extra memory` 合并实测 | ✅ exit 0（Audited 63，无新增下载） |
 | **必过 G6** | 浏览器验收矩阵新增 6 条 e2e（未登录 401、`unknown` 回执、待批准 reload、**1440px/390px 视口**、改事实→克数变化、新会话+记忆诚实），每条附「这不证明什么」 | ✅ e2e **16 passed**（15.7s） |
 | **必过 G7** | 前端标签改为**证据驱动**（无 `request_id`/无真实记忆证据不得称「真实」）+ `available` 反伪造守卫 4 条（含静态字面量守卫） | ✅ 通过；顺带修复 **390px 横向溢出 6px** 的真实缺陷（改 `styles.css`，未放宽断言） |
-| **必过 G8** | 非作者独立审查 + 修复 + 复跑 | ✅ **PASS**（审查范围 `b1f508a..63f3de6`，10 项高信号逐条核实全 ✅，无 blocker/important/nit，无需修复故无复测）；总负责人另对「零发现」做了 3 项独立复核，见 [reviews/day4.md](reviews/day4.md) §4 |
+| **必过 G8** | 非作者独立审查 + 修复 + 复跑 | ⚠→✅ **两轮**：第一轮 PASS（零发现，reviews/day4.md §1–§4）；第二轮（覆盖 `c4ae5f8..63f3de6` 全部本地提交）**PASS-WITH-NITS（0 阻断/4 重要/8 nit）**，4 重要已全部修复：受信代理开关、标签禁串耦合守卫（`tests/test_frontend_labels.py` 2 项）、`get_status` 未接线不变式、文档覆盖面措辞归真；复跑 **195 passed, 10 skipped** + e2e 16 passed。见 reviews/day4.md §7 |
 | **必过 G9** | 文档诚实四件套 + 零副作用 + 字面验收顺延上报 | ✅ `day4-handoff`/`day4-local`/`day4-cloud-blocked` + 本段 + TASKBOARD 第 4 日完成记录 |
 | **尽力** | `preflight` 退出码语义分级成文；checklist 命令块改「现状 + 目标」并补 Day-4 状态段；删除依赖顺序成文；`infra/` 纯文本 IAM 草案、费用表拆行、`preflight -Mode` 真实参数 | ⚠️ **部分完成**：文档一致性与删除顺序已落；IAM/CFN 草案、费用表拆行与 `-Mode` 参数**未做**（顺延） |
 | **条件** | 真实 plan/apply、镜像构建、HTTPS、公网 A12、双副本、真实 Bedrock/AgentCore、`repo_dynamo` 真表 | ⛔ **未执行**（N1–N10 逐条见 cloud-blocked；Day-3 的 M1–M12 全部仍未解除） |
@@ -29,7 +29,7 @@ Day-4 主线已完成并通过本地全部检查：**S0 基线入库（7 组提�
 
 | 检查 | 命令 | 结果 |
 |---|---|---|
-| 后端测试（全量） | `uv run --frozen pytest -p no:cacheprovider -o addopts="" -q -rs` | **192 passed, 10 skipped**（5 `agentcore_live` + 4 `bedrock_live` + 1 `restart` 尽力项占位，均具名） |
+| 后端测试（全量） | `uv run --frozen pytest -p no:cacheprovider -o addopts="" -q -rs` | **195 passed, 10 skipped**（G8 第二轮补修后实测；skip 全具名：5 `agentcore_live` + 4 `bedrock_live` + 1 `restart` 尽力项占位） |
 | 后端测试（默认 addopts） | `uv run --frozen pytest -p no:cacheprovider` | **192 passed, 1 skipped, 9 deselected** |
 | 静态检查 | `uv run --frozen ruff check .` | All checks passed（复核中曾发现 1 处 `I001`，已修） |
 | 契约一致性 | `uv run --frozen python scripts/export_contracts.py --check` | Contracts are current（仍 **14 条路径**；`domain.schema.json` 未变，恰 6 输入模型 + `RunState`） |
@@ -46,12 +46,12 @@ Day-4 主线已完成并通过本地全部检查：**S0 基线入库（7 组提�
 
 ## Day-4 关键实现与裁定落地
 
-1. **cookie `Secure` 跟随连接而非模式（裁定 5，阻断级修复）**：原判据 `mode == "aws"` 在部署形态下**永假**（镜像烤死 `PAWTWIN_MODE=local`，且 `create_app` 拒绝 `aws` 模式），会把公网会话 cookie 以无 `Secure` 下发。现按 `request.url.scheme == "https"` 或 `X-Forwarded-Proto: https` 判定；该头**只能加不能减** `Secure`，故无需受信代理开关也不会削弱安全。本地无证书，**不等于 HTTPS 已验证**。
+1. **cookie `Secure` 跟随连接而非模式（裁定 5，阻断级修复；G8 第二轮补全代理语义）**：原判据 `mode == "aws"` 在部署形态下**永假**（镜像烤死 `PAWTWIN_MODE=local`，且 `create_app` 拒绝 `aws` 模式），会把公网会话 cookie 以无 `Secure` 下发。现按 `request.url.scheme == "https"` 判定；`X-Forwarded-Proto` **仅在 `PAWTWIN_TRUST_PROXY_HEADERS=true`（默认关闭）时采信**，且只能加不能减——第一轮实现曾无条件采信，属对裁定 5/降级预案 A 的未声明偏离，G8 第二轮已改回开关式并补配对测试（伪造头默认无效）。本地无证书，**不等于 HTTPS 已验证**。
 2. **A12 测试矩阵补口（裁定 6）**：`POST /api/runs/{run_id}/approval` 是唯一能触发执行与记账的写入口，此前**既无 401 也无 403 断言**；`POST /api/logout` 无 401 断言。已补齐并断言门序（未登录 401 不泄露 run 是否存在；正确令牌过门后未知 run 才 404）。
 3. **fail-closed 部署/清理入口（裁定 9）**：`-PlanOnly` 保留任务单字面命名，但 `.SYNOPSIS` 钉死「无 CLI/无 IaC 源时不产出任何 plan」；`-Apply`/`-Destroy` 需显式授权令牌且当前明确「未实现」；account id 仅运行期注入、绝不预填。**脚本存在 ≠ 可部署**。
 4. **退出码语义分级（裁定 8）**：环境自检类（`preflight.ps1`）恒 0 退出但逐段打印 `NOT EXECUTED`；计费/资源类（smoke/deploy/cleanup）fail-closed 退出码 2。据此修正了 `docs/agents/infrastructure.md` 早期的笼统要求与 `infra/cloud-access-checklist.md` 中并不存在的 `-Mode aws` 命令。
 5. **标签证据驱动（裁定 13，失真级修复）**：`analyzer=bedrock` 不再直接显示「真实模型」，只有 `request_id` 非空才升级措辞；`memory=agentcore` 同理；`storage` 标签明写「`repo_dynamo` 未实现」；`memory_status` 词表去掉「真实记忆」字样。杜绝「配置即真实」的失真入口。
-6. **`available` 反伪造守卫（裁定 11）**：4 条测试钉住「本地配置下无任何路径能把 `memory_status` 写成 `available`/`processing`」，其中 1 条为**静态字面量守卫**（白名单仅 `models.py`/`memory.py`/`agentcore_client.py`），使未来「顺手接线」必须先显式重新裁定。措辞归真：`MemoryService.get_status` 接口已就位、**生产端无调用方**，`processing→available` 生命周期**未接线**（既非「已实现待验证」，也非「完全未实现」）。
+6. **`available` 反伪造守卫（裁定 11，G8 第二轮后共 5+2 项）**：`tests/test_feedback_api.py` 5 条钉住「本地配置下无任何路径能把 `memory_status` 写成 `available`/`processing`」，含**静态字面量守卫**（白名单仅 `models.py`/`memory.py`/`agentcore_client.py`，并声明其只证字面量写入、传播路径靠行为守卫）与 **`get_status` 生产端零调用者不变式**；`tests/test_frontend_labels.py` 另钉住前端标签与 e2e 禁串的耦合（「可检索」等禁串不得出现在标签常量，「真实模型」字样只允许出现在证据配对行）。措辞归真：`MemoryService.get_status` 接口已就位、**生产端无调用方**，`processing→available` 生命周期**未接线**。
 7. **390px 溢出（T3 从未做过的检查）**：首次引入 1440px/390px 视口断言即暴露证据行长文本不可断行导致横向溢出 6px，已修 `styles.css` 并复测；修复落在样式而**非放宽断言**（`overflow <= 0` 仍在）。
 8. **待批准刷新的诚实行为**：CSRF 令牌按设计仅存内存（`api.ts`），刷新后批准/拒绝按钮**禁用**并显示「需重新登录」提示；e2e 断言的正是这个诚实行为，而非假装刷新后仍可操作。
 
@@ -82,11 +82,16 @@ Day-4 主线已完成并通过本地全部检查：**S0 基线入库（7 组提�
 | `a37c161` | Day-4 G4/G5 fail-closed 部署清理脚本 + 文档一致性修正 |
 | `94442b5` | Day-4 G7 标签证据驱动 + 390px 视口溢出修复 |
 | `f3b96e4` | Day-4 G7 `available` 反伪造守卫 4 项 + FE-04 浏览器验收矩阵 6 条 |
-| 本提交 | Day-4 G9 文档与证据（STATUS/TASKBOARD/evidence 三件套） |
+| `63f3de6` | Day-4 G9 文档四件套（STATUS/TASKBOARD/evidence 三件） |
+| `aaaddd3` | Day-4 G8 第一轮审查结论回填（PASS，零发现） |
+| `a575a61` | Day-4 G8 **第二轮**审查补修（受信代理开关 + 标签禁串耦合守卫 + 未接线不变式 + 覆盖面措辞归真） |
+| `ebe3e11` | 移出误入库的第二轮审查临时产物 `_review_diff_day4.txt`（文件已删除，工作产物不入库） |
 
 **契约冻结 ID 的披露（裁定 4）**：只回填 `590aa5a` 一个。实测 `94216df` 与 `dc8dc10` 的 `contracts/openapi.json` **均为 9 条路径**，工作区为 14 条 → **Day-2 的「11 路径冻结点」从未入库**，且契约是 `export_contracts.py` 的生成物（禁止手改），事后无法分离。**中间提交未逐个复验**（Day-2/Day-3 改动在 `models.py`/`api.py`/`contracts/` 同批纠缠、终态互依赖），只在最终 HEAD 声明全绿。Day-1 冻结 ID `94216df` 保留为历史冻结点，未改写。
 
-**仍未推送远程**（无 remote，需用户授权）。无秘密入库、无云资源创建、**无费用**、**无镜像构建**。工作区遗留另一执行体的审查工作产物 `_review_diff_day4.txt`（未入库、未被忽略），应删除或加入 `.gitignore`。
+**仍未推送远程**（无 remote，需用户授权）。无秘密入库、无云资源创建、**无费用**、**无镜像构建**。审查临时产物 `_review_diff_day4.txt` 已删除（曾一度误入库，`ebe3e11` 移出）。
+
+**环境变化（2026-09-29 晚，云端切片前置）**：本机已以 pip `--user` 安装 **AWS CLI v1.46.1**（不需管理员、不入仓库，已加入用户 PATH）。据此 G4 门控行为实测变化：`deploy.ps1`/`cleanup.ps1` 现在通过 `aws` 探测、停在 `cdk` 缺失（仍 `NOT EXECUTED` + 退出码 2，零 AWS 调用）——「所有组合停在 Gate 1（aws 缺失）」的旧表述自此不再精确，已在 `docs/agents/infrastructure.md` 以更一般化的「无 CLI 时停在前两道门」口径记录；CDK 仍未安装。**云凭据仍未配置**（用户 2026-09-29 确认未就绪、并裁定今日不执行计费调用），因此 §7.5 手顺仍停在「凭据注入」一步，真实 Bedrock/AgentCore 验证继续作为条件项。
 
 ---
 
