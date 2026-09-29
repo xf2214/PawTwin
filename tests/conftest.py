@@ -35,6 +35,7 @@ def clear_pawtwin_environment(monkeypatch: pytest.MonkeyPatch) -> Iterator[None]
         "PAWTWIN_MAX_ATTEMPTS",
         "PAWTWIN_MAX_CONCURRENT_PER_SESSION",
         "PAWTWIN_MAX_CONCURRENT_GLOBAL",
+        "PAWTWIN_TRUST_PROXY_HEADERS",
     ):
         monkeypatch.delenv(name, raising=False)
     yield

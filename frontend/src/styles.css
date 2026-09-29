@@ -461,13 +461,10 @@ button.ghost {
     grid-template-columns: 1fr;
   }
 
-  /* Day-4 viewport matrix: a nowrap flex row of three flex-basis:140px buttons
-     set the panel min-content to 140*3+2*10+44 = 384px and overflowed 390px
-     screens. Buttons may wrap (and stretch) on narrow viewports. */
-  .actions {
-    flex-wrap: wrap;
-  }
-
+  /* Day-4 viewport matrix: action rows wrap two flex-basis:140px buttons per
+     line, so a panel's min-content stayed near 2*140+10+44 = 334px and the
+     page overflowed a 390px screen. On narrow viewports buttons take half a
+     row, letting one per line satisfy min-content. */
   .actions button {
     flex: 1 1 45%;
   }
@@ -554,7 +551,8 @@ button.ghost {
   line-height: 1.5;
   /* Day-4: snake_case summaries ("last_fed_minutes_ago=360, ...") are single
      unbreakable tokens; allow breaking so narrow viewports never overflow.
-     Desktop wrapping is unchanged because the text fits. */
+     Desktop line breaks are expected to be unchanged (the text never reached
+     the break threshold) but that was not measured per-campaign. */
   overflow-wrap: anywhere;
 }
 

@@ -113,10 +113,29 @@ def test_secure_cookie_follows_the_connection_not_the_mode() -> None:
         plain_cookie = plain_client.post("/api/login", json=payload).headers["set-cookie"]
     assert "secure" not in plain_cookie.lower()
 
-    # A TLS-terminating proxy reports the outer scheme; honouring the header can
-    # only ADD Secure, never remove it.
-    with TestClient(app, base_url="http://testserver") as proxied_client:
-        proxied = proxied_client.post(
+    # Without the trusted-proxy switch (the shipped default), a spoofed
+    # X-Forwarded-Proto changes NOTHING: plain HTTP keeps omitting Secure.
+    spoof_app = create_app(
+        Settings(_env_file=None, worker_mode="inline", trust_proxy_headers=False)
+    )
+    with TestClient(spoof_app, base_url="http://testserver") as spoof_client:
+        spoofed = spoof_client.post(
             "/api/login", json=payload, headers={"X-Forwarded-Proto": "https"}
         )
+    assert "secure" not in spoofed.headers["set-cookie"].lower()
+
+    # An operator who has confirmed a TLS-terminating proxy opts in explicitly;
+    # only then is the header's FIRST chain value honoured (it can only ADD
+    # Secure, never remove it).
+    proxy_app = create_app(
+        Settings(_env_file=None, worker_mode="inline", trust_proxy_headers=True)
+    )
+    with TestClient(proxy_app, base_url="http://testserver") as proxied_client:
+        proxied = proxied_client.post(
+            "/api/login", json=payload, headers={"X-Forwarded-Proto": "https, http"}
+        )
     assert "secure" in proxied.headers["set-cookie"].lower()
+
+    with TestClient(proxy_app, base_url="http://testserver") as plain_proxy_client:
+        unproxied = plain_proxy_client.post("/api/login", json=payload)
+    assert "secure" not in unproxied.headers["set-cookie"].lower()

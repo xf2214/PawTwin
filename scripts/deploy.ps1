@@ -22,7 +22,8 @@
 
 .OUTPUTS
     NOT EXECUTED: <reason>   + exit 2  on any failed gate
-    usage/parameter problems + exit 2  (never a silent success)
+    (PowerShell parameter BINDING errors, e.g. an unknown switch, terminate
+     before the script body runs and exit 1, not 2 -- known boundary.)
 
 .EXAMPLE
     ./scripts/deploy.ps1 -PlanOnly

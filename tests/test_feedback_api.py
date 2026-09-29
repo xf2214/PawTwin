@@ -315,7 +315,12 @@ def test_no_other_backend_module_ever_writes_available_or_processing_literals() 
     adapter (memory.py / agentcore_client.py) may contain the ``available``/
     ``processing`` status literals. If a future change adds them anywhere else --
     api.py, workflow.py, worker.py, repo_sqlite.py, config.py -- this fails and
-    forces an explicit re-ruling."""
+    forces an explicit re-ruling.
+
+    Known blind spot (G8 review): this guards LITERAL writes only. A status
+    propagated through a variable or mapping (``STATUS_MAP[x]``, a re-export)
+    is caught by the behavioural guards above, not by this scan.
+    """
 
     backend_dir = Path(__file__).resolve().parents[1] / "backend" / "pawtwin"
     pattern = re.compile(r'["\'](available|processing)["\']')
@@ -325,4 +330,19 @@ def test_no_other_backend_module_ever_writes_available_or_processing_literals() 
         if path.name not in _ALLOWED_LIFECYCLE_WRITERS and pattern.search(path.read_text("utf-8"))
     ]
     assert offenders == []
+
+
+def test_memory_status_polling_lifecycle_stays_unwired_in_production() -> None:
+    """F11 invariant as an assertion (G8 review): ``MemoryService.get_status``
+    exists but has NO production caller -- the processing->available polling
+    lifecycle is unwired, and wiring it is an explicit account-day decision, not
+    a silent import. Only memory.py itself and tests may reference it."""
+
+    backend_dir = Path(__file__).resolve().parents[1] / "backend" / "pawtwin"
+    callers = [
+        path.name
+        for path in sorted(backend_dir.glob("*.py"))
+        if path.name != "memory.py" and re.search(r"\.get_status\(", path.read_text("utf-8"))
+    ]
+    assert callers == []
 

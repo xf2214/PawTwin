@@ -157,7 +157,11 @@ test('desktop 1440px and narrow 390px show no overflow and states are not color-
     await expect(page.getByTestId('run-status')).toHaveText('已拒绝')
   }
   // What this does NOT prove: every device/browser combination or long-text
-  // robustness (e.g. judge-typed paragraph input). Two fixed widths only.
+  // robustness (e.g. judge-typed paragraph input). Two fixed widths only. The
+  // assertion is DOCUMENT-level horizontal overflow; a container that clips its
+  // own overflow (.truth-strip { overflow: hidden }) could hide an inner
+  // spill from scrollWidth -- no such clipping is relied on here, but the
+  // e2e wording is 「无文档级横向滚动」, not 「任何元素无溢出」.
 })
 
 test('raising the daily dispensed amount shifts the proposed grams', async ({ page }) => {

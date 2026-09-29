@@ -92,9 +92,12 @@ def _cookie_secure(request: Request) -> bool:
     wire without ``Secure``. ``create_app`` also refuses ``mode=aws`` until the cloud
     adapters exist, which made the old predicate unreachable in practice.
 
-    ``X-Forwarded-Proto`` is honoured without a trusted-proxy switch on purpose: the
-    header can only ADD ``Secure``, never remove it, so a spoofed value restricts
-    that caller's own cookie instead of loosening anyone else's.
+    ``X-Forwarded-Proto`` is only consulted when ``trust_proxy_headers`` is set
+    explicitly (Day-4 ruling 5 / fallback A, reaffirmed after the G8 review):
+    unconditionally honouring it let any caller spoof the header and make their
+    OWN session cookie ``Secure`` over plain HTTP -- a silent login loop, and a
+    deviation from the written ruling. Off by default, the direct connection
+    scheme is the only judge.
 
     Not verified against a real TLS terminator locally (no certificate, no account):
     see docs/evidence/day4-cloud-blocked.md.
@@ -102,6 +105,8 @@ def _cookie_secure(request: Request) -> bool:
 
     if request.url.scheme == "https":
         return True
+    if not _settings(request).trust_proxy_headers:
+        return False
     forwarded = request.headers.get("x-forwarded-proto", "")
     return forwarded.split(",")[0].strip().lower() == "https"
 

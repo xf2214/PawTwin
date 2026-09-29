@@ -47,17 +47,25 @@ const ACTION_LABELS: Record<string, string> = {
 
 // Day-4 ruling 13: labels are EVIDENCE-driven, never configuration-driven. The
 // wording with the 「真实」 marker may only appear once a real cloud artifact is
-// observable in the payloads (a non-null request_id / a real available memory
-// status); config alone (analyzer==='bedrock') only ever earns 「已配置」.
+// observable in the payloads (a non-null request_id PAIRED with a bedrock
+// backend / a real available memory status); config alone (analyzer==='bedrock')
+// only ever earns 「已配置」. G8 review: the evidence suffix is a separate
+// constant, never a string.replace off the config label, so rewording one site
+// cannot silently break the other.
 const ANALYZER_CONFIG_LABELS: Record<AnalyzerBackend, string> = {
   inline: '确定性测试后端',
   local_fake: '本地替身（非真实模型）',
   bedrock: 'AWS Bedrock（已配置，未经真实调用验证）',
 }
 
+const REAL_CALL_EVIDENCE = '本 run 已有 request id，真实调用已发生'
+
+// G8 review: every label here must avoid the substrings the e2e specs forbid
+// (「可检索」/「已检索到记忆」/「真实记忆」/「真实检索」), otherwise an honest
+// lifecycle state would either trip those assertions or read as proven retrieval.
 const MEMORY_BACKEND_LABELS: Record<'not_implemented' | 'agentcore', string> = {
   not_implemented: '未实现（无 AWS 账号）',
-  agentcore: 'AgentCore（已配置，未经真实检索证据验证）',
+  agentcore: 'AgentCore（已配置，未经真实证据验证）',
 }
 
 const TOOL_LABELS: Record<string, string> = {
@@ -86,8 +94,8 @@ const DEVICE_LABELS: Record<DeviceMode, string> = {
 // future wiring change assert cloud truth without evidence.
 const MEMORY_STATUS_LABELS: Record<MemoryStatus, string> = {
   saved: '已保存原文（未提炼）',
-  processing: '提炼中（尚未可检索）',
-  available: '可检索（AgentCore 生命周期状态，以服务端记录为准）',
+  processing: '提炼中（尚未完成）',
+  available: '服务端上报提炼完成（AgentCore 生命周期；本地未做检索验证）',
   failed: '提炼失败',
 }
 
@@ -484,9 +492,9 @@ export default function App() {
 
       {state ? (
         <p className="impl-labels" data-testid="impl-labels">
-          <span>分析器：{activeRun?.telemetry?.request_id ? 'AWS Bedrock（真实模型，本 run 已有 request id）' : ANALYZER_CONFIG_LABELS[state.analyzer]}</span>
+          <span>分析器：{activeRun?.telemetry?.request_id && activeRun.telemetry.backend === 'bedrock' ? `AWS Bedrock（真实模型，${REAL_CALL_EVIDENCE}）` : ANALYZER_CONFIG_LABELS[state.analyzer]}</span>
           <span>存储：{state.storage === 'sqlite' ? 'SQLite（本地实现；repo_dynamo 未实现，未经云端验证）' : 'DynamoDB（未经云端验证）'}</span>
-          <span>长期记忆：{(state.feedback ?? []).some((f) => f.memory_status === 'available') ? 'AgentCore（生命周期显示可检索）' : MEMORY_BACKEND_LABELS[state.memory]}</span>
+          <span>长期记忆：{(state.feedback ?? []).some((f) => f.memory_status === 'available') ? 'AgentCore（服务端上报提炼完成）' : MEMORY_BACKEND_LABELS[state.memory]}</span>
         </p>
       ) : null}
 
@@ -576,7 +584,7 @@ export default function App() {
               )}
               {activeRun.telemetry ? (
                 <dl className="telemetry" data-testid="telemetry">
-                  <div><dt>分析后端</dt><dd>{activeRun.telemetry.request_id ? `${ANALYZER_CONFIG_LABELS[activeRun.telemetry.backend].replace('（已配置，未经真实调用验证）', '')}（本 run 已有 request id）` : ANALYZER_CONFIG_LABELS[activeRun.telemetry.backend]}</dd></div>
+                  <div><dt>分析后端</dt><dd>{activeRun.telemetry.request_id && activeRun.telemetry.backend === 'bedrock' ? `AWS Bedrock（真实模型，${REAL_CALL_EVIDENCE}）` : ANALYZER_CONFIG_LABELS[activeRun.telemetry.backend]}</dd></div>
                   <div><dt>模型调用</dt><dd>{activeRun.telemetry.model_calls} 次（上限 4）</dd></div>
                   <div><dt>输出 tokens</dt><dd>{activeRun.telemetry.output_tokens}（上限 800）</dd></div>
                   <div><dt>耗时</dt><dd>{activeRun.telemetry.duration_ms} ms</dd></div>
@@ -640,7 +648,7 @@ export default function App() {
             <p className="memory-backend" data-testid="memory-backend">
               长期记忆：
               {(state?.feedback ?? []).some((f) => f.memory_status === 'available')
-                ? 'AgentCore（生命周期显示可检索）'
+                ? 'AgentCore（服务端上报提炼完成）'
                 : state?.memory === 'agentcore'
                   ? MEMORY_BACKEND_LABELS.agentcore
                   : '未实现（无 AWS 账号）'}

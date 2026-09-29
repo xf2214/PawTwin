@@ -94,6 +94,15 @@ class Settings(BaseSettings):
         gt=0,
         validation_alias="PAWTWIN_MAX_CONCURRENT_GLOBAL",
     )
+    # Day-4 ruling 5 / fallback A (G8 review): ``X-Forwarded-Proto`` may only
+    # influence the session cookie's ``Secure`` flag behind an explicitly
+    # trusted proxy chain. Default OFF: a spoofed header must never change
+    # another caller's cookie semantics. Deployments behind a TLS-terminating
+    # ALB/proxy set this explicitly after confirming the header is controlled.
+    trust_proxy_headers: bool = Field(
+        default=False,
+        validation_alias="PAWTWIN_TRUST_PROXY_HEADERS",
+    )
 
     @property
     def effective_model_backend(self) -> ModelBackend:
