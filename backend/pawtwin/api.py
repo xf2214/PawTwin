@@ -84,6 +84,28 @@ def _settings(request: Request) -> Settings:
     return request.app.state.settings
 
 
+def _cookie_secure(request: Request) -> bool:
+    """``Secure`` follows the CONNECTION, never ``PAWTWIN_MODE`` (Day-4 ruling 5).
+
+    The shipped image bakes ``PAWTWIN_MODE=local`` while a deployed demo terminates
+    TLS in front of it, so a mode-bound flag would put a public session cookie on the
+    wire without ``Secure``. ``create_app`` also refuses ``mode=aws`` until the cloud
+    adapters exist, which made the old predicate unreachable in practice.
+
+    ``X-Forwarded-Proto`` is honoured without a trusted-proxy switch on purpose: the
+    header can only ADD ``Secure``, never remove it, so a spoofed value restricts
+    that caller's own cookie instead of loosening anyone else's.
+
+    Not verified against a real TLS terminator locally (no certificate, no account):
+    see docs/evidence/day4-cloud-blocked.md.
+    """
+
+    if request.url.scheme == "https":
+        return True
+    forwarded = request.headers.get("x-forwarded-proto", "")
+    return forwarded.split(",")[0].strip().lower() == "https"
+
+
 def _repository(request: Request) -> Repository:
     return request.app.state.repository
 
@@ -184,7 +206,7 @@ def login(body: LoginRequest, response: Response, request: Request) -> LoginResp
         httponly=True,
         samesite="lax",
         # Local HTTP omits ONLY Secure; CSRF is still enforced on writes.
-        secure=_settings(request).mode == "aws",
+        secure=_cookie_secure(request),
         path="/",
     )
     return LoginResponse(csrf_token=session.csrf_token)

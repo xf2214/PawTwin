@@ -1,9 +1,17 @@
 """Demo authentication: server-side passphrase hash, session, and CSRF.
 
-Local HTTP omits only the ``Secure`` cookie flag; CSRF validation is never
-omitted (see Day-1 technical ruling). The demo passphrase is a NON-SECRET local
+The ``Secure`` cookie flag follows the request scheme (``https``, or
+``X-Forwarded-Proto: https`` behind a TLS terminator), NOT ``PAWTWIN_MODE``: the
+shipped image runs ``mode=local`` even when deployed (Day-4 ruling 5). Plain local
+HTTP therefore omits only ``Secure``; CSRF validation is never omitted (see Day-1
+technical ruling). The demo passphrase is a NON-SECRET local
 gate: the real judge passphrase is injected via ``PAWTWIN_DEMO_PASSPHRASE`` and
 delivered through private test instructions, never committed to source.
+
+Known gaps, deliberately NOT closed in Day-4 (see docs/plans/, Day-4 ruling 14):
+no login rate limiting, no session TTL (``Session.created_at`` has no reader), and
+sessions live in process memory, so a second replica would reject another
+replica's cookie with 401. All three are pre-conditions for public HTTPS.
 """
 
 from __future__ import annotations
