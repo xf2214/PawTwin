@@ -45,10 +45,19 @@ const ACTION_LABELS: Record<string, string> = {
   observe: '仅观察',
 }
 
-const BACKEND_LABELS: Record<AnalyzerBackend, string> = {
+// Day-4 ruling 13: labels are EVIDENCE-driven, never configuration-driven. The
+// wording with the 「真实」 marker may only appear once a real cloud artifact is
+// observable in the payloads (a non-null request_id / a real available memory
+// status); config alone (analyzer==='bedrock') only ever earns 「已配置」.
+const ANALYZER_CONFIG_LABELS: Record<AnalyzerBackend, string> = {
   inline: '确定性测试后端',
   local_fake: '本地替身（非真实模型）',
-  bedrock: 'AWS Bedrock（真实模型）',
+  bedrock: 'AWS Bedrock（已配置，未经真实调用验证）',
+}
+
+const MEMORY_BACKEND_LABELS: Record<'not_implemented' | 'agentcore', string> = {
+  not_implemented: '未实现（无 AWS 账号）',
+  agentcore: 'AgentCore（已配置，未经真实检索证据验证）',
 }
 
 const TOOL_LABELS: Record<string, string> = {
@@ -72,10 +81,13 @@ const DEVICE_LABELS: Record<DeviceMode, string> = {
 
 // ``saved`` is the ONLY status a local (no-account) run can reach: it means the raw
 // owner text is stored, never that a memory was extracted or retrieved.
+// Day-4 ruling 13: even ``available``/``processing`` are phrased as lifecycle
+// states plus the backend name — never 「真实记忆」, which would let a stub or a
+// future wiring change assert cloud truth without evidence.
 const MEMORY_STATUS_LABELS: Record<MemoryStatus, string> = {
   saved: '已保存原文（未提炼）',
-  processing: '处理中（等待提炼）',
-  available: '已可检索（真实记忆）',
+  processing: '提炼中（尚未可检索）',
+  available: '可检索（AgentCore 生命周期状态，以服务端记录为准）',
   failed: '提炼失败',
 }
 
@@ -472,9 +484,9 @@ export default function App() {
 
       {state ? (
         <p className="impl-labels" data-testid="impl-labels">
-          <span>分析器：{BACKEND_LABELS[state.analyzer]}</span>
-          <span>存储：{state.storage === 'sqlite' ? 'SQLite（本地，未经云端验证）' : 'DynamoDB'}</span>
-          <span>长期记忆：{state.memory === 'not_implemented' ? '未实现（无 AWS 账号）' : 'AgentCore（真实检索）'}</span>
+          <span>分析器：{activeRun?.telemetry?.request_id ? 'AWS Bedrock（真实模型，本 run 已有 request id）' : ANALYZER_CONFIG_LABELS[state.analyzer]}</span>
+          <span>存储：{state.storage === 'sqlite' ? 'SQLite（本地实现；repo_dynamo 未实现，未经云端验证）' : 'DynamoDB（未经云端验证）'}</span>
+          <span>长期记忆：{(state.feedback ?? []).some((f) => f.memory_status === 'available') ? 'AgentCore（生命周期显示可检索）' : MEMORY_BACKEND_LABELS[state.memory]}</span>
         </p>
       ) : null}
 
@@ -564,7 +576,7 @@ export default function App() {
               )}
               {activeRun.telemetry ? (
                 <dl className="telemetry" data-testid="telemetry">
-                  <div><dt>分析后端</dt><dd>{BACKEND_LABELS[activeRun.telemetry.backend]}</dd></div>
+                  <div><dt>分析后端</dt><dd>{activeRun.telemetry.request_id ? `${ANALYZER_CONFIG_LABELS[activeRun.telemetry.backend].replace('（已配置，未经真实调用验证）', '')}（本 run 已有 request id）` : ANALYZER_CONFIG_LABELS[activeRun.telemetry.backend]}</dd></div>
                   <div><dt>模型调用</dt><dd>{activeRun.telemetry.model_calls} 次（上限 4）</dd></div>
                   <div><dt>输出 tokens</dt><dd>{activeRun.telemetry.output_tokens}（上限 800）</dd></div>
                   <div><dt>耗时</dt><dd>{activeRun.telemetry.duration_ms} ms</dd></div>
@@ -627,7 +639,11 @@ export default function App() {
             <p className="section-label">主人反馈与长期记忆</p>
             <p className="memory-backend" data-testid="memory-backend">
               长期记忆：
-              {state?.memory === 'agentcore' ? 'AgentCore（真实检索）' : '未实现（无 AWS 账号）'}
+              {(state?.feedback ?? []).some((f) => f.memory_status === 'available')
+                ? 'AgentCore（生命周期显示可检索）'
+                : state?.memory === 'agentcore'
+                  ? MEMORY_BACKEND_LABELS.agentcore
+                  : '未实现（无 AWS 账号）'}
               {state?.conversation_id ? ` · 当前会话 ${state.conversation_id.slice(0, 8)}…` : ''}
             </p>
             <form className="feedback-form" onSubmit={submitFeedback}>
@@ -737,6 +753,7 @@ export default function App() {
               <label htmlFor="fact-dispensed">当日已出粮（克）</label>
               <input
                 id="fact-dispensed"
+                data-testid="fact-dispensed"
                 type="number"
                 min={0}
                 value={factDispensed}

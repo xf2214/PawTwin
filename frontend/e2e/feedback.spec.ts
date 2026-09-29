@@ -27,7 +27,9 @@ test('owner feedback is saved honestly and never shown as retrieved memory', asy
   // ``saved`` = raw stored. It is NEVER dressed up as an extracted/retrieved memory.
   await expect(item.getByTestId('feedback-status')).toContainText('已保存原文')
   await expect(page.getByTestId('memory-area')).not.toContainText('已检索到记忆')
-  await expect(page.getByTestId('memory-area')).not.toContainText('已可检索')
+  // Day-4 ruling 13 reworded the ``available`` label to a lifecycle phrasing;
+  // the forbidden substring tightens accordingly: nothing may claim retrievability.
+  await expect(page.getByTestId('memory-area')).not.toContainText('可检索')
 
   // Durable: a reload re-reads it from /api/state, not from client memory.
   await page.reload()

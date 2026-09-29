@@ -460,6 +460,17 @@ button.ghost {
   .columns {
     grid-template-columns: 1fr;
   }
+
+  /* Day-4 viewport matrix: a nowrap flex row of three flex-basis:140px buttons
+     set the panel min-content to 140*3+2*10+44 = 384px and overflowed 390px
+     screens. Buttons may wrap (and stretch) on narrow viewports. */
+  .actions {
+    flex-wrap: wrap;
+  }
+
+  .actions button {
+    flex: 1 1 45%;
+  }
 }
 
 /* --- Day-2: component labels, evidence ledger, telemetry, demo fieldsets ----- */
@@ -541,6 +552,10 @@ button.ghost {
   color: #46584f;
   font-size: 0.84rem;
   line-height: 1.5;
+  /* Day-4: snake_case summaries ("last_fed_minutes_ago=360, ...") are single
+     unbreakable tokens; allow breaking so narrow viewports never overflow.
+     Desktop wrapping is unchanged because the text fits. */
+  overflow-wrap: anywhere;
 }
 
 .telemetry {
@@ -599,6 +614,28 @@ button.ghost {
 @media (max-width: 900px) {
   .telemetry {
     grid-template-columns: 1fr;
+  }
+
+  /* Day-4 viewport matrix: an evidence row puts the tool name and the retrieval
+     time on one line; a locale timestamp ("9/29/2026, 10:42:51 PM") and the
+     snake_case summary ("last_fed_minutes_ago=360, ...") are long unbreakable
+     tokens, so the row's min-content hit 338px and the panel overflowed a
+     390px screen. Grid items must allow width:0 and text may break anywhere. */
+  .evidence-list li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 8px;
+    min-width: 0;
+  }
+
+  .evidence-list li > * {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .evidence-list li strong {
+    flex: 0 1 auto;
   }
 }
 
