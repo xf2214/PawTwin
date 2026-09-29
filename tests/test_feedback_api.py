@@ -7,8 +7,13 @@ the conversation without touching login/facts/memory. Real AgentCore extraction 
 cross-session retrieval are CONDITION items (see day3-cloud-blocked.md).
 """
 
+from __future__ import annotations
+
+import re
+from pathlib import Path
 from uuid import uuid4
 
+import pytest
 from fastapi.testclient import TestClient
 from pawtwin.config import Settings
 from pawtwin.main import create_app
@@ -218,3 +223,106 @@ def test_a_memory_submission_failure_is_reported_as_failed_not_a_500() -> None:
         assert body["text"] == "probe observation"  # the raw text is still saved
         fetched = raising_client.get(f"/api/feedback/{body['feedback_id']}").json()
         assert fetched["memory_status"] == "failed"
+
+
+# --- anti-forgery guard (Day-4 ruling 11) ------------------------------------
+#
+# Every part of the real extraction lifecycle exists somewhere in the tree (the
+# protocol has get_status, AgentCoreMemory maps cloud states, the client can
+# return "available") -- only the wiring is missing. That is exactly the spot a
+# later "quick implementation" could fake. These tests pin the honest boundary:
+# under the shipped local configuration NOTHING may ever report
+# ``available``/``processing``, and no new code path may even mention them.
+
+
+def test_no_feedback_path_can_report_available_or_processing_without_real_retrieval(
+    client: TestClient, login
+) -> None:
+    headers = _headers(login)
+    created = client.post(
+        "/api/feedback", json=_feedback(text="guard probe observation"), headers=headers
+    ).json()
+
+    reachable = {
+        "post": created["memory_status"],
+        "get_by_id": client.get(f"/api/feedback/{created['feedback_id']}").json()["memory_status"],
+        "state": [f["memory_status"] for f in client.get("/api/state").json()["feedback"]],
+    }
+    assert reachable["post"] == "saved"
+    assert reachable["get_by_id"] == "saved"
+    assert reachable["state"] == ["saved"]
+    flat = {reachable["post"], reachable["get_by_id"], *reachable["state"]}
+    assert "available" not in flat
+    assert "processing" not in flat
+
+
+def test_the_factory_built_local_memory_never_produces_available_or_processing() -> None:
+    """The shipped wiring (factory -> backend) stays honest at the seam itself."""
+
+    from pawtwin.memory import build_memory
+
+    service = build_memory(Settings(_env_file=None))
+    feedback_id = uuid4()
+    result = service.submit_feedback(
+        feedback_id=feedback_id,
+        owner_id="owner-a",
+        pet_id="mochi",
+        text="guard probe",
+        scope="observation",
+        conversation_id=None,
+    )
+    assert result.memory_status == "saved"
+    assert service.get_status(feedback_id) == "saved"
+    assert service.search(owner_id="owner-a", pet_id="mochi", query="play") == []
+
+
+def test_the_unavailable_agentcore_path_fails_closed_instead_of_faking_available() -> None:
+    """Even an operator-selected agentcore backend without credentials yields
+    ``saved``/``failed`` at the API -- never ``available``/``processing``."""
+
+    from pawtwin.memory import AgentCoreMemory
+
+    service = AgentCoreMemory(memory_id="probe-memory")
+    try:
+        service.submit_feedback(
+            feedback_id=uuid4(),
+            owner_id="owner-a",
+            pet_id="mochi",
+            text="guard probe",
+            scope="observation",
+            conversation_id=None,
+        )
+    except MemoryUnavailable:
+        pass  # fail closed with a named error: honest
+    else:
+        pytest.fail("agentcore submit without credentials must raise MemoryUnavailable")
+    try:
+        service.search(owner_id="owner-a", pet_id="mochi", query="play")
+    except MemoryUnavailable:
+        pass
+    else:
+        pytest.fail("agentcore search without credentials must raise MemoryUnavailable")
+
+
+# models.py declares the frozen Literal VOCABULARY (contract), memory.py and
+# agentcore_client.py are the real adapter whose cloud-state mapping is the ONLY
+# place allowed to PRODUCE those statuses -- everything else must stay silent.
+_ALLOWED_LIFECYCLE_WRITERS = {"models.py", "memory.py", "agentcore_client.py"}
+
+
+def test_no_other_backend_module_ever_writes_available_or_processing_literals() -> None:
+    """Static guard: only the frozen vocabulary (models.py) and the real AgentCore
+    adapter (memory.py / agentcore_client.py) may contain the ``available``/
+    ``processing`` status literals. If a future change adds them anywhere else --
+    api.py, workflow.py, worker.py, repo_sqlite.py, config.py -- this fails and
+    forces an explicit re-ruling."""
+
+    backend_dir = Path(__file__).resolve().parents[1] / "backend" / "pawtwin"
+    pattern = re.compile(r'["\'](available|processing)["\']')
+    offenders = [
+        path.name
+        for path in sorted(backend_dir.glob("*.py"))
+        if path.name not in _ALLOWED_LIFECYCLE_WRITERS and pattern.search(path.read_text("utf-8"))
+    ]
+    assert offenders == []
+
