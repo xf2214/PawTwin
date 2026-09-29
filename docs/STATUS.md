@@ -1,6 +1,96 @@
 # 当前开发状态
 
-更新日期：2026-09-26（Day-3）。
+更新日期：2026-09-29（Day-4）。
+
+Day-4 主线已完成并通过本地全部检查：**S0 基线入库（7 组提交，Day-2/Day-3 全量落库）→ G1 干净树全量回归实测 → G2 访问控制补口 → G3 健康检查端点硬裁定 → G4/G5 fail-closed 部署与清理脚本 + 文档一致性修正 → G7 标签证据驱动与 `available` 反伪造守卫 → G6 浏览器验收矩阵（e2e 10 → 16）→ G9 文档与上报**。本地必过门 **G0–G7 与 G9 已达成**；**G8 非作者独立审查尚未出具结论**（审查工作产物已生成，结论待落 `docs/reviews/day4.md`），故本轮**不声称 G8 通过**。当日计划与 14 条技术裁定见 [Day-4 开发计划](plans/PawTwin_Day4_开发计划.md)。
+
+**Day-4 的字面验收（总方案 L103「HTTPS 演示可访问；访问控制、刷新、重启和失败回执通过；可部署可删除」）整体不可达成，已上报而非拆成半通过**：①无 AWS 账号与凭据；②本机无 Docker/AWS CLI/CDK（用户已裁定不安装 Docker）；③`infra/` 无任何 IaC 源、`deploy.ps1 -Apply`/`cleanup.ps1 -Destroy` 明确未实现；④`create_app` 对 `mode == "aws"` 无条件 `raise NotImplementedError`（`main.py:81-82`，**这是 fail-closed 设计而非缺陷**：`repo_dynamo` 未实现前移除它等于用 SQLite 冒充云端存储）。按总方案 L106/L153：云端里程碑整体顺延，**无 AWS 验证时 Day-5 产物须命名为「本地验证候选（非参赛版）」**。逐条阻断与解锁前提见 [day4-cloud-blocked](evidence/day4-cloud-blocked.md)。
+
+执行方式：单一开发环境，**两个执行体按不重叠文件批次并行**（另一执行体承担 G4/G5/G6/G7 的编码与提交，总负责人承担 S0/G1/G2/G3/G9）；总负责人**未采信**对方的绿灯声明，对其提交后的 HEAD 独立重跑了全部检查，并在复核中修复 2 处问题（`ruff I001` 会使 `verify.ps1` 中断、冗余导入别名）。详见 [day4-handoff](evidence/day4-handoff.md) §3/§10。
+
+## Day-4 验收结果（三档）
+
+| 档位 | 内容 | 结果 |
+|---|---|---|
+| **必过 G0** | S0 基线入库：`S0-a…S0-g` 七组提交（`.gitignore` 含 `*.db` 为先行组），最终 HEAD 全绿实测，**只回填一个真实存在的合并契约冻结 ID = `590aa5a`** | ✅ 通过；并**书面披露** Day-2 的「11 路径冻结点」从未入库（实测 `94216df`=9、`dc8dc10`=9） |
+| **必过 G1** | 干净树全量回归**重新实测**（不引用 Day-3 数字） | ✅ **192 passed, 10 skipped**（skip 全具名）；`verify.ps1` EXIT=0 |
+| **必过 G2** | 访问控制补口：cookie `Secure` 由 `mode` 改为**按请求 scheme**；补 approval 的 401/403 与 logout 的 401；负向验证（回退后 2 条转红） | ✅ 通过（**A12 不记通过**：限速/会话 TTL/默认口令三项仍未闭合） |
+| **必过 G3** | 健康检查端点硬裁定：LB/target group 与容器 `HEALTHCHECK` 一律 `/healthz`；`/readyz` 保持恒 503、不为部署改码（`test_app.py` 精确断言未放宽） | ✅ 裁定成文（`docs/agents/infrastructure.md`、`infra/cloud-access-checklist.md`） |
+| **必过 G4** | `deploy.ps1`/`cleanup.ps1` fail-closed 门控：CLI → IaC 源 → 必填参数 → 授权令牌；缺任一项即 `NOT EXECUTED` + **退出码 2**，绝不调用 AWS、绝不 `exit 0` | ✅ 实测两脚本均退出码 2 |
+| **必过 G5** | 镜像**静态审读**（仍「未构建」）+ 修 `pyproject.toml` 的 extra 假陈述 + `uv sync --frozen --extra bedrock --extra memory` 合并实测 | ✅ exit 0（Audited 63，无新增下载） |
+| **必过 G6** | 浏览器验收矩阵新增 6 条 e2e（未登录 401、`unknown` 回执、待批准 reload、**1440px/390px 视口**、改事实→克数变化、新会话+记忆诚实），每条附「这不证明什么」 | ✅ e2e **16 passed**（15.7s） |
+| **必过 G7** | 前端标签改为**证据驱动**（无 `request_id`/无真实记忆证据不得称「真实」）+ `available` 反伪造守卫 4 条（含静态字面量守卫） | ✅ 通过；顺带修复 **390px 横向溢出 6px** 的真实缺陷（改 `styles.css`，未放宽断言） |
+| **必过 G8** | 非作者独立审查 + 修复 + 复跑 | ⏳ **未出具结论**（审查产物 `_review_diff_day4.txt` 未入库）；总负责人的独立复核**不替代** G8 |
+| **必过 G9** | 文档诚实四件套 + 零副作用 + 字面验收顺延上报 | ✅ `day4-handoff`/`day4-local`/`day4-cloud-blocked` + 本段 + TASKBOARD 第 4 日完成记录 |
+| **尽力** | `preflight` 退出码语义分级成文；checklist 命令块改「现状 + 目标」并补 Day-4 状态段；删除依赖顺序成文；`infra/` 纯文本 IAM 草案、费用表拆行、`preflight -Mode` 真实参数 | ⚠️ **部分完成**：文档一致性与删除顺序已落；IAM/CFN 草案、费用表拆行与 `-Mode` 参数**未做**（顺延） |
+| **条件** | 真实 plan/apply、镜像构建、HTTPS、公网 A12、双副本、真实 Bedrock/AgentCore、`repo_dynamo` 真表 | ⛔ **未执行**（N1–N10 逐条见 cloud-blocked；Day-3 的 M1–M12 全部仍未解除） |
+
+## Day-4 本地检查结果（2026-09-29，总负责人在项目目录内、干净 HEAD 上运行）
+
+| 检查 | 命令 | 结果 |
+|---|---|---|
+| 后端测试（全量） | `uv run --frozen pytest -p no:cacheprovider -o addopts="" -q -rs` | **192 passed, 10 skipped**（5 `agentcore_live` + 4 `bedrock_live` + 1 `restart` 尽力项占位，均具名） |
+| 后端测试（默认 addopts） | `uv run --frozen pytest -p no:cacheprovider` | **192 passed, 1 skipped, 9 deselected** |
+| 静态检查 | `uv run --frozen ruff check .` | All checks passed（复核中曾发现 1 处 `I001`，已修） |
+| 契约一致性 | `uv run --frozen python scripts/export_contracts.py --check` | Contracts are current（仍 **14 条路径**；`domain.schema.json` 未变，恰 6 输入模型 + `RunState`） |
+| 依赖锁与合并 extra | `uv lock --check` / `uv sync --frozen --extra bedrock --extra memory` | 均 exit 0（Resolved 65 / Audited 63，无新增下载） |
+| 集成 baseline | `./scripts/verify.ps1` | 全绿，EXIT=0 |
+| 浏览器 e2e | `./scripts/test-e2e.ps1`（chromium-1194、`workers:1`、background、local_fake） | **16 passed**（15.7s）：acceptance×6 / approve×4 / decline×1 / feedback×3 / shell×2 |
+| fail-closed 脚本 | `./scripts/deploy.ps1 -PlanOnly`、`./scripts/cleanup.ps1`、`./scripts/agentcore-smoke.ps1` | 均 `NOT EXECUTED`，**退出码 2**（零 AWS 调用） |
+| 只读预检 | `./scripts/preflight.ps1` | 退出码 **0**；`docker/aws available on PATH: False`、`credential source present: False`、两个 extra `installed: True`、Bedrock 与 AgentCore 段均 `NOT EXECUTED` |
+| 秘密核查 | `git grep -nIE 'AKIA…\|aws_secret_access_key\|secret_access_key\s*='` | **0 命中**；`.env` 不存在且未跟踪 |
+
+**skip 由 11 变 10 的原因（避免被误读为少了一项检查）**：本轮按裁定 10 实跑了合并 extra 安装，`tests/test_bedrock_adapter_offline.py` 从「extra 未装 → skip」变为**真实执行并通过**（+1 passed）。CI 不装 extra，故 CI 上仍 skip。**这不证明**任何真实云调用。
+
+逐条「命令 / 结果 / **这不证明什么**」见 [evidence/day4-local.md](evidence/day4-local.md)；被阻塞的云端项见 [evidence/day4-cloud-blocked.md](evidence/day4-cloud-blocked.md)；完整交接见 [evidence/day4-handoff.md](evidence/day4-handoff.md)。
+
+## Day-4 关键实现与裁定落地
+
+1. **cookie `Secure` 跟随连接而非模式（裁定 5，阻断级修复）**：原判据 `mode == "aws"` 在部署形态下**永假**（镜像烤死 `PAWTWIN_MODE=local`，且 `create_app` 拒绝 `aws` 模式），会把公网会话 cookie 以无 `Secure` 下发。现按 `request.url.scheme == "https"` 或 `X-Forwarded-Proto: https` 判定；该头**只能加不能减** `Secure`，故无需受信代理开关也不会削弱安全。本地无证书，**不等于 HTTPS 已验证**。
+2. **A12 测试矩阵补口（裁定 6）**：`POST /api/runs/{run_id}/approval` 是唯一能触发执行与记账的写入口，此前**既无 401 也无 403 断言**；`POST /api/logout` 无 401 断言。已补齐并断言门序（未登录 401 不泄露 run 是否存在；正确令牌过门后未知 run 才 404）。
+3. **fail-closed 部署/清理入口（裁定 9）**：`-PlanOnly` 保留任务单字面命名，但 `.SYNOPSIS` 钉死「无 CLI/无 IaC 源时不产出任何 plan」；`-Apply`/`-Destroy` 需显式授权令牌且当前明确「未实现」；account id 仅运行期注入、绝不预填。**脚本存在 ≠ 可部署**。
+4. **退出码语义分级（裁定 8）**：环境自检类（`preflight.ps1`）恒 0 退出但逐段打印 `NOT EXECUTED`；计费/资源类（smoke/deploy/cleanup）fail-closed 退出码 2。据此修正了 `docs/agents/infrastructure.md` 早期的笼统要求与 `infra/cloud-access-checklist.md` 中并不存在的 `-Mode aws` 命令。
+5. **标签证据驱动（裁定 13，失真级修复）**：`analyzer=bedrock` 不再直接显示「真实模型」，只有 `request_id` 非空才升级措辞；`memory=agentcore` 同理；`storage` 标签明写「`repo_dynamo` 未实现」；`memory_status` 词表去掉「真实记忆」字样。杜绝「配置即真实」的失真入口。
+6. **`available` 反伪造守卫（裁定 11）**：4 条测试钉住「本地配置下无任何路径能把 `memory_status` 写成 `available`/`processing`」，其中 1 条为**静态字面量守卫**（白名单仅 `models.py`/`memory.py`/`agentcore_client.py`），使未来「顺手接线」必须先显式重新裁定。措辞归真：`MemoryService.get_status` 接口已就位、**生产端无调用方**，`processing→available` 生命周期**未接线**（既非「已实现待验证」，也非「完全未实现」）。
+7. **390px 溢出（T3 从未做过的检查）**：首次引入 1440px/390px 视口断言即暴露证据行长文本不可断行导致横向溢出 6px，已修 `styles.css` 并复测；修复落在样式而**非放宽断言**（`overflow <= 0` 仍在）。
+8. **待批准刷新的诚实行为**：CSRF 令牌按设计仅存内存（`api.ts`），刷新后批准/拒绝按钮**禁用**并显示「需重新登录」提示；e2e 断言的正是这个诚实行为，而非假装刷新后仍可操作。
+
+## 本地通过 vs 云端未验证（截至 Day-4，分列）
+
+- **本地通过**：以上全部，另含 Day-3 与 Day-2 的全部本地项（反馈原文入库与幂等、`memory_status` 诚实语义、记忆 seam 与 stub 证据链、worker 真并发与准入上限、跨进程两连接双批准、文件库逻辑重启 + subprocess 真进程重启、前端记忆区）。
+- **云端未验证**：真实 plan/apply 与资源清单（N1–N3）；镜像构建与容器内行为（N4，本机无 Docker）；ALB 健康检查与 `/readyz` 上调判据（N5）；真实 HTTPS 下的 `Secure`/CSRF/公网未登录拒绝（N6）；双副本 A04 与跨副本上限（N7）；CI 远程运行（N8，无 remote）；真实 Bedrock 往返与 `request_id`（N9）；真实 AgentCore strategy `ACTIVE`→提炼→`available`（N9，且轮询**未接线**）；DynamoDB 真表与 `mode=aws` 启动（N10）。
+- **已实现但未验证**：`bedrock_client.py`（strands 1.57.0 调用形态）、`agentcore_client.py`（boto3 `bedrock-agentcore` 签名与状态词表）、两个 fail-closed 脚本的真实 plan/apply 路径、`Dockerfile`（**未构建**）。
+
+## 尚未实现（截至 Day-4）
+
+真实 Bedrock 调用、真实 AgentCore 提炼/检索与轮询接线、DynamoDB 真表（`repo_dynamo`）、云部署与真实 HTTPS、镜像构建、真实传感器/设备、Alexa+；登录限速与会话 TTL（`Session.created_at` 仍无消费者）；会话仍仅存进程内存（多副本会 401）；worker 并发上限仍**仅进程内**（滚动两副本实际全站并发 = 副本数 × 2）；`infra/` 无任何 IaC 源；`deploy.ps1 -Apply`/`cleanup.ps1 -Destroy` 未实现；T6 的 24 案例集 `scenarios.json` + `evaluate.py` 未编写（用户本轮未选，**与 Day-5「评委自由输入」验收同源，冲突已上报**）。
+
+## 提交状态
+
+**Day-2 与 Day-3 的全部改动已于 Day-4 的 S0 入库**（用户 2026-09-28 授权「先提交，再开工 Day-4」），Day-4 自身改动亦已按门分组提交：
+
+| 提交 | 内容 |
+|---|---|
+| `56be355` | S0-a 先行组：`.gitignore`（补 `*.db`/`*.db-journal`）+ `pyproject.toml` + `uv.lock` |
+| **`590aa5a`** | S0-b 门 0 契约与配置冻结（**= Day-2/Day-3 合并契约冻结提交 ID**） |
+| `b25e5f1` | S0-c 后端持久化/并发原语/worker 真并发/跨进程与真实进程重启 |
+| `81a362d` | S0-d AI 适配器 + 记忆 seam + Bedrock/AgentCore 客户端 |
+| `2193349` | S0-e 前端证据面板/演示控制/记忆区 + 同源 e2e（10 项） |
+| `d0f3d20` | S0-f CI/镜像/预检与两个计费 smoke 脚本（镜像未构建） |
+| `b1f508a` | S0-g Day-2/Day-3 文档与证据 + Day-4 计划与派发 |
+| `c4ae5f8` | Day-4 G2 访问控制补口（cookie `Secure` 按 scheme + approval/logout 401/403） |
+| `a37c161` | Day-4 G4/G5 fail-closed 部署清理脚本 + 文档一致性修正 |
+| `94442b5` | Day-4 G7 标签证据驱动 + 390px 视口溢出修复 |
+| `f3b96e4` | Day-4 G7 `available` 反伪造守卫 4 项 + FE-04 浏览器验收矩阵 6 条 |
+| 本提交 | Day-4 G9 文档与证据（STATUS/TASKBOARD/evidence 三件套） |
+
+**契约冻结 ID 的披露（裁定 4）**：只回填 `590aa5a` 一个。实测 `94216df` 与 `dc8dc10` 的 `contracts/openapi.json` **均为 9 条路径**，工作区为 14 条 → **Day-2 的「11 路径冻结点」从未入库**，且契约是 `export_contracts.py` 的生成物（禁止手改），事后无法分离。**中间提交未逐个复验**（Day-2/Day-3 改动在 `models.py`/`api.py`/`contracts/` 同批纠缠、终态互依赖），只在最终 HEAD 声明全绿。Day-1 冻结 ID `94216df` 保留为历史冻结点，未改写。
+
+**仍未推送远程**（无 remote，需用户授权）。无秘密入库、无云资源创建、**无费用**、**无镜像构建**。工作区遗留另一执行体的审查工作产物 `_review_diff_day4.txt`（未入库、未被忽略），应删除或加入 `.gitignore`。
+
+---
+
+# Day-3 记录（2026-09-26，历史，不改写）
 
 Day-3 主线已完成并通过本地全部检查：**门 0 契约/配置冻结（C1，含记忆 seam）→ AI-02 `memory.py` 与 `search_owner_memory` 接线 → BE-04 反馈持久化 + worker 真并发 + 跨进程/重启 → C3 `main.py` 装配 → FE-03 记忆区 → OPS-03 `memory` extra 与脚本 → 集成与文档（C4）**。计划中的 **G0–G10 必过门全部达成**；真实 AgentCore 提炼/检索（条件项）因无账号**未执行，不以本地替身或 stub 冒充「已检索记忆」**。当日计划与 14 条技术裁定见 [Day-3 开发计划](plans/PawTwin_Day3_开发计划.md)。
 
@@ -72,6 +162,8 @@ Day-3 主线已完成并通过本地全部检查：**门 0 契约/配置冻结�
 ## 提交状态
 
 **Day-2 与 Day-3 改动均尚未提交**（等待用户授权）。Day-3 建议分组：①门 0 契约与配置冻结（= Day-3 冻结提交）②后端反馈持久化/worker 并发/跨进程重启 ③AI 记忆适配器与 AgentCore 客户端 ④前端记忆区与 e2e ⑤OPS 依赖/脚本/镜像 ⑥文档与证据。提交后需把 **Day-3 契约冻结提交 ID** 回填到本文件与 `docs/TASKBOARD.md`。
+
+> **后记（2026-09-29，Day-4 裁定 4，仅追加不改写上文）**：Day-2 与 Day-3 改动已于 Day-4 的 S0 按七组入库。上述「回填 Day-3 契约冻结提交 ID」**无法按原预期执行**：实测 `94216df` 与 `dc8dc10` 的 `contracts/openapi.json` 均为 **9 条路径**、工作区为 14 条，故 **Day-2 的「11 路径冻结点」从未入库**；契约又是 `export_contracts.py` 的生成物（禁止手改），事后无法分离为两个快照。实际只回填**一个合并冻结 ID = `590aa5a`**（含 14 路径终态），且中间提交不逐个复验。详见 Day-4 段「提交状态」与 [day4-handoff](evidence/day4-handoff.md) §2。
 
 无秘密入库、无云资源创建、**无费用**、无远程推送、**无镜像构建**。
 
@@ -150,6 +242,8 @@ Day-2 主线已完成并通过本地全部检查：**门 0 契约/配置冻结�
 ## 提交状态
 
 **Day-2 改动尚未提交**（等待用户授权）。建议分组：①门 0 契约与配置冻结（= Day-2 冻结提交）②后端并发原语与 worker ③AI 适配器与 Bedrock 客户端 ④前端与 e2e ⑤OPS 依赖/CI/镜像/脚本 ⑥文档与证据。提交后需把 **Day-2 契约冻结提交 ID** 回填到本文件与 `docs/TASKBOARD.md`。
+
+> **后记（2026-09-29，Day-4 裁定 4，仅追加不改写上文）**：本段预期的「Day-2 契约冻结提交 ID」**并不存在**：Day-2 交付时改动未提交，其 11 路径的 `openapi.json` 中间态从未入库（实测 `94216df`=`dc8dc10`=9 路径），而工作区只有 Day-3 之后的 14 路径终态。Day-4 的 S0 把两日改动合并入库，冻结 ID 只有一个：`590aa5a`。
 
 无秘密入库、无云资源创建、**无费用**、无远程推送、**无镜像构建**。
 

@@ -18,10 +18,10 @@
 | OPS-01 | done (Day-1, plan only；**done 指计划与清单，不含镜像构建与部署**) | OPS(串行) | INIT；部署需账号预算 | `infra/cloud-access-checklist.md`；未执行、无资源、无费用 |
 | OPS-02 | done (Day-2, plan+scripts；**done 指依赖/脚本准备，Dockerfile 未构建、smoke 未真实调用**) | 总负责人+OPS(串行) | 门0冻结 | `bedrock` optional extra（strands-agents==1.57.0）+ `uv.lock` + CI `uv lock --check` + Dockerfile `--extra`（**未构建验证**）+ `.env.example`/`.gitignore(*.db)`/README/角色简报 + `preflight.ps1` Bedrock 只读段 + `bedrock-smoke.ps1`（实测输出 NOT EXECUTED/退出码 2）+ 用量估算；未执行、无资源、无费用 |
 | OPS-03 | done (Day-3, plan+scripts；**done 指依赖/脚本准备，Dockerfile 未构建、smoke 未真实调用**) | 总负责人+OPS(串行) | 门0冻结 | `memory` optional extra（`boto3==1.43.102`，硬门：`uv lock --check` + `uv sync --frozen --extra memory` 均成功）+ CI 全局 `uv lock --check` 覆盖 + Dockerfile `--extra memory`（**未构建验证**）+ `.env.example`/README/角色简报 + `preflight.ps1` AgentCore 只读段 + `agentcore-smoke.ps1`（实测 NOT EXECUTED/退出码 2）；未执行、无资源、无费用 |
-| BE-05 | ready | 未认领 | S0 基线入库 | **Day-4**：访问控制补口——cookie `Secure` 由 `mode` 解耦为按请求 scheme 判定；补 `POST /api/runs/{run_id}/approval` 未登录 401 与缺/错 CSRF 403、`POST /api/logout` 未登录 401；补「`frontend/dist` 与全仓无 AWS 凭据」的 A12 本地证据。**不得记 A12 通过**：登录限速、会话 TTL、默认口令公网暴露三项为未闭合缺口（本轮不实现） |
-| FE-04 | ready | 未认领 | S0、BE-05（共享 `api.py` 者须串行） | **Day-4**：浏览器验收矩阵新增 6 条 e2e（未登录深链、`unknown` 回执不显示虚假成功、待批准 reload、**1440px/390px 视口无溢出且不只显示颜色**、改事实→建议克数变化、新会话+记忆诚实回归），每条附「这不证明什么」；标签由**配置驱动改为证据驱动**（`request_id` 为 null 时不得显示「真实模型/真实检索」） |
-| OPS-04 | ready | 未认领 | S0、门0不动 | **Day-4**：部署前置材料与 **fail-closed 脚本**——`deploy.ps1`/`cleanup.ps1` 缺 AWS CLI/缺 IaC 源/缺参数即 `NOT EXECUTED` + 退出码 2，绝不调用 AWS、绝不 `exit 0`；健康检查端点硬裁定（LB 与容器 HEALTHCHECK 一律 `/healthz`，`/readyz` 保持 503 不为部署改码）；修 `pyproject.toml` 与 `infrastructure.md`/`cloud-access-checklist.md` 的命令·注释级失真；实跑 `uv sync --frozen --extra bedrock --extra memory`。**镜像仅记「已静态审读、未构建」**（本机无 Docker，用户已裁定不安装） |
-| QA-01 | blocked: integration | 未认领 | BE-03、FE-02、AI-03、AI-02 | A01–A14、云端/本地分开的结果、评委可改输入。**注**：Day-4 的 G6 浏览器矩阵 + G8 独立审查覆盖其本地可判定的子集；「评委自由输入」的量化判据依赖 T6 的 24 案例集 + `evaluate.py`，用户已于 2026-09-28 裁定**不在 Day-4 范围**，故 QA-01 仍不闭合（见第 4 日派发段的依赖冲突上报） |
+| BE-05 | done (Day-4, local) | 总负责人(串行) | S0 基线入库 | **Day-4**：访问控制补口——cookie `Secure` 由 `mode` 解耦为按请求 scheme 判定；补 `POST /api/runs/{run_id}/approval` 未登录 401 与缺/错 CSRF 403、`POST /api/logout` 未登录 401；补「`frontend/dist` 与全仓无 AWS 凭据」的 A12 本地证据。**不得记 A12 通过**：登录限速、会话 TTL、默认口令公网暴露三项为未闭合缺口（本轮不实现） |
+| FE-04 | done (Day-4, local) | 并行执行体(总负责人独立复核) | S0、BE-05（共享 `api.py` 者须串行） | **Day-4**：浏览器验收矩阵新增 6 条 e2e（未登录深链、`unknown` 回执不显示虚假成功、待批准 reload、**1440px/390px 视口无溢出且不只显示颜色**、改事实→建议克数变化、新会话+记忆诚实回归），每条附「这不证明什么」；标签由**配置驱动改为证据驱动**（`request_id` 为 null 时不得显示「真实模型/真实检索」） |
+| OPS-04 | done (Day-4, plan+scripts；**镜像未构建、真实 plan/apply 未实现**) | 并行执行体(总负责人独立复核) | S0、门0不动 | **Day-4**：部署前置材料与 **fail-closed 脚本**——`deploy.ps1`/`cleanup.ps1` 缺 AWS CLI/缺 IaC 源/缺参数即 `NOT EXECUTED` + 退出码 2，绝不调用 AWS、绝不 `exit 0`；健康检查端点硬裁定（LB 与容器 HEALTHCHECK 一律 `/healthz`，`/readyz` 保持 503 不为部署改码）；修 `pyproject.toml` 与 `infrastructure.md`/`cloud-access-checklist.md` 的命令·注释级失真；实跑 `uv sync --frozen --extra bedrock --extra memory`。**镜像仅记「已静态审读、未构建」**（本机无 Docker，用户已裁定不安装） |
+| QA-01 | blocked: integration | 未认领 | BE-03、FE-02、AI-03、AI-02 | A01–A14、云端/本地分开的结果、评委可改输入。**注**：Day-4 的 G6 浏览器矩阵（e2e 16 项）已覆盖其**本地可判定子集**；G8 非作者独立审查**尚未出具结论**，不得计入。「评委自由输入」的量化判据依赖 T6 的 24 案例集 + `evaluate.py`，用户已于 2026-09-28 裁定**不在 Day-4 范围**，故 QA-01 仍不闭合（见第 4 日派发段的依赖冲突上报） |
 | SUBMIT-01 | blocked: QA-01 | 未认领 | QA-01、实际赛事规则 | 英文材料、三分钟视频、概念图、边界声明；不自动提交 |
 
 ## 推荐派发顺序
@@ -153,6 +153,21 @@
 **不可并行的临界段**：C1=`api.py`+`auth.py`+`tests/test_auth.py`（G2 与 G7 共享 `api.py`）；C2=`pyproject.toml`+`uv.lock`+`Dockerfile`+`ci.yml`+`scripts/*`；C3=`frontend/src/App.tsx`+`frontend/e2e/*`；C4=`STATUS`+`TASKBOARD`+`evidence`。**门 0 不动**：Day-4 应保持 OpenAPI 恰 14 条路径、`domain.schema.json` 的 `$defs` 恰为 6 输入模型 + `RunState`；若某项改动触发契约变化，回门 0 重议，**不得**放宽 `test_contracts.py` 的 `==` 断言。
 
 **并发上限**（≤4，含总负责人）：Coordinator + Backend + Frontend；OPS、Reviewer 用空槽串行复用。单机串行时「并行」= 不重叠文件批次，需按下节格式追加认领记录。新增任务行：`BE-05`、`FE-04`、`OPS-04`（均 `ready`）。
+
+## 第 4 日完成记录（2026-09-29）
+
+实际以**单一开发环境、两个执行体按不重叠文件批次并行**完成（并行执行体承担 G4/G5/G6/G7 的编码与提交，总负责人承担 S0/G1/G2/G3/G9）；总负责人**未采信**对方绿灯，对其提交后的 HEAD 独立重跑全部检查，并修复 2 处问题（`ruff I001` 会使 `verify.ps1` 直接中断；冗余导入别名 `_MU` 遮蔽模块级导入）。详见 [STATUS](STATUS.md) 与 [day4-handoff](evidence/day4-handoff.md)。
+
+- **S0 基线入库（G0）**：Day-2 与 Day-3 全量改动按 `S0-a…S0-g` 七组入库（`56be355`→`b1f508a`），`.gitignore`（含 `*.db`）+ `pyproject`/`uv.lock` 为先行组。**只回填一个合并契约冻结 ID = `590aa5a`**，并书面披露：实测 `94216df` 与 `dc8dc10` 的 `openapi.json` 均为 **9 条路径**，故 Day-2 的「11 路径冻结点」**从未入库**，且契约为生成物不可手改 → 无法分离为两个快照；中间提交不逐个复验，只在最终 HEAD 声明全绿。
+- **G1 干净树回归**：`pytest -o addopts=""` **192 passed, 10 skipped**（均具名）、默认 addopts **192 passed/1 skipped/9 deselected**、`ruff` 无告警、契约 current（仍 **14 路径**，`domain.schema.json` 未变）、`uv lock --check` exit 0、`verify.ps1` EXIT=0。skip 由 11 变 10 的原因已书面说明（本轮装了合并 extra，`test_bedrock_adapter_offline` 改为真实执行；CI 不装 extra 故仍 skip）。
+- **G2 访问控制（BE-05）**：cookie `Secure` 由 `mode == "aws"`（部署形态下**永假**）改为按请求 scheme（含 `X-Forwarded-Proto`，只能加不能减 `Secure`）；补齐 approval 的 401/403 与 logout 的 401（该路由此前**零鉴权断言**）；**负向验证**已做（回退后 2 条转红）。**A12 不记通过**：登录限速、会话 TTL、默认口令公网暴露三项仍未闭合（裁定 14 议题待用户定）。
+- **G3 健康检查硬裁定**：LB/target group 与容器 `HEALTHCHECK` 一律 `/healthz`；`/readyz` 恒 503 仅作诊断，**不为部署改码**（`test_app.py` 精确断言未放宽）。
+- **G4/G5 部署前置材料（OPS-04）**：`deploy.ps1`/`cleanup.ps1` 为 fail-closed 门控（CLI → IaC 源 → 必填参数 → 授权令牌），实测均 `NOT EXECUTED` + **退出码 2**、零 AWS 调用、无 `exit 0` 路径；`uv sync --frozen --extra bedrock --extra memory` exit 0；修正三处文档假陈述（`pyproject` 的 extra 描述、checklist 不存在的 `-Mode aws`、`infrastructure.md` 的退出码笼统要求）。**镜像仍未构建**（本机无 Docker，用户已裁定不装）。
+- **G6/G7 浏览器验收与标签诚实（FE-04）**：新增 `acceptance.spec.ts` 6 条（未登录 401 JSON、`unknown` 回执不显示成功且不记账、待批准 reload、**1440px/390px 无溢出且状态不只靠颜色**、改事实→克数变化、新会话+记忆诚实），e2e **10 → 16 全绿**；标签改为**证据驱动**（无 `request_id`/无真实记忆证据不得称「真实」）；`available` 反伪造守卫 4 条（含静态字面量守卫）。首次引入视口断言即暴露并修复 **390px 横向溢出 6px** 的真实缺陷（改 `styles.css`，**未放宽断言**）。
+- **G8 非作者独立审查**：⏳ **本轮未出具结论**（审查工作产物 `_review_diff_day4.txt` 未入库，待落 `docs/reviews/day4.md`）。总负责人的独立复核**不替代** G8，不得声称已通过。
+- **G9 文档**：`STATUS.md` 新增 Day-4 三档表 + 本地/云端双列 + 提交表；`evidence/day4-handoff.md`（12 项）、`day4-local.md`（含「这不证明什么」）、`day4-cloud-blocked.md`（N1–N10 逐条阻断与解锁前提）；Day-1/2/3 历史文档**只追加后记**（已就冻结 ID 预期不可达成一事分别追记）。
+- **字面验收上报**：总方案 L103 的第 4 日验收「HTTPS 演示可访问；可部署可删除」因**四重独立阻断**整体不可达成，已按 L106/L153 上报顺延；**无 AWS 验证时 Day-5 产物须命名「本地验证候选（非参赛版）」**。未选的 T6 案例集与 Day-5「评委自由输入」验收同源，冲突已上报待用户二选一。
+- **提交**：`c4ae5f8`(G2) → `a37c161`(G4/G5) → `94442b5`(G7 标签+390px) → `f3b96e4`(G7 守卫+FE-04 e2e) → 本次(G9 文档)。**仍未推送远程**（无 remote，需授权）。无秘密入库、无云资源、**无费用**、**无镜像构建**。
 
 ## 认领记录格式
 
