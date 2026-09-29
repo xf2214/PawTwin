@@ -2,7 +2,7 @@
 
 更新日期：2026-09-29（Day-4）。
 
-Day-4 主线已完成并通过本地全部检查：**S0 基线入库（7 组提交，Day-2/Day-3 全量落库）→ G1 干净树全量回归实测 → G2 访问控制补口 → G3 健康检查端点硬裁定 → G4/G5 fail-closed 部署与清理脚本 + 文档一致性修正 → G7 标签证据驱动与 `available` 反伪造守卫 → G6 浏览器验收矩阵（e2e 10 → 16）→ G9 文档与上报**。本地必过门 **G0–G7 与 G9 已达成**；**G8 非作者独立审查尚未出具结论**（审查工作产物已生成，结论待落 `docs/reviews/day4.md`），故本轮**不声称 G8 通过**。当日计划与 14 条技术裁定见 [Day-4 开发计划](plans/PawTwin_Day4_开发计划.md)。
+Day-4 主线已完成并通过本地全部检查：**S0 基线入库（7 组提交，Day-2/Day-3 全量落库）→ G1 干净树全量回归实测 → G2 访问控制补口 → G3 健康检查端点硬裁定 → G4/G5 fail-closed 部署与清理脚本 + 文档一致性修正 → G7 标签证据驱动与 `available` 反伪造守卫 → G6 浏览器验收矩阵（e2e 10 → 16）→ G9 文档与上报**。本地必过门 **G0–G9 全部达成**；**G8 非作者独立审查结论 = PASS**（无 blocker/important/nit，见 [reviews/day4.md](reviews/day4.md)）——因 Day-2/Day-3 均为 PASS-WITH-NITS，本轮「零发现」被当作待验证断言，总负责人已亲自复核其中三条最易自我美化的判断（均成立）。当日计划与 14 条技术裁定见 [Day-4 开发计划](plans/PawTwin_Day4_开发计划.md)。
 
 **Day-4 的字面验收（总方案 L103「HTTPS 演示可访问；访问控制、刷新、重启和失败回执通过；可部署可删除」）整体不可达成，已上报而非拆成半通过**：①无 AWS 账号与凭据；②本机无 Docker/AWS CLI/CDK（用户已裁定不安装 Docker）；③`infra/` 无任何 IaC 源、`deploy.ps1 -Apply`/`cleanup.ps1 -Destroy` 明确未实现；④`create_app` 对 `mode == "aws"` 无条件 `raise NotImplementedError`（`main.py:81-82`，**这是 fail-closed 设计而非缺陷**：`repo_dynamo` 未实现前移除它等于用 SQLite 冒充云端存储）。按总方案 L106/L153：云端里程碑整体顺延，**无 AWS 验证时 Day-5 产物须命名为「本地验证候选（非参赛版）」**。逐条阻断与解锁前提见 [day4-cloud-blocked](evidence/day4-cloud-blocked.md)。
 
@@ -20,7 +20,7 @@ Day-4 主线已完成并通过本地全部检查：**S0 基线入库（7 组提�
 | **必过 G5** | 镜像**静态审读**（仍「未构建」）+ 修 `pyproject.toml` 的 extra 假陈述 + `uv sync --frozen --extra bedrock --extra memory` 合并实测 | ✅ exit 0（Audited 63，无新增下载） |
 | **必过 G6** | 浏览器验收矩阵新增 6 条 e2e（未登录 401、`unknown` 回执、待批准 reload、**1440px/390px 视口**、改事实→克数变化、新会话+记忆诚实），每条附「这不证明什么」 | ✅ e2e **16 passed**（15.7s） |
 | **必过 G7** | 前端标签改为**证据驱动**（无 `request_id`/无真实记忆证据不得称「真实」）+ `available` 反伪造守卫 4 条（含静态字面量守卫） | ✅ 通过；顺带修复 **390px 横向溢出 6px** 的真实缺陷（改 `styles.css`，未放宽断言） |
-| **必过 G8** | 非作者独立审查 + 修复 + 复跑 | ⏳ **未出具结论**（审查产物 `_review_diff_day4.txt` 未入库）；总负责人的独立复核**不替代** G8 |
+| **必过 G8** | 非作者独立审查 + 修复 + 复跑 | ✅ **PASS**（审查范围 `b1f508a..63f3de6`，10 项高信号逐条核实全 ✅，无 blocker/important/nit，无需修复故无复测）；总负责人另对「零发现」做了 3 项独立复核，见 [reviews/day4.md](reviews/day4.md) §4 |
 | **必过 G9** | 文档诚实四件套 + 零副作用 + 字面验收顺延上报 | ✅ `day4-handoff`/`day4-local`/`day4-cloud-blocked` + 本段 + TASKBOARD 第 4 日完成记录 |
 | **尽力** | `preflight` 退出码语义分级成文；checklist 命令块改「现状 + 目标」并补 Day-4 状态段；删除依赖顺序成文；`infra/` 纯文本 IAM 草案、费用表拆行、`preflight -Mode` 真实参数 | ⚠️ **部分完成**：文档一致性与删除顺序已落；IAM/CFN 草案、费用表拆行与 `-Mode` 参数**未做**（顺延） |
 | **条件** | 真实 plan/apply、镜像构建、HTTPS、公网 A12、双副本、真实 Bedrock/AgentCore、`repo_dynamo` 真表 | ⛔ **未执行**（N1–N10 逐条见 cloud-blocked；Day-3 的 M1–M12 全部仍未解除） |
