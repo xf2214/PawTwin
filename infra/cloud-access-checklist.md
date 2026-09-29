@@ -56,19 +56,23 @@
 - 计费公式 = (输入 tokens × 模型输入单价) + (输出 tokens × 模型输出单价)。**在拿到实际单价前不给出金额**，避免用编造数字误导预算决策。
 - 跨副本并发上限需要数据库级计数，Day-2 未实现；部署多副本前必须重新核算调用量上限。
 
-## 4 部署与清理（脚本在实现前不存在，不提供伪装成功的空脚本）
+## 4 部署与清理（Day-4 起为 fail-closed 门控脚本；脚本存在 ≠ 可部署）
 
-计划入口形态（**编写后才能运行**）：
+现状命令（`scripts/deploy.ps1`/`scripts/cleanup.ps1` 已入库，但均为 fail-closed 门控：缺 AWS CLI/CDK、缺 IaC 源、缺必填参数/授权标记即打印 `NOT EXECUTED: <原因>` 并以退出码 2 结束，绝不调用任何 AWS API）：
 
 ```powershell
-./scripts/preflight.ps1 -Mode aws   # 账号/区域/模型/记忆只读核对
-./scripts/deploy.ps1 -PlanOnly       # 先生成配置与费用清单
-# 仅在用户对具体资源与预算确认后：
-./scripts/deploy.ps1 -Apply
-./scripts/cleanup.ps1 -PlanOnly      # 默认 dry-run，仅列本项目 resource IDs
+./scripts/preflight.ps1              # 只读环境自检（含 Bedrock/AgentCore 段），恒 exit 0，缺凭据逐段报 NOT EXECUTED
+./scripts/deploy.ps1 -PlanOnly       # 当前必然 NOT EXECUTED：本机无 AWS CLI/CDK，且 infra/ 无任何 IaC 源
+# 仅在用户对具体资源与预算确认后（且前两道门真实存在时）：
+./scripts/deploy.ps1 -Apply -CostAuthorization I-AUTHORIZE-BILLABLE-DEPLOYMENT   # Day-4 明确未实现，即便过门也 exit 2
+./scripts/cleanup.ps1                # 默认 dry-run；当前同样 NOT EXECUTED/exit 2（无部署记录可列）
 ```
 
-清理要求：先列出本项目拥有的资源，确认后按依赖删除，验证负载均衡、服务、镜像、日志及记忆资源无残留；评审要求的可访问期间不自动关闭服务。
+目标命令（待真实实现，**不得被读成现状**）：`deploy.ps1 -PlanOnly` 产出经 `cdk synth`/CFN 模板的配置文件与费用清单；`-Apply` 在用户确认具体资源与费用后创建资源；`cleanup.ps1` 按下列顺序删除并验证无残留。
+
+注意：`preflight.ps1` 当前**没有** `-Mode` 参数（早期文档承诺过，属 F4 失真，已在此修正）；它是只读自检，无凭据仍以 0 退出但逐段打印 `NOT EXECUTED`；与计费/资源类脚本（smoke/deploy/cleanup）的退出码语义分级见 `docs/agents/infrastructure.md`。
+
+清理要求：先列出本项目拥有的资源，确认后按依赖删除（服务 → 负载均衡 → 镜像库 → 日志 → 记忆资源 → 表），验证负载均衡、服务、镜像、日志及记忆资源无残留；评审要求的可访问期间不自动关闭服务。
 
 ## 5 账号就绪后的最小云端验证（Day-2 起，不晚于 T7）
 
@@ -105,3 +109,11 @@
 - 已就位但未执行的入口：`scripts/agentcore-smoke.ps1` + `scripts/agentcore_smoke.py`（本次运行结果 `NOT EXECUTED`，退出码 2）、`scripts/preflight.ps1` 的 AgentCore 只读段（输出 `AGENTCORE_MEMORY_ID set: False`、`'memory' extra (boto3) installed: False`）。
 - 创建资源：**无**。调用收费模型/记忆：**无**。费用：**无**。远程推送：**无**。
 - Docker：`Dockerfile` 已加 `--extra memory`（与 `--extra bedrock` 并列）；本机 PATH 仍无 Docker，**镜像未构建验证**。
+
+### Day-4（2026-09-29）
+
+- 账号：用户已启动注册；截至本轮文档写入时本机仍 **无 AWS CLI、无凭据源**（`$HOME\.aws\credentials` 不存在、无凭据环境变量）。故本节全部云端验证项**依旧未执行**，逐条阻断与解锁前提见 `docs/evidence/day4-cloud-blocked.md`。
+- 已入库的 fail-closed 入口：`scripts/deploy.ps1`、`scripts/cleanup.ps1`（语法 lint 0 错误；本机干跑全部分支实测 `NOT EXECUTED` + 退出码 2，零 AWS 调用）。**脚本存在不等于可部署**：无 CLI、无 IaC 源、`-Apply`/`-Destroy` 未实现，三重前提均未满足。
+- 依赖闭包部分实测：`uv sync --frozen --extra bedrock --extra memory` 本机 exit 0（镜像依赖闭包可复现从纯推断升为部分实测）；但 CI（无 extra）与镜像（两 extra）两闭包互不覆盖的缺口仍在；`uv lock --check` 同步通过。`pyproject.toml` 原「CI 与镜像默认都不装」假陈述已改正。
+- 健康检查端点硬裁定：容器 `HEALTHCHECK` 与未来 LB/target group 一律 `/healthz`；`/readyz` 恒 503 只作诊断，不为部署改码。
+- 创建资源：**无**。调用收费模型/记忆：**无**。费用：**无**。远程推送：**无**。镜像：**未构建**（用户裁定不装 Docker）。

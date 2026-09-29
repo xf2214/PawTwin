@@ -15,9 +15,14 @@ dependencies = [
 
 [project.optional-dependencies]
 # Day-2 ruling 24: the real-model dependency is an OPTIONAL extra, pinned like the
-# runtime deps above. CI and the container image do not install it by default, so
-# the bedrock code path stays a named, uncovered surface rather than a silent risk.
-# pawtwin.agent imports strands lazily and fails closed when it is missing.
+# runtime deps above. CI does NOT install it (plain `uv sync --frozen`), while the
+# container image DOES (`--extra bedrock`, see Dockerfile) — the two dependency
+# closures do not cover each other (Day-4 fact F9; the earlier comment claiming
+# "CI and the container image do not install it" was false and was corrected).
+# The extra is therefore exercised in CI only via `uv lock --check`, never by an
+# installed import, so the bedrock code path stays a named, uncovered surface
+# rather than a silent risk. pawtwin.agent imports strands lazily and fails
+# closed when it is missing.
 bedrock = [
   "strands-agents==1.57.0",
 ]
@@ -26,8 +31,9 @@ bedrock = [
 # strands-agents above), so this extra adds no new download; it only makes the
 # dependency explicit for the memory code path and pins the already-locked version.
 # pawtwin.agentcore_client imports boto3 LAZILY and fails closed (MemoryUnavailable)
-# when it is missing, so CI and the default install never need it and the AgentCore
-# path stays a named, uncovered surface rather than a silent risk.
+# when it is missing. Like the bedrock extra: CI does NOT install it, the container
+# image DOES (`--extra memory`), so the AgentCore path stays a named, uncovered
+# surface in CI rather than a silent risk.
 memory = [
   "boto3==1.43.102",
 ]
