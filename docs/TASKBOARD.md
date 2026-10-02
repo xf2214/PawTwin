@@ -2,6 +2,38 @@
 
 本表由总负责人维护。`ready` 表示依赖满足、可认领，不表示已经有人开始。未获得明确开发指令时，不自行启动所有任务。
 
+## 2026-10-02 附加工作包
+
+需求/验收以 [附加计划](plans/PawTwin_附加开发计划_2026-10-02.md) 为准，接手先读 [Qoder 说明](QODER_HANDOFF.md)。本次只同步文档，未派发实施。
+全部 Owner 未认领；建议分工不代表已有进度，不与旧任务的本地完成状态混淆。
+
+| ID | 状态 | Owner | 依赖 | 交付 |
+|---|---|---|---|---|
+| EXT-00 | ready（待认领） | 未认领 | 当前基线检查 | 接口、兼容迁移与写路径冻结 |
+| EXT-01 | planned | 未认领 | EXT-00 | 独立身份、作者、会话恢复 |
+| EXT-02 | planned | 未认领 | EXT-01 | 家庭/邀请/称呼/权限/撤权 |
+| EXT-03 | planned | 未认领 | EXT-02 | 共享迁移、任务生命周期、同步/并发 |
+| EXT-04 | planned | 未认领（Qoder 可选） | EXT-03 | 成长记录与纠错 |
+| EXT-05 | planned | 未认领（Qoder 可选） | EXT-04 | 日/周统计与自动补跑/重建 |
+| EXT-06 | planned | 未认领 | EXT-05 | 个体上下文与记忆确认/失效 |
+| EXT-07 | planned | 未认领（建议 Qoder） | EXT-00；联调另依赖 EXT-02–06 | App 导航、小屋/家庭/成长/报告组件 |
+| EXT-08 | planned | 未认领 | EXT-06、EXT-07 | App/Alexa 模拟共用分身与受控行动 |
+| EXT-09 | planned | 未认领 | EXT-06、EXT-08 | 参考知识、健康问答边界 |
+| EXT-10 | planned | 未认领 | EXT-00 起预检；云验收依赖 EXT-03–08 及账号/预算 | 云身份/资料/模型/记忆证据 |
+| EXT-11 | planned | 未认领 | 对应已实施包 | 验收、用户试用与独立复核 |
+| EXT-12 | planned | 未认领 | EXT-11；AWS 宣称另依赖 EXT-10 | 英文材料、演示和访问检查 |
+
+认领格式：日期 / ID / Owner / 基线与未提交内容 / 可写路径 / 依赖和接口版本 / 验收 / 交接。当前没有认领记录。
+共享契约、锁文件、main/config、api.ts 和状态文档串行协调，不覆盖别人的修改。
+
+## 既有 Home 与 Day-1–Day-5 历史
+
+2026-10-02 用户授权「按六项改」并补充洗澡、剪指甲、成长照片：由总负责人串行完成
+HOME-01 档案/模板形象、HOME-02 物品管理、HOME-03 照护计划、HOME-04 范围偏好、
+HOME-05 家庭显示名与交接、HOME-06 照片日记与摘要。以上本地实现及验证完成，
+详见 STATUS。照片识别实际云调用、生成式肖像、独立成员账号、
+多宠物自动喂食和新资料层云存储未完成；不将本地扩展升级为云端或参赛验收完成。
+
 | ID | 状态 | Owner | 依赖 | 交付与验收 |
 |---|---|---|---|---|
 | INIT | done | 初始化 Agent + 总负责人 + 独立审查 Agent | 无 | 可启动骨架、契约、协作资料；26 项后端测试及前端/浏览器检查通过，详见 STATUS |
@@ -21,8 +53,12 @@
 | BE-05 | done (Day-4, local) | 总负责人(串行) | S0 基线入库 | **Day-4**：访问控制补口——cookie `Secure` 由 `mode` 解耦为按请求 scheme 判定；补 `POST /api/runs/{run_id}/approval` 未登录 401 与缺/错 CSRF 403、`POST /api/logout` 未登录 401；补「`frontend/dist` 与全仓无 AWS 凭据」的 A12 本地证据。**不得记 A12 通过**：登录限速、会话 TTL、默认口令公网暴露三项为未闭合缺口（本轮不实现） |
 | FE-04 | done (Day-4, local) | 并行执行体(总负责人独立复核) | S0、BE-05（共享 `api.py` 者须串行） | **Day-4**：浏览器验收矩阵新增 6 条 e2e（未登录深链、`unknown` 回执不显示虚假成功、待批准 reload、**1440px/390px 视口无溢出且不只显示颜色**、改事实→建议克数变化、新会话+记忆诚实回归），每条附「这不证明什么」；标签由**配置驱动改为证据驱动**（`request_id` 为 null 时不得显示「真实模型/真实检索」） |
 | OPS-04 | done (Day-4, plan+scripts；**镜像未构建、真实 plan/apply 未实现**) | 并行执行体(总负责人独立复核) | S0、门0不动 | **Day-4**：部署前置材料与 **fail-closed 脚本**——`deploy.ps1`/`cleanup.ps1` 缺 AWS CLI/缺 IaC 源/缺参数即 `NOT EXECUTED` + 退出码 2，绝不调用 AWS、绝不 `exit 0`；健康检查端点硬裁定（LB 与容器 HEALTHCHECK 一律 `/healthz`，`/readyz` 保持 503 不为部署改码）；修 `pyproject.toml` 与 `infrastructure.md`/`cloud-access-checklist.md` 的命令·注释级失真；实跑 `uv sync --frozen --extra bedrock --extra memory`。**镜像仅记「已静态审读、未构建」**（本机无 Docker，用户已裁定不安装） |
-| QA-01 | blocked: integration | 未认领 | BE-03、FE-02、AI-03、AI-02 | A01–A14、云端/本地分开的结果、评委可改输入。**注**：Day-4 的 G6 浏览器矩阵（e2e 16 项）与 G8 非作者独立审查（PASS）已覆盖其**本地可判定子集**，但 A01–A14 的**云端部分仍全部未验证**。「评委自由输入」的量化判据依赖 T6 的 24 案例集 + `evaluate.py`，用户已于 2026-09-28 裁定**不在 Day-4 范围**，故 QA-01 仍不闭合（见第 4 日派发段的依赖冲突上报） |
-| SUBMIT-01 | blocked: QA-01 | 未认领 | QA-01、实际赛事规则 | 英文材料、三分钟视频、概念图、边界声明；不自动提交 |
+| BE-06 | done (Day-5, local; 云端未验证) | Backend(串行) | OPS-05（表与 IAM）、门0不变 | **Day-5**：`repo_dynamo.py` 实现 `Repository` 全协议（条件写/CAS/租约白名单/`TransactWrite` 幂等记账，单表 `pk/sk`+`entity-index` GSI）+ `dynamodb_live` marker + 离线协议集合守卫；公网三门（默认口令 aws 拒启 / 会话 TTL+idle / 登录限速 429+`Retry-After`）+ `/api/login` 429（路径仍 14）；`SCHEMA_VERSION` 3→4 + `agentcore_session_id`。**真表 12 项 `dynamodb_live` 全 skip（无凭据）→ 未云验证** |
+| AI-04 | done (Day-5, local; 云端未验证) | AI(串行) | BE-06（`FeedbackRecord` 字段）、门0不变 | **Day-5**：`agentcore_client.py` 按真实 API 重写（`CreateEvent` 会话 payload+`namespaceVariables` / `GetEvent(memoryId,sessionId,actorId,eventId)` / `RetrieveMemoryRecords(namespacePath,searchCriteria)`）；`memory.py` 两段式 `get_status`→`MemoryStatusResult`；`_namespace` `/owner/<o>/pet/<p>` 与 `deploy_plan.json` 命名模板跨源守卫；`worker.py` `MemoryPoller` 接线；守卫按裁定 12 **改作用域非放宽**（`<= {worker.py}`+AST，白名单未扩）。**真实往返 5 项 skip；响应字段/状态词表未核实** |
+| FE-05 | done (Day-5, local) | Frontend(串行) | BE-06、AI-04 | **Day-5**：真实态标签**证据驱动**（`storage=dynamodb`+`aws_connected`、`已提炼（真实 AgentCore 记录 N 条）` 仅当 `memory_record_count>0`）；`FeedbackView` 加非秘密 `memory_record_count`；新文案避开 e2e 禁串，`test_frontend_labels.py` 守卫**扩到新常量** `MEMORY_EXTRACTED_LABEL` + 新增「提炼标签必须与 `memory_record_count` 配对」；本地 e2e **16 passed** 未放宽。真实态标签仅 aws 态可见，**未云验证** |
+| OPS-05 | done (Day-5, plan+scripts; 镜像未构建、真实 apply 未执行) | Infrastructure/Coordinator(串行) | 用户短期凭据、GitHub 私有仓 | **Day-5**：`infra/deploy_plan.json` + `scripts/deploy_aws.py`/`cleanup_aws.py`/`aws_probe.py`（boto3 声明式编排，**不引入 CDK/CFN**）；`deploy.ps1`/`cleanup.ps1` 门控判据改为「plan 源存在 + boto3/uv 能力」，`-PlanOnly` 现为**真实离线 plan**（EXIT=0，零 AWS 调用）、`-Apply`/`-Destroy` 委派编排器（缺前提仍 `NOT EXECUTED`/exit 2）；`image.yml`（OIDC 构建推 ECR，单架构 amd64）+ `Dockerfile` 解耦 `PAWTWIN_MODE`；`.gitignore` 先行加 `deploy_state.json`。**镜像未构建、workflow 未运行（无 remote/无 Docker）、`-Apply` 未执行（无凭据/无预算确认）** |
+| QA-01 | blocked: Day-5 云端证据待凭据 | 未认领 | BE-03、FE-02、AI-03、AI-02、BE-06、AI-04、OPS-05 | A01–A14、云端/本地分开的结果、评委可改输入。**Day-5 进展**：本地可判定子集由 e2e 16 + 后端 232 覆盖；「评委自由输入」量化判据依赖的 24 案例集 + `evaluate.py` **已就绪**（`scenarios.json` A01–A14 全覆盖 + 离线结构校验），但**真机跑批（G9）依赖 G7 部署**，无凭据未执行。A01–A14 的**云端部分仍待凭据** |
+| SUBMIT-01 | blocked: Day-6 材料与赛事规则 | 未认领 | QA-01、**Day-5 云端证据**、实际赛事规则 | 英文材料、三分钟视频、概念图、边界声明；不自动提交。Day-5 只出部署与验收，材料整体顺延 Day-6（用户 2026-09-30 裁定） |
 
 ## 推荐派发顺序
 
@@ -169,6 +205,50 @@
 - **字面验收上报**：总方案 L103 的第 4 日验收「HTTPS 演示可访问；可部署可删除」因**四重独立阻断**整体不可达成，已按 L106/L153 上报顺延；**无 AWS 验证时 Day-5 产物须命名「本地验证候选（非参赛版）」**。未选的 T6 案例集与 Day-5「评委自由输入」验收同源，冲突已上报待用户二选一。
 - **提交**：`c4ae5f8`(G2) → `a37c161`(G4/G5) → `94442b5`(G7 标签+390px) → `f3b96e4`(G7 守卫+FE-04 e2e) → `63f3de6`(G9 文档) → `aaaddd3`(G8 第一轮回填) → `a575a61`(G8 第二轮补修) → `ebe3e11`(移出误入库审查临时产物)。**仍未推送远程**（无 remote，需授权）。无秘密入库、无云资源、**无费用**、**无镜像构建**。
 - **云端切片前置（2026-09-29 晚）**：用户确认账号注册中、**凭据尚未就绪**且今日不执行计费调用；本机已装 **AWS CLI v1.46.1**（pip --user，不入仓库），deploy/cleanup 实测改停 `cdk` 缺失门（仍 exit 2）；§7.5 手顺停在「凭据注入」一步，待账号就绪后续执行。
+
+## 第 5 日派发（2026-09-30，真实部署专日）
+
+当日可执行分解见 [Day-5 开发计划](plans/PawTwin_Day5_开发计划.md)（规划阶段已用真实账号前置条件下的命令与内省核实环境，含 19 条技术裁定与 G-A…G-Q 实测事实表）。基线：`chore/bootstrap` HEAD=`9354804`，**工作树干净**，无 remote；实测 pytest **195 passed / 10 具名 skip**、e2e **16 passed**、契约 **14 条路径 current**、`verify.ps1` EXIT=0。
+
+**前提（用户 2026-09-30 确认六点）**：①**AWS 账号与凭据已就绪**，由用户本机注入**短期**凭据（不入聊天、`.env`、仓库、镜像层）；②镜像**由 GitHub Actions 远程构建并推送 ECR**，CI 取云权限走 **OIDC 角色**；③**部署深度 = 完整真实部署**（`repo_dynamo` → 移除 `mode=aws` 拒启 → 真实 Bedrock + 真实 AgentCore → ECS Express Mode HTTPS 演示地址）；④**T6 的 24 案例集 + `evaluate.py` 补做并在真实模型上跑**；⑤**Day-5 专做真实部署，参赛材料整体顺延 Day-6**；⑥**公网安全三门全做**（默认口令拒启 / 会话 TTL / 登录限速）。
+
+**双轨策略自本日起终止**：账号就绪后真实推理、真实 DynamoDB、真实 AgentCore 即为唯一交付证据；`local_fake`/`StubMemoryService`/SQLite 只保留为离线测试后端，不得再充当任何验收凭据。
+
+**当日主线** = P0 只读就绪门与用户节点 → G1 基线复跑 → D1/D1' `repo_dynamo` 实现与**真表**全套验证 → D2 公网三门 + 429 契约重生成 → D3 AgentCore 数据面真实化 + 轮询接线 + `SCHEMA_VERSION` 4 → D4 `deploy_plan.json` + boto3 编排器 + OIDC/IAM → D5 CI 真实构建推 ECR → D6 云装配 + 前端真实态标签 → `deploy.ps1 -Apply`（**前置：费用实测 + 用户书面预算确认**）→ G8 部署面 A01–A14 真实子集 → D7 24 案例集真机跑批 → D8 证据文档 → G11 非作者独立审查。合计 ≈ **28–33h**，**超出一日**，执行承接至 Day-6 上午。
+
+**必须先向上报的事实（不得拆成半通过）**
+
+1. **五日变六日**：总方案 L104 的 Day-5 字面同时要求「冻结功能 + 评委自由输入 + 概念素材 + 演示脚本 + 英文材料 + 录屏」，本轮又承接 Day-4 顺延的**全部**云端块。据用户裁定⑤，**材料整体顺延 Day-6**，因此总方案第 6 节实际执行变为六个工作日。
+2. **Day-3 的 AgentCore 客户端不能直接跑起来**：`agentcore_client.py:128/144/164` 调的 `create_event(namespace=…)` / `list_events(memoryId=…)` / `search_memory(…)` 在真实 API 中**不存在或参数不足**（真实为 `GetEvent(memoryId,sessionId,actorId,eventId)` 与 `RetrieveMemoryRecords(memoryId,namespacePath,searchCriteria.searchQuery)`）。它现被 fail-closed 吞成 `MemoryUnavailable` 因此本地全绿——**这是假绿风险面，不是「代码已就绪」**。Day-5 必须先重写再接线。
+3. **守卫会主动拒绝接线**：`tests/test_feedback_api.py:347` 断言 `get_status` 生产调用者 `== []`、`:310` 静态字面量白名单不含 `worker.py`。接线需按 Day-5 裁定 12 **改作用域并书面记录 re-ruling**，**禁止静默放宽**；白名单不扩（状态映射留在 `agentcore_client.py`/`memory.py`）。
+4. **本轮不再是零副作用交付**：会创建真实云资源并产生计费。DoD 口径从「无资源/无费用」改为「精确披露资源清单、区域、预计与真实费用、删除计划」；`AGENTS.md` L69 的预算确认是 `-Apply` 硬门。
+5. **环境事实**：本机仍**无 Docker**、WSL 无发行版、`cdk` 未装、`gh` 未装（→ GitHub 仓库只能由用户创建）；`aws-cli` 1.46.1 为 v1（**无 `--cli-dry-run`**）且在当前进程 PATH 不可见 → 编排逻辑走锁内 boto3（实测含 Express 四个操作，**无 Monitor 操作**，需轮询 `DescribeExpressGatewayService`）。
+6. **正向事实（降低风险）**：`repo_dynamo` 复用 `memory` extra 已锁定的 `boto3==1.43.102` → **Day-5 不新增依赖、不动 `uv.lock`**；`StateView.storage` 枚举已含 `dynamodb` → 切真实适配器**不需改契约枚举**（路径仍 14 条）。
+
+**必须先落定的高危裁定**（详见计划 §1，共 19 条；承重的 7 条）：①部署编排用 **boto3 声明式编排器**，不引入 CDK/CFN，且 `deploy.ps1` 的 Gate 1/Gate 2 判据必须同步改掉（否则过了假门）；②区域与模型**不预填**，只读探测后由用户确认；③`repo_dynamo` 的原子性等价性基准是 SQLite（`create_or_get_run` 用 TransactWrite[Get+Put]、`record_receipt_once` 用 TransactWrite[Put+Update]、时间统一 ISO8601 字符串）；④真表验证用新 marker `dynamodb_live`，**不引入 moto**；⑤`mode=aws` 启动只做**零计费探活**（DynamoDB/AgentCore），Bedrock 以真实 `request_id` 为证据；⑥`/readyz` 由恒 503 改为按真实探活上调（**LB 与 HEALTHCHECK 仍一律 `/healthz`**，对 Day-4 裁定 7 的书面修订）；⑦副本固定 **1×1**（会话/限速/并发上限均进程内），跨副本不作必过项。
+
+**所有权**（沿用 `AGENTS.md:26-33` 与 Day-2 补裁）：`repo_dynamo.py`(新)/`repo_sqlite.py`/`repository.py`/`auth.py`/`api.py`/`worker.py` = Backend；`agentcore_client.py`/`memory.py`/`bedrock_client.py`/`agent.py` = AI；`models.py`/`config.py`/`contracts/`/`main.py`/`pyproject.toml`/`STATUS`/`TASKBOARD` = Coordinator；`frontend/src/`+`frontend/e2e/` = Frontend；`infra/`/`Dockerfile`/`scripts/*`/`.github/workflows/*` = Infrastructure；**Reviewer 不得由作者充当**（`docs/agents/reviewer.md:10`）。
+
+**不可并行的临界段**：C1=`repository.py`+`repo_sqlite.py`+`repo_dynamo.py`+仓储/恢复测试；C2=`models.py`+`config.py`+`contracts/`+`test_contracts.py`+`conftest.py`；C3=`api.py`+`auth.py`+`test_auth.py`；C4=`agentcore_client.py`+`memory.py`+`worker.py`+`test_feedback_api.py`（**禁止先接线后改守卫**）；C5=`infra/`+`scripts/*`+`Dockerfile`+`workflows/*`（`.gitignore` 的 `infra/deploy_state.json` 必须先于该文件出现）；C6=`frontend/src/*`+`frontend/e2e/*`+`test_frontend_labels.py`；C7=`STATUS`+`TASKBOARD`+`evidence`。**门 0 原则**：路径仍恰 14 条、`domain.schema.json` 仍恰 6 输入模型 + `RunState`；`/api/login` 只增 429 响应，**不得**放宽 `test_contracts.py` 的 `==` 断言。
+
+**并发上限**（≤4，含总负责人）：Coordinator + Backend + AI + Frontend；OPS、Reviewer 空槽串行复用。单机串行时「并行」= 不重叠文件批次，需按下节格式追加认领记录。新增任务行：`BE-06`、`AI-04`、`FE-05`、`OPS-05`（均 `ready`）；`QA-01` 转 `ready`，`SUBMIT-01` 依赖改指 Day-6。
+
+## 第 5 日完成记录（2026-09-30，离线实现切片）
+
+实际以**单一开发环境、总负责人 Agent 串行**完成各角色工作（逻辑上遵守文件所有权与不重叠写入）。**前提变化**：Day-5 定位为真实部署专日，但实测 **AWS 凭据仍缺失**（事实 G-A：无 `~/.aws/*`、无 `AWS_*` 环境变量、`sts` 报 `Unable to locate credentials`）。经 AskUserQuestion 取得用户裁定「**先做全部离线实现**」，遂完成计划中一切**不需凭据**的代码与离线测试（提交序列 D1–D8 的编码部分），真实云门用 marker 具名 skip。详见 [STATUS](STATUS.md) Day-5 段与 [day5-handoff](evidence/day5-handoff.md)。
+
+- **本地全绿实测**：`verify.ps1` EXIT=0；pytest 默认 addopts **232 passed, 1 skipped, 21 deselected**（收集 live marker 时 **232 passed, 22 skipped**，全具名）；ruff 干净；契约 **14 路径 current**（`domain.schema.json` 仍恰 6 输入模型 + `RunState`）；`uv lock --check` exit 0（**未新增依赖、未动 `uv.lock`**）；e2e **16 passed**；`deploy.ps1 -PlanOnly` EXIT=0（离线 plan、零 AWS 调用）、`cleanup.ps1` `NOT EXECUTED`/exit 2（无 state）。
+- **D1（C1）**：`repo_dynamo.py` 实现 `Repository` 全协议（裁定 5 键/原子性；共享 `repo_sqlite` 的确定性 id 与时间戳助手杜绝漂移）+ `dynamodb_live` marker + 离线协议集合守卫；`FeedbackRecord.agentcore_session_id` + `SCHEMA_VERSION` 3→4 幂等迁移 + v3→v4 回归。
+- **D2（C2/C3）**：公网三门（默认口令 aws 拒启 / 会话 TTL+idle / 登录限速 429+`Retry-After`）+ `/api/login` 429 契约重生成（路径仍 14）+ `conftest.py` 清理清单 20→24。
+- **D3（C4）**：`agentcore_client.py` 按真实 API 重写（`CreateEvent`/`GetEvent`/`RetrieveMemoryRecords`）+ `memory.py` 两段式 `get_status`（`MemoryStatusResult`）+ `_namespace` `/owner/<o>/pet/<p>` + `worker.py` `MemoryPoller` 接线 + **守卫 re-ruling（裁定 12，改作用域非放宽）**：`get_status` 调用者 `== []`→`<= {worker.py}` + AST 钉死 `poll_once`；静态字面量白名单**未扩**（`repo_*`/`worker` 用 `MEMORY_AVAILABLE`/`MEMORY_PROCESSING` 常量）；仓储 `available` 无 ids→`ValueError` 不变式（双实现 + 负向）。
+- **D4（C5）**：`.gitignore` **先行**加 `infra/deploy_state.json` + `deploy_plan.json`（9 资源 + 依赖序 + `delete_order`）+ `deploy_aws.py`/`cleanup_aws.py`/`aws_probe.py` + `deploy.ps1`/`cleanup.ps1` 门控判据改写（cdk/CFN→boto3/deploy_plan）+ OIDC/IAM 声明 + 离线守卫（`test_deploy_plan.py` 含**命名模板跨源一致性**、`test_deploy_aws.py` plan 纯函数）。
+- **D5（C5）**：`image.yml`（`workflow_dispatch` + OIDC + 单架构 amd64 推 ECR）+ `Dockerfile` 解耦烤死的 `PAWTWIN_MODE`。**镜像未构建**（无 Docker、无 remote）。
+- **D6（C2/C3/C6）**：`main.py` **移除** `mode=aws` 拒启 → 真实装配 + 零计费探活（DynamoDB/AgentCore，Bedrock 不探活）+ 探活失败拒启 + `app.state.aws_connected`；`/readyz` 受控修订（探活通过→200，LB 仍 `/healthz`）；`api.py` `storage`/`aws_connected` 真实化；前端证据驱动真实态标签 + `FeedbackView.memory_record_count` + 禁串守卫扩到新常量。
+- **D7**：`scenarios.json`（24 例，A01–A14 全覆盖 + 注入/信息不足/失败回执）+ `evaluate.py`（口令只从环境、逐例判定、超时如实记 TIMEOUT、不预填准确率、全 advisory 降级 ERROR 防假绿）+ `test_scenarios.py`。
+- **D8（C7）**：`STATUS` Day-5 三档表 + 本地/云端双列 + 命名门禁判定；`evidence/day5-{local,cloud-blocked,handoff}.md`；本完成记录；`reviews/day5.md`（非作者审查）。
+- **边界（不拆成半通过）**：真实 DynamoDB 真表、真实 AgentCore 往返、真实 Bedrock、镜像构建、真实 HTTPS/公网三门、CI 远程运行、`-Apply`/`-Destroy`、真机 24 案例、跨副本 A04 **全部未验证**（无凭据/无部署），逐条见 [day5-cloud-blocked](evidence/day5-cloud-blocked.md)。**命名门禁（裁定 19）：G0/D1′/G5–G10 未闭合 → 产物仍为「本地验证候选（非参赛版）」**。
+- **提交**：**尚未提交**（工作树 43 项变更；提交需用户明确授权）。**仍无 remote、未推送**；本轮**零 AWS 调用、零云资源、零费用、无镜像构建**。
+- **容量冲突上报**：Day-5 字面（材料全套）+ Day-4 顺延的全部云端块 ≈ 28–33h，压不进一日；依裁定⑤**材料整体顺延 Day-6**，五日实际变六个工作日（已在 STATUS/本表留待用户认可）。
 
 ## 认领记录格式
 

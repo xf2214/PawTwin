@@ -1,6 +1,81 @@
 ﻿# 当前开发状态
 
-更新日期：2026-09-29（Day-4）。
+## 2026-10-02：附加计划与 Qoder 交接（文档同步）
+
+已新增 [附加开发计划](plans/PawTwin_附加开发计划_2026-10-02.md) 和 [Qoder 接手说明](QODER_HANDOFF.md)，同步 README、AGENTS、TASKBOARD、角色入口与参赛材料索引。
+规划范围：独立账号/家庭共享、称呼与权限分离、成长记录、自动日/周统计、个体分身、App/Alexa 共用上下文、参考知识及冲奖验收。
+
+**状态为 planned**：未实施新账号、体重、自动报告或分身；未派发 Qoder 开发、未迁移数据库、未改运行代码。EXT-00 可认领，其余依赖推进。
+保留已有未提交内容、历史计划、Home 功能、概念 DOCX 和 `.qoder`；同步检查见 [同步记录](evidence/2026-10-02-supplement-sync.md)。既有测试数字不是新增计划的验收结果。
+候选赛事按 2026 Build, Ship, Shape 的 Alexa+ 与 AWS Builder 规划，正式报名/资格/云访问与预算未由文档同步确认。
+
+## 2026-10-02：宠物小屋六项扩展（用户明确授权，本地实现）
+
+新增 `/#home` 页面，原工作台保留。房间为 2D 俯视、角色为正面像素造型。
+档案/照片、物品摆放、照护计划、个体偏好、家庭交接、成长照片日记均接实际保存 API。
+洗澡、剪指甲、梳毛、清洁、换水、陪玩、散步和人工喂食均可设置计划、重复周期、
+负责人、完成/延期。多宠物记录隔离，今日观察到期后不参与建议。
+
+验证：`scripts/verify.ps1` 通过；后端 **252 passed, 1 skipped, 21 deselected**；
+ruff、前端类型/构建、契约检查通过。OpenAPI 扩展为 **28 路径**，
+原 domain schema 六模型/RunState 不变。浏览器 **18 passed**，包括新增完整建档、
+照片上传、物品、洗澡/剪指甲、范围偏好、照片日记、刷新与多宠物隔离及 390/1440 视口。
+文件数据库重启持久化与双连接无丢更新已测试。由同一实现者复核，未进行独立人员审查。
+
+照片识别：真实 SDK 适配器接线、显式启用开关、待确认草稿与失败提示均实现，
+仅离线注入 SDK 验证请求/响应，不视作云端识别完成。实际 Bedrock 识别默认关闭，
+未云验证。可手动建档、上传照片并编辑毛色/花纹/大小模板形象。
+家庭身份是共享登录下的显示名，非独立账号。建议为主人资料驱动的规则建议；
+新增任务不会授予设备执行权限。自动设备仍为 Mochi 的模拟执行器。
+新增资料层仅本地 SQLite；AWS 模式明确拒绝未接入的新数据层，无静默本地回退。
+本次未部署、未推送、未提交代码、未创建资源、未发生云调用或云费用。
+
+启动 `scripts/dev-home.ps1` 使用忽略路径 `data/pet-home.db` 持久保存资料与原始照片。
+下方 Day-1–Day-5 为历史记录，其当时的路由数量和阻断事实不改写。
+
+更新日期：2026-09-30（Day-5，离线实现切片；真实云门未闭合）。
+
+# Day-5 记录（2026-09-30，离线实现切片）
+
+Day-5 定位为「真实部署专日」，但**AWS 凭据仍缺失**（实测无 `~/.aws/credentials`、`config`，无 `AWS_*` 环境变量，`sts get-caller-identity` → `Unable to locate credentials`；即计划事实 **G-A**）。经用户裁定「**先做全部离线实现**」，本轮完成 Day-5 计划中一切**不需凭据**的代码与离线测试（提交序列 D1–D8 的编码部分），真实云门用 `dynamodb_live`/`bedrock_live`/`agentcore_live` marker 具名 skip。**双轨策略仍终止**：替身/SQLite/离线 stub 只作离线测试后端，**未**充当任何验收凭据。当日计划与 19 条裁定见 [Day-5 开发计划](plans/PawTwin_Day5_开发计划.md)。
+
+**本地全绿实测**：`verify.ps1` EXIT=0；pytest 默认 addopts **232 passed, 1 skipped, 21 deselected**（收集 live marker 时 **232 passed, 22 skipped**，22 skip 全具名 = 5 agentcore_live + 4 bedrock_live + 12 dynamodb_live + 1 restart 尽力项）；ruff 干净；契约 **14 路径 current**（`domain.schema.json` 仍恰 6 输入模型 + `RunState`）；`uv lock --check` exit 0（**未新增依赖、未动 `uv.lock`**）；e2e **16 passed**；`deploy.ps1 -PlanOnly` EXIT=0（离线 plan，零 AWS 调用）。逐条见 [day5-local](evidence/day5-local.md)。
+
+## Day-5 验收结果（三档）
+
+| 档位 | 内容 | 结果 |
+|---|---|---|
+| **必过 G1** | 改动前后本地全量回归**重新实测**（禁引用 Day-4 数字） | ✅ 改动前 **195 passed/10 skipped**（与基线一致）；改动后 **232 passed** |
+| **必过 G2** | `repo_dynamo` 全套语义 | ⚠ **代码就绪 + 离线守卫**（协议集合 ⊇、fail-closed 分支、`available` 不变式），**真表 12 项 `dynamodb_live` 全 skip**（无凭据）→ **未云验证** |
+| **必过 G3** | 云装配与真实标签（`mode=aws` 可启动、`aws_connected`/`readyz`/`storage` 真实） | ⚠ **代码就绪**；离线仅证「无凭据→`DynamoUnavailable` 拒启」+「注入探活结果→`/readyz` 200」的**映射逻辑**，**真实探活未跑** |
+| **必过 G4** | 公网三门 + `/api/login` 429 契约（路径仍 14） | ✅ **本地已实现并测**（默认口令拒启 / 会话 TTL+idle / 限速 429+`Retry-After`）；⚠ **公网真实 HTTPS 面未验**（无部署） |
+| **必过 G5** | AgentCore 数据面真实往返 | ⚠ **按真实 API 重写 + 两段式轮询接线 + 守卫 re-ruling**（离线以注入 stub client 测形状/映射）；**真实往返 5 项 skip**，响应字段/状态词表**未核实** |
+| **必过 G6** | Actions 真实构建推 ECR | ⛔ **未运行**（无 remote、本机无 Docker）；`image.yml` + `Dockerfile` 解耦**已就绪** |
+| **必过 G7** | 真实 plan + 费用实测 + 书面确认 + `-Apply` → HTTPS | ⛔ **未执行**（无凭据/无预算确认/无镜像）；`deploy_aws.py` 离线 plan + 门控**已就绪** |
+| **必过 G8** | 部署面 A01–A14 真实子集 | ⛔ **未执行**（依赖 G7）；本地可判定子集由 e2e 16 + 后端 232 覆盖 |
+| **必过 G9** | 24 案例真机跑批 | ⛔ **未执行**（依赖 G7）；`scenarios.json`（24 例，A01–A14 全覆盖）+ `evaluate.py` + 离线结构校验**已就绪** |
+| **必过 G10** | `cleanup` dry-run→删除→读回 | ⛔ **未执行**（无部署）；`cleanup_aws.py` 逆依赖删除 + 读回**已就绪**，无 state 时 `NOT EXECUTED`/exit 2 |
+| **必过 G11** | 非作者独立审查 + 证据四件套 | ⚠ 证据四件套已落（local/cloud-blocked/handoff + 本段）；非作者审查见 [reviews/day5.md](reviews/day5.md) |
+| **尽力** | Express `secrets`、ECR 扫描、CloudWatch、arm64、双 task 跨副本、`--cli-dry-run` 缺失下参数级 dry-run 单测、`ce get-cost-and-usage` 脚本化 | ⚠ 参数级 dry-run 单测已做（`test_deploy_aws.py`）；其余多需真实账号，**未做** |
+| **条件** | 跨副本会话持久化、App Runner、真实传感器、Alexa+、赛事规则核查、ACM 自定义域名 | ⛔ 未执行（跨副本按裁定 15 不作必过；赛事官方链接用户仍未提供） |
+
+## 本地通过 vs 云端未验证（截至 Day-5，分列）
+
+- **本地通过（新增）**：`repo_dynamo` 协议集合守卫与无需凭据的 fail-closed 分支；`SCHEMA_VERSION` 3→4 幂等迁移（v3→v4 回归）；公网三门（默认口令拒启 / 会话 TTL+idle / 登录限速 429）；AgentCore 真实 API 形状与两段式轮询（注入 stub client）；`MemoryPoller` 接线（stub service）；守卫 re-ruling（`get_status` 调用者 `<= {worker.py}` + AST 定位 `poll_once`、静态字面量白名单**未扩**）；`available` 无 ids → `ValueError` 仓储不变式（含负向）；`deploy_plan.json` 结构与**命名模板跨源一致性**；编排器离线 plan 纯函数；前端证据驱动真实态标签与禁串守卫；24 案例集结构/覆盖/无预填指标；契约含 429 与 `memory_record_count`（生成物，路径仍 14）。另含 Day-1..4 全部本地项。
+- **云端未验证**：真实 DynamoDB 真表条件写/事务（**不以 SQLite PASS 替代**）；真实 AgentCore strategy `ACTIVE`→提炼→检索→`available`（真实 record id）；真实 Bedrock 往返与 `request_id`；镜像构建与容器内行为；真实 HTTPS 下 `Secure`/CSRF/公网拒绝/限速；CI 远程运行；`deploy -Apply`/`cleanup -Destroy`；真机 24 案例；跨副本 A04。逐条阻断与解锁前提见 [day5-cloud-blocked](evidence/day5-cloud-blocked.md)。
+- **已实现但未云验证**：`repo_dynamo.py`、`agentcore_client.py`（真实响应形状）、`memory.py` 两段式轮询、`worker.py` `MemoryPoller`、`main.py` aws 装配与探活、`scripts/deploy_aws.py`/`cleanup_aws.py`/`aws_probe.py` 的 apply/destroy/probe 路径、`Dockerfile`（未构建）、`image.yml`（未运行）、`scripts/evaluate.py`（未对真机跑）。
+
+## 命名门禁判定（裁定 19）
+
+G0/D1′/G5/G6/G7/G8/G9/G10 **均未闭合**（无凭据）→ 产物继续命名「**本地验证候选（非参赛版）**」，**不得**写作「AWS 已验证（Bedrock/DynamoDB/AgentCore/ECS Express HTTPS）」。任一项闭合后按 [day5-cloud-blocked](evidence/day5-cloud-blocked.md) 的解锁前提逐项升格；全部闭合方可改参赛命名。
+
+## 提交状态
+
+**本轮改动尚未提交**（工作树 43 项变更；提交需用户明确授权，沿用前四日纪律）。建议分组沿用计划提交序列 D1–D8（`repo_dynamo`+marker / 公网三门+429 契约 / AgentCore 真实化+轮询+v4+守卫 re-ruling / `.gitignore` 先行+编排器+门控+OIDC / image.yml+Dockerfile / 云装配+前端真实态 / scenarios+evaluate / 证据文档）。**仍无 remote、未推送**；本轮**零 AWS 调用、零云资源、零费用、无镜像构建**。
+
+---
+
+# Day-4 记录（2026-09-29，历史，不改写）
 
 Day-4 主线已完成并通过本地全部检查：**S0 基线入库（7 组提交，Day-2/Day-3 全量落库）→ G1 干净树全量回归实测 → G2 访问控制补口 → G3 健康检查端点硬裁定 → G4/G5 fail-closed 部署与清理脚本 + 文档一致性修正 → G7 标签证据驱动与 `available` 反伪造守卫 → G6 浏览器验收矩阵（e2e 10 → 16）→ G9 文档与上报**。本地必过门 **G0–G9 全部达成**。**G8 非作者独立审查共两轮**：第一轮结论 PASS（零发现，见 [reviews/day4.md](reviews/day4.md) §1–§4）；总负责人对 Day-4 全部本地提交（`c4ae5f8..63f3de6`）另起**第二轮**独立审查，结论 **PASS-WITH-NITS（0 阻断 / 4 重要 / 8 nit）**，4 项重要已全部修复并复跑（`a575a61`，后记见 reviews/day4.md §7）：①`X-Forwarded-Proto` 无条件采信偏离裁定 5 → 改为默认关闭的受信开关；②诚实标签自身含 e2e 禁串「可检索」（云端解锁时必假红）→ 重写措辞并新增源码耦合守卫 2 项；③文档高报「干跑全部路径实测」→ 更正为「全部组合停在 Gate 1，Gate 2–4 仅经代码审读」；④样式修复注释失真（算式/机制错误）→ 已改正。当日计划与 14 条技术裁定见 [Day-4 开发计划](plans/PawTwin_Day4_开发计划.md)。
 
