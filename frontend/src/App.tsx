@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import PetHome from './PetHome'
 
 import {
   ApiError,
@@ -67,6 +68,12 @@ const MEMORY_BACKEND_LABELS: Record<'not_implemented' | 'agentcore', string> = {
   not_implemented: '未实现（无 AWS 账号）',
   agentcore: 'AgentCore（已配置，未经真实证据验证）',
 }
+
+// Day-5 §4.3: the "extracted" wording is a dedicated constant so the label guard can
+// pin it. It deliberately avoids the e2e forbidden substrings and is rendered ONLY
+// paired with a real, non-zero AgentCore record count (memory_record_count) -- never
+// from configuration or a bare status. The count is appended in dynamic text.
+const MEMORY_EXTRACTED_LABEL = 'AgentCore · 已提炼（真实 AgentCore 记录'
 
 const TOOL_LABELS: Record<string, string> = {
   get_pet_facts: '查询宠物当前事实',
@@ -164,6 +171,12 @@ function factGrams(value: number | null | undefined, limit: number | undefined):
 }
 
 export default function App() {
+  const [homePage, setHomePage] = useState(window.location.hash === '#home')
+  useEffect(() => {
+    const changed = () => setHomePage(window.location.hash === '#home')
+    window.addEventListener('hashchange', changed)
+    return () => window.removeEventListener('hashchange', changed)
+  }, [])
   const [state, setState] = useState<StateView | null>(null)
   const [authed, setAuthed] = useState(false)
   const [activeRun, setActiveRun] = useState<RunView | null>(null)
@@ -456,8 +469,19 @@ export default function App() {
     )
   }
 
+  if (homePage) return <PetHome onLogout={() => void onLogout()} />
+
   const facts = state?.facts
   const awaiting = activeRun?.state === 'awaiting_approval'
+  // §4.3: the extracted-memory label is evidence-driven -- it renders ONLY when the
+  // backend reports a non-zero count of real AgentCore records (which the repository
+  // invariant ties to an 'available' status). Locally the count is always 0, so the
+  // honest '未实现（无 AWS 账号）' label shows instead.
+  const extractedRecordCount = (state?.feedback ?? []).reduce(
+    (total, item) =>
+      item.memory_status === 'available' ? total + item.memory_record_count : total,
+    0,
+  )
 
   return (
     <main>
@@ -465,6 +489,7 @@ export default function App() {
         <div>
           <p className="eyebrow">PET CARE AGENT</p>
           <h1>PawTwin</h1>
+          <a href="#home">打开宠物小屋 →</a>
           <p className="lede">
             以个体事实与主人审批为核心的宠物照护 Agent。本页为软件测试演示，非喂养建议。
           </p>
@@ -493,8 +518,8 @@ export default function App() {
       {state ? (
         <p className="impl-labels" data-testid="impl-labels">
           <span>分析器：{activeRun?.telemetry?.request_id && activeRun.telemetry.backend === 'bedrock' ? `AWS Bedrock（真实模型，${REAL_CALL_EVIDENCE}）` : ANALYZER_CONFIG_LABELS[state.analyzer]}</span>
-          <span>存储：{state.storage === 'sqlite' ? 'SQLite（本地实现；repo_dynamo 未实现，未经云端验证）' : 'DynamoDB（未经云端验证）'}</span>
-          <span>长期记忆：{(state.feedback ?? []).some((f) => f.memory_status === 'available') ? 'AgentCore（服务端上报提炼完成）' : MEMORY_BACKEND_LABELS[state.memory]}</span>
+          <span>存储：{state.storage === 'dynamodb' ? (state.aws_connected ? 'DynamoDB（真实表，启动探活通过）' : 'DynamoDB（已配置，未经云端验证）') : 'SQLite（本地实现，未经云端验证）'}</span>
+          <span>长期记忆：{extractedRecordCount > 0 ? `${MEMORY_EXTRACTED_LABEL} ${extractedRecordCount} 条）` : MEMORY_BACKEND_LABELS[state.memory]}</span>
         </p>
       ) : null}
 
@@ -647,8 +672,8 @@ export default function App() {
             <p className="section-label">主人反馈与长期记忆</p>
             <p className="memory-backend" data-testid="memory-backend">
               长期记忆：
-              {(state?.feedback ?? []).some((f) => f.memory_status === 'available')
-                ? 'AgentCore（服务端上报提炼完成）'
+              {extractedRecordCount > 0
+                ? `${MEMORY_EXTRACTED_LABEL} ${extractedRecordCount} 条）`
                 : state?.memory === 'agentcore'
                   ? MEMORY_BACKEND_LABELS.agentcore
                   : '未实现（无 AWS 账号）'}

@@ -24,6 +24,7 @@ def clear_pawtwin_environment(monkeypatch: pytest.MonkeyPatch) -> Iterator[None]
         "PAWTWIN_FRONTEND_DIST",
         "PAWTWIN_DB_PATH",
         "PAWTWIN_DEMO_PASSPHRASE",
+        "PAWTWIN_PHOTO_RECOGNITION_ENABLED",
         "PAWTWIN_MODEL_BACKEND",
         "PAWTWIN_MEMORY_BACKEND",
         "PAWTWIN_WORKER_MODE",
@@ -36,6 +37,13 @@ def clear_pawtwin_environment(monkeypatch: pytest.MonkeyPatch) -> Iterator[None]
         "PAWTWIN_MAX_CONCURRENT_PER_SESSION",
         "PAWTWIN_MAX_CONCURRENT_GLOBAL",
         "PAWTWIN_TRUST_PROXY_HEADERS",
+        # Day-5 ruling 4: the public-network security gates. Every new settings alias
+        # MUST be listed here or a developer-shell value leaks in and makes a failure
+        # unreproducible (fact G-M). The list grows from 20 to 24.
+        "PAWTWIN_SESSION_TTL_SECONDS",
+        "PAWTWIN_SESSION_IDLE_SECONDS",
+        "PAWTWIN_LOGIN_MAX_FAILURES",
+        "PAWTWIN_LOGIN_BACKOFF_SECONDS",
     ):
         monkeypatch.delenv(name, raising=False)
     yield

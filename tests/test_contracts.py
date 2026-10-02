@@ -23,6 +23,20 @@ ACTIVE_PATHS = {
     "/api/demo/new-session",
     "/api/feedback",
     "/api/feedback/{feedback_id}",
+    "/api/home/state",
+    "/api/home/pets",
+    "/api/home/pets/{pet_id}",
+    "/api/home/members",
+    "/api/home/pets/{pet_id}/objects",
+    "/api/home/objects/{object_id}",
+    "/api/home/pets/{pet_id}/tasks",
+    "/api/home/tasks/{task_id}/action",
+    "/api/home/pets/{pet_id}/notes",
+    "/api/home/pets/{pet_id}/diary",
+    "/api/home/pets/{pet_id}/insights",
+    "/api/home/photos",
+    "/api/home/photos/{photo_id}",
+    "/api/home/photos/{photo_id}/recognize",
 }
 
 

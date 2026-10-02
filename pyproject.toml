@@ -34,6 +34,9 @@ bedrock = [
 # when it is missing. Like the bedrock extra: CI does NOT install it, the container
 # image DOES (`--extra memory`), so the AgentCore path stays a named, uncovered
 # surface in CI rather than a silent risk.
+# Day-5 (fact G-Q / ruling 1): ``repo_dynamo`` reuses the SAME boto3 from this
+# ``memory`` extra -- no new dependency and no ``uv.lock`` change is needed for the
+# DynamoDB adapter; it imports boto3 lazily and fails closed (DynamoUnavailable).
 memory = [
   "boto3==1.43.102",
 ]
@@ -50,14 +53,16 @@ packages = ["backend/pawtwin"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-# ``bedrock_live`` makes a real, billable AWS call and is excluded by default so a
-# blocked check is NAMED rather than silently missing (AGENTS.md). Run it only
-# inside an authorised budget: uv run --frozen pytest -m bedrock_live
-addopts = "-q -m 'not bedrock_live and not agentcore_live'"
+# ``bedrock_live``/``agentcore_live``/``dynamodb_live`` make real, billable AWS
+# calls and are excluded by default so a blocked check is NAMED rather than silently
+# missing (AGENTS.md). Run them only inside an authorised budget, e.g.
+# uv run --frozen pytest -m dynamodb_live
+addopts = "-q -m 'not bedrock_live and not agentcore_live and not dynamodb_live'"
 markers = [
   "bedrock_offline: offline adapter tests for the Bedrock path; NOT cloud evidence",
   "bedrock_live: real AWS Bedrock round trip; needs an authorised account and budget",
   "agentcore_live: real AWS AgentCore Memory round trip; needs an authorised account",
+  "dynamodb_live: real AWS DynamoDB table round trip; needs an authorised account",
   "restart: real OS-process restart recovery; spawns a short-lived subprocess",
 ]
 

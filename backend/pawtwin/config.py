@@ -7,6 +7,11 @@ ModelBackend = Literal["inline", "local_fake", "bedrock"]
 WorkerMode = Literal["inline", "background"]
 MemoryBackend = Literal["not_implemented", "agentcore"]
 
+# Day-5 ruling 4a: the built-in local demo passphrase is a NON-secret gate that is
+# fine for local mode but must NEVER be shipped on a public HTTPS demo. It is a
+# named constant so the aws-mode validator can reject it without a magic string.
+DEFAULT_DEMO_PASSPHRASE = "local-demo-passphrase"
+
 
 class Settings(BaseSettings):
     """Process configuration for the local scaffold and future AWS adapter mode."""
@@ -34,8 +39,11 @@ class Settings(BaseSettings):
     # PAWTWIN_DEMO_PASSPHRASE environment variable and private test
     # instructions; it is never committed to source or shipped in the frontend.
     demo_passphrase: str = Field(
-        default="local-demo-passphrase",
+        default=DEFAULT_DEMO_PASSPHRASE,
         validation_alias="PAWTWIN_DEMO_PASSPHRASE",
+    )
+    photo_recognition_enabled: bool = Field(
+        default=False, validation_alias="PAWTWIN_PHOTO_RECOGNITION_ENABLED"
     )
 
     # --- Day-2: analyzer backend, worker and reliability budgets --------------
@@ -102,6 +110,32 @@ class Settings(BaseSettings):
     trust_proxy_headers: bool = Field(
         default=False,
         validation_alias="PAWTWIN_TRUST_PROXY_HEADERS",
+    )
+
+    # --- Day-5 ruling 4: public-network security gates (b) session lifetime and
+    # (c) login throttling. Both are PROCESS-LOCAL by design: the replicas are fixed
+    # at 1x1 (ruling 15), so a single process is the whole site. Under multiple
+    # replicas each would keep its own counters, so these are honest single-task
+    # gates, NOT a distributed session store or throttle.
+    session_ttl_seconds: int = Field(
+        default=28800,
+        gt=0,
+        validation_alias="PAWTWIN_SESSION_TTL_SECONDS",
+    )
+    session_idle_seconds: int = Field(
+        default=1800,
+        gt=0,
+        validation_alias="PAWTWIN_SESSION_IDLE_SECONDS",
+    )
+    login_max_failures: int = Field(
+        default=5,
+        gt=0,
+        validation_alias="PAWTWIN_LOGIN_MAX_FAILURES",
+    )
+    login_backoff_seconds: int = Field(
+        default=60,
+        gt=0,
+        validation_alias="PAWTWIN_LOGIN_BACKOFF_SECONDS",
     )
 
     @property
@@ -175,6 +209,25 @@ class Settings(BaseSettings):
         return self
 
     @model_validator(mode="after")
+    def require_strong_demo_passphrase_in_aws(self) -> "Settings":
+        """Day-5 ruling 4a: refuse to START a public demo on the built-in passphrase.
+
+        ``mode=aws`` is the deployed, internet-reachable form, so shipping the
+        non-secret local default (or a trivially short one) would hand anyone the
+        gate. Local mode is untouched -- the default stays a NON-secret local gate
+        and the default VALUE is not changed here, only validated.
+        """
+
+        if self.mode == "aws" and (
+            self.demo_passphrase == DEFAULT_DEMO_PASSPHRASE or len(self.demo_passphrase) < 12
+        ):
+            raise ValueError(
+                "PAWTWIN_MODE=aws requires a strong PAWTWIN_DEMO_PASSPHRASE "
+                "(not the built-in default and at least 12 characters)"
+            )
+        return self
+
+    @model_validator(mode="after")
     def validate_budget_ordering(self) -> "Settings":
         if self.lease_renew_seconds >= self.lease_seconds:
             raise ValueError("PAWTWIN_LEASE_RENEW_SECONDS must be shorter than the lease")
@@ -184,12 +237,15 @@ class Settings(BaseSettings):
 
     @property
     def aws_connected(self) -> bool:
-        """True only when storage AND model AND memory are all really connected.
+        """Always False AT THE SETTINGS LAYER: constructing Settings does no IO, so it
+        can never honestly assert a cloud connection.
 
-        Storage is still SQLite (the DynamoDB adapter is not implemented), so this
-        stays False even with ``analyzer='bedrock'`` and ``memory='agentcore'``:
-        the UI shows each label separately and never claims a cloud connection that
-        has not been verified end to end.
+        Day-5 ruling 8 moved the REAL flag to ``app.state.aws_connected``, which
+        ``create_app`` sets from the read-only startup probe (DynamoDB GetItem +
+        AgentCore GetMemory, with the model backend required to be ``bedrock``). The
+        API and bootstrap read that, not this. Keeping this False preserves the
+        invariant that configuration alone is never mistaken for verified
+        connectivity (AGENTS.md L18); the UI still shows each label separately.
         """
 
         return False

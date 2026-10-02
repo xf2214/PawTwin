@@ -158,6 +158,9 @@ export interface FeedbackView {
   memory_backend: MemoryBackend
   created_at: string
   conversation_id: string | null
+  // Count of real AgentCore records behind an 'available' status; always 0 locally
+  // (the repository only persists 'available' with real ids). Evidence for the label.
+  memory_record_count: number
 }
 
 export interface FeedbackIn {
@@ -219,7 +222,7 @@ async function readError(res: Response): Promise<string> {
   }
 }
 
-async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
+export async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
   const headers = new Headers(init.headers)
   headers.set('Content-Type', 'application/json')
   const method = init.method ?? 'GET'

@@ -240,6 +240,52 @@
         "title": "DemoFactsIn",
         "type": "object"
       },
+      "DiaryInput": {
+        "additionalProperties": false,
+        "properties": {
+          "actor_id": {
+            "format": "uuid",
+            "title": "Actor Id",
+            "type": "string"
+          },
+          "happened_on": {
+            "format": "date",
+            "title": "Happened On",
+            "type": "string"
+          },
+          "photo_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Photo Id"
+          },
+          "text": {
+            "default": "",
+            "maxLength": 2000,
+            "title": "Text",
+            "type": "string"
+          },
+          "title": {
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "happened_on",
+          "actor_id"
+        ],
+        "title": "DiaryInput",
+        "type": "object"
+      },
       "ErrorResponse": {
         "additionalProperties": false,
         "description": "Shared error body, declared in OpenAPI ``responses`` (401/403/404/409).",
@@ -485,6 +531,12 @@
             "title": "Memory Backend",
             "type": "string"
           },
+          "memory_record_count": {
+            "default": 0,
+            "minimum": 0.0,
+            "title": "Memory Record Count",
+            "type": "integer"
+          },
           "memory_status": {
             "enum": [
               "saved",
@@ -562,6 +614,22 @@
         "title": "LoginResponse",
         "type": "object"
       },
+      "MemberInput": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "maxLength": 40,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "title": "MemberInput",
+        "type": "object"
+      },
       "NewSessionView": {
         "additionalProperties": false,
         "description": "Result of ``POST /api/demo/new-session``: a fresh conversation id.\n\nPet memory, facts and the login session are preserved; only the conversation\n(the AgentCore session id) rotates, which is what makes cross-session\nretrieval demonstrable. The conversation id is never a pet identity.",
@@ -575,6 +643,245 @@
           "conversation_id"
         ],
         "title": "NewSessionView",
+        "type": "object"
+      },
+      "NoteInput": {
+        "additionalProperties": false,
+        "properties": {
+          "activity": {
+            "anyOf": [
+              {
+                "enum": [
+                  "feeding",
+                  "water",
+                  "play",
+                  "brush",
+                  "bath",
+                  "nails",
+                  "clean",
+                  "walk"
+                ],
+                "type": "string"
+              },
+              {
+                "const": "general",
+                "type": "string"
+              }
+            ],
+            "default": "general",
+            "title": "Activity"
+          },
+          "actor_id": {
+            "format": "uuid",
+            "title": "Actor Id",
+            "type": "string"
+          },
+          "scope": {
+            "default": "observation",
+            "enum": [
+              "today",
+              "preference",
+              "observation"
+            ],
+            "title": "Scope",
+            "type": "string"
+          },
+          "text": {
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "text",
+          "actor_id"
+        ],
+        "title": "NoteInput",
+        "type": "object"
+      },
+      "ObjectInput": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "enum": [
+              "nest",
+              "toy",
+              "water",
+              "feeder"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "name": {
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          },
+          "note": {
+            "default": "",
+            "maxLength": 300,
+            "title": "Note",
+            "type": "string"
+          },
+          "x": {
+            "default": 40,
+            "maximum": 88.0,
+            "minimum": 8.0,
+            "title": "X",
+            "type": "integer"
+          },
+          "y": {
+            "default": 60,
+            "maximum": 82.0,
+            "minimum": 18.0,
+            "title": "Y",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "kind",
+          "name"
+        ],
+        "title": "ObjectInput",
+        "type": "object"
+      },
+      "PetInput": {
+        "additionalProperties": false,
+        "properties": {
+          "age_years": {
+            "anyOf": [
+              {
+                "maximum": 50.0,
+                "minimum": 0.0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Age Years"
+          },
+          "birthday": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Birthday"
+          },
+          "breed": {
+            "default": "",
+            "maxLength": 80,
+            "title": "Breed",
+            "type": "string"
+          },
+          "coat": {
+            "default": "gold",
+            "enum": [
+              "gold",
+              "gray",
+              "cream",
+              "black",
+              "white"
+            ],
+            "title": "Coat",
+            "type": "string"
+          },
+          "dislikes": {
+            "default": "",
+            "maxLength": 300,
+            "title": "Dislikes",
+            "type": "string"
+          },
+          "gender": {
+            "default": "unknown",
+            "enum": [
+              "unknown",
+              "female",
+              "male"
+            ],
+            "title": "Gender",
+            "type": "string"
+          },
+          "likes": {
+            "default": "",
+            "maxLength": 300,
+            "title": "Likes",
+            "type": "string"
+          },
+          "name": {
+            "maxLength": 40,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          },
+          "pattern": {
+            "default": "solid",
+            "enum": [
+              "solid",
+              "stripes",
+              "spots"
+            ],
+            "title": "Pattern",
+            "type": "string"
+          },
+          "photo_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Photo Id"
+          },
+          "size": {
+            "default": "medium",
+            "enum": [
+              "small",
+              "medium",
+              "large"
+            ],
+            "title": "Size",
+            "type": "string"
+          },
+          "species": {
+            "default": "cat",
+            "enum": [
+              "cat",
+              "dog"
+            ],
+            "title": "Species",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "title": "PetInput",
+        "type": "object"
+      },
+      "PhotoInput": {
+        "additionalProperties": false,
+        "properties": {
+          "data_url": {
+            "maxLength": 4200000,
+            "title": "Data Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "data_url"
+        ],
+        "title": "PhotoInput",
         "type": "object"
       },
       "Proposal": {
@@ -870,6 +1177,116 @@
           "runs"
         ],
         "title": "StateView",
+        "type": "object"
+      },
+      "TaskAction": {
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "enum": [
+              "complete",
+              "postpone"
+            ],
+            "title": "Action",
+            "type": "string"
+          },
+          "actor_id": {
+            "format": "uuid",
+            "title": "Actor Id",
+            "type": "string"
+          },
+          "event_id": {
+            "format": "uuid",
+            "title": "Event Id",
+            "type": "string"
+          },
+          "next_due": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Due"
+          },
+          "note": {
+            "default": "",
+            "maxLength": 300,
+            "title": "Note",
+            "type": "string"
+          }
+        },
+        "required": [
+          "event_id",
+          "actor_id",
+          "action"
+        ],
+        "title": "TaskAction",
+        "type": "object"
+      },
+      "TaskInput": {
+        "additionalProperties": false,
+        "properties": {
+          "assigned_to": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Assigned To"
+          },
+          "due_at": {
+            "format": "date-time",
+            "title": "Due At",
+            "type": "string"
+          },
+          "interval_days": {
+            "anyOf": [
+              {
+                "maximum": 365.0,
+                "minimum": 1.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Interval Days"
+          },
+          "kind": {
+            "enum": [
+              "feeding",
+              "water",
+              "play",
+              "brush",
+              "bath",
+              "nails",
+              "clean",
+              "walk"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "title": {
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "title",
+          "due_at"
+        ],
+        "title": "TaskInput",
         "type": "object"
       },
       "ValidationError": {
@@ -1274,6 +1691,688 @@
         "summary": "Get Feedback"
       }
     },
+    "/api/home/members": {
+      "post": {
+        "operationId": "add_member_api_home_members_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MemberInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Add Member Api Home Members Post",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Member",
+        "tags": [
+          "Pet home"
+        ]
+      }
+    },
+    "/api/home/objects/{object_id}": {
+      "put": {
+        "operationId": "edit_object_api_home_objects__object_id__put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "object_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Object Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ObjectInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Edit Object Api Home Objects  Object Id  Put",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Edit Object",
+        "tags": [
+          "Pet home"
+        ]
+      }
+    },
+    "/api/home/pets": {
+      "post": {
+        "operationId": "add_pet_api_home_pets_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PetInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Add Pet Api Home Pets Post",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Pet",
+        "tags": [
+          "Pet home"
+        ]
+      }
+    },
+    "/api/home/pets/{pet_id}": {
+      "put": {
+        "operationId": "edit_pet_api_home_pets__pet_id__put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PetInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Edit Pet Api Home Pets  Pet Id  Put",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Edit Pet",
+        "tags": [
+          "Pet home"
+        ]
+      }
+    },
+    "/api/home/pets/{pet_id}/diary": {
+      "post": {
+        "operationId": "add_diary_api_home_pets__pet_id__diary_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaryInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Add Diary Api Home Pets  Pet Id  Diary Post",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Diary",
+        "tags": [
+          "Pet home"
+        ]
+      }
+    },
+    "/api/home/pets/{pet_id}/insights": {
+      "get": {
+        "operationId": "insights_api_home_pets__pet_id__insights_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "activity",
+            "required": false,
+            "schema": {
+              "default": "play",
+              "enum": [
+                "feeding",
+                "water",
+                "play",
+                "brush",
+                "bath",
+                "nails",
+                "clean",
+                "walk"
+              ],
+              "title": "Activity",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Insights Api Home Pets  Pet Id  Insights Get",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Insights",
+        "tags": [
+          "Pet home"
+        ]
+      }
+    },
+    "/api/home/pets/{pet_id}/notes": {
+      "post": {
+        "operationId": "add_note_api_home_pets__pet_id__notes_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NoteInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Add Note Api Home Pets  Pet Id  Notes Post",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Note",
+        "tags": [
+          "Pet home"
+        ]
+      }
+    },
+    "/api/home/pets/{pet_id}/objects": {
+      "post": {
+        "operationId": "add_object_api_home_pets__pet_id__objects_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ObjectInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Add Object Api Home Pets  Pet Id  Objects Post",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Object",
+        "tags": [
+          "Pet home"
+        ]
+      }
+    },
+    "/api/home/pets/{pet_id}/tasks": {
+      "post": {
+        "operationId": "add_task_api_home_pets__pet_id__tasks_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TaskInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Add Task Api Home Pets  Pet Id  Tasks Post",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Task",
+        "tags": [
+          "Pet home"
+        ]
+      }
+    },
+    "/api/home/photos": {
+      "post": {
+        "operationId": "upload_photo_api_home_photos_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PhotoInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Upload Photo Api Home Photos Post",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Upload Photo",
+        "tags": [
+          "Pet home"
+        ]
+      }
+    },
+    "/api/home/photos/{photo_id}": {
+      "get": {
+        "operationId": "get_photo_api_home_photos__photo_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "photo_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Photo Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Photo",
+        "tags": [
+          "Pet home"
+        ]
+      }
+    },
+    "/api/home/photos/{photo_id}/recognize": {
+      "post": {
+        "operationId": "recognize_photo_api_home_photos__photo_id__recognize_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "photo_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Photo Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Recognize Photo Api Home Photos  Photo Id  Recognize Post",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Recognize Photo",
+        "tags": [
+          "Pet home"
+        ]
+      }
+    },
+    "/api/home/state": {
+      "get": {
+        "operationId": "home_state_api_home_state_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Home State Api Home State Get",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Home State",
+        "tags": [
+          "Pet home"
+        ]
+      }
+    },
+    "/api/home/tasks/{task_id}/action": {
+      "post": {
+        "operationId": "task_action_api_home_tasks__task_id__action_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "task_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Task Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TaskAction"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Task Action Api Home Tasks  Task Id  Action Post",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Task Action",
+        "tags": [
+          "Pet home"
+        ]
+      }
+    },
     "/api/login": {
       "post": {
         "operationId": "login_api_login_post",
@@ -1317,6 +2416,16 @@
               }
             },
             "description": "Request body failed validation."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Too many failed logins; retry after the backoff window."
           }
         },
         "summary": "Login"
