@@ -1,6 +1,7 @@
 from datetime import UTC, datetime, timedelta
 from uuid import uuid4
 
+import pytest
 from pawtwin.models import Action, EventIn, Proposal, Receipt, RunState, make_command_id
 from pawtwin.repo_sqlite import DEMO_OWNER_ID, SqliteRepository
 
@@ -105,3 +106,38 @@ def test_update_facts_bumps_version(repo: SqliteRepository) -> None:
 
     assert updated.last_fed_minutes_ago == 20
     assert updated.facts_version == version_before + 1
+
+
+def test_set_feedback_status_refuses_available_without_record_ids(
+    repo: SqliteRepository,
+) -> None:
+    """Day-5 ruling 11: ``available`` means real AgentCore records were retrieved,
+    so the repository REFUSES to write it without record ids -- a fail-closed
+    invariant that stops a future wiring bug dressing stored feedback up as
+    extracted memory (AGENTS.md L18). Negative test: the guard really raises and
+    leaves the stored status untouched, and the same write succeeds WITH ids.
+    """
+
+    saved = repo.save_feedback(
+        owner_id=DEMO_OWNER_ID,
+        pet_id="mochi",
+        text="invariant probe",
+        scope="observation",
+        memory_status="saved",
+        memory_backend="agentcore",
+    )
+    with pytest.raises(ValueError, match="requires memory_record_ids"):
+        repo.set_feedback_status(saved.feedback_id, memory_status="available")
+    with pytest.raises(ValueError, match="requires memory_record_ids"):
+        repo.set_feedback_status(
+            saved.feedback_id, memory_status="available", memory_record_ids=[]
+        )
+    # The refused write changed nothing.
+    assert repo.get_feedback(saved.feedback_id).memory_status == "saved"
+    # With real record ids the transition is allowed.
+    ok = repo.set_feedback_status(
+        saved.feedback_id, memory_status="available", memory_record_ids=["rec-1"]
+    )
+    assert ok is not None
+    assert ok.memory_status == "available"
+    assert ok.memory_record_ids == ["rec-1"]

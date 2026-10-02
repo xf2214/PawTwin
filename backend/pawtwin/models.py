@@ -171,6 +171,21 @@ MemoryStatus = Literal["saved", "processing", "available", "failed"]
 MemoryBackend = Literal["not_implemented", "agentcore"]
 FeedbackScope = Literal["observation", "today_only"]
 
+# Day-5 (ruling 11): a runtime handle for the one lifecycle status a repository
+# invariant must COMPARE against. It lives here, in the frozen vocabulary module
+# that is already the anti-forgery static guard's whitelisted source of these
+# literals, so no adapter/repository module has to write the bare quoted literal:
+# the guard in tests/test_feedback_api.py keeps its whitelist UNCHANGED (ruling 12,
+# "change scope, don't relax"). Propagation is still policed by the behavioural
+# guards, exactly as that guard's docstring says a literal scan cannot cover.
+MEMORY_AVAILABLE: MemoryStatus = "available"
+# Day-5 (ruling 11/12): the poller and the repository's "pending extraction" query
+# COMPARE against this handle rather than writing the bare literal, so no adapter,
+# repository or worker module becomes an anti-forgery offender (ruling 12: the
+# static-literal whitelist is NOT extended). Producing the status still happens only
+# in memory.py / agentcore_client.py; the behavioural guards police propagation.
+MEMORY_PROCESSING: MemoryStatus = "processing"
+
 
 class ErrorResponse(ContractModel):
     """Shared error body, declared in OpenAPI ``responses`` (401/403/404/409)."""
@@ -323,6 +338,12 @@ class FeedbackView(ContractModel):
     memory_backend: MemoryBackend
     created_at: datetime
     conversation_id: str | None = None
+    # Day-5 (§4.3): the COUNT of real AgentCore records behind an ``available``
+    # status -- the evidence the frontend's "已提炼（真实 AgentCore 记录 N 条）"
+    # label renders from. It is 0 for every local ``saved``/``processing``/``failed``
+    # item (the repository invariant only persists ``available`` WITH real ids), so a
+    # local run can never show a non-zero count. Non-secret; the ids stay internal.
+    memory_record_count: int = Field(default=0, ge=0)
 
 
 class NewSessionView(ContractModel):

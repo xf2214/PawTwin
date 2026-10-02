@@ -20,10 +20,14 @@ import threading
 import uuid
 from concurrent.futures import Future, ThreadPoolExecutor
 from datetime import UTC, datetime, timedelta
+from typing import TYPE_CHECKING
 
 from pawtwin.config import Settings
 from pawtwin.repository import Repository
 from pawtwin.workflow import Workflow
+
+if TYPE_CHECKING:  # pragma: no cover - typing only, no runtime Backend->AI import
+    from pawtwin.memory import MemoryService
 
 logger = logging.getLogger(__name__)
 
@@ -282,3 +286,95 @@ class AnalysisWorker:
             with self._count_lock:
                 self._active -= 1
             self.admission.release(owner_id)
+
+
+class MemoryPoller:
+    """Advances the AgentCore extraction lifecycle for pending feedback (Day-5 r.11).
+
+    A daemon timer thread in the SAME pattern as :class:`LeaseRenewer`, started and
+    stopped only from the application lifespan and only when the memory backend is
+    ``agentcore``. Each pass asks the repository for feedback still processing, calls
+    the memory service's two-stage ``get_status`` and writes back ONLY the status and
+    record ids the service returns -- it NEVER writes a status literal itself
+    (ruling 12), so the anti-forgery static guard stays green and the repository's
+    "available requires real record ids" invariant is the real backstop.
+
+    HONEST BOUNDARY: process-local and single-task (ruling 15). Offline it proves the
+    wiring with a stub service; a real processing->available transition is cloud
+    evidence only after a genuine AgentCore round trip (docs/evidence/day5-*).
+    """
+
+    def __init__(
+        self,
+        repo: Repository,
+        memory: MemoryService,
+        *,
+        poll_interval: float = 10.0,
+    ) -> None:
+        self._repo = repo
+        self._memory = memory
+        self._poll_interval = max(0.1, poll_interval)
+        self._stop = threading.Event()
+        self._thread: threading.Thread | None = None
+        self.advanced = 0
+
+    @property
+    def running(self) -> bool:
+        return self._thread is not None
+
+    def start(self) -> None:
+        if self._thread is not None:
+            return
+        self._stop.clear()
+        self._thread = threading.Thread(
+            target=self._run, name="pawtwin-memory-poller", daemon=True
+        )
+        self._thread.start()
+
+    def stop(self, timeout: float = 2.0) -> None:
+        self._stop.set()
+        thread, self._thread = self._thread, None
+        if thread is not None:
+            thread.join(timeout=timeout)
+
+    def _run(self) -> None:
+        while not self._stop.is_set():
+            try:
+                self.poll_once()
+            except Exception:  # noqa: BLE001 - the loop must never die silently
+                logger.exception("memory poll pass failed")
+            self._stop.wait(timeout=self._poll_interval)
+
+    def poll_once(self) -> int:
+        """One pass over pending feedback; returns how many records were advanced."""
+
+        advanced = 0
+        for record in self._repo.list_feedback_pending_extraction():
+            if self._stop.is_set():
+                break
+            try:
+                result = self._memory.get_status(
+                    record.feedback_id,
+                    owner_id=record.owner_id,
+                    pet_id=record.pet_id,
+                    agentcore_event_id=record.agentcore_event_id,
+                    agentcore_session_id=record.agentcore_session_id,
+                    query=record.text,
+                )
+            except Exception:  # noqa: BLE001 - incl. MemoryUnavailable: never a fake success
+                # A poll failure leaves the record processing; the raw feedback is
+                # already saved and the next pass retries. Never fabricate a status.
+                logger.warning("memory poll failed for feedback %s", record.feedback_id)
+                continue
+            # Write back ONLY what the service returned. If it reported the record
+            # retrievable it carries real ids; the repository invariant refuses to
+            # persist that status without them, so this can never forge a memory.
+            if result.memory_status != record.memory_status or result.memory_record_ids:
+                self._repo.set_feedback_status(
+                    record.feedback_id,
+                    memory_status=result.memory_status,
+                    memory_record_ids=result.memory_record_ids or None,
+                )
+                advanced += 1
+        self.advanced += advanced
+        return advanced

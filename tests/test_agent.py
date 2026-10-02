@@ -172,6 +172,9 @@ def test_aws_mode_never_silently_uses_fake(repo: SqliteRepository) -> None:
         aws_region="us-west-2",
         dynamodb_table_name="pawtwin-example",
         agentcore_memory_id="memory-example",
+        # Day-5 ruling 4a: aws mode also requires a strong passphrase; supply one so
+        # this analyzer-selection test reaches build_analyzer instead of the gate.
+        demo_passphrase="a-strong-passphrase-123",
     )
 
     analyzer = build_analyzer(settings, repo)

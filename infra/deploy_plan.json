@@ -1,0 +1,226 @@
+{
+  "_comment": [
+    "PawTwin Day-5 declarative deployment manifest (ruling 1: a boto3 orchestrator,",
+    "NOT CDK/CloudFormation). scripts/deploy_aws.py reads this and creates each",
+    "resource in dependency order, writing the real ARNs/ids it gets back into",
+    "infra/deploy_state.json (git-ignored). scripts/cleanup_aws.py deletes them in",
+    "REVERSE dependency order and reads each back to prove it is gone.",
+    "",
+    "HONESTY: region and account are NEVER hardcoded here (resolved at runtime from",
+    "AWS_REGION / the caller identity). Placeholder values written as <...> MUST be",
+    "supplied at apply time and are recorded in deploy_state.json, not here. Nothing",
+    "in this file is a claim that any resource has been created; creation only",
+    "happens in deploy_aws.py -Apply after the cost gate and the user's written",
+    "budget authorization (AGENTS.md L69).",
+    "",
+    "The AgentCore namespaceTemplates below are paired EXACTLY with",
+    "pawtwin.memory.AgentCoreMemory._namespace ('/owner/<owner>/pet/<pet>'); a",
+    "cross-source guard test (tests/test_deploy_plan.py) fails if they drift",
+    "(ruling 10). The exact AgentCore template placeholder SYNTAX is unverified",
+    "without an account and must be confirmed at apply time."
+  ],
+  "version": 1,
+  "project": "pawtwin",
+  "region_source": "AWS_REGION (runtime only; never hardcoded)",
+  "tags": { "project": "pawtwin", "managed_by": "deploy_aws.py" },
+  "resources": [
+    {
+      "logical_id": "ecr_repository",
+      "type": "ecr_repository",
+      "depends_on": [],
+      "params": {
+        "repository_name": "pawtwin",
+        "image_tag_mutability": "IMMUTABLE",
+        "scan_on_push": true
+      }
+    },
+    {
+      "logical_id": "dynamodb_table",
+      "type": "dynamodb_table",
+      "depends_on": [],
+      "params": {
+        "table_name": "<PAWTWIN_DYNAMODB_TABLE_NAME>",
+        "billing_mode": "PAY_PER_REQUEST",
+        "attribute_definitions": [
+          { "attribute_name": "pk", "attribute_type": "S" },
+          { "attribute_name": "sk", "attribute_type": "S" },
+          { "attribute_name": "gpk", "attribute_type": "S" },
+          { "attribute_name": "gsk", "attribute_type": "S" }
+        ],
+        "key_schema": [
+          { "key_name": "pk", "key_type": "HASH" },
+          { "key_name": "sk", "key_type": "RANGE" }
+        ],
+        "global_secondary_indexes": [
+          {
+            "index_name": "entity-index",
+            "key_schema": [
+              { "key_name": "gpk", "key_type": "HASH" },
+              { "key_name": "gsk", "key_type": "RANGE" }
+            ],
+            "projection": { "projection_type": "ALL" }
+          }
+        ],
+        "point_in_time_recovery": false,
+        "_note": "ruling 5: single table pk/sk + one entity-index GSI (runs by owner, receipts by run). Demo-period data is disposable: no PITR, no backup plan."
+      }
+    },
+    {
+      "logical_id": "agentcore_memory",
+      "type": "agentcore_memory",
+      "depends_on": [],
+      "params": {
+        "name": "<PAWTWIN_AGENTCORE_MEMORY_NAME>",
+        "event_expiry_duration": "P30D",
+        "memory_strategies": [
+          {
+            "userPreferenceMemoryStrategy": {
+              "name": "pawtwin-owner-preference",
+              "namespaces": ["/owner/{owner}/pet/{pet}"]
+            }
+          }
+        ],
+        "namespace_templates": ["/owner/{owner}/pet/{pet}"],
+        "_namespace_template_keys": ["owner", "pet"],
+        "_note": "ruling 10/13: namespaceTemplates pair with _namespace and with CreateEvent extractionConfig.namespaceVariables {owner,pet}. After CreateMemory the orchestrator MUST poll GetMemory until the strategy status is ACTIVE before any event is submitted (an event stored before ACTIVE is never extracted, fact G-I)."
+      }
+    },
+    {
+      "logical_id": "cloudwatch_log_group",
+      "type": "cloudwatch_log_group",
+      "depends_on": [],
+      "params": {
+        "log_group_name": "/pawtwin/app",
+        "retention_in_days": 7
+      }
+    },
+    {
+      "logical_id": "ecs_task_execution_role",
+      "type": "iam_role",
+      "depends_on": [],
+      "params": {
+        "role_name": "pawtwin-ecsTaskExecutionRole",
+        "assume_role_policy": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": { "Service": "ecs-tasks.amazonaws.com" },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        },
+        "managed_policy_arns": [
+          "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
+        ]
+      }
+    },
+    {
+      "logical_id": "ecs_infrastructure_role",
+      "type": "iam_role",
+      "depends_on": [],
+      "params": {
+        "role_name": "pawtwin-ecsInfrastructureRoleForExpressServices",
+        "assume_role_policy": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": { "Service": "ecs.amazonaws.com" },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        },
+        "managed_policy_arns": [
+          "arn:aws:iam::aws:policy/aws-service-role/AmazonECSInfrastructureRoleforExpressGatewayServices"
+        ]
+      }
+    },
+    {
+      "logical_id": "github_oidc_provider",
+      "type": "iam_oidc_provider",
+      "depends_on": [],
+      "params": {
+        "url": "token.actions.githubusercontent.com",
+        "client_id_list": ["sts.amazonaws.com"],
+        "thumbprint_list": ["<OIDC_THUMBPRINT>"],
+        "_note": "ruling 14: GitHub Actions OIDC. Fallback D: if IAM admin is unavailable, the user creates this and the role manually and supplies the role ARN; no long-lived key is ever requested."
+      }
+    },
+    {
+      "logical_id": "github_actions_role",
+      "type": "iam_role",
+      "depends_on": ["github_oidc_provider", "ecr_repository"],
+      "params": {
+        "role_name": "pawtwin-github-actions-ecr-push",
+        "assume_role_policy": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": { "Federated": "<GITHUB_OIDC_PROVIDER_ARN>" },
+              "Action": "sts:AssumeRoleWithWebIdentity",
+              "Condition": {
+                "StringEquals": { "token.actions.githubusercontent.com:aud": "sts.amazonaws.com" },
+                "StringLike": {
+                  "token.actions.githubusercontent.com:sub": "repo:<GITHUB_OWNER>/<GITHUB_REPO>:*"
+                }
+              }
+            }
+          ]
+        },
+        "_note": "Trust is locked to repo:<owner>/<repo>; the inline policy (added by the orchestrator) grants ECR push to the pawtwin repository only."
+      }
+    },
+    {
+      "logical_id": "ecs_express_service",
+      "type": "ecs_express_service",
+      "depends_on": [
+        "ecr_repository",
+        "ecs_task_execution_role",
+        "ecs_infrastructure_role",
+        "dynamodb_table",
+        "agentcore_memory",
+        "cloudwatch_log_group"
+      ],
+      "params": {
+        "service_name": "pawtwin",
+        "cpu": "1",
+        "memory": "2",
+        "cpu_architecture": "X86_64",
+        "health_check_path": "/healthz",
+        "primary_container": {
+          "container_port": 8080,
+          "image": "<ECR_IMAGE_URI>",
+          "environment_source": "Injected at apply time: PAWTWIN_MODE=aws, PAWTWIN_WORKER_MODE=background, BEDROCK_MODEL_ID, AWS_REGION, DYNAMODB_TABLE_NAME, AGENTCORE_MEMORY_ID, PAWTWIN_DEMO_PASSPHRASE (strong), PAWTWIN_TRUST_PROXY_HEADERS=true. The passphrase is a secret: prefer Express container secrets if supported, else environment (never in the repo, never in the browser). Ruling 14.",
+          "environment_public_keys": [
+            "PAWTWIN_MODE",
+            "PAWTWIN_WORKER_MODE",
+            "BEDROCK_MODEL_ID",
+            "AWS_REGION",
+            "DYNAMODB_TABLE_NAME",
+            "AGENTCORE_MEMORY_ID",
+            "PAWTWIN_TRUST_PROXY_HEADERS",
+            "PAWTWIN_SESSION_TTL_SECONDS",
+            "PAWTWIN_SESSION_IDLE_SECONDS",
+            "PAWTWIN_LOGIN_MAX_FAILURES",
+            "PAWTWIN_LOGIN_BACKOFF_SECONDS"
+          ]
+        },
+        "scaling_target": { "min_task_count": 1, "max_task_count": 1 },
+        "_note": "ruling 9/15: LB + container HEALTHCHECK use /healthz (never /readyz). Replicas fixed 1x1: session, login throttle and concurrency ceilings are process-local, so >1 replica would multiply the site-wide ceiling and 401 another replica's cookie. The managed URL is https://<service>.ecs.<region>.on.aws with TLS terminated by Express Mode. cpu/memory/scaling actual生效值 are recorded from the real response, not assumed."
+      }
+    }
+  ],
+  "delete_order": [
+    "ecs_express_service",
+    "github_actions_role",
+    "github_oidc_provider",
+    "ecs_infrastructure_role",
+    "ecs_task_execution_role",
+    "cloudwatch_log_group",
+    "agentcore_memory",
+    "dynamodb_table",
+    "ecr_repository"
+  ]
+}

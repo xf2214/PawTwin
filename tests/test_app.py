@@ -26,6 +26,30 @@ def test_status_endpoints_report_component_honest_readiness() -> None:
     }
 
 
+def test_readyz_maps_a_verified_probe_to_200_not_a_perpetual_503() -> None:
+    """Day-5 ruling 9 MAPPING test: when create_app's startup probe marked the cloud
+    connected, /readyz returns 200 ``{status: ready}`` instead of understating with a
+    perpetual 503 (a low-report is a distortion too). This injects the probe RESULT
+    directly onto app.state -- it is a mapping-logic test, NOT cloud evidence: no real
+    probe ran, and the LB/HEALTHCHECK still use /healthz (never /readyz). The local
+    503 assertion above is unchanged.
+    """
+
+    app = create_app(Settings(_env_file=None))
+    try:
+        # Simulate a verified aws assembly; the real values come from create_app's probe.
+        app.state.aws_connected = True
+        app.state.storage_label = "dynamodb"
+        ready = TestClient(app).get("/readyz")
+        assert ready.status_code == 200
+        body = ready.json()
+        assert body["status"] == "ready"
+        assert body["cloud"] == "verified"
+        assert body["storage"] == "dynamodb_connected"
+    finally:
+        app.state.repository.close()
+
+
 def test_bootstrap_is_public_and_contains_only_non_sensitive_state() -> None:
     settings = Settings(
         _env_file=None,

@@ -24,7 +24,7 @@ from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
 
-from pawtwin.auth import CSRF_HEADER, SESSION_COOKIE, AuthService, Session
+from pawtwin.auth import CSRF_HEADER, SESSION_COOKIE, AuthService, LoginRateLimiter, Session
 from pawtwin.config import Settings
 from pawtwin.device_sim import DeviceSimulator
 from pawtwin.memory import MemoryService, MemoryUnavailable
@@ -62,6 +62,10 @@ _ERROR_RESPONSES: dict[int, dict[str, Any]] = {
         "description": "Rejected: state, approval binding or policy conflict.",
     },
     422: {"model": ErrorResponse, "description": "Request body failed validation."},
+    429: {
+        "model": ErrorResponse,
+        "description": "Too many failed logins; retry after the backoff window.",
+    },
 }
 
 
@@ -113,6 +117,28 @@ def _cookie_secure(request: Request) -> bool:
 
 def _repository(request: Request) -> Repository:
     return request.app.state.repository
+
+
+def _login_limiter(request: Request) -> LoginRateLimiter:
+    return request.app.state.login_limiter
+
+
+def _client_ip(request: Request) -> str:
+    """Best-effort client IP for the login throttle (Day-5 ruling 4c).
+
+    Behind a TLS-terminating proxy the peer address is the proxy, so the real client
+    is the first ``X-Forwarded-For`` entry -- but that header is only trusted when
+    the operator opted into ``trust_proxy_headers`` (Day-4 ruling 5); otherwise any
+    caller could spoof a fresh IP and evade the throttle. Falls back to the direct
+    peer host.
+    """
+
+    if _settings(request).trust_proxy_headers:
+        forwarded = request.headers.get("x-forwarded-for", "")
+        first = forwarded.split(",")[0].strip()
+        if first:
+            return first
+    return request.client.host if request.client else "unknown"
 
 
 def _device(request: Request) -> DeviceSimulator:
@@ -189,6 +215,9 @@ def _feedback_view(record: FeedbackRecord) -> FeedbackView:
         memory_backend=record.memory_backend,
         created_at=record.created_at,
         conversation_id=record.conversation_id,
+        # Day-5 (§4.3): expose the COUNT (never the raw ids) so the frontend label is
+        # evidence-driven; it is 0 unless the repository persisted real record ids.
+        memory_record_count=len(record.memory_record_ids),
     )
 
 
@@ -198,13 +227,34 @@ def _feedback_view(record: FeedbackRecord) -> FeedbackView:
 @router.post(
     "/api/login",
     response_model=LoginResponse,
-    responses=_responses(401, 422),
+    responses=_responses(401, 422, 429),
 )
 def login(body: LoginRequest, response: Response, request: Request) -> LoginResponse:
     auth = _auth(request)
+    limiter = _login_limiter(request)
+    client_ip = _client_ip(request)
+    # Day-5 ruling 4c: throttle BEFORE verifying, so a blocked IP cannot keep
+    # probing passphrases. 429 carries Retry-After (declared in the contract).
+    retry_after = limiter.check(client_ip)
+    if retry_after > 0:
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail="RATE_LIMITED",
+            headers={"Retry-After": str(retry_after)},
+        )
     session = auth.login(body.passphrase)
     if session is None:
+        backoff = limiter.register_failure(client_ip)
+        if backoff > 0:
+            # The attempt that crossed the threshold reports 429, not 401: the
+            # client must back off rather than keep guessing.
+            raise HTTPException(
+                status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+                detail="RATE_LIMITED",
+                headers={"Retry-After": str(backoff)},
+            )
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="INVALID_CREDENTIALS")
+    limiter.register_success(client_ip)
     response.set_cookie(
         key=SESSION_COOKIE,
         value=session.session_id,
@@ -229,14 +279,18 @@ def logout(request: Request, session: SessionDep) -> Response:
 def get_state(request: Request, session: SessionDep) -> StateView:
     repo = _repository(request)
     settings = _settings(request)
+    app_state = request.app.state
     facts = repo.get_facts(session.owner_id)
     runs = repo.list_runs(session.owner_id)
     feedback = repo.list_feedback(session.owner_id)
     return StateView(
         mode=settings.mode,
-        aws_connected=settings.aws_connected,
+        # Day-5 ruling 8: REAL labels, not literals. ``aws_connected`` is create_app's
+        # startup-probe result and ``storage`` reflects the actual repository adapter
+        # ("sqlite" locally, "dynamodb" in aws mode) instead of a hardcoded string.
+        aws_connected=app_state.aws_connected,
         analyzer=settings.effective_model_backend,
-        storage="sqlite",
+        storage=app_state.storage_label,
         memory=settings.effective_memory_backend,
         device_mode=_device(request).mode,
         conversation_id=session.conversation_id,
@@ -423,6 +477,10 @@ def post_feedback(body: FeedbackIn, request: Request, session: CsrfSessionDep) -
                 record.feedback_id,
                 memory_status=result.memory_status,
                 agentcore_event_id=result.agentcore_event_id,
+                # Persist the sessionId the event was created with: GetEvent requires
+                # it to poll this event later (fact G-G). It is the conversation id,
+                # never a pet identity.
+                agentcore_session_id=conversation_id,
                 memory_record_ids=result.memory_record_ids or None,
             )
             if updated is not None:

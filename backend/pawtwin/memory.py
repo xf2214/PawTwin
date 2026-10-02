@@ -35,6 +35,7 @@ __all__ = [
     "LocalFakeMemory",
     "MemoryRecord",
     "MemoryService",
+    "MemoryStatusResult",
     "MemoryUnavailable",
     "StubMemoryService",
     "build_memory",
@@ -85,13 +86,33 @@ class FeedbackResult:
     agentcore_event_id: str | None = None
 
 
+@dataclass
+class MemoryStatusResult:
+    """Outcome of the two-stage extraction poll for ONE feedback item (Day-5 r.11).
+
+    ``memory_record_ids`` is non-empty ONLY when ``memory_status`` is ``available``
+    and real AgentCore records were retrieved: stage 1 confirms the event reached a
+    terminal state, stage 2 retrieves records, and an event that succeeded with an
+    EMPTY retrieval stays ``processing`` (never guessed up to ``available``). This is
+    what lets the worker hand real record ids to ``set_feedback_status`` so the
+    repository invariant (available requires ids) can hold.
+    """
+
+    memory_status: MemoryStatus
+    memory_record_ids: list[str] = field(default_factory=list)
+
+
 class MemoryService(Protocol):
-    """Frozen Day-3 memory seam (ruling 1).
+    """Frozen Day-3 memory seam, REVISED Day-5 (rulings 10/11) for the real API.
 
     ``submit_feedback`` decides the honest status for one ALREADY-persisted
     feedback id (the raw text is stored by the repository first, T5); ``get_status``
-    re-reads that lifecycle; ``search`` retrieves long-term memory for one
-    owner/pet scope and returns an empty list when nothing was really extracted.
+    is the two-stage extraction poll and returns a :class:`MemoryStatusResult` (the
+    honest lifecycle PLUS the real record ids when -- and only when -- it is
+    ``available``); ``search`` retrieves long-term memory for one owner/pet scope
+    and returns an empty list when nothing was really extracted. The extra keyword
+    arguments on ``get_status`` carry the AgentCore context the real ``GetEvent``
+    needs (``sessionId``/``actorId``, fact G-G) and the retrieval query.
     """
 
     label: MemoryBackend
@@ -108,8 +129,15 @@ class MemoryService(Protocol):
     ) -> FeedbackResult: ...
 
     def get_status(
-        self, feedback_id: UUID, *, agentcore_event_id: str | None = None
-    ) -> MemoryStatus: ...
+        self,
+        feedback_id: UUID,
+        *,
+        owner_id: str | None = None,
+        pet_id: str | None = None,
+        agentcore_event_id: str | None = None,
+        agentcore_session_id: str | None = None,
+        query: str | None = None,
+    ) -> MemoryStatusResult: ...
 
     def search(self, *, owner_id: str, pet_id: str, query: str) -> list[MemoryRecord]: ...
 
@@ -144,11 +172,18 @@ class LocalFakeMemory:
         )
 
     def get_status(
-        self, feedback_id: UUID, *, agentcore_event_id: str | None = None
-    ) -> MemoryStatus:
-        _ = (feedback_id, agentcore_event_id)
+        self,
+        feedback_id: UUID,
+        *,
+        owner_id: str | None = None,
+        pet_id: str | None = None,
+        agentcore_event_id: str | None = None,
+        agentcore_session_id: str | None = None,
+        query: str | None = None,
+    ) -> MemoryStatusResult:
+        _ = (feedback_id, owner_id, pet_id, agentcore_event_id, agentcore_session_id, query)
         # Nothing is ever extracted locally, so the raw-saved status is the truth.
-        return "saved"
+        return MemoryStatusResult(memory_status="saved")
 
     def search(self, *, owner_id: str, pet_id: str, query: str) -> list[MemoryRecord]:
         _ = (owner_id, pet_id, query)
@@ -198,9 +233,16 @@ class AgentCoreMemory:
         try:
             event_id = client.create_event(
                 memory_id=self._memory_id,
-                namespace=self._namespace(owner_id, pet_id),
-                session_id=conversation_id,
-                payload=text,
+                # actorId is the owner; sessionId is the conversation, never the pet
+                # identity (T5). The sessionId is persisted so GetEvent can later
+                # locate this event (fact G-G: GetEvent requires sessionId).
+                actor_id=owner_id,
+                session_id=conversation_id or self._namespace(owner_id, pet_id),
+                text=text,
+                # Route the event into ``/owner/<o>/pet/<p>`` through the strategy's
+                # namespaceTemplates. These keys are paired EXACTLY with _namespace
+                # and with infra/deploy_plan.json (ruling 10 cross-source guard).
+                namespace_variables={"owner": owner_id, "pet": pet_id},
                 # ``today_only`` must never become a permanent preference (A07):
                 # it is tagged so the strategy does not extract a lasting trait.
                 metadata={"scope": scope, "feedback_id": str(feedback_id)},
@@ -219,33 +261,81 @@ class AgentCoreMemory:
         )
 
     def get_status(
-        self, feedback_id: UUID, *, agentcore_event_id: str | None = None
-    ) -> MemoryStatus:
+        self,
+        feedback_id: UUID,
+        *,
+        owner_id: str | None = None,
+        pet_id: str | None = None,
+        agentcore_event_id: str | None = None,
+        agentcore_session_id: str | None = None,
+        query: str | None = None,
+    ) -> MemoryStatusResult:
+        """Two-stage extraction poll (Day-5 ruling 11). NEVER guesses ``available``.
+
+        Stage 1 asks ``GetEvent`` whether the event reached a terminal state; only a
+        PROCESSED event proceeds to stage 2, which retrieves records and returns
+        ``available`` with their real ids. An event that is still ingesting stays
+        ``processing``; a processed event whose retrieval is EMPTY also stays
+        ``processing`` (extraction is asynchronous and may lag, fact G-I); a failed
+        event is ``failed``.
+        """
+
         _ = feedback_id
         if agentcore_event_id is None:
             # No submission was ever recorded, so nothing is being extracted.
-            return "saved"
+            return MemoryStatusResult(memory_status="saved")
         client = self._client if self._client is not None else self._build_client()
         try:
-            return client.event_status(memory_id=self._memory_id, event_id=agentcore_event_id)
+            event_state = client.event_status(
+                memory_id=self._memory_id,
+                event_id=agentcore_event_id,
+                session_id=agentcore_session_id,
+                actor_id=owner_id,
+            )
         except MemoryUnavailable:
             raise
         except Exception as exc:  # noqa: BLE001 - a poll failure is never "available"
             raise MemoryUnavailable(
                 f"{MEMORY_UNAVAILABLE}: STATUS_FAILED {exc.__class__.__name__}"
             ) from exc
-
-    def search(self, *, owner_id: str, pet_id: str, query: str) -> list[MemoryRecord]:
-        client = self._client if self._client is not None else self._build_client()
-        namespace = self._namespace(owner_id, pet_id)
+        if event_state == "failed":
+            return MemoryStatusResult(memory_status="failed")
+        if event_state != "processed":
+            # Still ingesting, or an unknown state: never claim it is retrievable.
+            return MemoryStatusResult(memory_status="processing")
+        # Stage 2: the event is processed, but ``available`` requires REAL record ids.
+        if owner_id is None or pet_id is None:
+            return MemoryStatusResult(memory_status="processing")
         try:
-            raw = client.retrieve(memory_id=self._memory_id, namespace=namespace, query=query)
+            records = self._retrieve(client, owner_id, pet_id, query or "")
         except MemoryUnavailable:
             raise
         except Exception as exc:  # noqa: BLE001 - retrieval failure is never a fake memory
             raise MemoryUnavailable(
                 f"{MEMORY_UNAVAILABLE}: RETRIEVE_FAILED {exc.__class__.__name__}"
             ) from exc
+        record_ids = [record.record_id for record in records if record.record_id]
+        if not record_ids:
+            # Processed but nothing retrievable yet: stay processing, do not guess.
+            return MemoryStatusResult(memory_status="processing")
+        return MemoryStatusResult(memory_status="available", memory_record_ids=record_ids)
+
+    def search(self, *, owner_id: str, pet_id: str, query: str) -> list[MemoryRecord]:
+        client = self._client if self._client is not None else self._build_client()
+        try:
+            return self._retrieve(client, owner_id, pet_id, query)
+        except MemoryUnavailable:
+            raise
+        except Exception as exc:  # noqa: BLE001 - retrieval failure is never a fake memory
+            raise MemoryUnavailable(
+                f"{MEMORY_UNAVAILABLE}: RETRIEVE_FAILED {exc.__class__.__name__}"
+            ) from exc
+
+    def _retrieve(
+        self, client: Any, owner_id: str, pet_id: str, query: str
+    ) -> list[MemoryRecord]:
+        namespace = self._namespace(owner_id, pet_id)
+        raw = client.retrieve(memory_id=self._memory_id, namespace_path=namespace, query=query)
         records: list[MemoryRecord] = []
         for item in raw or []:
             records.append(
@@ -259,9 +349,14 @@ class AgentCoreMemory:
 
     @staticmethod
     def _namespace(owner_id: str, pet_id: str) -> str:
-        """Owner/pet scope. Deliberately NOT the session id (T5)."""
+        """Owner/pet scope as an AgentCore namespacePath. Deliberately NOT the
+        session id (T5). The leading-slash ``/owner/<o>/pet/<p>`` form is paired
+        EXACTLY with the ``namespaceTemplates`` declared for CreateMemory in
+        ``infra/deploy_plan.json``; a cross-source guard test pins the two together
+        so they cannot drift (Day-5 ruling 10).
+        """
 
-        return f"{owner_id}/{pet_id}"
+        return f"/owner/{owner_id}/pet/{pet_id}"
 
     def _build_client(self) -> Any:
         """Deferred import: a missing extra must never break local mode or CI."""
@@ -271,6 +366,18 @@ class AgentCoreMemory:
         except ImportError as exc:  # pragma: no cover - depends on optional extra
             raise MemoryUnavailable(f"{MEMORY_UNAVAILABLE}: SDK_NOT_INSTALLED") from exc
         return AgentCoreMemoryClient(memory_id=self._memory_id, region=self._region)
+
+    def probe(self) -> None:
+        """Read-only, zero-cost startup probe (Day-5 ruling 7): confirm the AgentCore
+        memory really exists via the control plane (``GetMemory``). Any failure raises
+        :class:`MemoryUnavailable` so ``create_app`` refuses to start rather than
+        claiming a cloud connection it cannot verify. Not a billable model call, and
+        distinct from Bedrock, which is never probed at startup (its connectivity is
+        proven by a real ``request_id``).
+        """
+
+        client = self._client if self._client is not None else self._build_client()
+        client.memory_exists()
 
 
 class StubMemoryService:
@@ -322,10 +429,25 @@ class StubMemoryService:
         )
 
     def get_status(
-        self, feedback_id: UUID, *, agentcore_event_id: str | None = None
-    ) -> MemoryStatus:
-        _ = (feedback_id, agentcore_event_id)
-        return self._status
+        self,
+        feedback_id: UUID,
+        *,
+        owner_id: str | None = None,
+        pet_id: str | None = None,
+        agentcore_event_id: str | None = None,
+        agentcore_session_id: str | None = None,
+        query: str | None = None,
+    ) -> MemoryStatusResult:
+        _ = (feedback_id, owner_id, pet_id, agentcore_event_id, agentcore_session_id, query)
+        # A stubbed ``available`` carries the canned record ids so the worker ->
+        # set_feedback_status wiring can be exercised offline. This is explicitly
+        # NOT cloud evidence (it proves wiring, never a real AgentCore retrieval).
+        ids = (
+            [record.record_id for record in self._records]
+            if self._status == "available"
+            else []
+        )
+        return MemoryStatusResult(memory_status=self._status, memory_record_ids=ids)
 
     def search(self, *, owner_id: str, pet_id: str, query: str) -> list[MemoryRecord]:
         _ = (owner_id, pet_id)

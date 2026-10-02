@@ -13,7 +13,7 @@ from fastapi.testclient import TestClient
 from pawtwin.device_sim import DeviceSimulator
 from pawtwin.models import ApprovalIn, EventIn, RunState
 from pawtwin.policy import ALLOWED, RECENT_FEED
-from pawtwin.repo_sqlite import DEFAULT_FACTS, DEMO_OWNER_ID, SqliteRepository
+from pawtwin.repo_sqlite import DEFAULT_FACTS, DEMO_OWNER_ID, SCHEMA_VERSION, SqliteRepository
 from pawtwin.repository import CLAIMABLE_STATES
 from pawtwin.workflow import Workflow
 
@@ -645,9 +645,10 @@ def test_awaiting_approval_survives_a_real_restart_and_executes_once(tmp_path) -
 
 
 def test_a_pre_day3_database_file_gains_the_feedback_table_idempotently(tmp_path) -> None:
-    """Day-3 migration (SCHEMA_VERSION 2->3): a pre-Day-3 file (no feedback table)
-    reopened by the new code gains the table and bumps user_version to 3, and
-    feedback persistence works. ``:memory:`` tests can never surface this.
+    """Day-3 migration (SCHEMA_VERSION 2->3, now 2->4): a pre-Day-3 file (no
+    feedback table) reopened by the new code gains the table and bumps user_version
+    to the CURRENT ``SCHEMA_VERSION`` (4 after Day-5), and feedback persistence
+    works. ``:memory:`` tests can never surface this.
     """
 
     db = str(tmp_path / "pawtwin.db")
@@ -662,7 +663,7 @@ def test_a_pre_day3_database_file_gains_the_feedback_table_idempotently(tmp_path
 
     repo = SqliteRepository(db)
     try:
-        # _SCHEMA recreates the table (IF NOT EXISTS); _migrate bumps to 3.
+        # _SCHEMA recreates the table (IF NOT EXISTS); _migrate bumps to the latest.
         record = repo.save_feedback(
             owner_id=DEMO_OWNER_ID,
             pet_id="mochi",
@@ -678,6 +679,58 @@ def test_a_pre_day3_database_file_gains_the_feedback_table_idempotently(tmp_path
 
     reopened = sqlite3.connect(db)
     try:
-        assert reopened.execute("PRAGMA user_version").fetchone()[0] == 3
+        assert reopened.execute("PRAGMA user_version").fetchone()[0] == SCHEMA_VERSION
+    finally:
+        reopened.close()
+
+
+def test_a_pre_day5_v3_database_file_gains_the_agentcore_session_id_column(
+    tmp_path,
+) -> None:
+    """Day-5 migration (SCHEMA_VERSION 3->4): a v3 file whose ``feedback`` table has
+    no ``agentcore_session_id`` column is reopened, the column is added idempotently
+    (a real ALTER, since CREATE TABLE IF NOT EXISTS never alters), user_version
+    reaches 4, and the new field round-trips. ``GetEvent`` needs this sessionId to
+    poll one event (fact G-G), so a pre-Day-5 database must gain it without losing
+    the feedback rows it already holds.
+    """
+
+    db = str(tmp_path / "pawtwin.db")
+    SqliteRepository(db).close()
+    conn = sqlite3.connect(db)
+    # Roll the feedback table back to its v3 shape and pin user_version to 3.
+    conn.execute("ALTER TABLE feedback DROP COLUMN agentcore_session_id")
+    conn.execute("PRAGMA user_version = 3")
+    conn.commit()
+    columns_before = {row[1] for row in conn.execute("PRAGMA table_info(feedback)")}
+    conn.close()
+    assert "agentcore_session_id" not in columns_before
+
+    repo = SqliteRepository(db)
+    try:
+        record = repo.save_feedback(
+            owner_id=DEMO_OWNER_ID,
+            pet_id="mochi",
+            text="pre-day5 migration probe",
+            scope="observation",
+            memory_status="saved",
+            memory_backend="agentcore",
+        )
+        updated = repo.set_feedback_status(
+            record.feedback_id,
+            memory_status="processing",
+            agentcore_event_id="evt-1",
+            agentcore_session_id="conv-1",
+        )
+        assert updated is not None
+        assert updated.agentcore_session_id == "conv-1"
+    finally:
+        repo.close()
+
+    reopened = sqlite3.connect(db)
+    try:
+        assert reopened.execute("PRAGMA user_version").fetchone()[0] == 4
+        columns_after = {row[1] for row in reopened.execute("PRAGMA table_info(feedback)")}
+        assert "agentcore_session_id" in columns_after
     finally:
         reopened.close()

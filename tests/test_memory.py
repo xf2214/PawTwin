@@ -109,7 +109,9 @@ def test_local_memory_saves_raw_but_never_claims_extraction() -> None:
 
 def test_local_memory_get_status_stays_saved() -> None:
     memory = LocalFakeMemory()
-    assert memory.get_status(uuid4()) == "saved"
+    result = memory.get_status(uuid4())
+    assert result.memory_status == "saved"
+    assert result.memory_record_ids == []
 
 
 def test_local_memory_search_returns_nothing_rather_than_a_fabricated_memory() -> None:
@@ -294,3 +296,186 @@ def test_aws_mode_rejects_unimplemented_memory() -> None:
             dynamodb_table_name="t",
             agentcore_memory_id="mem",
         )
+
+
+# --- Day-5: the real AgentCore data plane and the two-stage poll (offline) -----
+#
+# A stub CLIENT is injected into AgentCoreMemory so the request SHAPE and the
+# two-stage poll logic are exercised with zero network and zero credentials. This
+# proves wiring and mapping ONLY -- it is explicitly NOT cloud evidence (a real
+# round trip lives in tests/test_agentcore_live.py, named-skipped without account).
+
+
+class _StubAgentCoreClient:
+    def __init__(self, *, event_state: str = "processed", records: list | None = None) -> None:
+        self._event_state = event_state
+        self._records = records or []
+        self.create_calls: list[dict] = []
+        self.status_calls: list[dict] = []
+        self.retrieve_calls: list[dict] = []
+
+    def create_event(self, **kwargs: object) -> str:
+        self.create_calls.append(kwargs)
+        return "evt-1"
+
+    def event_status(self, **kwargs: object) -> str:
+        self.status_calls.append(kwargs)
+        return self._event_state
+
+    def retrieve(self, **kwargs: object) -> list:
+        self.retrieve_calls.append(kwargs)
+        return list(self._records)
+
+
+def test_namespace_is_the_leading_slash_owner_pet_path() -> None:
+    # Ruling 10: paired with the CreateMemory namespaceTemplates in deploy_plan.json.
+    assert AgentCoreMemory._namespace("owner-a", "mochi") == "/owner/owner-a/pet/mochi"
+
+
+def test_agentcore_submit_builds_the_real_create_event_shape() -> None:
+    client = _StubAgentCoreClient()
+    memory = AgentCoreMemory("mem-id", region="us-west-2", client=client)
+    result = memory.submit_feedback(
+        feedback_id=uuid4(),
+        owner_id="owner-a",
+        pet_id="mochi",
+        text="she looks for play after meals",
+        scope="observation",
+        conversation_id="conv-9",
+    )
+    assert result.memory_status == "processing"
+    assert result.agentcore_event_id == "evt-1"
+    call = client.create_calls[0]
+    # actorId=owner, sessionId=conversation (persisted for GetEvent), text carried,
+    # and routing via namespaceVariables (there is NO namespace param on CreateEvent).
+    assert call["actor_id"] == "owner-a"
+    assert call["session_id"] == "conv-9"
+    assert call["text"] == "she looks for play after meals"
+    assert call["namespace_variables"] == {"owner": "owner-a", "pet": "mochi"}
+
+
+def test_two_stage_poll_returns_available_only_with_real_record_ids() -> None:
+    client = _StubAgentCoreClient(
+        event_state="processed", records=[{"record_id": "rec-1", "summary": "s"}]
+    )
+    memory = AgentCoreMemory("mem-id", client=client)
+    result = memory.get_status(
+        uuid4(),
+        owner_id="owner-a",
+        pet_id="mochi",
+        agentcore_event_id="evt-1",
+        agentcore_session_id="conv-1",
+        query="play",
+    )
+    assert result.memory_status == "available"
+    assert result.memory_record_ids == ["rec-1"]
+    # Stage 1 passed the sessionId/actorId GetEvent needs; stage 2 retrieved by path.
+    assert client.status_calls[0]["session_id"] == "conv-1"
+    assert client.status_calls[0]["actor_id"] == "owner-a"
+    assert client.retrieve_calls[0]["namespace_path"] == "/owner/owner-a/pet/mochi"
+
+
+def test_processed_event_with_empty_retrieval_stays_processing() -> None:
+    # Ruling 11: event succeeded but nothing retrievable yet -> never guess available.
+    client = _StubAgentCoreClient(event_state="processed", records=[])
+    memory = AgentCoreMemory("mem-id", client=client)
+    result = memory.get_status(
+        uuid4(), owner_id="o", pet_id="mochi", agentcore_event_id="e",
+        agentcore_session_id="s", query="q",
+    )
+    assert result.memory_status == "processing"
+    assert result.memory_record_ids == []
+
+
+def test_non_terminal_event_never_retrieves_or_claims_available() -> None:
+    client = _StubAgentCoreClient(event_state="processing", records=[{"record_id": "rec-1"}])
+    memory = AgentCoreMemory("mem-id", client=client)
+    result = memory.get_status(
+        uuid4(), owner_id="o", pet_id="mochi", agentcore_event_id="e",
+        agentcore_session_id="s", query="q",
+    )
+    assert result.memory_status == "processing"
+    assert client.retrieve_calls == []  # stage 2 is not reached before terminal
+
+
+def test_failed_event_reports_failed() -> None:
+    client = _StubAgentCoreClient(event_state="failed")
+    memory = AgentCoreMemory("mem-id", client=client)
+    result = memory.get_status(
+        uuid4(), owner_id="o", pet_id="mochi", agentcore_event_id="e",
+        agentcore_session_id="s", query="q",
+    )
+    assert result.memory_status == "failed"
+
+
+def test_get_status_without_an_event_id_stays_saved() -> None:
+    memory = AgentCoreMemory("mem-id", client=_StubAgentCoreClient())
+    assert memory.get_status(uuid4()).memory_status == "saved"
+
+
+# --- Day-5: the worker extraction poller wiring (offline, stub service) --------
+
+
+def _seed_processing_feedback(repo: SqliteRepository) -> object:
+    saved = repo.save_feedback(
+        owner_id=DEMO_OWNER_ID,
+        pet_id="mochi",
+        text="play after meals",
+        scope="observation",
+        memory_status="saved",
+        memory_backend="agentcore",
+        conversation_id="conv-1",
+    )
+    return repo.set_feedback_status(
+        saved.feedback_id,
+        memory_status="processing",
+        agentcore_event_id="evt-1",
+        agentcore_session_id="conv-1",
+    )
+
+
+def test_memory_poller_advances_processing_to_available_with_real_ids() -> None:
+    from pawtwin.worker import MemoryPoller
+
+    repo = SqliteRepository(":memory:")
+    try:
+        seeded = _seed_processing_feedback(repo)
+        stub = StubMemoryService(
+            status="available",
+            records=[
+                MemoryRecord(
+                    record_id="rec-1",
+                    namespace="/owner/demo-owner/pet/mochi",
+                    summary="owner observed post-meal play",
+                )
+            ],
+        )
+        poller = MemoryPoller(repo, stub)
+        assert poller.poll_once() == 1
+        updated = repo.get_feedback(seeded.feedback_id)
+        assert updated.memory_status == "available"
+        assert updated.memory_record_ids == ["rec-1"]
+        # No longer pending, so a second pass advances nothing.
+        assert poller.poll_once() == 0
+    finally:
+        repo.close()
+
+
+def test_memory_poller_leaves_feedback_processing_when_the_backend_is_unavailable() -> None:
+    from pawtwin.worker import MemoryPoller
+
+    class _Raising:
+        label = "agentcore"
+
+        def get_status(self, feedback_id: object, **kwargs: object) -> object:
+            raise MemoryUnavailable("MEMORY_UNAVAILABLE: STATUS_FAILED Probe")
+
+    repo = SqliteRepository(":memory:")
+    try:
+        seeded = _seed_processing_feedback(repo)
+        poller = MemoryPoller(repo, _Raising())
+        # A poll failure is never a fake success: nothing advances, nothing is forged.
+        assert poller.poll_once() == 0
+        assert repo.get_feedback(seeded.feedback_id).memory_status == "processing"
+    finally:
+        repo.close()

@@ -1,0 +1,69 @@
+name: Build and push image to ECR
+
+# Day-5 ruling 14. MANUAL trigger only (workflow_dispatch), so an ordinary push does
+# not silently accrue ECR storage and CI minutes. Cloud credentials come from GitHub
+# OIDC (id-token: write) -- NO long-lived key lives in the repo or in Actions secrets.
+# Single architecture linux/amd64 (no QEMU emulation); Graviton/arm64 cost tuning is an
+# explicit NON-GOAL recorded on the roadmap. Deployment and cleanup are NOT here: they
+# run from scripts/deploy.ps1 / cleanup.ps1 behind the cost gate.
+#
+# HONESTY: this workflow has never run (no GitHub remote exists yet, fact G-P). The
+# first real run is the image's first real build; record its digest/size/scan status in
+# docs/evidence/day5-cloud-verified.md. Until then the image is "not built".
+
+on:
+  workflow_dispatch:
+    inputs:
+      aws_region:
+        description: 'Target AWS region (never hardcoded; ruling 3)'
+        required: true
+      ecr_repository:
+        description: 'ECR repository name (created by infra/deploy_plan.json)'
+        required: true
+        default: 'pawtwin'
+      oidc_role_arn:
+        description: 'GitHub OIDC role ARN allowed to push to this repository only'
+        required: true
+
+permissions:
+  id-token: write # mint the OIDC token exchanged for short-lived AWS credentials
+  contents: read
+
+jobs:
+  build-push:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS credentials (OIDC, short-lived)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ inputs.oidc_role_arn }}
+          aws-region: ${{ inputs.aws_region }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push (linux/amd64 only)
+        id: build
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ${{ steps.login-ecr.outputs.registry }}/${{ inputs.ecr_repository }}:${{ github.sha }}
+            ${{ steps.login-ecr.outputs.registry }}/${{ inputs.ecr_repository }}:latest
+
+      - name: Report image digest (evidence)
+        run: |
+          echo "registry=${{ steps.login-ecr.outputs.registry }}"
+          echo "repository=${{ inputs.ecr_repository }}"
+          echo "tag=${{ github.sha }}"
+          echo "digest=${{ steps.build.outputs.digest }}"
+          echo "image=${{ steps.login-ecr.outputs.registry }}/${{ inputs.ecr_repository }}@${{ steps.build.outputs.digest }}"

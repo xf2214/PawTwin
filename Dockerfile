@@ -9,9 +9,13 @@ FROM ghcr.io/astral-sh/uv:0.9.9 AS uv-bin
 FROM python:3.12-slim-bookworm AS runtime
 COPY --from=uv-bin /uv /uvx /usr/local/bin/
 WORKDIR /app
+# Day-5 ruling 14: PAWTWIN_MODE is deliberately NOT baked in. The image is
+# mode-agnostic; the runtime environment decides -- local dev defaults to ``local``
+# via Settings, and the ECS Express service injects ``PAWTWIN_MODE=aws``. Baking
+# ``local`` here was the root cause (fact G-O) of the Day-4 cookie-``Secure``
+# predicate being permanently false in the deployed form.
 ENV PYTHONUNBUFFERED=1 \
     UV_LINK_MODE=copy \
-    PAWTWIN_MODE=local \
     PAWTWIN_WORKER_MODE=background \
     PAWTWIN_FRONTEND_DIST=/app/frontend/dist \
     PATH="/app/.venv/bin:$PATH"

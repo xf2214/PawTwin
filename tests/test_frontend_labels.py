@@ -31,10 +31,34 @@ def _label_block(name: str) -> str:
 
 
 def test_no_memory_label_claims_retrievability_or_real_memory() -> None:
-    for block in ("MEMORY_STATUS_LABELS", "MEMORY_BACKEND_LABELS", "REAL_CALL_EVIDENCE"):
+    for block in (
+        "MEMORY_STATUS_LABELS",
+        "MEMORY_BACKEND_LABELS",
+        "REAL_CALL_EVIDENCE",
+        # Day-5 §4.3: the new extracted-memory wording is guarded too (tightened,
+        # not relaxed) so it can never carry a forbidden retrieval claim.
+        "MEMORY_EXTRACTED_LABEL",
+    ):
         text = _label_block(block)
         for forbidden in FORBIDDEN_LABEL_SUBSTRINGS:
             assert forbidden not in text, f"{block} contains forbidden 「{forbidden}」"
+
+
+def test_extracted_memory_label_renders_only_paired_with_a_real_record_count() -> None:
+    """§4.3: the 「已提炼」 wording must render ONLY next to a real AgentCore record
+    count (``memory_record_count`` -> ``extractedRecordCount``), never from config or
+    a bare status -- so a local run (count always 0) can never show it. This pins the
+    pairing at the source level; the local browser e2e never sees the extracted label.
+    """
+
+    source = APP_SOURCE.read_text("utf-8")
+    assert "MEMORY_EXTRACTED_LABEL" in source
+    assert "memory_record_count" in source
+    for line in source.splitlines():
+        if "MEMORY_EXTRACTED_LABEL" in line and "const MEMORY_EXTRACTED_LABEL" not in line:
+            assert "extractedRecordCount" in line, (
+                f"extracted-memory label rendered without its record-count guard: {line.strip()}"
+            )
 
 
 def test_real_model_wording_exists_only_next_to_its_evidence() -> None:

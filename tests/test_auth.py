@@ -1,3 +1,4 @@
+from datetime import UTC, datetime, timedelta
 from uuid import uuid4
 
 from fastapi.testclient import TestClient
@@ -139,3 +140,71 @@ def test_secure_cookie_follows_the_connection_not_the_mode() -> None:
     with TestClient(proxy_app, base_url="http://testserver") as plain_proxy_client:
         unproxied = plain_proxy_client.post("/api/login", json=payload)
     assert "secure" not in unproxied.headers["set-cookie"].lower()
+
+
+# --- Day-5 ruling 4b/4c: session lifetime and login throttling -----------------
+#
+# These are PROCESS-LOCAL gates (replicas fixed at 1x1, ruling 15). They prove the
+# single-task behaviour only; a multi-replica session store or distributed throttle
+# is explicitly out of scope and NOT verified here.
+
+
+def _login_client(**overrides: object) -> tuple[TestClient, object]:
+    settings = Settings(_env_file=None, worker_mode="inline", **overrides)  # type: ignore[arg-type]
+    return TestClient(create_app(settings)), settings
+
+
+def test_session_expires_after_the_idle_window() -> None:
+    client, settings = _login_client(session_idle_seconds=30)
+    with client:
+        client.post("/api/login", json={"passphrase": settings.demo_passphrase})
+        assert client.get("/api/state").status_code == 200
+        # Age only the idle clock (created_at stays recent) to isolate idle expiry
+        # from the absolute TTL.
+        session = next(iter(client.app.state.auth._sessions.values()))
+        session.last_seen_at = datetime.now(UTC) - timedelta(seconds=31)
+        # Expired -> the session is dropped and reads as unauthenticated.
+        assert client.get("/api/state").status_code == 401
+
+
+def test_session_expires_after_the_absolute_ttl_even_when_recently_seen() -> None:
+    client, settings = _login_client(session_ttl_seconds=60)
+    with client:
+        client.post("/api/login", json={"passphrase": settings.demo_passphrase})
+        session = next(iter(client.app.state.auth._sessions.values()))
+        # Created long ago but just seen: the ABSOLUTE lifetime still expires it.
+        session.created_at = datetime.now(UTC) - timedelta(seconds=61)
+        session.last_seen_at = datetime.now(UTC)
+        assert client.get("/api/state").status_code == 401
+
+
+def test_login_is_rate_limited_after_repeated_failures() -> None:
+    client, settings = _login_client(login_max_failures=3, login_backoff_seconds=60)
+    with client:
+        # Below the threshold: ordinary 401s.
+        for _ in range(2):
+            assert client.post("/api/login", json={"passphrase": "wrong"}).status_code == 401
+        # The attempt that crosses the threshold is 429 with a Retry-After.
+        blocked = client.post("/api/login", json={"passphrase": "wrong"})
+        assert blocked.status_code == 429
+        assert blocked.json()["detail"] == "RATE_LIMITED"
+        assert int(blocked.headers["Retry-After"]) > 0
+        # While blocked, even the CORRECT passphrase is refused (checked before
+        # verification), so the throttle cannot be used to probe.
+        correct_while_blocked = client.post(
+            "/api/login", json={"passphrase": settings.demo_passphrase}
+        )
+        assert correct_while_blocked.status_code == 429
+
+
+def test_a_successful_login_resets_the_failure_counter() -> None:
+    client, settings = _login_client(login_max_failures=3)
+    with client:
+        client.post("/api/login", json={"passphrase": "wrong"})
+        client.post("/api/login", json={"passphrase": "wrong"})
+        ok = client.post("/api/login", json={"passphrase": settings.demo_passphrase})
+        assert ok.status_code == 200
+        # After a success the counter is cleared, so two more failures are again
+        # below the threshold (401, not 429).
+        assert client.post("/api/login", json={"passphrase": "wrong"}).status_code == 401
+        assert client.post("/api/login", json={"passphrase": "wrong"}).status_code == 401

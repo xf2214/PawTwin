@@ -24,6 +24,8 @@ from datetime import UTC, datetime
 from uuid import UUID, uuid4, uuid5
 
 from pawtwin.models import (
+    MEMORY_AVAILABLE,
+    MEMORY_PROCESSING,
     AnalysisTelemetry,
     EventIn,
     EvidenceItem,
@@ -59,13 +61,18 @@ DEFAULT_FACTS = {
 # Bump when a migration is added; ``_migrate`` is idempotent and column-existence
 # checked, so it is safe on both fresh and pre-Day-2 database files.
 # v2 = Day-2 run columns; v3 = Day-3 ``feedback`` table (created by _SCHEMA's
-# CREATE TABLE IF NOT EXISTS, so no ALTER is needed -- only the version gate).
-SCHEMA_VERSION = 3
+# CREATE TABLE IF NOT EXISTS, so no ALTER was needed -- only the version gate);
+# v4 = Day-5 ``feedback.agentcore_session_id`` (the AgentCore ``sessionId`` that
+# ``GetEvent`` requires to poll one event, fact G-G) -- a real ALTER on a v3 file.
+SCHEMA_VERSION = 4
 _V2_RUN_COLUMNS = (
     "failure_reason TEXT",
     "evidence_json TEXT",
     "telemetry_json TEXT",
     "model_calls_used INTEGER NOT NULL DEFAULT 0",
+)
+_V4_FEEDBACK_COLUMNS = (
+    "agentcore_session_id TEXT",
 )
 
 _SCHEMA = """
@@ -121,6 +128,7 @@ CREATE TABLE IF NOT EXISTS feedback (
     memory_backend TEXT NOT NULL,
     conversation_id TEXT,
     agentcore_event_id TEXT,
+    agentcore_session_id TEXT,
     memory_record_ids_json TEXT,
     idempotency_key TEXT,
     created_at TEXT NOT NULL,
@@ -199,6 +207,17 @@ class SqliteRepository:
                 column = declaration.split()[0]
                 if column not in existing:
                     self._conn.execute(f"ALTER TABLE runs ADD COLUMN {declaration}")
+            # v4 (Day-5): a pre-existing (v3) ``feedback`` table has no
+            # ``agentcore_session_id``; CREATE TABLE IF NOT EXISTS never alters it,
+            # so add the column here. _SCHEMA runs before _migrate, so the table
+            # always exists by this point.
+            existing_feedback = {
+                r["name"] for r in self._conn.execute("PRAGMA table_info(feedback)")
+            }
+            for declaration in _V4_FEEDBACK_COLUMNS:
+                column = declaration.split()[0]
+                if column not in existing_feedback:
+                    self._conn.execute(f"ALTER TABLE feedback ADD COLUMN {declaration}")
             self._conn.execute(f"PRAGMA user_version = {SCHEMA_VERSION}")
 
     def close(self) -> None:
@@ -525,8 +544,9 @@ class SqliteRepository:
                 INSERT OR IGNORE INTO feedback (
                     feedback_id, owner_id, pet_id, text, scope, memory_status,
                     memory_backend, conversation_id, agentcore_event_id,
-                    memory_record_ids_json, idempotency_key, created_at
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    agentcore_session_id, memory_record_ids_json, idempotency_key,
+                    created_at
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     str(feedback_id),
@@ -537,6 +557,7 @@ class SqliteRepository:
                     memory_status,
                     memory_backend,
                     conversation_id,
+                    None,
                     None,
                     None,
                     idempotency_key,
@@ -561,14 +582,37 @@ class SqliteRepository:
             ).fetchall()
         return [_row_to_feedback(row) for row in rows]
 
+    def list_feedback_pending_extraction(self) -> list[FeedbackRecord]:
+        # Compared against MEMORY_PROCESSING (imported from the vocabulary module),
+        # never a bare literal, so this module stays off the anti-forgery guard's
+        # offender list (Day-5 ruling 12: the whitelist is not extended).
+        with self._lock:
+            rows = self._conn.execute(
+                "SELECT * FROM feedback WHERE memory_status = ? "
+                "AND agentcore_event_id IS NOT NULL ORDER BY created_at ASC",
+                (MEMORY_PROCESSING,),
+            ).fetchall()
+        return [_row_to_feedback(row) for row in rows]
+
     def set_feedback_status(
         self,
         feedback_id: UUID,
         *,
         memory_status: MemoryStatus,
         agentcore_event_id: str | None = None,
+        agentcore_session_id: str | None = None,
         memory_record_ids: list[str] | None = None,
     ) -> FeedbackRecord | None:
+        # Day-5 (ruling 11): a hard fail-closed invariant. The available status
+        # means real AgentCore records were retrieved, so it can NEVER be written
+        # without the record ids to prove it -- a future wiring bug raises instead
+        # of silently dressing stored feedback up as extracted memory (AGENTS.md
+        # L18). The literal lives in models.py (MEMORY_AVAILABLE), not here, so the
+        # anti-forgery static guard's whitelist stays unchanged (ruling 12).
+        if memory_status == MEMORY_AVAILABLE and not memory_record_ids:
+            raise ValueError(
+                "set_feedback_status(available) requires memory_record_ids"
+            )
         ids_json = json.dumps(memory_record_ids) if memory_record_ids is not None else None
         with self._lock, self._conn:
             cursor = self._conn.execute(
@@ -576,10 +620,17 @@ class SqliteRepository:
                 UPDATE feedback SET
                     memory_status = ?,
                     agentcore_event_id = COALESCE(?, agentcore_event_id),
+                    agentcore_session_id = COALESCE(?, agentcore_session_id),
                     memory_record_ids_json = COALESCE(?, memory_record_ids_json)
                 WHERE feedback_id = ?
                 """,
-                (memory_status, agentcore_event_id, ids_json, str(feedback_id)),
+                (
+                    memory_status,
+                    agentcore_event_id,
+                    agentcore_session_id,
+                    ids_json,
+                    str(feedback_id),
+                ),
             )
         if cursor.rowcount != 1:
             return None
@@ -638,6 +689,7 @@ def _row_to_feedback(row: sqlite3.Row) -> FeedbackRecord:
         created_at=_parse_dt(row["created_at"]),  # type: ignore[arg-type]  # always set on insert
         conversation_id=row["conversation_id"],
         agentcore_event_id=row["agentcore_event_id"],
+        agentcore_session_id=row["agentcore_session_id"],
         memory_record_ids=json.loads(raw_ids) if raw_ids else [],
         idempotency_key=row["idempotency_key"],
     )

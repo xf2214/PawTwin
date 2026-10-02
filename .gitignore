@@ -20,5 +20,10 @@ frontend/test-results/
 data/
 .worktrees/
 .superpowers/
+# Day-5 ruling 2: the boto3 orchestrator's runtime state (real ARNs/ids written by
+# scripts/deploy_aws.py). This ignore rule is committed BEFORE the file can exist,
+# so a lone checkout can never dirty the tree with generated cloud state (the
+# Day-4 S0-a lesson). Evidence .md files, by contrast, MUST be committed.
+infra/deploy_state.json
 .DS_Store
 Thumbs.db

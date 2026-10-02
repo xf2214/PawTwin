@@ -13,11 +13,27 @@ therefore condition-blocked evidence, NOT a claim that AgentCore Memory works. T
 full asynchronous extraction lifecycle (strategy ACTIVE, submit, poll until really
 retrievable, then ``available`` with real record ids) is verified only against a
 real account, and until then the honest local status stays ``saved``.
+
+Day-5 REWRITE (ruling 10; real shapes from the Day-5 plan §2, obtained by
+introspecting botocore's ``bedrock-agentcore`` service model): the Day-3 calls were
+WRONG for the real data plane -- ``create_event`` has NO ``namespace`` parameter,
+``list_events(memoryId=...)`` cannot locate one event, and there is NO
+``search_memory`` operation. They are replaced by ``CreateEvent`` (payload =
+``[{conversational:{content:{text}, role}}]``, routed by
+``extractionConfig.namespaceVariables``), ``GetEvent`` (which REQUIRES ``sessionId``
+and ``actorId``, fact G-G), and ``RetrieveMemoryRecords`` (``namespacePath`` +
+``searchCriteria.searchQuery``). Still **never exercised against a real account**
+(no credential available): the exact RESPONSE field names and the status VALUE
+vocabulary remain unverified, so parsing is defensive (``_field`` tolerates
+dict/object and several spellings) and any UNKNOWN event status maps to
+``processing`` -- never up to a terminal state. Honest local status stays ``saved``
+until a real round trip runs (docs/evidence/day5-*).
 """
 
 from __future__ import annotations
 
 import os
+from datetime import UTC, datetime
 from typing import Any
 
 # Safe at import time: this module is only ever imported from inside
@@ -101,68 +117,109 @@ class AgentCoreMemoryClient:
         self,
         *,
         memory_id: str,
-        namespace: str,
+        actor_id: str,
         session_id: str | None,
-        payload: str,
+        text: str,
+        namespace_variables: dict[str, str] | None = None,
         metadata: dict[str, Any] | None = None,
     ) -> str | None:
-        """Submit one owner observation for asynchronous extraction.
+        """Submit one owner observation for asynchronous extraction (``CreateEvent``).
 
-        Returns the AgentCore event id so a retry can reuse the local feedback id
-        and never submit the same observation twice (T5). The session id is a
-        conversation, never the pet identity; the namespace carries owner/pet.
+        Real shape (plan §2): ``memoryId``/``actorId``/``eventTimestamp``/``payload``
+        are required; the payload is a list of structures and a conversational item
+        is ``{conversational:{content:{text}, role}}``. There is NO ``namespace``
+        parameter -- routing into ``/owner/<o>/pet/<p>`` happens through the
+        strategy's ``namespaceTemplates`` fed by ``extractionConfig.
+        namespaceVariables``. Returns the AgentCore ``eventId`` so a retry can reuse
+        the local feedback id and never submit twice (T5); ``sessionId`` is a
+        conversation, never the pet identity, and is persisted because ``GetEvent``
+        requires it (fact G-G).
         """
 
         client = self._client()
         request: dict[str, Any] = {
             "memoryId": memory_id,
-            # AgentCore requires a session id; fall back to the namespace so a
-            # missing conversation still scopes the event to the owner/pet.
-            "sessionId": session_id or namespace,
-            "payload": payload,
-            "namespace": namespace,
+            "actorId": actor_id,
+            "eventTimestamp": datetime.now(UTC),
+            "payload": [{"conversational": {"content": {"text": text}, "role": "USER"}}],
         }
+        if session_id is not None:
+            request["sessionId"] = session_id
+        if namespace_variables:
+            request["extractionConfig"] = {"namespaceVariables": namespace_variables}
         if metadata:
-            request["metadata"] = metadata
+            # AgentCore metadata values are strings; coerce so a UUID/int never
+            # fails serialization at the boundary.
+            request["metadata"] = {str(key): str(value) for key, value in metadata.items()}
         try:
             response = client.create_event(**request)
         except Exception as exc:  # noqa: BLE001 - fail closed, never a fake event id
             raise _unavailable(f"CREATE_EVENT_FAILED {exc.__class__.__name__}") from exc
-        event_id = _field(response, "eventId", "id")
+        event = _field(response, "event") or response
+        event_id = _field(event, "eventId", "id")
         return str(event_id) if event_id is not None else None
 
-    def event_status(self, *, memory_id: str, event_id: str) -> str:
-        """Map the extraction lifecycle onto the honest MemoryStatus vocabulary.
+    def event_status(
+        self,
+        *,
+        memory_id: str,
+        event_id: str,
+        session_id: str | None = None,
+        actor_id: str | None = None,
+    ) -> str:
+        """Map ``GetEvent`` onto the EVENT lifecycle: ``processed`` / ``failed`` /
+        ``processing``.
 
-        Anything not clearly retrievable stays ``processing``; an error is
-        ``failed``. This NEVER returns ``available`` unless the service says the
-        event was really processed (AGENTS.md L18).
+        This is NOT memory availability. ``GetEvent`` requires ``sessionId`` and
+        ``actorId`` (fact G-E/G-G); without them the event cannot be located, so this
+        fails closed rather than guessing. The caller (:mod:`pawtwin.memory`) treats
+        only ``processed`` as licence to retrieve records, and never reports
+        ``available`` without real record ids (AGENTS.md L18).
+
+        Status vocabulary source: AgentCore ``GetEvent`` event status. The exact
+        values are UNVERIFIED (no account), so anything not clearly terminal maps to
+        ``processing`` -- an unknown state is never guessed up to processed/failed.
+        """
+
+        if session_id is None or actor_id is None:
+            raise _unavailable("GET_EVENT_CONTEXT_MISSING")
+        client = self._client()
+        try:
+            response = client.get_event(
+                memoryId=memory_id, sessionId=session_id, actorId=actor_id, eventId=event_id
+            )
+        except Exception as exc:  # noqa: BLE001 - a poll failure is never "processed"
+            raise _unavailable(f"STATUS_FAILED {exc.__class__.__name__}") from exc
+        event = _field(response, "event") or response
+        status = str(_field(event, "status", "state") or "").upper()
+        if status in {"PROCESSED", "COMPLETED", "SUCCEEDED", "SUCCESS", "AVAILABLE", "ACTIVE"}:
+            return "processed"
+        if status in {"FAILED", "ERROR", "EXPIRED"}:
+            return "failed"
+        return "processing"
+
+    def retrieve(
+        self,
+        *,
+        memory_id: str,
+        namespace_path: str,
+        query: str,
+        top_k: int = 5,
+    ) -> list[dict[str, Any]]:
+        """Retrieve really-extracted records for one owner/pet namespacePath.
+
+        Real shape (plan §2): ``RetrieveMemoryRecords(memoryId, namespacePath,
+        searchCriteria={searchQuery, topK})``. There is no ``search_memory``
+        operation. Only records with a real id are surfaced -- an id-less blob is
+        never a citable memory.
         """
 
         client = self._client()
         try:
-            response = client.list_events(memoryId=memory_id)
-        except Exception as exc:  # noqa: BLE001 - a poll failure is never "available"
-            raise _unavailable(f"STATUS_FAILED {exc.__class__.__name__}") from exc
-        for event in _field(response, "events", "items") or []:
-            if str(_field(event, "eventId", "id") or "") != event_id:
-                continue
-            status = str(_field(event, "status", "state") or "").upper()
-            if status in {"PROCESSED", "COMPLETED", "SUCCEEDED", "AVAILABLE"}:
-                return "available"
-            if status in {"FAILED", "ERROR"}:
-                return "failed"
-            return "processing"
-        # Unknown/absent event: still being ingested, never claim it is retrievable.
-        return "processing"
-
-    def retrieve(self, *, memory_id: str, namespace: str, query: str) -> list[dict[str, Any]]:
-        """Retrieve really-extracted memory records for one owner/pet namespace."""
-
-        client = self._client()
-        try:
-            response = client.search_memory(
-                memoryId=memory_id, searchQuery=query, namespace=namespace
+            response = client.retrieve_memory_records(
+                memoryId=memory_id,
+                namespacePath=namespace_path,
+                searchCriteria={"searchQuery": query, "topK": top_k},
             )
         except Exception as exc:  # noqa: BLE001 - retrieval failure is never a fake memory
             raise _unavailable(f"RETRIEVE_FAILED {exc.__class__.__name__}") from exc
@@ -174,3 +231,26 @@ class AgentCoreMemoryClient:
             summary = _field(item, "content", "summary", "text") or ""
             records.append({"record_id": str(record_id), "summary": str(summary)[:300]})
         return records
+
+    def memory_exists(self) -> bool:
+        """Read-only control-plane probe (``GetMemory``), zero model cost (ruling 7).
+
+        Used by ``create_app`` to confirm the AgentCore memory really exists before
+        the app claims a cloud connection. Any failure raises
+        :class:`~pawtwin.memory.MemoryUnavailable` so startup is refused rather than
+        silently degrading. Uses ``bedrock-agentcore-control`` (GetMemory lives on the
+        control plane, not the data plane used above).
+        """
+
+        require_credentials()
+        try:
+            import boto3
+        except ImportError as exc:  # pragma: no cover - depends on optional extra
+            raise _unavailable("SDK_NOT_INSTALLED") from exc
+        kwargs: dict[str, Any] = {"region_name": self._region} if self._region else {}
+        try:
+            control = boto3.client("bedrock-agentcore-control", **kwargs)
+            control.get_memory(memoryId=self._memory_id)
+        except Exception as exc:  # noqa: BLE001 - report the real reason, never fall back
+            raise _unavailable(f"PROBE_FAILED {exc.__class__.__name__}") from exc
+        return True

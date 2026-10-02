@@ -122,6 +122,11 @@ class FeedbackRecord:
     created_at: datetime
     conversation_id: str | None = None
     agentcore_event_id: str | None = None
+    # Day-5 (ruling 10 / fact G-G): ``GetEvent`` needs the AgentCore ``sessionId``
+    # to poll one event's extraction status, but the event id alone cannot locate
+    # it. The conversation id used at submission is persisted here so the poller can
+    # call ``get_event(memoryId, sessionId, actorId, eventId)``. Internal only.
+    agentcore_session_id: str | None = None
     memory_record_ids: list[str] = field(default_factory=list)
     idempotency_key: str | None = field(default=None, repr=False)
 
@@ -254,17 +259,32 @@ class Repository(Protocol):
         """Owner feedback, newest first."""
         ...
 
+    def list_feedback_pending_extraction(self) -> list[FeedbackRecord]:
+        """Feedback still in the processing lifecycle AND carrying an AgentCore event
+        id: the work list for the Day-5 extraction poller (ruling 11). The status is
+        compared against ``models.MEMORY_PROCESSING`` so no repository module writes
+        the bare literal (ruling 12 keeps the anti-forgery whitelist unchanged).
+        """
+        ...
+
     def set_feedback_status(
         self,
         feedback_id: UUID,
         *,
         memory_status: MemoryStatus,
         agentcore_event_id: str | None = None,
+        agentcore_session_id: str | None = None,
         memory_record_ids: list[str] | None = None,
     ) -> FeedbackRecord | None:
         """Update the honest memory lifecycle after an extraction attempt.
 
         Never writes ``available`` unless the caller really holds AgentCore record
         ids; the local backend leaves the status at ``saved``.
+
+        Day-5 (ruling 11) makes that a hard repository invariant, not a convention:
+        calling with the available status and an empty/absent ``memory_record_ids``
+        raises :class:`ValueError` (fail closed) so a future wiring bug can never
+        mark stored feedback as extracted memory without real AgentCore record ids
+        behind it (AGENTS.md L18).
         """
         ...

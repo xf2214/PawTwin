@@ -9,6 +9,7 @@ cross-session retrieval are CONDITION items (see day3-cloud-blocked.md).
 
 from __future__ import annotations
 
+import ast
 import re
 from pathlib import Path
 from uuid import uuid4
@@ -17,7 +18,7 @@ import pytest
 from fastapi.testclient import TestClient
 from pawtwin.config import Settings
 from pawtwin.main import create_app
-from pawtwin.memory import MemoryUnavailable
+from pawtwin.memory import MemoryStatusResult, MemoryUnavailable
 
 
 def _headers(login) -> dict[str, str]:
@@ -197,8 +198,8 @@ def test_a_memory_submission_failure_is_reported_as_failed_not_a_500() -> None:
         def submit_feedback(self, **kwargs: object) -> object:
             raise MemoryUnavailable("MEMORY_UNAVAILABLE: SUBMIT_FAILED Probe")
 
-        def get_status(self, feedback_id: object, *, agentcore_event_id: object = None) -> str:
-            return "failed"
+        def get_status(self, feedback_id: object, **kwargs: object) -> MemoryStatusResult:
+            return MemoryStatusResult(memory_status="failed")
 
         def search(self, *, owner_id: str, pet_id: str, query: str) -> list:
             return []
@@ -272,7 +273,7 @@ def test_the_factory_built_local_memory_never_produces_available_or_processing()
         conversation_id=None,
     )
     assert result.memory_status == "saved"
-    assert service.get_status(feedback_id) == "saved"
+    assert service.get_status(feedback_id).memory_status == "saved"
     assert service.search(owner_id="owner-a", pet_id="mochi", query="play") == []
 
 
@@ -332,11 +333,15 @@ def test_no_other_backend_module_ever_writes_available_or_processing_literals() 
     assert offenders == []
 
 
-def test_memory_status_polling_lifecycle_stays_unwired_in_production() -> None:
-    """F11 invariant as an assertion (G8 review): ``MemoryService.get_status``
-    exists but has NO production caller -- the processing->available polling
-    lifecycle is unwired, and wiring it is an explicit account-day decision, not
-    a silent import. Only memory.py itself and tests may reference it."""
+def test_memory_status_polling_is_wired_only_in_the_worker_poller() -> None:
+    """Day-5 ruling 12 -- a RE-RULING of the Day-4 G8 invariant: scope CHANGED, not
+    relaxed. The processing->available polling lifecycle is now WIRED, but only in
+    ``worker.py``'s ``MemoryPoller.poll_once``. ``get_status`` may have at most that
+    ONE production caller (was ``== []``), and an AST check pins the call to that
+    method so it cannot scatter. This authorises the wiring; it is NOT a claim that
+    AgentCore is cloud-verified (that needs a real round trip). Only memory.py (the
+    adapter) and worker.py (the poller) may reference ``get_status``.
+    """
 
     backend_dir = Path(__file__).resolve().parents[1] / "backend" / "pawtwin"
     callers = [
@@ -344,5 +349,23 @@ def test_memory_status_polling_lifecycle_stays_unwired_in_production() -> None:
         for path in sorted(backend_dir.glob("*.py"))
         if path.name != "memory.py" and re.search(r"\.get_status\(", path.read_text("utf-8"))
     ]
-    assert callers == []
+    # Scope changed from ``== []`` to ``<= {"worker.py"}`` (ruling 12): exactly one
+    # production caller is authorised, not "anywhere".
+    assert set(callers) <= {"worker.py"}
+
+    # Second layer: the call must sit inside MemoryPoller.poll_once, never at module
+    # level or in some other function. Parse the AST so a stray call elsewhere fails.
+    tree = ast.parse((backend_dir / "worker.py").read_text("utf-8"))
+    enclosing: list[str] = []
+    for node in ast.walk(tree):
+        if not isinstance(node, ast.FunctionDef):
+            continue
+        for sub in ast.walk(node):
+            if (
+                isinstance(sub, ast.Call)
+                and isinstance(sub.func, ast.Attribute)
+                and sub.func.attr == "get_status"
+            ):
+                enclosing.append(node.name)
+    assert enclosing == ["poll_once"], enclosing
 
