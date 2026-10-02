@@ -1,0 +1,76 @@
+import { expect, test, type Locator } from '@playwright/test'
+import { login } from './helpers'
+
+async function setPhoto(input: Locator) {
+  await input.evaluate(el => {
+    const bytes = Uint8Array.from(atob('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aYxkAAAAASUVORK5CYII='), c => c.charCodeAt(0))
+    const transfer = new DataTransfer()
+    transfer.items.add(new File([bytes], 'pet.png', { type: 'image/png' }))
+    ;(el as HTMLInputElement).files = transfer.files
+    el.dispatchEvent(new Event('change', { bubbles: true }))
+  })
+}
+
+test('pet profile, objects, bathing, nails, scoped preferences and photo diary are saved', async ({ page }) => {
+  await login(page)
+  await page.getByRole('link', { name: '打开宠物小屋' }).click()
+  await expect(page.getByRole('heading', { name: '家里的日常' })).toBeVisible()
+  await page.getByRole('button', { name: '＋ 添加宠物', exact: true }).click()
+  const name = `团团-${Date.now()}`
+  await page.getByLabel('名字 *', { exact: true }).fill(name)
+  await setPhoto(page.getByLabel('上传照片', { exact: true }))
+  await expect(page.getByRole('status').filter({ hasText: '当前未启用自动识别' })).toBeVisible()
+  await page.getByRole('button', { name: '确认并保存档案' }).click()
+  await expect(page.getByRole('heading', { name: `${name} 的档案与物品` })).toBeVisible()
+  await page.getByLabel('物品类型').selectOption('toy')
+  await page.getByLabel('名称', { exact: true }).fill('羽毛棒')
+  await page.getByRole('button', { name: '添加到小屋', exact: true }).click()
+  await expect(page.getByRole('button', { name: '查看羽毛棒' })).toBeVisible()
+  await page.getByRole('button', { name: '照护计划', exact: true }).click()
+  await page.getByRole('button', { name: '安排洗澡', exact: true }).click()
+  await page.getByRole('button', { name: '保存照护计划', exact: true }).click()
+  await expect(page.locator('.ph-task').first()).toContainText('洗澡')
+  await page.locator('.ph-task').first().getByRole('button', { name: '标记完成' }).click()
+  await expect(page.locator('.ph-task').first()).toContainText('已完成')
+  await page.getByRole('button', { name: '安排剪指甲', exact: true }).click()
+  await page.getByRole('button', { name: '保存照护计划', exact: true }).click()
+  await expect(page.locator('.ph-task').last()).toContainText('剪指甲')
+  await page.getByRole('button', { name: '成长日记', exact: true }).click()
+  await page.getByLabel('记录原文', { exact: true }).fill('喜欢羽毛棒，今天不想玩')
+  await page.getByLabel('关联照护').selectOption('play')
+  await page.getByRole('button', { name: '保存主人记录' }).click()
+  await expect(page.locator('blockquote')).toContainText('仅今天')
+  await page.getByLabel('标题', { exact: true }).fill('第一次洗澡')
+  await page.getByLabel('内容', { exact: true }).fill('今天由主人记录了第一次洗澡。')
+  await setPhoto(page.getByLabel('日记照片', { exact: true }))
+  await expect(page.getByAltText('日记照片预览')).toBeVisible()
+  await page.getByRole('button', { name: '保存日记', exact: true }).click()
+  await expect(page.locator('.ph-diary')).toContainText('第一次洗澡')
+  await expect(page.getByAltText('第一次洗澡')).toBeVisible()
+  await page.getByRole('button', { name: '小屋', exact: true }).click()
+  await expect(page.locator('.ph-side')).toContainText('羽毛棒')
+  await expect(page.locator('.ph-side')).toContainText('今天有相关主人观察')
+  await expect(page.locator('.ph-side')).toContainText('尚未接入自动喂食策略')
+  await page.reload()
+  await expect(page.getByRole('heading', { name: `${name} 的小屋`, exact: true })).toBeVisible()
+  await page.getByRole('button', { name: '成长日记', exact: true }).click()
+  await expect(page.locator('.ph-diary')).toContainText('第一次洗澡')
+  await page.getByRole('button', { name: '家庭交接', exact: true }).click()
+  await expect(page.locator('.ph-history').filter({ hasText: '完成：洗澡' })).toHaveCount(1)
+})
+
+test('pixel home stays usable at phone and desktop widths without sharing another pet data', async ({ page }) => {
+  await login(page)
+  await page.goto('/#home')
+  await page.getByLabel('当前宠物').selectOption('mochi')
+  await expect(page.getByRole('heading', { name: 'Mochi 的小屋', exact: true })).toBeVisible()
+  await page.getByRole('button', { name: '成长日记', exact: true }).click()
+  await expect(page.locator('.ph-diary').filter({ hasText: '第一次洗澡' })).toHaveCount(0)
+  await page.getByRole('button', { name: '小屋', exact: true }).click()
+  for (const width of [1440, 390]) {
+    await page.setViewportSize({ width, height: 900 })
+    await expect(page.getByRole('heading', { name: '家里的日常' })).toBeVisible()
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
+    await page.screenshot({ path: `test-results/pet-home-${width}.png`, fullPage: true })
+  }
+})
