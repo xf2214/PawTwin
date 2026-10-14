@@ -1,0 +1,6 @@
+{
+  "archive": "C:\\Users\\11831\\AppData\\Local\\Temp\\pawtwin-reviewed-current-20261014-v3.zip",
+  "files": 1286,
+  "sha256": "92d1b259ace7e51ef61134e87cf31e810656c5711c8799da5ad615185e62d549",
+  "crc": "pass"
+}

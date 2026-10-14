@@ -1,0 +1,41 @@
+
+[WebServer] INFO:     Started server process [159476]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8819 (Press CTRL+C to quit)
+
+
+Running 26 tests using 1 worker, shard 4 of 4
+
+
+(node:144108) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/26] e2e\usability.spec.ts:27:1 › growth deep link survives signup, refresh and browser navigation
+[2/26] e2e\usability.spec.ts:38:1 › editing only a recurring task title preserves its future time and interval
+[3/26] e2e\usability.spec.ts:54:1 › repeating care completion stays visible in completed history and keeps its next plan
+[4/26] e2e\usability.spec.ts:72:1 › daily queue uses household day and keeps completed care out of active filters
+[5/26] e2e\usability.spec.ts:107:1 › a failed measurement read preserves reports and retries the failed resource
+[6/26] e2e\usability.spec.ts:129:1 › a late growth read cannot replace the selected pet data
+[7/26] e2e\usability.spec.ts:151:1 › constant and dense real measurements remain accessible and range-filtered
+[8/26] e2e\usability.spec.ts:170:1 › equivalent timestamp offsets do not fabricate a zero-day weight change
+[9/26] e2e\usability.spec.ts:188:3 › care started from a toy preserves the intended play type
+[10/26] e2e\usability.spec.ts:188:3 › care started from a water preserves the intended water type
+[11/26] e2e\usability.spec.ts:188:3 › care started from a nest preserves the intended clean type
+[12/26] e2e\usability.spec.ts:206:1 › a forbidden child read removes previously shown household data
+[13/26] e2e\usability.spec.ts:219:1 › the observation shortcut focuses its real field after a delayed home read
+[14/26] e2e\usability.spec.ts:236:1 › changing care type preserves the chosen time, repetition and assignee
+[15/26] e2e\usability.spec.ts:259:3 › daily application at 320px stays readable and keyboard accessible
+[16/26] e2e\usability.spec.ts:259:3 › daily application at 390px stays readable and keyboard accessible
+[17/26] e2e\usability.spec.ts:259:3 › daily application at 1440px stays readable and keyboard accessible
+[18/26] e2e\workbench-upgrade.spec.ts:33:1 › workbench navigation keeps demo settings and run decisions in their own pages
+[19/26] e2e\workbench-upgrade.spec.ts:59:1 › a pending run blocks duplicate requests while demo controls remain available and the next run is tracked
+[20/26] e2e\workbench-upgrade.spec.ts:84:1 › choosing a history run and logging out invalidate delayed updates from the previously tracked run
+[21/26] e2e\workbench-upgrade.spec.ts:124:1 › a stalled run read reaches the client deadline without inventing failure and can be queried again
+[22/26] e2e\workbench-upgrade.spec.ts:161:1 › a 401 invalidates the session before an older state response can reopen the workbench
+[23/26] e2e\workbench-upgrade.spec.ts:203:1 › an accepted request keeps history selection locked until its first real state read returns
+[24/26] e2e\workspace-shell.spec.ts:3:1 › workbench deep links preserve their own login gate and stay separate from family accounts
+[25/26] e2e\workspace-shell.spec.ts:17:1 › application navigation stays reachable at narrow widths
+[26/26] e2e\zz-unknown.spec.ts:6:1 › an unknown device receipt shows 状态未知 and never a success
+  26 passed (1.4m)

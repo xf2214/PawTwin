@@ -1,0 +1,13 @@
+{
+  "reviewed_utc": "2026-10-11T13:25:20.177092+00:00",
+  "method": "Codex visual inspection of actual decoded 13-frame contact sheet plus detailed actual-07.jpg and actual-09.jpg; planned-04/06 also inspected before completion",
+  "findings": [
+    "Current product page, confirmed memory, independent Alexa simulator, new session, care draft/time, prepared confirmation, confirmed result, carer task completion, simulator occurrence result, daily report, deleted-memory new answer and final local boundary are represented.",
+    "English titles, proof labels and burned-in captions are readable at 1920x1080, with no observed overlap in inspected frames.",
+    "Actual draft and confirmation controls, task completed state and carer display name remain visible.",
+    "Stage images are still actual screenshots; raw owner/carer videos and household actor screenshot are retained separately."
+  ],
+  "full_human_video_playback": "not_performed",
+  "human_audio_review": "not_performed",
+  "mp4_sha256": "07332b9aa6e1b17023a53152aae8700931ceab0446d36af9e7d28e64294235e3"
+}

@@ -1,0 +1,294 @@
+{
+  "title": "PawTwin local English review demo",
+  "duration_seconds": 170.0,
+  "source_capture": "docs\\evidence\\hackathon-capture\\2026-10-03-final",
+  "source_captured_at": "2026-10-03T14:21:57.657Z",
+  "backend": "local_rules",
+  "cloud_calls": 0,
+  "clip_speed": "1x actual replay",
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "end": 15.2,
+      "title": "One pet. A shared daily story.",
+      "source": "01-home.png",
+      "clip": null,
+      "proofs": [
+        "One household",
+        "Two independent accounts",
+        "Shared pet records"
+      ],
+      "cues": [
+        {
+          "start": 0.35,
+          "end": 5.523514739229024,
+          "text": "Paw Twin gives family members a shared pet record, helping them coordinate everyday care."
+        },
+        {
+          "start": 5.723514739229024,
+          "end": 11.54673469387755,
+          "text": "This local review follows Mochi through two independent accounts, using fictional demonstration data."
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "start": 15.2,
+      "end": 30.866666666666667,
+      "title": "Start with records people can inspect.",
+      "source": "02-growth.png",
+      "clip": null,
+      "proofs": [
+        "1.20 to 1.35 kg",
+        "+150 g over 7 days",
+        "Demo samples"
+      ],
+      "cues": [
+        {
+          "start": 15.549999999999999,
+          "end": 21.583469387755102,
+          "text": "The owner records sample weights of one point two and one point three five kilograms, seven days apart."
+        },
+        {
+          "start": 21.7834693877551,
+          "end": 27.276802721088433,
+          "text": "The weekly report calculates a hundred fifty gram increase, or twelve point five percent."
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "start": 30.866666666666667,
+      "end": 48.666666666666664,
+      "title": "Show the basis. Keep missing data visible.",
+      "source": "02-growth.png",
+      "clip": null,
+      "proofs": [
+        "Source record IDs",
+        "Versioned report",
+        "Intake: unrecorded"
+      ],
+      "cues": [
+        {
+          "start": 31.21666666666667,
+          "end": 37.794761904761906,
+          "text": "The report exposes its time window, record identifiers, and version, so people can inspect the calculation."
+        },
+        {
+          "start": 37.99476190476191,
+          "end": 45.03780045351474,
+          "text": "Missing intake remains unrecorded, coverage is incomplete, and these sample measurements provide no medical diagnosis."
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "start": 48.666666666666664,
+      "end": 64.13333333333334,
+      "title": "An owner confirms the shared memory.",
+      "source": "03-assistant.png",
+      "clip": {
+        "role": "owner",
+        "start": 7.6,
+        "duration": 5.0
+      },
+      "proofs": [
+        "Candidate first",
+        "Explicit owner confirmation",
+        "Database memory"
+      ],
+      "cues": [
+        {
+          "start": 49.016666666666666,
+          "end": 54.30024943310657,
+          "text": "The owner saves a preference candidate: Mochi likes a feather toy and rests after meals."
+        },
+        {
+          "start": 54.500249433106575,
+          "end": 60.51344671201814,
+          "text": "Only explicit confirmation shares this database memory, while stored text never becomes an instruction."
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "start": 64.13333333333334,
+      "end": 79.46666666666667,
+      "title": "A second account sees the same context.",
+      "source": "03-assistant.png",
+      "clip": null,
+      "proofs": [
+        "Separate carer login",
+        "Confirmed preference",
+        "Alexa web simulation"
+      ],
+      "cues": [
+        {
+          "start": 64.48333333333333,
+          "end": 69.86655328798186,
+          "text": "After a separate login, the carer asks what Mochi likes through the labelled Alexa web simulator."
+        },
+        {
+          "start": 70.06655328798186,
+          "end": 75.83997732426305,
+          "text": "The response uses confirmed context and local rules; no live Alexa or model call occurs."
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "start": 79.46666666666667,
+      "end": 93.73333333333333,
+      "title": "Turn a suggestion into manual care.",
+      "source": "04-care.png",
+      "clip": null,
+      "proofs": [
+        "Rest, then feather play",
+        "Owner-authored proposal",
+        "Manual care only"
+      ],
+      "cues": [
+        {
+          "start": 79.81666666666666,
+          "end": 84.32038548752834,
+          "text": "The owner writes a proposal to rest after meals, then play with the feather toy."
+        },
+        {
+          "start": 84.52038548752834,
+          "end": 90.10360544217687,
+          "text": "Explicit owner confirmation creates a shared manual care task, with no feeder execution."
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "start": 93.73333333333333,
+      "end": 108.13333333333334,
+      "title": "The carer claims and completes the task.",
+      "source": "04-care.png",
+      "clip": {
+        "role": "carer",
+        "start": 8.6,
+        "duration": 5.0
+      },
+      "proofs": [
+        "Claim the task",
+        "Record completion",
+        "Real account actor"
+      ],
+      "cues": [
+        {
+          "start": 94.08333333333333,
+          "end": 98.04197278911565,
+          "text": "The carer claims the task and records completion through the second account."
+        },
+        {
+          "start": 98.24197278911565,
+          "end": 104.49535147392291,
+          "text": "This manual record proves an account action, without establishing physical device activity or real world care."
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "start": 108.13333333333334,
+      "end": 123.06666666666666,
+      "title": "Keep the completing person visible.",
+      "source": "07-completing-actor.png",
+      "clip": null,
+      "proofs": [
+        "Carer shown by name",
+        "Claim event",
+        "Completion event"
+      ],
+      "cues": [
+        {
+          "start": 108.48333333333333,
+          "end": 112.89185941043084,
+          "text": "Household activity visibly attributes the claim and completion events to the carer."
+        },
+        {
+          "start": 113.09185941043084,
+          "end": 119.45512471655329,
+          "text": "The captured evidence verifies the actual completing account identifier, keeping labels separate from permissions."
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "start": 123.06666666666666,
+      "end": 138.13333333333333,
+      "title": "Close the loop with the daily report.",
+      "source": "05-daily.png",
+      "clip": null,
+      "proofs": [
+        "1 manual care completion",
+        "0 pending / 0 overdue",
+        "No measured intake"
+      ],
+      "cues": [
+        {
+          "start": 123.41666666666666,
+          "end": 128.78510204081633,
+          "text": "The daily report now counts one completed manual care task, with none pending or overdue."
+        },
+        {
+          "start": 128.98510204081632,
+          "end": 134.52369614512472,
+          "text": "Intake remains unrecorded and daily weight change remains unknown, preserving missing outcomes."
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "start": 138.13333333333333,
+      "end": 152.06666666666666,
+      "title": "Delete a memory. Check the next answer.",
+      "source": "06-deleted-memory.png",
+      "clip": null,
+      "proofs": [
+        "Preference deleted",
+        "New answer omits it",
+        "Source IDs cleared"
+      ],
+      "cues": [
+        {
+          "start": 138.48333333333332,
+          "end": 142.61204081632653,
+          "text": "After the owner deletes the preference, the carer asks again in the App."
+        },
+        {
+          "start": 142.81204081632652,
+          "end": 148.4603401360544,
+          "text": "The next answer has no confirmed preference and an empty source list, showing deletion took effect."
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "start": 152.06666666666666,
+      "end": 170.0,
+      "title": "A verified local loop. Cloud work remains.",
+      "source": "01-home.png",
+      "clip": null,
+      "proofs": [
+        "Backend: local_rules",
+        "Alexa / hardware simulated",
+        "AWS validation pending"
+      ],
+      "cues": [
+        {
+          "start": 152.41666666666666,
+          "end": 158.46501133786848,
+          "text": "This is a local rules review, with database memory, manual care, and simulated Alexa and hardware."
+        },
+        {
+          "start": 158.66501133786846,
+          "end": 166.38782312925167,
+          "text": "AWS validation remains pending account verification, so this demo establishes neither live model behavior nor cloud readiness."
+        }
+      ]
+    }
+  ]
+}

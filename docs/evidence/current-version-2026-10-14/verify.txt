@@ -1,0 +1,40 @@
+........................................................................ [ 16%]
+........................................................................ [ 32%]
+........................................................................ [ 48%]
+........................................................................ [ 64%]
+........................................................................ [ 80%]
+............................................s........................... [ 96%]
+................                                                         [100%]
+============================== warnings summary ===============================
+.venv\Lib\site-packages\starlette\testclient.py:51
+  C:\Users\11831\Desktop\hks\outputs\pawtwin-app\.venv\Lib\site-packages\starlette\testclient.py:51: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+447 passed, 1 skipped, 21 deselected, 1 warning in 50.14s
+All checks passed!
+Contracts are current.
+
+> pawtwin-frontend@0.1.0 typecheck
+> tsc --noEmit
+
+
+> pawtwin-frontend@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v8.3.0 building client environment for production...
+transforming...
+✓ 61 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.96 kB │ gzip:   0.48 kB
+dist/assets/index-rTihmbqN.css  143.12 kB │ gzip:  31.04 kB
+dist/assets/index-D0uadzko.js   584.57 kB │ gzip: 182.75 kB
+
+✓ built in 132ms
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+Baseline checks passed. Browser smoke is separate: scripts/test-e2e.ps1

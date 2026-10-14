@@ -32,6 +32,7 @@ def _section(title: str) -> None:
 
 
 def main() -> int:
+    failed = False
     region = os.environ.get("AWS_REGION")
     if not region:
         print("NOT EXECUTED: AWS_REGION is not set. No AWS call was made.", file=sys.stderr)
@@ -72,11 +73,12 @@ def main() -> int:
             print(f"  - `{memory.get('id', memory.get('memoryId'))}` {memory.get('name', '')}")
     except Exception as exc:  # noqa: BLE001
         print(f"- FAILED: `{exc.__class__.__name__}: {exc}`")
+        failed = True
 
     _section("Bedrock foundation models visible to this account")
     try:
         bedrock = boto3.client("bedrock", region_name=region)
-        models = bedrock.list_foundation_models(byOutputModality="TEXTUAL")
+        models = bedrock.list_foundation_models(byOutputModality="TEXT")
         summaries = models.get("modelSummaries", [])
         print(f"- {len(summaries)} textual models listed.")
         print(
@@ -88,12 +90,13 @@ def main() -> int:
             print(f"  - `{model.get('modelId')}` -- {model.get('providerName', '')}")
     except Exception as exc:  # noqa: BLE001
         print(f"- FAILED: `{exc.__class__.__name__}: {exc}`")
+        failed = True
 
     print(
         "\n---\nNo billable call was made (no Converse/InvokeModel). Bedrock "
         "connectivity is proven later by a real analysis `request_id`, not here."
     )
-    return 0
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":

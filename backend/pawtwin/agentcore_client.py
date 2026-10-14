@@ -23,11 +23,11 @@ WRONG for the real data plane -- ``create_event`` has NO ``namespace`` parameter
 ``extractionConfig.namespaceVariables``), ``GetEvent`` (which REQUIRES ``sessionId``
 and ``actorId``, fact G-G), and ``RetrieveMemoryRecords`` (``namespacePath`` +
 ``searchCriteria.searchQuery``). Still **never exercised against a real account**
-(no credential available): the exact RESPONSE field names and the status VALUE
-vocabulary remain unverified, so parsing is defensive (``_field`` tolerates
-dict/object and several spellings) and any UNKNOWN event status maps to
-``processing`` -- never up to a terminal state. Honest local status stays ``saved``
-until a real round trip runs (docs/evidence/day5-*).
+(no credential available). The locked SDK and official API response shapes were
+checked offline: retrieval returns ``memoryRecordSummaries`` with ``content.text``.
+``GetEvent`` has NO extraction-status field, so extraction polling explicitly fails
+with ``EVENT_EXTRACTION_STATUS_UNSUPPORTED`` until a correlated completion signal
+is implemented; existence of a raw event never proves long-term extraction.
 """
 
 from __future__ import annotations
@@ -148,9 +148,11 @@ class AgentCoreMemoryClient:
         if namespace_variables:
             request["extractionConfig"] = {"namespaceVariables": namespace_variables}
         if metadata:
-            # AgentCore metadata values are strings; coerce so a UUID/int never
-            # fails serialization at the boundary.
-            request["metadata"] = {str(key): str(value) for key, value in metadata.items()}
+            # The locked SDK models MetadataValue as a stringValue union, rather
+            # than a bare string. Preserve stable UUID/int metadata as text.
+            request["metadata"] = {
+                str(key): {"stringValue": str(value)} for key, value in metadata.items()
+            }
         try:
             response = client.create_event(**request)
         except Exception as exc:  # noqa: BLE001 - fail closed, never a fake event id
@@ -167,36 +169,24 @@ class AgentCoreMemoryClient:
         session_id: str | None = None,
         actor_id: str | None = None,
     ) -> str:
-        """Map ``GetEvent`` onto the EVENT lifecycle: ``processed`` / ``failed`` /
-        ``processing``.
+        """Fail explicitly: ``GetEvent`` does not expose extraction completion.
 
-        This is NOT memory availability. ``GetEvent`` requires ``sessionId`` and
-        ``actorId`` (fact G-E/G-G); without them the event cannot be located, so this
-        fails closed rather than guessing. The caller (:mod:`pawtwin.memory`) treats
-        only ``processed`` as licence to retrieve records, and never reports
-        ``available`` without real record ids (AGENTS.md L18).
-
-        Status vocabulary source: AgentCore ``GetEvent`` event status. The exact
-        values are UNVERIFIED (no account), so anything not clearly terminal maps to
-        ``processing`` -- an unknown state is never guessed up to processed/failed.
+        The official response proves only that a raw event exists. A correlated
+        extraction job or memory-record signal must be implemented before this
+        adapter can report a terminal extraction state. Returning ``processing``
+        here would make the caller poll forever for a field the API never returns.
         """
 
         if session_id is None or actor_id is None:
             raise _unavailable("GET_EVENT_CONTEXT_MISSING")
         client = self._client()
         try:
-            response = client.get_event(
+            client.get_event(
                 memoryId=memory_id, sessionId=session_id, actorId=actor_id, eventId=event_id
             )
         except Exception as exc:  # noqa: BLE001 - a poll failure is never "processed"
             raise _unavailable(f"STATUS_FAILED {exc.__class__.__name__}") from exc
-        event = _field(response, "event") or response
-        status = str(_field(event, "status", "state") or "").upper()
-        if status in {"PROCESSED", "COMPLETED", "SUCCEEDED", "SUCCESS", "AVAILABLE", "ACTIVE"}:
-            return "processed"
-        if status in {"FAILED", "ERROR", "EXPIRED"}:
-            return "failed"
-        return "processing"
+        raise _unavailable("EVENT_EXTRACTION_STATUS_UNSUPPORTED")
 
     def retrieve(
         self,
@@ -224,11 +214,14 @@ class AgentCoreMemoryClient:
         except Exception as exc:  # noqa: BLE001 - retrieval failure is never a fake memory
             raise _unavailable(f"RETRIEVE_FAILED {exc.__class__.__name__}") from exc
         records: list[dict[str, Any]] = []
-        for item in _field(response, "memoryRecords", "records", "results") or []:
+        items = _field(response, "memoryRecordSummaries", "memoryRecords", "records", "results")
+        for item in items or []:
             record_id = _field(item, "recordId", "id", "memoryRecordId")
             if record_id is None:
                 continue  # never surface an id-less blob as a citable memory
-            summary = _field(item, "content", "summary", "text") or ""
+            content = _field(item, "content", "summary", "text") or ""
+            summary = _field(content, "text") if not isinstance(content, str) else content
+            summary = summary or ""
             records.append({"record_id": str(record_id), "summary": str(summary)[:300]})
         return records
 

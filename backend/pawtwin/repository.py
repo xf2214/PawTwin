@@ -138,11 +138,9 @@ class Repository(Protocol):
         """Return the run for ``(owner_id, event.event_id)``; dedup on redelivery."""
         ...
 
-    def get_run(self, run_id: UUID) -> RunRecord | None:
-        ...
+    def get_run(self, run_id: UUID) -> RunRecord | None: ...
 
-    def list_runs(self, owner_id: str) -> list[RunRecord]:
-        ...
+    def list_runs(self, owner_id: str) -> list[RunRecord]: ...
 
     def list_claimable_runs(self, limit: int = 10) -> list[RunRecord]:
         """Runs a worker may try to claim: whitelisted state and no live lease."""
@@ -152,10 +150,13 @@ class Repository(Protocol):
         """Test/adapter helper: number of runs owned by ``owner_id``."""
         ...
 
-    def save_run(self, record: RunRecord) -> None:
+    def save_run(self, record: RunRecord, *, expected_approval_version: int | None = None) -> bool:
         """Persist analysis/approval fields atomically.
 
-        Lease fields and ``attempt_count`` are NOT written here: they are owned by
+        An expected approval version makes the whole update conditional on that
+        pending version and state. This prevents late re-evaluation from erasing
+        an execution/receipt. Lease fields and ``attempt_count`` are NOT written
+        here: they are owned by
         :meth:`claim_run` / :meth:`renew_lease` / :meth:`release_run` so a worker
         can never clear its own lease by saving a record.
         """
@@ -189,8 +190,16 @@ class Repository(Protocol):
         """Compare-and-set a state transition; the guard behind "execute once"."""
         ...
 
-    def get_facts(self, owner_id: str) -> FactsSnapshot:
+    def reserve_feeding(self, record: RunRecord) -> bool:
+        """Atomically bind current facts, one owner's feeding gate and run CAS.
+
+        No actuator may run before this commits. Unknown results or interruption
+        retain the durable gate; only a known receipt can settle it. A reservation
+        never counts as actually dispensed food.
+        """
         ...
+
+    def get_facts(self, owner_id: str) -> FactsSnapshot: ...
 
     def update_facts(
         self,
@@ -252,8 +261,7 @@ class Repository(Protocol):
         """
         ...
 
-    def get_feedback(self, feedback_id: UUID) -> FeedbackRecord | None:
-        ...
+    def get_feedback(self, feedback_id: UUID) -> FeedbackRecord | None: ...
 
     def list_feedback(self, owner_id: str) -> list[FeedbackRecord]:
         """Owner feedback, newest first."""

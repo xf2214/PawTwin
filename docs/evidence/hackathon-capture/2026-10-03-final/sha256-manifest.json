@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-03T14:21:33.3793734Z",
+  "completed_utc": "2026-10-03T14:22:00.2312728Z",
+  "test": "e2e/demo-rehearsal.spec.ts",
+  "port": 8816,
+  "node_version": "24.19.0",
+  "boundary": "Local SQLite in memory; rule answers; Alexa web simulation; silent raw footage; no cloud call, public release, or final English video.",
+  "collected_attachments": [
+    {
+      "file": "demo-evidence.json",
+      "attachment_name": "demo-evidence",
+      "content_type": "application/json"
+    },
+    {
+      "file": "owner.webm",
+      "attachment_name": "owner-recording",
+      "content_type": "video/webm"
+    },
+    {
+      "file": "carer.webm",
+      "attachment_name": "carer-recording",
+      "content_type": "video/webm"
+    },
+    {
+      "file": "01-home.png",
+      "attachment_name": "01-home.png",
+      "content_type": "image/png"
+    },
+    {
+      "file": "02-growth.png",
+      "attachment_name": "02-growth.png",
+      "content_type": "image/png"
+    },
+    {
+      "file": "03-assistant.png",
+      "attachment_name": "03-assistant.png",
+      "content_type": "image/png"
+    },
+    {
+      "file": "04-care.png",
+      "attachment_name": "04-care.png",
+      "content_type": "image/png"
+    },
+    {
+      "file": "07-completing-actor.png",
+      "attachment_name": "07-completing-actor.png",
+      "content_type": "image/png"
+    },
+    {
+      "file": "05-daily.png",
+      "attachment_name": "05-daily.png",
+      "content_type": "image/png"
+    },
+    {
+      "file": "06-deleted-memory.png",
+      "attachment_name": "06-deleted-memory.png",
+      "content_type": "image/png"
+    }
+  ],
+  "files": [
+    {
+      "path": "01-home.png",
+      "bytes": 92648,
+      "sha256": "aebdb471e6b076c352d8fc826779086564c386d18d7532f898e7c0c1ce038d09"
+    },
+    {
+      "path": "02-growth.png",
+      "bytes": 67680,
+      "sha256": "2f381c07a4500823a1f2046d32f0f4b6ab6bd170d60f05e8d1c84d970ca88cc5"
+    },
+    {
+      "path": "03-assistant.png",
+      "bytes": 90904,
+      "sha256": "e3f8cd9a2e9386f7d94aba3de6a0e30d681bf5d6d4559e37e6686d95f033975e"
+    },
+    {
+      "path": "04-care.png",
+      "bytes": 77219,
+      "sha256": "2ccf4ca97781b3eac007f6702f70ddab260506c570b2005816547ac102c256e2"
+    },
+    {
+      "path": "05-daily.png",
+      "bytes": 60032,
+      "sha256": "d3ee5746e5e8803659a4af4795fc23b17e16ee2f4eee1d167105ae2153374d20"
+    },
+    {
+      "path": "06-deleted-memory.png",
+      "bytes": 86641,
+      "sha256": "5e05c222ab3ea840858637fc67cca2b6ad3893b88c916f5a68372dcf92816ab5"
+    },
+    {
+      "path": "07-completing-actor.png",
+      "bytes": 93044,
+      "sha256": "204ec965830f88447954071ffb50d3955d2c588065b0ca030108a554c7e0324c"
+    },
+    {
+      "path": "capture.log",
+      "bytes": 1446,
+      "sha256": "867918f1d63cfe99241e26bd180f43a64a74a37bde87b320b0a294aff923e848"
+    },
+    {
+      "path": "carer.webm",
+      "bytes": 1711070,
+      "sha256": "eaf364563c94f255ce2954f72b17b151a68975c809ddf371c802a80913b8640f"
+    },
+    {
+      "path": "demo-evidence.json",
+      "bytes": 10080,
+      "sha256": "ba54b1adb009cb49a5fcf9cd6c647c20cb25e77e9a3ea9b2178303bbbeaa8185"
+    },
+    {
+      "path": "owner.webm",
+      "bytes": 1490757,
+      "sha256": "60125d389f1af6aa5e9ddc58662a6cd95c1b821abef10a397632965c9cd41d08"
+    },
+    {
+      "path": "raw/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/01-home.png",
+      "bytes": 92648,
+      "sha256": "aebdb471e6b076c352d8fc826779086564c386d18d7532f898e7c0c1ce038d09"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/02-growth.png",
+      "bytes": 67680,
+      "sha256": "2f381c07a4500823a1f2046d32f0f4b6ab6bd170d60f05e8d1c84d970ca88cc5"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/03-assistant.png",
+      "bytes": 90904,
+      "sha256": "e3f8cd9a2e9386f7d94aba3de6a0e30d681bf5d6d4559e37e6686d95f033975e"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/04-care.png",
+      "bytes": 77219,
+      "sha256": "2ccf4ca97781b3eac007f6702f70ddab260506c570b2005816547ac102c256e2"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/05-daily.png",
+      "bytes": 60032,
+      "sha256": "d3ee5746e5e8803659a4af4795fc23b17e16ee2f4eee1d167105ae2153374d20"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/06-deleted-memory.png",
+      "bytes": 86641,
+      "sha256": "5e05c222ab3ea840858637fc67cca2b6ad3893b88c916f5a68372dcf92816ab5"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/07-completing-actor.png",
+      "bytes": 93044,
+      "sha256": "204ec965830f88447954071ffb50d3955d2c588065b0ca030108a554c7e0324c"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/01-home-png-06b008a14a9dbd76bbc680d88a7093898a328c13.png",
+      "bytes": 92648,
+      "sha256": "aebdb471e6b076c352d8fc826779086564c386d18d7532f898e7c0c1ce038d09"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/02-growth-png-8b875e2c89947dbb4779e794f7274bbe30eb11b8.png",
+      "bytes": 67680,
+      "sha256": "2f381c07a4500823a1f2046d32f0f4b6ab6bd170d60f05e8d1c84d970ca88cc5"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/03-assistant-png-ab46c86bbb3c4382e1197f17cf841296b9f326fb.png",
+      "bytes": 90904,
+      "sha256": "e3f8cd9a2e9386f7d94aba3de6a0e30d681bf5d6d4559e37e6686d95f033975e"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/04-care-png-0a549446603ebd4d708c0b6e10cb3a873a914425.png",
+      "bytes": 77219,
+      "sha256": "2ccf4ca97781b3eac007f6702f70ddab260506c570b2005816547ac102c256e2"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/05-daily-png-3789becf9de31a15d72a48760dcf212a33b4a0c6.png",
+      "bytes": 60032,
+      "sha256": "d3ee5746e5e8803659a4af4795fc23b17e16ee2f4eee1d167105ae2153374d20"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/06-deleted-memory-png-4f09e49684a9fe416ebaaafb814bddab66772b91.png",
+      "bytes": 86641,
+      "sha256": "5e05c222ab3ea840858637fc67cca2b6ad3893b88c916f5a68372dcf92816ab5"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/07-completing-actor-png-20e26926b73a1b4eff97953fb4d9b5cbfc6bd702.png",
+      "bytes": 93044,
+      "sha256": "204ec965830f88447954071ffb50d3955d2c588065b0ca030108a554c7e0324c"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/carer-recording-10aba2574472fed88de3b17ea54ecc160ae788b3.webm",
+      "bytes": 1711070,
+      "sha256": "eaf364563c94f255ce2954f72b17b151a68975c809ddf371c802a80913b8640f"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/owner-recording-80acc2a869da241b8ca81e7a68e58462fbb9e631.webm",
+      "bytes": 1490757,
+      "sha256": "60125d389f1af6aa5e9ddc58662a6cd95c1b821abef10a397632965c9cd41d08"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/carer-video/page@685dc466e1d4766b97655661c1cb7d30.webm",
+      "bytes": 1711070,
+      "sha256": "eaf364563c94f255ce2954f72b17b151a68975c809ddf371c802a80913b8640f"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/video.webm",
+      "bytes": 1490757,
+      "sha256": "60125d389f1af6aa5e9ddc58662a6cd95c1b821abef10a397632965c9cd41d08"
+    },
+    {
+      "path": "results.json",
+      "bytes": 21168,
+      "sha256": "f2ed2349583fa6f95a5947d3d985b6322a2f9f8d2f483a2ab6d0f94db41bd2a5"
+    }
+  ]
+}

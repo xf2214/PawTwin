@@ -1,0 +1,87 @@
+1
+00:00:00,350 --> 00:00:05,524
+Paw Twin gives family members a shared pet record, helping them coordinate everyday care.
+
+2
+00:00:05,724 --> 00:00:11,547
+This local review follows Mochi through two independent accounts, using fictional demonstration data.
+
+3
+00:00:15,550 --> 00:00:21,583
+The owner records sample weights of one point two and one point three five kilograms, seven days apart.
+
+4
+00:00:21,783 --> 00:00:27,277
+The weekly report calculates a hundred fifty gram increase, or twelve point five percent.
+
+5
+00:00:31,217 --> 00:00:37,795
+The report exposes its time window, record identifiers, and version, so people can inspect the calculation.
+
+6
+00:00:37,995 --> 00:00:45,038
+Missing intake remains unrecorded, coverage is incomplete, and these sample measurements provide no medical diagnosis.
+
+7
+00:00:49,017 --> 00:00:54,300
+The owner saves a preference candidate: Mochi likes a feather toy and rests after meals.
+
+8
+00:00:54,500 --> 00:01:00,513
+Only explicit confirmation shares this database memory, while stored text never becomes an instruction.
+
+9
+00:01:04,483 --> 00:01:09,867
+After a separate login, the carer asks what Mochi likes through the labelled Alexa web simulator.
+
+10
+00:01:10,067 --> 00:01:15,840
+The response uses confirmed context and local rules; no live Alexa or model call occurs.
+
+11
+00:01:19,817 --> 00:01:24,320
+The owner writes a proposal to rest after meals, then play with the feather toy.
+
+12
+00:01:24,520 --> 00:01:30,104
+Explicit owner confirmation creates a shared manual care task, with no feeder execution.
+
+13
+00:01:34,083 --> 00:01:38,042
+The carer claims the task and records completion through the second account.
+
+14
+00:01:38,242 --> 00:01:44,495
+This manual record proves an account action, without establishing physical device activity or real world care.
+
+15
+00:01:48,483 --> 00:01:52,892
+Household activity visibly attributes the claim and completion events to the carer.
+
+16
+00:01:53,092 --> 00:01:59,455
+The captured evidence verifies the actual completing account identifier, keeping labels separate from permissions.
+
+17
+00:02:03,417 --> 00:02:08,785
+The daily report now counts one completed manual care task, with none pending or overdue.
+
+18
+00:02:08,985 --> 00:02:14,524
+Intake remains unrecorded and daily weight change remains unknown, preserving missing outcomes.
+
+19
+00:02:18,483 --> 00:02:22,612
+After the owner deletes the preference, the carer asks again in the App.
+
+20
+00:02:22,812 --> 00:02:28,460
+The next answer has no confirmed preference and an empty source list, showing deletion took effect.
+
+21
+00:02:32,417 --> 00:02:38,465
+This is a local rules review, with database memory, manual care, and simulated Alexa and hardware.
+
+22
+00:02:38,665 --> 00:02:46,388
+AWS validation remains pending account verification, so this demo establishes neither live model behavior nor cloud readiness.

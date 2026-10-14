@@ -1,0 +1,63 @@
+
+[WebServer] INFO:     Started server process [135052]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8830 (Press CTRL+C to quit)
+
+
+Running 48 tests using 1 worker
+
+
+(node:147748) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/48] e2e\acceptance.spec.ts:11:1 › an unauthenticated session sees the login gate and business APIs return 401 JSON
+[2/48] e2e\acceptance.spec.ts:35:1 › reload while awaiting_approval keeps the pending request pending
+[3/48] e2e\acceptance.spec.ts:63:1 › desktop 1440px and narrow 390px show no overflow and states are not color-only
+[4/48] e2e\acceptance.spec.ts:134:1 › raising the daily dispensed amount shifts the proposed grams
+[5/48] e2e\acceptance.spec.ts:160:1 › a new session rotates the conversation while memory stays honestly unretrieved
+[6/48] e2e\alexa.spec.ts:14:1 › Alexa simulator reads shared memory and confirms manual care exactly once
+[7/48] e2e\alexa.spec.ts:45:1 › new session clears transcript and stale drafts require a fresh question
+[8/48] e2e\alexa.spec.ts:67:3 › Alexa simulator is usable at 320px
+[9/48] e2e\alexa.spec.ts:67:3 › Alexa simulator is usable at 390px
+[10/48] e2e\alexa.spec.ts:67:3 › Alexa simulator is usable at 1440px
+[11/48] e2e\alexa.spec.ts:81:1 › pet switching drops a delayed response and resets draft scope
+[12/48] e2e\alexa.spec.ts:115:1 › a failed chat restores the input and can be retried without inventing a reply
+[13/48] e2e\alexa.spec.ts:128:1 › keyboard input and account navigation can return to Alexa
+[14/48] e2e\alexa.spec.ts:149:1 › Alexa displays the response backend and same-response model evidence
+[15/48] e2e\approve.spec.ts:7:1 › approve executes once, shows real evidence and survives reload
+[16/48] e2e\approve.spec.ts:57:1 › an injected device failure never accounts quota
+[17/48] e2e\approve.spec.ts:81:1 › an unknown fact reaches needs-info and is never shown as zero
+[18/48] e2e\approve.spec.ts:99:1 › changing facts invalidates a pending approval with a readable notice
+[19/48] e2e\decline.spec.ts:5:1 › decline never becomes simulated execution and survives reload
+[20/48] e2e\demo-rehearsal.spec.ts:28:1 › demonstration rehearses two family accounts, real report arithmetic and shared memory to care
+[21/48] e2e\family.spec.ts:19:1 › independent account, shared navigation and refresh session
+[22/48] e2e\family.spec.ts:43:1 › real weight data, weekly report and correction
+[23/48] e2e\family.spec.ts:58:1 › memory confirmation shared with Alexa simulation and deletion
+[24/48] e2e\family.spec.ts:79:1 › care proposal needs explicit confirmation and creates manual task
+[25/48] e2e\family.spec.ts:93:3 › App at 390px preserves room and has no horizontal overflow
+[26/48] e2e\family.spec.ts:93:3 › App at 1440px preserves room and has no horizontal overflow
+[27/48] e2e\family.spec.ts:117:1 › new pet selection is immediately shared with growth and delayed replies stay scoped
+[28/48] e2e\family.spec.ts:189:1 › owner observation and diary can be corrected and removed from shared context
+[29/48] e2e\feedback.spec.ts:11:1 › owner feedback is saved honestly and never shown as retrieved memory
+[30/48] e2e\feedback.spec.ts:40:1 › today-only feedback is labelled as never becoming a permanent preference
+[31/48] e2e\feedback.spec.ts:55:1 › a new session rotates the conversation but keeps login and facts
+[32/48] e2e\pet-home.spec.ts:14:1 › pet profile, objects, bathing, nails, scoped preferences and photo diary are saved
+[33/48] e2e\pet-home.spec.ts:62:1 › pixel home stays usable at phone and desktop widths without sharing another pet data
+[34/48] e2e\shell.spec.ts:5:1 › gates business data behind the demo login
+[35/48] e2e\shell.spec.ts:15:1 › keeps simulation boundaries and the local/aws label visible after login
+[36/48] e2e\showcase.spec.ts:5:1 › explores illustrative care cases without writing business data
+[37/48] e2e\showcase.spec.ts:30:1 › can pause motion while retaining case interactions and reduced-motion readability
+[38/48] e2e\showcase.spec.ts:46:1 › introduces the product without requesting private business data, then opens the app
+[39/48] e2e\showcase.spec.ts:72:1 › keeps the showcase readable on mobile and the original workbench reachable
+[40/48] e2e\showcase.spec.ts:86:1 › supports direct product anchors and distinct preview panels at narrow widths
+[41/48] e2e\showcase.spec.ts:104:1 › supports keyboard exploration, reduced motion and the growth shortcut
+[42/48] e2e\showcase.spec.ts:124:1 › routes each product experience to its application feature with the keyboard
+[43/48] e2e\showcase.spec.ts:142:1 › opens the relevant application feature from each illustrative case
+[44/48] e2e\showcase.spec.ts:157:1 › makes the Alexa web simulation discoverable on mobile before opening it by keyboard
+[45/48] e2e\showcase.spec.ts:171:1 › explores handoff and visit demonstrations without business requests at all supported widths
+[46/48] e2e\showcase.spec.ts:208:1 › routes real access management and visit-card export from their demonstration
+[47/48] e2e\showcase.spec.ts:224:1 › keeps new demonstration steps usable while motion is paused or reduced
+[48/48] e2e\zz-unknown.spec.ts:6:1 › an unknown device receipt shows 状态未知 and never a success
+  48 passed (1.2m)

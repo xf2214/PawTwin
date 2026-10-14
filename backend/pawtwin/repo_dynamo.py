@@ -53,6 +53,7 @@ from pawtwin.models import (
     Proposal,
     Receipt,
     RunState,
+    make_command_id,
 )
 from pawtwin.repo_sqlite import (
     DEFAULT_FACTS,
@@ -368,6 +369,7 @@ class DynamoRepository:
                 "single_serving_grams": DEFAULT_FACTS["single_serving_grams"],
                 "minimum_interval_minutes": DEFAULT_FACTS["minimum_interval_minutes"],
                 "facts_version": 0,
+                "feeding_guard_version": 1,
             }
         )
 
@@ -437,12 +439,12 @@ class DynamoRepository:
     def count_runs(self, owner_id: str) -> int:
         return self._query_count(f"owner#{owner_id}")
 
-    def save_run(self, record: RunRecord) -> None:
+    def save_run(self, record: RunRecord, *, expected_approval_version: int | None = None) -> bool:
         # Lease fields and attempt_count are deliberately NOT written (owned by
         # claim/renew/release), so saving an analyzed record can never clear the
         # lease this worker holds -- identical to SqliteRepository.save_run.
         client = self._ddb()
-        client.update_item(
+        arguments = dict(
             TableName=self._table_name,
             Key=self._ser_item(_run_key(record.run_id)),
             UpdateExpression=(
@@ -470,6 +472,23 @@ class DynamoRepository:
                 }
             ),
         )
+        if expected_approval_version is not None:
+            arguments["ConditionExpression"] = "#state = :pending AND proposal_version = :old"
+            arguments["ExpressionAttributeValues"].update(
+                self._av(
+                    {
+                        ":pending": RunState.AWAITING_APPROVAL.value,
+                        ":old": expected_approval_version,
+                    }
+                )
+            )
+        try:
+            client.update_item(**arguments)
+        except client.exceptions.ConditionalCheckFailedException:
+            if expected_approval_version is not None:
+                return False
+            raise
+        return True
 
     def claim_run(
         self,
@@ -547,6 +566,102 @@ class DynamoRepository:
 
     # -- facts --------------------------------------------------------------
 
+    def reserve_feeding(self, record: RunRecord) -> bool:
+        """Persist an exclusive owner gate and run CAS in one transaction.
+
+        These SDK-shaped guards are offline preparation, not a live DynamoDB
+        acceptance result. Receipt accounting alone is too late to guard a device.
+        """
+        if record.proposal is None or record.proposal.action.kind != "dispense_food":
+            return False
+        snapshot = self.get_facts(record.owner_id)
+        guarded_facts = self._get(_facts_key(record.owner_id))
+        # Earlier cloud data may contain an uncertain execution with no gate.
+        # Only fresh guarded data can feed; upgrades require an audited migration.
+        if guarded_facts is None or guarded_facts.get("feeding_guard_version") != 1:
+            return False
+        from pawtwin.policy import Facts, evaluate_policy
+
+        if (
+            snapshot.facts_version != record.facts_version
+            or not evaluate_policy(
+                record.proposal.action,
+                Facts(
+                    last_fed_minutes_ago=snapshot.last_fed_minutes_ago,
+                    daily_dispensed_grams=snapshot.daily_dispensed_grams,
+                    daily_limit_grams=snapshot.daily_limit_grams,
+                    minimum_interval_minutes=snapshot.minimum_interval_minutes,
+                    single_serving_grams=snapshot.single_serving_grams,
+                ),
+            ).allowed
+        ):
+            return False
+        command_id = make_command_id(record.run_id, record.proposal_version)
+        client = self._ddb()
+        try:
+            client.transact_write_items(
+                TransactItems=[
+                    {
+                        "ConditionCheck": {
+                            "TableName": self._table_name,
+                            "Key": self._ser_item(_facts_key(record.owner_id)),
+                            "ConditionExpression": (
+                                "facts_version = :version AND feeding_guard_version = :guard"
+                            ),
+                            "ExpressionAttributeValues": self._av(
+                                {":version": record.facts_version, ":guard": 1}
+                            ),
+                        }
+                    },
+                    {
+                        "Put": {
+                            "TableName": self._table_name,
+                            "Item": self._ser_item(
+                                {
+                                    "pk": f"feeding#{record.owner_id}",
+                                    "sk": "L",
+                                    "run_id": str(record.run_id),
+                                    "command_id": str(command_id),
+                                    "grams": record.proposal.action.grams,
+                                    "created_at": _dt(_now()),
+                                }
+                            ),
+                            "ConditionExpression": "attribute_not_exists(pk)",
+                        }
+                    },
+                    {
+                        "Update": {
+                            "TableName": self._table_name,
+                            "Key": self._ser_item(_run_key(record.run_id)),
+                            "UpdateExpression": "SET #state = :new",
+                            "ConditionExpression": (
+                                "#state = :expected AND owner_id = :owner AND "
+                                "proposal_version = :pv AND action_digest = :digest"
+                            ),
+                            "ExpressionAttributeNames": {"#state": "state"},
+                            "ExpressionAttributeValues": self._av(
+                                {
+                                    ":new": RunState.EXECUTING.value,
+                                    ":expected": RunState.AWAITING_APPROVAL.value,
+                                    ":owner": record.owner_id,
+                                    ":pv": record.proposal_version,
+                                    ":digest": record.action_digest,
+                                }
+                            ),
+                        }
+                    },
+                ]
+            )
+        except client.exceptions.TransactionCanceledException as exc:
+            reasons = exc.response.get("CancellationReasons", [])
+            if any(
+                reason.get("Code") in {"ConditionalCheckFailed", "TransactionConflict"}
+                for reason in reasons
+            ):
+                return False
+            raise
+        return True
+
     def get_facts(self, owner_id: str) -> FactsSnapshot:
         item = self._get(_facts_key(owner_id))
         if item is None:
@@ -623,42 +738,79 @@ class DynamoRepository:
             "created_at": now,
         }
         account = receipt.status == "succeeded" and dispense_grams > 0 and owner_id is not None
-        if not account:
-            # A failed/unknown or zero-gram receipt is still stored idempotently but
-            # never accounts quota (identical to the SQLite branch).
-            return self._put_if_absent(receipt_item)
-
+        release = (
+            dispense_grams > 0
+            and owner_id is not None
+            and receipt.status in {"succeeded", "failed"}
+        )
         # Accounting path: one TransactWriteItems so the receipt insert and the
         # quota bump commit together or not at all. If the receipt already exists
         # the Put condition fails, the WHOLE transaction cancels, and the quota is
         # NOT touched -- the DynamoDB equivalent of INSERT OR IGNORE + rowcount.
         self._seed_facts(owner_id)
-        try:
-            client.transact_write_items(
-                TransactItems=[
-                    {
-                        "Put": {
-                            "TableName": self._table_name,
-                            "Item": self._ser_item(receipt_item),
-                            "ConditionExpression": "attribute_not_exists(pk)",
+        transactions = [
+            {
+                "Put": {
+                    "TableName": self._table_name,
+                    "Item": self._ser_item(receipt_item),
+                    "ConditionExpression": "attribute_not_exists(pk)",
+                }
+            },
+        ]
+        terminal = {
+            "succeeded": RunState.SUCCEEDED,
+            "failed": RunState.FAILED,
+            "unknown": RunState.UNKNOWN,
+        }[receipt.status]
+        transactions.append(
+            {
+                "Update": {
+                    "TableName": self._table_name,
+                    "Key": self._ser_item(_run_key(run_id)),
+                    "UpdateExpression": (
+                        "SET #state = :state, receipt_json = :receipt REMOVE expires_at"
+                    ),
+                    "ConditionExpression": "attribute_exists(pk)",
+                    "ExpressionAttributeNames": {"#state": "state"},
+                    "ExpressionAttributeValues": self._av(
+                        {
+                            ":state": terminal.value,
+                            ":receipt": receipt.model_dump_json(),
                         }
-                    },
-                    {
-                        "Update": {
-                            "TableName": self._table_name,
-                            "Key": self._ser_item(_facts_key(owner_id)),
-                            "UpdateExpression": (
-                                "SET last_fed_minutes_ago = :zero, "
-                                "facts_version = facts_version + :one "
-                                "ADD daily_dispensed_grams :g"
-                            ),
-                            "ExpressionAttributeValues": self._av(
-                                {":zero": 0, ":one": 1, ":g": dispense_grams}
-                            ),
-                        }
-                    },
-                ]
+                    ),
+                }
+            }
+        )
+        if account:
+            transactions.append(
+                {
+                    "Update": {
+                        "TableName": self._table_name,
+                        "Key": self._ser_item(_facts_key(owner_id)),
+                        "UpdateExpression": (
+                            "SET last_fed_minutes_ago = :zero, "
+                            "facts_version = facts_version + :one "
+                            "ADD daily_dispensed_grams :g"
+                        ),
+                        "ExpressionAttributeValues": self._av(
+                            {":zero": 0, ":one": 1, ":g": dispense_grams}
+                        ),
+                    }
+                }
             )
+        if release:
+            transactions.append(
+                {
+                    "Delete": {
+                        "TableName": self._table_name,
+                        "Key": self._ser_item({"pk": f"feeding#{owner_id}", "sk": "L"}),
+                        "ConditionExpression": "attribute_not_exists(pk) OR command_id = :command",
+                        "ExpressionAttributeValues": self._av({":command": str(command_id)}),
+                    }
+                }
+            )
+        try:
+            client.transact_write_items(TransactItems=transactions)
         except client.exceptions.TransactionCanceledException as exc:
             reasons = exc.response.get("CancellationReasons", [])
             if reasons and reasons[0].get("Code") == "ConditionalCheckFailed":
@@ -743,9 +895,7 @@ class DynamoRepository:
         # prove it. The literal lives in models.py (MEMORY_AVAILABLE), so the
         # anti-forgery static guard's whitelist stays unchanged (ruling 12).
         if memory_status == MEMORY_AVAILABLE and not memory_record_ids:
-            raise ValueError(
-                "set_feedback_status(available) requires memory_record_ids"
-            )
+            raise ValueError("set_feedback_status(available) requires memory_record_ids")
         sets = ["memory_status = :ms"]
         values: dict[str, Any] = {":ms": memory_status}
         # A ``None`` parameter is OMITTED from the expression, which is the

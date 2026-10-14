@@ -1,0 +1,443 @@
+{
+  "title": "PawTwin local English review demo",
+  "duration_seconds": 170.0,
+  "source_capture": "docs\\evidence\\hackathon-capture\\2026-10-11-final",
+  "source_captured_at": "2026-10-11T13:22:34.446Z",
+  "backend": "local_rules",
+  "cloud_calls": 0,
+  "presentation": "Actual WebM operation clips with actual screenshot result holds",
+  "replays": [
+    {
+      "scene": 3,
+      "role": "owner",
+      "source_start": 9.8,
+      "source_duration": 2.0,
+      "output_start": 29.066666666666666,
+      "output_visible_duration": 2.0,
+      "speed": 1.0
+    },
+    {
+      "scene": 5,
+      "role": "carer",
+      "source_start": 14.2,
+      "source_duration": 2.0,
+      "output_start": 56.333333333333336,
+      "output_visible_duration": 2.0,
+      "speed": 1.0
+    },
+    {
+      "scene": 6,
+      "role": "owner",
+      "source_start": 16.5,
+      "source_duration": 1.7,
+      "output_start": 69.53333333333333,
+      "output_visible_duration": 1.7,
+      "speed": 1.0
+    },
+    {
+      "scene": 7,
+      "role": "owner",
+      "source_start": 18.2,
+      "source_duration": 2.0,
+      "output_start": 82.13333333333334,
+      "output_visible_duration": 2.0,
+      "speed": 1.0
+    },
+    {
+      "scene": 8,
+      "role": "owner",
+      "source_start": 20.2,
+      "source_duration": 2.0,
+      "output_start": 92.93333333333334,
+      "output_visible_duration": 2.0,
+      "speed": 1.0
+    },
+    {
+      "scene": 9,
+      "role": "carer",
+      "source_start": 22.4,
+      "source_duration": 3.4,
+      "output_start": 104.93333333333334,
+      "output_visible_duration": 3.4,
+      "speed": 1.0
+    },
+    {
+      "scene": 10,
+      "role": "carer",
+      "source_start": 25.9,
+      "source_duration": 2.3,
+      "output_start": 118.0,
+      "output_visible_duration": 2.3,
+      "speed": 1.0
+    },
+    {
+      "scene": 12,
+      "role": "carer",
+      "source_start": 30.5,
+      "source_duration": 3.0,
+      "output_start": 141.0,
+      "output_visible_duration": 3.0,
+      "speed": 1.0
+    }
+  ],
+  "screenshot_timing_boundary": "Screenshot timestamps are test elapsed wall-clock milliseconds, not WebM seek positions. The edit uses complete actual screenshots and generates its own exact encoded timeline; no guessed replay cuts.",
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "end": 13.4,
+      "title": "One pet. A shared daily story.",
+      "source": "00-product.png",
+      "clip": null,
+      "proofs": [
+        "Current product page",
+        "Shared household care",
+        "Local demonstration"
+      ],
+      "cues": [
+        {
+          "start": 0.35,
+          "end": 4.368775510204081,
+          "text": "Paw Twin gives family members one shared pet record for everyday care."
+        },
+        {
+          "start": 4.568775510204081,
+          "end": 11.021791383219954,
+          "text": "Here, two separate household accounts use fictional demonstration data to record, confirm, and hand over care."
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "start": 13.4,
+      "end": 29.066666666666666,
+      "title": "Start with records people can inspect.",
+      "source": "02-growth.png",
+      "clip": null,
+      "proofs": [
+        "1.20 to 1.35 kg",
+        "150 g / 12.5% / 7 days",
+        "Source IDs and missing intake"
+      ],
+      "cues": [
+        {
+          "start": 13.75,
+          "end": 19.7834693877551,
+          "text": "The owner records sample weights of one point two and one point three five kilograms, seven days apart."
+        },
+        {
+          "start": 19.9834693877551,
+          "end": 26.72659863945578,
+          "text": "The report calculates a hundred fifty gram increase, shows its sources, and keeps unrecorded intake unknown."
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "start": 29.066666666666666,
+      "end": 43.06666666666667,
+      "title": "An owner confirms the shared memory.",
+      "source": "08-memory-confirmed.png",
+      "clip": {
+        "role": "owner",
+        "start": 9.8,
+        "duration": 2.0
+      },
+      "proofs": [
+        "Candidate cannot be reused",
+        "Explicit owner confirmation",
+        "Confirmed database memory"
+      ],
+      "cues": [
+        {
+          "start": 29.416666666666668,
+          "end": 34.70024943310658,
+          "text": "The owner saves a preference candidate: Mochi likes a feather toy and rests after meals."
+        },
+        {
+          "start": 34.90024943310658,
+          "end": 40.71358276643991,
+          "text": "The other account cannot use the candidate; explicit confirmation makes it available as database memory."
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "start": 43.06666666666667,
+      "end": 56.333333333333336,
+      "title": "A second account sees the same context.",
+      "source": "03-assistant.png",
+      "clip": null,
+      "proofs": [
+        "Separate authenticated account",
+        "Confirmed preference source",
+        "Local rules / no model call"
+      ],
+      "cues": [
+        {
+          "start": 43.41666666666667,
+          "end": 48.040113378684815,
+          "text": "The carer opens the independent Alexa web simulator and asks what Mochi likes."
+        },
+        {
+          "start": 48.24011337868482,
+          "end": 53.95358276643992,
+          "text": "Its actual reply cites the confirmed record and shows local rules, with no live model request."
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "start": 56.333333333333336,
+      "end": 69.53333333333333,
+      "title": "A new page session reads current records.",
+      "source": "13-alexa-new-session.png",
+      "clip": {
+        "role": "carer",
+        "start": 14.2,
+        "duration": 2.0
+      },
+      "proofs": [
+        "Transcript cleared",
+        "Record retained",
+        "New answer reads current context"
+      ],
+      "cues": [
+        {
+          "start": 56.68333333333334,
+          "end": 61.76691609977325,
+          "text": "Starting a new session clears the page conversation, while household records remain."
+        },
+        {
+          "start": 61.96691609977325,
+          "end": 67.17503401360545,
+          "text": "The next question reads the same confirmed preference, with its source available for inspection."
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "start": 69.53333333333333,
+      "end": 82.13333333333334,
+      "title": "A request becomes a reviewable draft.",
+      "source": "09-alexa-draft.png",
+      "clip": {
+        "role": "owner",
+        "start": 16.5,
+        "duration": 1.7
+      },
+      "proofs": [
+        "Request: arrange play",
+        "Rule-generated draft",
+        "No task yet"
+      ],
+      "cues": [
+        {
+          "start": 69.88333333333333,
+          "end": 74.25689342403628,
+          "text": "The owner asks the simulator to arrange play and checks its rule-generated draft."
+        },
+        {
+          "start": 74.45689342403628,
+          "end": 79.75027210884353,
+          "text": "The owner selects a specific time; asking or preparing the draft does not create a task."
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "start": 82.13333333333334,
+      "end": 92.93333333333334,
+      "title": "Preparation still requires confirmation.",
+      "source": "10-alexa-pending.png",
+      "clip": {
+        "role": "owner",
+        "start": 18.2,
+        "duration": 2.0
+      },
+      "proofs": [
+        "Current context version",
+        "Selected time",
+        "Explicit confirmation required"
+      ],
+      "cues": [
+        {
+          "start": 82.48333333333333,
+          "end": 86.49181405895692,
+          "text": "Preparing the proposal preserves the draft and its current context version."
+        },
+        {
+          "start": 86.69181405895692,
+          "end": 90.60551020408164,
+          "text": "The local check verifies that no care task exists at this stage."
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "start": 92.93333333333334,
+      "end": 104.93333333333334,
+      "title": "Confirmation creates manual care.",
+      "source": "11-alexa-confirmed.png",
+      "clip": {
+        "role": "owner",
+        "start": 20.2,
+        "duration": 2.0
+      },
+      "proofs": [
+        "Confirmed proposal",
+        "One shared manual task",
+        "No device execution"
+      ],
+      "cues": [
+        {
+          "start": 93.28333333333333,
+          "end": 97.48700680272108,
+          "text": "Only explicit owner confirmation creates the shared manual care task."
+        },
+        {
+          "start": 97.68700680272109,
+          "end": 102.55045351473923,
+          "text": "The visible result says it is arranged and awaiting a person, without executing a feeder."
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "start": 104.93333333333334,
+      "end": 118.0,
+      "title": "A second person completes the handoff.",
+      "source": "04-care.png",
+      "clip": {
+        "role": "carer",
+        "start": 22.4,
+        "duration": 3.4
+      },
+      "proofs": [
+        "Carer claims task",
+        "Carer records completion",
+        "Manual-care provenance"
+      ],
+      "cues": [
+        {
+          "start": 105.28333333333333,
+          "end": 109.24197278911565,
+          "text": "The carer claims the task and records completion through the second account."
+        },
+        {
+          "start": 109.44197278911565,
+          "end": 115.66528344671202,
+          "text": "The shared activity log identifies who recorded completion, so the next family member can check the handoff."
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "start": 118.0,
+      "end": 129.4,
+      "title": "The simulator sees the completed result.",
+      "source": "12-alexa-result.png",
+      "clip": {
+        "role": "carer",
+        "start": 25.9,
+        "duration": 2.3
+      },
+      "proofs": [
+        "Same household record",
+        "Completed task title",
+        "Occurrence source ID"
+      ],
+      "cues": [
+        {
+          "start": 118.35,
+          "end": 122.38868480725623,
+          "text": "Back in the simulator, the carer asks what was recently completed."
+        },
+        {
+          "start": 122.58868480725623,
+          "end": 127.02238095238094,
+          "text": "The answer names the manual care record and cites the actual completion occurrence."
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "start": 129.4,
+      "end": 141.0,
+      "title": "Close the loop with the daily report.",
+      "source": "05-daily.png",
+      "clip": null,
+      "proofs": [
+        "1 manual completion",
+        "Report sources",
+        "Intake remains unrecorded"
+      ],
+      "cues": [
+        {
+          "start": 129.75,
+          "end": 133.53879818594103,
+          "text": "The daily report now counts one completed manual care task."
+        },
+        {
+          "start": 133.73879818594102,
+          "end": 138.67244897959182,
+          "text": "Actual intake remains unrecorded, and the report does not invent a health outcome."
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "start": 141.0,
+      "end": 153.6,
+      "title": "Delete a memory. Check a new answer.",
+      "source": "06-deleted-memory.png",
+      "clip": {
+        "role": "carer",
+        "start": 30.5,
+        "duration": 3.0
+      },
+      "proofs": [
+        "Confirmed preference deleted",
+        "New answer omits it",
+        "Deleted source ID absent"
+      ],
+      "cues": [
+        {
+          "start": 141.35,
+          "end": 146.1185714285714,
+          "text": "After the owner deletes the preference, the carer asks again in a fresh page session."
+        },
+        {
+          "start": 146.3185714285714,
+          "end": 151.2522222222222,
+          "text": "The next answer no longer cites that record; previous replies remain historical."
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "start": 153.6,
+      "end": 170.0,
+      "title": "Shared care, with a clear boundary.",
+      "source": "01-home.png",
+      "clip": null,
+      "proofs": [
+        "Local rules / SQLite",
+        "Alexa and hardware simulated",
+        "Live integration unverified"
+      ],
+      "cues": [
+        {
+          "start": 153.95,
+          "end": 160.62818594104309,
+          "text": "This capture uses local accounts, database memory, rule drafts, and confirmed manual tasks."
+        },
+        {
+          "start": 160.82818594104307,
+          "end": 167.7361678004535,
+          "text": "Alexa and devices are simulated here, while the shared records, confirmations, and report calculations run locally."
+        }
+      ]
+    }
+  ]
+}

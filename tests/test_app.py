@@ -7,6 +7,38 @@ from pawtwin.config import Settings
 from pawtwin.main import create_app
 
 
+def test_aws_startup_component_probes_do_not_verify_model_or_family(monkeypatch) -> None:
+    from pawtwin.memory import LocalFakeMemory
+    from pawtwin.repo_sqlite import SqliteRepository
+
+    probes = []
+    repo = SqliteRepository(":memory:")
+    repo.probe = lambda: probes.append("storage")
+    memory = LocalFakeMemory()
+    memory.probe = lambda: probes.append("memory")
+    monkeypatch.setattr("pawtwin.repo_dynamo.DynamoRepository", lambda *a, **kw: repo)
+    monkeypatch.setattr("pawtwin.main.build_memory", lambda settings: memory)
+    settings = Settings(
+        _env_file=None, mode="aws", worker_mode="inline",
+        BEDROCK_MODEL_ID="offline-model", AWS_REGION="us-east-1",
+        DYNAMODB_TABLE_NAME="offline-table", AGENTCORE_MEMORY_ID="offline-memory",
+        PAWTWIN_DEMO_PASSPHRASE="offline-test-passphrase",
+    )
+    try:
+        app = create_app(settings)
+        assert probes == ["storage", "memory"]
+        assert app.state.aws_connected is False
+        response = TestClient(app).get("/readyz")
+        assert response.status_code == 503
+        assert response.json()["cloud"] == "not_verified"
+        assert response.json()["storage"] == "dynamodb_connected"
+        assert response.json()["verification"]["model_inference"] == "not_verified"
+        assert response.json()["verification"]["family"] == "not_connected"
+        assert TestClient(app).get("/api/bootstrap").json()["stage"] == "aws_components"
+    finally:
+        repo.close()
+
+
 def test_status_endpoints_report_component_honest_readiness() -> None:
     client = TestClient(create_app(Settings(_env_file=None)))
 
@@ -26,18 +58,17 @@ def test_status_endpoints_report_component_honest_readiness() -> None:
     }
 
 
-def test_readyz_maps_a_verified_probe_to_200_not_a_perpetual_503() -> None:
-    """Day-5 ruling 9 MAPPING test: when create_app's startup probe marked the cloud
-    connected, /readyz returns 200 ``{status: ready}`` instead of understating with a
-    perpetual 503 (a low-report is a distortion too). This injects the probe RESULT
-    directly onto app.state -- it is a mapping-logic test, NOT cloud evidence: no real
-    probe ran, and the LB/HEALTHCHECK still use /healthz (never /readyz). The local
-    503 assertion above is unchanged.
+def test_readyz_maps_an_explicit_verified_state_to_200() -> None:
+    """Mapping only: a future verified pipeline may explicitly set this state.
+
+    The current startup probes never set it; the separate startup regression
+    checks that boundary. This injection is not inference, extraction or cloud
+    evidence. Liveness checks still use /healthz.
     """
 
     app = create_app(Settings(_env_file=None))
     try:
-        # Simulate a verified aws assembly; the real values come from create_app's probe.
+        # Inject future verified state, not merely a startup probe result.
         app.state.aws_connected = True
         app.state.storage_label = "dynamodb"
         ready = TestClient(app).get("/readyz")

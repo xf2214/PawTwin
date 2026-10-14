@@ -41,6 +41,8 @@ class Session:
     session_id: str
     owner_id: str
     csrf_token: str
+    user_id: str | None = None
+    identity: str = "demo_passphrase"
     # Day-3 (ruling 5): the current AgentCore conversation/session id. Rotated by
     # POST /api/demo/new-session WITHOUT re-authenticating; pet memory and facts
     # survive the rotation. In-memory, so it resets on restart (ruling 6).
@@ -90,6 +92,14 @@ class AuthService:
             owner_id=self._owner_id,
             csrf_token=secrets.token_urlsafe(32),
         )
+        self._sessions[session.session_id] = session
+        return session
+
+    def account_session(self, user_id: str, household_id: str | None) -> Session:
+        session = Session(session_id=secrets.token_urlsafe(32),
+                          owner_id=household_id or f"unassigned:{user_id}",
+                          csrf_token=secrets.token_urlsafe(32), user_id=user_id,
+                          identity="local_account")
         self._sessions[session.session_id] = session
         return session
 

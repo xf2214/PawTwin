@@ -1,6 +1,210 @@
 # PawTwin 开发任务看板
 
+## 2026-10-14：当前版本代码、逻辑与应用审查
+
+REVIEW-01 done_local。用户授权检查当前完整版本，问题修复并验证后提交本地 Git。基线为 `chore/bootstrap` / `31da349` 加完整既有工作区；保留原源码、演示库和媒体，不从 HEAD 另起缺失功能的版本。Coordinator 串行整合与提交；审查阶段只读，确认缺陷后再分配互不重叠的修复范围。
+
+| Owner | 修复写范围 |
+| --- | --- |
+| backend_review / BE-REVIEW-01 | `backend/pawtwin/family_models.py`、`tests/test_family_memory_validation.py` |
+| integration_review / INTEG-REVIEW-01 | 六个本地测试模块的 Settings 构造、`tests/test_local_fixture_isolation.py` |
+| frontend_review / FE-REVIEW-01 | `frontend/src/FamilyApp.tsx`、`frontend/e2e/family-session-isolation.spec.ts` |
+| Coordinator | 前端修复整合、演示测试日期选择、导出与 Git 排除规则、分片验证脚本/CI、对应导出测试、README/状态/看板与审查证据 |
+
+最终后端 **447 passed / 1 skipped / 21 live-AWS deselected**；完整浏览器 **115 passed，0 retries**；Ruff、契约、类型、生产构建、锁文件和 diff 检查通过。三个独立 reviewer 已复核修复，无开放发现。用户授权本地 Git 提交，未授权推送或部署，仓库当前没有远程地址。完整[审查记录](reviews/current-version-2026-10-14.md)包含测试命令、证据及未验证范围。
+
+## 2026-10-14：全界面英语 / 中文
+
+I18N-01 done_local。基线为 `chore/bootstrap` / `31da349` 加当前完整 dirty 工作区；修改前源码快照在 `%TEMP%/pawtwin-i18n-20261014/baseline-src`。Coordinator 串行整合，保留既有改动；三个翻译 Agent 只写仓库外 staging，独立 reviewer 只读。
+
+增量写范围：相关 `frontend/src/` 组件、语言字典与样式、`frontend/index.html`、`frontend/playwright.config.ts`、新增双语测试及三个已有多浏览器场景的语言设置、README/STATUS/本节及验证材料。不写后端、契约、依赖锁、业务数据库或照片。完整回归 107 passed，后端基线 425 passed / 1 skipped / 21 deselected；见[交付与证据](evidence/i18n-2026-10-14.md)。
+
+## 2026-10-13：演示登录使用记录
+
+DEMO-01 done_local：按用户要求为演示登录补齐档案、体重、照护任务、报告和确认偏好。Coordinator 串行使用已有认证/CSRF API，限定现有 `8807`、`8834` 的 `demo-owner` 与 `8834` 的已知家庭演示账号，不写其他家庭、不修改后端/界面/接口。两个预览 family 数据库已在线备份，所有样例明确虚构，原有记录保留。三个上下文各新增 7 次体重、6 个照护计划/3 次服务器演示完成、3 条确认偏好和 4 份实际计算报告；同日重放无重复。demo_data_audit 独立复核数据/报告一致，两种登录方式的实际页面/刷新/本地规则引用通过，26 张桌面与手机截图已保存。Ruff、diff 检查通过；旧 8807 的来源历史兼容差异见[完整记录](evidence/demo-usage-2026-10-13.md)，当前主演示为 8834。
+
+## 2026-10-13：宣传页成长记录模拟数据
+
+PRODUCT-04 done_local：用户明确要求宣传页成长记录填入模拟数据。只填公开产品示意与成长回顾案例，不写入家庭账号、业务记录或数据库。四只虚构宠物各用一组静态体重记录，显示日期、来源、变化和曲线；数值区域明确标注模拟。
+
+沿用 `chore/bootstrap` 当前完整 dirty 工作区，修改前快照在仓库外 `%TEMP%/pawtwin-growth-demo-20261013`。共享源码由 Coordinator 串行修改，保留 UI-05 和既有工作。
+
+| Owner | 独占写路径 |
+| --- | --- |
+| Coordinator | `frontend/src/Showcase.tsx`、`CasePreview.tsx`，新增 `ProductGrowth.tsx`、`product-growth.css`；状态、看板和本次证据 |
+| growth_tests | 新增 `frontend/e2e/product-growth.spec.ts`，只写测试；不构建、不启动服务 |
+| growth_review | 只读审查数据计算、模拟标识和公开页边界 |
+
+验收：曲线/列表/摘要数值一致，切宠切场景正确，320/390/768/1440 无溢出，公开页面零业务请求，相关浏览器回归及类型/构建通过。
+
+最终 23 项相关浏览器测试通过（41.9 秒，0 retries），TypeScript/生产构建和 diff 检查通过。六张最终截图经独立复核无开放 P1/P2；刻度精度、坐标标签碰撞及测量数字颜色覆盖已修正。[本次证据与画面](evidence/product-growth-2026-10-13.md)。本机 `8807/#features` 已刷新到成长记录，未提交或发布。
+
+## 2026-10-13：家庭应用与照护工作台同步升级
+
+UI-05 done_local：用户确认两个入口一起调整，完善现有能力与操作流程，统一设计并保留各自账号、数据和权限。沿用当前完整 dirty 工作区；界面基线已复制至仓库外 `outputs/PawTwin-before-workspace-2026-10-13`，逐文件 SHA256 见该目录 `baseline.json`，最终 55/55 复核一致。不从 HEAD 工作树覆盖尚未提交的功能。
+
+| Owner | 独占写路径 |
+| --- | --- |
+| application_audit | `frontend/src/FamilyApp.tsx`、`FamilyCare.tsx`、`FamilyToday.tsx`、`family-app.css`、`family-time.ts`；新增 `family-workspace.css`、`frontend/e2e/application-upgrade.spec.ts` |
+| showcase_audit | `frontend/src/App.tsx`；新增 `workbench.css`、`frontend/e2e/workbench-upgrade.spec.ts` |
+| capability_audit | `frontend/src/PetHome.tsx`、`pet-home.css`；新增 `PetAvatar.tsx`、`pet-avatar.css`、`frontend/e2e/pet-visual-upgrade.spec.ts` |
+| Coordinator | 共用导航/视觉样式、`main.tsx`、已有 e2e 的界面适配、文档、基线与集成验证；接口和后端保持不变 |
+
+先由各包编写操作回归，Coordinator 在旧实现上确认预期失败后再交付实现。共享文件串行整合，不同时构建或运行会争用服务的浏览器测试。验收覆盖家庭日常闭环、重复照护、分身权限、授权/导出、审批/回执/运行切换、独立登录、深链、键盘及 320/390/768/1440 页面；既有后台、契约、构建与浏览器基线同步检查。不新增云调用、部署或服务交易。
+
+完成证据：[UI-05 验收](evidence/workspace-upgrade-2026-10-13.md)。最终 100 个不同浏览器测试通过（19 文件、独立测试服务、0 retries），425 backend passed / 1 skipped / 21 live-AWS deselected（51.31 秒），Ruff/契约/TS/build PASS。新添回归先 RED 再 GREEN；独立代码/截图复核无待修复 P1/P2。38 张四宽截图无水平溢出，预览在独立虚构库 `:8834`，保留原数据与既有修改。
+
+## 2026-10-13：完整产品介绍页
+
+PRODUCT-03 done_local：用户要求修整网页标题与显示效果、缩短手机、让像素宠物更可爱协调。沿用完整 dirty 工作区与现有产品/案例，不改业务应用与数据。
+
+写路径：Coordinator 独占 `Showcase.tsx` 的标题排版、新 `visual-polish.css`、页面 title/metadata 与相关文档；phone_polish 独占 `ProductDevices.tsx` 中 PhonePreview 与 `device-preview.css` 的手机样式；pet_polish 独占 `PetPortrait.tsx`；polish_review 只读。新增验证或既有测试调整由 Coordinator 串行处理。验收为 320/390/768/1024/1440 标题可读、固定且合理的手机比例、设备不遮挡文案、角色一致且可切换、无业务请求、构建和相关回归。
+
+完成证据：[PRODUCT-03 验收](evidence/product-polish-2026-10-13.md)。类型与生产构建通过，最终 20 项相关浏览器回归通过；五宽标题分句边界与手机比例/内容不裁切通过，独立代码和截图复核无待修复 P1/P2，27 张截图与校验清单已保存。
+
+PRODUCT-02 done_local：用户追加要求提升平板与手机示意界面、让三个场景有不同结构与更丰富内容、加入其他宠物角色。保留 PRODUCT-01 的产品叙事和应用入口，宣传演示仍为虚构内容且不请求业务 API。
+
+本轮完整 dirty 工作区串行集成；Coordinator 独占 `Showcase.tsx`、新 `ProductDevices.tsx`/`device-preview.css`、新 `pet-gallery.css` 与任务文档；pet_art 独占新 `PetPortrait.tsx`；case_visuals 独占新 `CasePreview.tsx`/`case-preview.css`；visual_tests 独占新 `frontend/e2e/product-visuals.spec.ts`。不写业务应用、后端、契约、锁文件或用户数据库。
+
+验收：设备内完整且精致的示意 UI；家庭接力、成长记录册、偏好对话三种不同构图；至少四种不同猫狗角色；角色切换、案例九步骤、320/390/1440 适配、键盘和减少动画、公开页零业务请求；生产构建及相关回归。
+
+完成证据：[视觉升级验收](evidence/product-visuals-2026-10-13.md)。最终 20 项浏览器回归通过；425 项后端测试通过、1 项命名跳过、21 项真实云排除；Ruff、契约与构建通过。独立审查发现的手机遮挡首屏问题已改用参与高度的网格叠放并验证，当前无待解决问题；17 张截图和校验清单已保存。
+
+PRODUCT-01 done_local：用户要求将现有宣传页优化为真正的产品页面。基线为 `31da349` 上的完整 dirty 工作区，保留现有平台、就诊卡、只读授权和应用改动，不从 HEAD 恢复或交叉同步项目。
+
+可写路径：Coordinator 独占 `frontend/src/Showcase.tsx`、`showcase.css`、新增 `ProductSections.tsx`/`product-page.css`、`frontend/index.html`、`frontend/src/main.tsx` 的产品标题及本任务文档；product_tests 独占 `frontend/e2e/showcase.spec.ts`、`family.spec.ts` 的受影响产品标题断言和新增 `product-page.spec.ts`。product_audit / product_review 只读。使用现有完整工作区；不创建遗漏未提交功能的 HEAD 工作树。
+
+验收：明确产品类别、用户价值与适用人群；可体验功能和未来服务分开表达；真实只读交接流程；开始使用及 FAQ；移动导航、键盘、减少动画、应用深链；公开页零业务请求；类型、构建及相关浏览器回归。本任务不部署、不发布、不提交比赛、不新增依赖或云调用。
+
+完成证据：[产品页验收](evidence/product-page-2026-10-13.md)。37 项相关浏览器回归通过，最终产品复测 15 项通过；425 项后端基线通过，1 项命名跳过，21 项真实云测试排除；Ruff、契约与生产构建通过。只读独立审查的手机菜单规则和修饰键问题均已修复，内置浏览器保留预览。
+
+## 2026-10-12：照护交接、分身临时访问与就诊卡
+
+PLATFORM-01 done_local（2026-10-13 完成验收）：用户批准产品方案与官网概念展示，并明确增加实际就诊信息卡导出及指定宠物、有效期、可撤销的分身只读访问。上门代喂、换水、清洁、陪玩、遛狗为未来服务场景；订单市场与支付仍后置。
+
+基线：当前完整 dirty 工作区；修改前文件保存在工作文件夹 outputs/PawTwin-before-platform-2026-10-12，SHA256 在 evidence/platform-2026-10-12/baseline.json。源码备份放在仓库外以免被开发检查误认作当前代码。保留此前 UI-04 和所有既有修改，不从 HEAD 覆盖文件、不提交/推送/部署。
+
+| Owner | 本轮独占写路径 |
+|---|---|
+| feature_audit | backend/pawtwin/family_api.py、family_views.py、family_store.py、api.py、main.py；新增 visit_summary.py、care_access.py；tests/test_visit_summary.py、test_care_access.py |
+| ux_audit | frontend/src/FamilyApp.tsx、family-api.ts、family-app.css、main.tsx；新增 VisitCard、CareAccess 组件及独立样式；frontend/e2e/platform.spec.ts |
+| showcase_audit | frontend/src/Showcase.tsx、showcase.css、frontend/e2e/showcase.spec.ts |
+| Coordinator | docs、项目/工作区 README、contracts 生成与检查、验证/隔离预览和集成；其他路径变更先协调 |
+
+执行裁定：导出使用当前已记录事实、来源、所选窗口和截至时间，默认排除演示测量；支持浏览器打印/另存 PDF 和可下载的自包含 HTML 信息卡。数据未知保留空白。分身访问仅限所授权宠物的照护资料，使用可撤销的临时密钥，密钥只在创建响应返回且存储哈希；只读访问不授予家庭成员、记录修改、照护确认、设备或交易权限。访问期限 1/4/24/72 小时，默认 24 小时，创建/撤销需家庭管理员。新功能不引入云调用或依赖。
+
+契约：GET /api/family/pets/{pet_id}/visit-summary?days=7|30|90&include_demo=false 保留旧字段并补充照护、日记、偏好、时区/窗口/缺项；POST/GET /api/family/pets/{pet_id}/care-access，POST /api/family/pets/{pet_id}/care-access/{access_id}/revoke。独立 GET /api/care-access/context 与 POST /api/care-access/chat 从 Authorization Bearer 密钥验证授权，不复用家庭登录权限。/#pet-access=<密钥> 为独立只读入口；公开官网始终不读取家庭资料。
+
+验收：来源/历史/演示隔离、跨宠与跨家庭、过期/撤销/归档、管理员与只读权限、请求/响应隐私、临时分身无写入、打印/下载与错误重试、移动/键盘/动画、官网零业务请求；全量相关回归与独立审查。
+
+最终：425 backend passed / 1 skipped / 21 live AWS deselected；77 browser passed（48+17+12 独立服务、0 retries），Ruff/契约/TS/build PASS。权限、归档恢复后旧授权不可复活、只读快问语义、500 不缓存、切宠/切密钥与导出快照均验证；独立复核无开放问题。原全局家庭 guest POST 权限未放宽。已实际下载演示 HTML，并在内置浏览器验证授权→读取/问答→撤销。当前预览 8820，独立虚构库，代码未提交；[完整证据](evidence/platform-2026-10-12.md)。
+
+## 2026-10-12：应用实用性与可视化
+
+UI-04 done_local：用户确认先完善实际应用，再同步官网。沿用当前业务接口，修复重复计划编辑、子数据加载重试、历史完成统计；增加今日概览、照护筛选、实测曲线与报告摘要、明确功能跳转。
+
+基线：chore/bootstrap / 31da349，393 backend passed / 1 skipped / 21 live AWS deselected，Ruff/契约/TS/build PASS。保留全部既有未提交内容；本轮前快照在工作文件夹 outputs/PawTwin-before-usability-2026-10-12.zip，逐文件基线见 evidence/usability-2026-10-12/baseline.json。
+
+| Owner | 本轮独占写路径 |
+|---|---|
+| feature_audit | backend/pawtwin/growth.py、home_api.py（仅完成事件来源关联）、tests/test_care_statistics.py |
+| ux_audit | frontend/src/FamilyApp.tsx、FamilyRecords.tsx、family-api.ts、family-app.css、PetHome.tsx、main.tsx；新增 family 组件/工具；frontend/e2e/usability.spec.ts，必要的既有 family/demo 测试适配 |
+| showcase_audit | frontend/src/Showcase.tsx、showcase.css、frontend/e2e/showcase.spec.ts |
+| Coordinator | 本轮 docs、项目/工作文件夹 README、验证日志、预览与整体验收；frontend/e2e/alexa.spec.ts（已批准深链的导航断言） |
+
+裁定：在已授权的现有专用分支上，以本轮完整工作区为基线，按互不重叠写路径推进；不从仅含 HEAD 的工作树覆盖当前家庭功能。不改依赖、生成契约、工作数据库、云或原始媒体。验证仍使用隔离测试库/端口。feature 深链统一为 #app/home、#app/care、#app/growth、#app/assistant、#app/family；#app 和 #alexa 继续兼容。
+
+最终：408 backend passed / 1 skipped / 21 live AWS deselected；Ruff/契约/TS/build PASS；62 browser passed，按 45+17 两个全新测试服务覆盖全部文件，0 retries，未放宽真实注册限流。独立复核问题和 Alexa 往返竞态已修复并验证。内置浏览器预览 8820，独立虚构库。交付在未提交工作区，下一依赖为真实家庭试用和单独的云验证；见 [功能指南](FEATURES.md)、[完整验收](evidence/usability-2026-10-12.md)。
+
+## 2026-10-12：英文比赛演示视频
+
+VIDEO-01 done_local：协调者负责制作/核验/媒体脚本；demo_audit只读定位真实WebM时段，repair_review独立复核。用户已选择英文比赛版，13场景、170.0185034秒、1080p、26句字幕、8段真实1×动作18.4秒；37实际帧和音轨检查通过。保留旧素材，未调用云/上传/提交。完整人类播放听审待本人完成。[本轮交付](submission/demo-video-2026-10-12.md)。
+
+
+## 2026-10-11：比赛准备与当前 demo
+
+SUB-READY-01 done_local：协调者负责修复/验证/集成；demo_audit负责采集/视频/导出器；rules_audit负责规则和四份英语材料；repair_review独立只读复核。完整dirty基线31da349/chore/bootstrap，写路径见[执行计划](plans/submission-readiness-2026-10-11.md)。393 backend / 42 browser通过，1 skipped / 21 live AWS deselected，Ruff/契约/TS/build PASS，独立复核通过。14PNG、双账号WebM、170.0185034秒英语视频解码/画面检查通过，完整人工听审待本人完成。[验收证据](evidence/submission-readiness-2026-10-11.md)。
+
+SUB-RELEASE-01 待本人决定/授权：资格/权利、主路径与实际工具个人反馈、GitHub许可或私有访问、公开YouTube/Vimeo视频及Devpost提交。未推送/发布/提交；AWS Builder实际使用证据为可选另行验收。
+
 本表由总负责人维护。`ready` 表示依赖满足、可认领，不表示已经有人开始。未获得明确开发指令时，不自行启动所有任务。
+
+## 2026-10-11：Alexa+ 网页模拟体验
+
+ALX-01：done_local。用户目标：完成 Alexa+ 网页模拟体验。
+Owner：Codex 协调者在当前工作区串行写入；alexa_audit / alexa_ux_review 只读复核。
+基线：31da349 / chore/bootstrap 加当前全部未提交功能；不从 HEAD 另建遗漏现有功能的副本。
+可写：FamilyApp/main/family-api、独立 AlexaSimulator 组件及样式、family_api/models/views、pet_context、对应测试、生成契约与本轮文档。
+范围：独立模拟入口、当前页面连续对话与新会话、共享宠物上下文及来源、规则照护草案→明确确认→人工任务→结果查看；加载/错误/无权限/多宠隔离、移动和键盘验收。
+接口：沿用 chat/proposals/confirm/home；回复新增可选照护草案，草案转方案可校验原上下文版本。
+边界：本地规则、本地存储、网页输入模拟；真实 Alexa、模型、AWS 与硬件未接通。无依赖/部署/发布/云调用。
+
+验收：346 后端 passed / 1 skipped / 21 deselected，ruff/契约/TS/build PASS；8 项 Alexa 定向和最终 41 项浏览器 PASS，0 retries。真实存储闭环、版本/时间失效拒绝、宠物切换延迟回复、错误重试、320/390/1440、键盘与减少动画通过。两位独立 reviewer 发现已修复，当前范围无待处理项。[证据与运行说明](evidence/alexa-simulator-2026-10-11.md)。
+
+## 2026-10-11：动画与情景案例
+
+UI-03：done_local。Owner：Codex 协调者串行实现，premium_review 独立只读复核。
+基线：31da349 / chore/bootstrap 加现有 UI-02 工作区；保留其他未提交内容。
+可写：Showcase.tsx、showcase.css、showcase.spec.ts、README/STATUS/TASKBOARD 和本轮证据。
+范围：可暂停的轻量动态、滚动入场、功能切换反馈，三组逐步查看的照护情景案例。案例明确虚构示意、手动操作，无真实账号、测量、模型或业务请求。
+验收：案例切换/步骤重置、键盘/减少动画/全局暂停、移动无溢出和直接锚点、零公开业务请求、现有浏览器回归与独立复核；无后端/依赖/API/发布。
+结果：verify 333 passed / 1 skipped / 21 deselected 与 ruff/契约/TS/build PASS；最终 33 浏览器 passed（34.3 秒，0 retries）。独立全部 27 案例组合验证通过；提示容器重建问题已修复并复验。[证据](evidence/motion-cases-2026-10-11.md)。
+
+## 2026-10-11：产品官网视觉升级
+
+UI-02：done_local。Owner：Codex 协调者串行实现，premium_review 独立只读复核。
+基线：chore/bootstrap / 31da349，保留当前未提交家庭功能、云适配与 UI-01 成果。
+可写路径：frontend/src/Showcase.tsx、showcase.css、frontend/e2e/showcase.spec.ts、本轮 README/STATUS/TASKBOARD 与证据。
+目标：Apple 风格的简洁产品官网；居中大标题、设备画面、明暗章节、四项体验、清晰应用入口与移动端适配。仍为 PawTwin 自有内容。
+验收：类型/构建、现有全量浏览器回归、320/390/1440 视觉与溢出、键盘及减少动画偏好、公开页无业务请求、能力标签和路由/会话保留；独立审查。
+不改后端、API、锁、数据库或真实云状态；不部署、推送或发布。
+验证：基线 333 passed / 1 skipped / 21 deselected，ruff/契约/TS/build PASS；最终 31 浏览器 passed，0 retries。实际桌面/手机截图、320/390/1440 全部预览、键盘与减少动画、零公开页业务请求均通过；独立复核问题修复后无待解决发现。[交付证据](evidence/premium-showcase-2026-10-11.md)。
+
+## 2026-10-04：产品宣传页与应用界面分离
+
+UI-01：done_local。Owner：Codex 协调者串行写入；navigation_audit/ui_review 只读。
+基线：chore/bootstrap / 31da349，保留现有未提交的家庭功能与展示材料。
+可写路径：本轮 frontend/src 页面/导航/样式、frontend/e2e 入口与行为验证、frontend/index.html、README、TASKBOARD、STATUS 与本轮证据。
+接口沿用现有 API；首页为无登录产品介绍，/#app 为家庭应用，/#workbench 为原照护工作台，/#home 保留原小屋。无依赖、契约、后端或数据库变更。
+验证：333 后端 passed / 1 skipped / 21 deselected，30 浏览器 passed，ruff/契约/TS/build PASS；独立复核的文字对比度问题已修复。见 [本轮证据](evidence/product-and-app-2026-10-04.md)。
+
+## 2026-10-03：黑客松补齐更新（当前）
+
+本地缺陷修复与全量复验完成：333 后端 passed / 1 skipped / 21 deselected，27 浏览器 passed，ruff/契约/TS/build PASS；独立复核和最新材料见 [完整度报告](evidence/hackathon-completeness-2026-10-03.md)。EXT-11 的本地自动化部分通过；真实家庭试用与模型质量评估仍待执行。EXT-12 已补英语材料、真实录屏和 170.019 秒英文审核 MP4；人工听审、公开访问、个人反馈与资格裁定、正式提交仍待做。
+
+EXT-10 仍 blocked：用户授权 10 美元、本次服务范围不限；账户官方验证约两天，预算已给出，当前阻挡是服务/短期本地授权可用性和真实接线，不能继续列为未获得预算。本轮没有云调用、资源创建或费用。以下当前附加任务表是补齐前快照。
+
+## 当前附加任务状态：2026-10-03 开发验收
+
+Owner：Codex 协调者串行实施，独立 reviewer 只读；起点 31da349。可写路径 backend/frontend/tests/contracts、锁/装配与本轮状态/交接。原 STATUS/TASKBOARD 和路线/基线评审内容保留，契约与锁串行。
+
+| ID | 当前状态 | 交付/下一依赖 |
+|---|---|---|
+| EXT-00 | done_local | 接口冻结，52 路径 OpenAPI，六设备输入稳定 |
+| EXT-01 | done_local | scrypt 本地账号、CSRF、刷新会话、可信作者；重启重新登录 |
+| EXT-02 | done_local | 家庭/时区/邀请/撤销/角色/称呼/头像/移交/撤权 |
+| EXT-03 | done_local | 幂等副本迁移/照片/旧新共享/原额度/任务 CAS 与实例/10 秒同步 |
+| EXT-04 | done_local | 实测/单位/饮食/纠错删除/观察日记管理/档案与归档恢复 |
+| EXT-05 | done_local | 日周统计/持久化 worker/失败重试/补跑/重建；通知未发送 |
+| EXT-06 | done_local（本地数据库） | 五层上下文/确认记忆/失效/冲突；无 AgentCore 提炼 |
+| EXT-07 | done_local | 五入口 App、小屋/曲线/报告、390/1440 |
+| EXT-08 | done_local（规则与网页模拟） | 共用上下文/慢回复隔离/确认人工照护；真实推理依赖 EXT-10 |
+| EXT-09 | done_local（保守参考） | 来源/范围/缺项/就诊摘要；无数值曲线或完整品种库 |
+| EXT-10 | blocked | 10 美元预算与不限服务范围已授权；官方账户审核约两天；新家庭云接入/真实推理记忆及短期凭据仍待验证 |
+| EXT-11 | in_progress | 当前后端 333 + 浏览器 27 通过；双账号排练和独立复核完成；真实家庭试用/模型评估/生产专项未做 |
+| EXT-12 | in_progress | 英语项目/评委指南/工具反馈草稿、实际录屏和 170.019 秒英文审核版就绪；人工听审/公开访问/个人反馈裁定/资格/提交未完成 |
+
+[实测证据](evidence/extension-local-2026-10-03.md) · [审查裁定](reviews/EXT-local-review-2026-10-03.md)。未提交/推送/发布，done_local 不等于 done_cloud。以下历史表格不再作为当前派发状态。
+
+本轮追加：[完整度补齐与最终验证](evidence/hackathon-completeness-2026-10-03.md) · [展示方案](submission/PawTwin_展示方案_2026-10-03.md)。检查范围内无未解决功能失败；已新增独立审查，真实云验收仍未完成。
+
+## 2026-10-03 后续开发路线派发
+
+用户裁定「根据当前进度规划后续开发」：①路线图 + 启动 EXT-00；②先分组提交固化基线；③本地优先、云后插入。
+
+**基线已固化**：65 项未提交按 4 组入库，**HEAD=`31da349`、工作树干净**（`cf93e5e` Day-5 / `430e729` Home / `3bec7be` 共享装配 / `31da349` 文档）；提交前 `verify.ps1` 全绿（252 passed、契约 28 路径 current、build 通过），e2e 未重跑。**后续开发基线起点 = `31da349`**。路线详见 [后续开发路线](plans/PawTwin_后续开发路线_2026-10-03.md)（EXT-00→12 对齐 G0–G5；脊柱 EXT-00→01→02→03）。
+
+**EXT-00 进行中**（本轮，只读）：基线评审 + 身份/家庭/成长/报告/上下文契约草案 + 迁移映射与消费者清单，见 [EXT-00 评审](reviews/EXT-00-baseline-review.md)。**未写业务代码、未改数据库、未迁移**；契约冻结（门 0）待用户授权后才派发 EXT-01/02/07。云仍无凭据，EXT-10 维持 blocked。
 
 ## 2026-10-02 附加工作包
 
@@ -9,7 +213,7 @@
 
 | ID | 状态 | Owner | 依赖 | 交付 |
 |---|---|---|---|---|
-| EXT-00 | ready（待认领） | 未认领 | 当前基线检查 | 接口、兼容迁移与写路径冻结 |
+| EXT-00 | in_progress（本轮，只读评审+契约草案） | 总负责人（规划） | 当前基线检查（✅ `31da349`） | 接口、兼容迁移与写路径冻结 |
 | EXT-01 | planned | 未认领 | EXT-00 | 独立身份、作者、会话恢复 |
 | EXT-02 | planned | 未认领 | EXT-01 | 家庭/邀请/称呼/权限/撤权 |
 | EXT-03 | planned | 未认领 | EXT-02 | 共享迁移、任务生命周期、同步/并发 |
@@ -251,5 +455,7 @@ HOME-05 家庭显示名与交接、HOME-06 照片日记与摘要。以上本地�
 - **容量冲突上报**：Day-5 字面（材料全套）+ Day-4 顺延的全部云端块 ≈ 28–33h，压不进一日；依裁定⑤**材料整体顺延 Day-6**，五日实际变六个工作日（已在 STATUS/本表留待用户认可）。
 
 ## 认领记录格式
+
+- BE-CLOUD-01（2026-10-11）：`/root` Coordinator，`chore/bootstrap` @ `31da349`，保留当前完整 dirty checkout，串行修改后端服务/测试/配置/生成契约/前端标签/部署脚本和文档；只读 Agent 研究与审查。计划见 [backend-services-2026-10-11](plans/backend-services-2026-10-11.md)。用户确认 AWS 已审核通过；总预算 $10 沿用；Alexa+ 平台比赛不开放。真实 AWS 接入仍须短期凭证与现场往返验证。
 
 每项开始前追加：任务 ID、Agent/任务名称、起始提交、工作树路径、分支、允许写的文件、预计交付、接口变更需求。完成后填写交付提交和验证证据链接。不要让多个 Agent 同时改此表。

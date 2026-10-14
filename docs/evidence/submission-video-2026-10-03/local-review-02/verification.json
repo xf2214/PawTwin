@@ -1,0 +1,42 @@
+{
+  "actual_mp4": {
+    "duration_seconds": 170.0185034,
+    "width": 1920,
+    "height": 1080,
+    "bitrate": 1233640,
+    "video_codec": "H264",
+    "audio_codec": "AAC",
+    "audio_channels": 1,
+    "audio_sample_rate": 44100,
+    "audio_bitrate": 96000
+  },
+  "source_wav": {
+    "duration_seconds": 170.0,
+    "sample_rate": 22050,
+    "peak_pcm16": 17366,
+    "peak_dbfs": -5.515,
+    "rms_dbfs": -23.95,
+    "clipped_samples": 0,
+    "last_nonzero_seconds": 165.73360544217687
+  },
+  "actual_decoded_aac": {
+    "duration_seconds": 170.01650793650794,
+    "sample_rate": 44100,
+    "peak_pcm16": 17331,
+    "peak_dbfs": -5.533,
+    "rms_dbfs": -23.963,
+    "clipped_samples": 0,
+    "last_nonzero_seconds": 165.7362358276644
+  },
+  "sentence_count": 22,
+  "all_sentences_fit": true,
+  "subtitle_overflow": false,
+  "actual_frame_count": 13,
+  "human_audio_review": "not_performed",
+  "picture_review": "actual decoded frames require visual review",
+  "source_backend": "local_rules",
+  "source_cloud_calls": 0,
+  "python_version": "3.12.14",
+  "numpy_version": "2.3.5",
+  "pillow_version": "12.3.0"
+}

@@ -1,0 +1,177 @@
+
+[WebServer] INFO:     Started server process [151148]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8822 (Press CTRL+C to quit)
+
+
+Running 4 tests using 1 worker
+
+(node:136016) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/4] frontend\e2e\usability.spec.ts:186:3 › care started from a toy preserves the intended play type
+  1) frontend\e2e\usability.spec.ts:186:3 › care started from a toy preserves the intended play type 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator: getByLabel('照护类型', { exact: true })
+    Expected: "play"
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveValue" getByLabel('照护类型', { exact: true }) with timeout 20000ms
+      - waiting for getByLabel('照护类型', { exact: true })
+      - Test timeout of 30000ms exceeded.
+
+
+      191 |     await page.getByRole("button", { name: "安排相关照护", exact: true }).click();
+      192 |     await expect(page).toHaveURL(/#app\/care$/);
+    > 193 |     await expect(page.getByLabel("照护类型", { exact: true })).toHaveValue(care);
+          |                                                            ^
+      194 |     await expect(page.getByLabel("照护类型", { exact: true })).toBeVisible();
+      195 |   });
+      196 | }
+        at C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\usability.spec.ts:193:60
+
+    Error Context: docs\evidence\usability-2026-10-12\app-boundaries-red-results\usability-care-started-fro-37edd-rves-the-intended-play-type\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-boundaries-red-results\usability-care-started-fro-37edd-rves-the-intended-play-type\trace.zip
+    Usage:
+
+        npx playwright show-trace docs\evidence\usability-2026-10-12\app-boundaries-red-results\usability-care-started-fro-37edd-rves-the-intended-play-type\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:132756) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[2/4] frontend\e2e\usability.spec.ts:186:3 › care started from a water preserves the intended water type
+  2) frontend\e2e\usability.spec.ts:186:3 › care started from a water preserves the intended water type 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator: getByLabel('照护类型', { exact: true })
+    Expected: "water"
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveValue" getByLabel('照护类型', { exact: true }) with timeout 20000ms
+      - waiting for getByLabel('照护类型', { exact: true })
+      - Test timeout of 30000ms exceeded.
+
+
+      191 |     await page.getByRole("button", { name: "安排相关照护", exact: true }).click();
+      192 |     await expect(page).toHaveURL(/#app\/care$/);
+    > 193 |     await expect(page.getByLabel("照护类型", { exact: true })).toHaveValue(care);
+          |                                                            ^
+      194 |     await expect(page.getByLabel("照护类型", { exact: true })).toBeVisible();
+      195 |   });
+      196 | }
+        at C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\usability.spec.ts:193:60
+
+    Error Context: docs\evidence\usability-2026-10-12\app-boundaries-red-results\usability-care-started-fro-07e64-ves-the-intended-water-type\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-boundaries-red-results\usability-care-started-fro-07e64-ves-the-intended-water-type\trace.zip
+    Usage:
+
+        npx playwright show-trace docs\evidence\usability-2026-10-12\app-boundaries-red-results\usability-care-started-fro-07e64-ves-the-intended-water-type\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:150340) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[3/4] frontend\e2e\usability.spec.ts:186:3 › care started from a nest preserves the intended clean type
+  3) frontend\e2e\usability.spec.ts:186:3 › care started from a nest preserves the intended clean type 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator: getByLabel('照护类型', { exact: true })
+    Expected: "clean"
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveValue" getByLabel('照护类型', { exact: true }) with timeout 20000ms
+      - waiting for getByLabel('照护类型', { exact: true })
+      - Test timeout of 30000ms exceeded.
+
+
+      191 |     await page.getByRole("button", { name: "安排相关照护", exact: true }).click();
+      192 |     await expect(page).toHaveURL(/#app\/care$/);
+    > 193 |     await expect(page.getByLabel("照护类型", { exact: true })).toHaveValue(care);
+          |                                                            ^
+      194 |     await expect(page.getByLabel("照护类型", { exact: true })).toBeVisible();
+      195 |   });
+      196 | }
+        at C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\usability.spec.ts:193:60
+
+    Error Context: docs\evidence\usability-2026-10-12\app-boundaries-red-results\usability-care-started-fro-44e33-ves-the-intended-clean-type\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-boundaries-red-results\usability-care-started-fro-44e33-ves-the-intended-clean-type\trace.zip
+    Usage:
+
+        npx playwright show-trace docs\evidence\usability-2026-10-12\app-boundaries-red-results\usability-care-started-fro-44e33-ves-the-intended-clean-type\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+(node:110572) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[4/4] frontend\e2e\usability.spec.ts:198:1 › a forbidden child read removes previously shown household data
+  4) frontend\e2e\usability.spec.ts:198:1 › a forbidden child read removes previously shown household data 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('当前家庭资料不可访问，请重试或退出后重新登录。', { exact: true })
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('当前家庭资料不可访问，请重试或退出后重新登录。', { exact: true }) with timeout 20000ms
+      - waiting for getByText('当前家庭资料不可访问，请重试或退出后重新登录。', { exact: true })
+
+
+      205 |   await mutate(page, "/api/home/pets/mochi/notes", { text: "触发一次实际资料修订", scope: "observation", activity: "general" });
+      206 |   await page.getByRole("button", { name: "同步最新记录" }).click();
+    > 207 |   await expect(page.getByText("当前家庭资料不可访问，请重试或退出后重新登录。", { exact: true })).toBeVisible();
+          |                                                                            ^
+      208 |   await expect(page.getByRole("region", { name: "成长概览" })).toHaveCount(0);
+      209 | });
+      210 |
+        at C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\usability.spec.ts:207:76
+
+    Error Context: docs\evidence\usability-2026-10-12\app-boundaries-red-results\usability-a-forbidden-chil-2f7eb-iously-shown-household-data\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-boundaries-red-results\usability-a-forbidden-chil-2f7eb-iously-shown-household-data\trace.zip
+    Usage:
+
+        npx playwright show-trace docs\evidence\usability-2026-10-12\app-boundaries-red-results\usability-a-forbidden-chil-2f7eb-iously-shown-household-data\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  4 failed
+    frontend\e2e\usability.spec.ts:186:3 › care started from a toy preserves the intended play type 
+    frontend\e2e\usability.spec.ts:186:3 › care started from a water preserves the intended water type 
+    frontend\e2e\usability.spec.ts:186:3 › care started from a nest preserves the intended clean type 
+    frontend\e2e\usability.spec.ts:198:1 › a forbidden child read removes previously shown household data 

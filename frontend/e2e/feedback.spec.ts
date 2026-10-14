@@ -11,9 +11,10 @@ import { login } from './helpers'
 test('owner feedback is saved honestly and never shown as retrieved memory', async ({ page }) => {
   test.setTimeout(120_000)
   await login(page)
+  await page.getByRole('navigation', { name: '工作台导航' }).getByRole('link', { name: '演示设置' }).click()
 
   await expect(page.getByTestId('memory-area')).toBeVisible()
-  await expect(page.getByTestId('memory-backend')).toContainText('未实现（无 AWS 账号）')
+  await expect(page.getByTestId('memory-backend')).toContainText('未接入 AgentCore（仅保存本地记录）')
 
   const marker = `观察-${Date.now()}`
   await page.getByTestId('feedback-text').fill(marker)
@@ -40,6 +41,7 @@ test('owner feedback is saved honestly and never shown as retrieved memory', asy
 test('today-only feedback is labelled as never becoming a permanent preference', async ({ page }) => {
   test.setTimeout(120_000)
   await login(page)
+  await page.getByRole('navigation', { name: '工作台导航' }).getByRole('link', { name: '演示设置' }).click()
 
   const marker = `仅今天-${Date.now()}`
   await page.getByTestId('feedback-text').fill(marker)
@@ -55,6 +57,7 @@ test('today-only feedback is labelled as never becoming a permanent preference',
 test('a new session rotates the conversation but keeps login and facts', async ({ page }) => {
   test.setTimeout(120_000)
   await login(page)
+  await page.getByRole('navigation', { name: '工作台导航' }).getByRole('link', { name: '演示设置' }).click()
 
   const before = await page.getByTestId('memory-backend').textContent()
   await page.getByTestId('new-session').click()
@@ -62,7 +65,7 @@ test('a new session rotates the conversation but keeps login and facts', async (
 
   // Still logged in (facts render) and the memory backend is unchanged/honest.
   await expect(page.getByTestId('facts')).toBeVisible()
-  await expect(page.getByTestId('memory-backend')).toContainText('未实现（无 AWS 账号）')
+  await expect(page.getByTestId('memory-backend')).toContainText('未接入 AgentCore（仅保存本地记录）')
   const after = await page.getByTestId('memory-backend').textContent()
   // The conversation id is part of the label, so it must have rotated.
   expect(after).not.toEqual(before)

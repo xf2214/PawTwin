@@ -1,0 +1,124 @@
+
+[WebServer] INFO:     Started server process [140196]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8822 (Press CTRL+C to quit)
+
+
+Running 19 tests using 1 worker
+
+(node:148420) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/19] frontend\e2e\demo-rehearsal.spec.ts:28:1 › demonstration rehearses two family accounts, real report arithmetic and shared memory to care
+  1) frontend\e2e\demo-rehearsal.spec.ts:28:1 › demonstration rehearses two family accounts, real report arithmetic and shared memory to care 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('article').filter({ has: getByRole('heading', { name: /^日报 ·/ }) })
+    Expected substring: "人工照护完成 1 次"
+    Received string:    "日报 · 2026/10/12 00:00 — 2026/10/13 00:00人工照护完成1次待办0逾期0至少需要两次有效测量实际摄入：未记录 · 记录出粮：未记录统计依据与版本截止 2026/10/12 16:03 · 版本 9实测体重 · 1.35 kg · 2026/10/2 12:00 · 演示样本源记录 29f5a9c8-80cb-416a-a2ca-dbd2a300a622 · 版本 1家庭记录 · 家人小林 · 领取：陪 Mochi 玩耍 · 2026/10/12 16:03源记录 0c79e08f-c8d1-470d-83dd-b5c83ef9673a · 版本 1家庭记录 · 家人小林 · 完成：陪 Mochi 玩耍 · 2026/10/12 16:03源记录 f29d3f3d-4f0f-4638-afe8-cacad7326a8e · 版本 1人工照护完成 · 2026/10/12 16:03 · 家人小林源记录 da971237-ad7e-424e-b54b-0a16b51e7f0f · 版本 1模拟设备：未连接；模拟出粮 未记录。出粮不代表实际摄入。"
+    Timeout: 20000ms
+
+    Call log:
+      - Expect "toContainText" locator('article').filter({ has: getByRole('heading', { name: /^日报 ·/ }) }) with timeout 20000ms
+      - waiting for locator('article').filter({ has: getByRole('heading', { name: /^日报 ·/ }) })
+        42 × locator resolved to <article class="fa-report-card">…</article>
+           - unexpected value "日报 · 2026/10/12 00:00 — 2026/10/13 00:00人工照护完成1次待办0逾期0至少需要两次有效测量实际摄入：未记录 · 记录出粮：未记录统计依据与版本截止 2026/10/12 16:03 · 版本 9实测体重 · 1.35 kg · 2026/10/2 12:00 · 演示样本源记录 29f5a9c8-80cb-416a-a2ca-dbd2a300a622 · 版本 1家庭记录 · 家人小林 · 领取：陪 Mochi 玩耍 · 2026/10/12 16:03源记录 0c79e08f-c8d1-470d-83dd-b5c83ef9673a · 版本 1家庭记录 · 家人小林 · 完成：陪 Mochi 玩耍 · 2026/10/12 16:03源记录 f29d3f3d-4f0f-4638-afe8-cacad7326a8e · 版本 1人工照护完成 · 2026/10/12 16:03 · 家人小林源记录 da971237-ad7e-424e-b54b-0a16b51e7f0f · 版本 1模拟设备：未连接；模拟出粮 未记录。出粮不代表实际摄入。"
+
+
+      211 |     await owner.getByRole("button", { name: "生成日报", exact: true }).click();
+      212 |     const dailyCard = owner.locator("article").filter({ has: owner.getByRole("heading", { name: /^日报 ·/ }) });
+    > 213 |     await expect(dailyCard).toContainText("人工照护完成 1 次");
+          |                             ^
+      214 |     await capture(owner, "05-daily");
+      215 |     const dailyReports = await (await owner.request.get("/api/family/pets/mochi/reports")).json();
+      216 |     const daily = dailyReports.reports.find((r: { period: string; date: string; status: string }) => r.period === "daily" && r.date === day && r.status === "current");
+        at C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\demo-rehearsal.spec.ts:213:29
+
+    attachment #1: 00-product.png (image/png) ──────────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-green-results\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\attachments\00-product-png-b78b27154b7e7d8a9f2ac370c4a22efca79e8007.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: 01-home.png (image/png) ─────────────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-green-results\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\attachments\01-home-png-78c9bedfb7a84cffccb03fde1ce508f265b560e9.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: 02-growth.png (image/png) ───────────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-green-results\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\attachments\02-growth-png-eaa62a3139bc6058fced06ac0c8050c2401a20d1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: 08-memory-confirmed.png (image/png) ─────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-green-results\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\attachments\08-memory-confirmed-png-f32ff200b6d03e00b0e864ba5d55e237dc3fd137.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: 03-assistant.png (image/png) ────────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-green-results\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\attachments\03-assistant-png-b9839a81ad4a69a98bf67c2e2fb6f8623387004c.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: 13-alexa-new-session.png (image/png) ────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-green-results\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\attachments\13-alexa-new-session-png-0f084ab9a479d855788d3121de95440a264ed1c8.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #7: 09-alexa-draft.png (image/png) ──────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-green-results\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\attachments\09-alexa-draft-png-3f85aa2c18a50046f963788822664ac45c8f7fe0.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #8: 10-alexa-pending.png (image/png) ────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-green-results\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\attachments\10-alexa-pending-png-25b7206081d227d5609eb9d36b70b81467cdf24b.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #9: 11-alexa-confirmed.png (image/png) ──────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-green-results\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\attachments\11-alexa-confirmed-png-34a5ec50340f6eca2f4372e2828e14b780780851.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #10: 04-care.png (image/png) ────────────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-green-results\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\attachments\04-care-png-8e094e6b5bab49cd7664b431326feed55471ed79.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #11: 07-completing-actor.png (image/png) ────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-green-results\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\attachments\07-completing-actor-png-8978658939765abf2c365cbc5157598273fd032a.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #12: 12-alexa-result.png (image/png) ────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-green-results\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\attachments\12-alexa-result-png-3759c1778028f0ef80d14bbe2d8dca672d0295b1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: docs\evidence\usability-2026-10-12\app-green-results\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\error-context.md
+
+    attachment #14: trace (application/zip) ────────────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-green-results\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\trace.zip
+    Usage:
+
+        npx playwright show-trace docs\evidence\usability-2026-10-12\app-green-results\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:144664) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[2/19] frontend\e2e\family.spec.ts:19:1 › independent account, shared navigation and refresh session
+[3/19] frontend\e2e\family.spec.ts:43:1 › real weight data, weekly report and correction
+[4/19] frontend\e2e\family.spec.ts:58:1 › memory confirmation shared with Alexa simulation and deletion
+[5/19] frontend\e2e\family.spec.ts:79:1 › care proposal needs explicit confirmation and creates manual task
+[6/19] frontend\e2e\family.spec.ts:93:3 › App at 390px preserves room and has no horizontal overflow
+[7/19] frontend\e2e\family.spec.ts:93:3 › App at 1440px preserves room and has no horizontal overflow
+[8/19] frontend\e2e\family.spec.ts:117:1 › new pet selection is immediately shared with growth and delayed replies stay scoped
+[9/19] frontend\e2e\family.spec.ts:189:1 › owner observation and diary can be corrected and removed from shared context
+[10/19] frontend\e2e\usability.spec.ts:27:1 › growth deep link survives signup, refresh and browser navigation
+[11/19] frontend\e2e\usability.spec.ts:38:1 › editing only a recurring task title preserves its future time and interval
+[12/19] frontend\e2e\usability.spec.ts:54:1 › repeating care completion stays visible in completed history and keeps its next plan
+[13/19] frontend\e2e\usability.spec.ts:72:1 › daily queue uses household day and keeps completed care out of active filters
+[14/19] frontend\e2e\usability.spec.ts:107:1 › a failed measurement read preserves reports and retries the failed resource
+[15/19] frontend\e2e\usability.spec.ts:127:1 › a late growth read cannot replace the selected pet data
+[16/19] frontend\e2e\usability.spec.ts:149:1 › constant and dense real measurements remain accessible and range-filtered
+[17/19] frontend\e2e\usability.spec.ts:169:3 › daily application at 320px stays readable and keyboard accessible
+[18/19] frontend\e2e\usability.spec.ts:169:3 › daily application at 390px stays readable and keyboard accessible
+[19/19] frontend\e2e\usability.spec.ts:169:3 › daily application at 1440px stays readable and keyboard accessible
+  1 failed
+    frontend\e2e\demo-rehearsal.spec.ts:28:1 › demonstration rehearses two family accounts, real report arithmetic and shared memory to care 
+  18 passed (52.4s)

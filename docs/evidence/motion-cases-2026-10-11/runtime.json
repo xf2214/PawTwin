@@ -1,0 +1,31 @@
+{
+  "checks": [
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "paused": "paused"
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "paused": "paused"
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "paused": "paused"
+    },
+    {
+      "normalAnimation": "pt-float",
+      "revealClass": "pt-world-copy pt-revealed"
+    },
+    {
+      "pausedAnimations": 0
+    },
+    {
+      "reducedMotionDisabled": true
+    }
+  ],
+  "errors": [],
+  "businessRequests": []
+}

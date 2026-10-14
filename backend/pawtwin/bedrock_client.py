@@ -197,12 +197,24 @@ class StrandsBedrockClient:
             # Only a payload that really parses is accepted; otherwise the caller
             # fails closed instead of inventing a proposal.
             proposal = _extract_json(_field(_field(result, "message"), "content"))
-        metrics = getattr(result, "metrics", None) or {}
-        usage = getattr(result, "usage", None) or {}
+        metrics = getattr(result, "metrics", None)
+        # Strands AgentResult has no top-level usage. Each adapter invocation builds
+        # a fresh Agent, so these accumulated metrics cover exactly this analysis.
+        usage = _field(metrics, "accumulated_usage")
+        model_calls = _field(metrics, "cycle_count")
+        output_tokens = _field(usage, "outputTokens")
+        if (
+            type(model_calls) is not int
+            or model_calls <= 0
+            or type(output_tokens) is not int
+            or output_tokens < 0
+        ):
+            # Missing telemetry must not reset durable budgets to guessed 1/0.
+            raise _unavailable("BEDROCK_METRICS_UNAVAILABLE")
         return {
             "proposal": proposal,
-            "model_calls": int(_field(metrics, "modelInvocationCount") or 1),
-            "output_tokens": int(_field(usage, "outputTokens", "output_tokens") or 0),
+            "model_calls": model_calls,
+            "output_tokens": output_tokens,
             "request_id": _field(metrics, "modelRequestId", "requestId"),
         }
 

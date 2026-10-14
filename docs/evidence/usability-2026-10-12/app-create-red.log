@@ -1,0 +1,53 @@
+
+[WebServer] INFO:     Started server process [144728]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8822 (Press CTRL+C to quit)
+
+
+Running 1 test using 1 worker
+
+(node:144712) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/1] frontend\e2e\usability.spec.ts:233:1 › changing care type preserves the chosen time, repetition and assignee
+  1) frontend\e2e\usability.spec.ts:233:1 › changing care type preserves the chosen time, repetition and assignee 
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator:  getByLabel('照护时间', { exact: true })
+    Expected: "2027-01-20T20:00"
+    Received: "2026-10-12T16:19"
+    Timeout:  20000ms
+
+    Call log:
+      - Expect "toHaveValue" getByLabel('照护时间', { exact: true }) with timeout 20000ms
+      - waiting for getByLabel('照护时间', { exact: true })
+        43 × locator resolved to <input name="due" required="" type="datetime-local" value="2026-10-12T16:19"/>
+           - unexpected value "2026-10-12T16:19"
+
+
+      241 |   await page.getByLabel("负责人").selectOption(me.user.user_id);
+      242 |   await page.getByLabel("照护类型").selectOption("play");
+    > 243 |   await expect(page.getByLabel("照护时间", { exact: true })).toHaveValue("2027-01-20T20:00");
+          |                                                          ^
+      244 |   await expect(page.getByLabel("重复间隔（天）", { exact: true })).toHaveValue("3");
+      245 |   await expect(page.getByLabel("负责人")).toHaveValue(me.user.user_id);
+      246 |   await page.getByRole("button", { name: "保存照护计划", exact: true }).click();
+        at C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\usability.spec.ts:243:58
+
+    Error Context: docs\evidence\usability-2026-10-12\app-create-red-results\usability-changing-care-ty-99596-ime-repetition-and-assignee\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-create-red-results\usability-changing-care-ty-99596-ime-repetition-and-assignee\trace.zip
+    Usage:
+
+        npx playwright show-trace docs\evidence\usability-2026-10-12\app-create-red-results\usability-changing-care-ty-99596-ime-repetition-and-assignee\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  1 failed
+    frontend\e2e\usability.spec.ts:233:1 › changing care type preserves the chosen time, repetition and assignee 

@@ -390,7 +390,15 @@ class Workflow:
 
         # A04: this compare-and-set is what makes "execute at most once" real. Two
         # concurrent approvals cannot both reach the simulated actuator.
-        if not self._repo.transition_run(run_id, RunState.AWAITING_APPROVAL, RunState.EXECUTING):
+        if record.proposal.action.kind == "dispense_food":
+            if not self._repo.reserve_feeding(record):
+                # A same-run loser keeps the established reason. Different-run
+                # contention or changed facts leave the proposal unexecuted.
+                current = self._repo.get_run(run_id)
+                if current is None or current.state != RunState.AWAITING_APPROVAL:
+                    raise ApprovalRejected("NOT_AWAITING_APPROVAL")
+                raise ApprovalRejected("FEEDING_RESERVATION_CONFLICT")
+        elif not self._repo.transition_run(run_id, RunState.AWAITING_APPROVAL, RunState.EXECUTING):
             raise ApprovalRejected("NOT_AWAITING_APPROVAL")
         record.state = RunState.EXECUTING
         return self._execute(record)
@@ -426,9 +434,12 @@ class Workflow:
         """
 
         if record.state == new:
-            # Nothing to claim; persist the caller's verdict on its own row.
-            self._repo.save_run(record)
-            return True
+            # A03 can leave a proposal awaiting approval. Bind the complete
+            # replacement to the previous pending version in the SAME write;
+            # AWAITING -> AWAITING CAS followed by an unconditional save races.
+            return self._repo.save_run(
+                record, expected_approval_version=record.proposal_version - 1
+            )
         if not self._repo.transition_run(record.run_id, RunState.AWAITING_APPROVAL, new):
             return False
         record.state = new

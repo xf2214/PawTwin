@@ -13,7 +13,7 @@ test('approve executes once, shows real evidence and survives reload', async ({ 
   await expect(page.getByTestId('mode-badge')).toContainText('AWS 未连接')
   await expect(page.getByTestId('impl-labels')).toContainText('本地替身')
   await expect(page.getByTestId('impl-labels')).toContainText('SQLite')
-  await expect(page.getByTestId('impl-labels')).toContainText('长期记忆：未实现')
+  await expect(page.getByTestId('impl-labels')).toContainText('长期记忆：未接入 AgentCore（仅保存本地记录）')
 
   await resetDemo(page)
 

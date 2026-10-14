@@ -1,0 +1,103 @@
+1
+00:00:00,350 --> 00:00:04,369
+Paw Twin gives family members one shared pet record for everyday care.
+
+2
+00:00:04,569 --> 00:00:11,122
+The product page introduces the idea; this review then follows two separate accounts with fictional demonstration data.
+
+3
+00:00:13,683 --> 00:00:19,717
+The owner records sample weights of one point two and one point three five kilograms, seven days apart.
+
+4
+00:00:19,917 --> 00:00:26,660
+The report calculates a hundred fifty gram increase, shows its sources, and keeps unrecorded intake unknown.
+
+5
+00:00:29,217 --> 00:00:34,500
+The owner saves a preference candidate: Mochi likes a feather toy and rests after meals.
+
+6
+00:00:34,700 --> 00:00:40,514
+The other account cannot use the candidate; explicit confirmation makes it available as database memory.
+
+7
+00:00:43,083 --> 00:00:47,707
+The carer opens the independent Alexa web simulator and asks what Mochi likes.
+
+8
+00:00:47,907 --> 00:00:53,620
+Its actual reply cites the confirmed record and shows local rules, with no live model request.
+
+9
+00:00:56,217 --> 00:01:01,300
+Starting a new session clears the page conversation, while household records remain.
+
+10
+00:01:01,500 --> 00:01:07,033
+The next question reads the current confirmed preference again; this is not cloud memory extraction.
+
+11
+00:01:09,617 --> 00:01:13,990
+The owner asks the simulator to arrange play and checks its rule-generated draft.
+
+12
+00:01:14,190 --> 00:01:19,484
+The owner selects a specific time; asking or preparing the draft does not create a task.
+
+13
+00:01:22,083 --> 00:01:26,092
+Preparing the proposal preserves the draft and its current context version.
+
+14
+00:01:26,292 --> 00:01:30,206
+The local check verifies that no care task exists at this stage.
+
+15
+00:01:32,750 --> 00:01:36,954
+Only explicit owner confirmation creates the shared manual care task.
+
+16
+00:01:37,154 --> 00:01:42,017
+The visible result says it is arranged and awaiting a person, without executing a feeder.
+
+17
+00:01:44,617 --> 00:01:48,575
+The carer claims the task and records completion through the second account.
+
+18
+00:01:48,775 --> 00:01:54,669
+Household activity and captured evidence identify that account; this does not prove physical care occurred.
+
+19
+00:01:57,217 --> 00:02:01,255
+Back in the simulator, the carer asks what was recently completed.
+
+20
+00:02:01,455 --> 00:02:05,889
+The answer names the manual care record and cites the actual completion occurrence.
+
+21
+00:02:08,483 --> 00:02:13,382
+The owner generates today’s report, which counts one completed manual care task.
+
+22
+00:02:13,582 --> 00:02:18,495
+Measured intake remains unrecorded, and the report does not invent a health outcome.
+
+23
+00:02:21,083 --> 00:02:25,852
+After the owner deletes the preference, the carer asks again in a fresh page session.
+
+24
+00:02:26,052 --> 00:02:30,986
+The next answer no longer cites that record; previous replies remain historical.
+
+25
+00:02:33,550 --> 00:02:40,228
+This capture uses local accounts, database memory, rule drafts, and confirmed manual tasks.
+
+26
+00:02:40,428 --> 00:02:47,791
+The AWS account review has cleared, but this demo makes no live model, Alexa, hardware, or cloud deployment claim.

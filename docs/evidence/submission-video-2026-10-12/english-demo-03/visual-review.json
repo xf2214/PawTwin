@@ -1,0 +1,16 @@
+{
+  "review_date_local": "2026-10-12",
+  "method": "Coordinator inspected the actual 13-scene contact sheet and all four actual replay contact sheets containing 24 start/middle/end frames; source clip ranges were separately calibrated from actual WebM decoding by demo_audit.",
+  "actual_decoded_frames_reviewed": 37,
+  "replay_scenes": 8,
+  "findings": [
+    "Current product page, report arithmetic, memory confirmation, independent Alexa simulator, new session, rule draft, pending confirmation, manual task confirmation, carer completion/activity, result source, report and deleted-memory reply are represented.",
+    "The inspected frames show candidate-to-confirmed memory, cleared-to-replied session, processing-to-draft, draft-to-pending, pending-to-arranged, task-to-completed/activity and cleared-to-deleted-memory answer transitions.",
+    "English titles, evidence panels, captions and local/fictional labels are readable with no observed overlap.",
+    "The 18.4 seconds of replay use normal speed; other scenes hold actual screenshots. Source and output ranges are recorded separately.",
+    "No invitation token was observed in the inspected selected frames. The dataset and accounts are fictional demonstrations."
+  ],
+  "full_human_video_playback": "not_performed",
+  "human_audio_review": "not_performed",
+  "mp4_sha256": "98e0d78fbb86d25f38085d5234e1ee476fc742d1a39e0d41bbf88e2a8abbd691"
+}

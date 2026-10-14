@@ -1,6 +1,7 @@
 param(
     [switch]$InstallBrowser,
-    [string]$NodeDirectory
+    [string]$NodeDirectory,
+    [ValidateRange(1, 64)][int]$ShardCount = 4
 )
 
 $ErrorActionPreference = 'Stop'
@@ -19,7 +20,15 @@ try {
         }
     }
     Invoke-PawTwinNpm -Runtime $runtime -NpmArguments @('run', 'build')
-    Invoke-PawTwinNpm -Runtime $runtime -NpmArguments @('run', 'test:e2e')
+    # Each invocation creates a fresh isolated server. A single full-suite server
+    # exceeds the real registration rate limit; do not weaken production policy.
+    for ($shard = 1; $shard -le $ShardCount; $shard++) {
+        Write-Host "Browser shard $shard/$ShardCount"
+        Invoke-PawTwinNpm -Runtime $runtime -NpmArguments @(
+            'run', 'test:e2e', '--', "--shard=$shard/$ShardCount",
+            "--output=test-results/shard-$shard"
+        )
+    }
 }
 finally {
     Pop-Location

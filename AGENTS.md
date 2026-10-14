@@ -13,12 +13,12 @@ User authorization is authoritative. Current bootstrap scope is not permission t
 
 ## Product boundaries
 
-- One fictional pet Mochi, one household, one product Agent, one webpage and one simulated actuator.
+- Automated execution remains one fictional pet Mochi and one simulated actuator. Local data supports isolated households and pets; each account has one current household. One product Agent service and one App/web workbench.
 - User-authorised extension (2026-10-02): multiple local pet profiles, a pixel home page,
   care schedules (including bathing and nails), household display names and photo diaries.
   Automated feeding remains Mochi-only; new pet tasks record manual care, not device execution.
-- Planned extension (2026-10-02): independent accounts and household membership, self-selected family labels distinct from granted permissions, shared records, measured growth, daily/weekly statistics, and per-pet context shared by App/Alexa experiences.
-  These are planned, not implemented. The latest request authorises documentation sync and Qoder handoff; claim bounded EXT tasks rather than starting the entire plan.
+- User-authorised development (2026-10-03): independent local accounts/households, labels separate from permissions, shared records, reversible pet archival, measured growth, persistent reports, and per-pet context shared by App/Alexa web simulation are now implemented locally. See STATUS and the EXT implementation ledger.
+- New family cloud identity/storage/inference is not connected. Local account, database memory and rule-answer labels remain mandatory. Real trials, model evaluation, video, deployment/publication and submission are incomplete.
 - Future access, actor identity and pet-scoped approval must be enforced server-side. Context never grants permissions, fills missing measurements, or converts population references into diagnoses.
 - Sensors and actuator are simulated; PawLink wearable is a concept. Keep these labels visible.
 - No dog-language translation, clinical diagnosis, proven hunger prediction, or live Alexa integration claim.

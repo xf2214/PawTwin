@@ -12,6 +12,7 @@ $localValues = @{
     PAWTWIN_WORKER_MODE = 'background'
     PAWTWIN_DB_PATH = $DatabasePath
     PAWTWIN_PHOTO_RECOGNITION_ENABLED = 'false'
+    PAWTWIN_FAMILY_MODEL_BACKEND = 'local_rules'
 }
 $previousValues = @{}
 foreach ($key in $localValues.Keys) {
@@ -20,7 +21,7 @@ foreach ($key in $localValues.Keys) {
 }
 Push-Location $repoRoot
 try {
-    uv run --frozen uvicorn pawtwin.main:create_app --factory --host 127.0.0.1 --port $Port
+    uv run --frozen uvicorn pawtwin.main:create_app --factory --host 127.0.0.1 --port $Port --no-proxy-headers
     if ($LASTEXITCODE -ne 0) { throw "Pet home exited with code $LASTEXITCODE" }
 }
 finally {

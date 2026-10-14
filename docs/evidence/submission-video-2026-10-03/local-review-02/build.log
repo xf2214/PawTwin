@@ -1,0 +1,9 @@
+Offline source: C:\Users\11831\Desktop\hks\outputs\pawtwin-app\docs\evidence\hackathon-capture\2026-10-03-final
+SAPI voice: Microsoft Zira Desktop
+Raw clip decode: C:\Users\11831\AppData\Local\ms-playwright\ffmpeg-1011\ffmpeg-win64.exe -hide_banner -loglevel error -ss 7.6 -i C:\Users\11831\Desktop\hks\outputs\pawtwin-app\docs\evidence\hackathon-capture\2026-10-03-final\owner.webm -t 5.0 -r 15 -an -c:v png -f image2 C:\Users\11831\Desktop\hks\outputs\pawtwin-app\.cache\submission-video\20261003-230653-ddb72e\owner-frames\frame-%04d.png
+Raw clip decode: C:\Users\11831\AppData\Local\ms-playwright\ffmpeg-1011\ffmpeg-win64.exe -hide_banner -loglevel error -ss 8.6 -i C:\Users\11831\Desktop\hks\outputs\pawtwin-app\docs\evidence\hackathon-capture\2026-10-03-final\carer.webm -t 5.0 -r 15 -an -c:v png -f image2 C:\Users\11831\Desktop\hks\outputs\pawtwin-app\.cache\submission-video\20261003-230653-ddb72e\carer-frames\frame-%04d.png
+System.VoidValueTypeParameter
+{"duration_seconds":170.0185034,"width":1920,"height":1080,"bitrate":1233640,"video_codec":"H264","audio_codec":"AAC","audio_channels":1,"audio_sample_rate":44100,"audio_bitrate":96000}
+System.VoidValueTypeParameter
+{"duration_seconds":170.0165079,"width":0,"height":0,"bitrate":0,"video_codec":null,"audio_codec":"PCM","audio_channels":1,"audio_sample_rate":44100,"audio_bitrate":705600}
+Decoded actual MP4 frames: 13

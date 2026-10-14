@@ -5,7 +5,7 @@ from pydantic import ValidationError
 
 
 def test_local_mode_is_the_safe_default() -> None:
-    settings = Settings()
+    settings = Settings(_env_file=None)
 
     assert settings.mode == "local"
     assert settings.aws_connected is False
@@ -15,14 +15,14 @@ def test_invalid_mode_is_rejected(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setenv("PAWTWIN_MODE", "preview")
 
     with pytest.raises(ValidationError):
-        Settings()
+        Settings(_env_file=None)
 
 
 def test_aws_mode_lists_every_missing_requirement(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setenv("PAWTWIN_MODE", "aws")
 
     with pytest.raises(ValidationError) as error:
-        Settings()
+        Settings(_env_file=None)
 
     message = str(error.value)
     assert "BEDROCK_MODEL_ID" in message
@@ -60,7 +60,7 @@ def test_aws_mode_refuses_to_start_when_the_cloud_probe_fails(
 
     from pawtwin.repo_dynamo import DynamoUnavailable
 
-    settings = Settings()
+    settings = Settings(_env_file=None)
     with pytest.raises(DynamoUnavailable):
         create_app(settings)
 
@@ -84,16 +84,16 @@ def test_aws_mode_rejects_the_default_or_a_short_passphrase(
 
     # Built-in default -> rejected.
     with pytest.raises(ValidationError, match="strong PAWTWIN_DEMO_PASSPHRASE"):
-        Settings()
+        Settings(_env_file=None)
 
     # Too short (< 12 characters) -> rejected.
     monkeypatch.setenv("PAWTWIN_DEMO_PASSPHRASE", "short-pass")
     with pytest.raises(ValidationError, match="strong PAWTWIN_DEMO_PASSPHRASE"):
-        Settings()
+        Settings(_env_file=None)
 
     # Strong and not the default -> constructs.
     monkeypatch.setenv("PAWTWIN_DEMO_PASSPHRASE", "a-strong-passphrase-123")
-    assert Settings().demo_passphrase == "a-strong-passphrase-123"
+    assert Settings(_env_file=None).demo_passphrase == "a-strong-passphrase-123"
 
 
 def test_local_mode_still_allows_the_non_secret_default_passphrase() -> None:

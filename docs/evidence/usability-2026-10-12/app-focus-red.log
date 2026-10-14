@@ -1,0 +1,53 @@
+
+
+[WebServer] INFO:     Started server process [142880]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8822 (Press CTRL+C to quit)
+
+
+Running 1 test using 1 worker
+
+(node:137680) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/1] frontend\e2e\usability.spec.ts:211:1 › the observation shortcut focuses its real field after a delayed home read
+  1) frontend\e2e\usability.spec.ts:211:1 › the observation shortcut focuses its real field after a delayed home read 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  getByLabel('记录原文', { exact: true })
+    Expected: focused
+    Received: inactive
+    Timeout:  20000ms
+
+    Call log:
+      - Expect "toBeFocused" getByLabel('记录原文', { exact: true }) with timeout 20000ms
+      - waiting for getByLabel('记录原文', { exact: true })
+        43 × locator resolved to <textarea name="text" required="" maxlength="500" placeholder="例如：饭后不想玩 / 喜欢羽毛棒"></textarea>
+           - unexpected value "inactive"
+
+
+      221 |     await received;
+      222 |   } finally { release(); }
+    > 223 |   await expect(page.getByLabel("记录原文", { exact: true })).toBeFocused();
+          |                                                          ^
+      224 |   await page.keyboard.type("今天愿意玩小球");
+      225 |   await expect(page.getByLabel("记录原文", { exact: true })).toHaveValue("今天愿意玩小球");
+      226 | });
+        at C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\usability.spec.ts:223:58
+
+    Error Context: docs\evidence\usability-2026-10-12\app-focus-red-results\usability-the-observation--1df78-d-after-a-delayed-home-read\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-focus-red-results\usability-the-observation--1df78-d-after-a-delayed-home-read\trace.zip
+    Usage:
+
+        npx playwright show-trace docs\evidence\usability-2026-10-12\app-focus-red-results\usability-the-observation--1df78-d-after-a-delayed-home-read\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  1 failed
+    frontend\e2e\usability.spec.ts:211:1 › the observation shortcut focuses its real field after a delayed home read 

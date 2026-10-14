@@ -1,0 +1,30 @@
+
+[WebServer] INFO:     Started server process [42880]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8812 (Press CTRL+C to quit)
+
+Running 1 test using 1 worker
+
+(node:43100) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/1] frontend\e2e\demo-rehearsal.spec.ts:28:1 › demonstration rehearses two family accounts, real report arithmetic and shared memory to care
+  1) frontend\e2e\demo-rehearsal.spec.ts:28:1 › demonstration rehearses two family accounts, real report arithmetic and shared memory to care 
+
+    Error: browserType.launch: Failed to launch chromium because executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium-1194\chrome-win\chrome.exe
+
+    Error Context: frontend\test-results\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    frontend\test-results\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\trace.zip
+    Usage:
+
+        npx playwright show-trace frontend\test-results\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+

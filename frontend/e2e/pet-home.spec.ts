@@ -13,7 +13,7 @@ async function setPhoto(input: Locator) {
 
 test('pet profile, objects, bathing, nails, scoped preferences and photo diary are saved', async ({ page }) => {
   await login(page)
-  await page.getByRole('link', { name: '打开宠物小屋' }).click()
+  await page.getByRole('link', { name: '打开原宠物小屋' }).click()
   await expect(page.getByRole('heading', { name: '家里的日常' })).toBeVisible()
   await page.getByRole('button', { name: '＋ 添加宠物', exact: true }).click()
   const name = `团团-${Date.now()}`

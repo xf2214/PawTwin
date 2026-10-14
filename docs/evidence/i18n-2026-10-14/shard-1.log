@@ -1,0 +1,47 @@
+
+[WebServer] INFO:     Started server process [156448]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8816 (Press CTRL+C to quit)
+
+
+Running 32 tests using 1 worker, shard 1 of 4
+
+(node:159092) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/32] e2e\acceptance.spec.ts:11:1 › an unauthenticated session sees the login gate and business APIs return 401 JSON
+[2/32] e2e\acceptance.spec.ts:35:1 › reload while awaiting_approval keeps the pending request pending
+[3/32] e2e\acceptance.spec.ts:63:1 › desktop 1440px and narrow 390px show no overflow and states are not color-only
+[4/32] e2e\acceptance.spec.ts:134:1 › raising the daily dispensed amount shifts the proposed grams
+[5/32] e2e\acceptance.spec.ts:160:1 › a new session rotates the conversation while memory stays honestly unretrieved
+[6/32] e2e\alexa.spec.ts:14:1 › Alexa simulator reads shared memory and confirms manual care exactly once
+[7/32] e2e\alexa.spec.ts:45:1 › new session clears transcript and stale drafts require a fresh question
+[8/32] e2e\alexa.spec.ts:67:3 › Alexa simulator is usable at 320px
+[9/32] e2e\alexa.spec.ts:67:3 › Alexa simulator is usable at 390px
+[10/32] e2e\alexa.spec.ts:67:3 › Alexa simulator is usable at 1440px
+[11/32] e2e\alexa.spec.ts:81:1 › pet switching drops a delayed response and resets draft scope
+[12/32] e2e\alexa.spec.ts:115:1 › a failed chat restores the input and can be retried without inventing a reply
+[13/32] e2e\alexa.spec.ts:128:1 › keyboard input and account navigation can return to Alexa
+[14/32] e2e\alexa.spec.ts:149:1 › Alexa displays the response backend and same-response model evidence
+[15/32] e2e\application-upgrade.spec.ts:30:1 › today uses one application navigation while profile and room operations remain discoverable
+[16/32] e2e\application-upgrade.spec.ts:45:1 › my care includes an unassigned task claimed by the current member
+[17/32] e2e\application-upgrade.spec.ts:60:1 › growth sections preserve actual measurement recording and report generation
+[18/32] e2e\application-upgrade.spec.ts:79:1 › a family guest reads the twin overview without unavailable write interactions
+[19/32] e2e\approve.spec.ts:7:1 › approve executes once, shows real evidence and survives reload
+[20/32] e2e\approve.spec.ts:57:1 › an injected device failure never accounts quota
+[21/32] e2e\approve.spec.ts:81:1 › an unknown fact reaches needs-info and is never shown as zero
+[22/32] e2e\approve.spec.ts:99:1 › changing facts invalidates a pending approval with a readable notice
+[23/32] e2e\decline.spec.ts:5:1 › decline never becomes simulated execution and survives reload
+[24/32] e2e\demo-rehearsal.spec.ts:29:1 › demonstration rehearses two family accounts, real report arithmetic and shared memory to care
+[25/32] e2e\family.spec.ts:19:1 › independent account, shared navigation and refresh session
+[26/32] e2e\family.spec.ts:43:1 › real weight data, weekly report and correction
+[27/32] e2e\family.spec.ts:61:1 › memory confirmation shared with Alexa simulation and deletion
+[28/32] e2e\family.spec.ts:81:1 › care proposal needs explicit confirmation and creates manual task
+[29/32] e2e\family.spec.ts:95:3 › App at 390px preserves room and has no horizontal overflow
+[30/32] e2e\family.spec.ts:95:3 › App at 1440px preserves room and has no horizontal overflow
+[31/32] e2e\family.spec.ts:119:1 › new pet selection is immediately shared with growth and delayed replies stay scoped
+[32/32] e2e\family.spec.ts:191:1 › owner observation and diary can be corrected and removed from shared context
+  32 passed (1.5m)

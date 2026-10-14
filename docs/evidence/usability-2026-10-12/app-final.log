@@ -1,0 +1,297 @@
+
+[WebServer] INFO:     Started server process [135856]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8822 (Press CTRL+C to quit)
+
+
+Running 37 tests using 1 worker
+
+
+
+(node:150900) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1/37] frontend\e2e\alexa.spec.ts:14:1 › Alexa simulator reads shared memory and confirms manual care exactly once
+  1) frontend\e2e\alexa.spec.ts:14:1 › Alexa simulator reads shared memory and confirms manual care exactly once 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '确认记忆', exact: true })
+
+
+      18 |   await page.getByLabel("偏好原文").fill("喜欢蓝色羽毛棒");
+      19 |   await page.getByRole("button", { name: "保存候选记忆" }).click();
+    > 20 |   await page.getByRole("button", { name: "确认记忆", exact: true }).click();
+         |                                                                 ^
+      21 |   await page.getByRole("link", { name: "打开 Alexa+ 模拟器" }).click();
+      22 |   await page.getByRole("button", { name: "它喜欢什么", exact: true }).click();
+      23 |   const log = page.getByRole("log", { name: "Alexa 模拟对话" });
+        at C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\alexa.spec.ts:20:65
+
+    Error Context: docs\evidence\usability-2026-10-12\app-final-results\alexa-Alexa-simulator-read-81aa2-ms-manual-care-exactly-once\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-final-results\alexa-Alexa-simulator-read-81aa2-ms-manual-care-exactly-once\trace.zip
+    Usage:
+
+        npx playwright show-trace docs\evidence\usability-2026-10-12\app-final-results\alexa-Alexa-simulator-read-81aa2-ms-manual-care-exactly-once\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:83200) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[2/37] frontend\e2e\alexa.spec.ts:45:1 › new session clears transcript and stale drafts require a fresh question
+[3/37] frontend\e2e\alexa.spec.ts:67:3 › Alexa simulator is usable at 320px
+[4/37] frontend\e2e\alexa.spec.ts:67:3 › Alexa simulator is usable at 390px
+[5/37] frontend\e2e\alexa.spec.ts:67:3 › Alexa simulator is usable at 1440px
+[6/37] frontend\e2e\alexa.spec.ts:81:1 › pet switching drops a delayed response and resets draft scope
+[7/37] frontend\e2e\alexa.spec.ts:115:1 › a failed chat restores the input and can be retried without inventing a reply
+[8/37] frontend\e2e\alexa.spec.ts:128:1 › keyboard input and account navigation can return to Alexa
+  2) frontend\e2e\alexa.spec.ts:128:1 › keyboard input and account navigation can return to Alexa ──
+
+    Error: expect(page).toHaveURL(expected) failed
+
+    Expected pattern: /#app$/
+    Received string:  "http://127.0.0.1:8822/#app/family"
+    Timeout: 20000ms
+
+    Call log:
+      - Expect "toHaveURL" with timeout 20000ms
+        43 × locator resolved to <html lang="zh-CN">…</html>
+           - unexpected value "http://127.0.0.1:8822/#app/family"
+
+
+      130 |   await start(page);
+      131 |   await page.getByRole("button", { name: "模拟体验主人", exact: true }).click();
+    > 132 |   await expect(page).toHaveURL(/#app$/);
+          |                      ^
+      133 |   await page.getByRole("link", { name: "Alexa+ 模拟器", exact: true }).click();
+      134 |   await expect(page.getByRole("heading", { name: "Alexa+ 网页模拟器", exact: true })).toBeVisible();
+      135 |   const input = page.getByLabel("模拟口述内容");
+        at C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\alexa.spec.ts:132:22
+
+    Error Context: docs\evidence\usability-2026-10-12\app-final-results\alexa-keyboard-input-and-a-fb2c7-igation-can-return-to-Alexa\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-final-results\alexa-keyboard-input-and-a-fb2c7-igation-can-return-to-Alexa\trace.zip
+    Usage:
+
+        npx playwright show-trace docs\evidence\usability-2026-10-12\app-final-results\alexa-keyboard-input-and-a-fb2c7-igation-can-return-to-Alexa\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:122496) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[9/37] frontend\e2e\alexa.spec.ts:148:1 › Alexa displays the response backend and same-response model evidence
+[10/37] frontend\e2e\demo-rehearsal.spec.ts:28:1 › demonstration rehearses two family accounts, real report arithmetic and shared memory to care
+[11/37] frontend\e2e\family.spec.ts:19:1 › independent account, shared navigation and refresh session
+[12/37] frontend\e2e\family.spec.ts:43:1 › real weight data, weekly report and correction
+[13/37] frontend\e2e\family.spec.ts:58:1 › memory confirmation shared with Alexa simulation and deletion
+[14/37] frontend\e2e\family.spec.ts:79:1 › care proposal needs explicit confirmation and creates manual task
+[15/37] frontend\e2e\family.spec.ts:93:3 › App at 390px preserves room and has no horizontal overflow
+[16/37] frontend\e2e\family.spec.ts:93:3 › App at 1440px preserves room and has no horizontal overflow
+[17/37] frontend\e2e\family.spec.ts:117:1 › new pet selection is immediately shared with growth and delayed replies stay scoped
+[18/37] frontend\e2e\family.spec.ts:189:1 › owner observation and diary can be corrected and removed from shared context
+[19/37] frontend\e2e\pet-home.spec.ts:14:1 › pet profile, objects, bathing, nails, scoped preferences and photo diary are saved
+[20/37] frontend\e2e\pet-home.spec.ts:62:1 › pixel home stays usable at phone and desktop widths without sharing another pet data
+[21/37] frontend\e2e\usability.spec.ts:27:1 › growth deep link survives signup, refresh and browser navigation
+[22/37] frontend\e2e\usability.spec.ts:38:1 › editing only a recurring task title preserves its future time and interval
+[23/37] frontend\e2e\usability.spec.ts:54:1 › repeating care completion stays visible in completed history and keeps its next plan
+[24/37] frontend\e2e\usability.spec.ts:72:1 › daily queue uses household day and keeps completed care out of active filters
+[25/37] frontend\e2e\usability.spec.ts:107:1 › a failed measurement read preserves reports and retries the failed resource
+[26/37] frontend\e2e\usability.spec.ts:127:1 › a late growth read cannot replace the selected pet data
+[27/37] frontend\e2e\usability.spec.ts:149:1 › constant and dense real measurements remain accessible and range-filtered
+[28/37] frontend\e2e\usability.spec.ts:168:1 › equivalent timestamp offsets do not fabricate a zero-day weight change
+[29/37] frontend\e2e\usability.spec.ts:186:3 › care started from a toy preserves the intended play type
+[30/37] frontend\e2e\usability.spec.ts:186:3 › care started from a water preserves the intended water type
+[31/37] frontend\e2e\usability.spec.ts:186:3 › care started from a nest preserves the intended clean type
+[32/37] frontend\e2e\usability.spec.ts:203:1 › a forbidden child read removes previously shown household data
+  3) frontend\e2e\usability.spec.ts:203:1 › a forbidden child read removes previously shown household data 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.fill: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByLabel('家庭名称')
+
+
+      10 |   await page.getByLabel("昵称").fill("日常主人");
+      11 |   await page.getByRole("button", { name: "注册并登录", exact: true }).click();
+    > 12 |   await page.getByLabel("家庭名称").fill("我们的日常");
+         |                                 ^
+      13 |   await page.getByLabel("家庭时区", { exact: true }).fill(timezone);
+      14 |   await page.getByRole("button", { name: "创建家庭", exact: true }).click();
+      15 |   await expect(page.getByRole("navigation", { name: "App 主导航" })).toBeVisible();
+        at start (C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\usability.spec.ts:12:33)
+        at C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\usability.spec.ts:204:3
+
+    Error Context: docs\evidence\usability-2026-10-12\app-final-results\usability-a-forbidden-chil-2f7eb-iously-shown-household-data\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-final-results\usability-a-forbidden-chil-2f7eb-iously-shown-household-data\trace.zip
+    Usage:
+
+        npx playwright show-trace docs\evidence\usability-2026-10-12\app-final-results\usability-a-forbidden-chil-2f7eb-iously-shown-household-data\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:151872) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[33/37] frontend\e2e\usability.spec.ts:216:1 › the observation shortcut focuses its real field after a delayed home read
+  4) frontend\e2e\usability.spec.ts:216:1 › the observation shortcut focuses its real field after a delayed home read 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.fill: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByLabel('家庭名称')
+
+
+      10 |   await page.getByLabel("昵称").fill("日常主人");
+      11 |   await page.getByRole("button", { name: "注册并登录", exact: true }).click();
+    > 12 |   await page.getByLabel("家庭名称").fill("我们的日常");
+         |                                 ^
+      13 |   await page.getByLabel("家庭时区", { exact: true }).fill(timezone);
+      14 |   await page.getByRole("button", { name: "创建家庭", exact: true }).click();
+      15 |   await expect(page.getByRole("navigation", { name: "App 主导航" })).toBeVisible();
+        at start (C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\usability.spec.ts:12:33)
+        at C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\usability.spec.ts:217:3
+
+    Error Context: docs\evidence\usability-2026-10-12\app-final-results\usability-the-observation--1df78-d-after-a-delayed-home-read\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-final-results\usability-the-observation--1df78-d-after-a-delayed-home-read\trace.zip
+    Usage:
+
+        npx playwright show-trace docs\evidence\usability-2026-10-12\app-final-results\usability-the-observation--1df78-d-after-a-delayed-home-read\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:143440) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[34/37] frontend\e2e\usability.spec.ts:233:1 › changing care type preserves the chosen time, repetition and assignee
+[35/37] frontend\e2e\usability.spec.ts:256:3 › daily application at 320px stays readable and keyboard accessible
+  5) frontend\e2e\usability.spec.ts:256:3 › daily application at 320px stays readable and keyboard accessible 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.fill: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByLabel('家庭名称')
+
+
+      10 |   await page.getByLabel("昵称").fill("日常主人");
+      11 |   await page.getByRole("button", { name: "注册并登录", exact: true }).click();
+    > 12 |   await page.getByLabel("家庭名称").fill("我们的日常");
+         |                                 ^
+      13 |   await page.getByLabel("家庭时区", { exact: true }).fill(timezone);
+      14 |   await page.getByRole("button", { name: "创建家庭", exact: true }).click();
+      15 |   await expect(page.getByRole("navigation", { name: "App 主导航" })).toBeVisible();
+        at start (C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\usability.spec.ts:12:33)
+        at C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\usability.spec.ts:258:5
+
+    Error Context: docs\evidence\usability-2026-10-12\app-final-results\usability-daily-applicatio-dda74-ble-and-keyboard-accessible\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-final-results\usability-daily-applicatio-dda74-ble-and-keyboard-accessible\trace.zip
+    Usage:
+
+        npx playwright show-trace docs\evidence\usability-2026-10-12\app-final-results\usability-daily-applicatio-dda74-ble-and-keyboard-accessible\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:152104) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[36/37] frontend\e2e\usability.spec.ts:256:3 › daily application at 390px stays readable and keyboard accessible
+  6) frontend\e2e\usability.spec.ts:256:3 › daily application at 390px stays readable and keyboard accessible 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.fill: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByLabel('家庭名称')
+
+
+      10 |   await page.getByLabel("昵称").fill("日常主人");
+      11 |   await page.getByRole("button", { name: "注册并登录", exact: true }).click();
+    > 12 |   await page.getByLabel("家庭名称").fill("我们的日常");
+         |                                 ^
+      13 |   await page.getByLabel("家庭时区", { exact: true }).fill(timezone);
+      14 |   await page.getByRole("button", { name: "创建家庭", exact: true }).click();
+      15 |   await expect(page.getByRole("navigation", { name: "App 主导航" })).toBeVisible();
+        at start (C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\usability.spec.ts:12:33)
+        at C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\usability.spec.ts:258:5
+
+    Error Context: docs\evidence\usability-2026-10-12\app-final-results\usability-daily-applicatio-7ecac-ble-and-keyboard-accessible\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-final-results\usability-daily-applicatio-7ecac-ble-and-keyboard-accessible\trace.zip
+    Usage:
+
+        npx playwright show-trace docs\evidence\usability-2026-10-12\app-final-results\usability-daily-applicatio-7ecac-ble-and-keyboard-accessible\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:152548) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[37/37] frontend\e2e\usability.spec.ts:256:3 › daily application at 1440px stays readable and keyboard accessible
+  7) frontend\e2e\usability.spec.ts:256:3 › daily application at 1440px stays readable and keyboard accessible 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.fill: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByLabel('家庭名称')
+
+
+      10 |   await page.getByLabel("昵称").fill("日常主人");
+      11 |   await page.getByRole("button", { name: "注册并登录", exact: true }).click();
+    > 12 |   await page.getByLabel("家庭名称").fill("我们的日常");
+         |                                 ^
+      13 |   await page.getByLabel("家庭时区", { exact: true }).fill(timezone);
+      14 |   await page.getByRole("button", { name: "创建家庭", exact: true }).click();
+      15 |   await expect(page.getByRole("navigation", { name: "App 主导航" })).toBeVisible();
+        at start (C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\usability.spec.ts:12:33)
+        at C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\usability.spec.ts:258:5
+
+    Error Context: docs\evidence\usability-2026-10-12\app-final-results\usability-daily-applicatio-26d9c-ble-and-keyboard-accessible\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-final-results\usability-daily-applicatio-26d9c-ble-and-keyboard-accessible\trace.zip
+    Usage:
+
+        npx playwright show-trace docs\evidence\usability-2026-10-12\app-final-results\usability-daily-applicatio-26d9c-ble-and-keyboard-accessible\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  7 failed
+    frontend\e2e\alexa.spec.ts:14:1 › Alexa simulator reads shared memory and confirms manual care exactly once 
+    frontend\e2e\alexa.spec.ts:128:1 › keyboard input and account navigation can return to Alexa ───
+    frontend\e2e\usability.spec.ts:203:1 › a forbidden child read removes previously shown household data 
+    frontend\e2e\usability.spec.ts:216:1 › the observation shortcut focuses its real field after a delayed home read 
+    frontend\e2e\usability.spec.ts:256:3 › daily application at 320px stays readable and keyboard accessible 
+    frontend\e2e\usability.spec.ts:256:3 › daily application at 390px stays readable and keyboard accessible 
+    frontend\e2e\usability.spec.ts:256:3 › daily application at 1440px stays readable and keyboard accessible 
+  30 passed (4.5m)

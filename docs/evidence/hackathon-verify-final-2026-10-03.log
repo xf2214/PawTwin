@@ -1,0 +1,24 @@
+........................................................................ [ 24%]
+........................................................................ [ 48%]
+........................................................................ [ 72%]
+...........................................s............................ [ 96%]
+..........                                                               [100%]
+============================== warnings summary ===============================
+.venv\Lib\site-packages\starlette\testclient.py:51
+  C:\Users\11831\Desktop\hks\outputs\pawtwin-app\.venv\Lib\site-packages\starlette\testclient.py:51: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+297 passed, 1 skipped, 21 deselected, 1 warning in 36.28s
+E501 Line too long (102 > 100)
+   --> backend\pawtwin\config.py:246:101
+    |
+244 |         API and bootstrap read instead of this. Read-only startup probes prove
+245 |         only component access; the runtime flag remains False until inference,
+246 |         extraction and family cloud storage have end-to-end evidence. Keeping this False preserves the
+    |                                                                                                     ^^
+247 |         invariant that configuration alone is never mistaken for verified
+248 |         connectivity (AGENTS.md L18); the UI still shows each label separately.
+    |
+
+Found 1 error.

@@ -1,0 +1,18 @@
+.language-switch { display: inline-flex; flex: 0 0 auto; gap: 2px; align-items: center; padding: 3px; border: 1px solid var(--line, #ddd9cf); border-radius: 9px; background: var(--paper, #faf8f5); }
+.language-switch button { min-height: 32px; padding: 5px 9px; border: 0; border-radius: 6px; background: transparent; color: var(--ink, #333b30); font: inherit; font-size: 12px; line-height: 1.25; white-space: nowrap; cursor: pointer; }
+.language-switch button[aria-pressed="true"] { background: #e3eadc; color: #34523a; }
+.language-switch button:focus-visible { outline: 2px solid #527c5a; outline-offset: 2px; }
+.product-language { position: fixed; right: 22px; bottom: 20px; z-index: 80; box-shadow: 0 3px 16px #25372112; }
+.access-language { display: flex; justify-content: flex-end; padding: 14px 20px 0; }
+html[lang="en"] .pt-title-phrase { white-space: normal; }
+@media (min-width: 1000px) {
+  html[lang="en"] .application-shell .fa-nav::before { content: 'Family space'; }
+  html[lang="en"] .application-shell .fa-nav::after { content: 'Little moments, a deeper understanding.'; }
+}
+@media (max-width: 700px) { .product-language { right: 12px; bottom: 12px; } .as-header { flex-wrap: wrap; } .as-header > .language-switch { margin-left: auto; } }
+@media (max-width: 500px) {
+  .showcase .pt-nav-inner { flex-wrap: wrap; min-height: auto; padding: 12px 20px; gap: 10px; }
+  .showcase .pt-nav-actions { flex-basis: 100%; margin-left: 0; justify-content: space-between; }
+  .showcase .pt-nav-actions > .pt-button { white-space: nowrap; }
+}
+@media print { .language-switch, .access-language { display: none !important; } }

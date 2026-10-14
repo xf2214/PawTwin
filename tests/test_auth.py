@@ -24,7 +24,9 @@ def test_login_rejects_wrong_passphrase(client: TestClient) -> None:
 
 
 def test_login_sets_httponly_samesite_session_and_returns_csrf(client: TestClient) -> None:
-    response = client.post("/api/login", json={"passphrase": Settings().demo_passphrase})
+    response = client.post(
+        "/api/login", json={"passphrase": Settings(_env_file=None).demo_passphrase}
+    )
 
     assert response.status_code == 200
     assert response.json()["csrf_token"]

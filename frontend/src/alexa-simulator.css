@@ -1,0 +1,60 @@
+.alexa-simulator { --alx-blue: #086b89; margin: 18px 0; min-width: 0; }
+.alx-header { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.alx-header h2 { margin: 6px 0; font-size: clamp(25px, 3vw, 36px); letter-spacing: -.04em; color: #152e3e; }
+.alx-header p { margin: 8px 0; }
+.alx-eyebrow { color: #487078; font-size: 10px; font-weight: 700; letter-spacing: .13em; }
+.alx-boundary { color: #51656c; font-size: 12px; line-height: 1.8; }
+.alx-layout { display: grid; grid-template-columns: minmax(220px, .8fr) minmax(0, 1.8fr); gap: 20px; margin-top: 24px; align-items: start; }
+.alx-device { background: #122632; color: #edf6fa; border-radius: 24px; padding: 34px 24px; text-align: center; }
+.alx-orb { width: 142px; height: 142px; border-radius: 50%; margin: 12px auto 28px; padding: 5px; background: conic-gradient(from 170deg, #167ca9, #68e2eb, #3f97ce, #167ca9); box-shadow: 0 0 42px #2fc5e432; }
+.alx-orb span { display: block; height: 100%; border-radius: 50%; background: radial-gradient(circle at 35% 28%, #294350, #09151e 80%); }
+.alx-orb--busy { animation: alx-pulse 1.5s ease-in-out infinite; }
+.alx-device h3 { font-size: 28px; margin: 18px 0 6px; }
+.alx-device p { font-size: 12px; color: #b8d5df; line-height: 1.8; }
+.alx-device dl { margin: 30px 0; border-top: 1px solid #37505b; text-align: left; }
+.alx-device dl > div { padding: 16px 0; border-bottom: 1px solid #37505b; }
+.alx-device dt { font-size: 11px; color: #a9c1ce; }
+.alx-device dd { margin: 7px 0 0; font-size: 13px; }
+.family-app .alx-device a { display: block; margin-top: 18px; color: #9ce7f1; font-size: 12px; }
+.family-app .alx-device button { background: #294854; color: #e9f8fb; border: 1px solid #496d7c; }
+.alx-conversation { background: #fffef9; border: 1px solid #e0e7e2; border-radius: 24px; padding: 24px; min-width: 0; }
+.alx-session { display: flex; justify-content: space-between; gap: 12px; font-size: 11px; color: #5c7278; padding-bottom: 16px; border-bottom: 1px solid #e5eae4; }
+.alx-log { max-height: 440px; overflow-y: auto; padding: 18px 2px 12px; overflow-wrap: anywhere; scrollbar-gutter: stable; }
+.alx-empty { padding: 40px 12px; text-align: center; color: #5c7278; }
+.alx-empty > span { font-size: 35px; color: #2988a3; }
+.alx-empty h3 { font-size: 22px; color: #1b3b4a; font-weight: 550; }
+.alx-empty p { max-width: 370px; margin: auto; font-size: 13px; line-height: 1.9; }
+.alx-turn { margin-bottom: 22px; }
+.alx-turn p { font-size: 14px; line-height: 1.85; margin: 8px 0; white-space: pre-wrap; }
+.alx-turn small { color: #50666e; font-size: 10px; }
+.alx-user { background: #eaf2f3; border-radius: 16px 16px 3px 16px; padding: 12px 17px; margin-left: 18%; }
+.alx-reply { padding: 16px 12px 0; }
+.alx-reply details p, .alx-reply summary { font-size: 11px; }
+.family-app .alx-read { font-size: 10px; padding: 6px 9px; }
+.alx-prompts { display: flex; flex-wrap: wrap; gap: 7px; padding: 16px 0 4px; border-top: 1px solid #e5eae4; }
+.family-app .alx-prompts button { font-size: 11px; padding: 8px 10px; border-radius: 18px; background: #edf3f1; color: #3b6267; }
+.alx-compose label { font-size: 12px; }
+.family-app .alx-compose textarea { border-radius: 14px; resize: vertical; min-height: 72px; background: #fafcf9; }
+.family-app .alx-compose > button { width: 100%; background: var(--alx-blue); }
+.alx-help, .alx-action p { font-size: 12px; line-height: 1.8; color: #566b71; }
+.alx-failed { font-size: 12px; color: #8a442d; line-height: 1.8; }
+.alx-working { color: #326b7a; font-size: 12px; }
+.alx-action { margin-top: 18px; background: #eef5f3; border: 1px solid #d9e7e2; padding: 18px; border-radius: 16px; }
+.alx-action h3 { margin: 6px 0; font-size: 18px; }
+.alx-action button { margin: 4px 8px 4px 0; }
+.alx-result { background: #f0f5e8; }
+.alexa-simulator button:focus-visible, .alexa-simulator a:focus-visible { outline: 3px solid #148bb0; outline-offset: 4px; }
+@keyframes alx-pulse { 50% { box-shadow: 0 0 55px #2fc5e466; opacity: .7; } }
+@media (max-width: 800px) {
+  .alx-layout { grid-template-columns: 1fr; }
+  .alx-device { padding: 22px; }
+  .alx-orb { width: 80px; height: 80px; margin: 0 auto 14px; }
+  .alx-device dl { display: none; }
+  .alx-device h3 { margin-top: 10px; font-size: 24px; }
+  .alx-device > p { margin: 5px; }
+  .alx-conversation { padding: 16px; }
+  .alx-log { max-height: 370px; }
+  .alx-header { flex-wrap: wrap; gap: 5px; }
+  .alx-header h2 { font-size: 25px; }
+}
+@media (prefers-reduced-motion: reduce) { .alx-orb--busy { animation: none; } }

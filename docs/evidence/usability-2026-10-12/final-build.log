@@ -1,0 +1,14 @@
+
+> pawtwin-frontend@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v8.3.0 building client environment for production...
+transforming...
+✓ 33 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.63 kB │ gzip:   0.45 kB
+dist/assets/index-D6ajC95P.css   60.96 kB │ gzip:  14.49 kB
+dist/assets/index-CwmKV1xB.js   363.24 kB │ gzip: 109.11 kB
+
+✓ built in 215ms

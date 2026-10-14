@@ -1,0 +1,15 @@
+........................................................................ [ 17%]
+........................................................................ [ 35%]
+........................................................................ [ 52%]
+........................................................................ [ 70%]
+........................................................................ [ 88%]
+..........s......................................                        [100%]
+============================== warnings summary ===============================
+.venv\Lib\site-packages\starlette\testclient.py:51
+  C:\Users\11831\Desktop\hks\outputs\pawtwin-app\.venv\Lib\site-packages\starlette\testclient.py:51: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+SKIPPED [1] tests\test_restart_subprocess.py:128: Best-effort real kill/relaunch of a running uvicorn process is not run by default: on a single local runner it adds port-binding/startup flakiness for evidence already covered by the two subprocess tests above plus the logical live-lease restart tests. Named, not silently absent (AGENTS.md).
+408 passed, 1 skipped, 21 deselected, 1 warning in 40.15s

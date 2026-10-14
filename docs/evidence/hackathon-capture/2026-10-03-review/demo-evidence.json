@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-03T13:30:53.473Z",
+  "source": "actual_local_ui_and_api",
+  "identity_backend": "local_account",
+  "backend": "local_rules",
+  "cloud_calls": 0,
+  "pet_id": "mochi",
+  "shared_memory": {
+    "memory_id": "02d04aa6-db5b-4e7e-ba27-1eee1e6d6e64",
+    "before": {
+      "answer": "Mochi 的记录：还没有已确认的偏好记忆。",
+      "entry": "alexa_simulator",
+      "backend": "local_rules",
+      "request_id": null,
+      "context_version": 1,
+      "source_record_ids": [],
+      "references": [
+        {
+          "id": "waltham-kitten",
+          "species": "cat",
+          "minimum_age_weeks": 8,
+          "url": "https://www.waltham.com/resources/kitten-growth-charts",
+          "title": "WALTHAM Kitten Growth Charts",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "幼猫成长参考有年龄与适用范围限制；未导入数值曲线，不能给出标准体重。"
+        },
+        {
+          "id": "merck-nutrition",
+          "species": "cat,dog",
+          "minimum_age_weeks": null,
+          "url": "https://www.merckvetmanual.com/management-and-nutrition/nutrition-small-animals/overview-of-nutrition-small-animals",
+          "title": "Merck Veterinary Manual: Small Animal Nutrition",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "营养评估需要饮食史、体况与肌肉状况等资料，并结合兽医检查。"
+        }
+      ],
+      "action_executed": false,
+      "label": "本地规则分身 / Alexa 网页模拟；记录原文是数据，不是指令"
+    },
+    "candidate": {
+      "answer": "Mochi 的记录：还没有已确认的偏好记忆。",
+      "entry": "alexa_simulator",
+      "backend": "local_rules",
+      "request_id": null,
+      "context_version": 4,
+      "source_record_ids": [],
+      "references": [
+        {
+          "id": "waltham-kitten",
+          "species": "cat",
+          "minimum_age_weeks": 8,
+          "url": "https://www.waltham.com/resources/kitten-growth-charts",
+          "title": "WALTHAM Kitten Growth Charts",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "幼猫成长参考有年龄与适用范围限制；未导入数值曲线，不能给出标准体重。"
+        },
+        {
+          "id": "merck-nutrition",
+          "species": "cat,dog",
+          "minimum_age_weeks": null,
+          "url": "https://www.merckvetmanual.com/management-and-nutrition/nutrition-small-animals/overview-of-nutrition-small-animals",
+          "title": "Merck Veterinary Manual: Small Animal Nutrition",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "营养评估需要饮食史、体况与肌肉状况等资料，并结合兽医检查。"
+        }
+      ],
+      "action_executed": false,
+      "label": "本地规则分身 / Alexa 网页模拟；记录原文是数据，不是指令"
+    },
+    "confirmed_in_new_login": {
+      "answer": "Mochi 的记录：主人确认记录：喜欢羽毛棒，饭后先休息。",
+      "entry": "alexa_simulator",
+      "backend": "local_rules",
+      "request_id": null,
+      "context_version": 5,
+      "source_record_ids": [
+        "02d04aa6-db5b-4e7e-ba27-1eee1e6d6e64"
+      ],
+      "references": [
+        {
+          "id": "waltham-kitten",
+          "species": "cat",
+          "minimum_age_weeks": 8,
+          "url": "https://www.waltham.com/resources/kitten-growth-charts",
+          "title": "WALTHAM Kitten Growth Charts",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "幼猫成长参考有年龄与适用范围限制；未导入数值曲线，不能给出标准体重。"
+        },
+        {
+          "id": "merck-nutrition",
+          "species": "cat,dog",
+          "minimum_age_weeks": null,
+          "url": "https://www.merckvetmanual.com/management-and-nutrition/nutrition-small-animals/overview-of-nutrition-small-animals",
+          "title": "Merck Veterinary Manual: Small Animal Nutrition",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "营养评估需要饮食史、体况与肌肉状况等资料，并结合兽医检查。"
+        }
+      ],
+      "action_executed": false,
+      "label": "本地规则分身 / Alexa 网页模拟；记录原文是数据，不是指令"
+    },
+    "after_deletion": {
+      "answer": "Mochi 的记录：还没有已确认的偏好记忆。",
+      "entry": "app",
+      "backend": "local_rules",
+      "request_id": null,
+      "context_version": 10,
+      "source_record_ids": [],
+      "references": [
+        {
+          "id": "waltham-kitten",
+          "species": "cat",
+          "minimum_age_weeks": 8,
+          "url": "https://www.waltham.com/resources/kitten-growth-charts",
+          "title": "WALTHAM Kitten Growth Charts",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "幼猫成长参考有年龄与适用范围限制；未导入数值曲线，不能给出标准体重。"
+        },
+        {
+          "id": "merck-nutrition",
+          "species": "cat,dog",
+          "minimum_age_weeks": null,
+          "url": "https://www.merckvetmanual.com/management-and-nutrition/nutrition-small-animals/overview-of-nutrition-small-animals",
+          "title": "Merck Veterinary Manual: Small Animal Nutrition",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "营养评估需要饮食史、体况与肌肉状况等资料，并结合兽医检查。"
+        }
+      ],
+      "action_executed": false,
+      "label": "本地规则分身 / Alexa 网页模拟；记录原文是数据，不是指令"
+    }
+  },
+  "weekly_report": {
+    "report_id": "c9634965-649f-4826-8ced-b2c354e3bf2b",
+    "household_id": "e1f6cb10-e2ae-4193-a365-e849d715a419",
+    "pet_id": "mochi",
+    "period": "weekly",
+    "date": "2026-10-02",
+    "window_start": "2026-09-27T16:00:00+00:00",
+    "window_end": "2026-10-04T16:00:00+00:00",
+    "cutoff": "2026-10-03T13:30:49.631119+00:00",
+    "generated_at": "2026-10-03T13:30:49.631119+00:00",
+    "stat_version": 3,
+    "status": "current",
+    "notification": "not_sent",
+    "source_record_ids": [
+      "4a215784-f486-4ad6-948c-9ec745c2fb96",
+      "4788161f-682a-41b1-8525-b98466039a62"
+    ],
+    "source_versions": {
+      "4788161f-682a-41b1-8525-b98466039a62": 1,
+      "4a215784-f486-4ad6-948c-9ec745c2fb96": 1
+    },
+    "coverage": {
+      "weight_measurements": 1,
+      "diet_records": 0,
+      "incomplete_window": true,
+      "tasks_without_creation_time": 0
+    },
+    "weight": {
+      "change_g": 150,
+      "change_percent": 12.5,
+      "span_days": 7,
+      "source_record_ids": [
+        "4788161f-682a-41b1-8525-b98466039a62",
+        "4a215784-f486-4ad6-948c-9ec745c2fb96"
+      ],
+      "latest_g": 1350,
+      "description": "实际测量跨度；群体参考不能用于诊断"
+    },
+    "diet": {
+      "actual_intake_g": null,
+      "food_offered_g": null,
+      "dispensed_g": null,
+      "remaining_g": null,
+      "simulated_device_dispensed_g": null
+    },
+    "care": {
+      "manual_completed": 0,
+      "device_success": null,
+      "device_failed": 0,
+      "device_unknown": 0,
+      "device_results_simulated": true,
+      "pending": 0,
+      "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+      "overdue": 0,
+      "by_member": {}
+    },
+    "growth": {
+      "diary_count": 0
+    }
+  },
+  "daily_report": {
+    "report_id": "3a57bac8-da8d-457e-b008-a5f04a2f106a",
+    "household_id": "e1f6cb10-e2ae-4193-a365-e849d715a419",
+    "pet_id": "mochi",
+    "period": "daily",
+    "date": "2026-10-03",
+    "window_start": "2026-10-02T16:00:00+00:00",
+    "window_end": "2026-10-03T16:00:00+00:00",
+    "cutoff": "2026-10-03T13:30:52.533406+00:00",
+    "generated_at": "2026-10-03T13:30:52.533406+00:00",
+    "stat_version": 9,
+    "status": "current",
+    "notification": "not_sent",
+    "source_record_ids": [
+      "e07bf120-8ef2-4ebc-8710-714a3affb7c6",
+      "562d4a5c-d6f1-410f-96cf-85ed44b0af30"
+    ],
+    "source_versions": {
+      "e07bf120-8ef2-4ebc-8710-714a3affb7c6": 1,
+      "562d4a5c-d6f1-410f-96cf-85ed44b0af30": 1
+    },
+    "coverage": {
+      "weight_measurements": 0,
+      "diet_records": 0,
+      "incomplete_window": true,
+      "tasks_without_creation_time": 0
+    },
+    "weight": {
+      "change_g": null,
+      "change_percent": null,
+      "span_days": null,
+      "source_record_ids": [],
+      "latest_g": 1350,
+      "description": "实际测量跨度；群体参考不能用于诊断"
+    },
+    "diet": {
+      "actual_intake_g": null,
+      "food_offered_g": null,
+      "dispensed_g": null,
+      "remaining_g": null,
+      "simulated_device_dispensed_g": null
+    },
+    "care": {
+      "manual_completed": 1,
+      "device_success": null,
+      "device_failed": 0,
+      "device_unknown": 0,
+      "device_results_simulated": true,
+      "pending": 0,
+      "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+      "overdue": 0,
+      "by_member": {
+        "1359e108-4fce-4a6f-a063-1efa12af6faf": 1
+      }
+    },
+    "growth": {
+      "diary_count": 0
+    }
+  },
+  "manual_care": {
+    "occurrence_id": "9184b21e-4033-4a42-9e9d-1dbccc8bca50",
+    "source": "manual_care",
+    "completed_by": "1359e108-4fce-4a6f-a063-1efa12af6faf",
+    "expected_actor_id": "1359e108-4fce-4a6f-a063-1efa12af6faf"
+  },
+  "boundaries": [
+    "demo_sample measurements",
+    "owner-confirmed database memory",
+    "Alexa web simulation",
+    "owner-authored manual care",
+    "no live model or hardware"
+  ]
+}

@@ -1,0 +1,137 @@
+[
+  {
+    "file": "case-growth-1024.png",
+    "bytes": 126958,
+    "sha256": "B7023B403CD42834A7540FBC7C5DB55F92C88701E78C515CD3DFD002E16FDF37"
+  },
+  {
+    "file": "case-growth-1440.png",
+    "bytes": 141346,
+    "sha256": "F9AD833AB2A7D9B8F7EA81F670783AEEAF80A69FCDE3B8F6FB0A81E7D76B6E98"
+  },
+  {
+    "file": "case-growth-320.png",
+    "bytes": 98220,
+    "sha256": "66BFF9C109588EEB200A4EF8CEC3A891702700D6E16D51938059ABC232CCD266"
+  },
+  {
+    "file": "case-growth-390.png",
+    "bytes": 104147,
+    "sha256": "396D4567A4BD172A84A01B6E6DF7684F80D2797F5392BC93F6D8E2700C288947"
+  },
+  {
+    "file": "case-growth-768.png",
+    "bytes": 115671,
+    "sha256": "29BD1D96681E9F73DB2F65D60EF0DF2BFAF9EB38E5F6F49D1B9737626C4DA1EE"
+  },
+  {
+    "file": "case-handoff-1024.png",
+    "bytes": 90195,
+    "sha256": "0A2837BBD9FA0E899C91654EF084878E6CD509E90581EAFF80AF3827FDC9FA0D"
+  },
+  {
+    "file": "case-handoff-1440.png",
+    "bytes": 101720,
+    "sha256": "8A063CA0FD99A6AE83D18CBFD44EB0EF663CEA85EF3D332B8F37925167200CD5"
+  },
+  {
+    "file": "case-handoff-320.png",
+    "bytes": 76940,
+    "sha256": "19F700E8E376B8137D74F2199EA57829095DED93DAF9F998A9FC7AE254EC0D75"
+  },
+  {
+    "file": "case-handoff-390.png",
+    "bytes": 77203,
+    "sha256": "8F8EFFA41EA6C5551AD577955A1C422FBA9F339C7EF2F8D1751A9AF7E0C6A582"
+  },
+  {
+    "file": "case-handoff-768.png",
+    "bytes": 88253,
+    "sha256": "8B560473D7BD0F90D66A27F60E1AB0D91DC4B207B32A12108352E2A83D33AD47"
+  },
+  {
+    "file": "case-preferences-1024.png",
+    "bytes": 99823,
+    "sha256": "A52DABC793016B135E3EC1A3B19D30637D2F8A3DF5DA4B60A16424BA9EC42557"
+  },
+  {
+    "file": "case-preferences-1440.png",
+    "bytes": 111699,
+    "sha256": "D9FD1C9B92D29486810D06C3F9CA73C04439243F43BD6184801B2F3808A07B82"
+  },
+  {
+    "file": "case-preferences-320.png",
+    "bytes": 83819,
+    "sha256": "A007E128072B48F3D7A33D81F29398EBC0931951FB5A9F22ECCC92C72D802D28"
+  },
+  {
+    "file": "case-preferences-390.png",
+    "bytes": 88060,
+    "sha256": "35010DA589E1E523A008D722F51D4C9160802F135207DEC829728E95111C8EAF"
+  },
+  {
+    "file": "case-preferences-768.png",
+    "bytes": 97932,
+    "sha256": "D5BB4C57EE39440F5B0460B5EC75A93EB99B830919B239B7F92D843E3D58B7BB"
+  },
+  {
+    "file": "devices-hero-1024.png",
+    "bytes": 343865,
+    "sha256": "AC903EA43D60FAFCBC39DA0685CF766FCA3BBF72339773CE66A12714CD3A9241"
+  },
+  {
+    "file": "devices-hero-1440.png",
+    "bytes": 498259,
+    "sha256": "2F29E8210D0D48AF58A4BF7EA6D4190575349E13AD4BFC35EDC76C8CF14282DD"
+  },
+  {
+    "file": "devices-hero-320.png",
+    "bytes": 179240,
+    "sha256": "846BA1706F11D43FB847FF9EC66204813B6EACB5ACFF702FFBC7C75684809E4B"
+  },
+  {
+    "file": "devices-hero-390.png",
+    "bytes": 209751,
+    "sha256": "43CA818AB37F6E9EEF1AB27B4E4A0820C6327862ABE7822FBA806FC0C815855B"
+  },
+  {
+    "file": "devices-hero-768.png",
+    "bytes": 341351,
+    "sha256": "E91963DDCA43E68A9EB75A56C116FBD5FABDB8C68BBF4D3F34737852741DD39E"
+  },
+  {
+    "file": "pet-gallery-1024.png",
+    "bytes": 115513,
+    "sha256": "924565B69C4F7AC7A82D65977A6FD1EBEEA33F3DB92A58972C04EBED87FE105B"
+  },
+  {
+    "file": "pet-gallery-1440.png",
+    "bytes": 123067,
+    "sha256": "E92FE8FEBE0282923A05A342A6CF82268A0008E3F0C36B2F4BE9B3D6E6587672"
+  },
+  {
+    "file": "pet-gallery-320.png",
+    "bytes": 81875,
+    "sha256": "43151284AB02C037F7E71B2D02C01E7BDB5EA284454F93C83239B74034B345A1"
+  },
+  {
+    "file": "pet-gallery-390.png",
+    "bytes": 88486,
+    "sha256": "47CB4EB73557F8EC4364234938D0C324936151D7D30F8484E3F6BCF92521ED16"
+  },
+  {
+    "file": "pet-gallery-768.png",
+    "bytes": 101167,
+    "sha256": "48D73BA1655B6FD4B05EF56E23AD76819A791028E60428AE12E1A3CB9680BD76"
+  },
+  {
+    "file": "product-desktop-full.png",
+    "bytes": 1338014,
+    "sha256": "FA0180E9A9F2D027144C4E525BEBFDD23CD98EB7D5DEDCD76CB031C2B5F82B7E"
+  },
+  {
+    "file": "product-mobile-full.png",
+    "bytes": 823702,
+    "sha256": "ACD972F6847D2F424D1C4F775C2BFA51D3FB3AB9E8D85A7E099C43D599AE9254"
+  }
+]

@@ -1,0 +1,329 @@
+{
+  "version": 1,
+  "pets": [
+    {
+      "id": "mochi",
+      "name": "Mochi",
+      "species": "cat",
+      "breed": "",
+      "gender": "unknown",
+      "birthday": null,
+      "age_years": null,
+      "coat": "gold",
+      "pattern": "solid",
+      "size": "medium",
+      "likes": "",
+      "dislikes": "",
+      "photo_id": null,
+      "source": "demo"
+    }
+  ],
+  "members": [
+    {
+      "user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+      "username": "workspace-preview-20261013",
+      "display_name": "演示主人",
+      "avatar_ref": "",
+      "created_at": "2026-10-13T09:27:34.356385+00:00",
+      "role": "admin",
+      "family_label": "",
+      "status": "active",
+      "feeding_pet_ids": [],
+      "joined_at": "2026-10-13T09:27:34.450034+00:00",
+      "id": "4580e843-d128-4c60-a71b-b73341722a63",
+      "name": "演示主人"
+    }
+  ],
+  "objects": [
+    {
+      "id": "fb17fab0-c6f2-457c-92ba-fdf1ef2290af",
+      "pet_id": "mochi",
+      "kind": "nest",
+      "name": "窗边小窝",
+      "x": 19,
+      "y": 74,
+      "note": "初始展示物品，可修改"
+    },
+    {
+      "id": "36a1d123-8363-496c-ab22-621be33acd80",
+      "pet_id": "mochi",
+      "kind": "toy",
+      "name": "羽毛棒",
+      "x": 38,
+      "y": 70,
+      "note": "初始展示物品，可修改"
+    },
+    {
+      "id": "6db19d9f-980c-4aea-a34d-ee49373e6198",
+      "pet_id": "mochi",
+      "kind": "feeder",
+      "name": "模拟喂食器",
+      "x": 82,
+      "y": 48,
+      "note": "模拟设备，不连接真实硬件"
+    },
+    {
+      "id": "74f90d7a-1f3c-4e49-8cf1-7e235472d77d",
+      "pet_id": "mochi",
+      "kind": "water",
+      "name": "水碗",
+      "x": 81,
+      "y": 72,
+      "note": "初始展示物品，可修改"
+    }
+  ],
+  "tasks": [
+    {
+      "kind": "water",
+      "title": "虚构演示 · 换一碗清水",
+      "due_at": "2026-10-13T08:27:34.522000Z",
+      "interval_days": 1,
+      "assigned_to": null,
+      "id": "1ac9dc7f-1187-4570-8d36-d1bd5724d3b7",
+      "pet_id": "mochi",
+      "last_completed_at": null,
+      "completed": false,
+      "version": 1,
+      "occurrence_id": "a769a2a1-07d9-4548-a316-2d8b5ad8d65c",
+      "status": "pending",
+      "claimed_by": null,
+      "created_at": "2026-10-13T09:27:34.667060+00:00",
+      "updated_at": "2026-10-13T09:27:34.667060+00:00",
+      "revisions": [],
+      "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+      "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+    },
+    {
+      "kind": "play",
+      "title": "虚构演示 · 晚间陪玩",
+      "due_at": "2026-10-13T13:27:34.522000Z",
+      "interval_days": null,
+      "assigned_to": null,
+      "id": "c2ebb43e-fc72-4248-8469-5e2adbf72213",
+      "pet_id": "mochi",
+      "last_completed_at": null,
+      "completed": false,
+      "version": 1,
+      "occurrence_id": "8dbd33a3-83cb-466d-bbcf-ce7bd125deb8",
+      "status": "pending",
+      "claimed_by": null,
+      "created_at": "2026-10-13T09:27:34.690120+00:00",
+      "updated_at": "2026-10-13T09:27:34.690120+00:00",
+      "revisions": [],
+      "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+      "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+    },
+    {
+      "kind": "brush",
+      "title": "虚构演示 · 整理毛发",
+      "due_at": "2026-10-13T17:27:34.522000Z",
+      "interval_days": 3,
+      "assigned_to": null,
+      "id": "5d126c2d-2cd9-49f6-b853-d9f8c7a99f59",
+      "pet_id": "mochi",
+      "last_completed_at": null,
+      "completed": false,
+      "version": 1,
+      "occurrence_id": "dd2760f2-cedd-4a43-95eb-2c2cb4599376",
+      "status": "pending",
+      "claimed_by": null,
+      "created_at": "2026-10-13T09:27:34.711552+00:00",
+      "updated_at": "2026-10-13T09:27:34.711552+00:00",
+      "revisions": [],
+      "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+      "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+    }
+  ],
+  "notes": [
+    {
+      "text": "虚构演示：午后喜欢在窗边休息，陪玩时偏爱羽毛棒。",
+      "scope": "observation",
+      "activity": "play",
+      "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+      "id": "69ca7dda-a5c0-4d9c-a5aa-f8b448d7d56d",
+      "pet_id": "mochi",
+      "created_at": "2026-10-13T09:27:34.605406+00:00",
+      "source": "owner_confirmed",
+      "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+      "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+      "author_name": "演示主人",
+      "version": 1
+    }
+  ],
+  "diary": [
+    {
+      "title": "虚构演示 · 窗边的一小段时光",
+      "text": "这些文字用于检查日记页面，不代表真实宠物健康资料。",
+      "happened_on": "2026-10-13",
+      "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+      "photo_id": null,
+      "id": "ec3190d3-8e70-41f8-9055-efd5a26904d9",
+      "pet_id": "mochi",
+      "created_at": "2026-10-13T09:27:34.643366+00:00",
+      "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+      "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+      "author_name": "演示主人",
+      "version": 1
+    }
+  ],
+  "history": [
+    {
+      "id": "d81848f6-2cd3-43c2-b258-5c05c8c23e6d",
+      "pet_id": "mochi",
+      "text": "记录主人观察：虚构演示：午后喜欢在窗边休息，陪玩时偏爱羽毛棒。",
+      "actor": "演示主人",
+      "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+      "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+      "created_at": "2026-10-13T09:27:34.605406+00:00",
+      "source": "owner_record"
+    },
+    {
+      "id": "4dfc4d43-fd71-46e9-a30b-d409e88fc0db",
+      "pet_id": "mochi",
+      "text": "添加成长日记：虚构演示 · 窗边的一小段时光",
+      "actor": "演示主人",
+      "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+      "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+      "created_at": "2026-10-13T09:27:34.643366+00:00",
+      "source": "owner_record"
+    },
+    {
+      "id": "8d85bb13-8d2e-46cc-b69d-5fe5509b097b",
+      "pet_id": "mochi",
+      "text": "安排照护：虚构演示 · 换一碗清水",
+      "actor": "演示主人",
+      "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+      "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+      "created_at": "2026-10-13T09:27:34.667060+00:00",
+      "source": "owner_record"
+    },
+    {
+      "id": "7b1b7fd3-647b-44fc-9ded-c2eb6eb6e21e",
+      "pet_id": "mochi",
+      "text": "安排照护：虚构演示 · 晚间陪玩",
+      "actor": "演示主人",
+      "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+      "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+      "created_at": "2026-10-13T09:27:34.690120+00:00",
+      "source": "owner_record"
+    },
+    {
+      "id": "411b4fe0-816d-4059-8418-5b09e2350ef9",
+      "pet_id": "mochi",
+      "text": "安排照护：虚构演示 · 整理毛发",
+      "actor": "演示主人",
+      "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+      "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+      "created_at": "2026-10-13T09:27:34.711552+00:00",
+      "source": "owner_record"
+    }
+  ],
+  "processed_actions": [],
+  "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+  "measurements": [
+    {
+      "kind": "weight",
+      "value": 2.05,
+      "unit": "kg",
+      "measured_at": "2026-10-06T09:27:34.522000Z",
+      "source": "demo_sample",
+      "diet_type": null,
+      "note": "虚构演示样本，仅供界面检查",
+      "id": "96eebdd4-ec75-476e-93ff-fbecb67e7292",
+      "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+      "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+      "value_g": 2050.0,
+      "recorded_at": "2026-10-13T09:27:34.566172+00:00",
+      "version": 1,
+      "deleted": false,
+      "corrections": [],
+      "pet_id": "mochi"
+    },
+    {
+      "kind": "weight",
+      "value": 2.1,
+      "unit": "kg",
+      "measured_at": "2026-10-13T09:27:34.522000Z",
+      "source": "demo_sample",
+      "diet_type": null,
+      "note": "虚构演示样本，仅供界面检查",
+      "id": "92a66a6d-ad86-4642-8993-90a4ebb9fcdd",
+      "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+      "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+      "value_g": 2100.0,
+      "recorded_at": "2026-10-13T09:27:34.587760+00:00",
+      "version": 1,
+      "deleted": false,
+      "corrections": [],
+      "pet_id": "mochi"
+    }
+  ],
+  "reports": [
+    {
+      "report_id": "b8104850-df41-41b8-a6e6-7cef6787d5fe",
+      "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+      "pet_id": "mochi",
+      "period": "daily",
+      "date": "2026-10-12",
+      "window_start": "2026-10-11T16:00:00+00:00",
+      "window_end": "2026-10-12T16:00:00+00:00",
+      "cutoff": "2026-10-12T16:00:00+00:00",
+      "generated_at": "2026-10-13T09:28:33.330123+00:00",
+      "stat_version": 8,
+      "status": "current",
+      "notification": "not_sent",
+      "source_record_ids": [
+        "96eebdd4-ec75-476e-93ff-fbecb67e7292"
+      ],
+      "source_versions": {
+        "96eebdd4-ec75-476e-93ff-fbecb67e7292": 1
+      },
+      "coverage": {
+        "weight_measurements": 0,
+        "diet_records": 0,
+        "incomplete_window": false,
+        "tasks_without_creation_time": 0
+      },
+      "weight": {
+        "change_g": null,
+        "change_percent": null,
+        "span_days": null,
+        "source_record_ids": [
+          "96eebdd4-ec75-476e-93ff-fbecb67e7292"
+        ],
+        "latest_g": 2050.0,
+        "description": "实际测量跨度；群体参考不能用于诊断"
+      },
+      "diet": {
+        "actual_intake_g": null,
+        "food_offered_g": null,
+        "dispensed_g": null,
+        "remaining_g": null,
+        "simulated_device_dispensed_g": null
+      },
+      "care": {
+        "manual_completed": 0,
+        "device_success": null,
+        "device_failed": 0,
+        "device_unknown": 0,
+        "device_results_simulated": true,
+        "pending": 0,
+        "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+        "overdue": 0,
+        "by_member": {}
+      },
+      "growth": {
+        "diary_count": 0
+      }
+    }
+  ],
+  "memories": [],
+  "proposals": [],
+  "occurrences": [],
+  "revision": 8,
+  "device_receipts": [],
+  "simulated_device_connected": false,
+  "photo_recognition_enabled": false,
+  "storage": "sqlite_local",
+  "member_identity": "local_account"
+}

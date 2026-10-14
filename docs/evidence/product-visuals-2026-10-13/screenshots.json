@@ -1,0 +1,87 @@
+[
+  {
+    "file": "case-growth-1440.png",
+    "bytes": 169261,
+    "sha256": "39C3729F5429DB7E6D96F67175FE7CF2512ED1D129857AD0E0732C6BADDAE533"
+  },
+  {
+    "file": "case-growth-320.png",
+    "bytes": 125826,
+    "sha256": "34EE0BAB4D65CBC896C585321CF65E8CC9A7BA57D8AE232F8336961284856BE0"
+  },
+  {
+    "file": "case-growth-390.png",
+    "bytes": 132972,
+    "sha256": "59F7C8443927E1CB069AB1AE7376EA5F057457D2BCBEFE64C214B18CFC13F1AC"
+  },
+  {
+    "file": "case-handoff-1440.png",
+    "bytes": 130001,
+    "sha256": "D12A71FEE04C6DB8180783E0AC74FEEA5992A9B825510E94B8A19AD17BF2A075"
+  },
+  {
+    "file": "case-handoff-320.png",
+    "bytes": 102922,
+    "sha256": "3E0982EC5AB4F9CD5838FD181EEB8EB6A8A936A7F54ABE7254274904B5F4F6DD"
+  },
+  {
+    "file": "case-handoff-390.png",
+    "bytes": 105389,
+    "sha256": "A7978D0947951FBFAFE6EF9B02F8160AE09D5A2C51CA67E6E2B5D908C0B1F1B7"
+  },
+  {
+    "file": "case-preferences-1440.png",
+    "bytes": 140432,
+    "sha256": "6BCD5BAFF2B51BAD2127102ECA67C624BDD90F08D0FF885AC89E9FF49A6FF314"
+  },
+  {
+    "file": "case-preferences-320.png",
+    "bytes": 111402,
+    "sha256": "76274BFB2E43F7A425FB40AB1B228C7AF6DB7F4E43F94B9B2AC6CCC72955535D"
+  },
+  {
+    "file": "case-preferences-390.png",
+    "bytes": 117670,
+    "sha256": "61750E500BB68EC9F18858EC7039BDBDC092A4ACAAAB896DDEFDE3915C37518E"
+  },
+  {
+    "file": "devices-hero-1440.png",
+    "bytes": 602677,
+    "sha256": "61FB6D4BE19576BB4C219BF049E16BE02AC3B6926F76B285B684B2F53EB2580B"
+  },
+  {
+    "file": "devices-hero-320.png",
+    "bytes": 188691,
+    "sha256": "C3FF329BB8B98C09BB79C3AF2532BD25B7B8AFEDC2510F3A931E6C59A71947A5"
+  },
+  {
+    "file": "devices-hero-390.png",
+    "bytes": 209757,
+    "sha256": "B962926004347A9B5B0D16C4A8BAD544DF3C7002B413A9A8E11A22B7E65CA648"
+  },
+  {
+    "file": "pet-gallery-1440.png",
+    "bytes": 152823,
+    "sha256": "A32FACBFE32CDBAB495AE5727B8A601030428BD9315B1428EACA6427F9E62F31"
+  },
+  {
+    "file": "pet-gallery-320.png",
+    "bytes": 104463,
+    "sha256": "F0F2051B7F12274049E89D2A38A71294E642541580B6B11B212FA2FFCB321217"
+  },
+  {
+    "file": "pet-gallery-390.png",
+    "bytes": 111510,
+    "sha256": "04BC8128FFF88EE6DEFE657A1A60DCE96A02BB1391052C734B0F288A1D308A95"
+  },
+  {
+    "file": "product-desktop-full.png",
+    "bytes": 1652851,
+    "sha256": "62EEBAFF574874E6BC7C365C8B5071E1083A98BDD6418B564AE23BA327C026A9"
+  },
+  {
+    "file": "product-mobile-full.png",
+    "bytes": 1033042,
+    "sha256": "D4173791187A6F8396915FF18CED01C1F04140C96FD373A11E1AEBFD869522EF"
+  }
+]

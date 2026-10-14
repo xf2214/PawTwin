@@ -1,0 +1,7 @@
+Offline source: C:\Users\11831\Desktop\hks\outputs\pawtwin-app\docs\evidence\hackathon-capture\2026-10-11-final
+SAPI voice: Microsoft Zira Desktop
+System.VoidValueTypeParameter
+{"duration_seconds":170.0185034,"width":1920,"height":1080,"bitrate":1228016,"video_codec":"H264","audio_codec":"AAC","audio_channels":1,"audio_sample_rate":44100,"audio_bitrate":96000}
+System.VoidValueTypeParameter
+{"duration_seconds":170.0165079,"width":0,"height":0,"bitrate":0,"video_codec":null,"audio_codec":"PCM","audio_channels":1,"audio_sample_rate":44100,"audio_bitrate":705600}
+Decoded actual MP4 frames: 13

@@ -19,6 +19,9 @@ class PetInput(HomeInput):
     breed: str = Field(default="", max_length=80)
     gender: Literal["unknown", "female", "male"] = "unknown"
     birthday: date | None = None
+    birthday_estimated: bool = False
+    neutered: bool | None = None
+    expected_adult_weight_kg: float | None = Field(default=None, gt=0, le=200, allow_inf_nan=False)
     age_years: float | None = Field(default=None, ge=0, le=50)
     coat: Literal["gold", "gray", "cream", "black", "white"] = "gold"
     pattern: Literal["solid", "stripes", "spots"] = "solid"
@@ -64,8 +67,12 @@ class TaskInput(HomeInput):
 
 class TaskAction(HomeInput):
     event_id: UUID
-    actor_id: UUID
-    action: Literal["complete", "postpone"]
+    actor_id: UUID | None = None
+    action: Literal["complete", "postpone", "claim", "transfer", "edit", "cancel"]
+    version: int | None = Field(default=None, ge=1)
+    assigned_to: UUID | None = None
+    title: str | None = Field(default=None, min_length=1, max_length=80)
+    interval_days: int | None = Field(default=None, ge=1, le=365)
     next_due: datetime | None = None
     note: str = Field(default="", max_length=300)
 
@@ -74,14 +81,14 @@ class NoteInput(HomeInput):
     text: str = Field(min_length=1, max_length=500)
     scope: Literal["today", "preference", "observation"] = "observation"
     activity: CareKind | Literal["general"] = "general"
-    actor_id: UUID
+    actor_id: UUID | None = None
 
 
 class DiaryInput(HomeInput):
     title: str = Field(min_length=1, max_length=80)
     text: str = Field(default="", max_length=2000)
     happened_on: date
-    actor_id: UUID
+    actor_id: UUID | None = None
     photo_id: UUID | None = None
 
 

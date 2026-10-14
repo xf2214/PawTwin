@@ -1,0 +1,32 @@
+
+[WebServer] INFO:     Started server process [154076]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8825 (Press CTRL+C to quit)
+
+
+Running 17 tests using 1 worker
+
+
+(node:152164) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/17] e2e\usability.spec.ts:27:1 › growth deep link survives signup, refresh and browser navigation
+[2/17] e2e\usability.spec.ts:38:1 › editing only a recurring task title preserves its future time and interval
+[3/17] e2e\usability.spec.ts:54:1 › repeating care completion stays visible in completed history and keeps its next plan
+[4/17] e2e\usability.spec.ts:72:1 › daily queue uses household day and keeps completed care out of active filters
+[5/17] e2e\usability.spec.ts:107:1 › a failed measurement read preserves reports and retries the failed resource
+[6/17] e2e\usability.spec.ts:127:1 › a late growth read cannot replace the selected pet data
+[7/17] e2e\usability.spec.ts:149:1 › constant and dense real measurements remain accessible and range-filtered
+[8/17] e2e\usability.spec.ts:168:1 › equivalent timestamp offsets do not fabricate a zero-day weight change
+[9/17] e2e\usability.spec.ts:186:3 › care started from a toy preserves the intended play type
+[10/17] e2e\usability.spec.ts:186:3 › care started from a water preserves the intended water type
+[11/17] e2e\usability.spec.ts:186:3 › care started from a nest preserves the intended clean type
+[12/17] e2e\usability.spec.ts:203:1 › a forbidden child read removes previously shown household data
+[13/17] e2e\usability.spec.ts:216:1 › the observation shortcut focuses its real field after a delayed home read
+[14/17] e2e\usability.spec.ts:233:1 › changing care type preserves the chosen time, repetition and assignee
+[15/17] e2e\usability.spec.ts:256:3 › daily application at 320px stays readable and keyboard accessible
+[16/17] e2e\usability.spec.ts:256:3 › daily application at 390px stays readable and keyboard accessible
+[17/17] e2e\usability.spec.ts:256:3 › daily application at 1440px stays readable and keyboard accessible
+  17 passed (43.5s)

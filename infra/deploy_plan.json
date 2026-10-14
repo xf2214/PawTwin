@@ -16,8 +16,8 @@
     "The AgentCore namespaceTemplates below are paired EXACTLY with",
     "pawtwin.memory.AgentCoreMemory._namespace ('/owner/<owner>/pet/<pet>'); a",
     "cross-source guard test (tests/test_deploy_plan.py) fails if they drift",
-    "(ruling 10). The exact AgentCore template placeholder SYNTAX is unverified",
-    "without an account and must be confirmed at apply time."
+    "(ruling 10). namespaceKeys and namespaceTemplates use the current SDK/API",
+    "contract; extraction and retrieval still require real-account evidence."
   ],
   "version": 1,
   "project": "pawtwin",
@@ -71,12 +71,12 @@
       "depends_on": [],
       "params": {
         "name": "<PAWTWIN_AGENTCORE_MEMORY_NAME>",
-        "event_expiry_duration": "P30D",
+        "event_expiry_duration": 30,
         "memory_strategies": [
           {
             "userPreferenceMemoryStrategy": {
-              "name": "pawtwin-owner-preference",
-              "namespaces": ["/owner/{owner}/pet/{pet}"]
+              "name": "pawtwin_owner_preference",
+              "namespaceTemplates": ["/owner/{owner}/pet/{pet}"]
             }
           }
         ],
@@ -132,7 +132,7 @@
           ]
         },
         "managed_policy_arns": [
-          "arn:aws:iam::aws:policy/aws-service-role/AmazonECSInfrastructureRoleforExpressGatewayServices"
+          "arn:aws:iam::aws:policy/service-role/AmazonECSInfrastructureRoleforExpressGatewayServices"
         ]
       }
     },
@@ -141,7 +141,7 @@
       "type": "iam_oidc_provider",
       "depends_on": [],
       "params": {
-        "url": "token.actions.githubusercontent.com",
+        "url": "https://token.actions.githubusercontent.com",
         "client_id_list": ["sts.amazonaws.com"],
         "thumbprint_list": ["<OIDC_THUMBPRINT>"],
         "_note": "ruling 14: GitHub Actions OIDC. Fallback D: if IAM admin is unavailable, the user creates this and the role manually and supplies the role ARN; no long-lived key is ever requested."
@@ -185,8 +185,8 @@
       ],
       "params": {
         "service_name": "pawtwin",
-        "cpu": "1",
-        "memory": "2",
+        "cpu": "1024",
+        "memory": "2048",
         "cpu_architecture": "X86_64",
         "health_check_path": "/healthz",
         "primary_container": {

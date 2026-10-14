@@ -1,0 +1,41 @@
+[
+  {
+    "target": "legacy-8807",
+    "household_id": "demo-owner",
+    "already_populated": false,
+    "weight_samples": 7,
+    "all_weight_records": 7,
+    "demo_plans": 6,
+    "demo_completions": 3,
+    "confirmed_preferences": 3,
+    "generated_reports": 4,
+    "today_report_manual_completed": 3,
+    "today_report_sources": 23
+  },
+  {
+    "target": "legacy-8834",
+    "household_id": "demo-owner",
+    "already_populated": false,
+    "weight_samples": 7,
+    "all_weight_records": 7,
+    "demo_plans": 6,
+    "demo_completions": 3,
+    "confirmed_preferences": 3,
+    "generated_reports": 4,
+    "today_report_manual_completed": 3,
+    "today_report_sources": 26
+  },
+  {
+    "target": "family-8834",
+    "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+    "already_populated": false,
+    "weight_samples": 7,
+    "all_weight_records": 9,
+    "demo_plans": 6,
+    "demo_completions": 3,
+    "confirmed_preferences": 3,
+    "generated_reports": 4,
+    "today_report_manual_completed": 3,
+    "today_report_sources": 35
+  }
+]

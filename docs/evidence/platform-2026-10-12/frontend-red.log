@@ -1,0 +1,82 @@
+
+[WebServer] INFO:     Started server process [140516]
+[WebServer] INFO:     Waiting for application startup.
+
+[WebServer] INFO:     Application startup complete.
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8822 (Press CTRL+C to quit)
+
+Running 2 tests using 1 worker
+
+(node:153016) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/2] frontend\e2e\platform.spec.ts:34:1 › visit HTML download is a self-contained escaped pet snapshot and printing uses it
+  1) frontend\e2e\platform.spec.ts:34:1 › visit HTML download is a self-contained escaped pet snapshot and printing uses it 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '导出就诊信息卡（诊断资料）', exact: true })
+
+
+      27 | async function openCard(page: Page) {
+      28 |   await page.getByRole("button", { name: "成长", exact: true }).click();
+    > 29 |   await page.getByRole("button", { name: "导出就诊信息卡（诊断资料）", exact: true }).click();
+         |                                                                          ^
+      30 |   await page.getByRole("button", { name: "生成信息卡", exact: true }).click();
+      31 |   await expect(page.getByRole("region", { name: "就诊信息卡快照" })).toBeVisible();
+      32 | }
+        at openCard (C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\platform.spec.ts:29:74)
+        at C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\platform.spec.ts:44:3
+
+    Error Context: docs\evidence\platform-2026-10-12\frontend-red-results\platform-visit-HTML-downlo-530a6-apshot-and-printing-uses-it\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    docs\evidence\platform-2026-10-12\frontend-red-results\platform-visit-HTML-downlo-530a6-apshot-and-printing-uses-it\trace.zip
+    Usage:
+
+        npx playwright show-trace docs\evidence\platform-2026-10-12\frontend-red-results\platform-visit-HTML-downlo-530a6-apshot-and-printing-uses-it\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:145156) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[2/2] frontend\e2e\platform.spec.ts:66:1 › an administrator grants one pet and a separate visitor reads and chats until revocation
+  2) frontend\e2e\platform.spec.ts:66:1 › an administrator grants one pet and a separate visitor reads and chats until revocation 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.selectOption: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByLabel('访问有效期')
+
+
+      69 |   await mutate(page, "/api/home/pets/mochi/diary", { title: "私人日记不开放", text: "私人日记秘密", happened_on: new Date().toISOString().slice(0, 10) });
+      70 |   await page.getByRole("button", { name: "家庭", exact: true }).click();
+    > 71 |   await page.getByLabel("访问有效期").selectOption("24");
+         |                                  ^
+      72 |   await page.getByRole("button", { name: "授权照护者访问分身", exact: true }).click();
+      73 |   const link = await page.getByLabel("新的只读访问链接").inputValue();
+      74 |   expect(link).toContain("#pet-access=");
+        at C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\platform.spec.ts:71:34
+
+    Error Context: docs\evidence\platform-2026-10-12\frontend-red-results\platform-an-administrator--c737b--and-chats-until-revocation\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    docs\evidence\platform-2026-10-12\frontend-red-results\platform-an-administrator--c737b--and-chats-until-revocation\trace.zip
+    Usage:
+
+        npx playwright show-trace docs\evidence\platform-2026-10-12\frontend-red-results\platform-an-administrator--c737b--and-chats-until-revocation\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  2 failed
+    frontend\e2e\platform.spec.ts:34:1 › visit HTML download is a self-contained escaped pet snapshot and printing uses it 
+    frontend\e2e\platform.spec.ts:66:1 › an administrator grants one pet and a separate visitor reads and chats until revocation 

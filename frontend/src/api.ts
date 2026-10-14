@@ -205,6 +205,10 @@ export class ApiError extends Error {
 // login; the session cookie is HttpOnly and managed by the browser.
 let csrfToken: string | null = null
 
+export function restoreCsrf(token: string): void {
+  csrfToken = token
+}
+
 export function hasCsrf(): boolean {
   return csrfToken !== null
 }

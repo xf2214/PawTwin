@@ -1,0 +1,823 @@
+
+[WebServer] INFO:     Started server process [126776]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8831 (Press CTRL+C to quit)
+
+
+Running 28 tests using 1 worker
+
+(node:126380) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/28] e2e\platform.spec.ts:33:1 › visit HTML download is a self-contained escaped pet snapshot and printing uses it
+  1) e2e\platform.spec.ts:33:1 › visit HTML download is a self-contained escaped pet snapshot and printing uses it 
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-visit-HTML-downlo-530a6-apshot-and-printing-uses-it\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-visit-HTML-downlo-530a6-apshot-and-printing-uses-it\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-visit-HTML-downlo-530a6-apshot-and-printing-uses-it\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:144912) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/28] e2e\platform.spec.ts:75:1 › an administrator grants one pet and a separate visitor reads and chats until revocation
+  2) e2e\platform.spec.ts:75:1 › an administrator grants one pet and a separate visitor reads and chats until revocation 
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-an-administrator--c737b--and-chats-until-revocation\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-an-administrator--c737b--and-chats-until-revocation\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-an-administrator--c737b--and-chats-until-revocation\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:150876) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[3/28] e2e\platform.spec.ts:106:1 › card download requires current household permission and cannot replace a frozen changed snapshot
+  3) e2e\platform.spec.ts:106:1 › card download requires current household permission and cannot replace a frozen changed snapshot 
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-card-download-req-a3947-e-a-frozen-changed-snapshot\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-card-download-req-a3947-e-a-frozen-changed-snapshot\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-card-download-req-a3947-e-a-frozen-changed-snapshot\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:153948) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[4/28] e2e\platform.spec.ts:136:1 › invalid access ignores an owner cookie and never restores family session data
+  4) e2e\platform.spec.ts:136:1 › invalid access ignores an owner cookie and never restores family session data 
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-invalid-access-ig-c75f7-estores-family-session-data\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-invalid-access-ig-c75f7-estores-family-session-data\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-invalid-access-ig-c75f7-estores-family-session-data\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:137584) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[5/28] e2e\platform.spec.ts:146:1 › manual copy fallback and a mobile visitor preserve real diet and completion meanings
+  5) e2e\platform.spec.ts:146:1 › manual copy fallback and a mobile visitor preserve real diet and completion meanings 
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-manual-copy-fallb-64cec-iet-and-completion-meanings\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-manual-copy-fallb-64cec-iet-and-completion-meanings\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-manual-copy-fallb-64cec-iet-and-completion-meanings\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:137388) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[6/28] e2e\platform.spec.ts:179:1 › a delayed visitor response cannot reveal the previously authorized pet after switching links
+  6) e2e\platform.spec.ts:179:1 › a delayed visitor response cannot reveal the previously authorized pet after switching links 
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-a-delayed-visitor-f1037-d-pet-after-switching-links\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-a-delayed-visitor-f1037-d-pet-after-switching-links\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-a-delayed-visitor-f1037-d-pet-after-switching-links\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:150020) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[7/28] e2e\platform.spec.ts:204:1 › latest real weight outside the selected window retains its date and demo inclusion is explicit
+  7) e2e\platform.spec.ts:204:1 › latest real weight outside the selected window retains its date and demo inclusion is explicit 
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-latest-real-weigh-a8530--demo-inclusion-is-explicit\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-latest-real-weigh-a8530--demo-inclusion-is-explicit\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-latest-real-weigh-a8530--demo-inclusion-is-explicit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:153712) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[8/28] e2e\platform.spec.ts:222:1 › closing a delayed card and switching pets isolates late data and allows an actual retry
+  8) e2e\platform.spec.ts:222:1 › closing a delayed card and switching pets isolates late data and allows an actual retry 
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-closing-a-delayed-6085d--and-allows-an-actual-retry\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-closing-a-delayed-6085d--and-allows-an-actual-retry\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-closing-a-delayed-6085d--and-allows-an-actual-retry\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:144808) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[9/28] e2e\platform.spec.ts:252:3 › visit preview and grant controls stay readable at 320px
+  9) e2e\platform.spec.ts:252:3 › visit preview and grant controls stay readable at 320px ──────────
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-visit-preview-and-e02ef-rols-stay-readable-at-320px\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-visit-preview-and-e02ef-rols-stay-readable-at-320px\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-visit-preview-and-e02ef-rols-stay-readable-at-320px\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+(node:148772) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[10/28] e2e\platform.spec.ts:252:3 › visit preview and grant controls stay readable at 390px
+  10) e2e\platform.spec.ts:252:3 › visit preview and grant controls stay readable at 390px ─────────
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-visit-preview-and-7cf96-rols-stay-readable-at-390px\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-visit-preview-and-7cf96-rols-stay-readable-at-390px\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-visit-preview-and-7cf96-rols-stay-readable-at-390px\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:153864) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[11/28] e2e\platform.spec.ts:252:3 › visit preview and grant controls stay readable at 1440px
+  11) e2e\platform.spec.ts:252:3 › visit preview and grant controls stay readable at 1440px ────────
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-visit-preview-and-564de-ols-stay-readable-at-1440px\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-visit-preview-and-564de-ols-stay-readable-at-1440px\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\platform-visit-preview-and-564de-ols-stay-readable-at-1440px\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:153308) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[12/28] e2e\usability.spec.ts:27:1 › growth deep link survives signup, refresh and browser navigation
+  12) e2e\usability.spec.ts:27:1 › growth deep link survives signup, refresh and browser navigation 
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-growth-deep-link-3650b-resh-and-browser-navigation\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-growth-deep-link-3650b-resh-and-browser-navigation\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-growth-deep-link-3650b-resh-and-browser-navigation\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:154044) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[13/28] e2e\usability.spec.ts:38:1 › editing only a recurring task title preserves its future time and interval
+  13) e2e\usability.spec.ts:38:1 › editing only a recurring task title preserves its future time and interval 
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-editing-only-a-r-936e3-ts-future-time-and-interval\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-editing-only-a-r-936e3-ts-future-time-and-interval\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-editing-only-a-r-936e3-ts-future-time-and-interval\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:120060) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[14/28] e2e\usability.spec.ts:54:1 › repeating care completion stays visible in completed history and keeps its next plan
+  14) e2e\usability.spec.ts:54:1 › repeating care completion stays visible in completed history and keeps its next plan 
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-repeating-care-c-ab2bc-ory-and-keeps-its-next-plan\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-repeating-care-c-ab2bc-ory-and-keeps-its-next-plan\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-repeating-care-c-ab2bc-ory-and-keeps-its-next-plan\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+(node:145824) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[15/28] e2e\usability.spec.ts:72:1 › daily queue uses household day and keeps completed care out of active filters
+  15) e2e\usability.spec.ts:72:1 › daily queue uses household day and keeps completed care out of active filters 
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-daily-queue-uses-907a2--care-out-of-active-filters\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-daily-queue-uses-907a2--care-out-of-active-filters\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-daily-queue-uses-907a2--care-out-of-active-filters\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:152556) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[16/28] e2e\usability.spec.ts:107:1 › a failed measurement read preserves reports and retries the failed resource
+  16) e2e\usability.spec.ts:107:1 › a failed measurement read preserves reports and retries the failed resource 
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-a-failed-measure-b196e-retries-the-failed-resource\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-a-failed-measure-b196e-retries-the-failed-resource\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-a-failed-measure-b196e-retries-the-failed-resource\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:149604) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[17/28] e2e\usability.spec.ts:127:1 › a late growth read cannot replace the selected pet data
+  17) e2e\usability.spec.ts:127:1 › a late growth read cannot replace the selected pet data ────────
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-a-late-growth-re-a15a4-place-the-selected-pet-data\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-a-late-growth-re-a15a4-place-the-selected-pet-data\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-a-late-growth-re-a15a4-place-the-selected-pet-data\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:132756) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[18/28] e2e\usability.spec.ts:149:1 › constant and dense real measurements remain accessible and range-filtered
+  18) e2e\usability.spec.ts:149:1 › constant and dense real measurements remain accessible and range-filtered 
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-constant-and-den-8888a-cessible-and-range-filtered\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-constant-and-den-8888a-cessible-and-range-filtered\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-constant-and-den-8888a-cessible-and-range-filtered\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:151300) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[19/28] e2e\usability.spec.ts:168:1 › equivalent timestamp offsets do not fabricate a zero-day weight change
+  19) e2e\usability.spec.ts:168:1 › equivalent timestamp offsets do not fabricate a zero-day weight change 
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-equivalent-times-2567c-te-a-zero-day-weight-change\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-equivalent-times-2567c-te-a-zero-day-weight-change\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-equivalent-times-2567c-te-a-zero-day-weight-change\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:140548) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[20/28] e2e\usability.spec.ts:186:3 › care started from a toy preserves the intended play type
+  20) e2e\usability.spec.ts:186:3 › care started from a toy preserves the intended play type ───────
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-care-started-fro-37edd-rves-the-intended-play-type\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-care-started-fro-37edd-rves-the-intended-play-type\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-care-started-fro-37edd-rves-the-intended-play-type\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:139496) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[21/28] e2e\usability.spec.ts:186:3 › care started from a water preserves the intended water type
+  21) e2e\usability.spec.ts:186:3 › care started from a water preserves the intended water type ────
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-care-started-fro-07e64-ves-the-intended-water-type\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-care-started-fro-07e64-ves-the-intended-water-type\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-care-started-fro-07e64-ves-the-intended-water-type\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:112004) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[22/28] e2e\usability.spec.ts:186:3 › care started from a nest preserves the intended clean type
+  22) e2e\usability.spec.ts:186:3 › care started from a nest preserves the intended clean type ─────
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-care-started-fro-44e33-ves-the-intended-clean-type\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-care-started-fro-44e33-ves-the-intended-clean-type\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-care-started-fro-44e33-ves-the-intended-clean-type\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:107984) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[23/28] e2e\usability.spec.ts:203:1 › a forbidden child read removes previously shown household data
+  23) e2e\usability.spec.ts:203:1 › a forbidden child read removes previously shown household data ─
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-a-forbidden-chil-2f7eb-iously-shown-household-data\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-a-forbidden-chil-2f7eb-iously-shown-household-data\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-a-forbidden-chil-2f7eb-iously-shown-household-data\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:147588) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[24/28] e2e\usability.spec.ts:216:1 › the observation shortcut focuses its real field after a delayed home read
+  24) e2e\usability.spec.ts:216:1 › the observation shortcut focuses its real field after a delayed home read 
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-the-observation--1df78-d-after-a-delayed-home-read\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-the-observation--1df78-d-after-a-delayed-home-read\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-the-observation--1df78-d-after-a-delayed-home-read\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:139052) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[25/28] e2e\usability.spec.ts:233:1 › changing care type preserves the chosen time, repetition and assignee
+  25) e2e\usability.spec.ts:233:1 › changing care type preserves the chosen time, repetition and assignee 
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-changing-care-ty-99596-ime-repetition-and-assignee\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-changing-care-ty-99596-ime-repetition-and-assignee\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-changing-care-ty-99596-ime-repetition-and-assignee\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:155036) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[26/28] e2e\usability.spec.ts:256:3 › daily application at 320px stays readable and keyboard accessible
+  26) e2e\usability.spec.ts:256:3 › daily application at 320px stays readable and keyboard accessible 
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-daily-applicatio-dda74-ble-and-keyboard-accessible\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-daily-applicatio-dda74-ble-and-keyboard-accessible\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-daily-applicatio-dda74-ble-and-keyboard-accessible\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:153320) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[27/28] e2e\usability.spec.ts:256:3 › daily application at 390px stays readable and keyboard accessible
+  27) e2e\usability.spec.ts:256:3 › daily application at 390px stays readable and keyboard accessible 
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-daily-applicatio-7ecac-ble-and-keyboard-accessible\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-daily-applicatio-7ecac-ble-and-keyboard-accessible\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-daily-applicatio-7ecac-ble-and-keyboard-accessible\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:143480) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[28/28] e2e\usability.spec.ts:256:3 › daily application at 1440px stays readable and keyboard accessible
+  28) e2e\usability.spec.ts:256:3 › daily application at 1440px stays readable and keyboard accessible 
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\11831\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-daily-applicatio-26d9c-ble-and-keyboard-accessible\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-daily-applicatio-26d9c-ble-and-keyboard-accessible\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\browser-features-results\usability-daily-applicatio-26d9c-ble-and-keyboard-accessible\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  28 failed
+    e2e\platform.spec.ts:33:1 › visit HTML download is a self-contained escaped pet snapshot and printing uses it 
+    e2e\platform.spec.ts:75:1 › an administrator grants one pet and a separate visitor reads and chats until revocation 
+    e2e\platform.spec.ts:106:1 › card download requires current household permission and cannot replace a frozen changed snapshot 
+    e2e\platform.spec.ts:136:1 › invalid access ignores an owner cookie and never restores family session data 
+    e2e\platform.spec.ts:146:1 › manual copy fallback and a mobile visitor preserve real diet and completion meanings 
+    e2e\platform.spec.ts:179:1 › a delayed visitor response cannot reveal the previously authorized pet after switching links 
+    e2e\platform.spec.ts:204:1 › latest real weight outside the selected window retains its date and demo inclusion is explicit 
+    e2e\platform.spec.ts:222:1 › closing a delayed card and switching pets isolates late data and allows an actual retry 
+    e2e\platform.spec.ts:252:3 › visit preview and grant controls stay readable at 320px ───────────
+    e2e\platform.spec.ts:252:3 › visit preview and grant controls stay readable at 390px ───────────
+    e2e\platform.spec.ts:252:3 › visit preview and grant controls stay readable at 1440px ──────────
+    e2e\usability.spec.ts:27:1 › growth deep link survives signup, refresh and browser navigation ──
+    e2e\usability.spec.ts:38:1 › editing only a recurring task title preserves its future time and interval 
+    e2e\usability.spec.ts:54:1 › repeating care completion stays visible in completed history and keeps its next plan 
+    e2e\usability.spec.ts:72:1 › daily queue uses household day and keeps completed care out of active filters 
+    e2e\usability.spec.ts:107:1 › a failed measurement read preserves reports and retries the failed resource 
+    e2e\usability.spec.ts:127:1 › a late growth read cannot replace the selected pet data ──────────
+    e2e\usability.spec.ts:149:1 › constant and dense real measurements remain accessible and range-filtered 
+    e2e\usability.spec.ts:168:1 › equivalent timestamp offsets do not fabricate a zero-day weight change 
+    e2e\usability.spec.ts:186:3 › care started from a toy preserves the intended play type ─────────
+    e2e\usability.spec.ts:186:3 › care started from a water preserves the intended water type ──────
+    e2e\usability.spec.ts:186:3 › care started from a nest preserves the intended clean type ───────
+    e2e\usability.spec.ts:203:1 › a forbidden child read removes previously shown household data ───
+    e2e\usability.spec.ts:216:1 › the observation shortcut focuses its real field after a delayed home read 
+    e2e\usability.spec.ts:233:1 › changing care type preserves the chosen time, repetition and assignee 
+    e2e\usability.spec.ts:256:3 › daily application at 320px stays readable and keyboard accessible 
+    e2e\usability.spec.ts:256:3 › daily application at 390px stays readable and keyboard accessible 
+    e2e\usability.spec.ts:256:3 › daily application at 1440px stays readable and keyboard accessible 

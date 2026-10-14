@@ -1,0 +1,27 @@
+
+[WebServer] INFO:     Started server process [145364]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8832 (Press CTRL+C to quit)
+
+
+Running 12 tests using 1 worker
+
+
+(node:154992) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/12] e2e\platform.spec.ts:33:1 › visit HTML download is a self-contained escaped pet snapshot and printing uses it
+[2/12] e2e\platform.spec.ts:75:1 › an administrator grants one pet and a separate visitor reads and chats until revocation
+[3/12] e2e\platform.spec.ts:106:1 › card download requires current household permission and cannot replace a frozen changed snapshot
+[4/12] e2e\platform.spec.ts:136:1 › invalid access ignores an owner cookie and never restores family session data
+[5/12] e2e\platform.spec.ts:146:1 › a family guest reads the overview with honest missing state while existing POST permissions stay enforced
+[6/12] e2e\platform.spec.ts:170:1 › manual copy fallback and a mobile visitor preserve real diet and completion meanings
+[7/12] e2e\platform.spec.ts:203:1 › a delayed visitor response cannot reveal the previously authorized pet after switching links
+[8/12] e2e\platform.spec.ts:228:1 › latest real weight outside the selected window retains its date and demo inclusion is explicit
+[9/12] e2e\platform.spec.ts:246:1 › closing a delayed card and switching pets isolates late data and allows an actual retry
+[10/12] e2e\platform.spec.ts:276:3 › visit preview and grant controls stay readable at 320px
+[11/12] e2e\platform.spec.ts:276:3 › visit preview and grant controls stay readable at 390px
+[12/12] e2e\platform.spec.ts:276:3 › visit preview and grant controls stay readable at 1440px
+  12 passed (30.0s)

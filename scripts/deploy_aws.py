@@ -74,6 +74,7 @@ def resolve_value(value: Any, context: dict[str, str], missing: set[str]) -> Any
     """
 
     if isinstance(value, str):
+
         def _sub(match: re.Match[str]) -> str:
             key = match.group(1)
             if key in context:
@@ -130,7 +131,27 @@ def build_plan_report(plan: dict[str, Any], context: dict[str, str]) -> dict[str
                 "params": resolved,
             }
         )
-    return {"project": plan["project"], "steps": steps, "missing": sorted(missing)}
+    return {
+        "project": plan["project"],
+        "steps": steps,
+        "missing": sorted(missing),
+        "runtime_blockers": runtime_blockers(plan),
+    }
+
+
+def runtime_blockers(plan: dict[str, Any]) -> list[str]:
+    """Do not create a paid stack known to lack application runtime permissions."""
+    blockers = []
+    for resource in plan["resources"]:
+        params = resource["params"]
+        if resource["type"] == "ecs_express_service":
+            if not params.get("task_role_arn"):
+                blockers.append("ECS application task role is not configured/wired")
+            if not params["primary_container"].get("secrets"):
+                blockers.append("Strong demo passphrase secret injection is not configured/wired")
+        if resource["logical_id"] == "github_actions_role" and not params.get("inline_policies"):
+            blockers.append("GitHub role ECR push policy is not configured/wired")
+    return blockers
 
 
 # --- real, billable apply path (boto3; NEVER exercised without an account) -----
@@ -149,15 +170,49 @@ def _apply(plan: dict[str, Any], context: dict[str, str], region: str) -> dict[s
     Any exception propagates as a real failure (no stand-in, no silent success).
     """
 
-    state: dict[str, Any] = {"project": plan["project"], "region": region, "resources": {}}
+    if STATE_PATH.exists():
+        raise ValueError("Deployment state already exists; inspect/clean it before a new apply")
+    state: dict[str, Any] = {
+        "project": plan["project"],
+        "region": region,
+        "resources": {},
+        "attempts": {},
+    }
+    _persist_state(state)
     tags_map: dict[str, str] = plan.get("tags", {})
     for resource in topological_order(plan):
         params = resolve_value(resource["params"], context, set())
         logical_id = resource["logical_id"]
         print(f"[apply] creating {logical_id} ({resource['type']}) ...", flush=True)
-        created = _create_resource(resource["type"], params, context, region, state, tags_map)
-        state["resources"][logical_id] = created
+        state["attempts"][logical_id] = {"type": resource["type"], "status": "creating"}
+        _persist_state(state)
+        try:
+            created = _create_resource(
+                resource["type"], params, context, region, state, tags_map, logical_id=logical_id
+            )
+            _checkpoint(state, logical_id, created)
+            state["attempts"][logical_id]["status"] = "created"
+            _persist_state(state)
+        except Exception:
+            state["attempts"][logical_id]["status"] = "failed_or_unknown"
+            _persist_state(state)
+            raise
     return state
+
+
+def _persist_state(state: dict[str, Any]) -> None:
+    """Atomic checkpoints preserve IDs even when a later API or readiness check fails."""
+    temporary = STATE_PATH.with_suffix(".json.tmp")
+    with temporary.open("w", encoding="utf-8") as handle:
+        json.dump(state, handle, indent=2, default=str)
+        handle.flush()
+        os.fsync(handle.fileno())
+    temporary.replace(STATE_PATH)
+
+
+def _checkpoint(state, logical_id, created):
+    state["resources"][logical_id] = created
+    _persist_state(state)
 
 
 def _create_resource(
@@ -167,6 +222,8 @@ def _create_resource(
     region: str,
     state: dict[str, Any],
     tags_map: dict[str, str],
+    *,
+    logical_id: str | None = None,
 ) -> dict[str, Any]:
     tags = [{"Key": k, "Value": v} for k, v in tags_map.items()]
     if resource_type == "ecr_repository":
@@ -216,6 +273,8 @@ def _create_resource(
     if resource_type == "cloudwatch_log_group":
         client = _client("logs", region)
         client.create_log_group(logGroupName=params["log_group_name"], tags=tags_map)
+        if logical_id:
+            _checkpoint(state, logical_id, {"log_group_name": params["log_group_name"]})
         client.put_retention_policy(
             logGroupName=params["log_group_name"],
             retentionInDays=params["retention_in_days"],
@@ -228,6 +287,12 @@ def _create_resource(
             AssumeRolePolicyDocument=json.dumps(params["assume_role_policy"]),
             Tags=tags,
         )
+        if logical_id:
+            _checkpoint(
+                state,
+                logical_id,
+                {"role_name": params["role_name"], "role_arn": response["Role"]["Arn"]},
+            )
         for arn in params.get("managed_policy_arns", []):
             client.attach_role_policy(RoleName=params["role_name"], PolicyArn=arn)
         return {"role_name": params["role_name"], "role_arn": response["Role"]["Arn"]}
@@ -240,44 +305,66 @@ def _create_resource(
         )
         return {"oidc_provider_arn": response["OpenIDConnectProviderArn"]}
     if resource_type == "agentcore_memory":
-        return _create_agentcore_memory(params, region, tags)
+        return _create_agentcore_memory(
+            params,
+            region,
+            tags_map,
+            checkpoint=lambda created: (
+                _checkpoint(state, logical_id, created) if logical_id else None
+            ),
+        )
     if resource_type == "ecs_express_service":
-        return _create_express_service(params, region, state)
+        return _create_express_service(
+            params,
+            region,
+            state,
+            checkpoint=lambda created: (
+                _checkpoint(state, logical_id, created) if logical_id else None
+            ),
+        )
     raise ValueError(f"unknown resource type: {resource_type}")
 
 
 def _create_agentcore_memory(
-    params: dict[str, Any], region: str, tags: list[dict[str, str]]
+    params: dict[str, Any], region: str, tags: dict[str, str], *, checkpoint=None
 ) -> dict[str, Any]:
     client = _client("bedrock-agentcore-control", region)
     response = client.create_memory(
         name=params["name"],
         eventExpiryDuration=params["event_expiry_duration"],
         memoryStrategies=params["memory_strategies"],
+        namespaceKeys=[{"key": key} for key in params["_namespace_template_keys"]],
         tags=tags,
     )
-    memory_id = response["memoryId"]
+    memory = response["memory"]
+    memory_id = memory["id"]
+    created = {"memory_id": memory_id, "memory_arn": memory["arn"]}
+    if checkpoint:
+        checkpoint(created)
     # Ruling 13: an event stored before the strategy is ACTIVE is NEVER extracted,
     # so block here until GetMemory reports the strategy ACTIVE (or fail honestly).
     _wait_memory_active(client, memory_id)
-    return {"memory_id": memory_id, "memory_arn": response.get("memoryArn")}
+    return created
 
 
 def _wait_memory_active(client: Any, memory_id: str, *, attempts: int = 30, delay: float = 10.0):
     for _ in range(attempts):
-        described = client.get_memory(memoryId=memory_id)
-        statuses = [
-            strategy.get("status")
-            for strategy in described.get("memoryStrategies", [])
-        ]
-        if statuses and all(status == "ACTIVE" for status in statuses):
+        described = client.get_memory(memoryId=memory_id)["memory"]
+        if described.get("status") == "FAILED":
+            raise RuntimeError("AgentCore memory creation failed")
+        statuses = [strategy.get("status") for strategy in described.get("strategies", [])]
+        if (
+            described.get("status") == "ACTIVE"
+            and statuses
+            and all(s == "ACTIVE" for s in statuses)
+        ):
             return
         time.sleep(delay)
     raise TimeoutError(f"AgentCore memory {memory_id} strategy did not reach ACTIVE")
 
 
 def _create_express_service(
-    params: dict[str, Any], region: str, state: dict[str, Any]
+    params: dict[str, Any], region: str, state: dict[str, Any], *, checkpoint=None
 ) -> dict[str, Any]:
     client = _client("ecs", region)
     resources = state["resources"]
@@ -296,19 +383,18 @@ def _create_express_service(
             "containerPort": container["container_port"],
             "environment": environment,
         },
-        scalingTarget=params["scaling_target"],
+        scalingTarget={
+            "minTaskCount": params["scaling_target"]["min_task_count"],
+            "maxTaskCount": params["scaling_target"]["max_task_count"],
+        },
     )
     # There is NO Monitor operation (fact G-D): poll Describe until ACTIVE.
-    service_name = response.get("serviceName", params["service_name"])
-    url = _wait_service_active(client, service_name)
-    return {
-        "service_arn": response.get("serviceArn"),
-        "service_name": service_name,
-        "url": url,
-        "cpu": response.get("cpu"),
-        "memory": response.get("memory"),
-        "scaling_target": response.get("scalingTarget"),
-    }
+    service = response["service"]
+    created = {"service_arn": service["serviceArn"], "service_name": params["service_name"]}
+    if checkpoint:
+        checkpoint(created)
+    created["url"] = _wait_service_active(client, created["service_arn"])
+    return created
 
 
 def _container_environment(
@@ -335,16 +421,19 @@ def _container_environment(
 
 
 def _wait_service_active(
-    client: Any, service_name: str, *, attempts: int = 60, delay: float = 10.0
+    client: Any, service_arn: str, *, attempts: int = 60, delay: float = 10.0
 ) -> str:
     url = ""
     for _ in range(attempts):
-        described = client.describe_express_gateway_service(serviceName=service_name)
-        url = described.get("serviceUrl") or described.get("url") or url
-        if str(described.get("statusCode", "")).upper() == "ACTIVE":
+        described = client.describe_express_gateway_service(serviceArn=service_arn)["service"]
+        for configuration in described.get("activeConfigurations", []):
+            for ingress in configuration.get("ingressPaths", []):
+                if ingress.get("accessType") == "PUBLIC" and ingress.get("endpoint"):
+                    url = ingress["endpoint"]
+        if described.get("status", {}).get("statusCode") == "ACTIVE" and url:
             return url
         time.sleep(delay)
-    raise TimeoutError(f"Express service {service_name} did not reach ACTIVE")
+    raise TimeoutError(f"Express service {service_arn} did not reach ACTIVE with public ingress")
 
 
 # --- CLI -----------------------------------------------------------------------
@@ -371,7 +460,12 @@ def main(argv: list[str] | None = None) -> int:
                 file=sys.stderr,
             )
         else:
-            print(f"\nplan: {len(report['steps'])} resources ready to create.", file=sys.stderr)
+            print(
+                f"\nplan: {len(report['steps'])} resources have resolved placeholders.",
+                file=sys.stderr,
+            )
+        if report["runtime_blockers"]:
+            print("Runtime blockers: " + "; ".join(report["runtime_blockers"]), file=sys.stderr)
         print("No AWS API was called. Nothing was created. No cost was incurred.", file=sys.stderr)
         return 0
 
@@ -396,8 +490,17 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 2
 
+    if report["runtime_blockers"]:
+        print(
+            "NOT EXECUTED: runtime dependencies incomplete: "
+            + "; ".join(report["runtime_blockers"])
+            + ". No AWS call was made.",
+            file=sys.stderr,
+        )
+        return 2
+
     state = _apply(plan, context, region)
-    STATE_PATH.write_text(json.dumps(state, indent=2, default=str), encoding="utf-8")
+    _persist_state(state)
     print(f"apply: wrote real resource state to {STATE_PATH} (git-ignored).")
     service = state["resources"].get("ecs_express_service", {})
     if service.get("url"):

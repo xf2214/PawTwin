@@ -1,0 +1,44 @@
+{
+  "actual_mp4": {
+    "duration_seconds": 170.0185034,
+    "width": 1920,
+    "height": 1080,
+    "bitrate": 1294224,
+    "video_codec": "H264",
+    "audio_codec": "AAC",
+    "audio_channels": 1,
+    "audio_sample_rate": 44100,
+    "audio_bitrate": 96000
+  },
+  "source_wav": {
+    "duration_seconds": 170.0,
+    "sample_rate": 22050,
+    "peak_pcm16": 18067,
+    "peak_dbfs": -5.171,
+    "rms_dbfs": -23.826,
+    "clipped_samples": 0,
+    "last_nonzero_seconds": 167.09655328798186
+  },
+  "actual_decoded_aac": {
+    "duration_seconds": 170.01650793650794,
+    "sample_rate": 44100,
+    "peak_pcm16": 18083,
+    "peak_dbfs": -5.164,
+    "rms_dbfs": -23.84,
+    "clipped_samples": 0,
+    "last_nonzero_seconds": 167.09455782312926
+  },
+  "sentence_count": 26,
+  "all_sentences_fit": true,
+  "subtitle_overflow": false,
+  "actual_frame_count": 37,
+  "human_audio_review": "not_performed",
+  "picture_review": "actual decoded frames require visual review",
+  "source_backend": "local_rules",
+  "source_cloud_calls": 0,
+  "presentation": "Actual WebM operation clips with actual screenshot result holds",
+  "replay_scene_count": 8,
+  "python_version": "3.12.14",
+  "numpy_version": "2.3.5",
+  "pillow_version": "12.3.0"
+}

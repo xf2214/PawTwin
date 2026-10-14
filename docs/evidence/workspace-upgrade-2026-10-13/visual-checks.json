@@ -1,0 +1,312 @@
+{
+  "generated_at": "2026-10-13T09:32:04.703Z",
+  "database": "data/workspace-preview-2026-10-13.db",
+  "fictional": true,
+  "measurements": "demo_sample",
+  "checks": [
+    {
+      "file": "today-320.png",
+      "width": 320,
+      "viewport": 320,
+      "document": 320,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/home"
+    },
+    {
+      "file": "care-320.png",
+      "width": 320,
+      "viewport": 320,
+      "document": 320,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/care"
+    },
+    {
+      "file": "growth-320.png",
+      "width": 320,
+      "viewport": 320,
+      "document": 320,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/growth"
+    },
+    {
+      "file": "twin-320.png",
+      "width": 320,
+      "viewport": 320,
+      "document": 320,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/assistant"
+    },
+    {
+      "file": "family-320.png",
+      "width": 320,
+      "viewport": 320,
+      "document": 320,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/family"
+    },
+    {
+      "file": "today-390.png",
+      "width": 390,
+      "viewport": 390,
+      "document": 390,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/home"
+    },
+    {
+      "file": "care-390.png",
+      "width": 390,
+      "viewport": 390,
+      "document": 390,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/care"
+    },
+    {
+      "file": "growth-390.png",
+      "width": 390,
+      "viewport": 390,
+      "document": 390,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/growth"
+    },
+    {
+      "file": "twin-390.png",
+      "width": 390,
+      "viewport": 390,
+      "document": 390,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/assistant"
+    },
+    {
+      "file": "family-390.png",
+      "width": 390,
+      "viewport": 390,
+      "document": 390,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/family"
+    },
+    {
+      "file": "today-768.png",
+      "width": 768,
+      "viewport": 768,
+      "document": 768,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/home"
+    },
+    {
+      "file": "care-768.png",
+      "width": 768,
+      "viewport": 768,
+      "document": 768,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/care"
+    },
+    {
+      "file": "growth-768.png",
+      "width": 768,
+      "viewport": 768,
+      "document": 768,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/growth"
+    },
+    {
+      "file": "twin-768.png",
+      "width": 768,
+      "viewport": 768,
+      "document": 768,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/assistant"
+    },
+    {
+      "file": "family-768.png",
+      "width": 768,
+      "viewport": 768,
+      "document": 768,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/family"
+    },
+    {
+      "file": "today-1440.png",
+      "width": 1440,
+      "viewport": 1440,
+      "document": 1440,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/home"
+    },
+    {
+      "file": "care-1440.png",
+      "width": 1440,
+      "viewport": 1440,
+      "document": 1440,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/care"
+    },
+    {
+      "file": "growth-1440.png",
+      "width": 1440,
+      "viewport": 1440,
+      "document": 1440,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/growth"
+    },
+    {
+      "file": "twin-1440.png",
+      "width": 1440,
+      "viewport": 1440,
+      "document": 1440,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/assistant"
+    },
+    {
+      "file": "family-1440.png",
+      "width": 1440,
+      "viewport": 1440,
+      "document": 1440,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/family"
+    },
+    {
+      "file": "care-scrolled-viewport-390.png",
+      "width": 390,
+      "viewport": 390,
+      "document": 390,
+      "fullPage": false,
+      "url": "http://127.0.0.1:8834/#app/care"
+    },
+    {
+      "file": "room-scrolled-viewport-390.png",
+      "width": 390,
+      "viewport": 390,
+      "document": 390,
+      "fullPage": false,
+      "url": "http://127.0.0.1:8834/#app/home"
+    },
+    {
+      "file": "measurements-1440.png",
+      "width": 1440,
+      "viewport": 1440,
+      "document": 1440,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/growth"
+    },
+    {
+      "file": "diary-1440.png",
+      "width": 1440,
+      "viewport": 1440,
+      "document": 1440,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/growth"
+    },
+    {
+      "file": "reports-1440.png",
+      "width": 1440,
+      "viewport": 1440,
+      "document": 1440,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/growth"
+    },
+    {
+      "file": "profile-1440.png",
+      "width": 1440,
+      "viewport": 1440,
+      "document": 1440,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#app/home"
+    },
+    {
+      "file": "workbench-requests-320.png",
+      "width": 320,
+      "viewport": 320,
+      "document": 320,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#workbench"
+    },
+    {
+      "file": "workbench-history-320.png",
+      "width": 320,
+      "viewport": 320,
+      "document": 320,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#workbench/history"
+    },
+    {
+      "file": "workbench-settings-320.png",
+      "width": 320,
+      "viewport": 320,
+      "document": 320,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#workbench/settings"
+    },
+    {
+      "file": "workbench-requests-390.png",
+      "width": 390,
+      "viewport": 390,
+      "document": 390,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#workbench"
+    },
+    {
+      "file": "workbench-history-390.png",
+      "width": 390,
+      "viewport": 390,
+      "document": 390,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#workbench/history"
+    },
+    {
+      "file": "workbench-settings-390.png",
+      "width": 390,
+      "viewport": 390,
+      "document": 390,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#workbench/settings"
+    },
+    {
+      "file": "workbench-requests-768.png",
+      "width": 768,
+      "viewport": 768,
+      "document": 768,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#workbench"
+    },
+    {
+      "file": "workbench-history-768.png",
+      "width": 768,
+      "viewport": 768,
+      "document": 768,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#workbench/history"
+    },
+    {
+      "file": "workbench-settings-768.png",
+      "width": 768,
+      "viewport": 768,
+      "document": 768,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#workbench/settings"
+    },
+    {
+      "file": "workbench-requests-1440.png",
+      "width": 1440,
+      "viewport": 1440,
+      "document": 1440,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#workbench"
+    },
+    {
+      "file": "workbench-history-1440.png",
+      "width": 1440,
+      "viewport": 1440,
+      "document": 1440,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#workbench/history"
+    },
+    {
+      "file": "workbench-settings-1440.png",
+      "width": 1440,
+      "viewport": 1440,
+      "document": 1440,
+      "fullPage": true,
+      "url": "http://127.0.0.1:8834/#workbench/settings"
+    }
+  ]
+}

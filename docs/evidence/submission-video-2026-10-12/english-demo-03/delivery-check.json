@@ -1,0 +1,43 @@
+{
+  "video_sha256": "98e0d78fbb86d25f38085d5234e1ee476fc742d1a39e0d41bbf88e2a8abbd691",
+  "matching_delivery_copy": true,
+  "caption_count": 26,
+  "caption_timing": "ordered_and_within_video",
+  "source_hashes": "pass",
+  "replays_with_visible_changes": [
+    {
+      "scene": 3,
+      "different_ui_pixels": true
+    },
+    {
+      "scene": 5,
+      "different_ui_pixels": true
+    },
+    {
+      "scene": 6,
+      "different_ui_pixels": true
+    },
+    {
+      "scene": 7,
+      "different_ui_pixels": true
+    },
+    {
+      "scene": 8,
+      "different_ui_pixels": true
+    },
+    {
+      "scene": 9,
+      "different_ui_pixels": true
+    },
+    {
+      "scene": 10,
+      "different_ui_pixels": true
+    },
+    {
+      "scene": 12,
+      "different_ui_pixels": true
+    }
+  ],
+  "local_links_checked": 10,
+  "old_video_sha256": "07332b9aa6e1b17023a53152aae8700931ceab0446d36af9e7d28e64294235e3"
+}

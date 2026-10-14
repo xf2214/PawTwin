@@ -3,20 +3,28 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .ruff_cache/
+.cache/
 .coverage
 htmlcov/
 node_modules/
 frontend/dist/
 frontend/playwright-report/
 frontend/test-results/
+/test-results/
+# Browser traces include session cookies and CSRF/access tokens; keep local only.
+trace.zip
 .env
 .env.*
 !.env.example
 *.log
+# Reviewed verification logs support committed evidence and source exports.
+!docs/evidence/**/*.log
 *.sqlite*
 # Local file databases created via PAWTWIN_DB_PATH (restart-recovery tests).
 *.db
 *.db-journal
+*.db-*
+*.db.before-family-*.bak
 data/
 .worktrees/
 .superpowers/
@@ -25,5 +33,6 @@ data/
 # so a lone checkout can never dirty the tree with generated cloud state (the
 # Day-4 S0-a lesson). Evidence .md files, by contrast, MUST be committed.
 infra/deploy_state.json
+infra/deploy_state.json.tmp
 .DS_Store
 Thumbs.db

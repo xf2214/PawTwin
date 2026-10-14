@@ -1,0 +1,4638 @@
+{
+  "home": {
+    "version": 1,
+    "pets": [
+      {
+        "id": "mochi",
+        "name": "Mochi",
+        "species": "cat",
+        "breed": "中华田园猫（虚构演示）",
+        "gender": "male",
+        "birthday": "2026-05-21",
+        "age_years": null,
+        "coat": "gold",
+        "pattern": "stripes",
+        "size": "medium",
+        "likes": "羽毛棒、安静的窗边陪玩（演示设定）",
+        "dislikes": "突然的响声、强行抱起（演示设定）",
+        "photo_id": null,
+        "source": "owner_confirmed",
+        "birthday_estimated": false,
+        "neutered": false,
+        "expected_adult_weight_kg": null
+      }
+    ],
+    "members": [
+      {
+        "user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "username": "workspace-preview-20261013",
+        "display_name": "演示主人",
+        "avatar_ref": "",
+        "created_at": "2026-10-13T09:27:34.356385+00:00",
+        "role": "admin",
+        "family_label": "",
+        "status": "active",
+        "feeding_pet_ids": [],
+        "joined_at": "2026-10-13T09:27:34.450034+00:00",
+        "id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "name": "演示主人"
+      }
+    ],
+    "objects": [
+      {
+        "id": "fb17fab0-c6f2-457c-92ba-fdf1ef2290af",
+        "pet_id": "mochi",
+        "kind": "nest",
+        "name": "窗边小窝",
+        "x": 19,
+        "y": 74,
+        "note": "初始展示物品，可修改"
+      },
+      {
+        "id": "36a1d123-8363-496c-ab22-621be33acd80",
+        "pet_id": "mochi",
+        "kind": "toy",
+        "name": "羽毛棒",
+        "x": 38,
+        "y": 70,
+        "note": "初始展示物品，可修改"
+      },
+      {
+        "id": "6db19d9f-980c-4aea-a34d-ee49373e6198",
+        "pet_id": "mochi",
+        "kind": "feeder",
+        "name": "模拟喂食器",
+        "x": 82,
+        "y": 48,
+        "note": "模拟设备，不连接真实硬件"
+      },
+      {
+        "id": "74f90d7a-1f3c-4e49-8cf1-7e235472d77d",
+        "pet_id": "mochi",
+        "kind": "water",
+        "name": "水碗",
+        "x": 81,
+        "y": 72,
+        "note": "初始展示物品，可修改"
+      }
+    ],
+    "tasks": [
+      {
+        "kind": "water",
+        "title": "虚构演示 · 换一碗清水",
+        "due_at": "2026-10-13T08:27:34.522000Z",
+        "interval_days": 1,
+        "assigned_to": null,
+        "id": "1ac9dc7f-1187-4570-8d36-d1bd5724d3b7",
+        "pet_id": "mochi",
+        "last_completed_at": null,
+        "completed": false,
+        "version": 1,
+        "occurrence_id": "a769a2a1-07d9-4548-a316-2d8b5ad8d65c",
+        "status": "pending",
+        "claimed_by": null,
+        "created_at": "2026-10-13T09:27:34.667060+00:00",
+        "updated_at": "2026-10-13T09:27:34.667060+00:00",
+        "revisions": [],
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+      },
+      {
+        "kind": "play",
+        "title": "虚构演示 · 晚间陪玩",
+        "due_at": "2026-10-13T13:27:34.522000Z",
+        "interval_days": null,
+        "assigned_to": null,
+        "id": "c2ebb43e-fc72-4248-8469-5e2adbf72213",
+        "pet_id": "mochi",
+        "last_completed_at": null,
+        "completed": false,
+        "version": 1,
+        "occurrence_id": "8dbd33a3-83cb-466d-bbcf-ce7bd125deb8",
+        "status": "pending",
+        "claimed_by": null,
+        "created_at": "2026-10-13T09:27:34.690120+00:00",
+        "updated_at": "2026-10-13T09:27:34.690120+00:00",
+        "revisions": [],
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+      },
+      {
+        "kind": "brush",
+        "title": "虚构演示 · 整理毛发",
+        "due_at": "2026-10-13T17:27:34.522000Z",
+        "interval_days": 3,
+        "assigned_to": null,
+        "id": "5d126c2d-2cd9-49f6-b853-d9f8c7a99f59",
+        "pet_id": "mochi",
+        "last_completed_at": null,
+        "completed": false,
+        "version": 1,
+        "occurrence_id": "dd2760f2-cedd-4a43-95eb-2c2cb4599376",
+        "status": "pending",
+        "claimed_by": null,
+        "created_at": "2026-10-13T09:27:34.711552+00:00",
+        "updated_at": "2026-10-13T09:27:34.711552+00:00",
+        "revisions": [],
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+      },
+      {
+        "kind": "water",
+        "title": "晨间换水 · 演示",
+        "due_at": "2026-10-13T09:00:00+08:00",
+        "interval_days": null,
+        "assigned_to": "4580e843-d128-4c60-a71b-b73341722a63",
+        "id": "9b00c9db-a7ae-4dc8-a5f7-b75c24a97174",
+        "pet_id": "mochi",
+        "last_completed_at": "2026-10-13T15:02:34.211566+00:00",
+        "completed": true,
+        "version": 2,
+        "occurrence_id": "93b93ff4-a80d-480d-b458-241c9a2850aa",
+        "status": "completed",
+        "claimed_by": null,
+        "created_at": "2026-10-13T15:02:34.184414+00:00",
+        "updated_at": "2026-10-13T15:02:34.211566+00:00",
+        "revisions": [
+          {
+            "kind": "water",
+            "title": "晨间换水 · 演示",
+            "due_at": "2026-10-13T09:00:00+08:00",
+            "interval_days": null,
+            "assigned_to": "4580e843-d128-4c60-a71b-b73341722a63",
+            "id": "9b00c9db-a7ae-4dc8-a5f7-b75c24a97174",
+            "pet_id": "mochi",
+            "last_completed_at": null,
+            "completed": false,
+            "version": 1,
+            "occurrence_id": "93b93ff4-a80d-480d-b458-241c9a2850aa",
+            "status": "pending",
+            "claimed_by": null,
+            "created_at": "2026-10-13T15:02:34.184414+00:00",
+            "updated_at": "2026-10-13T15:02:34.184414+00:00",
+            "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+          }
+        ],
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+      },
+      {
+        "kind": "play",
+        "title": "羽毛棒陪玩 · 演示",
+        "due_at": "2026-10-13T10:00:00+08:00",
+        "interval_days": null,
+        "assigned_to": "4580e843-d128-4c60-a71b-b73341722a63",
+        "id": "120a2414-88fb-43b4-b47f-b1cca50f5a70",
+        "pet_id": "mochi",
+        "last_completed_at": "2026-10-13T15:02:34.274997+00:00",
+        "completed": true,
+        "version": 2,
+        "occurrence_id": "73b0776f-7f5a-433e-9833-837c997c2760",
+        "status": "completed",
+        "claimed_by": null,
+        "created_at": "2026-10-13T15:02:34.243405+00:00",
+        "updated_at": "2026-10-13T15:02:34.274997+00:00",
+        "revisions": [
+          {
+            "kind": "play",
+            "title": "羽毛棒陪玩 · 演示",
+            "due_at": "2026-10-13T10:00:00+08:00",
+            "interval_days": null,
+            "assigned_to": "4580e843-d128-4c60-a71b-b73341722a63",
+            "id": "120a2414-88fb-43b4-b47f-b1cca50f5a70",
+            "pet_id": "mochi",
+            "last_completed_at": null,
+            "completed": false,
+            "version": 1,
+            "occurrence_id": "73b0776f-7f5a-433e-9833-837c997c2760",
+            "status": "pending",
+            "claimed_by": null,
+            "created_at": "2026-10-13T15:02:34.243405+00:00",
+            "updated_at": "2026-10-13T15:02:34.243405+00:00",
+            "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+          }
+        ],
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+      },
+      {
+        "kind": "brush",
+        "title": "本次梳毛 · 演示",
+        "due_at": "2026-10-16T15:02:34.321314+00:00",
+        "interval_days": 3,
+        "assigned_to": "4580e843-d128-4c60-a71b-b73341722a63",
+        "id": "b7afc9ef-5152-4a68-bbcb-06d27a7975cd",
+        "pet_id": "mochi",
+        "last_completed_at": "2026-10-13T15:02:34.321314+00:00",
+        "completed": false,
+        "version": 2,
+        "occurrence_id": "f23eef90-bb79-4a8d-8b74-1d7004975b57",
+        "status": "pending",
+        "claimed_by": null,
+        "created_at": "2026-10-13T15:02:34.306579+00:00",
+        "updated_at": "2026-10-13T15:02:34.321314+00:00",
+        "revisions": [
+          {
+            "kind": "brush",
+            "title": "本次梳毛 · 演示",
+            "due_at": "2026-10-13T11:00:00+08:00",
+            "interval_days": 3,
+            "assigned_to": "4580e843-d128-4c60-a71b-b73341722a63",
+            "id": "b7afc9ef-5152-4a68-bbcb-06d27a7975cd",
+            "pet_id": "mochi",
+            "last_completed_at": null,
+            "completed": false,
+            "version": 1,
+            "occurrence_id": "dbd997de-72db-4652-8271-56a41604b1e1",
+            "status": "pending",
+            "claimed_by": null,
+            "created_at": "2026-10-13T15:02:34.306579+00:00",
+            "updated_at": "2026-10-13T15:02:34.306579+00:00",
+            "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+          }
+        ],
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+      },
+      {
+        "kind": "feeding",
+        "title": "下一次人工喂食 · 演示",
+        "due_at": "2026-10-13T23:30:00+08:00",
+        "interval_days": null,
+        "assigned_to": "4580e843-d128-4c60-a71b-b73341722a63",
+        "id": "56e1b5e4-3474-4532-94e1-d547c6e952c1",
+        "pet_id": "mochi",
+        "last_completed_at": null,
+        "completed": false,
+        "version": 2,
+        "occurrence_id": "f636a9a1-aad5-41df-9930-d0fffbaa9b6c",
+        "status": "claimed",
+        "claimed_by": "4580e843-d128-4c60-a71b-b73341722a63",
+        "created_at": "2026-10-13T15:02:34.352672+00:00",
+        "updated_at": "2026-10-13T15:02:34.384865+00:00",
+        "revisions": [
+          {
+            "kind": "feeding",
+            "title": "下一次人工喂食 · 演示",
+            "due_at": "2026-10-13T23:30:00+08:00",
+            "interval_days": null,
+            "assigned_to": "4580e843-d128-4c60-a71b-b73341722a63",
+            "id": "56e1b5e4-3474-4532-94e1-d547c6e952c1",
+            "pet_id": "mochi",
+            "last_completed_at": null,
+            "completed": false,
+            "version": 1,
+            "occurrence_id": "f636a9a1-aad5-41df-9930-d0fffbaa9b6c",
+            "status": "pending",
+            "claimed_by": null,
+            "created_at": "2026-10-13T15:02:34.352672+00:00",
+            "updated_at": "2026-10-13T15:02:34.352672+00:00",
+            "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+          }
+        ],
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+      },
+      {
+        "kind": "water",
+        "title": "睡前换水 · 演示",
+        "due_at": "2026-10-13T23:50:00+08:00",
+        "interval_days": 1,
+        "assigned_to": "4580e843-d128-4c60-a71b-b73341722a63",
+        "id": "d9414aef-4196-4745-bf6f-0aa880cfe9d6",
+        "pet_id": "mochi",
+        "last_completed_at": null,
+        "completed": false,
+        "version": 1,
+        "occurrence_id": "5aa43e97-95dc-47ab-abcd-16bef62c5071",
+        "status": "pending",
+        "claimed_by": null,
+        "created_at": "2026-10-13T15:02:34.403460+00:00",
+        "updated_at": "2026-10-13T15:02:34.403460+00:00",
+        "revisions": [],
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+      },
+      {
+        "kind": "clean",
+        "title": "周末整理猫窝 · 演示",
+        "due_at": "2026-10-17T10:00:00+08:00",
+        "interval_days": 7,
+        "assigned_to": "4580e843-d128-4c60-a71b-b73341722a63",
+        "id": "e0b5624b-3e54-4c77-aa21-6046c8904785",
+        "pet_id": "mochi",
+        "last_completed_at": null,
+        "completed": false,
+        "version": 1,
+        "occurrence_id": "43896fae-30a9-401e-946f-dedf419b613b",
+        "status": "pending",
+        "claimed_by": null,
+        "created_at": "2026-10-13T15:02:34.434393+00:00",
+        "updated_at": "2026-10-13T15:02:34.434393+00:00",
+        "revisions": [],
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+      }
+    ],
+    "notes": [
+      {
+        "text": "虚构演示：午后喜欢在窗边休息，陪玩时偏爱羽毛棒。",
+        "scope": "observation",
+        "activity": "play",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "id": "69ca7dda-a5c0-4d9c-a5aa-f8b448d7d56d",
+        "pet_id": "mochi",
+        "created_at": "2026-10-13T09:27:34.605406+00:00",
+        "source": "owner_confirmed",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "author_name": "演示主人",
+        "version": 1
+      },
+      {
+        "text": "羽毛棒是常用陪玩玩具；饭后先休息再互动。（虚构演示设定）",
+        "scope": "preference",
+        "activity": "play",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "id": "b7f87ac7-dfbf-431a-af86-9083b1e3820a",
+        "pet_id": "mochi",
+        "created_at": "2026-10-13T15:02:34.573904+00:00",
+        "source": "owner_confirmed",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "author_name": "演示主人",
+        "version": 1
+      },
+      {
+        "text": "[演示使用记录 2026-10-13] 档案、成长、照护与偏好均为虚构样例。",
+        "scope": "observation",
+        "activity": "general",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "id": "35284f06-9fe7-46d0-aeb0-5d7425806d67",
+        "pet_id": "mochi",
+        "created_at": "2026-10-13T15:02:34.630762+00:00",
+        "source": "owner_confirmed",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "author_name": "演示主人",
+        "version": 1
+      }
+    ],
+    "diary": [
+      {
+        "title": "虚构演示 · 窗边的一小段时光",
+        "text": "这些文字用于检查日记页面，不代表真实宠物健康资料。",
+        "happened_on": "2026-10-13",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "photo_id": null,
+        "id": "ec3190d3-8e70-41f8-9055-efd5a26904d9",
+        "pet_id": "mochi",
+        "created_at": "2026-10-13T09:27:34.643366+00:00",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "author_name": "演示主人",
+        "version": 1
+      },
+      {
+        "title": "窗边的午后 · 演示",
+        "text": "一起待在窗边，记录今天的陪伴。此条为虚构日记示例。",
+        "happened_on": "2026-10-12",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "photo_id": null,
+        "id": "602358c0-33ea-4067-84ca-7f7d1cc898c0",
+        "pet_id": "mochi",
+        "created_at": "2026-10-13T15:02:34.600482+00:00",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "author_name": "演示主人",
+        "version": 1
+      },
+      {
+        "title": "换水与羽毛棒 · 演示",
+        "text": "整理水碗后陪玩一会儿，把完成照护和日常观察一起记下来。此条为虚构日记示例。",
+        "happened_on": "2026-10-13",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "photo_id": null,
+        "id": "1dd6eebc-53c0-4a0e-80ae-29c7bff83613",
+        "pet_id": "mochi",
+        "created_at": "2026-10-13T15:02:34.615707+00:00",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "author_name": "演示主人",
+        "version": 1
+      }
+    ],
+    "history": [
+      {
+        "id": "d81848f6-2cd3-43c2-b258-5c05c8c23e6d",
+        "pet_id": "mochi",
+        "text": "记录主人观察：虚构演示：午后喜欢在窗边休息，陪玩时偏爱羽毛棒。",
+        "actor": "演示主人",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "created_at": "2026-10-13T09:27:34.605406+00:00",
+        "source": "owner_record"
+      },
+      {
+        "id": "4dfc4d43-fd71-46e9-a30b-d409e88fc0db",
+        "pet_id": "mochi",
+        "text": "添加成长日记：虚构演示 · 窗边的一小段时光",
+        "actor": "演示主人",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "created_at": "2026-10-13T09:27:34.643366+00:00",
+        "source": "owner_record"
+      },
+      {
+        "id": "8d85bb13-8d2e-46cc-b69d-5fe5509b097b",
+        "pet_id": "mochi",
+        "text": "安排照护：虚构演示 · 换一碗清水",
+        "actor": "演示主人",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "created_at": "2026-10-13T09:27:34.667060+00:00",
+        "source": "owner_record"
+      },
+      {
+        "id": "7b1b7fd3-647b-44fc-9ded-c2eb6eb6e21e",
+        "pet_id": "mochi",
+        "text": "安排照护：虚构演示 · 晚间陪玩",
+        "actor": "演示主人",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "created_at": "2026-10-13T09:27:34.690120+00:00",
+        "source": "owner_record"
+      },
+      {
+        "id": "411b4fe0-816d-4059-8418-5b09e2350ef9",
+        "pet_id": "mochi",
+        "text": "安排照护：虚构演示 · 整理毛发",
+        "actor": "演示主人",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "created_at": "2026-10-13T09:27:34.711552+00:00",
+        "source": "owner_record"
+      },
+      {
+        "id": "7df6f91e-e127-4df2-9555-ecf8d3b520d8",
+        "pet_id": "mochi",
+        "text": "更新宠物档案（主人确认）",
+        "actor": "演示主人",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "created_at": "2026-10-13T15:02:33.922882+00:00",
+        "source": "owner_record"
+      },
+      {
+        "id": "2e932982-be51-4158-961d-7dec6ab661e1",
+        "pet_id": "mochi",
+        "text": "安排照护：晨间换水 · 演示",
+        "actor": "演示主人",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "created_at": "2026-10-13T15:02:34.184414+00:00",
+        "source": "owner_record"
+      },
+      {
+        "id": "2f4bd3cf-a6e3-4af0-b24c-c574e46418fa",
+        "pet_id": "mochi",
+        "text": "完成：晨间换水 · 演示；虚构使用记录；仅记录演示人工完成，不触发设备。",
+        "actor": "演示主人",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "created_at": "2026-10-13T15:02:34.211566+00:00",
+        "source": "owner_record",
+        "occurrence_id": "93b93ff4-a80d-480d-b458-241c9a2850aa",
+        "task_id": "9b00c9db-a7ae-4dc8-a5f7-b75c24a97174"
+      },
+      {
+        "id": "2438a09c-48ee-4541-8a9b-aaa938c0490e",
+        "pet_id": "mochi",
+        "text": "安排照护：羽毛棒陪玩 · 演示",
+        "actor": "演示主人",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "created_at": "2026-10-13T15:02:34.243405+00:00",
+        "source": "owner_record"
+      },
+      {
+        "id": "65ad83f8-61c7-455f-b5d9-54285ddd2fda",
+        "pet_id": "mochi",
+        "text": "完成：羽毛棒陪玩 · 演示；虚构使用记录；仅记录演示人工完成，不触发设备。",
+        "actor": "演示主人",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "created_at": "2026-10-13T15:02:34.274997+00:00",
+        "source": "owner_record",
+        "occurrence_id": "73b0776f-7f5a-433e-9833-837c997c2760",
+        "task_id": "120a2414-88fb-43b4-b47f-b1cca50f5a70"
+      },
+      {
+        "id": "83a944ad-5eaf-4520-8860-fa4c2a92dc91",
+        "pet_id": "mochi",
+        "text": "安排照护：本次梳毛 · 演示",
+        "actor": "演示主人",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "created_at": "2026-10-13T15:02:34.306579+00:00",
+        "source": "owner_record"
+      },
+      {
+        "id": "0a8b38a2-3adc-4c3b-a9e5-00212f1de990",
+        "pet_id": "mochi",
+        "text": "完成：本次梳毛 · 演示；虚构使用记录；仅记录演示人工完成，不触发设备。",
+        "actor": "演示主人",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "created_at": "2026-10-13T15:02:34.321670+00:00",
+        "source": "owner_record",
+        "occurrence_id": "dbd997de-72db-4652-8271-56a41604b1e1",
+        "task_id": "b7afc9ef-5152-4a68-bbcb-06d27a7975cd"
+      },
+      {
+        "id": "4ddc3774-2fd3-4a18-a379-ed7cd3cf871b",
+        "pet_id": "mochi",
+        "text": "安排照护：下一次人工喂食 · 演示",
+        "actor": "演示主人",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "created_at": "2026-10-13T15:02:34.352672+00:00",
+        "source": "owner_record"
+      },
+      {
+        "id": "56e06f24-2438-4324-8275-94f662ef24f6",
+        "pet_id": "mochi",
+        "text": "领取：下一次人工喂食 · 演示",
+        "actor": "演示主人",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "created_at": "2026-10-13T15:02:34.384865+00:00",
+        "source": "owner_record"
+      },
+      {
+        "id": "2bfd815c-18ec-4913-a57e-c07db2a3dd4b",
+        "pet_id": "mochi",
+        "text": "安排照护：睡前换水 · 演示",
+        "actor": "演示主人",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "created_at": "2026-10-13T15:02:34.403460+00:00",
+        "source": "owner_record"
+      },
+      {
+        "id": "a149fcbc-da36-4dcc-8e1c-db5ad5f2def7",
+        "pet_id": "mochi",
+        "text": "安排照护：周末整理猫窝 · 演示",
+        "actor": "演示主人",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "created_at": "2026-10-13T15:02:34.434393+00:00",
+        "source": "owner_record"
+      },
+      {
+        "id": "21b3e544-950e-4eec-a440-a0c1fcf024f3",
+        "pet_id": "mochi",
+        "text": "记录主人观察：羽毛棒是常用陪玩玩具；饭后先休息再互动。（虚构演示设定）",
+        "actor": "演示主人",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "created_at": "2026-10-13T15:02:34.573904+00:00",
+        "source": "owner_record"
+      },
+      {
+        "id": "0ad1103f-ddfc-4ce9-9553-ff373726ff2d",
+        "pet_id": "mochi",
+        "text": "添加成长日记：窗边的午后 · 演示",
+        "actor": "演示主人",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "created_at": "2026-10-13T15:02:34.600482+00:00",
+        "source": "owner_record"
+      },
+      {
+        "id": "8a115f5b-c5a6-4631-bfc7-4d42825a17ff",
+        "pet_id": "mochi",
+        "text": "添加成长日记：换水与羽毛棒 · 演示",
+        "actor": "演示主人",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "created_at": "2026-10-13T15:02:34.615707+00:00",
+        "source": "owner_record"
+      },
+      {
+        "id": "06e0d11c-9ee2-40f3-909b-4560037f3cdf",
+        "pet_id": "mochi",
+        "text": "记录主人观察：[演示使用记录 2026-10-13] 档案、成长、照护与偏好均为虚构样例。",
+        "actor": "演示主人",
+        "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "created_at": "2026-10-13T15:02:34.630762+00:00",
+        "source": "owner_record"
+      }
+    ],
+    "processed_actions": [
+      {
+        "id": "56f6b75f-aa6f-45b3-8978-f639527438a5",
+        "digest": "{\"action\": \"complete\", \"actor_id\": \"4580e843-d128-4c60-a71b-b73341722a63\", \"assigned_to\": null, \"event_id\": \"56f6b75f-aa6f-45b3-8978-f639527438a5\", \"interval_days\": null, \"next_due\": null, \"note\": \"\\u865a\\u6784\\u4f7f\\u7528\\u8bb0\\u5f55\\uff1b\\u4ec5\\u8bb0\\u5f55\\u6f14\\u793a\\u4eba\\u5de5\\u5b8c\\u6210\\uff0c\\u4e0d\\u89e6\\u53d1\\u8bbe\\u5907\\u3002\", \"task_id\": \"9b00c9db-a7ae-4dc8-a5f7-b75c24a97174\", \"title\": null, \"version\": 1}"
+      },
+      {
+        "id": "8c7ad947-6802-43bd-ac6f-7a52ed1de080",
+        "digest": "{\"action\": \"complete\", \"actor_id\": \"4580e843-d128-4c60-a71b-b73341722a63\", \"assigned_to\": null, \"event_id\": \"8c7ad947-6802-43bd-ac6f-7a52ed1de080\", \"interval_days\": null, \"next_due\": null, \"note\": \"\\u865a\\u6784\\u4f7f\\u7528\\u8bb0\\u5f55\\uff1b\\u4ec5\\u8bb0\\u5f55\\u6f14\\u793a\\u4eba\\u5de5\\u5b8c\\u6210\\uff0c\\u4e0d\\u89e6\\u53d1\\u8bbe\\u5907\\u3002\", \"task_id\": \"120a2414-88fb-43b4-b47f-b1cca50f5a70\", \"title\": null, \"version\": 1}"
+      },
+      {
+        "id": "473e7492-8f12-4987-b628-12df8a5bd7e2",
+        "digest": "{\"action\": \"complete\", \"actor_id\": \"4580e843-d128-4c60-a71b-b73341722a63\", \"assigned_to\": null, \"event_id\": \"473e7492-8f12-4987-b628-12df8a5bd7e2\", \"interval_days\": null, \"next_due\": null, \"note\": \"\\u865a\\u6784\\u4f7f\\u7528\\u8bb0\\u5f55\\uff1b\\u4ec5\\u8bb0\\u5f55\\u6f14\\u793a\\u4eba\\u5de5\\u5b8c\\u6210\\uff0c\\u4e0d\\u89e6\\u53d1\\u8bbe\\u5907\\u3002\", \"task_id\": \"b7afc9ef-5152-4a68-bbcb-06d27a7975cd\", \"title\": null, \"version\": 1}"
+      },
+      {
+        "id": "88cd1863-0bf0-4f78-b935-ae2520db951f",
+        "digest": "{\"action\": \"claim\", \"actor_id\": \"4580e843-d128-4c60-a71b-b73341722a63\", \"assigned_to\": null, \"event_id\": \"88cd1863-0bf0-4f78-b935-ae2520db951f\", \"interval_days\": null, \"next_due\": null, \"note\": \"\", \"task_id\": \"56e1b5e4-3474-4532-94e1-d547c6e952c1\", \"title\": null, \"version\": 1}"
+      }
+    ],
+    "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+    "measurements": [
+      {
+        "kind": "weight",
+        "value": 2.05,
+        "unit": "kg",
+        "measured_at": "2026-10-06T09:27:34.522000Z",
+        "source": "demo_sample",
+        "diet_type": null,
+        "note": "虚构演示样本，仅供界面检查",
+        "id": "96eebdd4-ec75-476e-93ff-fbecb67e7292",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "value_g": 2050.0,
+        "recorded_at": "2026-10-13T09:27:34.566172+00:00",
+        "version": 1,
+        "deleted": false,
+        "corrections": [],
+        "pet_id": "mochi"
+      },
+      {
+        "kind": "weight",
+        "value": 2.1,
+        "unit": "kg",
+        "measured_at": "2026-10-13T09:27:34.522000Z",
+        "source": "demo_sample",
+        "diet_type": null,
+        "note": "虚构演示样本，仅供界面检查",
+        "id": "92a66a6d-ad86-4642-8993-90a4ebb9fcdd",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "value_g": 2100.0,
+        "recorded_at": "2026-10-13T09:27:34.587760+00:00",
+        "version": 1,
+        "deleted": false,
+        "corrections": [],
+        "pet_id": "mochi"
+      },
+      {
+        "kind": "weight",
+        "value": 1.96,
+        "unit": "kg",
+        "measured_at": "2026-09-29T09:00:00+08:00",
+        "source": "demo_sample",
+        "diet_type": null,
+        "note": "[演示使用记录 2026-10-13] 体重样本 -14天；虚构数据，不代表真实宠物测量。",
+        "id": "ba918649-cf57-472b-8a1d-d13203b4fb57",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "value_g": 1960.0,
+        "recorded_at": "2026-10-13T15:02:33.961518+00:00",
+        "version": 1,
+        "deleted": false,
+        "corrections": [],
+        "pet_id": "mochi"
+      },
+      {
+        "kind": "weight",
+        "value": 1.99,
+        "unit": "kg",
+        "measured_at": "2026-10-02T09:00:00+08:00",
+        "source": "demo_sample",
+        "diet_type": null,
+        "note": "[演示使用记录 2026-10-13] 体重样本 -11天；虚构数据，不代表真实宠物测量。",
+        "id": "511545c1-2b18-448a-89fd-c527ce166483",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "value_g": 1990.0,
+        "recorded_at": "2026-10-13T15:02:33.979140+00:00",
+        "version": 1,
+        "deleted": false,
+        "corrections": [],
+        "pet_id": "mochi"
+      },
+      {
+        "kind": "weight",
+        "value": 2.02,
+        "unit": "kg",
+        "measured_at": "2026-10-05T09:00:00+08:00",
+        "source": "demo_sample",
+        "diet_type": null,
+        "note": "[演示使用记录 2026-10-13] 体重样本 -8天；虚构数据，不代表真实宠物测量。",
+        "id": "176a6e79-9012-4773-9bd4-b7d049b54382",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "value_g": 2020.0,
+        "recorded_at": "2026-10-13T15:02:33.994162+00:00",
+        "version": 1,
+        "deleted": false,
+        "corrections": [],
+        "pet_id": "mochi"
+      },
+      {
+        "kind": "weight",
+        "value": 2.06,
+        "unit": "kg",
+        "measured_at": "2026-10-08T09:00:00+08:00",
+        "source": "demo_sample",
+        "diet_type": null,
+        "note": "[演示使用记录 2026-10-13] 体重样本 -5天；虚构数据，不代表真实宠物测量。",
+        "id": "4801cd49-6510-4b95-86e5-a13cae867ee5",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "value_g": 2060.0,
+        "recorded_at": "2026-10-13T15:02:34.027678+00:00",
+        "version": 1,
+        "deleted": false,
+        "corrections": [],
+        "pet_id": "mochi"
+      },
+      {
+        "kind": "weight",
+        "value": 2.08,
+        "unit": "kg",
+        "measured_at": "2026-10-11T09:00:00+08:00",
+        "source": "demo_sample",
+        "diet_type": null,
+        "note": "[演示使用记录 2026-10-13] 体重样本 -2天；虚构数据，不代表真实宠物测量。",
+        "id": "da2a7baa-3162-4838-b581-80001519795d",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "value_g": 2080.0,
+        "recorded_at": "2026-10-13T15:02:34.041220+00:00",
+        "version": 1,
+        "deleted": false,
+        "corrections": [],
+        "pet_id": "mochi"
+      },
+      {
+        "kind": "weight",
+        "value": 2.09,
+        "unit": "kg",
+        "measured_at": "2026-10-12T09:00:00+08:00",
+        "source": "demo_sample",
+        "diet_type": null,
+        "note": "[演示使用记录 2026-10-13] 体重样本 -1天；虚构数据，不代表真实宠物测量。",
+        "id": "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "value_g": 2090.0,
+        "recorded_at": "2026-10-13T15:02:34.055787+00:00",
+        "version": 1,
+        "deleted": false,
+        "corrections": [],
+        "pet_id": "mochi"
+      },
+      {
+        "kind": "weight",
+        "value": 2.1,
+        "unit": "kg",
+        "measured_at": "2026-10-13T09:00:00+08:00",
+        "source": "demo_sample",
+        "diet_type": null,
+        "note": "[演示使用记录 2026-10-13] 体重样本 +0天；虚构数据，不代表真实宠物测量。",
+        "id": "0d0d4b52-f487-4972-9016-c218ad1ebf3b",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "value_g": 2100.0,
+        "recorded_at": "2026-10-13T15:02:34.070482+00:00",
+        "version": 1,
+        "deleted": false,
+        "corrections": [],
+        "pet_id": "mochi"
+      },
+      {
+        "kind": "diet",
+        "value": 48.0,
+        "unit": "g",
+        "measured_at": "2026-10-13T12:00:00+08:00",
+        "source": "demo_sample",
+        "diet_type": "food_offered",
+        "note": "[演示使用记录 2026-10-13] 饮食样本 food_offered；虚构干粮记录，仅用于展示不同记录含义。",
+        "id": "c1712ed6-4245-4ed8-9c41-acb0ac417491",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "value_g": 48.0,
+        "recorded_at": "2026-10-13T15:02:34.085834+00:00",
+        "version": 1,
+        "deleted": false,
+        "corrections": [],
+        "pet_id": "mochi"
+      },
+      {
+        "kind": "diet",
+        "value": 44.0,
+        "unit": "g",
+        "measured_at": "2026-10-13T12:00:00+08:00",
+        "source": "demo_sample",
+        "diet_type": "actual_intake",
+        "note": "[演示使用记录 2026-10-13] 饮食样本 actual_intake；虚构干粮记录，仅用于展示不同记录含义。",
+        "id": "f99ff1bb-5715-4f4b-8512-937d2f2b3e37",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "value_g": 44.0,
+        "recorded_at": "2026-10-13T15:02:34.118422+00:00",
+        "version": 1,
+        "deleted": false,
+        "corrections": [],
+        "pet_id": "mochi"
+      },
+      {
+        "kind": "diet",
+        "value": 4.0,
+        "unit": "g",
+        "measured_at": "2026-10-13T12:00:00+08:00",
+        "source": "demo_sample",
+        "diet_type": "remaining",
+        "note": "[演示使用记录 2026-10-13] 饮食样本 remaining；虚构干粮记录，仅用于展示不同记录含义。",
+        "id": "981765c4-45f4-4705-940a-d180dc4fd860",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "value_g": 4.0,
+        "recorded_at": "2026-10-13T15:02:34.149523+00:00",
+        "version": 1,
+        "deleted": false,
+        "corrections": [],
+        "pet_id": "mochi"
+      }
+    ],
+    "reports": [
+      {
+        "report_id": "b8104850-df41-41b8-a6e6-7cef6787d5fe",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T09:28:33.330123+00:00",
+        "stat_version": 8,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "96eebdd4-ec75-476e-93ff-fbecb67e7292"
+        ],
+        "source_versions": {
+          "96eebdd4-ec75-476e-93ff-fbecb67e7292": 1
+        },
+        "coverage": {
+          "weight_measurements": 0,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": null,
+          "change_percent": null,
+          "span_days": null,
+          "source_record_ids": [
+            "96eebdd4-ec75-476e-93ff-fbecb67e7292"
+          ],
+          "latest_g": 2050.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "45bb5b8e-4d6d-48a1-b716-29ceaed6f217",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:33.922882+00:00",
+        "stat_version": 9,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "96eebdd4-ec75-476e-93ff-fbecb67e7292"
+        ],
+        "source_versions": {
+          "96eebdd4-ec75-476e-93ff-fbecb67e7292": 1
+        },
+        "coverage": {
+          "weight_measurements": 0,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": null,
+          "change_percent": null,
+          "span_days": null,
+          "source_record_ids": [
+            "96eebdd4-ec75-476e-93ff-fbecb67e7292"
+          ],
+          "latest_g": 2050.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "17f8d256-8272-47b9-9701-bb7df62812ea",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:33.962542+00:00",
+        "stat_version": 10,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "96eebdd4-ec75-476e-93ff-fbecb67e7292"
+        ],
+        "source_versions": {
+          "96eebdd4-ec75-476e-93ff-fbecb67e7292": 1
+        },
+        "coverage": {
+          "weight_measurements": 0,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": null,
+          "change_percent": null,
+          "span_days": null,
+          "source_record_ids": [
+            "96eebdd4-ec75-476e-93ff-fbecb67e7292"
+          ],
+          "latest_g": 2050.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "f707f485-388b-4eb5-ad98-5b279343b25f",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:33.979140+00:00",
+        "stat_version": 11,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "96eebdd4-ec75-476e-93ff-fbecb67e7292"
+        ],
+        "source_versions": {
+          "96eebdd4-ec75-476e-93ff-fbecb67e7292": 1
+        },
+        "coverage": {
+          "weight_measurements": 0,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": null,
+          "change_percent": null,
+          "span_days": null,
+          "source_record_ids": [
+            "96eebdd4-ec75-476e-93ff-fbecb67e7292"
+          ],
+          "latest_g": 2050.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "c07c7647-37bd-409d-9883-b2a214548b33",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:33.994162+00:00",
+        "stat_version": 12,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "96eebdd4-ec75-476e-93ff-fbecb67e7292"
+        ],
+        "source_versions": {
+          "96eebdd4-ec75-476e-93ff-fbecb67e7292": 1
+        },
+        "coverage": {
+          "weight_measurements": 0,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": null,
+          "change_percent": null,
+          "span_days": null,
+          "source_record_ids": [
+            "96eebdd4-ec75-476e-93ff-fbecb67e7292"
+          ],
+          "latest_g": 2050.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "818cdba8-d22b-4c58-b352-8bb74132f775",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.028675+00:00",
+        "stat_version": 13,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "4801cd49-6510-4b95-86e5-a13cae867ee5"
+        ],
+        "source_versions": {
+          "4801cd49-6510-4b95-86e5-a13cae867ee5": 1
+        },
+        "coverage": {
+          "weight_measurements": 0,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": null,
+          "change_percent": null,
+          "span_days": null,
+          "source_record_ids": [
+            "4801cd49-6510-4b95-86e5-a13cae867ee5"
+          ],
+          "latest_g": 2060.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "307626df-dea0-4481-a017-bd2cf7f0db1a",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.041220+00:00",
+        "stat_version": 14,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1
+        },
+        "coverage": {
+          "weight_measurements": 0,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": null,
+          "change_percent": null,
+          "span_days": null,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d"
+          ],
+          "latest_g": 2080.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "1e847d08-43e0-4d95-b4f5-c17a36334f30",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.056776+00:00",
+        "stat_version": 15,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "5650bc7f-27be-440b-b751-fadfc34d0393",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.071491+00:00",
+        "stat_version": 16,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "43b7e147-1b76-4364-81f0-76eee261b373",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.085834+00:00",
+        "stat_version": 17,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "1bb76d55-9223-4bed-ae06-be263741a25d",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.118422+00:00",
+        "stat_version": 18,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "27d05f1b-8895-45a6-b6c7-00ad915dea67",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.150522+00:00",
+        "stat_version": 19,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "58d06062-0dcd-4ebb-a412-c5404c81ff86",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.184414+00:00",
+        "stat_version": 20,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "70e4c74a-5db6-45e9-9c7e-47c11ff00d25",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.212564+00:00",
+        "stat_version": 21,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "76b1546b-484f-4757-941e-ea46e1e4c9cb",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.243405+00:00",
+        "stat_version": 22,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "774ba163-870d-4dec-a871-f5d617ddd7e0",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.274997+00:00",
+        "stat_version": 23,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "48befbf7-8656-4436-b944-aa605d507e7d",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.306579+00:00",
+        "stat_version": 24,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "f4e85cd5-6fae-40d1-beb6-712c5bb97c03",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.321670+00:00",
+        "stat_version": 25,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "c5afe445-5fa6-4e70-a6b8-6b3620a269b7",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.353675+00:00",
+        "stat_version": 26,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "daf0299a-91d1-4711-bd4d-b30d8173c9a0",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.384865+00:00",
+        "stat_version": 27,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "9ea394a1-72f3-4365-944c-f5678b523851",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.404459+00:00",
+        "stat_version": 28,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "5f4b2510-297e-4b4f-b56b-edde447d2dd1",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.435394+00:00",
+        "stat_version": 29,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "4c2a5167-565e-4df9-b1cb-34c5d77f5d6d",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.454871+00:00",
+        "stat_version": 30,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "55de33b1-cfbd-4085-9c42-6b4cc31195e9",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.470401+00:00",
+        "stat_version": 31,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "f7d4cd04-5835-4bd7-ac54-a335eae47cee",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.484573+00:00",
+        "stat_version": 32,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "6fe45f46-71c3-4ef2-8c3f-ea0aaa29bca4",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.499163+00:00",
+        "stat_version": 33,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "fe1bd174-418c-4aea-a13b-f790d4a66ee2",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.512880+00:00",
+        "stat_version": 34,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "1025a330-6832-4a95-a0e7-5439f942073c",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.538480+00:00",
+        "stat_version": 35,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "37bf688f-0e03-42e9-a79e-3eb194a79ecd",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.573904+00:00",
+        "stat_version": 36,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      },
+      {
+        "report_id": "56e06a59-888c-4ec4-980a-bcac3b3a6132",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.600482+00:00",
+        "stat_version": 37,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d",
+          "602358c0-33ea-4067-84ca-7f7d1cc898c0"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1,
+          "602358c0-33ea-4067-84ca-7f7d1cc898c0": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 1
+        }
+      },
+      {
+        "report_id": "f93b7dd6-917a-4d2b-8fa5-bc531c1df357",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.615707+00:00",
+        "stat_version": 38,
+        "status": "superseded",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d",
+          "602358c0-33ea-4067-84ca-7f7d1cc898c0"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1,
+          "602358c0-33ea-4067-84ca-7f7d1cc898c0": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 1
+        }
+      },
+      {
+        "report_id": "ae57f651-f898-4e6f-b8a0-650e1447ac95",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-12",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-12T16:00:00+00:00",
+        "cutoff": "2026-10-12T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.630762+00:00",
+        "stat_version": 39,
+        "status": "current",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "da2a7baa-3162-4838-b581-80001519795d",
+          "602358c0-33ea-4067-84ca-7f7d1cc898c0"
+        ],
+        "source_versions": {
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1,
+          "602358c0-33ea-4067-84ca-7f7d1cc898c0": 1
+        },
+        "coverage": {
+          "weight_measurements": 1,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.480769,
+          "span_days": 1.0,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+          ],
+          "latest_g": 2090.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 1
+        }
+      },
+      {
+        "report_id": "aed7826b-5877-40fd-9d68-4cd36e0c3c54",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-13",
+        "window_start": "2026-10-12T16:00:00+00:00",
+        "window_end": "2026-10-13T16:00:00+00:00",
+        "cutoff": "2026-10-13T15:02:34.663227+00:00",
+        "generated_at": "2026-10-13T15:02:34.663227+00:00",
+        "stat_version": 39,
+        "status": "current",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "92a66a6d-ad86-4642-8993-90a4ebb9fcdd",
+          "0d0d4b52-f487-4972-9016-c218ad1ebf3b",
+          "c1712ed6-4245-4ed8-9c41-acb0ac417491",
+          "f99ff1bb-5715-4f4b-8512-937d2f2b3e37",
+          "981765c4-45f4-4705-940a-d180dc4fd860",
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "d81848f6-2cd3-43c2-b258-5c05c8c23e6d",
+          "4dfc4d43-fd71-46e9-a30b-d409e88fc0db",
+          "8d85bb13-8d2e-46cc-b69d-5fe5509b097b",
+          "7b1b7fd3-647b-44fc-9ded-c2eb6eb6e21e",
+          "411b4fe0-816d-4059-8418-5b09e2350ef9",
+          "7df6f91e-e127-4df2-9555-ecf8d3b520d8",
+          "2e932982-be51-4158-961d-7dec6ab661e1",
+          "2f4bd3cf-a6e3-4af0-b24c-c574e46418fa",
+          "2438a09c-48ee-4541-8a9b-aaa938c0490e",
+          "65ad83f8-61c7-455f-b5d9-54285ddd2fda",
+          "83a944ad-5eaf-4520-8860-fa4c2a92dc91",
+          "0a8b38a2-3adc-4c3b-a9e5-00212f1de990",
+          "4ddc3774-2fd3-4a18-a379-ed7cd3cf871b",
+          "56e06f24-2438-4324-8275-94f662ef24f6",
+          "2bfd815c-18ec-4913-a57e-c07db2a3dd4b",
+          "a149fcbc-da36-4dcc-8e1c-db5ad5f2def7",
+          "21b3e544-950e-4eec-a440-a0c1fcf024f3",
+          "0ad1103f-ddfc-4ce9-9553-ff373726ff2d",
+          "8a115f5b-c5a6-4631-bfc7-4d42825a17ff",
+          "06e0d11c-9ee2-40f3-909b-4560037f3cdf",
+          "ec3190d3-8e70-41f8-9055-efd5a26904d9",
+          "1dd6eebc-53c0-4a0e-80ae-29c7bff83613",
+          "93b93ff4-a80d-480d-b458-241c9a2850aa",
+          "73b0776f-7f5a-433e-9833-837c997c2760",
+          "dbd997de-72db-4652-8271-56a41604b1e1",
+          "1ac9dc7f-1187-4570-8d36-d1bd5724d3b7",
+          "c2ebb43e-fc72-4248-8469-5e2adbf72213",
+          "56e1b5e4-3474-4532-94e1-d547c6e952c1",
+          "d9414aef-4196-4745-bf6f-0aa880cfe9d6"
+        ],
+        "source_versions": {
+          "92a66a6d-ad86-4642-8993-90a4ebb9fcdd": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1,
+          "0d0d4b52-f487-4972-9016-c218ad1ebf3b": 1,
+          "c1712ed6-4245-4ed8-9c41-acb0ac417491": 1,
+          "f99ff1bb-5715-4f4b-8512-937d2f2b3e37": 1,
+          "981765c4-45f4-4705-940a-d180dc4fd860": 1,
+          "d81848f6-2cd3-43c2-b258-5c05c8c23e6d": 1,
+          "4dfc4d43-fd71-46e9-a30b-d409e88fc0db": 1,
+          "8d85bb13-8d2e-46cc-b69d-5fe5509b097b": 1,
+          "7b1b7fd3-647b-44fc-9ded-c2eb6eb6e21e": 1,
+          "411b4fe0-816d-4059-8418-5b09e2350ef9": 1,
+          "7df6f91e-e127-4df2-9555-ecf8d3b520d8": 1,
+          "2e932982-be51-4158-961d-7dec6ab661e1": 1,
+          "2f4bd3cf-a6e3-4af0-b24c-c574e46418fa": 1,
+          "2438a09c-48ee-4541-8a9b-aaa938c0490e": 1,
+          "65ad83f8-61c7-455f-b5d9-54285ddd2fda": 1,
+          "83a944ad-5eaf-4520-8860-fa4c2a92dc91": 1,
+          "0a8b38a2-3adc-4c3b-a9e5-00212f1de990": 1,
+          "4ddc3774-2fd3-4a18-a379-ed7cd3cf871b": 1,
+          "56e06f24-2438-4324-8275-94f662ef24f6": 1,
+          "2bfd815c-18ec-4913-a57e-c07db2a3dd4b": 1,
+          "a149fcbc-da36-4dcc-8e1c-db5ad5f2def7": 1,
+          "21b3e544-950e-4eec-a440-a0c1fcf024f3": 1,
+          "0ad1103f-ddfc-4ce9-9553-ff373726ff2d": 1,
+          "8a115f5b-c5a6-4631-bfc7-4d42825a17ff": 1,
+          "06e0d11c-9ee2-40f3-909b-4560037f3cdf": 1,
+          "ec3190d3-8e70-41f8-9055-efd5a26904d9": 1,
+          "1dd6eebc-53c0-4a0e-80ae-29c7bff83613": 1,
+          "1ac9dc7f-1187-4570-8d36-d1bd5724d3b7": 1,
+          "c2ebb43e-fc72-4248-8469-5e2adbf72213": 1,
+          "56e1b5e4-3474-4532-94e1-d547c6e952c1": 2,
+          "d9414aef-4196-4745-bf6f-0aa880cfe9d6": 1,
+          "93b93ff4-a80d-480d-b458-241c9a2850aa": 1,
+          "73b0776f-7f5a-433e-9833-837c997c2760": 1,
+          "dbd997de-72db-4652-8271-56a41604b1e1": 1
+        },
+        "coverage": {
+          "weight_measurements": 2,
+          "diet_records": 3,
+          "incomplete_window": true,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 10.0,
+          "change_percent": 0.478469,
+          "span_days": 1.352483,
+          "source_record_ids": [
+            "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+            "92a66a6d-ad86-4642-8993-90a4ebb9fcdd"
+          ],
+          "latest_g": 2100.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": 44.0,
+          "food_offered_g": 48.0,
+          "dispensed_g": null,
+          "remaining_g": 4.0,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 3,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 4,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 2,
+          "by_member": {
+            "4580e843-d128-4c60-a71b-b73341722a63": 3
+          }
+        },
+        "growth": {
+          "diary_count": 2
+        }
+      },
+      {
+        "report_id": "fc21ae28-d1f8-4d74-a37c-29c5819ad5a3",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "weekly",
+        "date": "2026-10-13",
+        "window_start": "2026-10-11T16:00:00+00:00",
+        "window_end": "2026-10-18T16:00:00+00:00",
+        "cutoff": "2026-10-13T15:02:34.693674+00:00",
+        "generated_at": "2026-10-13T15:02:34.693674+00:00",
+        "stat_version": 39,
+        "status": "current",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "92a66a6d-ad86-4642-8993-90a4ebb9fcdd",
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "0d0d4b52-f487-4972-9016-c218ad1ebf3b",
+          "c1712ed6-4245-4ed8-9c41-acb0ac417491",
+          "f99ff1bb-5715-4f4b-8512-937d2f2b3e37",
+          "981765c4-45f4-4705-940a-d180dc4fd860",
+          "da2a7baa-3162-4838-b581-80001519795d",
+          "d81848f6-2cd3-43c2-b258-5c05c8c23e6d",
+          "4dfc4d43-fd71-46e9-a30b-d409e88fc0db",
+          "8d85bb13-8d2e-46cc-b69d-5fe5509b097b",
+          "7b1b7fd3-647b-44fc-9ded-c2eb6eb6e21e",
+          "411b4fe0-816d-4059-8418-5b09e2350ef9",
+          "7df6f91e-e127-4df2-9555-ecf8d3b520d8",
+          "2e932982-be51-4158-961d-7dec6ab661e1",
+          "2f4bd3cf-a6e3-4af0-b24c-c574e46418fa",
+          "2438a09c-48ee-4541-8a9b-aaa938c0490e",
+          "65ad83f8-61c7-455f-b5d9-54285ddd2fda",
+          "83a944ad-5eaf-4520-8860-fa4c2a92dc91",
+          "0a8b38a2-3adc-4c3b-a9e5-00212f1de990",
+          "4ddc3774-2fd3-4a18-a379-ed7cd3cf871b",
+          "56e06f24-2438-4324-8275-94f662ef24f6",
+          "2bfd815c-18ec-4913-a57e-c07db2a3dd4b",
+          "a149fcbc-da36-4dcc-8e1c-db5ad5f2def7",
+          "21b3e544-950e-4eec-a440-a0c1fcf024f3",
+          "0ad1103f-ddfc-4ce9-9553-ff373726ff2d",
+          "8a115f5b-c5a6-4631-bfc7-4d42825a17ff",
+          "06e0d11c-9ee2-40f3-909b-4560037f3cdf",
+          "ec3190d3-8e70-41f8-9055-efd5a26904d9",
+          "602358c0-33ea-4067-84ca-7f7d1cc898c0",
+          "1dd6eebc-53c0-4a0e-80ae-29c7bff83613",
+          "93b93ff4-a80d-480d-b458-241c9a2850aa",
+          "73b0776f-7f5a-433e-9833-837c997c2760",
+          "dbd997de-72db-4652-8271-56a41604b1e1",
+          "1ac9dc7f-1187-4570-8d36-d1bd5724d3b7",
+          "c2ebb43e-fc72-4248-8469-5e2adbf72213",
+          "5d126c2d-2cd9-49f6-b853-d9f8c7a99f59",
+          "b7afc9ef-5152-4a68-bbcb-06d27a7975cd",
+          "56e1b5e4-3474-4532-94e1-d547c6e952c1",
+          "d9414aef-4196-4745-bf6f-0aa880cfe9d6",
+          "e0b5624b-3e54-4c77-aa21-6046c8904785"
+        ],
+        "source_versions": {
+          "92a66a6d-ad86-4642-8993-90a4ebb9fcdd": 1,
+          "da2a7baa-3162-4838-b581-80001519795d": 1,
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1,
+          "0d0d4b52-f487-4972-9016-c218ad1ebf3b": 1,
+          "c1712ed6-4245-4ed8-9c41-acb0ac417491": 1,
+          "f99ff1bb-5715-4f4b-8512-937d2f2b3e37": 1,
+          "981765c4-45f4-4705-940a-d180dc4fd860": 1,
+          "d81848f6-2cd3-43c2-b258-5c05c8c23e6d": 1,
+          "4dfc4d43-fd71-46e9-a30b-d409e88fc0db": 1,
+          "8d85bb13-8d2e-46cc-b69d-5fe5509b097b": 1,
+          "7b1b7fd3-647b-44fc-9ded-c2eb6eb6e21e": 1,
+          "411b4fe0-816d-4059-8418-5b09e2350ef9": 1,
+          "7df6f91e-e127-4df2-9555-ecf8d3b520d8": 1,
+          "2e932982-be51-4158-961d-7dec6ab661e1": 1,
+          "2f4bd3cf-a6e3-4af0-b24c-c574e46418fa": 1,
+          "2438a09c-48ee-4541-8a9b-aaa938c0490e": 1,
+          "65ad83f8-61c7-455f-b5d9-54285ddd2fda": 1,
+          "83a944ad-5eaf-4520-8860-fa4c2a92dc91": 1,
+          "0a8b38a2-3adc-4c3b-a9e5-00212f1de990": 1,
+          "4ddc3774-2fd3-4a18-a379-ed7cd3cf871b": 1,
+          "56e06f24-2438-4324-8275-94f662ef24f6": 1,
+          "2bfd815c-18ec-4913-a57e-c07db2a3dd4b": 1,
+          "a149fcbc-da36-4dcc-8e1c-db5ad5f2def7": 1,
+          "21b3e544-950e-4eec-a440-a0c1fcf024f3": 1,
+          "0ad1103f-ddfc-4ce9-9553-ff373726ff2d": 1,
+          "8a115f5b-c5a6-4631-bfc7-4d42825a17ff": 1,
+          "06e0d11c-9ee2-40f3-909b-4560037f3cdf": 1,
+          "ec3190d3-8e70-41f8-9055-efd5a26904d9": 1,
+          "602358c0-33ea-4067-84ca-7f7d1cc898c0": 1,
+          "1dd6eebc-53c0-4a0e-80ae-29c7bff83613": 1,
+          "1ac9dc7f-1187-4570-8d36-d1bd5724d3b7": 1,
+          "c2ebb43e-fc72-4248-8469-5e2adbf72213": 1,
+          "5d126c2d-2cd9-49f6-b853-d9f8c7a99f59": 1,
+          "b7afc9ef-5152-4a68-bbcb-06d27a7975cd": 2,
+          "56e1b5e4-3474-4532-94e1-d547c6e952c1": 2,
+          "d9414aef-4196-4745-bf6f-0aa880cfe9d6": 1,
+          "e0b5624b-3e54-4c77-aa21-6046c8904785": 1,
+          "93b93ff4-a80d-480d-b458-241c9a2850aa": 1,
+          "73b0776f-7f5a-433e-9833-837c997c2760": 1,
+          "dbd997de-72db-4652-8271-56a41604b1e1": 1
+        },
+        "coverage": {
+          "weight_measurements": 3,
+          "diet_records": 3,
+          "incomplete_window": true,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 20.0,
+          "change_percent": 0.961538,
+          "span_days": 2.352483,
+          "source_record_ids": [
+            "da2a7baa-3162-4838-b581-80001519795d",
+            "92a66a6d-ad86-4642-8993-90a4ebb9fcdd"
+          ],
+          "latest_g": 2100.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": 44.0,
+          "food_offered_g": 48.0,
+          "dispensed_g": null,
+          "remaining_g": 4.0,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 3,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 7,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 2,
+          "by_member": {
+            "4580e843-d128-4c60-a71b-b73341722a63": 3
+          }
+        },
+        "growth": {
+          "diary_count": 3
+        }
+      },
+      {
+        "report_id": "35d8bda9-f2e2-495f-8c96-f0ef533b9278",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "pet_id": "mochi",
+        "period": "weekly",
+        "date": "2026-10-11",
+        "window_start": "2026-10-04T16:00:00+00:00",
+        "window_end": "2026-10-11T16:00:00+00:00",
+        "cutoff": "2026-10-11T16:00:00+00:00",
+        "generated_at": "2026-10-13T15:02:34.740615+00:00",
+        "stat_version": 39,
+        "status": "current",
+        "notification": "not_sent",
+        "source_record_ids": [
+          "96eebdd4-ec75-476e-93ff-fbecb67e7292",
+          "176a6e79-9012-4773-9bd4-b7d049b54382",
+          "4801cd49-6510-4b95-86e5-a13cae867ee5",
+          "da2a7baa-3162-4838-b581-80001519795d",
+          "511545c1-2b18-448a-89fd-c527ce166483"
+        ],
+        "source_versions": {
+          "96eebdd4-ec75-476e-93ff-fbecb67e7292": 1,
+          "511545c1-2b18-448a-89fd-c527ce166483": 1,
+          "176a6e79-9012-4773-9bd4-b7d049b54382": 1,
+          "4801cd49-6510-4b95-86e5-a13cae867ee5": 1,
+          "da2a7baa-3162-4838-b581-80001519795d": 1
+        },
+        "coverage": {
+          "weight_measurements": 4,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": 90.0,
+          "change_percent": 4.522613,
+          "span_days": 9.0,
+          "source_record_ids": [
+            "511545c1-2b18-448a-89fd-c527ce166483",
+            "da2a7baa-3162-4838-b581-80001519795d"
+          ],
+          "latest_g": 2080.0,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": null,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      }
+    ],
+    "memories": [
+      {
+        "text": "更喜欢羽毛棒，适合短时间分段陪玩。（虚构演示偏好）",
+        "topic": "play",
+        "status": "confirmed",
+        "valid_until": null,
+        "id": "114f57c3-14d0-4eac-9cfa-a730d0695bf3",
+        "pet_id": "mochi",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "author_name": "演示主人",
+        "created_at": "2026-10-13T15:02:34.453883+00:00",
+        "version": 2,
+        "deleted": false,
+        "memory_backend": "owner_confirmed_database",
+        "corrected_at": "2026-10-13T15:02:34.470401+00:00"
+      },
+      {
+        "text": "梳毛时先从背部开始，不喜欢碰腹部。（虚构演示偏好）",
+        "topic": "brush",
+        "status": "confirmed",
+        "valid_until": null,
+        "id": "bde0f26a-4c38-41ad-a94f-2507ab0b603f",
+        "pet_id": "mochi",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "author_name": "演示主人",
+        "created_at": "2026-10-13T15:02:34.483570+00:00",
+        "version": 2,
+        "deleted": false,
+        "memory_backend": "owner_confirmed_database",
+        "corrected_at": "2026-10-13T15:02:34.498163+00:00"
+      },
+      {
+        "text": "不喜欢突然的大声响，互动时保持安静。（虚构演示偏好）",
+        "topic": "general",
+        "status": "confirmed",
+        "valid_until": null,
+        "id": "9ac72ba9-1493-4bd5-8373-5a890e7a6677",
+        "pet_id": "mochi",
+        "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+        "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+        "author_name": "演示主人",
+        "created_at": "2026-10-13T15:02:34.512880+00:00",
+        "version": 2,
+        "deleted": false,
+        "memory_backend": "owner_confirmed_database",
+        "corrected_at": "2026-10-13T15:02:34.538480+00:00"
+      }
+    ],
+    "proposals": [],
+    "occurrences": [
+      {
+        "id": "93b93ff4-a80d-480d-b458-241c9a2850aa",
+        "task_id": "9b00c9db-a7ae-4dc8-a5f7-b75c24a97174",
+        "pet_id": "mochi",
+        "due_at": "2026-10-13T09:00:00+08:00",
+        "completed_at": "2026-10-13T15:02:34.211566+00:00",
+        "completed_by": "4580e843-d128-4c60-a71b-b73341722a63",
+        "status": "completed",
+        "source": "manual_care"
+      },
+      {
+        "id": "73b0776f-7f5a-433e-9833-837c997c2760",
+        "task_id": "120a2414-88fb-43b4-b47f-b1cca50f5a70",
+        "pet_id": "mochi",
+        "due_at": "2026-10-13T10:00:00+08:00",
+        "completed_at": "2026-10-13T15:02:34.274997+00:00",
+        "completed_by": "4580e843-d128-4c60-a71b-b73341722a63",
+        "status": "completed",
+        "source": "manual_care"
+      },
+      {
+        "id": "dbd997de-72db-4652-8271-56a41604b1e1",
+        "task_id": "b7afc9ef-5152-4a68-bbcb-06d27a7975cd",
+        "pet_id": "mochi",
+        "due_at": "2026-10-13T11:00:00+08:00",
+        "completed_at": "2026-10-13T15:02:34.321314+00:00",
+        "completed_by": "4580e843-d128-4c60-a71b-b73341722a63",
+        "status": "completed",
+        "source": "manual_care"
+      }
+    ],
+    "revision": 39,
+    "device_receipts": [],
+    "simulated_device_connected": false,
+    "photo_recognition_enabled": false,
+    "storage": "sqlite_local",
+    "member_identity": "local_account"
+  },
+  "reports": [
+    {
+      "report_id": "aed7826b-5877-40fd-9d68-4cd36e0c3c54",
+      "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+      "pet_id": "mochi",
+      "period": "daily",
+      "date": "2026-10-13",
+      "window_start": "2026-10-12T16:00:00+00:00",
+      "window_end": "2026-10-13T16:00:00+00:00",
+      "cutoff": "2026-10-13T15:02:34.663227+00:00",
+      "generated_at": "2026-10-13T15:02:34.663227+00:00",
+      "stat_version": 39,
+      "status": "current",
+      "notification": "not_sent",
+      "source_record_ids": [
+        "92a66a6d-ad86-4642-8993-90a4ebb9fcdd",
+        "0d0d4b52-f487-4972-9016-c218ad1ebf3b",
+        "c1712ed6-4245-4ed8-9c41-acb0ac417491",
+        "f99ff1bb-5715-4f4b-8512-937d2f2b3e37",
+        "981765c4-45f4-4705-940a-d180dc4fd860",
+        "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+        "d81848f6-2cd3-43c2-b258-5c05c8c23e6d",
+        "4dfc4d43-fd71-46e9-a30b-d409e88fc0db",
+        "8d85bb13-8d2e-46cc-b69d-5fe5509b097b",
+        "7b1b7fd3-647b-44fc-9ded-c2eb6eb6e21e",
+        "411b4fe0-816d-4059-8418-5b09e2350ef9",
+        "7df6f91e-e127-4df2-9555-ecf8d3b520d8",
+        "2e932982-be51-4158-961d-7dec6ab661e1",
+        "2f4bd3cf-a6e3-4af0-b24c-c574e46418fa",
+        "2438a09c-48ee-4541-8a9b-aaa938c0490e",
+        "65ad83f8-61c7-455f-b5d9-54285ddd2fda",
+        "83a944ad-5eaf-4520-8860-fa4c2a92dc91",
+        "0a8b38a2-3adc-4c3b-a9e5-00212f1de990",
+        "4ddc3774-2fd3-4a18-a379-ed7cd3cf871b",
+        "56e06f24-2438-4324-8275-94f662ef24f6",
+        "2bfd815c-18ec-4913-a57e-c07db2a3dd4b",
+        "a149fcbc-da36-4dcc-8e1c-db5ad5f2def7",
+        "21b3e544-950e-4eec-a440-a0c1fcf024f3",
+        "0ad1103f-ddfc-4ce9-9553-ff373726ff2d",
+        "8a115f5b-c5a6-4631-bfc7-4d42825a17ff",
+        "06e0d11c-9ee2-40f3-909b-4560037f3cdf",
+        "ec3190d3-8e70-41f8-9055-efd5a26904d9",
+        "1dd6eebc-53c0-4a0e-80ae-29c7bff83613",
+        "93b93ff4-a80d-480d-b458-241c9a2850aa",
+        "73b0776f-7f5a-433e-9833-837c997c2760",
+        "dbd997de-72db-4652-8271-56a41604b1e1",
+        "1ac9dc7f-1187-4570-8d36-d1bd5724d3b7",
+        "c2ebb43e-fc72-4248-8469-5e2adbf72213",
+        "56e1b5e4-3474-4532-94e1-d547c6e952c1",
+        "d9414aef-4196-4745-bf6f-0aa880cfe9d6"
+      ],
+      "source_versions": {
+        "92a66a6d-ad86-4642-8993-90a4ebb9fcdd": 1,
+        "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1,
+        "0d0d4b52-f487-4972-9016-c218ad1ebf3b": 1,
+        "c1712ed6-4245-4ed8-9c41-acb0ac417491": 1,
+        "f99ff1bb-5715-4f4b-8512-937d2f2b3e37": 1,
+        "981765c4-45f4-4705-940a-d180dc4fd860": 1,
+        "d81848f6-2cd3-43c2-b258-5c05c8c23e6d": 1,
+        "4dfc4d43-fd71-46e9-a30b-d409e88fc0db": 1,
+        "8d85bb13-8d2e-46cc-b69d-5fe5509b097b": 1,
+        "7b1b7fd3-647b-44fc-9ded-c2eb6eb6e21e": 1,
+        "411b4fe0-816d-4059-8418-5b09e2350ef9": 1,
+        "7df6f91e-e127-4df2-9555-ecf8d3b520d8": 1,
+        "2e932982-be51-4158-961d-7dec6ab661e1": 1,
+        "2f4bd3cf-a6e3-4af0-b24c-c574e46418fa": 1,
+        "2438a09c-48ee-4541-8a9b-aaa938c0490e": 1,
+        "65ad83f8-61c7-455f-b5d9-54285ddd2fda": 1,
+        "83a944ad-5eaf-4520-8860-fa4c2a92dc91": 1,
+        "0a8b38a2-3adc-4c3b-a9e5-00212f1de990": 1,
+        "4ddc3774-2fd3-4a18-a379-ed7cd3cf871b": 1,
+        "56e06f24-2438-4324-8275-94f662ef24f6": 1,
+        "2bfd815c-18ec-4913-a57e-c07db2a3dd4b": 1,
+        "a149fcbc-da36-4dcc-8e1c-db5ad5f2def7": 1,
+        "21b3e544-950e-4eec-a440-a0c1fcf024f3": 1,
+        "0ad1103f-ddfc-4ce9-9553-ff373726ff2d": 1,
+        "8a115f5b-c5a6-4631-bfc7-4d42825a17ff": 1,
+        "06e0d11c-9ee2-40f3-909b-4560037f3cdf": 1,
+        "ec3190d3-8e70-41f8-9055-efd5a26904d9": 1,
+        "1dd6eebc-53c0-4a0e-80ae-29c7bff83613": 1,
+        "1ac9dc7f-1187-4570-8d36-d1bd5724d3b7": 1,
+        "c2ebb43e-fc72-4248-8469-5e2adbf72213": 1,
+        "56e1b5e4-3474-4532-94e1-d547c6e952c1": 2,
+        "d9414aef-4196-4745-bf6f-0aa880cfe9d6": 1,
+        "93b93ff4-a80d-480d-b458-241c9a2850aa": 1,
+        "73b0776f-7f5a-433e-9833-837c997c2760": 1,
+        "dbd997de-72db-4652-8271-56a41604b1e1": 1
+      },
+      "coverage": {
+        "weight_measurements": 2,
+        "diet_records": 3,
+        "incomplete_window": true,
+        "tasks_without_creation_time": 0
+      },
+      "weight": {
+        "change_g": 10.0,
+        "change_percent": 0.478469,
+        "span_days": 1.352483,
+        "source_record_ids": [
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "92a66a6d-ad86-4642-8993-90a4ebb9fcdd"
+        ],
+        "latest_g": 2100.0,
+        "description": "实际测量跨度；群体参考不能用于诊断"
+      },
+      "diet": {
+        "actual_intake_g": 44.0,
+        "food_offered_g": 48.0,
+        "dispensed_g": null,
+        "remaining_g": 4.0,
+        "simulated_device_dispensed_g": null
+      },
+      "care": {
+        "manual_completed": 3,
+        "device_success": null,
+        "device_failed": 0,
+        "device_unknown": 0,
+        "device_results_simulated": true,
+        "pending": 4,
+        "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+        "overdue": 2,
+        "by_member": {
+          "4580e843-d128-4c60-a71b-b73341722a63": 3
+        }
+      },
+      "growth": {
+        "diary_count": 2
+      }
+    },
+    {
+      "report_id": "fc21ae28-d1f8-4d74-a37c-29c5819ad5a3",
+      "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+      "pet_id": "mochi",
+      "period": "weekly",
+      "date": "2026-10-13",
+      "window_start": "2026-10-11T16:00:00+00:00",
+      "window_end": "2026-10-18T16:00:00+00:00",
+      "cutoff": "2026-10-13T15:02:34.693674+00:00",
+      "generated_at": "2026-10-13T15:02:34.693674+00:00",
+      "stat_version": 39,
+      "status": "current",
+      "notification": "not_sent",
+      "source_record_ids": [
+        "92a66a6d-ad86-4642-8993-90a4ebb9fcdd",
+        "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+        "0d0d4b52-f487-4972-9016-c218ad1ebf3b",
+        "c1712ed6-4245-4ed8-9c41-acb0ac417491",
+        "f99ff1bb-5715-4f4b-8512-937d2f2b3e37",
+        "981765c4-45f4-4705-940a-d180dc4fd860",
+        "da2a7baa-3162-4838-b581-80001519795d",
+        "d81848f6-2cd3-43c2-b258-5c05c8c23e6d",
+        "4dfc4d43-fd71-46e9-a30b-d409e88fc0db",
+        "8d85bb13-8d2e-46cc-b69d-5fe5509b097b",
+        "7b1b7fd3-647b-44fc-9ded-c2eb6eb6e21e",
+        "411b4fe0-816d-4059-8418-5b09e2350ef9",
+        "7df6f91e-e127-4df2-9555-ecf8d3b520d8",
+        "2e932982-be51-4158-961d-7dec6ab661e1",
+        "2f4bd3cf-a6e3-4af0-b24c-c574e46418fa",
+        "2438a09c-48ee-4541-8a9b-aaa938c0490e",
+        "65ad83f8-61c7-455f-b5d9-54285ddd2fda",
+        "83a944ad-5eaf-4520-8860-fa4c2a92dc91",
+        "0a8b38a2-3adc-4c3b-a9e5-00212f1de990",
+        "4ddc3774-2fd3-4a18-a379-ed7cd3cf871b",
+        "56e06f24-2438-4324-8275-94f662ef24f6",
+        "2bfd815c-18ec-4913-a57e-c07db2a3dd4b",
+        "a149fcbc-da36-4dcc-8e1c-db5ad5f2def7",
+        "21b3e544-950e-4eec-a440-a0c1fcf024f3",
+        "0ad1103f-ddfc-4ce9-9553-ff373726ff2d",
+        "8a115f5b-c5a6-4631-bfc7-4d42825a17ff",
+        "06e0d11c-9ee2-40f3-909b-4560037f3cdf",
+        "ec3190d3-8e70-41f8-9055-efd5a26904d9",
+        "602358c0-33ea-4067-84ca-7f7d1cc898c0",
+        "1dd6eebc-53c0-4a0e-80ae-29c7bff83613",
+        "93b93ff4-a80d-480d-b458-241c9a2850aa",
+        "73b0776f-7f5a-433e-9833-837c997c2760",
+        "dbd997de-72db-4652-8271-56a41604b1e1",
+        "1ac9dc7f-1187-4570-8d36-d1bd5724d3b7",
+        "c2ebb43e-fc72-4248-8469-5e2adbf72213",
+        "5d126c2d-2cd9-49f6-b853-d9f8c7a99f59",
+        "b7afc9ef-5152-4a68-bbcb-06d27a7975cd",
+        "56e1b5e4-3474-4532-94e1-d547c6e952c1",
+        "d9414aef-4196-4745-bf6f-0aa880cfe9d6",
+        "e0b5624b-3e54-4c77-aa21-6046c8904785"
+      ],
+      "source_versions": {
+        "92a66a6d-ad86-4642-8993-90a4ebb9fcdd": 1,
+        "da2a7baa-3162-4838-b581-80001519795d": 1,
+        "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1,
+        "0d0d4b52-f487-4972-9016-c218ad1ebf3b": 1,
+        "c1712ed6-4245-4ed8-9c41-acb0ac417491": 1,
+        "f99ff1bb-5715-4f4b-8512-937d2f2b3e37": 1,
+        "981765c4-45f4-4705-940a-d180dc4fd860": 1,
+        "d81848f6-2cd3-43c2-b258-5c05c8c23e6d": 1,
+        "4dfc4d43-fd71-46e9-a30b-d409e88fc0db": 1,
+        "8d85bb13-8d2e-46cc-b69d-5fe5509b097b": 1,
+        "7b1b7fd3-647b-44fc-9ded-c2eb6eb6e21e": 1,
+        "411b4fe0-816d-4059-8418-5b09e2350ef9": 1,
+        "7df6f91e-e127-4df2-9555-ecf8d3b520d8": 1,
+        "2e932982-be51-4158-961d-7dec6ab661e1": 1,
+        "2f4bd3cf-a6e3-4af0-b24c-c574e46418fa": 1,
+        "2438a09c-48ee-4541-8a9b-aaa938c0490e": 1,
+        "65ad83f8-61c7-455f-b5d9-54285ddd2fda": 1,
+        "83a944ad-5eaf-4520-8860-fa4c2a92dc91": 1,
+        "0a8b38a2-3adc-4c3b-a9e5-00212f1de990": 1,
+        "4ddc3774-2fd3-4a18-a379-ed7cd3cf871b": 1,
+        "56e06f24-2438-4324-8275-94f662ef24f6": 1,
+        "2bfd815c-18ec-4913-a57e-c07db2a3dd4b": 1,
+        "a149fcbc-da36-4dcc-8e1c-db5ad5f2def7": 1,
+        "21b3e544-950e-4eec-a440-a0c1fcf024f3": 1,
+        "0ad1103f-ddfc-4ce9-9553-ff373726ff2d": 1,
+        "8a115f5b-c5a6-4631-bfc7-4d42825a17ff": 1,
+        "06e0d11c-9ee2-40f3-909b-4560037f3cdf": 1,
+        "ec3190d3-8e70-41f8-9055-efd5a26904d9": 1,
+        "602358c0-33ea-4067-84ca-7f7d1cc898c0": 1,
+        "1dd6eebc-53c0-4a0e-80ae-29c7bff83613": 1,
+        "1ac9dc7f-1187-4570-8d36-d1bd5724d3b7": 1,
+        "c2ebb43e-fc72-4248-8469-5e2adbf72213": 1,
+        "5d126c2d-2cd9-49f6-b853-d9f8c7a99f59": 1,
+        "b7afc9ef-5152-4a68-bbcb-06d27a7975cd": 2,
+        "56e1b5e4-3474-4532-94e1-d547c6e952c1": 2,
+        "d9414aef-4196-4745-bf6f-0aa880cfe9d6": 1,
+        "e0b5624b-3e54-4c77-aa21-6046c8904785": 1,
+        "93b93ff4-a80d-480d-b458-241c9a2850aa": 1,
+        "73b0776f-7f5a-433e-9833-837c997c2760": 1,
+        "dbd997de-72db-4652-8271-56a41604b1e1": 1
+      },
+      "coverage": {
+        "weight_measurements": 3,
+        "diet_records": 3,
+        "incomplete_window": true,
+        "tasks_without_creation_time": 0
+      },
+      "weight": {
+        "change_g": 20.0,
+        "change_percent": 0.961538,
+        "span_days": 2.352483,
+        "source_record_ids": [
+          "da2a7baa-3162-4838-b581-80001519795d",
+          "92a66a6d-ad86-4642-8993-90a4ebb9fcdd"
+        ],
+        "latest_g": 2100.0,
+        "description": "实际测量跨度；群体参考不能用于诊断"
+      },
+      "diet": {
+        "actual_intake_g": 44.0,
+        "food_offered_g": 48.0,
+        "dispensed_g": null,
+        "remaining_g": 4.0,
+        "simulated_device_dispensed_g": null
+      },
+      "care": {
+        "manual_completed": 3,
+        "device_success": null,
+        "device_failed": 0,
+        "device_unknown": 0,
+        "device_results_simulated": true,
+        "pending": 7,
+        "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+        "overdue": 2,
+        "by_member": {
+          "4580e843-d128-4c60-a71b-b73341722a63": 3
+        }
+      },
+      "growth": {
+        "diary_count": 3
+      }
+    },
+    {
+      "report_id": "ae57f651-f898-4e6f-b8a0-650e1447ac95",
+      "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+      "pet_id": "mochi",
+      "period": "daily",
+      "date": "2026-10-12",
+      "window_start": "2026-10-11T16:00:00+00:00",
+      "window_end": "2026-10-12T16:00:00+00:00",
+      "cutoff": "2026-10-12T16:00:00+00:00",
+      "generated_at": "2026-10-13T15:02:34.630762+00:00",
+      "stat_version": 39,
+      "status": "current",
+      "notification": "not_sent",
+      "source_record_ids": [
+        "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+        "da2a7baa-3162-4838-b581-80001519795d",
+        "602358c0-33ea-4067-84ca-7f7d1cc898c0"
+      ],
+      "source_versions": {
+        "da2a7baa-3162-4838-b581-80001519795d": 1,
+        "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1,
+        "602358c0-33ea-4067-84ca-7f7d1cc898c0": 1
+      },
+      "coverage": {
+        "weight_measurements": 1,
+        "diet_records": 0,
+        "incomplete_window": false,
+        "tasks_without_creation_time": 0
+      },
+      "weight": {
+        "change_g": 10.0,
+        "change_percent": 0.480769,
+        "span_days": 1.0,
+        "source_record_ids": [
+          "da2a7baa-3162-4838-b581-80001519795d",
+          "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+        ],
+        "latest_g": 2090.0,
+        "description": "实际测量跨度；群体参考不能用于诊断"
+      },
+      "diet": {
+        "actual_intake_g": null,
+        "food_offered_g": null,
+        "dispensed_g": null,
+        "remaining_g": null,
+        "simulated_device_dispensed_g": null
+      },
+      "care": {
+        "manual_completed": 0,
+        "device_success": null,
+        "device_failed": 0,
+        "device_unknown": 0,
+        "device_results_simulated": true,
+        "pending": 0,
+        "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+        "overdue": 0,
+        "by_member": {}
+      },
+      "growth": {
+        "diary_count": 1
+      }
+    },
+    {
+      "report_id": "35d8bda9-f2e2-495f-8c96-f0ef533b9278",
+      "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+      "pet_id": "mochi",
+      "period": "weekly",
+      "date": "2026-10-11",
+      "window_start": "2026-10-04T16:00:00+00:00",
+      "window_end": "2026-10-11T16:00:00+00:00",
+      "cutoff": "2026-10-11T16:00:00+00:00",
+      "generated_at": "2026-10-13T15:02:34.740615+00:00",
+      "stat_version": 39,
+      "status": "current",
+      "notification": "not_sent",
+      "source_record_ids": [
+        "96eebdd4-ec75-476e-93ff-fbecb67e7292",
+        "176a6e79-9012-4773-9bd4-b7d049b54382",
+        "4801cd49-6510-4b95-86e5-a13cae867ee5",
+        "da2a7baa-3162-4838-b581-80001519795d",
+        "511545c1-2b18-448a-89fd-c527ce166483"
+      ],
+      "source_versions": {
+        "96eebdd4-ec75-476e-93ff-fbecb67e7292": 1,
+        "511545c1-2b18-448a-89fd-c527ce166483": 1,
+        "176a6e79-9012-4773-9bd4-b7d049b54382": 1,
+        "4801cd49-6510-4b95-86e5-a13cae867ee5": 1,
+        "da2a7baa-3162-4838-b581-80001519795d": 1
+      },
+      "coverage": {
+        "weight_measurements": 4,
+        "diet_records": 0,
+        "incomplete_window": false,
+        "tasks_without_creation_time": 0
+      },
+      "weight": {
+        "change_g": 90.0,
+        "change_percent": 4.522613,
+        "span_days": 9.0,
+        "source_record_ids": [
+          "511545c1-2b18-448a-89fd-c527ce166483",
+          "da2a7baa-3162-4838-b581-80001519795d"
+        ],
+        "latest_g": 2080.0,
+        "description": "实际测量跨度；群体参考不能用于诊断"
+      },
+      "diet": {
+        "actual_intake_g": null,
+        "food_offered_g": null,
+        "dispensed_g": null,
+        "remaining_g": null,
+        "simulated_device_dispensed_g": null
+      },
+      "care": {
+        "manual_completed": 0,
+        "device_success": null,
+        "device_failed": 0,
+        "device_unknown": 0,
+        "device_results_simulated": true,
+        "pending": 0,
+        "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+        "overdue": 0,
+        "by_member": {}
+      },
+      "growth": {
+        "diary_count": 0
+      }
+    }
+  ],
+  "context": {
+    "context_version": 39,
+    "as_of": "2026-10-13T15:03:53.274102+00:00",
+    "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+    "pet_id": "mochi",
+    "valid_until": "2026-10-13T16:00:00+00:00",
+    "source_versions": {
+      "96eebdd4-ec75-476e-93ff-fbecb67e7292": 1,
+      "92a66a6d-ad86-4642-8993-90a4ebb9fcdd": 1,
+      "ba918649-cf57-472b-8a1d-d13203b4fb57": 1,
+      "511545c1-2b18-448a-89fd-c527ce166483": 1,
+      "176a6e79-9012-4773-9bd4-b7d049b54382": 1,
+      "4801cd49-6510-4b95-86e5-a13cae867ee5": 1,
+      "da2a7baa-3162-4838-b581-80001519795d": 1,
+      "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1,
+      "0d0d4b52-f487-4972-9016-c218ad1ebf3b": 1,
+      "c1712ed6-4245-4ed8-9c41-acb0ac417491": 1,
+      "f99ff1bb-5715-4f4b-8512-937d2f2b3e37": 1,
+      "981765c4-45f4-4705-940a-d180dc4fd860": 1,
+      "114f57c3-14d0-4eac-9cfa-a730d0695bf3": 2,
+      "bde0f26a-4c38-41ad-a94f-2507ab0b603f": 2,
+      "9ac72ba9-1493-4bd5-8373-5a890e7a6677": 2,
+      "b7f87ac7-dfbf-431a-af86-9083b1e3820a": 1,
+      "69ca7dda-a5c0-4d9c-a5aa-f8b448d7d56d": 1,
+      "35284f06-9fe7-46d0-aeb0-5d7425806d67": 1,
+      "1ac9dc7f-1187-4570-8d36-d1bd5724d3b7": 1,
+      "c2ebb43e-fc72-4248-8469-5e2adbf72213": 1,
+      "5d126c2d-2cd9-49f6-b853-d9f8c7a99f59": 1,
+      "b7afc9ef-5152-4a68-bbcb-06d27a7975cd": 2,
+      "56e1b5e4-3474-4532-94e1-d547c6e952c1": 2,
+      "d9414aef-4196-4745-bf6f-0aa880cfe9d6": 1,
+      "e0b5624b-3e54-4c77-aa21-6046c8904785": 1,
+      "ec3190d3-8e70-41f8-9055-efd5a26904d9": 1,
+      "602358c0-33ea-4067-84ca-7f7d1cc898c0": 1,
+      "1dd6eebc-53c0-4a0e-80ae-29c7bff83613": 1,
+      "93b93ff4-a80d-480d-b458-241c9a2850aa": 1,
+      "73b0776f-7f5a-433e-9833-837c997c2760": 1,
+      "dbd997de-72db-4652-8271-56a41604b1e1": 1
+    },
+    "unresolved_conflicts": [
+      {
+        "topic": "play",
+        "source_record_ids": [
+          "114f57c3-14d0-4eac-9cfa-a730d0695bf3",
+          "b7f87ac7-dfbf-431a-af86-9083b1e3820a"
+        ],
+        "description": "同一主题存在不同记录，请主人核对；未合并成确定结论。"
+      }
+    ],
+    "memory_backend": "owner_confirmed_database",
+    "layers": {
+      "profile": {
+        "id": "mochi",
+        "name": "Mochi",
+        "species": "cat",
+        "breed": "中华田园猫（虚构演示）",
+        "gender": "male",
+        "birthday": "2026-05-21",
+        "age_years": null,
+        "coat": "gold",
+        "pattern": "stripes",
+        "size": "medium",
+        "likes": "羽毛棒、安静的窗边陪玩（演示设定）",
+        "dislikes": "突然的响声、强行抱起（演示设定）",
+        "photo_id": null,
+        "source": "owner_confirmed",
+        "birthday_estimated": false,
+        "neutered": false,
+        "expected_adult_weight_kg": null
+      },
+      "growth": [
+        {
+          "kind": "weight",
+          "value": 2.05,
+          "unit": "kg",
+          "measured_at": "2026-10-06T09:27:34.522000Z",
+          "source": "demo_sample",
+          "diet_type": null,
+          "note": "虚构演示样本，仅供界面检查",
+          "id": "96eebdd4-ec75-476e-93ff-fbecb67e7292",
+          "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+          "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+          "value_g": 2050.0,
+          "recorded_at": "2026-10-13T09:27:34.566172+00:00",
+          "version": 1,
+          "deleted": false,
+          "pet_id": "mochi"
+        },
+        {
+          "kind": "weight",
+          "value": 2.1,
+          "unit": "kg",
+          "measured_at": "2026-10-13T09:27:34.522000Z",
+          "source": "demo_sample",
+          "diet_type": null,
+          "note": "虚构演示样本，仅供界面检查",
+          "id": "92a66a6d-ad86-4642-8993-90a4ebb9fcdd",
+          "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+          "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+          "value_g": 2100.0,
+          "recorded_at": "2026-10-13T09:27:34.587760+00:00",
+          "version": 1,
+          "deleted": false,
+          "pet_id": "mochi"
+        },
+        {
+          "kind": "weight",
+          "value": 1.96,
+          "unit": "kg",
+          "measured_at": "2026-09-29T09:00:00+08:00",
+          "source": "demo_sample",
+          "diet_type": null,
+          "note": "[演示使用记录 2026-10-13] 体重样本 -14天；虚构数据，不代表真实宠物测量。",
+          "id": "ba918649-cf57-472b-8a1d-d13203b4fb57",
+          "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+          "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+          "value_g": 1960.0,
+          "recorded_at": "2026-10-13T15:02:33.961518+00:00",
+          "version": 1,
+          "deleted": false,
+          "pet_id": "mochi"
+        },
+        {
+          "kind": "weight",
+          "value": 1.99,
+          "unit": "kg",
+          "measured_at": "2026-10-02T09:00:00+08:00",
+          "source": "demo_sample",
+          "diet_type": null,
+          "note": "[演示使用记录 2026-10-13] 体重样本 -11天；虚构数据，不代表真实宠物测量。",
+          "id": "511545c1-2b18-448a-89fd-c527ce166483",
+          "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+          "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+          "value_g": 1990.0,
+          "recorded_at": "2026-10-13T15:02:33.979140+00:00",
+          "version": 1,
+          "deleted": false,
+          "pet_id": "mochi"
+        },
+        {
+          "kind": "weight",
+          "value": 2.02,
+          "unit": "kg",
+          "measured_at": "2026-10-05T09:00:00+08:00",
+          "source": "demo_sample",
+          "diet_type": null,
+          "note": "[演示使用记录 2026-10-13] 体重样本 -8天；虚构数据，不代表真实宠物测量。",
+          "id": "176a6e79-9012-4773-9bd4-b7d049b54382",
+          "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+          "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+          "value_g": 2020.0,
+          "recorded_at": "2026-10-13T15:02:33.994162+00:00",
+          "version": 1,
+          "deleted": false,
+          "pet_id": "mochi"
+        },
+        {
+          "kind": "weight",
+          "value": 2.06,
+          "unit": "kg",
+          "measured_at": "2026-10-08T09:00:00+08:00",
+          "source": "demo_sample",
+          "diet_type": null,
+          "note": "[演示使用记录 2026-10-13] 体重样本 -5天；虚构数据，不代表真实宠物测量。",
+          "id": "4801cd49-6510-4b95-86e5-a13cae867ee5",
+          "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+          "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+          "value_g": 2060.0,
+          "recorded_at": "2026-10-13T15:02:34.027678+00:00",
+          "version": 1,
+          "deleted": false,
+          "pet_id": "mochi"
+        },
+        {
+          "kind": "weight",
+          "value": 2.08,
+          "unit": "kg",
+          "measured_at": "2026-10-11T09:00:00+08:00",
+          "source": "demo_sample",
+          "diet_type": null,
+          "note": "[演示使用记录 2026-10-13] 体重样本 -2天；虚构数据，不代表真实宠物测量。",
+          "id": "da2a7baa-3162-4838-b581-80001519795d",
+          "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+          "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+          "value_g": 2080.0,
+          "recorded_at": "2026-10-13T15:02:34.041220+00:00",
+          "version": 1,
+          "deleted": false,
+          "pet_id": "mochi"
+        },
+        {
+          "kind": "weight",
+          "value": 2.09,
+          "unit": "kg",
+          "measured_at": "2026-10-12T09:00:00+08:00",
+          "source": "demo_sample",
+          "diet_type": null,
+          "note": "[演示使用记录 2026-10-13] 体重样本 -1天；虚构数据，不代表真实宠物测量。",
+          "id": "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+          "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+          "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+          "value_g": 2090.0,
+          "recorded_at": "2026-10-13T15:02:34.055787+00:00",
+          "version": 1,
+          "deleted": false,
+          "pet_id": "mochi"
+        },
+        {
+          "kind": "weight",
+          "value": 2.1,
+          "unit": "kg",
+          "measured_at": "2026-10-13T09:00:00+08:00",
+          "source": "demo_sample",
+          "diet_type": null,
+          "note": "[演示使用记录 2026-10-13] 体重样本 +0天；虚构数据，不代表真实宠物测量。",
+          "id": "0d0d4b52-f487-4972-9016-c218ad1ebf3b",
+          "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+          "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+          "value_g": 2100.0,
+          "recorded_at": "2026-10-13T15:02:34.070482+00:00",
+          "version": 1,
+          "deleted": false,
+          "pet_id": "mochi"
+        },
+        {
+          "kind": "diet",
+          "value": 48.0,
+          "unit": "g",
+          "measured_at": "2026-10-13T12:00:00+08:00",
+          "source": "demo_sample",
+          "diet_type": "food_offered",
+          "note": "[演示使用记录 2026-10-13] 饮食样本 food_offered；虚构干粮记录，仅用于展示不同记录含义。",
+          "id": "c1712ed6-4245-4ed8-9c41-acb0ac417491",
+          "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+          "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+          "value_g": 48.0,
+          "recorded_at": "2026-10-13T15:02:34.085834+00:00",
+          "version": 1,
+          "deleted": false,
+          "pet_id": "mochi"
+        },
+        {
+          "kind": "diet",
+          "value": 44.0,
+          "unit": "g",
+          "measured_at": "2026-10-13T12:00:00+08:00",
+          "source": "demo_sample",
+          "diet_type": "actual_intake",
+          "note": "[演示使用记录 2026-10-13] 饮食样本 actual_intake；虚构干粮记录，仅用于展示不同记录含义。",
+          "id": "f99ff1bb-5715-4f4b-8512-937d2f2b3e37",
+          "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+          "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+          "value_g": 44.0,
+          "recorded_at": "2026-10-13T15:02:34.118422+00:00",
+          "version": 1,
+          "deleted": false,
+          "pet_id": "mochi"
+        },
+        {
+          "kind": "diet",
+          "value": 4.0,
+          "unit": "g",
+          "measured_at": "2026-10-13T12:00:00+08:00",
+          "source": "demo_sample",
+          "diet_type": "remaining",
+          "note": "[演示使用记录 2026-10-13] 饮食样本 remaining；虚构干粮记录，仅用于展示不同记录含义。",
+          "id": "981765c4-45f4-4705-940a-d180dc4fd860",
+          "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+          "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+          "value_g": 4.0,
+          "recorded_at": "2026-10-13T15:02:34.149523+00:00",
+          "version": 1,
+          "deleted": false,
+          "pet_id": "mochi"
+        }
+      ],
+      "memory": [
+        {
+          "text": "更喜欢羽毛棒，适合短时间分段陪玩。（虚构演示偏好）",
+          "topic": "play",
+          "status": "confirmed",
+          "valid_until": null,
+          "id": "114f57c3-14d0-4eac-9cfa-a730d0695bf3",
+          "pet_id": "mochi",
+          "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+          "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+          "author_name": "演示主人",
+          "created_at": "2026-10-13T15:02:34.453883+00:00",
+          "version": 2,
+          "deleted": false,
+          "memory_backend": "owner_confirmed_database",
+          "corrected_at": "2026-10-13T15:02:34.470401+00:00"
+        },
+        {
+          "text": "梳毛时先从背部开始，不喜欢碰腹部。（虚构演示偏好）",
+          "topic": "brush",
+          "status": "confirmed",
+          "valid_until": null,
+          "id": "bde0f26a-4c38-41ad-a94f-2507ab0b603f",
+          "pet_id": "mochi",
+          "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+          "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+          "author_name": "演示主人",
+          "created_at": "2026-10-13T15:02:34.483570+00:00",
+          "version": 2,
+          "deleted": false,
+          "memory_backend": "owner_confirmed_database",
+          "corrected_at": "2026-10-13T15:02:34.498163+00:00"
+        },
+        {
+          "text": "不喜欢突然的大声响，互动时保持安静。（虚构演示偏好）",
+          "topic": "general",
+          "status": "confirmed",
+          "valid_until": null,
+          "id": "9ac72ba9-1493-4bd5-8373-5a890e7a6677",
+          "pet_id": "mochi",
+          "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+          "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+          "author_name": "演示主人",
+          "created_at": "2026-10-13T15:02:34.512880+00:00",
+          "version": 2,
+          "deleted": false,
+          "memory_backend": "owner_confirmed_database",
+          "corrected_at": "2026-10-13T15:02:34.538480+00:00"
+        },
+        {
+          "text": "羽毛棒是常用陪玩玩具；饭后先休息再互动。（虚构演示设定）",
+          "scope": "preference",
+          "activity": "play",
+          "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+          "id": "b7f87ac7-dfbf-431a-af86-9083b1e3820a",
+          "pet_id": "mochi",
+          "created_at": "2026-10-13T15:02:34.573904+00:00",
+          "source": "owner_confirmed",
+          "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+          "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+          "author_name": "演示主人",
+          "version": 1,
+          "topic": "play",
+          "status": "confirmed",
+          "memory_backend": "owner_confirmed_database"
+        }
+      ],
+      "recent": {
+        "observations": [
+          {
+            "text": "虚构演示：午后喜欢在窗边休息，陪玩时偏爱羽毛棒。",
+            "scope": "observation",
+            "activity": "play",
+            "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "id": "69ca7dda-a5c0-4d9c-a5aa-f8b448d7d56d",
+            "pet_id": "mochi",
+            "created_at": "2026-10-13T09:27:34.605406+00:00",
+            "source": "owner_confirmed",
+            "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+            "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "author_name": "演示主人",
+            "version": 1
+          },
+          {
+            "text": "[演示使用记录 2026-10-13] 档案、成长、照护与偏好均为虚构样例。",
+            "scope": "observation",
+            "activity": "general",
+            "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "id": "35284f06-9fe7-46d0-aeb0-5d7425806d67",
+            "pet_id": "mochi",
+            "created_at": "2026-10-13T15:02:34.630762+00:00",
+            "source": "owner_confirmed",
+            "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+            "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "author_name": "演示主人",
+            "version": 1
+          }
+        ],
+        "today_observations": [
+          {
+            "text": "虚构演示：午后喜欢在窗边休息，陪玩时偏爱羽毛棒。",
+            "scope": "observation",
+            "activity": "play",
+            "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "id": "69ca7dda-a5c0-4d9c-a5aa-f8b448d7d56d",
+            "pet_id": "mochi",
+            "created_at": "2026-10-13T09:27:34.605406+00:00",
+            "source": "owner_confirmed",
+            "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+            "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "author_name": "演示主人",
+            "version": 1
+          },
+          {
+            "text": "[演示使用记录 2026-10-13] 档案、成长、照护与偏好均为虚构样例。",
+            "scope": "observation",
+            "activity": "general",
+            "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "id": "35284f06-9fe7-46d0-aeb0-5d7425806d67",
+            "pet_id": "mochi",
+            "created_at": "2026-10-13T15:02:34.630762+00:00",
+            "source": "owner_confirmed",
+            "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+            "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "author_name": "演示主人",
+            "version": 1
+          }
+        ],
+        "completed_care": [
+          {
+            "id": "93b93ff4-a80d-480d-b458-241c9a2850aa",
+            "task_id": "9b00c9db-a7ae-4dc8-a5f7-b75c24a97174",
+            "pet_id": "mochi",
+            "due_at": "2026-10-13T09:00:00+08:00",
+            "completed_at": "2026-10-13T15:02:34.211566+00:00",
+            "completed_by": "4580e843-d128-4c60-a71b-b73341722a63",
+            "status": "completed",
+            "source": "manual_care",
+            "title": "晨间换水 · 演示"
+          },
+          {
+            "id": "73b0776f-7f5a-433e-9833-837c997c2760",
+            "task_id": "120a2414-88fb-43b4-b47f-b1cca50f5a70",
+            "pet_id": "mochi",
+            "due_at": "2026-10-13T10:00:00+08:00",
+            "completed_at": "2026-10-13T15:02:34.274997+00:00",
+            "completed_by": "4580e843-d128-4c60-a71b-b73341722a63",
+            "status": "completed",
+            "source": "manual_care",
+            "title": "羽毛棒陪玩 · 演示"
+          },
+          {
+            "id": "dbd997de-72db-4652-8271-56a41604b1e1",
+            "task_id": "b7afc9ef-5152-4a68-bbcb-06d27a7975cd",
+            "pet_id": "mochi",
+            "due_at": "2026-10-13T11:00:00+08:00",
+            "completed_at": "2026-10-13T15:02:34.321314+00:00",
+            "completed_by": "4580e843-d128-4c60-a71b-b73341722a63",
+            "status": "completed",
+            "source": "manual_care",
+            "title": "本次梳毛 · 演示"
+          }
+        ],
+        "tasks": [
+          {
+            "kind": "water",
+            "title": "虚构演示 · 换一碗清水",
+            "due_at": "2026-10-13T08:27:34.522000Z",
+            "interval_days": 1,
+            "assigned_to": null,
+            "id": "1ac9dc7f-1187-4570-8d36-d1bd5724d3b7",
+            "pet_id": "mochi",
+            "last_completed_at": null,
+            "completed": false,
+            "version": 1,
+            "occurrence_id": "a769a2a1-07d9-4548-a316-2d8b5ad8d65c",
+            "status": "pending",
+            "claimed_by": null,
+            "created_at": "2026-10-13T09:27:34.667060+00:00",
+            "updated_at": "2026-10-13T09:27:34.667060+00:00",
+            "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+          },
+          {
+            "kind": "play",
+            "title": "虚构演示 · 晚间陪玩",
+            "due_at": "2026-10-13T13:27:34.522000Z",
+            "interval_days": null,
+            "assigned_to": null,
+            "id": "c2ebb43e-fc72-4248-8469-5e2adbf72213",
+            "pet_id": "mochi",
+            "last_completed_at": null,
+            "completed": false,
+            "version": 1,
+            "occurrence_id": "8dbd33a3-83cb-466d-bbcf-ce7bd125deb8",
+            "status": "pending",
+            "claimed_by": null,
+            "created_at": "2026-10-13T09:27:34.690120+00:00",
+            "updated_at": "2026-10-13T09:27:34.690120+00:00",
+            "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+          },
+          {
+            "kind": "brush",
+            "title": "虚构演示 · 整理毛发",
+            "due_at": "2026-10-13T17:27:34.522000Z",
+            "interval_days": 3,
+            "assigned_to": null,
+            "id": "5d126c2d-2cd9-49f6-b853-d9f8c7a99f59",
+            "pet_id": "mochi",
+            "last_completed_at": null,
+            "completed": false,
+            "version": 1,
+            "occurrence_id": "dd2760f2-cedd-4a43-95eb-2c2cb4599376",
+            "status": "pending",
+            "claimed_by": null,
+            "created_at": "2026-10-13T09:27:34.711552+00:00",
+            "updated_at": "2026-10-13T09:27:34.711552+00:00",
+            "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+          },
+          {
+            "kind": "brush",
+            "title": "本次梳毛 · 演示",
+            "due_at": "2026-10-16T15:02:34.321314+00:00",
+            "interval_days": 3,
+            "assigned_to": "4580e843-d128-4c60-a71b-b73341722a63",
+            "id": "b7afc9ef-5152-4a68-bbcb-06d27a7975cd",
+            "pet_id": "mochi",
+            "last_completed_at": "2026-10-13T15:02:34.321314+00:00",
+            "completed": false,
+            "version": 2,
+            "occurrence_id": "f23eef90-bb79-4a8d-8b74-1d7004975b57",
+            "status": "pending",
+            "claimed_by": null,
+            "created_at": "2026-10-13T15:02:34.306579+00:00",
+            "updated_at": "2026-10-13T15:02:34.321314+00:00",
+            "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+          },
+          {
+            "kind": "feeding",
+            "title": "下一次人工喂食 · 演示",
+            "due_at": "2026-10-13T23:30:00+08:00",
+            "interval_days": null,
+            "assigned_to": "4580e843-d128-4c60-a71b-b73341722a63",
+            "id": "56e1b5e4-3474-4532-94e1-d547c6e952c1",
+            "pet_id": "mochi",
+            "last_completed_at": null,
+            "completed": false,
+            "version": 2,
+            "occurrence_id": "f636a9a1-aad5-41df-9930-d0fffbaa9b6c",
+            "status": "claimed",
+            "claimed_by": "4580e843-d128-4c60-a71b-b73341722a63",
+            "created_at": "2026-10-13T15:02:34.352672+00:00",
+            "updated_at": "2026-10-13T15:02:34.384865+00:00",
+            "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+          },
+          {
+            "kind": "water",
+            "title": "睡前换水 · 演示",
+            "due_at": "2026-10-13T23:50:00+08:00",
+            "interval_days": 1,
+            "assigned_to": "4580e843-d128-4c60-a71b-b73341722a63",
+            "id": "d9414aef-4196-4745-bf6f-0aa880cfe9d6",
+            "pet_id": "mochi",
+            "last_completed_at": null,
+            "completed": false,
+            "version": 1,
+            "occurrence_id": "5aa43e97-95dc-47ab-abcd-16bef62c5071",
+            "status": "pending",
+            "claimed_by": null,
+            "created_at": "2026-10-13T15:02:34.403460+00:00",
+            "updated_at": "2026-10-13T15:02:34.403460+00:00",
+            "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+          },
+          {
+            "kind": "clean",
+            "title": "周末整理猫窝 · 演示",
+            "due_at": "2026-10-17T10:00:00+08:00",
+            "interval_days": 7,
+            "assigned_to": "4580e843-d128-4c60-a71b-b73341722a63",
+            "id": "e0b5624b-3e54-4c77-aa21-6046c8904785",
+            "pet_id": "mochi",
+            "last_completed_at": null,
+            "completed": false,
+            "version": 1,
+            "occurrence_id": "43896fae-30a9-401e-946f-dedf419b613b",
+            "status": "pending",
+            "claimed_by": null,
+            "created_at": "2026-10-13T15:02:34.434393+00:00",
+            "updated_at": "2026-10-13T15:02:34.434393+00:00",
+            "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66"
+          }
+        ],
+        "reports": [
+          {
+            "report_id": "ae57f651-f898-4e6f-b8a0-650e1447ac95",
+            "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+            "pet_id": "mochi",
+            "period": "daily",
+            "date": "2026-10-12",
+            "window_start": "2026-10-11T16:00:00+00:00",
+            "window_end": "2026-10-12T16:00:00+00:00",
+            "cutoff": "2026-10-12T16:00:00+00:00",
+            "generated_at": "2026-10-13T15:02:34.630762+00:00",
+            "stat_version": 39,
+            "status": "current",
+            "notification": "not_sent",
+            "source_record_ids": [
+              "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+              "da2a7baa-3162-4838-b581-80001519795d",
+              "602358c0-33ea-4067-84ca-7f7d1cc898c0"
+            ],
+            "source_versions": {
+              "da2a7baa-3162-4838-b581-80001519795d": 1,
+              "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1,
+              "602358c0-33ea-4067-84ca-7f7d1cc898c0": 1
+            },
+            "coverage": {
+              "weight_measurements": 1,
+              "diet_records": 0,
+              "incomplete_window": false,
+              "tasks_without_creation_time": 0
+            },
+            "weight": {
+              "change_g": 10.0,
+              "change_percent": 0.480769,
+              "span_days": 1.0,
+              "source_record_ids": [
+                "da2a7baa-3162-4838-b581-80001519795d",
+                "ea4efef9-b745-4715-9bdd-d5bdd2fd7858"
+              ],
+              "latest_g": 2090.0,
+              "description": "实际测量跨度；群体参考不能用于诊断"
+            },
+            "diet": {
+              "actual_intake_g": null,
+              "food_offered_g": null,
+              "dispensed_g": null,
+              "remaining_g": null,
+              "simulated_device_dispensed_g": null
+            },
+            "care": {
+              "manual_completed": 0,
+              "device_success": null,
+              "device_failed": 0,
+              "device_unknown": 0,
+              "device_results_simulated": true,
+              "pending": 0,
+              "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+              "overdue": 0,
+              "by_member": {}
+            },
+            "growth": {
+              "diary_count": 1
+            }
+          },
+          {
+            "report_id": "aed7826b-5877-40fd-9d68-4cd36e0c3c54",
+            "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+            "pet_id": "mochi",
+            "period": "daily",
+            "date": "2026-10-13",
+            "window_start": "2026-10-12T16:00:00+00:00",
+            "window_end": "2026-10-13T16:00:00+00:00",
+            "cutoff": "2026-10-13T15:02:34.663227+00:00",
+            "generated_at": "2026-10-13T15:02:34.663227+00:00",
+            "stat_version": 39,
+            "status": "current",
+            "notification": "not_sent",
+            "source_record_ids": [
+              "92a66a6d-ad86-4642-8993-90a4ebb9fcdd",
+              "0d0d4b52-f487-4972-9016-c218ad1ebf3b",
+              "c1712ed6-4245-4ed8-9c41-acb0ac417491",
+              "f99ff1bb-5715-4f4b-8512-937d2f2b3e37",
+              "981765c4-45f4-4705-940a-d180dc4fd860",
+              "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+              "d81848f6-2cd3-43c2-b258-5c05c8c23e6d",
+              "4dfc4d43-fd71-46e9-a30b-d409e88fc0db",
+              "8d85bb13-8d2e-46cc-b69d-5fe5509b097b",
+              "7b1b7fd3-647b-44fc-9ded-c2eb6eb6e21e",
+              "411b4fe0-816d-4059-8418-5b09e2350ef9",
+              "7df6f91e-e127-4df2-9555-ecf8d3b520d8",
+              "2e932982-be51-4158-961d-7dec6ab661e1",
+              "2f4bd3cf-a6e3-4af0-b24c-c574e46418fa",
+              "2438a09c-48ee-4541-8a9b-aaa938c0490e",
+              "65ad83f8-61c7-455f-b5d9-54285ddd2fda",
+              "83a944ad-5eaf-4520-8860-fa4c2a92dc91",
+              "0a8b38a2-3adc-4c3b-a9e5-00212f1de990",
+              "4ddc3774-2fd3-4a18-a379-ed7cd3cf871b",
+              "56e06f24-2438-4324-8275-94f662ef24f6",
+              "2bfd815c-18ec-4913-a57e-c07db2a3dd4b",
+              "a149fcbc-da36-4dcc-8e1c-db5ad5f2def7",
+              "21b3e544-950e-4eec-a440-a0c1fcf024f3",
+              "0ad1103f-ddfc-4ce9-9553-ff373726ff2d",
+              "8a115f5b-c5a6-4631-bfc7-4d42825a17ff",
+              "06e0d11c-9ee2-40f3-909b-4560037f3cdf",
+              "ec3190d3-8e70-41f8-9055-efd5a26904d9",
+              "1dd6eebc-53c0-4a0e-80ae-29c7bff83613",
+              "93b93ff4-a80d-480d-b458-241c9a2850aa",
+              "73b0776f-7f5a-433e-9833-837c997c2760",
+              "dbd997de-72db-4652-8271-56a41604b1e1",
+              "1ac9dc7f-1187-4570-8d36-d1bd5724d3b7",
+              "c2ebb43e-fc72-4248-8469-5e2adbf72213",
+              "56e1b5e4-3474-4532-94e1-d547c6e952c1",
+              "d9414aef-4196-4745-bf6f-0aa880cfe9d6"
+            ],
+            "source_versions": {
+              "92a66a6d-ad86-4642-8993-90a4ebb9fcdd": 1,
+              "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1,
+              "0d0d4b52-f487-4972-9016-c218ad1ebf3b": 1,
+              "c1712ed6-4245-4ed8-9c41-acb0ac417491": 1,
+              "f99ff1bb-5715-4f4b-8512-937d2f2b3e37": 1,
+              "981765c4-45f4-4705-940a-d180dc4fd860": 1,
+              "d81848f6-2cd3-43c2-b258-5c05c8c23e6d": 1,
+              "4dfc4d43-fd71-46e9-a30b-d409e88fc0db": 1,
+              "8d85bb13-8d2e-46cc-b69d-5fe5509b097b": 1,
+              "7b1b7fd3-647b-44fc-9ded-c2eb6eb6e21e": 1,
+              "411b4fe0-816d-4059-8418-5b09e2350ef9": 1,
+              "7df6f91e-e127-4df2-9555-ecf8d3b520d8": 1,
+              "2e932982-be51-4158-961d-7dec6ab661e1": 1,
+              "2f4bd3cf-a6e3-4af0-b24c-c574e46418fa": 1,
+              "2438a09c-48ee-4541-8a9b-aaa938c0490e": 1,
+              "65ad83f8-61c7-455f-b5d9-54285ddd2fda": 1,
+              "83a944ad-5eaf-4520-8860-fa4c2a92dc91": 1,
+              "0a8b38a2-3adc-4c3b-a9e5-00212f1de990": 1,
+              "4ddc3774-2fd3-4a18-a379-ed7cd3cf871b": 1,
+              "56e06f24-2438-4324-8275-94f662ef24f6": 1,
+              "2bfd815c-18ec-4913-a57e-c07db2a3dd4b": 1,
+              "a149fcbc-da36-4dcc-8e1c-db5ad5f2def7": 1,
+              "21b3e544-950e-4eec-a440-a0c1fcf024f3": 1,
+              "0ad1103f-ddfc-4ce9-9553-ff373726ff2d": 1,
+              "8a115f5b-c5a6-4631-bfc7-4d42825a17ff": 1,
+              "06e0d11c-9ee2-40f3-909b-4560037f3cdf": 1,
+              "ec3190d3-8e70-41f8-9055-efd5a26904d9": 1,
+              "1dd6eebc-53c0-4a0e-80ae-29c7bff83613": 1,
+              "1ac9dc7f-1187-4570-8d36-d1bd5724d3b7": 1,
+              "c2ebb43e-fc72-4248-8469-5e2adbf72213": 1,
+              "56e1b5e4-3474-4532-94e1-d547c6e952c1": 2,
+              "d9414aef-4196-4745-bf6f-0aa880cfe9d6": 1,
+              "93b93ff4-a80d-480d-b458-241c9a2850aa": 1,
+              "73b0776f-7f5a-433e-9833-837c997c2760": 1,
+              "dbd997de-72db-4652-8271-56a41604b1e1": 1
+            },
+            "coverage": {
+              "weight_measurements": 2,
+              "diet_records": 3,
+              "incomplete_window": true,
+              "tasks_without_creation_time": 0
+            },
+            "weight": {
+              "change_g": 10.0,
+              "change_percent": 0.478469,
+              "span_days": 1.352483,
+              "source_record_ids": [
+                "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+                "92a66a6d-ad86-4642-8993-90a4ebb9fcdd"
+              ],
+              "latest_g": 2100.0,
+              "description": "实际测量跨度；群体参考不能用于诊断"
+            },
+            "diet": {
+              "actual_intake_g": 44.0,
+              "food_offered_g": 48.0,
+              "dispensed_g": null,
+              "remaining_g": 4.0,
+              "simulated_device_dispensed_g": null
+            },
+            "care": {
+              "manual_completed": 3,
+              "device_success": null,
+              "device_failed": 0,
+              "device_unknown": 0,
+              "device_results_simulated": true,
+              "pending": 4,
+              "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+              "overdue": 2,
+              "by_member": {
+                "4580e843-d128-4c60-a71b-b73341722a63": 3
+              }
+            },
+            "growth": {
+              "diary_count": 2
+            }
+          },
+          {
+            "report_id": "fc21ae28-d1f8-4d74-a37c-29c5819ad5a3",
+            "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+            "pet_id": "mochi",
+            "period": "weekly",
+            "date": "2026-10-13",
+            "window_start": "2026-10-11T16:00:00+00:00",
+            "window_end": "2026-10-18T16:00:00+00:00",
+            "cutoff": "2026-10-13T15:02:34.693674+00:00",
+            "generated_at": "2026-10-13T15:02:34.693674+00:00",
+            "stat_version": 39,
+            "status": "current",
+            "notification": "not_sent",
+            "source_record_ids": [
+              "92a66a6d-ad86-4642-8993-90a4ebb9fcdd",
+              "ea4efef9-b745-4715-9bdd-d5bdd2fd7858",
+              "0d0d4b52-f487-4972-9016-c218ad1ebf3b",
+              "c1712ed6-4245-4ed8-9c41-acb0ac417491",
+              "f99ff1bb-5715-4f4b-8512-937d2f2b3e37",
+              "981765c4-45f4-4705-940a-d180dc4fd860",
+              "da2a7baa-3162-4838-b581-80001519795d",
+              "d81848f6-2cd3-43c2-b258-5c05c8c23e6d",
+              "4dfc4d43-fd71-46e9-a30b-d409e88fc0db",
+              "8d85bb13-8d2e-46cc-b69d-5fe5509b097b",
+              "7b1b7fd3-647b-44fc-9ded-c2eb6eb6e21e",
+              "411b4fe0-816d-4059-8418-5b09e2350ef9",
+              "7df6f91e-e127-4df2-9555-ecf8d3b520d8",
+              "2e932982-be51-4158-961d-7dec6ab661e1",
+              "2f4bd3cf-a6e3-4af0-b24c-c574e46418fa",
+              "2438a09c-48ee-4541-8a9b-aaa938c0490e",
+              "65ad83f8-61c7-455f-b5d9-54285ddd2fda",
+              "83a944ad-5eaf-4520-8860-fa4c2a92dc91",
+              "0a8b38a2-3adc-4c3b-a9e5-00212f1de990",
+              "4ddc3774-2fd3-4a18-a379-ed7cd3cf871b",
+              "56e06f24-2438-4324-8275-94f662ef24f6",
+              "2bfd815c-18ec-4913-a57e-c07db2a3dd4b",
+              "a149fcbc-da36-4dcc-8e1c-db5ad5f2def7",
+              "21b3e544-950e-4eec-a440-a0c1fcf024f3",
+              "0ad1103f-ddfc-4ce9-9553-ff373726ff2d",
+              "8a115f5b-c5a6-4631-bfc7-4d42825a17ff",
+              "06e0d11c-9ee2-40f3-909b-4560037f3cdf",
+              "ec3190d3-8e70-41f8-9055-efd5a26904d9",
+              "602358c0-33ea-4067-84ca-7f7d1cc898c0",
+              "1dd6eebc-53c0-4a0e-80ae-29c7bff83613",
+              "93b93ff4-a80d-480d-b458-241c9a2850aa",
+              "73b0776f-7f5a-433e-9833-837c997c2760",
+              "dbd997de-72db-4652-8271-56a41604b1e1",
+              "1ac9dc7f-1187-4570-8d36-d1bd5724d3b7",
+              "c2ebb43e-fc72-4248-8469-5e2adbf72213",
+              "5d126c2d-2cd9-49f6-b853-d9f8c7a99f59",
+              "b7afc9ef-5152-4a68-bbcb-06d27a7975cd",
+              "56e1b5e4-3474-4532-94e1-d547c6e952c1",
+              "d9414aef-4196-4745-bf6f-0aa880cfe9d6",
+              "e0b5624b-3e54-4c77-aa21-6046c8904785"
+            ],
+            "source_versions": {
+              "92a66a6d-ad86-4642-8993-90a4ebb9fcdd": 1,
+              "da2a7baa-3162-4838-b581-80001519795d": 1,
+              "ea4efef9-b745-4715-9bdd-d5bdd2fd7858": 1,
+              "0d0d4b52-f487-4972-9016-c218ad1ebf3b": 1,
+              "c1712ed6-4245-4ed8-9c41-acb0ac417491": 1,
+              "f99ff1bb-5715-4f4b-8512-937d2f2b3e37": 1,
+              "981765c4-45f4-4705-940a-d180dc4fd860": 1,
+              "d81848f6-2cd3-43c2-b258-5c05c8c23e6d": 1,
+              "4dfc4d43-fd71-46e9-a30b-d409e88fc0db": 1,
+              "8d85bb13-8d2e-46cc-b69d-5fe5509b097b": 1,
+              "7b1b7fd3-647b-44fc-9ded-c2eb6eb6e21e": 1,
+              "411b4fe0-816d-4059-8418-5b09e2350ef9": 1,
+              "7df6f91e-e127-4df2-9555-ecf8d3b520d8": 1,
+              "2e932982-be51-4158-961d-7dec6ab661e1": 1,
+              "2f4bd3cf-a6e3-4af0-b24c-c574e46418fa": 1,
+              "2438a09c-48ee-4541-8a9b-aaa938c0490e": 1,
+              "65ad83f8-61c7-455f-b5d9-54285ddd2fda": 1,
+              "83a944ad-5eaf-4520-8860-fa4c2a92dc91": 1,
+              "0a8b38a2-3adc-4c3b-a9e5-00212f1de990": 1,
+              "4ddc3774-2fd3-4a18-a379-ed7cd3cf871b": 1,
+              "56e06f24-2438-4324-8275-94f662ef24f6": 1,
+              "2bfd815c-18ec-4913-a57e-c07db2a3dd4b": 1,
+              "a149fcbc-da36-4dcc-8e1c-db5ad5f2def7": 1,
+              "21b3e544-950e-4eec-a440-a0c1fcf024f3": 1,
+              "0ad1103f-ddfc-4ce9-9553-ff373726ff2d": 1,
+              "8a115f5b-c5a6-4631-bfc7-4d42825a17ff": 1,
+              "06e0d11c-9ee2-40f3-909b-4560037f3cdf": 1,
+              "ec3190d3-8e70-41f8-9055-efd5a26904d9": 1,
+              "602358c0-33ea-4067-84ca-7f7d1cc898c0": 1,
+              "1dd6eebc-53c0-4a0e-80ae-29c7bff83613": 1,
+              "1ac9dc7f-1187-4570-8d36-d1bd5724d3b7": 1,
+              "c2ebb43e-fc72-4248-8469-5e2adbf72213": 1,
+              "5d126c2d-2cd9-49f6-b853-d9f8c7a99f59": 1,
+              "b7afc9ef-5152-4a68-bbcb-06d27a7975cd": 2,
+              "56e1b5e4-3474-4532-94e1-d547c6e952c1": 2,
+              "d9414aef-4196-4745-bf6f-0aa880cfe9d6": 1,
+              "e0b5624b-3e54-4c77-aa21-6046c8904785": 1,
+              "93b93ff4-a80d-480d-b458-241c9a2850aa": 1,
+              "73b0776f-7f5a-433e-9833-837c997c2760": 1,
+              "dbd997de-72db-4652-8271-56a41604b1e1": 1
+            },
+            "coverage": {
+              "weight_measurements": 3,
+              "diet_records": 3,
+              "incomplete_window": true,
+              "tasks_without_creation_time": 0
+            },
+            "weight": {
+              "change_g": 20.0,
+              "change_percent": 0.961538,
+              "span_days": 2.352483,
+              "source_record_ids": [
+                "da2a7baa-3162-4838-b581-80001519795d",
+                "92a66a6d-ad86-4642-8993-90a4ebb9fcdd"
+              ],
+              "latest_g": 2100.0,
+              "description": "实际测量跨度；群体参考不能用于诊断"
+            },
+            "diet": {
+              "actual_intake_g": 44.0,
+              "food_offered_g": 48.0,
+              "dispensed_g": null,
+              "remaining_g": 4.0,
+              "simulated_device_dispensed_g": null
+            },
+            "care": {
+              "manual_completed": 3,
+              "device_success": null,
+              "device_failed": 0,
+              "device_unknown": 0,
+              "device_results_simulated": true,
+              "pending": 7,
+              "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+              "overdue": 2,
+              "by_member": {
+                "4580e843-d128-4c60-a71b-b73341722a63": 3
+              }
+            },
+            "growth": {
+              "diary_count": 3
+            }
+          },
+          {
+            "report_id": "35d8bda9-f2e2-495f-8c96-f0ef533b9278",
+            "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+            "pet_id": "mochi",
+            "period": "weekly",
+            "date": "2026-10-11",
+            "window_start": "2026-10-04T16:00:00+00:00",
+            "window_end": "2026-10-11T16:00:00+00:00",
+            "cutoff": "2026-10-11T16:00:00+00:00",
+            "generated_at": "2026-10-13T15:02:34.740615+00:00",
+            "stat_version": 39,
+            "status": "current",
+            "notification": "not_sent",
+            "source_record_ids": [
+              "96eebdd4-ec75-476e-93ff-fbecb67e7292",
+              "176a6e79-9012-4773-9bd4-b7d049b54382",
+              "4801cd49-6510-4b95-86e5-a13cae867ee5",
+              "da2a7baa-3162-4838-b581-80001519795d",
+              "511545c1-2b18-448a-89fd-c527ce166483"
+            ],
+            "source_versions": {
+              "96eebdd4-ec75-476e-93ff-fbecb67e7292": 1,
+              "511545c1-2b18-448a-89fd-c527ce166483": 1,
+              "176a6e79-9012-4773-9bd4-b7d049b54382": 1,
+              "4801cd49-6510-4b95-86e5-a13cae867ee5": 1,
+              "da2a7baa-3162-4838-b581-80001519795d": 1
+            },
+            "coverage": {
+              "weight_measurements": 4,
+              "diet_records": 0,
+              "incomplete_window": false,
+              "tasks_without_creation_time": 0
+            },
+            "weight": {
+              "change_g": 90.0,
+              "change_percent": 4.522613,
+              "span_days": 9.0,
+              "source_record_ids": [
+                "511545c1-2b18-448a-89fd-c527ce166483",
+                "da2a7baa-3162-4838-b581-80001519795d"
+              ],
+              "latest_g": 2080.0,
+              "description": "实际测量跨度；群体参考不能用于诊断"
+            },
+            "diet": {
+              "actual_intake_g": null,
+              "food_offered_g": null,
+              "dispensed_g": null,
+              "remaining_g": null,
+              "simulated_device_dispensed_g": null
+            },
+            "care": {
+              "manual_completed": 0,
+              "device_success": null,
+              "device_failed": 0,
+              "device_unknown": 0,
+              "device_results_simulated": true,
+              "pending": 0,
+              "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+              "overdue": 0,
+              "by_member": {}
+            },
+            "growth": {
+              "diary_count": 0
+            }
+          }
+        ],
+        "diary": [
+          {
+            "title": "虚构演示 · 窗边的一小段时光",
+            "text": "这些文字用于检查日记页面，不代表真实宠物健康资料。",
+            "happened_on": "2026-10-13",
+            "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "photo_id": null,
+            "id": "ec3190d3-8e70-41f8-9055-efd5a26904d9",
+            "pet_id": "mochi",
+            "created_at": "2026-10-13T09:27:34.643366+00:00",
+            "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+            "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "author_name": "演示主人",
+            "version": 1
+          },
+          {
+            "title": "窗边的午后 · 演示",
+            "text": "一起待在窗边，记录今天的陪伴。此条为虚构日记示例。",
+            "happened_on": "2026-10-12",
+            "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "photo_id": null,
+            "id": "602358c0-33ea-4067-84ca-7f7d1cc898c0",
+            "pet_id": "mochi",
+            "created_at": "2026-10-13T15:02:34.600482+00:00",
+            "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+            "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "author_name": "演示主人",
+            "version": 1
+          },
+          {
+            "title": "换水与羽毛棒 · 演示",
+            "text": "整理水碗后陪玩一会儿，把完成照护和日常观察一起记下来。此条为虚构日记示例。",
+            "happened_on": "2026-10-13",
+            "actor_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "photo_id": null,
+            "id": "1dd6eebc-53c0-4a0e-80ae-29c7bff83613",
+            "pet_id": "mochi",
+            "created_at": "2026-10-13T15:02:34.615707+00:00",
+            "household_id": "066657a2-ea49-46c5-b621-9fbf6509ad66",
+            "author_user_id": "4580e843-d128-4c60-a71b-b73341722a63",
+            "author_name": "演示主人",
+            "version": 1
+          }
+        ]
+      },
+      "reference": [
+        {
+          "id": "waltham-kitten",
+          "species": "cat",
+          "minimum_age_weeks": 8,
+          "url": "https://www.waltham.com/resources/kitten-growth-charts",
+          "title": "WALTHAM Kitten Growth Charts",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "幼猫成长参考有年龄与适用范围限制；未导入数值曲线，不能给出标准体重。"
+        },
+        {
+          "id": "merck-nutrition",
+          "species": "cat,dog",
+          "minimum_age_weeks": null,
+          "url": "https://www.merckvetmanual.com/management-and-nutrition/nutrition-small-animals/overview-of-nutrition-small-animals",
+          "title": "Merck Veterinary Manual: Small Animal Nutrition",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "营养评估需要饮食史、体况与肌肉状况等资料，并结合兽医检查。"
+        }
+      ]
+    }
+  }
+}

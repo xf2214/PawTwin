@@ -1,0 +1,38 @@
+One pet. A shared daily story.
+Paw Twin gives family members one shared pet record for everyday care. The product page introduces the idea; this review then follows two separate accounts with fictional demonstration data.
+
+Start with records people can inspect.
+The owner records sample weights of one point two and one point three five kilograms, seven days apart. The report calculates a hundred fifty gram increase, shows its sources, and keeps unrecorded intake unknown.
+
+An owner confirms the shared memory.
+The owner saves a preference candidate: Mochi likes a feather toy and rests after meals. The other account cannot use the candidate; explicit confirmation makes it available as database memory.
+
+A second account sees the same context.
+The carer opens the independent Alexa web simulator and asks what Mochi likes. Its actual reply cites the confirmed record and shows local rules, with no live model request.
+
+A new page session reads current records.
+Starting a new session clears the page conversation, while household records remain. The next question reads the current confirmed preference again; this is not cloud memory extraction.
+
+A request becomes a reviewable draft.
+The owner asks the simulator to arrange play and checks its rule-generated draft. The owner selects a specific time; asking or preparing the draft does not create a task.
+
+Preparation still requires confirmation.
+Preparing the proposal preserves the draft and its current context version. The local check verifies that no care task exists at this stage.
+
+Confirmation creates manual care.
+Only explicit owner confirmation creates the shared manual care task. The visible result says it is arranged and awaiting a person, without executing a feeder.
+
+A second person completes the handoff.
+The carer claims the task and records completion through the second account. Household activity and captured evidence identify that account; this does not prove physical care occurred.
+
+The simulator sees the completed result.
+Back in the simulator, the carer asks what was recently completed. The answer names the manual care record and cites the actual completion occurrence.
+
+Close the loop with the daily report.
+The owner generates today’s report, which counts one completed manual care task. Measured intake remains unrecorded, and the report does not invent a health outcome.
+
+Delete a memory. Check a new answer.
+After the owner deletes the preference, the carer asks again in a fresh page session. The next answer no longer cites that record; previous replies remain historical.
+
+A verified local loop. Live work remains.
+This capture uses local accounts, database memory, rule drafts, and confirmed manual tasks. The AWS account review has cleared, but this demo makes no live model, Alexa, hardware, or cloud deployment claim.

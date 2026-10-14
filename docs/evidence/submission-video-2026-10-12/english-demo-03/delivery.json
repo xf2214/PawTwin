@@ -1,0 +1,15 @@
+{
+  "video": "C:\\Users\\11831\\Desktop\\hks\\outputs\\PawTwin-demo-2026-10-12.en.mp4",
+  "bytes": 27572560,
+  "sha256": "98e0d78fbb86d25f38085d5234e1ee476fc742d1a39e0d41bbf88e2a8abbd691",
+  "duration_seconds": 170.0185034,
+  "dimensions": "1920x1080",
+  "codecs": "H264/AAC",
+  "caption_sentences": 26,
+  "actual_replays": 8,
+  "normal_speed_replay_seconds": 18.4,
+  "actual_decoded_frames": 37,
+  "old_video_unchanged": true,
+  "full_human_playback_and_listening": "not_performed",
+  "cloud_calls": 0
+}

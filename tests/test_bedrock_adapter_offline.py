@@ -9,14 +9,17 @@ docs/evidence/day2-cloud-blocked.md for what remains blocked.
 """
 
 from datetime import UTC, datetime
+from types import SimpleNamespace
 from uuid import uuid4
 
 import pytest
 from pawtwin.agent import (
     SYSTEM_PROMPT,
     AgentContext,
+    AnalyzerProposer,
     BedrockAgent,
     BedrockUnavailable,
+    ModelBudgetExceeded,
     _build_prompt,
     _escape,
 )
@@ -225,3 +228,63 @@ def test_a_real_analyzer_without_a_client_fails_closed(repo: SqliteRepository) -
         analyzer.analyze_event(_food_event(), AgentContext(repo, DEMO_OWNER_ID))
 
     assert str(excinfo.value).startswith(BACKEND_UNAVAILABLE)
+
+
+def _sdk_result(calls: int, tokens: int):
+    """Strands 1.57 AgentResult / EventLoopMetrics shape; no cloud calls."""
+    return SimpleNamespace(
+        stop_reason="end_turn",
+        message={"role": "assistant", "content": [{"text": "observe"}]},
+        metrics=SimpleNamespace(
+            cycle_count=calls,
+            accumulated_usage={
+                "inputTokens": 100, "outputTokens": tokens, "totalTokens": 100 + tokens
+            },
+        ),
+        state={},
+        structured_output=_valid_payload()["proposal"],
+    )
+
+
+def test_real_sdk_metrics_are_used_for_cumulative_budget_telemetry():
+    from pawtwin.bedrock_client import StrandsBedrockClient
+
+    result = StrandsBedrockClient(model_id="offline")._summarise(_sdk_result(3, 240))
+    assert result["model_calls"] == 3
+    assert result["output_tokens"] == 240
+    assert result["request_id"] is None
+
+
+@pytest.mark.parametrize(
+    "metrics",
+    [
+        None,
+        SimpleNamespace(cycle_count=1),
+        SimpleNamespace(cycle_count=0, accumulated_usage={"outputTokens": 100}),
+        SimpleNamespace(cycle_count=1, accumulated_usage={"outputTokens": -1}),
+        SimpleNamespace(cycle_count=True, accumulated_usage={"outputTokens": 100}),
+    ],
+)
+def test_sdk_budget_telemetry_is_not_guessed_when_metrics_missing_or_invalid(metrics):
+    from pawtwin.bedrock_client import StrandsBedrockClient
+
+    result = _sdk_result(1, 100)
+    result.metrics = metrics
+    with pytest.raises(BedrockUnavailable, match="BEDROCK_METRICS_UNAVAILABLE"):
+        StrandsBedrockClient(model_id="offline")._summarise(result)
+
+
+@pytest.mark.parametrize(
+    "calls,tokens,reason", [(5, 120, "MODEL_CALL_LIMIT"), (1, 801, "TOKEN_LIMIT")]
+)
+def test_real_sdk_budget_usage_reaches_fail_closed_guard(repo, calls, tokens, reason):
+    from pawtwin.bedrock_client import StrandsBedrockClient
+
+    # Stub only the external request; exercise SDK mapping and the real proposer guard.
+    class OfflineSdkClient:
+        def analyze(self, **_):
+            return StrandsBedrockClient(model_id="offline")._summarise(_sdk_result(calls, tokens))
+
+    proposer = AnalyzerProposer(_agent(OfflineSdkClient()), repo)
+    with pytest.raises(ModelBudgetExceeded, match=reason):
+        proposer.analyze_event(_food_event(), repo.get_facts(DEMO_OWNER_ID), DEMO_OWNER_ID)

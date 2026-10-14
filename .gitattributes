@@ -2,3 +2,8 @@
 *.png binary
 *.jpg binary
 *.pdf binary
+
+# Preserve raw tool output, including line endings and tool-emitted trailing blanks.
+docs/evidence/**/*.log -text -whitespace
+docs/evidence/**/error-context.md -text -whitespace
+docs/evidence/current-version-2026-10-14/*.txt -text -whitespace

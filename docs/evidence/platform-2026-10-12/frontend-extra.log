@@ -1,0 +1,17 @@
+
+[WebServer] INFO:     Started server process [144204]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8822 (Press CTRL+C to quit)
+
+
+Running 2 tests using 1 worker
+
+
+(node:151780) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/2] frontend\e2e\platform.spec.ts:146:1 › manual copy fallback and a mobile visitor preserve real diet and completion meanings
+[2/2] frontend\e2e\platform.spec.ts:179:1 › a delayed visitor response cannot reveal the previously authorized pet after switching links
+  2 passed (5.5s)

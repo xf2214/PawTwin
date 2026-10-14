@@ -7,7 +7,7 @@ declare const process: { env: Record<string, string | undefined> }
 export const PASSPHRASE = process.env.PAWTWIN_DEMO_PASSPHRASE ?? 'local-demo-passphrase'
 
 export async function login(page: Page): Promise<void> {
-  await page.goto('/')
+  await page.goto('/#workbench')
   await page.getByLabel('演示口令').fill(PASSPHRASE)
   await page.getByRole('button', { name: '登录演示' }).click()
   await expect(page.getByTestId('facts')).toBeVisible()

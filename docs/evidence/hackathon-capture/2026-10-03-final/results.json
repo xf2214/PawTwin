@@ -1,0 +1,178 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Users\\11831\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+      "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\frontend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "e2e/demo-rehearsal.spec.ts",
+      "--config",
+      "playwright.config.ts",
+      "--workers",
+      "1",
+      "--retries",
+      "0",
+      "--output",
+      "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-capture\\2026-10-03-final\\raw",
+      "--reporter=json"
+    ],
+    "configFile": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\frontend\\playwright.config.ts",
+    "rootDir": "C:/Users/11831/Desktop/hks/outputs/pawtwin-app/frontend/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/11831/Desktop/hks/outputs/pawtwin-app/docs/evidence/hackathon-capture/2026-10-03-final/raw",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "C:/Users/11831/Desktop/hks/outputs/pawtwin-app/frontend/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "demo-rehearsal.spec.ts",
+      "file": "demo-rehearsal.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "demonstration rehearses two family accounts, real report arithmetic and shared memory to care",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20594,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T14:21:37.916Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "01-home.png",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-capture\\2026-10-03-final\\raw\\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\\attachments\\01-home-png-06b008a14a9dbd76bbc680d88a7093898a328c13.png"
+                    },
+                    {
+                      "name": "02-growth.png",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-capture\\2026-10-03-final\\raw\\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\\attachments\\02-growth-png-8b875e2c89947dbb4779e794f7274bbe30eb11b8.png"
+                    },
+                    {
+                      "name": "03-assistant.png",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-capture\\2026-10-03-final\\raw\\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\\attachments\\03-assistant-png-ab46c86bbb3c4382e1197f17cf841296b9f326fb.png"
+                    },
+                    {
+                      "name": "04-care.png",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-capture\\2026-10-03-final\\raw\\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\\attachments\\04-care-png-0a549446603ebd4d708c0b6e10cb3a873a914425.png"
+                    },
+                    {
+                      "name": "07-completing-actor.png",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-capture\\2026-10-03-final\\raw\\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\\attachments\\07-completing-actor-png-20e26926b73a1b4eff97953fb4d9b5cbfc6bd702.png"
+                    },
+                    {
+                      "name": "05-daily.png",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-capture\\2026-10-03-final\\raw\\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\\attachments\\05-daily-png-3789becf9de31a15d72a48760dcf212a33b4a0c6.png"
+                    },
+                    {
+                      "name": "06-deleted-memory.png",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-capture\\2026-10-03-final\\raw\\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\\attachments\\06-deleted-memory-png-4f09e49684a9fe416ebaaafb814bddab66772b91.png"
+                    },
+                    {
+                      "name": "demo-evidence",
+                      "contentType": "application/json",
+                      "body": "ewogICJzY2hlbWFfdmVyc2lvbiI6IDEsCiAgImNhcHR1cmVkX2F0IjogIjIwMjYtMTAtMDNUMTQ6MjE6NTcuNjU3WiIsCiAgInNvdXJjZSI6ICJhY3R1YWxfbG9jYWxfdWlfYW5kX2FwaSIsCiAgImlkZW50aXR5X2JhY2tlbmQiOiAibG9jYWxfYWNjb3VudCIsCiAgImJhY2tlbmQiOiAibG9jYWxfcnVsZXMiLAogICJjbG91ZF9jYWxscyI6IDAsCiAgInBldF9pZCI6ICJtb2NoaSIsCiAgInNoYXJlZF9tZW1vcnkiOiB7CiAgICAibWVtb3J5X2lkIjogIjk4NmE3MWEzLTYxMzQtNDZmNi04NGNjLTBiYjFmYzBlZTM1NCIsCiAgICAiYmVmb3JlIjogewogICAgICAiYW5zd2VyIjogIk1vY2hpIOeahOiusOW9le+8mui/mOayoeacieW3suehruiupOeahOWBj+WlveiusOW/huOAgiIsCiAgICAgICJlbnRyeSI6ICJhbGV4YV9zaW11bGF0b3IiLAogICAgICAiYmFja2VuZCI6ICJsb2NhbF9ydWxlcyIsCiAgICAgICJyZXF1ZXN0X2lkIjogbnVsbCwKICAgICAgImNvbnRleHRfdmVyc2lvbiI6IDEsCiAgICAgICJzb3VyY2VfcmVjb3JkX2lkcyI6IFtdLAogICAgICAicmVmZXJlbmNlcyI6IFsKICAgICAgICB7CiAgICAgICAgICAiaWQiOiAid2FsdGhhbS1raXR0ZW4iLAogICAgICAgICAgInNwZWNpZXMiOiAiY2F0IiwKICAgICAgICAgICJtaW5pbXVtX2FnZV93ZWVrcyI6IDgsCiAgICAgICAgICAidXJsIjogImh0dHBzOi8vd3d3LndhbHRoYW0uY29tL3Jlc291cmNlcy9raXR0ZW4tZ3Jvd3RoLWNoYXJ0cyIsCiAgICAgICAgICAidGl0bGUiOiAiV0FMVEhBTSBLaXR0ZW4gR3Jvd3RoIENoYXJ0cyIsCiAgICAgICAgICAicmV0cmlldmVkX29uIjogIjIwMjYtMTAtMDMiLAogICAgICAgICAgInJldmlld19zdGF0dXMiOiAic291cmNlX2NoZWNrZWQiLAogICAgICAgICAgInN1bW1hcnkiOiAi5bm854yr5oiQ6ZW/5Y+C6ICD5pyJ5bm06b6E5LiO6YCC55So6IyD5Zu06ZmQ5Yi277yb5pyq5a+85YWl5pWw5YC85puy57q/77yM5LiN6IO957uZ5Ye65qCH5YeG5L2T6YeN44CCIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImlkIjogIm1lcmNrLW51dHJpdGlvbiIsCiAgICAgICAgICAic3BlY2llcyI6ICJjYXQsZG9nIiwKICAgICAgICAgICJtaW5pbXVtX2FnZV93ZWVrcyI6IG51bGwsCiAgICAgICAgICAidXJsIjogImh0dHBzOi8vd3d3Lm1lcmNrdmV0bWFudWFsLmNvbS9tYW5hZ2VtZW50LWFuZC1udXRyaXRpb24vbnV0cml0aW9uLXNtYWxsLWFuaW1hbHMvb3ZlcnZpZXctb2YtbnV0cml0aW9uLXNtYWxsLWFuaW1hbHMiLAogICAgICAgICAgInRpdGxlIjogIk1lcmNrIFZldGVyaW5hcnkgTWFudWFsOiBTbWFsbCBBbmltYWwgTnV0cml0aW9uIiwKICAgICAgICAgICJyZXRyaWV2ZWRfb24iOiAiMjAyNi0xMC0wMyIsCiAgICAgICAgICAicmV2aWV3X3N0YXR1cyI6ICJzb3VyY2VfY2hlY2tlZCIsCiAgICAgICAgICAic3VtbWFyeSI6ICLokKXlhbvor4TkvLDpnIDopoHppa7po5/lj7LjgIHkvZPlhrXkuI7ogozogonnirblhrXnrYnotYTmlpnvvIzlubbnu5PlkIjlhb3ljLvmo4Dmn6XjgIIiCiAgICAgICAgfQogICAgICBdLAogICAgICAiYWN0aW9uX2V4ZWN1dGVkIjogZmFsc2UsCiAgICAgICJsYWJlbCI6ICLmnKzlnLDop4TliJnliIbouqsgLyBBbGV4YSDnvZHpobXmqKHmi5/vvJvorrDlvZXljp/mlofmmK/mlbDmja7vvIzkuI3mmK/mjIfku6QiCiAgICB9LAogICAgImNhbmRpZGF0ZSI6IHsKICAgICAgImFuc3dlciI6ICJNb2NoaSDnmoTorrDlvZXvvJrov5jmsqHmnInlt7Lnoa7orqTnmoTlgY/lpb3orrDlv4bjgIIiLAogICAgICAiZW50cnkiOiAiYWxleGFfc2ltdWxhdG9yIiwKICAgICAgImJhY2tlbmQiOiAibG9jYWxfcnVsZXMiLAogICAgICAicmVxdWVzdF9pZCI6IG51bGwsCiAgICAgICJjb250ZXh0X3ZlcnNpb24iOiA0LAogICAgICAic291cmNlX3JlY29yZF9pZHMiOiBbXSwKICAgICAgInJlZmVyZW5jZXMiOiBbCiAgICAgICAgewogICAgICAgICAgImlkIjogIndhbHRoYW0ta2l0dGVuIiwKICAgICAgICAgICJzcGVjaWVzIjogImNhdCIsCiAgICAgICAgICAibWluaW11bV9hZ2Vfd2Vla3MiOiA4LAogICAgICAgICAgInVybCI6ICJodHRwczovL3d3dy53YWx0aGFtLmNvbS9yZXNvdXJjZXMva2l0dGVuLWdyb3d0aC1jaGFydHMiLAogICAgICAgICAgInRpdGxlIjogIldBTFRIQU0gS2l0dGVuIEdyb3d0aCBDaGFydHMiLAogICAgICAgICAgInJldHJpZXZlZF9vbiI6ICIyMDI2LTEwLTAzIiwKICAgICAgICAgICJyZXZpZXdfc3RhdHVzIjogInNvdXJjZV9jaGVja2VkIiwKICAgICAgICAgICJzdW1tYXJ5IjogIuW5vOeMq+aIkOmVv+WPguiAg+acieW5tOm+hOS4jumAgueUqOiMg+WbtOmZkOWItu+8m+acquWvvOWFpeaVsOWAvOabsue6v++8jOS4jeiDvee7meWHuuagh+WHhuS9k+mHjeOAgiIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJpZCI6ICJtZXJjay1udXRyaXRpb24iLAogICAgICAgICAgInNwZWNpZXMiOiAiY2F0LGRvZyIsCiAgICAgICAgICAibWluaW11bV9hZ2Vfd2Vla3MiOiBudWxsLAogICAgICAgICAgInVybCI6ICJodHRwczovL3d3dy5tZXJja3ZldG1hbnVhbC5jb20vbWFuYWdlbWVudC1hbmQtbnV0cml0aW9uL251dHJpdGlvbi1zbWFsbC1hbmltYWxzL292ZXJ2aWV3LW9mLW51dHJpdGlvbi1zbWFsbC1hbmltYWxzIiwKICAgICAgICAgICJ0aXRsZSI6ICJNZXJjayBWZXRlcmluYXJ5IE1hbnVhbDogU21hbGwgQW5pbWFsIE51dHJpdGlvbiIsCiAgICAgICAgICAicmV0cmlldmVkX29uIjogIjIwMjYtMTAtMDMiLAogICAgICAgICAgInJldmlld19zdGF0dXMiOiAic291cmNlX2NoZWNrZWQiLAogICAgICAgICAgInN1bW1hcnkiOiAi6JCl5YW76K+E5Lyw6ZyA6KaB6aWu6aOf5Y+y44CB5L2T5Ya15LiO6IKM6IKJ54q25Ya1562J6LWE5paZ77yM5bm257uT5ZCI5YW95Yy75qOA5p+l44CCIgogICAgICAgIH0KICAgICAgXSwKICAgICAgImFjdGlvbl9leGVjdXRlZCI6IGZhbHNlLAogICAgICAibGFiZWwiOiAi5pys5Zyw6KeE5YiZ5YiG6LqrIC8gQWxleGEg572R6aG15qih5ouf77yb6K6w5b2V5Y6f5paH5piv5pWw5o2u77yM5LiN5piv5oyH5LukIgogICAgfSwKICAgICJjb25maXJtZWRfaW5fbmV3X2xvZ2luIjogewogICAgICAiYW5zd2VyIjogIk1vY2hpIOeahOiusOW9le+8muS4u+S6uuehruiupOiusOW9le+8muWWnOasoue+veavm+ajku+8jOmlreWQjuWFiOS8keaBr+OAgiIsCiAgICAgICJlbnRyeSI6ICJhbGV4YV9zaW11bGF0b3IiLAogICAgICAiYmFja2VuZCI6ICJsb2NhbF9ydWxlcyIsCiAgICAgICJyZXF1ZXN0X2lkIjogbnVsbCwKICAgICAgImNvbnRleHRfdmVyc2lvbiI6IDUsCiAgICAgICJzb3VyY2VfcmVjb3JkX2lkcyI6IFsKICAgICAgICAiOTg2YTcxYTMtNjEzNC00NmY2LTg0Y2MtMGJiMWZjMGVlMzU0IgogICAgICBdLAogICAgICAicmVmZXJlbmNlcyI6IFsKICAgICAgICB7CiAgICAgICAgICAiaWQiOiAid2FsdGhhbS1raXR0ZW4iLAogICAgICAgICAgInNwZWNpZXMiOiAiY2F0IiwKICAgICAgICAgICJtaW5pbXVtX2FnZV93ZWVrcyI6IDgsCiAgICAgICAgICAidXJsIjogImh0dHBzOi8vd3d3LndhbHRoYW0uY29tL3Jlc291cmNlcy9raXR0ZW4tZ3Jvd3RoLWNoYXJ0cyIsCiAgICAgICAgICAidGl0bGUiOiAiV0FMVEhBTSBLaXR0ZW4gR3Jvd3RoIENoYXJ0cyIsCiAgICAgICAgICAicmV0cmlldmVkX29uIjogIjIwMjYtMTAtMDMiLAogICAgICAgICAgInJldmlld19zdGF0dXMiOiAic291cmNlX2NoZWNrZWQiLAogICAgICAgICAgInN1bW1hcnkiOiAi5bm854yr5oiQ6ZW/5Y+C6ICD5pyJ5bm06b6E5LiO6YCC55So6IyD5Zu06ZmQ5Yi277yb5pyq5a+85YWl5pWw5YC85puy57q/77yM5LiN6IO957uZ5Ye65qCH5YeG5L2T6YeN44CCIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImlkIjogIm1lcmNrLW51dHJpdGlvbiIsCiAgICAgICAgICAic3BlY2llcyI6ICJjYXQsZG9nIiwKICAgICAgICAgICJtaW5pbXVtX2FnZV93ZWVrcyI6IG51bGwsCiAgICAgICAgICAidXJsIjogImh0dHBzOi8vd3d3Lm1lcmNrdmV0bWFudWFsLmNvbS9tYW5hZ2VtZW50LWFuZC1udXRyaXRpb24vbnV0cml0aW9uLXNtYWxsLWFuaW1hbHMvb3ZlcnZpZXctb2YtbnV0cml0aW9uLXNtYWxsLWFuaW1hbHMiLAogICAgICAgICAgInRpdGxlIjogIk1lcmNrIFZldGVyaW5hcnkgTWFudWFsOiBTbWFsbCBBbmltYWwgTnV0cml0aW9uIiwKICAgICAgICAgICJyZXRyaWV2ZWRfb24iOiAiMjAyNi0xMC0wMyIsCiAgICAgICAgICAicmV2aWV3X3N0YXR1cyI6ICJzb3VyY2VfY2hlY2tlZCIsCiAgICAgICAgICAic3VtbWFyeSI6ICLokKXlhbvor4TkvLDpnIDopoHppa7po5/lj7LjgIHkvZPlhrXkuI7ogozogonnirblhrXnrYnotYTmlpnvvIzlubbnu5PlkIjlhb3ljLvmo4Dmn6XjgIIiCiAgICAgICAgfQogICAgICBdLAogICAgICAiYWN0aW9uX2V4ZWN1dGVkIjogZmFsc2UsCiAgICAgICJsYWJlbCI6ICLmnKzlnLDop4TliJnliIbouqsgLyBBbGV4YSDnvZHpobXmqKHmi5/vvJvorrDlvZXljp/mlofmmK/mlbDmja7vvIzkuI3mmK/mjIfku6QiCiAgICB9LAogICAgImFmdGVyX2RlbGV0aW9uIjogewogICAgICAiYW5zd2VyIjogIk1vY2hpIOeahOiusOW9le+8mui/mOayoeacieW3suehruiupOeahOWBj+WlveiusOW/huOAgiIsCiAgICAgICJlbnRyeSI6ICJhcHAiLAogICAgICAiYmFja2VuZCI6ICJsb2NhbF9ydWxlcyIsCiAgICAgICJyZXF1ZXN0X2lkIjogbnVsbCwKICAgICAgImNvbnRleHRfdmVyc2lvbiI6IDEwLAogICAgICAic291cmNlX3JlY29yZF9pZHMiOiBbXSwKICAgICAgInJlZmVyZW5jZXMiOiBbCiAgICAgICAgewogICAgICAgICAgImlkIjogIndhbHRoYW0ta2l0dGVuIiwKICAgICAgICAgICJzcGVjaWVzIjogImNhdCIsCiAgICAgICAgICAibWluaW11bV9hZ2Vfd2Vla3MiOiA4LAogICAgICAgICAgInVybCI6ICJodHRwczovL3d3dy53YWx0aGFtLmNvbS9yZXNvdXJjZXMva2l0dGVuLWdyb3d0aC1jaGFydHMiLAogICAgICAgICAgInRpdGxlIjogIldBTFRIQU0gS2l0dGVuIEdyb3d0aCBDaGFydHMiLAogICAgICAgICAgInJldHJpZXZlZF9vbiI6ICIyMDI2LTEwLTAzIiwKICAgICAgICAgICJyZXZpZXdfc3RhdHVzIjogInNvdXJjZV9jaGVja2VkIiwKICAgICAgICAgICJzdW1tYXJ5IjogIuW5vOeMq+aIkOmVv+WPguiAg+acieW5tOm+hOS4jumAgueUqOiMg+WbtOmZkOWItu+8m+acquWvvOWFpeaVsOWAvOabsue6v++8jOS4jeiDvee7meWHuuagh+WHhuS9k+mHjeOAgiIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJpZCI6ICJtZXJjay1udXRyaXRpb24iLAogICAgICAgICAgInNwZWNpZXMiOiAiY2F0LGRvZyIsCiAgICAgICAgICAibWluaW11bV9hZ2Vfd2Vla3MiOiBudWxsLAogICAgICAgICAgInVybCI6ICJodHRwczovL3d3dy5tZXJja3ZldG1hbnVhbC5jb20vbWFuYWdlbWVudC1hbmQtbnV0cml0aW9uL251dHJpdGlvbi1zbWFsbC1hbmltYWxzL292ZXJ2aWV3LW9mLW51dHJpdGlvbi1zbWFsbC1hbmltYWxzIiwKICAgICAgICAgICJ0aXRsZSI6ICJNZXJjayBWZXRlcmluYXJ5IE1hbnVhbDogU21hbGwgQW5pbWFsIE51dHJpdGlvbiIsCiAgICAgICAgICAicmV0cmlldmVkX29uIjogIjIwMjYtMTAtMDMiLAogICAgICAgICAgInJldmlld19zdGF0dXMiOiAic291cmNlX2NoZWNrZWQiLAogICAgICAgICAgInN1bW1hcnkiOiAi6JCl5YW76K+E5Lyw6ZyA6KaB6aWu6aOf5Y+y44CB5L2T5Ya15LiO6IKM6IKJ54q25Ya1562J6LWE5paZ77yM5bm257uT5ZCI5YW95Yy75qOA5p+l44CCIgogICAgICAgIH0KICAgICAgXSwKICAgICAgImFjdGlvbl9leGVjdXRlZCI6IGZhbHNlLAogICAgICAibGFiZWwiOiAi5pys5Zyw6KeE5YiZ5YiG6LqrIC8gQWxleGEg572R6aG15qih5ouf77yb6K6w5b2V5Y6f5paH5piv5pWw5o2u77yM5LiN5piv5oyH5LukIgogICAgfQogIH0sCiAgIndlZWtseV9yZXBvcnQiOiB7CiAgICAicmVwb3J0X2lkIjogImI2MzVkZjA3LWYwMTAtNDdhNi05NmExLTAwMWJlZjIxM2M0MCIsCiAgICAiaG91c2Vob2xkX2lkIjogIjIyMDUyYzFjLTNkNTgtNGU4MS05NTc4LWNkNTA1YTIxZmIwYyIsCiAgICAicGV0X2lkIjogIm1vY2hpIiwKICAgICJwZXJpb2QiOiAid2Vla2x5IiwKICAgICJkYXRlIjogIjIwMjYtMTAtMDIiLAogICAgIndpbmRvd19zdGFydCI6ICIyMDI2LTA5LTI3VDE2OjAwOjAwKzAwOjAwIiwKICAgICJ3aW5kb3dfZW5kIjogIjIwMjYtMTAtMDRUMTY6MDA6MDArMDA6MDAiLAogICAgImN1dG9mZiI6ICIyMDI2LTEwLTAzVDE0OjIxOjQzLjg5NDIxMyswMDowMCIsCiAgICAiZ2VuZXJhdGVkX2F0IjogIjIwMjYtMTAtMDNUMTQ6MjE6NDMuODk0MjEzKzAwOjAwIiwKICAgICJzdGF0X3ZlcnNpb24iOiAzLAogICAgInN0YXR1cyI6ICJjdXJyZW50IiwKICAgICJub3RpZmljYXRpb24iOiAibm90X3NlbnQiLAogICAgInNvdXJjZV9yZWNvcmRfaWRzIjogWwogICAgICAiNjY4ZjY3NTktMDgyMS00MmYyLTg4NDctM2EwZDBmZjM2MzRkIiwKICAgICAgImE0YmJjNzgzLTI2ZTYtNDUzNS04MDcwLWUxZWVjZDhlNDdkMSIKICAgIF0sCiAgICAic291cmNlX3ZlcnNpb25zIjogewogICAgICAiYTRiYmM3ODMtMjZlNi00NTM1LTgwNzAtZTFlZWNkOGU0N2QxIjogMSwKICAgICAgIjY2OGY2NzU5LTA4MjEtNDJmMi04ODQ3LTNhMGQwZmYzNjM0ZCI6IDEKICAgIH0sCiAgICAiY292ZXJhZ2UiOiB7CiAgICAgICJ3ZWlnaHRfbWVhc3VyZW1lbnRzIjogMSwKICAgICAgImRpZXRfcmVjb3JkcyI6IDAsCiAgICAgICJpbmNvbXBsZXRlX3dpbmRvdyI6IHRydWUsCiAgICAgICJ0YXNrc193aXRob3V0X2NyZWF0aW9uX3RpbWUiOiAwCiAgICB9LAogICAgIndlaWdodCI6IHsKICAgICAgImNoYW5nZV9nIjogMTUwLAogICAgICAiY2hhbmdlX3BlcmNlbnQiOiAxMi41LAogICAgICAic3Bhbl9kYXlzIjogNywKICAgICAgInNvdXJjZV9yZWNvcmRfaWRzIjogWwogICAgICAgICJhNGJiYzc4My0yNmU2LTQ1MzUtODA3MC1lMWVlY2Q4ZTQ3ZDEiLAogICAgICAgICI2NjhmNjc1OS0wODIxLTQyZjItODg0Ny0zYTBkMGZmMzYzNGQiCiAgICAgIF0sCiAgICAgICJsYXRlc3RfZyI6IDEzNTAsCiAgICAgICJkZXNjcmlwdGlvbiI6ICLlrp7pmYXmtYvph4/ot6jluqbvvJvnvqTkvZPlj4LogIPkuI3og73nlKjkuo7or4rmlq0iCiAgICB9LAogICAgImRpZXQiOiB7CiAgICAgICJhY3R1YWxfaW50YWtlX2ciOiBudWxsLAogICAgICAiZm9vZF9vZmZlcmVkX2ciOiBudWxsLAogICAgICAiZGlzcGVuc2VkX2ciOiBudWxsLAogICAgICAicmVtYWluaW5nX2ciOiBudWxsLAogICAgICAic2ltdWxhdGVkX2RldmljZV9kaXNwZW5zZWRfZyI6IG51bGwKICAgIH0sCiAgICAiY2FyZSI6IHsKICAgICAgIm1hbnVhbF9jb21wbGV0ZWQiOiAwLAogICAgICAiZGV2aWNlX3N1Y2Nlc3MiOiBudWxsLAogICAgICAiZGV2aWNlX2ZhaWxlZCI6IDAsCiAgICAgICJkZXZpY2VfdW5rbm93biI6IDAsCiAgICAgICJkZXZpY2VfcmVzdWx0c19zaW11bGF0ZWQiOiB0cnVlLAogICAgICAicGVuZGluZyI6IDAsCiAgICAgICJwZW5kaW5nX2RlZmluaXRpb24iOiAi5oiq5q2i5pe25LuN5b6F54Wn5oqk5LiU5bqU5Zyo56qX5Y+j57uT5p2f5YmN5a6M5oiQ77yb57y65Yib5bu65pe26Ze05LiN6KGl566XIiwKICAgICAgIm92ZXJkdWUiOiAwLAogICAgICAiYnlfbWVtYmVyIjoge30KICAgIH0sCiAgICAiZ3Jvd3RoIjogewogICAgICAiZGlhcnlfY291bnQiOiAwCiAgICB9CiAgfSwKICAiZGFpbHlfcmVwb3J0IjogewogICAgInJlcG9ydF9pZCI6ICJlYjI1ZmY1MC02Njk0LTQ2ZDgtYjA3MS01YWMzYmY1YWNlNTkiLAogICAgImhvdXNlaG9sZF9pZCI6ICIyMjA1MmMxYy0zZDU4LTRlODEtOTU3OC1jZDUwNWEyMWZiMGMiLAogICAgInBldF9pZCI6ICJtb2NoaSIsCiAgICAicGVyaW9kIjogImRhaWx5IiwKICAgICJkYXRlIjogIjIwMjYtMTAtMDMiLAogICAgIndpbmRvd19zdGFydCI6ICIyMDI2LTEwLTAyVDE2OjAwOjAwKzAwOjAwIiwKICAgICJ3aW5kb3dfZW5kIjogIjIwMjYtMTAtMDNUMTY6MDA6MDArMDA6MDAiLAogICAgImN1dG9mZiI6ICIyMDI2LTEwLTAzVDE0OjIxOjUyLjk3NzU2MyswMDowMCIsCiAgICAiZ2VuZXJhdGVkX2F0IjogIjIwMjYtMTAtMDNUMTQ6MjE6NTIuOTc3NTYzKzAwOjAwIiwKICAgICJzdGF0X3ZlcnNpb24iOiA5LAogICAgInN0YXR1cyI6ICJjdXJyZW50IiwKICAgICJub3RpZmljYXRpb24iOiAibm90X3NlbnQiLAogICAgInNvdXJjZV9yZWNvcmRfaWRzIjogWwogICAgICAiNjY4ZjY3NTktMDgyMS00MmYyLTg4NDctM2EwZDBmZjM2MzRkIiwKICAgICAgImRiMzI3MGI2LTgxZjUtNGFmNS05OThjLTVjMzI5NmZkYWRjNCIsCiAgICAgICJlODIyNjY1MC0zZWY3LTQ5YTEtOWQ2ZC03YTM0NjNkYmE3ZDMiCiAgICBdLAogICAgInNvdXJjZV92ZXJzaW9ucyI6IHsKICAgICAgIjY2OGY2NzU5LTA4MjEtNDJmMi04ODQ3LTNhMGQwZmYzNjM0ZCI6IDEsCiAgICAgICJkYjMyNzBiNi04MWY1LTRhZjUtOTk4Yy01YzMyOTZmZGFkYzQiOiAxLAogICAgICAiZTgyMjY2NTAtM2VmNy00OWExLTlkNmQtN2EzNDYzZGJhN2QzIjogMQogICAgfSwKICAgICJjb3ZlcmFnZSI6IHsKICAgICAgIndlaWdodF9tZWFzdXJlbWVudHMiOiAwLAogICAgICAiZGlldF9yZWNvcmRzIjogMCwKICAgICAgImluY29tcGxldGVfd2luZG93IjogdHJ1ZSwKICAgICAgInRhc2tzX3dpdGhvdXRfY3JlYXRpb25fdGltZSI6IDAKICAgIH0sCiAgICAid2VpZ2h0IjogewogICAgICAiY2hhbmdlX2ciOiBudWxsLAogICAgICAiY2hhbmdlX3BlcmNlbnQiOiBudWxsLAogICAgICAic3Bhbl9kYXlzIjogbnVsbCwKICAgICAgInNvdXJjZV9yZWNvcmRfaWRzIjogWwogICAgICAgICI2NjhmNjc1OS0wODIxLTQyZjItODg0Ny0zYTBkMGZmMzYzNGQiCiAgICAgIF0sCiAgICAgICJsYXRlc3RfZyI6IDEzNTAsCiAgICAgICJkZXNjcmlwdGlvbiI6ICLlrp7pmYXmtYvph4/ot6jluqbvvJvnvqTkvZPlj4LogIPkuI3og73nlKjkuo7or4rmlq0iCiAgICB9LAogICAgImRpZXQiOiB7CiAgICAgICJhY3R1YWxfaW50YWtlX2ciOiBudWxsLAogICAgICAiZm9vZF9vZmZlcmVkX2ciOiBudWxsLAogICAgICAiZGlzcGVuc2VkX2ciOiBudWxsLAogICAgICAicmVtYWluaW5nX2ciOiBudWxsLAogICAgICAic2ltdWxhdGVkX2RldmljZV9kaXNwZW5zZWRfZyI6IG51bGwKICAgIH0sCiAgICAiY2FyZSI6IHsKICAgICAgIm1hbnVhbF9jb21wbGV0ZWQiOiAxLAogICAgICAiZGV2aWNlX3N1Y2Nlc3MiOiBudWxsLAogICAgICAiZGV2aWNlX2ZhaWxlZCI6IDAsCiAgICAgICJkZXZpY2VfdW5rbm93biI6IDAsCiAgICAgICJkZXZpY2VfcmVzdWx0c19zaW11bGF0ZWQiOiB0cnVlLAogICAgICAicGVuZGluZyI6IDAsCiAgICAgICJwZW5kaW5nX2RlZmluaXRpb24iOiAi5oiq5q2i5pe25LuN5b6F54Wn5oqk5LiU5bqU5Zyo56qX5Y+j57uT5p2f5YmN5a6M5oiQ77yb57y65Yib5bu65pe26Ze05LiN6KGl566XIiwKICAgICAgIm92ZXJkdWUiOiAwLAogICAgICAiYnlfbWVtYmVyIjogewogICAgICAgICI0NDJhZGVjMS0yYmY4LTRhNDEtYWNjZi1iOGMwODc5MjI2MzEiOiAxCiAgICAgIH0KICAgIH0sCiAgICAiZ3Jvd3RoIjogewogICAgICAiZGlhcnlfY291bnQiOiAwCiAgICB9CiAgfSwKICAibWFudWFsX2NhcmUiOiB7CiAgICAib2NjdXJyZW5jZV9pZCI6ICJhODhiYWM5Zi0yN2QyLTQxMmMtYmJhMy04Y2NjZmEzYmEyNGYiLAogICAgInNvdXJjZSI6ICJtYW51YWxfY2FyZSIsCiAgICAiY29tcGxldGVkX2J5IjogIjQ0MmFkZWMxLTJiZjgtNGE0MS1hY2NmLWI4YzA4NzkyMjYzMSIsCiAgICAiZXhwZWN0ZWRfYWN0b3JfaWQiOiAiNDQyYWRlYzEtMmJmOC00YTQxLWFjY2YtYjhjMDg3OTIyNjMxIgogIH0sCiAgImJvdW5kYXJpZXMiOiBbCiAgICAiZGVtb19zYW1wbGUgbWVhc3VyZW1lbnRzIiwKICAgICJvd25lci1jb25maXJtZWQgZGF0YWJhc2UgbWVtb3J5IiwKICAgICJBbGV4YSB3ZWIgc2ltdWxhdGlvbiIsCiAgICAib3duZXItYXV0aG9yZWQgbWFudWFsIGNhcmUiLAogICAgIm5vIGxpdmUgbW9kZWwgb3IgaGFyZHdhcmUiCiAgXQp9"
+                    },
+                    {
+                      "name": "owner-recording",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-capture\\2026-10-03-final\\raw\\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\\attachments\\owner-recording-80acc2a869da241b8ca81e7a68e58462fbb9e631.webm"
+                    },
+                    {
+                      "name": "carer-recording",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-capture\\2026-10-03-final\\raw\\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\\attachments\\carer-recording-10aba2574472fed88de3b17ea54ecc160ae788b3.webm"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-capture\\2026-10-03-final\\raw\\demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e3c7e829be46768368b5-337d72854fed5ba4fd3f",
+          "file": "demo-rehearsal.spec.ts",
+          "line": 28,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-03T14:21:35.063Z",
+    "duration": 24967.156,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

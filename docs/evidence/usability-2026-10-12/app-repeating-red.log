@@ -1,0 +1,53 @@
+
+[WebServer] INFO:     Started server process [145056]
+[WebServer] INFO:     Waiting for application startup.
+
+[WebServer] INFO:     Application startup complete.
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8822 (Press CTRL+C to quit)
+
+Running 1 test using 1 worker
+
+
+
+(node:151024) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1/1] frontend\e2e\usability.spec.ts:54:1 › repeating care completion stays visible in completed history and keeps its next plan
+  1) frontend\e2e\usability.spec.ts:54:1 › repeating care completion stays visible in completed history and keeps its next plan 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('region', { name: '照护队列' })
+    Expected substring: "每日换水"
+    Received string:    "DAILY CARE照护与交接家庭时间 · 2026-10-12全部今天逾期我负责已完成Asia/Shanghai · 待办按计划时间排列；人工照护与模拟设备分开记录。这里暂时没有完成记录。可切换筛选，或安排下一件日常小事。"
+    Timeout: 20000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('region', { name: '照护队列' }) with timeout 20000ms
+      - waiting for getByRole('region', { name: '照护队列' })
+        43 × locator resolved to <section aria-label="照护队列" class="fa-card fa-care-queue">…</section>
+           - unexpected value "DAILY CARE照护与交接家庭时间 · 2026-10-12全部今天逾期我负责已完成Asia/Shanghai · 待办按计划时间排列；人工照护与模拟设备分开记录。这里暂时没有完成记录。可切换筛选，或安排下一件日常小事。"
+
+
+      61 |   await page.getByRole("button", { name: "已完成", exact: true }).click();
+      62 |   const queue = page.getByRole("region", { name: "照护队列" });
+    > 63 |   await expect(queue).toContainText("每日换水");
+         |                       ^
+      64 |   await expect(queue).toContainText("本次已完成");
+      65 |   await expect(queue).toContainText("下次待办");
+      66 |   await expect(queue.getByRole("button", { name: "完成照护", exact: true })).toHaveCount(0);
+        at C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\usability.spec.ts:63:23
+
+    Error Context: docs\evidence\usability-2026-10-12\app-repeating-red-results\usability-repeating-care-c-ab2bc-ory-and-keeps-its-next-plan\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-repeating-red-results\usability-repeating-care-c-ab2bc-ory-and-keeps-its-next-plan\trace.zip
+    Usage:
+
+        npx playwright show-trace docs\evidence\usability-2026-10-12\app-repeating-red-results\usability-repeating-care-c-ab2bc-ory-and-keeps-its-next-plan\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  1 failed
+    frontend\e2e\usability.spec.ts:54:1 › repeating care completion stays visible in completed history and keeps its next plan 

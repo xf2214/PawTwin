@@ -1,0 +1,546 @@
+{
+  "head": "31da3490c424f925db5c02214d7d3a945add8fcd",
+  "branch": "chore/bootstrap",
+  "captured": "2026-10-12",
+  "files": [
+    {
+      "path": "backend/pawtwin/family_api.py",
+      "sha256": "17931fda6c4391dbab2d6173e3c19bbba3d5cb711f34acd9c71836b4f4e36bba"
+    },
+    {
+      "path": "backend/pawtwin/family_assistant.py",
+      "sha256": "33d9b64aa64091dbf49a31544f1db2bdb16e009ea5b73cebac4e02f3e94369ec"
+    },
+    {
+      "path": "backend/pawtwin/family_models.py",
+      "sha256": "d286e981648091611400b913442c327561d4fc7ab4122c831c2c07bdb56d5891"
+    },
+    {
+      "path": "backend/pawtwin/family_store.py",
+      "sha256": "1b503fec4b61d5ba2a8959a5d753a7c3eb99114c1789126d6bbff3d07b1bef40"
+    },
+    {
+      "path": "backend/pawtwin/family_views.py",
+      "sha256": "b66462ea6b436e5e51e89d9a41366c3e3999fdcf9c0196791e1bacf84f7f2d6d"
+    },
+    {
+      "path": "backend/pawtwin/family_worker.py",
+      "sha256": "9b6eb22f4b28a59d48b19ed54d901b873bf0c9f73fbf8dfaf2bf9ab7cecc490f"
+    },
+    {
+      "path": "backend/pawtwin/growth.py",
+      "sha256": "6f59bb2e6ad7b0fd2a044f4716fdd0f6c14b5ca3074060bbac09a3ad5c812b7f"
+    },
+    {
+      "path": "backend/pawtwin/pet_context.py",
+      "sha256": "05ddd9b9dfbe8d44fd2434fd3a5a86a4fdca7d0acab1c983f4bb938ddf4b0f7c"
+    },
+    {
+      "path": "frontend/e2e/alexa.spec.ts",
+      "sha256": "4c4bbb29226065f32dd3b72a4a05d8b01d39ab73f37284151d00d63430711ef8"
+    },
+    {
+      "path": "frontend/e2e/demo-rehearsal.spec.ts",
+      "sha256": "829539bed5af01815a66acd3be690db997fa08c9e58bbe29aa93f93d216a1c6d"
+    },
+    {
+      "path": "frontend/e2e/family.spec.ts",
+      "sha256": "8edd9e01f371975e8d5ec639d0d258f59e89415ac210ad928c083dd47d7c4ad2"
+    },
+    {
+      "path": "frontend/e2e/showcase.spec.ts",
+      "sha256": "f894c19dbad5fd8f5c55ec46fd83a768a752be343b3a96064a5f14702a104669"
+    },
+    {
+      "path": "frontend/e2e/zz-unknown.spec.ts",
+      "sha256": "bfae1e02ab384c02d9bdd7f31532119c00f1a1979165a56bec9e8b6dcad18083"
+    },
+    {
+      "path": "frontend/src/AlexaSimulator.tsx",
+      "sha256": "a3f2ba06dce21c3a9c6018a3761602347f9cc23381c6f8f186794875197f75c7"
+    },
+    {
+      "path": "frontend/src/FamilyApp.tsx",
+      "sha256": "2d7db1bf0a27ca551043889001cb1e6ba7a473c999a01628e8b160fe2bbbc22f"
+    },
+    {
+      "path": "frontend/src/FamilyRecords.tsx",
+      "sha256": "ad855eddb77f85370753cd7537f7129264f1168f4b64d50cbdcca30e60d3cbc3"
+    },
+    {
+      "path": "frontend/src/Showcase.tsx",
+      "sha256": "9c668c53c7d1f98bd596a5ca73e0bbc2d34bfb4f1de2fa07b7c42166a3cc9731"
+    },
+    {
+      "path": "frontend/src/alexa-simulator.css",
+      "sha256": "c57f47460e44133e6cf5678b613b83bdb09c0d1d1d304fcf2fc130da51ec85cb"
+    },
+    {
+      "path": "frontend/src/application-shell.css",
+      "sha256": "0a0882ca2aada58e7a3fb2e6d3295ad0734639e1f82124f6406b80137f1a2e59"
+    },
+    {
+      "path": "frontend/src/family-api.ts",
+      "sha256": "234d72312718691416da477175e8ba73889d1b41e928ac9816671b5bd67a7262"
+    },
+    {
+      "path": "frontend/src/family-app.css",
+      "sha256": "e16c282d46b261869651c8e554a3a7c32e5956caff7aec79a7e9c9619b865ac7"
+    },
+    {
+      "path": "frontend/src/showcase.css",
+      "sha256": "461143afc74c13492ae6328c23259164b852e5151a83ac2f2cd1340574ddd090"
+    },
+    {
+      "path": "tests/test_agentcore_sdk_contract.py",
+      "sha256": "34b950afe22a775a28670a953e3995d49b43cab01082bc09eba0d709073dc2c7"
+    },
+    {
+      "path": "tests/test_alexa_simulator.py",
+      "sha256": "9389c58c0bf697e838076346e54a8e939da2d704b01b2b12e6ad4d3f273dca03"
+    },
+    {
+      "path": "tests/test_aws_probe.py",
+      "sha256": "bfa8a7f325310d122ccc8b5f58586e33d8f8e21a4fc2345dce5175a817f6acc5"
+    },
+    {
+      "path": "tests/test_cleanup_aws.py",
+      "sha256": "c29cf0dfe0f27dbe4a2003e006dac5cf3d43a915db296e2458491b383288fd3b"
+    },
+    {
+      "path": "tests/test_deploy_service_contracts.py",
+      "sha256": "444534a07cbf57e1d1ac67b9f0c3464b99a008cf216fa60e7f34fd6c07adca0a"
+    },
+    {
+      "path": "tests/test_family_bedrock.py",
+      "sha256": "b26bfde34e46b2654d1f95cd07df05950eea4e5467bcba51fb036ade47627897"
+    },
+    {
+      "path": "tests/test_family_completeness.py",
+      "sha256": "967e7f736f35ad7d1edc22de381354bf9f42578952d177f84860b025f483f603"
+    },
+    {
+      "path": "tests/test_family_extension.py",
+      "sha256": "201d5587bf34f8107c799d76aa23f1fb8cc4787b9fc0fe4329697a78d461f4cb"
+    },
+    {
+      "path": "tests/test_family_receipts.py",
+      "sha256": "721576713c346d85f1e3c81f96093b3322c3fbf1341dbc8b6ccfc2a13a991c92"
+    },
+    {
+      "path": "tests/test_feeding_dynamo_offline.py",
+      "sha256": "1b3bec58a9a72024157588963d20f52a89c281eca708b68245d483d26d288f01"
+    },
+    {
+      "path": "tests/test_feeding_reservation.py",
+      "sha256": "e1a10be68fc310c994ece1211405c3f706ea10474f800b6685bb0b5a88df4b2e"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "da26658c93dc4120c77f863bc3b142c1102a6fe2411d645f8fd6be52926f21e4"
+    },
+    {
+      "path": "README.md",
+      "sha256": "7ac5b0d4e398c057f69a05b54c8b3810eb6a2a0fb984643dc0853744642773cd"
+    },
+    {
+      "path": "backend/pawtwin/__init__.py",
+      "sha256": "4c680d27e9af3f1c7c1c327382628fd29a9e5bbf3d5af35aa0a02274ff9e69a7"
+    },
+    {
+      "path": "backend/pawtwin/agent.py",
+      "sha256": "cb6bdf56c60815ac5486af847d8815dafb523ae58f26ee334bfe6a153812f07b"
+    },
+    {
+      "path": "backend/pawtwin/agentcore_client.py",
+      "sha256": "56d3ac88a2ed6c1f678c0911a0d40407a44b71e230f99de057ba5a2e09df3024"
+    },
+    {
+      "path": "backend/pawtwin/api.py",
+      "sha256": "58e59018d78ddbd448ce06b5316259d0118d322c432036aa071f8422addf0e44"
+    },
+    {
+      "path": "backend/pawtwin/auth.py",
+      "sha256": "4f6fed81064daca8b30340d4e42f61ed549d58b52c614516568e71fe181d7730"
+    },
+    {
+      "path": "backend/pawtwin/bedrock_client.py",
+      "sha256": "1e046c92e499a23f531c55e9af705cfd730c7b4056a831db01df8f4e3547d35b"
+    },
+    {
+      "path": "backend/pawtwin/config.py",
+      "sha256": "6edc5dda6938348787fd2a6efdedc930a004a9daae0fb162b91331420e96b03f"
+    },
+    {
+      "path": "backend/pawtwin/contracts.py",
+      "sha256": "0d9cc7f938adb8aeaaa543d60d85ac8d98a91927d23117415da279466c26f51b"
+    },
+    {
+      "path": "backend/pawtwin/device_sim.py",
+      "sha256": "3a56279876549bee6f9018481a777a65e32d757d5dfb056b663a190cd18c18ff"
+    },
+    {
+      "path": "backend/pawtwin/home_api.py",
+      "sha256": "7ae7a7078173ad2a0dc58c28e30eba5475797d54d6f1d32a93ac2f18c87a3194"
+    },
+    {
+      "path": "backend/pawtwin/home_models.py",
+      "sha256": "b9b0a198dadb344e04c7be6a9f00002563f3c8bd4a31c0752216a759a5922906"
+    },
+    {
+      "path": "backend/pawtwin/home_store.py",
+      "sha256": "d2475571e069eb91f8a20368c267b549a10e61ea73e4c7e4d8ed60fa3a314954"
+    },
+    {
+      "path": "backend/pawtwin/local_fakes.py",
+      "sha256": "44e69a5db6d9cfc603860522d97161d92cb3175b602994aaf4a47de05e18c5b5"
+    },
+    {
+      "path": "backend/pawtwin/main.py",
+      "sha256": "1dd04bfa32cb41bf510087b2d92efc49d660d0dd47a66af8a4ffc6a371bccff6"
+    },
+    {
+      "path": "backend/pawtwin/memory.py",
+      "sha256": "3d9047788f7b9d5cabc2b825b8622760b4f33a09d325e72a2000eda4d9cd95df"
+    },
+    {
+      "path": "backend/pawtwin/models.py",
+      "sha256": "fd2a9c34293d3dc02f870a87b2f7fe1694f4a59d002cf81442eedab664f16fb7"
+    },
+    {
+      "path": "backend/pawtwin/policy.py",
+      "sha256": "dd8bdea3a3c5ce994b58cda164359bf7734d48242757b2002826a859601f6f6d"
+    },
+    {
+      "path": "backend/pawtwin/repo_dynamo.py",
+      "sha256": "289d78532ce3b4f031b641557ad5f3128120ebfda77b7c22f76563b60d0acace"
+    },
+    {
+      "path": "backend/pawtwin/repo_sqlite.py",
+      "sha256": "cde7f59e82a93f16641febf1af9e5f8257da9dee446ad79e6ee518a6ef495821"
+    },
+    {
+      "path": "backend/pawtwin/repository.py",
+      "sha256": "2139a4bc086ec05f5125d27becc6d6ac3b511402a4eeec8476b01188a2726b42"
+    },
+    {
+      "path": "backend/pawtwin/worker.py",
+      "sha256": "5e0b80e49abd6b6236fa690f1c7d3029113e8c254b5ef2928b1293d56c2eedc7"
+    },
+    {
+      "path": "backend/pawtwin/workflow.py",
+      "sha256": "eaf329e03dbe8e5d8dbe1d33cd9f96810af0091191c009e23aa3eb1f03431778"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "b2d742e608c80fe3bad7d4855c059b8b9f6c6d62e1c01e4a4c89d0f9eb97a837"
+    },
+    {
+      "path": "docs/TASKBOARD.md",
+      "sha256": "3b5311a86b94ea91f038eb2e9187ba78a275838efd3d1fea236b5633030a1e60"
+    },
+    {
+      "path": "frontend/e2e/acceptance.spec.ts",
+      "sha256": "5f5ace58f94f8e6d169390aa9d7c6093859a546d900cd7d6e6495d6a52e77a67"
+    },
+    {
+      "path": "frontend/e2e/approve.spec.ts",
+      "sha256": "20d26f1cc7cf2c1046eff379358871178182a51a2170908cc5005847849acd6b"
+    },
+    {
+      "path": "frontend/e2e/decline.spec.ts",
+      "sha256": "2bc6ad8fa0d94b135948382e537aae2923ae3e5279380f97c3d2fb188f78a168"
+    },
+    {
+      "path": "frontend/e2e/feedback.spec.ts",
+      "sha256": "e3928b19aff425ec9b12e2bbfe49993b9b82d145aa3dde45c0b6bfc6397b3854"
+    },
+    {
+      "path": "frontend/e2e/helpers.ts",
+      "sha256": "7074deb4363179d04800b98ad2953136da791d8b0da1ee34cacdb54ceb84fcb8"
+    },
+    {
+      "path": "frontend/e2e/pet-home.spec.ts",
+      "sha256": "d72764794736c5861f4dcc7fa5764d72bc910c5b8e98be0e4cde8d30b1a41ade"
+    },
+    {
+      "path": "frontend/e2e/shell.spec.ts",
+      "sha256": "df97344c60ba1ba744d7a7a68bc89f3f6857b6f926e7a8dc8d251c12bd44f52f"
+    },
+    {
+      "path": "frontend/src/App.tsx",
+      "sha256": "9ed4e07998ccece8895d32ad657c8f8b7797f1a981953c1bcd3eecc6c21ae0ba"
+    },
+    {
+      "path": "frontend/src/PetHome.tsx",
+      "sha256": "fc90980f12dfce847db2cdcff2d2273c8b755be4b206a91d9338a93bcf0022c3"
+    },
+    {
+      "path": "frontend/src/api.ts",
+      "sha256": "3763b77847605745f41c36dd87cb41af6ebf9320da3a107cc471e18943131d49"
+    },
+    {
+      "path": "frontend/src/main.tsx",
+      "sha256": "0bb43fba27e4d8307398492f4e27e44c0e1c6c164cbca5d3ccc80ab24aa0cf07"
+    },
+    {
+      "path": "frontend/src/pet-home.css",
+      "sha256": "826f003128fad30d6bdb62e7436de1353fe2b61638735744ba14edd0577e0256"
+    },
+    {
+      "path": "frontend/src/styles.css",
+      "sha256": "35c208cfe5db3d1e78f19d0342a1a13002d8c0c8d7f3d77e4c54f6db1304ffc9"
+    },
+    {
+      "path": "frontend/src/vite-env.d.ts",
+      "sha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
+    },
+    {
+      "path": "tests/cases/scenarios.json",
+      "sha256": "63ef0dd59b2e35d6cb7c96b363219900250b5d35b1750eb9fb8d9c9bfe6a5a1f"
+    },
+    {
+      "path": "tests/conftest.py",
+      "sha256": "aff4d6a525d8687b6b39c69386721b4ce2262bf25e0c930a303ed1f8de4789db"
+    },
+    {
+      "path": "tests/test_agent.py",
+      "sha256": "aa7dc5566905d42d17198d243e6dedd317c445ce450056f294ca91c23adc21ee"
+    },
+    {
+      "path": "tests/test_agentcore_live.py",
+      "sha256": "da00d19f61aa8ecf7e703fe200ad78f4d570ab0cfc4265f524a86ddcbe7afb2e"
+    },
+    {
+      "path": "tests/test_app.py",
+      "sha256": "0fd4d265bed30fa537874b8e25fbcf19a11dc02ae67d60fbdc4fe68db5c8ce46"
+    },
+    {
+      "path": "tests/test_approval.py",
+      "sha256": "1cbe070392e5e75d5146ec68b36c68b3cb20802e3309989e7b4bdd8d233c16b5"
+    },
+    {
+      "path": "tests/test_auth.py",
+      "sha256": "dd26ca8e3a8f4a80e52fced8fceab1a0f76dc468bba75c183e30064f6c9e13e1"
+    },
+    {
+      "path": "tests/test_bedrock_adapter_offline.py",
+      "sha256": "1d01efe976ffb672c17346d312ba514287a9ffcc80a1dd32e1ff8390e9488751"
+    },
+    {
+      "path": "tests/test_bedrock_live.py",
+      "sha256": "affc66ccda8862d155ae4c2cd7473a98bb7ebd01cb3dc66d46a73ee69895d16e"
+    },
+    {
+      "path": "tests/test_concurrency_crossprocess.py",
+      "sha256": "da6a8b94e8ec9604a85477a6bb6036429f7f142515250265b4c9f06558ae7899"
+    },
+    {
+      "path": "tests/test_contracts.py",
+      "sha256": "9241322f28640ab3ed13ed5c2107875d3f42c8bb7e82d560d014e4c2b1d82ef6"
+    },
+    {
+      "path": "tests/test_decline_loop.py",
+      "sha256": "8f5e406b5dcf762c2605565b07982d0946407e1317b0ccb56236975388548060"
+    },
+    {
+      "path": "tests/test_demo_api.py",
+      "sha256": "8bc5f4b0cd161c08fa6e291aa6b8dc392338594f2c35d9483db2a6c47192bd93"
+    },
+    {
+      "path": "tests/test_deploy_aws.py",
+      "sha256": "43034fbcf55b2d337e9b91ea71d7826512e1e35dd1f77fff74475e2ab8c410c6"
+    },
+    {
+      "path": "tests/test_deploy_plan.py",
+      "sha256": "627334fcbf0f94da9890b5facb58e1267ee3e6dc41aaee95e8383aa69420723b"
+    },
+    {
+      "path": "tests/test_feedback_api.py",
+      "sha256": "74a09f3467c820a0a31f2713e5dac41a796d0593abdd623799b141f112d39081"
+    },
+    {
+      "path": "tests/test_frontend_labels.py",
+      "sha256": "a1d9f04ff66a95f8fc22ed66cbc904965df09dbd9faf3ef338d8ecf2b7a51791"
+    },
+    {
+      "path": "tests/test_memory.py",
+      "sha256": "35d37654f877022e9841fa0dedb0965923faf06801cda1a78c020cd8b1a14f81"
+    },
+    {
+      "path": "tests/test_models.py",
+      "sha256": "3733c9be838dae07acb4d47d032ff423c9fce87be0448af08d62a0d535450c41"
+    },
+    {
+      "path": "tests/test_pet_home.py",
+      "sha256": "aa2df1e61efa149ccbc3f4aead6f50322c51e33814851ef5cb4975ac59e4c9a2"
+    },
+    {
+      "path": "tests/test_policy.py",
+      "sha256": "c09301099e8bd8477bce557446bcc020c4a610af941d85fb6249a8ef7d793a26"
+    },
+    {
+      "path": "tests/test_recovery.py",
+      "sha256": "008b142ed1645234470d9b19af78dcd80e5526a41506b6b54d9f89ee003c9816"
+    },
+    {
+      "path": "tests/test_repo_dynamo.py",
+      "sha256": "5393ef5fc666d154c5b0b5dc93e8da4d4f0f3ea493272b2a9a8416c29f78f477"
+    },
+    {
+      "path": "tests/test_repo_dynamo_live.py",
+      "sha256": "5061e2e6575bdcb38be2be0410756ed852231bb4c2b942a7ba10103f1e4f8399"
+    },
+    {
+      "path": "tests/test_repository.py",
+      "sha256": "15a3be48f72403e2fb1f9d5f53013b2271f8be0bbec5781bb22843876a8e0eeb"
+    },
+    {
+      "path": "tests/test_restart.py",
+      "sha256": "8201836ae1f35c09c0757c1353d73840f320079ea58b70a99cabf6d6e10b6b7c"
+    },
+    {
+      "path": "tests/test_restart_subprocess.py",
+      "sha256": "15eeb1c0631fbae392318015a2ba4346a4e03156cb7324fe4120ecaabadaf34e"
+    },
+    {
+      "path": "tests/test_scenarios.py",
+      "sha256": "6a3dcce40cb5777e95714a743f1ceee7bb97921d22de64761d3ee70432b72d08"
+    },
+    {
+      "path": "tests/test_settings.py",
+      "sha256": "44332ce3771b8dcefae62e18f81c282290a40d3b6ef3534c7dbbac850999a233"
+    },
+    {
+      "path": "tests/test_worker.py",
+      "sha256": "d460dd5bc7fc031cef3ff94241cb5ede80592306ee7ee17e0e23744dc43ae6a7"
+    }
+  ],
+  "status": [
+    " M .env.example",
+    " M .gitignore",
+    " M AGENTS.md",
+    " M README.md",
+    " M backend/pawtwin/agentcore_client.py",
+    " M backend/pawtwin/api.py",
+    " M backend/pawtwin/auth.py",
+    " M backend/pawtwin/bedrock_client.py",
+    " M backend/pawtwin/config.py",
+    " M backend/pawtwin/home_api.py",
+    " M backend/pawtwin/home_models.py",
+    " M backend/pawtwin/main.py",
+    " M backend/pawtwin/repo_dynamo.py",
+    " M backend/pawtwin/repo_sqlite.py",
+    " M backend/pawtwin/repository.py",
+    " M backend/pawtwin/workflow.py",
+    " M contracts/openapi.json",
+    " M docs/QODER_HANDOFF.md",
+    " M docs/STATUS.md",
+    " M docs/TASKBOARD.md",
+    " M \"docs/plans/PawTwin_\\351\\231\\204\\345\\212\\240\\345\\274\\200\\345\\217\\221\\350\\256\\241\\345\\210\\222_2026-10-02.md\"",
+    " M docs/submission/README.md",
+    " M frontend/e2e/acceptance.spec.ts",
+    " M frontend/e2e/approve.spec.ts",
+    " M frontend/e2e/feedback.spec.ts",
+    " M frontend/e2e/helpers.ts",
+    " M frontend/e2e/shell.spec.ts",
+    " M frontend/index.html",
+    " M frontend/playwright.config.ts",
+    " M frontend/src/App.tsx",
+    " M frontend/src/PetHome.tsx",
+    " M frontend/src/api.ts",
+    " M frontend/src/main.tsx",
+    " M infra/deploy_plan.json",
+    " M pyproject.toml",
+    " M scripts/aws_probe.py",
+    " M scripts/cleanup_aws.py",
+    " M scripts/deploy_aws.py",
+    " M scripts/dev-backend.ps1",
+    " M scripts/dev-home.ps1",
+    " M tests/conftest.py",
+    " M tests/test_app.py",
+    " M tests/test_bedrock_adapter_offline.py",
+    " M tests/test_contracts.py",
+    " M tests/test_pet_home.py",
+    " M uv.lock",
+    "?? backend/pawtwin/family_api.py",
+    "?? backend/pawtwin/family_assistant.py",
+    "?? backend/pawtwin/family_models.py",
+    "?? backend/pawtwin/family_store.py",
+    "?? backend/pawtwin/family_views.py",
+    "?? backend/pawtwin/family_worker.py",
+    "?? backend/pawtwin/growth.py",
+    "?? backend/pawtwin/pet_context.py",
+    "?? docs/evidence/alexa-simulator-2026-10-11.md",
+    "?? docs/evidence/alexa-simulator-2026-10-11/",
+    "?? docs/evidence/cloud-preflight-2026-10-03.md",
+    "?? docs/evidence/extension-2026-10-03/",
+    "?? docs/evidence/extension-local-2026-10-03.md",
+    "?? docs/evidence/functional-check-2026-10-03.md",
+    "?? docs/evidence/functional-check-2026-10-03/",
+    "?? docs/evidence/hackathon-capture/",
+    "?? docs/evidence/hackathon-completeness-2026-10-03.md",
+    "?? docs/evidence/hackathon-video-check-2026-10-03/",
+    "?? docs/evidence/motion-cases-2026-10-11.md",
+    "?? docs/evidence/motion-cases-2026-10-11/",
+    "?? docs/evidence/premium-showcase-2026-10-11.md",
+    "?? docs/evidence/premium-showcase-2026-10-11/",
+    "?? docs/evidence/product-and-app-2026-10-04.md",
+    "?? docs/evidence/product-and-app-2026-10-04/",
+    "?? docs/evidence/submission-readiness-2026-10-11.md",
+    "?? docs/evidence/submission-readiness-2026-10-11/",
+    "?? docs/evidence/submission-video-2026-10-03/",
+    "?? docs/evidence/submission-video-2026-10-11/",
+    "?? docs/evidence/submission-video-2026-10-12/",
+    "?? docs/plans/EXT-implementation-2026-10-03.md",
+    "?? \"docs/plans/PawTwin_\\345\\220\\216\\347\\273\\255\\345\\274\\200\\345\\217\\221\\350\\267\\257\\347\\272\\277_2026-10-03.md\"",
+    "?? docs/plans/backend-services-2026-10-11.md",
+    "?? docs/plans/hackathon-completion-2026-10-03.md",
+    "?? docs/plans/submission-readiness-2026-10-11.md",
+    "?? docs/reviews/EXT-00-baseline-review.md",
+    "?? docs/reviews/EXT-local-review-2026-10-03.md",
+    "?? docs/reviews/hackathon-2026-10-03.md",
+    "?? \"docs/submission/PawTwin_\\345\\261\\225\\347\\244\\272\\346\\226\\271\\346\\241\\210_2026-10-03.md\"",
+    "?? docs/submission/capture-guide.md",
+    "?? docs/submission/demo-runbook-2026-10-11.md",
+    "?? docs/submission/demo-video-2026-10-12.md",
+    "?? docs/submission/extension-demo-guide.md",
+    "?? docs/submission/judge-guide.en.md",
+    "?? docs/submission/narration.en.srt",
+    "?? docs/submission/product-feedback.en.md",
+    "?? docs/submission/project-description.en.md",
+    "?? docs/submission/rules-check-2026-10-03.md",
+    "?? docs/submission/rules-check-2026-10-11.md",
+    "?? docs/submission/source-export-guide.md",
+    "?? docs/submission/video-build-guide.md",
+    "?? frontend/e2e/alexa.spec.ts",
+    "?? frontend/e2e/demo-rehearsal.spec.ts",
+    "?? frontend/e2e/family.spec.ts",
+    "?? frontend/e2e/showcase.spec.ts",
+    "?? frontend/e2e/zz-unknown.spec.ts",
+    "?? frontend/src/AlexaSimulator.tsx",
+    "?? frontend/src/FamilyApp.tsx",
+    "?? frontend/src/FamilyRecords.tsx",
+    "?? frontend/src/Showcase.tsx",
+    "?? frontend/src/alexa-simulator.css",
+    "?? frontend/src/application-shell.css",
+    "?? frontend/src/family-api.ts",
+    "?? frontend/src/family-app.css",
+    "?? frontend/src/showcase.css",
+    "?? scripts/capture-demo.ps1",
+    "?? scripts/dev-bedrock.ps1",
+    "?? scripts/export-review-source.py",
+    "?? scripts/render-submission-video.py",
+    "?? tests/test_agentcore_sdk_contract.py",
+    "?? tests/test_alexa_simulator.py",
+    "?? tests/test_aws_probe.py",
+    "?? tests/test_cleanup_aws.py",
+    "?? tests/test_deploy_service_contracts.py",
+    "?? tests/test_family_bedrock.py",
+    "?? tests/test_family_completeness.py",
+    "?? tests/test_family_extension.py",
+    "?? tests/test_family_receipts.py",
+    "?? tests/test_feeding_dynamo_offline.py",
+    "?? tests/test_feeding_reservation.py"
+  ]
+}

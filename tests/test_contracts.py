@@ -37,6 +37,37 @@ ACTIVE_PATHS = {
     "/api/home/photos",
     "/api/home/photos/{photo_id}",
     "/api/home/photos/{photo_id}/recognize",
+    # EXT-00: additive family API; the six device-domain inputs stay unchanged.
+    "/api/family/register",
+    "/api/family/login",
+    "/api/family/me",
+    "/api/family/services",  # BE-CLOUD-01 authenticated integration status.
+    "/api/family/households",
+    "/api/family/household",
+    "/api/family/invitations",
+    "/api/family/invitations/accept",
+    "/api/family/invitations/{invitation_id}",
+    "/api/family/members/{user_id}",
+    "/api/family/pets/{pet_id}/measurements",
+    "/api/family/pets/archived",
+    "/api/family/pets/{pet_id}/lifecycle",
+    "/api/family/pets/{pet_id}/measurements/{record_id}",
+    "/api/family/pets/{pet_id}/reports",
+    "/api/family/pets/{pet_id}/reports/generate",
+    "/api/family/pets/{pet_id}/context",
+    "/api/family/pets/{pet_id}/memories",
+    "/api/family/pets/{pet_id}/memories/{record_id}",
+    "/api/family/pets/{pet_id}/notes/{record_id}",
+    "/api/family/pets/{pet_id}/diary/{record_id}",
+    "/api/family/pets/{pet_id}/chat",
+    "/api/family/pets/{pet_id}/visit-summary",
+    # PLATFORM-01: explicit owner grants and an independent read-only visitor.
+    "/api/family/pets/{pet_id}/care-access",
+    "/api/family/pets/{pet_id}/care-access/{access_id}/revoke",
+    "/api/care-access/context",
+    "/api/care-access/chat",
+    "/api/family/pets/{pet_id}/proposals",
+    "/api/family/pets/{pet_id}/proposals/{proposal_id}/confirm",
 }
 
 

@@ -1,0 +1,30 @@
+**********************
+PowerShell transcript start
+Start time: 20261011212743
+Username: LAPTOP-EM5BL9AH\11831
+RunAs User: LAPTOP-EM5BL9AH\11831
+Configuration Name: 
+Machine: LAPTOP-EM5BL9AH (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Users\11831\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\powershell\pwsh.dll -Command try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}
+$env:UV_CACHE_DIR = Join-Path (Get-Location) '.cache\uv'; Start-Transcript -Path 'docs\evidence\submission-readiness-2026-10-11\verify.log' -Force | Out-Null; try { & .\scripts\verify.ps1 } finally { Stop-Transcript | Out-Null }
+Process ID: 131236
+PSVersion: 7.6.5
+PSEdition: Core
+GitCommitId: 7.6.5
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.4
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+
+
+
+
+
+Baseline checks passed. Browser smoke is separate: scripts/test-e2e.ps1
+**********************
+PowerShell transcript end
+End time: 20261011212849
+**********************

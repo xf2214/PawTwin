@@ -1,0 +1,53 @@
+
+[WebServer] INFO:     Started server process [150296]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8822 (Press CTRL+C to quit)
+
+
+Running 1 test using 1 worker
+
+(node:132236) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/1] frontend\e2e\platform.spec.ts:146:1 › a read-only family member can query the twin and failed context data remains explicitly unknown
+  1) frontend\e2e\platform.spec.ts:146:1 › a read-only family member can query the twin and failed context data remains explicitly unknown 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('.fa-context-overview')
+    Expected substring: "偏好读取失败"
+    Received string:    "照护前快速了解 Mochi档案喜好：未填写 · 主人陈述当前待办：0 项，计划不代表已执行。最近观察：暂无记录 · 主人陈述确认偏好：暂无已确认记忆"
+    Timeout: 20000ms
+
+    Call log:
+      - Expect "toContainText" locator('.fa-context-overview') with timeout 20000ms
+      - waiting for locator('.fa-context-overview')
+        43 × locator resolved to <details open="" class="fa-context-overview">…</details>
+           - unexpected value "照护前快速了解 Mochi档案喜好：未填写 · 主人陈述当前待办：0 项，计划不代表已执行。最近观察：暂无记录 · 主人陈述确认偏好：暂无已确认记忆"
+
+
+      156 |     await guest.getByRole("button", { name: "访问宠物分身", exact: true }).click();
+      157 |     await guest.getByText("照护前快速了解 Mochi", { exact: true }).click();
+    > 158 |     await expect(guest.locator(".fa-context-overview")).toContainText("偏好读取失败");
+          |                                                         ^
+      159 |     await expect(guest.locator(".fa-context-overview")).not.toContainText("暂无已确认记忆");
+      160 |     await guest.getByLabel("想了解什么").fill("它喜欢什么");
+      161 |     await expect(guest.getByRole("button", { name: "询问分身", exact: true })).toBeEnabled();
+        at C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\platform.spec.ts:158:57
+
+    Error Context: docs\evidence\platform-2026-10-12\frontend-context-red-results\platform-a-read-only-famil-ad9d0--remains-explicitly-unknown\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    docs\evidence\platform-2026-10-12\frontend-context-red-results\platform-a-read-only-famil-ad9d0--remains-explicitly-unknown\trace.zip
+    Usage:
+
+        npx playwright show-trace docs\evidence\platform-2026-10-12\frontend-context-red-results\platform-a-read-only-famil-ad9d0--remains-explicitly-unknown\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  1 failed
+    frontend\e2e\platform.spec.ts:146:1 › a read-only family member can query the twin and failed context data remains explicitly unknown 

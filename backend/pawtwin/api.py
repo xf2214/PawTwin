@@ -126,18 +126,13 @@ def _login_limiter(request: Request) -> LoginRateLimiter:
 def _client_ip(request: Request) -> str:
     """Best-effort client IP for the login throttle (Day-5 ruling 4c).
 
-    Behind a TLS-terminating proxy the peer address is the proxy, so the real client
-    is the first ``X-Forwarded-For`` entry -- but that header is only trusted when
-    the operator opted into ``trust_proxy_headers`` (Day-4 ruling 5); otherwise any
-    caller could spoof a fresh IP and evade the throttle. Falls back to the direct
-    peer host.
+    Use the ASGI server's resolved peer address. A trusted proxy middleware must
+    validate the forwarding chain against its configured proxy addresses before
+    changing that peer. The application's boolean HTTPS-header setting cannot
+    establish a trusted client-IP boundary, so raw X-Forwarded-For is never read
+    here. Uvicorn's forwarded-allow-ips must name only the actual upstream proxy.
     """
 
-    if _settings(request).trust_proxy_headers:
-        forwarded = request.headers.get("x-forwarded-for", "")
-        first = forwarded.split(",")[0].strip()
-        if first:
-            return first
     return request.client.host if request.client else "unknown"
 
 
@@ -153,6 +148,28 @@ def current_session(request: Request) -> Session:
     session = _auth(request).get_session(request.cookies.get(SESSION_COOKIE))
     if session is None:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="UNAUTHENTICATED")
+    if session.user_id:
+        family = request.app.state.family_store
+        if family is None:
+            raise HTTPException(503, "Family storage is not connected in AWS mode")
+        path = request.url.path
+        account_paths = {"/api/family/me", "/api/family/households",
+                         "/api/family/invitations/accept", "/api/logout"}
+        if path not in account_paths:
+            member = family.membership(session.owner_id, session.user_id)
+            if request.method not in {"GET", "HEAD", "OPTIONS"}:
+                if member["role"] == "guest":
+                    raise HTTPException(403, "Read-only household membership")
+                if member["role"] != "admin" and path.startswith("/api/home/") and (
+                    path == "/api/home/members" or path == "/api/home/pets"
+                    or ("/objects" in path) or (
+                        "/pets/" in path and request.method == "PUT")):
+                    raise HTTPException(403, "Household administrator required")
+            if path.startswith("/api/") and not path.startswith(("/api/home/", "/api/family/")):
+                if session.owner_id != "demo-owner" or "mochi" not in member["feeding_pet_ids"]:
+                    raise HTTPException(403, "No authorization for the Mochi simulated device")
+                if "/demo/" in path and member["role"] != "admin":
+                    raise HTTPException(403, "Demo controls require administrator")
     return session
 
 

@@ -1,0 +1,240 @@
+{
+  "generated_at": "2026-10-13T15:11:38.870Z",
+  "screenshots": 26,
+  "checks": [
+    {
+      "identity": "legacy",
+      "name": "today",
+      "file": "legacy-today-1440.png",
+      "width": 1440,
+      "url": "http://127.0.0.1:8834/#app/home",
+      "document": 1440,
+      "viewport": 1440
+    },
+    {
+      "identity": "legacy",
+      "name": "profile",
+      "file": "legacy-profile-1440.png",
+      "width": 1440,
+      "url": "http://127.0.0.1:8834/#app/home",
+      "document": 1440,
+      "viewport": 1440
+    },
+    {
+      "identity": "legacy",
+      "name": "care-pending",
+      "file": "legacy-care-pending-1440.png",
+      "width": 1440,
+      "url": "http://127.0.0.1:8834/#app/care",
+      "document": 1440,
+      "viewport": 1440
+    },
+    {
+      "identity": "legacy",
+      "name": "care-completed",
+      "file": "legacy-care-completed-1440.png",
+      "width": 1440,
+      "url": "http://127.0.0.1:8834/#app/care",
+      "document": 1440,
+      "viewport": 1440
+    },
+    {
+      "identity": "legacy",
+      "name": "growth",
+      "file": "legacy-growth-1440.png",
+      "width": 1440,
+      "url": "http://127.0.0.1:8834/#app/growth",
+      "document": 1440,
+      "viewport": 1440
+    },
+    {
+      "identity": "legacy",
+      "name": "measurements",
+      "file": "legacy-measurements-1440.png",
+      "width": 1440,
+      "url": "http://127.0.0.1:8834/#app/growth",
+      "document": 1440,
+      "viewport": 1440
+    },
+    {
+      "identity": "legacy",
+      "name": "diary",
+      "file": "legacy-diary-1440.png",
+      "width": 1440,
+      "url": "http://127.0.0.1:8834/#app/growth",
+      "document": 1440,
+      "viewport": 1440
+    },
+    {
+      "identity": "legacy",
+      "name": "reports",
+      "file": "legacy-reports-1440.png",
+      "width": 1440,
+      "url": "http://127.0.0.1:8834/#app/growth",
+      "document": 1440,
+      "viewport": 1440
+    },
+    {
+      "identity": "legacy",
+      "name": "confirmed-preferences",
+      "file": "legacy-confirmed-preferences-1440.png",
+      "width": 1440,
+      "url": "http://127.0.0.1:8834/#app/assistant",
+      "document": 1440,
+      "viewport": 1440
+    },
+    {
+      "identity": "legacy",
+      "name": "confirmed-preferences",
+      "file": "legacy-confirmed-preferences-390.png",
+      "width": 390,
+      "url": "http://127.0.0.1:8834/#app/assistant",
+      "document": 390,
+      "viewport": 390
+    },
+    {
+      "identity": "legacy",
+      "name": "growth",
+      "file": "legacy-growth-390.png",
+      "width": 390,
+      "url": "http://127.0.0.1:8834/#app/growth",
+      "document": 390,
+      "viewport": 390
+    },
+    {
+      "identity": "legacy",
+      "name": "reports",
+      "file": "legacy-reports-390.png",
+      "width": 390,
+      "url": "http://127.0.0.1:8834/#app/growth",
+      "document": 390,
+      "viewport": 390
+    },
+    {
+      "identity": "legacy",
+      "name": "care-pending",
+      "file": "legacy-care-pending-390.png",
+      "width": 390,
+      "url": "http://127.0.0.1:8834/#app/care",
+      "document": 390,
+      "viewport": 390
+    },
+    {
+      "identity": "family",
+      "name": "today",
+      "file": "family-today-1440.png",
+      "width": 1440,
+      "url": "http://127.0.0.1:8834/#app/home",
+      "document": 1440,
+      "viewport": 1440
+    },
+    {
+      "identity": "family",
+      "name": "profile",
+      "file": "family-profile-1440.png",
+      "width": 1440,
+      "url": "http://127.0.0.1:8834/#app/home",
+      "document": 1440,
+      "viewport": 1440
+    },
+    {
+      "identity": "family",
+      "name": "care-pending",
+      "file": "family-care-pending-1440.png",
+      "width": 1440,
+      "url": "http://127.0.0.1:8834/#app/care",
+      "document": 1440,
+      "viewport": 1440
+    },
+    {
+      "identity": "family",
+      "name": "care-completed",
+      "file": "family-care-completed-1440.png",
+      "width": 1440,
+      "url": "http://127.0.0.1:8834/#app/care",
+      "document": 1440,
+      "viewport": 1440
+    },
+    {
+      "identity": "family",
+      "name": "growth",
+      "file": "family-growth-1440.png",
+      "width": 1440,
+      "url": "http://127.0.0.1:8834/#app/growth",
+      "document": 1440,
+      "viewport": 1440
+    },
+    {
+      "identity": "family",
+      "name": "measurements",
+      "file": "family-measurements-1440.png",
+      "width": 1440,
+      "url": "http://127.0.0.1:8834/#app/growth",
+      "document": 1440,
+      "viewport": 1440
+    },
+    {
+      "identity": "family",
+      "name": "diary",
+      "file": "family-diary-1440.png",
+      "width": 1440,
+      "url": "http://127.0.0.1:8834/#app/growth",
+      "document": 1440,
+      "viewport": 1440
+    },
+    {
+      "identity": "family",
+      "name": "reports",
+      "file": "family-reports-1440.png",
+      "width": 1440,
+      "url": "http://127.0.0.1:8834/#app/growth",
+      "document": 1440,
+      "viewport": 1440
+    },
+    {
+      "identity": "family",
+      "name": "confirmed-preferences",
+      "file": "family-confirmed-preferences-1440.png",
+      "width": 1440,
+      "url": "http://127.0.0.1:8834/#app/assistant",
+      "document": 1440,
+      "viewport": 1440
+    },
+    {
+      "identity": "family",
+      "name": "confirmed-preferences",
+      "file": "family-confirmed-preferences-390.png",
+      "width": 390,
+      "url": "http://127.0.0.1:8834/#app/assistant",
+      "document": 390,
+      "viewport": 390
+    },
+    {
+      "identity": "family",
+      "name": "growth",
+      "file": "family-growth-390.png",
+      "width": 390,
+      "url": "http://127.0.0.1:8834/#app/growth",
+      "document": 390,
+      "viewport": 390
+    },
+    {
+      "identity": "family",
+      "name": "reports",
+      "file": "family-reports-390.png",
+      "width": 390,
+      "url": "http://127.0.0.1:8834/#app/growth",
+      "document": 390,
+      "viewport": 390
+    },
+    {
+      "identity": "family",
+      "name": "care-pending",
+      "file": "family-care-pending-390.png",
+      "width": 390,
+      "url": "http://127.0.0.1:8834/#app/care",
+      "document": 390,
+      "viewport": 390
+    }
+  ]
+}

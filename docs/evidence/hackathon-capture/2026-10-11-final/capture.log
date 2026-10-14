@@ -1,0 +1,38 @@
+Started UTC: 2026-10-11T13:21:54.8855894Z
+Port: 8813
+Database: :memory:
+Mode: local; model: local_fake; memory: not_implemented; photos: manual
+Node: 24.19.0
+Building the production frontend.
+
+> pawtwin-frontend@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v8.3.0 building client environment for production...
+transforming...
+✓ 28 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.63 kB │ gzip:   0.45 kB
+dist/assets/index-B7skYsVR.css   52.52 kB │ gzip:  12.73 kB
+dist/assets/index-0HR2Pbvz.js   344.67 kB │ gzip: 103.55 kB
+
+✓ built in 230ms
+Capturing only e2e/demo-rehearsal.spec.ts with one worker and no retries.
+
+[WebServer] INFO:     Started server process [103420]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8813 (Press CTRL+C to quit)
+
+
+Running 1 test using 1 worker
+
+
+
+(node:150396) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1/1] e2e\demo-rehearsal.spec.ts:28:1 › demonstration rehearses two family accounts, real report arithmetic and shared memory to care
+  1 passed (39.7s)
+Capture succeeded UTC: 2026-10-11T13:22:37.3981095Z. Collected files are original local test artifacts; the videos have no narration.

@@ -1,0 +1,52 @@
+
+[WebServer] INFO:     Started server process [35356]
+
+[WebServer] INFO:     Waiting for application startup.
+
+[WebServer] INFO:     Application startup complete.
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8815 (Press CTRL+C to quit)
+
+Running 27 tests using 1 worker
+
+(node:31284) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/27] frontend\e2e\acceptance.spec.ts:11:1 › an unauthenticated session sees the login gate and business APIs return 401 JSON
+[2/27] frontend\e2e\acceptance.spec.ts:35:1 › an unknown device receipt shows 状态未知 and never a success
+[3/27] frontend\e2e\acceptance.spec.ts:68:1 › reload while awaiting_approval keeps the pending request pending
+[4/27] frontend\e2e\acceptance.spec.ts:96:1 › desktop 1440px and narrow 390px show no overflow and states are not color-only
+[5/27] frontend\e2e\acceptance.spec.ts:167:1 › raising the daily dispensed amount shifts the proposed grams
+[6/27] frontend\e2e\acceptance.spec.ts:193:1 › a new session rotates the conversation while memory stays honestly unretrieved
+[7/27] frontend\e2e\approve.spec.ts:7:1 › approve executes once, shows real evidence and survives reload
+[8/27] frontend\e2e\approve.spec.ts:57:1 › an injected device failure never accounts quota
+[9/27] frontend\e2e\approve.spec.ts:81:1 › an unknown fact reaches needs-info and is never shown as zero
+[10/27] frontend\e2e\approve.spec.ts:99:1 › changing facts invalidates a pending approval with a readable notice
+[11/27] frontend\e2e\decline.spec.ts:5:1 › decline never becomes simulated execution and survives reload
+[12/27] frontend\e2e\demo-rehearsal.spec.ts:28:1 › demonstration rehearses two family accounts, real report arithmetic and shared memory to care
+[13/27] frontend\e2e\family.spec.ts:19:1 › independent account, shared navigation and refresh session
+[14/27] frontend\e2e\family.spec.ts:39:1 › real weight data, weekly report and correction
+[15/27] frontend\e2e\family.spec.ts:54:1 › memory confirmation shared with Alexa simulation and deletion
+[16/27] frontend\e2e\family.spec.ts:75:1 › care proposal needs explicit confirmation and creates manual task
+
+[WebServer] Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+[WebServer] handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+[WebServer] Traceback (most recent call last):
+[WebServer]   File "C:\Users\11831\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\events.py", line 88, in _run
+[WebServer]     self._context.run(self._callback, *self._args)
+[WebServer]   File "C:\Users\11831\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+[WebServer]     self._sock.shutdown(socket.SHUT_RDWR)
+[WebServer] ConnectionResetError: [WinError 10054] Զ������ǿ�ȹر���һ�����е����ӡ�
+[17/27] frontend\e2e\family.spec.ts:89:3 › App at 390px preserves room and has no horizontal overflow
+[18/27] frontend\e2e\family.spec.ts:89:3 › App at 1440px preserves room and has no horizontal overflow
+[19/27] frontend\e2e\family.spec.ts:112:1 › new pet selection is immediately shared with growth and delayed replies stay scoped
+[20/27] frontend\e2e\family.spec.ts:184:1 › owner observation and diary can be corrected and removed from shared context
+[21/27] frontend\e2e\feedback.spec.ts:11:1 › owner feedback is saved honestly and never shown as retrieved memory
+[22/27] frontend\e2e\feedback.spec.ts:40:1 › today-only feedback is labelled as never becoming a permanent preference
+[23/27] frontend\e2e\feedback.spec.ts:55:1 › a new session rotates the conversation but keeps login and facts
+[24/27] frontend\e2e\pet-home.spec.ts:14:1 › pet profile, objects, bathing, nails, scoped preferences and photo diary are saved
+[25/27] frontend\e2e\pet-home.spec.ts:62:1 › pixel home stays usable at phone and desktop widths without sharing another pet data
+[26/27] frontend\e2e\shell.spec.ts:5:1 › gates business data behind the demo login
+[27/27] frontend\e2e\shell.spec.ts:15:1 › keeps simulation boundaries and the local/aws label visible after login
+  27 passed (46.8s)

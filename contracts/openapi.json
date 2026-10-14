@@ -1,6 +1,61 @@
 {
   "components": {
     "schemas": {
+      "AccountLogin": {
+        "additionalProperties": false,
+        "properties": {
+          "password": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Password",
+            "type": "string"
+          },
+          "username": {
+            "maxLength": 64,
+            "minLength": 3,
+            "pattern": "^[a-zA-Z0-9_.-]+$",
+            "title": "Username",
+            "type": "string"
+          }
+        },
+        "required": [
+          "username",
+          "password"
+        ],
+        "title": "AccountLogin",
+        "type": "object"
+      },
+      "AccountRegister": {
+        "additionalProperties": false,
+        "properties": {
+          "display_name": {
+            "maxLength": 40,
+            "minLength": 1,
+            "title": "Display Name",
+            "type": "string"
+          },
+          "password": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Password",
+            "type": "string"
+          },
+          "username": {
+            "maxLength": 64,
+            "minLength": 3,
+            "pattern": "^[a-zA-Z0-9_.-]+$",
+            "title": "Username",
+            "type": "string"
+          }
+        },
+        "required": [
+          "username",
+          "password",
+          "display_name"
+        ],
+        "title": "AccountRegister",
+        "type": "object"
+      },
       "Action": {
         "additionalProperties": false,
         "properties": {
@@ -140,6 +195,404 @@
         "title": "ApprovalIn",
         "type": "object"
       },
+      "CareAccessChat": {
+        "additionalProperties": false,
+        "properties": {
+          "text": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "title": "CareAccessChat",
+        "type": "object"
+      },
+      "CareAccessContextView": {
+        "properties": {
+          "as_of": {
+            "title": "As Of",
+            "type": "string"
+          },
+          "completed_care": {
+            "items": {
+              "$ref": "#/components/schemas/VisitCareView"
+            },
+            "title": "Completed Care",
+            "type": "array"
+          },
+          "context_version": {
+            "title": "Context Version",
+            "type": "integer"
+          },
+          "grant": {
+            "$ref": "#/components/schemas/CareAccessGrantView"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "measurements": {
+            "items": {
+              "$ref": "#/components/schemas/VisitMeasurementView"
+            },
+            "title": "Measurements",
+            "type": "array"
+          },
+          "observations": {
+            "items": {
+              "$ref": "#/components/schemas/VisitObservationView"
+            },
+            "title": "Observations",
+            "type": "array"
+          },
+          "pet": {
+            "$ref": "#/components/schemas/VisitPetView"
+          },
+          "preferences": {
+            "items": {
+              "$ref": "#/components/schemas/VisitPreferenceView"
+            },
+            "title": "Preferences",
+            "type": "array"
+          },
+          "read_only": {
+            "const": true,
+            "default": true,
+            "title": "Read Only",
+            "type": "boolean"
+          },
+          "tasks": {
+            "items": {
+              "$ref": "#/components/schemas/CareTaskView"
+            },
+            "title": "Tasks",
+            "type": "array"
+          },
+          "timezone": {
+            "title": "Timezone",
+            "type": "string"
+          }
+        },
+        "required": [
+          "grant",
+          "pet",
+          "as_of",
+          "timezone",
+          "context_version",
+          "preferences",
+          "observations",
+          "completed_care",
+          "tasks",
+          "measurements",
+          "label"
+        ],
+        "title": "CareAccessContextView",
+        "type": "object"
+      },
+      "CareAccessCreatedView": {
+        "properties": {
+          "grant": {
+            "$ref": "#/components/schemas/CareAccessGrantView"
+          },
+          "token": {
+            "title": "Token",
+            "type": "string"
+          }
+        },
+        "required": [
+          "token",
+          "grant"
+        ],
+        "title": "CareAccessCreatedView",
+        "type": "object"
+      },
+      "CareAccessGrantView": {
+        "properties": {
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "expires_at": {
+            "title": "Expires At",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "pet_name": {
+            "title": "Pet Name",
+            "type": "string"
+          },
+          "revoked_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Revoked At"
+          },
+          "status": {
+            "enum": [
+              "active",
+              "expired",
+              "revoked",
+              "pet_archived"
+            ],
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "pet_name",
+          "created_at",
+          "expires_at",
+          "revoked_at",
+          "status"
+        ],
+        "title": "CareAccessGrantView",
+        "type": "object"
+      },
+      "CareAccessListView": {
+        "properties": {
+          "grants": {
+            "items": {
+              "$ref": "#/components/schemas/CareAccessGrantView"
+            },
+            "title": "Grants",
+            "type": "array"
+          }
+        },
+        "required": [
+          "grants"
+        ],
+        "title": "CareAccessListView",
+        "type": "object"
+      },
+      "CareAccessReplyView": {
+        "properties": {
+          "action_executed": {
+            "const": false,
+            "default": false,
+            "title": "Action Executed",
+            "type": "boolean"
+          },
+          "answer": {
+            "title": "Answer",
+            "type": "string"
+          },
+          "as_of": {
+            "title": "As Of",
+            "type": "string"
+          },
+          "backend": {
+            "const": "local_rules",
+            "default": "local_rules",
+            "title": "Backend",
+            "type": "string"
+          },
+          "context_version": {
+            "title": "Context Version",
+            "type": "integer"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "read_only": {
+            "const": true,
+            "default": true,
+            "title": "Read Only",
+            "type": "boolean"
+          },
+          "source_record_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Source Record Ids",
+            "type": "array"
+          }
+        },
+        "required": [
+          "answer",
+          "as_of",
+          "context_version",
+          "source_record_ids",
+          "label"
+        ],
+        "title": "CareAccessReplyView",
+        "type": "object"
+      },
+      "CareDraftView": {
+        "properties": {
+          "kind": {
+            "enum": [
+              "feeding",
+              "water",
+              "play",
+              "brush",
+              "bath",
+              "nails",
+              "clean",
+              "walk"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "title"
+        ],
+        "title": "CareDraftView",
+        "type": "object"
+      },
+      "CareTaskView": {
+        "properties": {
+          "due_at": {
+            "title": "Due At",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "interval_days": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Interval Days"
+          },
+          "kind": {
+            "title": "Kind",
+            "type": "string"
+          },
+          "last_completed_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Completed At"
+          },
+          "source": {
+            "const": "owner_plan",
+            "default": "owner_plan",
+            "title": "Source",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "pending",
+              "claimed"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "version": {
+            "default": 1,
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "kind",
+          "due_at",
+          "status"
+        ],
+        "title": "CareTaskView",
+        "type": "object"
+      },
+      "ChatInput": {
+        "additionalProperties": false,
+        "properties": {
+          "entry": {
+            "default": "app",
+            "enum": [
+              "app",
+              "alexa_simulator"
+            ],
+            "title": "Entry",
+            "type": "string"
+          },
+          "text": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "title": "ChatInput",
+        "type": "object"
+      },
+      "ConfirmProposal": {
+        "additionalProperties": false,
+        "properties": {
+          "context_version": {
+            "minimum": 1.0,
+            "title": "Context Version",
+            "type": "integer"
+          },
+          "version": {
+            "minimum": 1.0,
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "version",
+          "context_version"
+        ],
+        "title": "ConfirmProposal",
+        "type": "object"
+      },
+      "CreateCareAccess": {
+        "additionalProperties": false,
+        "properties": {
+          "expires_in_hours": {
+            "default": 24,
+            "enum": [
+              1,
+              4,
+              24,
+              72
+            ],
+            "title": "Expires In Hours",
+            "type": "integer"
+          }
+        },
+        "title": "CreateCareAccess",
+        "type": "object"
+      },
       "DemoAck": {
         "additionalProperties": false,
         "description": "Echoes what changed so the UI never has to guess the new facts_version.",
@@ -244,9 +697,16 @@
         "additionalProperties": false,
         "properties": {
           "actor_id": {
-            "format": "uuid",
-            "title": "Actor Id",
-            "type": "string"
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Actor Id"
           },
           "happened_on": {
             "format": "date",
@@ -280,10 +740,67 @@
         },
         "required": [
           "title",
-          "happened_on",
-          "actor_id"
+          "happened_on"
         ],
         "title": "DiaryInput",
+        "type": "object"
+      },
+      "DiaryRevision": {
+        "additionalProperties": false,
+        "properties": {
+          "actor_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Actor Id"
+          },
+          "happened_on": {
+            "format": "date",
+            "title": "Happened On",
+            "type": "string"
+          },
+          "photo_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Photo Id"
+          },
+          "text": {
+            "default": "",
+            "maxLength": 2000,
+            "title": "Text",
+            "type": "string"
+          },
+          "title": {
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          },
+          "version": {
+            "minimum": 1.0,
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "title",
+          "happened_on",
+          "version"
+        ],
+        "title": "DiaryRevision",
         "type": "object"
       },
       "ErrorResponse": {
@@ -473,6 +990,65 @@
         "title": "FactsView",
         "type": "object"
       },
+      "FamilySessionView": {
+        "properties": {
+          "cloud_authenticated": {
+            "const": false,
+            "title": "Cloud Authenticated",
+            "type": "boolean"
+          },
+          "csrf_token": {
+            "title": "Csrf Token",
+            "type": "string"
+          },
+          "household": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/HouseholdView"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "identity_backend": {
+            "const": "local_account",
+            "title": "Identity Backend",
+            "type": "string"
+          },
+          "members": {
+            "items": {
+              "$ref": "#/components/schemas/MemberView"
+            },
+            "title": "Members",
+            "type": "array"
+          },
+          "membership": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MembershipView"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "user": {
+            "$ref": "#/components/schemas/UserView"
+          }
+        },
+        "required": [
+          "user",
+          "household",
+          "membership",
+          "members",
+          "csrf_token",
+          "identity_backend",
+          "cloud_authenticated"
+        ],
+        "title": "FamilySessionView",
+        "type": "object"
+      },
       "FeedbackIn": {
         "additionalProperties": false,
         "properties": {
@@ -584,6 +1160,107 @@
         "title": "HTTPValidationError",
         "type": "object"
       },
+      "HouseholdInput": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          },
+          "timezone": {
+            "default": "Asia/Shanghai",
+            "title": "Timezone",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "title": "HouseholdInput",
+        "type": "object"
+      },
+      "HouseholdView": {
+        "properties": {
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "created_by": {
+            "title": "Created By",
+            "type": "string"
+          },
+          "household_id": {
+            "title": "Household Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "timezone": {
+            "title": "Timezone",
+            "type": "string"
+          }
+        },
+        "required": [
+          "household_id",
+          "name",
+          "timezone",
+          "created_by",
+          "created_at"
+        ],
+        "title": "HouseholdView",
+        "type": "object"
+      },
+      "InvitationAccept": {
+        "additionalProperties": false,
+        "properties": {
+          "token": {
+            "maxLength": 200,
+            "minLength": 20,
+            "title": "Token",
+            "type": "string"
+          }
+        },
+        "required": [
+          "token"
+        ],
+        "title": "InvitationAccept",
+        "type": "object"
+      },
+      "InvitationInput": {
+        "additionalProperties": false,
+        "properties": {
+          "expires_in_hours": {
+            "default": 48,
+            "maximum": 168.0,
+            "minimum": 1.0,
+            "title": "Expires In Hours",
+            "type": "integer"
+          },
+          "max_uses": {
+            "default": 1,
+            "maximum": 20.0,
+            "minimum": 1.0,
+            "title": "Max Uses",
+            "type": "integer"
+          },
+          "role": {
+            "default": "carer",
+            "enum": [
+              "admin",
+              "carer",
+              "guest"
+            ],
+            "title": "Role",
+            "type": "string"
+          }
+        },
+        "title": "InvitationInput",
+        "type": "object"
+      },
       "LoginRequest": {
         "additionalProperties": false,
         "properties": {
@@ -614,6 +1291,220 @@
         "title": "LoginResponse",
         "type": "object"
       },
+      "MeasurementInput": {
+        "additionalProperties": false,
+        "properties": {
+          "diet_type": {
+            "anyOf": [
+              {
+                "enum": [
+                  "actual_intake",
+                  "food_offered",
+                  "dispensed",
+                  "remaining"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Diet Type"
+          },
+          "kind": {
+            "enum": [
+              "weight",
+              "diet"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "measured_at": {
+            "format": "date-time",
+            "title": "Measured At",
+            "type": "string"
+          },
+          "note": {
+            "default": "",
+            "maxLength": 1000,
+            "title": "Note",
+            "type": "string"
+          },
+          "source": {
+            "default": "owner_measured",
+            "enum": [
+              "owner_measured",
+              "vet",
+              "verified_device",
+              "demo_sample"
+            ],
+            "title": "Source",
+            "type": "string"
+          },
+          "unit": {
+            "enum": [
+              "kg",
+              "g"
+            ],
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "exclusiveMinimum": 0.0,
+            "maximum": 1000000.0,
+            "title": "Value",
+            "type": "number"
+          },
+          "version": {
+            "anyOf": [
+              {
+                "minimum": 1.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version"
+          }
+        },
+        "required": [
+          "kind",
+          "value",
+          "unit",
+          "measured_at"
+        ],
+        "title": "MeasurementInput",
+        "type": "object"
+      },
+      "MeasurementListView": {
+        "properties": {
+          "records": {
+            "items": {
+              "$ref": "#/components/schemas/MeasurementView"
+            },
+            "title": "Records",
+            "type": "array"
+          }
+        },
+        "required": [
+          "records"
+        ],
+        "title": "MeasurementListView",
+        "type": "object"
+      },
+      "MeasurementView": {
+        "properties": {
+          "author_user_id": {
+            "title": "Author User Id",
+            "type": "string"
+          },
+          "corrections": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "title": "Corrections",
+            "type": "array"
+          },
+          "deleted": {
+            "title": "Deleted",
+            "type": "boolean"
+          },
+          "diet_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Diet Type"
+          },
+          "household_id": {
+            "title": "Household Id",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "weight",
+              "diet"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "measured_at": {
+            "title": "Measured At",
+            "type": "string"
+          },
+          "note": {
+            "title": "Note",
+            "type": "string"
+          },
+          "pet_id": {
+            "title": "Pet Id",
+            "type": "string"
+          },
+          "recorded_at": {
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "source": {
+            "enum": [
+              "owner_measured",
+              "vet",
+              "demo_sample"
+            ],
+            "title": "Source",
+            "type": "string"
+          },
+          "unit": {
+            "enum": [
+              "kg",
+              "g"
+            ],
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "title": "Value",
+            "type": "number"
+          },
+          "value_g": {
+            "title": "Value G",
+            "type": "number"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "household_id",
+          "pet_id",
+          "author_user_id",
+          "kind",
+          "value",
+          "unit",
+          "value_g",
+          "measured_at",
+          "recorded_at",
+          "source",
+          "diet_type",
+          "note",
+          "version",
+          "deleted",
+          "corrections"
+        ],
+        "title": "MeasurementView",
+        "type": "object"
+      },
       "MemberInput": {
         "additionalProperties": false,
         "properties": {
@@ -628,6 +1519,342 @@
           "name"
         ],
         "title": "MemberInput",
+        "type": "object"
+      },
+      "MemberPermission": {
+        "additionalProperties": false,
+        "properties": {
+          "feeding_pet_ids": {
+            "items": {
+              "const": "mochi",
+              "type": "string"
+            },
+            "title": "Feeding Pet Ids",
+            "type": "array"
+          },
+          "role": {
+            "enum": [
+              "admin",
+              "carer",
+              "guest"
+            ],
+            "title": "Role",
+            "type": "string"
+          }
+        },
+        "required": [
+          "role"
+        ],
+        "title": "MemberPermission",
+        "type": "object"
+      },
+      "MemberView": {
+        "properties": {
+          "avatar_ref": {
+            "title": "Avatar Ref",
+            "type": "string"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "display_name": {
+            "title": "Display Name",
+            "type": "string"
+          },
+          "family_label": {
+            "title": "Family Label",
+            "type": "string"
+          },
+          "feeding_pet_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Feeding Pet Ids",
+            "type": "array"
+          },
+          "joined_at": {
+            "title": "Joined At",
+            "type": "string"
+          },
+          "role": {
+            "enum": [
+              "admin",
+              "carer",
+              "guest"
+            ],
+            "title": "Role",
+            "type": "string"
+          },
+          "status": {
+            "const": "active",
+            "title": "Status",
+            "type": "string"
+          },
+          "user_id": {
+            "title": "User Id",
+            "type": "string"
+          },
+          "username": {
+            "title": "Username",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "role",
+          "family_label",
+          "status",
+          "feeding_pet_ids",
+          "joined_at",
+          "username",
+          "display_name",
+          "avatar_ref",
+          "created_at"
+        ],
+        "title": "MemberView",
+        "type": "object"
+      },
+      "MembershipView": {
+        "properties": {
+          "family_label": {
+            "title": "Family Label",
+            "type": "string"
+          },
+          "feeding_pet_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Feeding Pet Ids",
+            "type": "array"
+          },
+          "joined_at": {
+            "title": "Joined At",
+            "type": "string"
+          },
+          "role": {
+            "enum": [
+              "admin",
+              "carer",
+              "guest"
+            ],
+            "title": "Role",
+            "type": "string"
+          },
+          "status": {
+            "const": "active",
+            "title": "Status",
+            "type": "string"
+          },
+          "user_id": {
+            "title": "User Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "role",
+          "family_label",
+          "status",
+          "feeding_pet_ids",
+          "joined_at"
+        ],
+        "title": "MembershipView",
+        "type": "object"
+      },
+      "MemoryInput": {
+        "additionalProperties": false,
+        "properties": {
+          "status": {
+            "default": "candidate",
+            "enum": [
+              "candidate",
+              "confirmed"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "text": {
+            "maxLength": 1000,
+            "minLength": 1,
+            "title": "Text",
+            "type": "string"
+          },
+          "topic": {
+            "default": "general",
+            "maxLength": 80,
+            "title": "Topic",
+            "type": "string"
+          },
+          "valid_until": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Valid Until"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "title": "MemoryInput",
+        "type": "object"
+      },
+      "MemoryListView": {
+        "properties": {
+          "memories": {
+            "items": {
+              "$ref": "#/components/schemas/MemoryView"
+            },
+            "title": "Memories",
+            "type": "array"
+          }
+        },
+        "required": [
+          "memories"
+        ],
+        "title": "MemoryListView",
+        "type": "object"
+      },
+      "MemoryUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "status": {
+            "enum": [
+              "candidate",
+              "confirmed",
+              "rejected"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "text": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Text"
+          },
+          "valid_until": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Valid Until"
+          },
+          "version": {
+            "minimum": 1.0,
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "version",
+          "status"
+        ],
+        "title": "MemoryUpdate",
+        "type": "object"
+      },
+      "MemoryView": {
+        "properties": {
+          "author_name": {
+            "title": "Author Name",
+            "type": "string"
+          },
+          "author_user_id": {
+            "title": "Author User Id",
+            "type": "string"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "deleted": {
+            "title": "Deleted",
+            "type": "boolean"
+          },
+          "household_id": {
+            "title": "Household Id",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "memory_backend": {
+            "const": "owner_confirmed_database",
+            "title": "Memory Backend",
+            "type": "string"
+          },
+          "pet_id": {
+            "title": "Pet Id",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "candidate",
+              "confirmed",
+              "rejected"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          },
+          "topic": {
+            "title": "Topic",
+            "type": "string"
+          },
+          "valid_until": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Valid Until"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "household_id",
+          "pet_id",
+          "author_user_id",
+          "author_name",
+          "text",
+          "topic",
+          "status",
+          "valid_until",
+          "created_at",
+          "version",
+          "deleted",
+          "memory_backend"
+        ],
+        "title": "MemoryView",
         "type": "object"
       },
       "NewSessionView": {
@@ -672,9 +1899,16 @@
             "title": "Activity"
           },
           "actor_id": {
-            "format": "uuid",
-            "title": "Actor Id",
-            "type": "string"
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Actor Id"
           },
           "scope": {
             "default": "observation",
@@ -694,10 +1928,76 @@
           }
         },
         "required": [
-          "text",
-          "actor_id"
+          "text"
         ],
         "title": "NoteInput",
+        "type": "object"
+      },
+      "NoteRevision": {
+        "additionalProperties": false,
+        "properties": {
+          "activity": {
+            "anyOf": [
+              {
+                "enum": [
+                  "feeding",
+                  "water",
+                  "play",
+                  "brush",
+                  "bath",
+                  "nails",
+                  "clean",
+                  "walk"
+                ],
+                "type": "string"
+              },
+              {
+                "const": "general",
+                "type": "string"
+              }
+            ],
+            "default": "general",
+            "title": "Activity"
+          },
+          "actor_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Actor Id"
+          },
+          "scope": {
+            "default": "observation",
+            "enum": [
+              "today",
+              "preference",
+              "observation"
+            ],
+            "title": "Scope",
+            "type": "string"
+          },
+          "text": {
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Text",
+            "type": "string"
+          },
+          "version": {
+            "minimum": 1.0,
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "text",
+          "version"
+        ],
+        "title": "NoteRevision",
         "type": "object"
       },
       "ObjectInput": {
@@ -747,6 +2047,68 @@
         "title": "ObjectInput",
         "type": "object"
       },
+      "PetContextView": {
+        "properties": {
+          "as_of": {
+            "title": "As Of",
+            "type": "string"
+          },
+          "context_version": {
+            "title": "Context Version",
+            "type": "integer"
+          },
+          "household_id": {
+            "title": "Household Id",
+            "type": "string"
+          },
+          "layers": {
+            "additionalProperties": true,
+            "title": "Layers",
+            "type": "object"
+          },
+          "memory_backend": {
+            "const": "owner_confirmed_database",
+            "title": "Memory Backend",
+            "type": "string"
+          },
+          "pet_id": {
+            "title": "Pet Id",
+            "type": "string"
+          },
+          "source_versions": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "title": "Source Versions",
+            "type": "object"
+          },
+          "unresolved_conflicts": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "title": "Unresolved Conflicts",
+            "type": "array"
+          },
+          "valid_until": {
+            "title": "Valid Until",
+            "type": "string"
+          }
+        },
+        "required": [
+          "context_version",
+          "as_of",
+          "household_id",
+          "pet_id",
+          "valid_until",
+          "source_versions",
+          "unresolved_conflicts",
+          "memory_backend",
+          "layers"
+        ],
+        "title": "PetContextView",
+        "type": "object"
+      },
       "PetInput": {
         "additionalProperties": false,
         "properties": {
@@ -775,6 +2137,11 @@
             ],
             "title": "Birthday"
           },
+          "birthday_estimated": {
+            "default": false,
+            "title": "Birthday Estimated",
+            "type": "boolean"
+          },
           "breed": {
             "default": "",
             "maxLength": 80,
@@ -799,6 +2166,19 @@
             "title": "Dislikes",
             "type": "string"
           },
+          "expected_adult_weight_kg": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0.0,
+                "maximum": 200.0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Adult Weight Kg"
+          },
           "gender": {
             "default": "unknown",
             "enum": [
@@ -820,6 +2200,17 @@
             "minLength": 1,
             "title": "Name",
             "type": "string"
+          },
+          "neutered": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Neutered"
           },
           "pattern": {
             "default": "solid",
@@ -869,6 +2260,20 @@
         "title": "PetInput",
         "type": "object"
       },
+      "PetLifecycleInput": {
+        "additionalProperties": false,
+        "properties": {
+          "archived": {
+            "title": "Archived",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "archived"
+        ],
+        "title": "PetLifecycleInput",
+        "type": "object"
+      },
       "PhotoInput": {
         "additionalProperties": false,
         "properties": {
@@ -882,6 +2287,50 @@
           "data_url"
         ],
         "title": "PhotoInput",
+        "type": "object"
+      },
+      "ProfileInput": {
+        "additionalProperties": false,
+        "properties": {
+          "avatar_ref": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Avatar Ref"
+          },
+          "display_name": {
+            "anyOf": [
+              {
+                "maxLength": 40,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Display Name"
+          },
+          "family_label": {
+            "anyOf": [
+              {
+                "maxLength": 40,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Family Label"
+          }
+        },
+        "title": "ProfileInput",
         "type": "object"
       },
       "Proposal": {
@@ -917,6 +2366,173 @@
         "title": "Proposal",
         "type": "object"
       },
+      "ProposalInput": {
+        "additionalProperties": false,
+        "properties": {
+          "context_valid_until": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Context Valid Until"
+          },
+          "context_version": {
+            "anyOf": [
+              {
+                "minimum": 1.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Context Version"
+          },
+          "due_at": {
+            "format": "date-time",
+            "title": "Due At",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "feeding",
+              "water",
+              "play",
+              "brush",
+              "bath",
+              "nails",
+              "clean",
+              "walk"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "title": {
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "title",
+          "due_at"
+        ],
+        "title": "ProposalInput",
+        "type": "object"
+      },
+      "ProposalView": {
+        "properties": {
+          "author_user_id": {
+            "title": "Author User Id",
+            "type": "string"
+          },
+          "confirmed_by": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Confirmed By"
+          },
+          "context_valid_until": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Context Valid Until"
+          },
+          "context_version": {
+            "title": "Context Version",
+            "type": "integer"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "device_action": {
+            "const": false,
+            "title": "Device Action",
+            "type": "boolean"
+          },
+          "due_at": {
+            "title": "Due At",
+            "type": "string"
+          },
+          "household_id": {
+            "title": "Household Id",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "title": "Kind",
+            "type": "string"
+          },
+          "pet_id": {
+            "title": "Pet Id",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "awaiting_confirmation",
+              "confirmed"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "task_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Task Id"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "household_id",
+          "pet_id",
+          "author_user_id",
+          "kind",
+          "title",
+          "due_at",
+          "version",
+          "context_version",
+          "status",
+          "created_at",
+          "device_action"
+        ],
+        "title": "ProposalView",
+        "type": "object"
+      },
       "Receipt": {
         "additionalProperties": false,
         "properties": {
@@ -946,6 +2562,335 @@
           "status"
         ],
         "title": "Receipt",
+        "type": "object"
+      },
+      "ReplyView": {
+        "properties": {
+          "action_executed": {
+            "const": false,
+            "title": "Action Executed",
+            "type": "boolean"
+          },
+          "answer": {
+            "title": "Answer",
+            "type": "string"
+          },
+          "answer_origin": {
+            "default": "local_rules",
+            "enum": [
+              "local_rules",
+              "server_guard",
+              "model"
+            ],
+            "title": "Answer Origin",
+            "type": "string"
+          },
+          "backend": {
+            "enum": [
+              "local_rules",
+              "bedrock"
+            ],
+            "title": "Backend",
+            "type": "string"
+          },
+          "care_draft": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CareDraftView"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "context_valid_until": {
+            "title": "Context Valid Until",
+            "type": "string"
+          },
+          "context_version": {
+            "title": "Context Version",
+            "type": "integer"
+          },
+          "entry": {
+            "enum": [
+              "app",
+              "alexa_simulator"
+            ],
+            "title": "Entry",
+            "type": "string"
+          },
+          "inference_status": {
+            "anyOf": [
+              {
+                "const": "completed",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Inference Status"
+          },
+          "input_tokens": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Input Tokens"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "latency_ms": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Latency Ms"
+          },
+          "model_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Id"
+          },
+          "output_tokens": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Output Tokens"
+          },
+          "references": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "title": "References",
+            "type": "array"
+          },
+          "request_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Request Id"
+          },
+          "source_record_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Source Record Ids",
+            "type": "array"
+          }
+        },
+        "required": [
+          "answer",
+          "entry",
+          "backend",
+          "request_id",
+          "context_version",
+          "source_record_ids",
+          "references",
+          "action_executed",
+          "label",
+          "context_valid_until"
+        ],
+        "title": "ReplyView",
+        "type": "object"
+      },
+      "ReportInput": {
+        "additionalProperties": false,
+        "properties": {
+          "date": {
+            "format": "date",
+            "title": "Date",
+            "type": "string"
+          },
+          "period": {
+            "enum": [
+              "daily",
+              "weekly"
+            ],
+            "title": "Period",
+            "type": "string"
+          }
+        },
+        "required": [
+          "period",
+          "date"
+        ],
+        "title": "ReportInput",
+        "type": "object"
+      },
+      "ReportListView": {
+        "properties": {
+          "reports": {
+            "items": {
+              "$ref": "#/components/schemas/ReportView"
+            },
+            "title": "Reports",
+            "type": "array"
+          }
+        },
+        "required": [
+          "reports"
+        ],
+        "title": "ReportListView",
+        "type": "object"
+      },
+      "ReportView": {
+        "properties": {
+          "care": {
+            "additionalProperties": true,
+            "title": "Care",
+            "type": "object"
+          },
+          "coverage": {
+            "additionalProperties": true,
+            "title": "Coverage",
+            "type": "object"
+          },
+          "cutoff": {
+            "title": "Cutoff",
+            "type": "string"
+          },
+          "date": {
+            "title": "Date",
+            "type": "string"
+          },
+          "diet": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "title": "Diet",
+            "type": "object"
+          },
+          "generated_at": {
+            "title": "Generated At",
+            "type": "string"
+          },
+          "growth": {
+            "additionalProperties": true,
+            "title": "Growth",
+            "type": "object"
+          },
+          "household_id": {
+            "title": "Household Id",
+            "type": "string"
+          },
+          "notification": {
+            "const": "not_sent",
+            "title": "Notification",
+            "type": "string"
+          },
+          "period": {
+            "enum": [
+              "daily",
+              "weekly"
+            ],
+            "title": "Period",
+            "type": "string"
+          },
+          "pet_id": {
+            "title": "Pet Id",
+            "type": "string"
+          },
+          "report_id": {
+            "title": "Report Id",
+            "type": "string"
+          },
+          "source_record_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Source Record Ids",
+            "type": "array"
+          },
+          "source_versions": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "title": "Source Versions",
+            "type": "object"
+          },
+          "stat_version": {
+            "title": "Stat Version",
+            "type": "integer"
+          },
+          "status": {
+            "enum": [
+              "current",
+              "superseded",
+              "failed"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "weight": {
+            "additionalProperties": true,
+            "title": "Weight",
+            "type": "object"
+          },
+          "window_end": {
+            "title": "Window End",
+            "type": "string"
+          },
+          "window_start": {
+            "title": "Window Start",
+            "type": "string"
+          }
+        },
+        "required": [
+          "report_id",
+          "household_id",
+          "pet_id",
+          "period",
+          "date",
+          "window_start",
+          "window_end",
+          "cutoff",
+          "generated_at",
+          "stat_version",
+          "status",
+          "notification",
+          "source_record_ids",
+          "coverage",
+          "weight",
+          "diet",
+          "care",
+          "growth"
+        ],
+        "title": "ReportView",
         "type": "object"
       },
       "RunState": {
@@ -1185,20 +3130,56 @@
           "action": {
             "enum": [
               "complete",
-              "postpone"
+              "postpone",
+              "claim",
+              "transfer",
+              "edit",
+              "cancel"
             ],
             "title": "Action",
             "type": "string"
           },
           "actor_id": {
-            "format": "uuid",
-            "title": "Actor Id",
-            "type": "string"
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Actor Id"
+          },
+          "assigned_to": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Assigned To"
           },
           "event_id": {
             "format": "uuid",
             "title": "Event Id",
             "type": "string"
+          },
+          "interval_days": {
+            "anyOf": [
+              {
+                "maximum": 365.0,
+                "minimum": 1.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Interval Days"
           },
           "next_due": {
             "anyOf": [
@@ -1217,11 +3198,35 @@
             "maxLength": 300,
             "title": "Note",
             "type": "string"
+          },
+          "title": {
+            "anyOf": [
+              {
+                "maxLength": 80,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "version": {
+            "anyOf": [
+              {
+                "minimum": 1.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version"
           }
         },
         "required": [
           "event_id",
-          "actor_id",
           "action"
         ],
         "title": "TaskAction",
@@ -1289,6 +3294,39 @@
         "title": "TaskInput",
         "type": "object"
       },
+      "UserView": {
+        "properties": {
+          "avatar_ref": {
+            "title": "Avatar Ref",
+            "type": "string"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "display_name": {
+            "title": "Display Name",
+            "type": "string"
+          },
+          "user_id": {
+            "title": "User Id",
+            "type": "string"
+          },
+          "username": {
+            "title": "Username",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "username",
+          "display_name",
+          "avatar_ref",
+          "created_at"
+        ],
+        "title": "UserView",
+        "type": "object"
+      },
       "ValidationError": {
         "properties": {
           "ctx": {
@@ -1328,6 +3366,582 @@
         ],
         "title": "ValidationError",
         "type": "object"
+      },
+      "VisitAgeView": {
+        "properties": {
+          "basis": {
+            "enum": [
+              "birthday",
+              "owner_entered",
+              "unknown"
+            ],
+            "title": "Basis",
+            "type": "string"
+          },
+          "days": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Days"
+          },
+          "estimated": {
+            "title": "Estimated",
+            "type": "boolean"
+          },
+          "years": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Years"
+          }
+        },
+        "required": [
+          "years",
+          "days",
+          "basis",
+          "estimated"
+        ],
+        "title": "VisitAgeView",
+        "type": "object"
+      },
+      "VisitCareView": {
+        "properties": {
+          "completed_at": {
+            "title": "Completed At",
+            "type": "string"
+          },
+          "due_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Due At"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Kind"
+          },
+          "source": {
+            "const": "manual_care",
+            "default": "manual_care",
+            "title": "Source",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "version": {
+            "default": 1,
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "completed_at"
+        ],
+        "title": "VisitCareView",
+        "type": "object"
+      },
+      "VisitDiaryView": {
+        "properties": {
+          "created_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Created At"
+          },
+          "happened_on": {
+            "title": "Happened On",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "source": {
+            "const": "owner_record",
+            "default": "owner_record",
+            "title": "Source",
+            "type": "string"
+          },
+          "text": {
+            "default": "",
+            "title": "Text",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "version": {
+            "default": 1,
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "happened_on"
+        ],
+        "title": "VisitDiaryView",
+        "type": "object"
+      },
+      "VisitMeasurementView": {
+        "properties": {
+          "diet_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Diet Type"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "weight",
+              "diet"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "measured_at": {
+            "title": "Measured At",
+            "type": "string"
+          },
+          "note": {
+            "default": "",
+            "title": "Note",
+            "type": "string"
+          },
+          "recorded_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Recorded At"
+          },
+          "source": {
+            "title": "Source",
+            "type": "string"
+          },
+          "unit": {
+            "enum": [
+              "g",
+              "kg"
+            ],
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "title": "Value",
+            "type": "number"
+          },
+          "value_g": {
+            "title": "Value G",
+            "type": "number"
+          },
+          "version": {
+            "default": 1,
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "value",
+          "unit",
+          "value_g",
+          "measured_at",
+          "source"
+        ],
+        "title": "VisitMeasurementView",
+        "type": "object"
+      },
+      "VisitObservationView": {
+        "properties": {
+          "activity": {
+            "default": "general",
+            "title": "Activity",
+            "type": "string"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "scope": {
+            "title": "Scope",
+            "type": "string"
+          },
+          "source": {
+            "const": "owner_record",
+            "default": "owner_record",
+            "title": "Source",
+            "type": "string"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          },
+          "version": {
+            "default": 1,
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "scope",
+          "created_at"
+        ],
+        "title": "VisitObservationView",
+        "type": "object"
+      },
+      "VisitPetView": {
+        "properties": {
+          "age_years": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Age Years"
+          },
+          "birthday": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Birthday"
+          },
+          "birthday_estimated": {
+            "default": false,
+            "title": "Birthday Estimated",
+            "type": "boolean"
+          },
+          "breed": {
+            "default": "",
+            "title": "Breed",
+            "type": "string"
+          },
+          "coat": {
+            "default": "gold",
+            "title": "Coat",
+            "type": "string"
+          },
+          "dislikes": {
+            "default": "",
+            "title": "Dislikes",
+            "type": "string"
+          },
+          "expected_adult_weight_kg": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Adult Weight Kg"
+          },
+          "gender": {
+            "default": "unknown",
+            "title": "Gender",
+            "type": "string"
+          },
+          "likes": {
+            "default": "",
+            "title": "Likes",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "neutered": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Neutered"
+          },
+          "pattern": {
+            "default": "solid",
+            "title": "Pattern",
+            "type": "string"
+          },
+          "size": {
+            "default": "medium",
+            "title": "Size",
+            "type": "string"
+          },
+          "species": {
+            "title": "Species",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "species"
+        ],
+        "title": "VisitPetView",
+        "type": "object"
+      },
+      "VisitPreferenceView": {
+        "properties": {
+          "active": {
+            "title": "Active",
+            "type": "boolean"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "source": {
+            "const": "owner_confirmed",
+            "default": "owner_confirmed",
+            "title": "Source",
+            "type": "string"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          },
+          "topic": {
+            "default": "general",
+            "title": "Topic",
+            "type": "string"
+          },
+          "valid_until": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Valid Until"
+          },
+          "version": {
+            "default": 1,
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "created_at",
+          "active"
+        ],
+        "title": "VisitPreferenceView",
+        "type": "object"
+      },
+      "VisitSummaryView": {
+        "properties": {
+          "age": {
+            "$ref": "#/components/schemas/VisitAgeView"
+          },
+          "as_of": {
+            "title": "As Of",
+            "type": "string"
+          },
+          "care": {
+            "items": {
+              "$ref": "#/components/schemas/VisitCareView"
+            },
+            "title": "Care",
+            "type": "array"
+          },
+          "context_version": {
+            "title": "Context Version",
+            "type": "integer"
+          },
+          "days": {
+            "enum": [
+              7,
+              30,
+              90
+            ],
+            "title": "Days",
+            "type": "integer"
+          },
+          "demo_excluded_count": {
+            "title": "Demo Excluded Count",
+            "type": "integer"
+          },
+          "diary": {
+            "items": {
+              "$ref": "#/components/schemas/VisitDiaryView"
+            },
+            "title": "Diary",
+            "type": "array"
+          },
+          "include_demo": {
+            "title": "Include Demo",
+            "type": "boolean"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "latest_weight": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/VisitMeasurementView"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "measurements": {
+            "items": {
+              "$ref": "#/components/schemas/VisitMeasurementView"
+            },
+            "title": "Measurements",
+            "type": "array"
+          },
+          "missing_fields": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Missing Fields",
+            "type": "array"
+          },
+          "observations": {
+            "items": {
+              "$ref": "#/components/schemas/VisitObservationView"
+            },
+            "title": "Observations",
+            "type": "array"
+          },
+          "pet": {
+            "$ref": "#/components/schemas/VisitPetView"
+          },
+          "preferences": {
+            "items": {
+              "$ref": "#/components/schemas/VisitPreferenceView"
+            },
+            "title": "Preferences",
+            "type": "array"
+          },
+          "source_versions": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "title": "Source Versions",
+            "type": "object"
+          },
+          "timezone": {
+            "title": "Timezone",
+            "type": "string"
+          },
+          "window_end": {
+            "title": "Window End",
+            "type": "string"
+          },
+          "window_start": {
+            "title": "Window Start",
+            "type": "string"
+          }
+        },
+        "required": [
+          "pet",
+          "measurements",
+          "latest_weight",
+          "observations",
+          "care",
+          "diary",
+          "preferences",
+          "age",
+          "source_versions",
+          "context_version",
+          "as_of",
+          "timezone",
+          "window_start",
+          "window_end",
+          "days",
+          "include_demo",
+          "missing_fields",
+          "demo_excluded_count",
+          "label"
+        ],
+        "title": "VisitSummaryView",
+        "type": "object"
+      }
+    },
+    "securitySchemes": {
+      "HTTPBearer": {
+        "scheme": "bearer",
+        "type": "http"
       }
     }
   },
@@ -1355,6 +3969,78 @@
           }
         },
         "summary": "Bootstrap"
+      }
+    },
+    "/api/care-access/chat": {
+      "post": {
+        "operationId": "chat_api_care_access_chat_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CareAccessChat"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CareAccessReplyView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Chat",
+        "tags": [
+          "Temporary read-only care access"
+        ]
+      }
+    },
+    "/api/care-access/context": {
+      "get": {
+        "operationId": "context_api_care_access_context_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CareAccessContextView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Context",
+        "tags": [
+          "Temporary read-only care access"
+        ]
       }
     },
     "/api/demo/device-mode": {
@@ -1570,6 +4256,1756 @@
           }
         },
         "summary": "Post Event"
+      }
+    },
+    "/api/family/household": {
+      "patch": {
+        "operationId": "update_household_api_family_household_patch",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HouseholdInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HouseholdView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Household",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/households": {
+      "post": {
+        "operationId": "household_api_family_households_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HouseholdInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HouseholdView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Household",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/invitations": {
+      "get": {
+        "operationId": "invitations_api_family_invitations_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Invitations Api Family Invitations Get",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Invitations",
+        "tags": [
+          "Local family extension"
+        ]
+      },
+      "post": {
+        "operationId": "invite_api_family_invitations_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvitationInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Invite Api Family Invitations Post",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Invite",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/invitations/accept": {
+      "post": {
+        "operationId": "accept_api_family_invitations_accept_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvitationAccept"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FamilySessionView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Accept",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/invitations/{invitation_id}": {
+      "delete": {
+        "operationId": "revoke_api_family_invitations__invitation_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "invitation_id",
+            "required": true,
+            "schema": {
+              "title": "Invitation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Revoke Api Family Invitations  Invitation Id  Delete",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Revoke",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/login": {
+      "post": {
+        "operationId": "login_api_family_login_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountLogin"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FamilySessionView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Login",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/me": {
+      "get": {
+        "operationId": "me_api_family_me_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FamilySessionView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Me",
+        "tags": [
+          "Local family extension"
+        ]
+      },
+      "patch": {
+        "operationId": "update_me_api_family_me_patch",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProfileInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FamilySessionView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Me",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/members/{user_id}": {
+      "delete": {
+        "operationId": "remove_api_family_members__user_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "title": "User Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Remove Api Family Members  User Id  Delete",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Remove",
+        "tags": [
+          "Local family extension"
+        ]
+      },
+      "patch": {
+        "operationId": "permissions_api_family_members__user_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "title": "User Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MemberPermission"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FamilySessionView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Permissions",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/pets/archived": {
+      "get": {
+        "operationId": "archived_pets_api_family_pets_archived_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Archived Pets Api Family Pets Archived Get",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Archived Pets",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/pets/{pet_id}/care-access": {
+      "get": {
+        "operationId": "list_access_api_family_pets__pet_id__care_access_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CareAccessListView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Access",
+        "tags": [
+          "Local family extension"
+        ]
+      },
+      "post": {
+        "operationId": "create_access_api_family_pets__pet_id__care_access_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCareAccess"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CareAccessCreatedView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Access",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/pets/{pet_id}/care-access/{access_id}/revoke": {
+      "post": {
+        "operationId": "revoke_access_api_family_pets__pet_id__care_access__access_id__revoke_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "access_id",
+            "required": true,
+            "schema": {
+              "title": "Access Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CareAccessGrantView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Revoke Access",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/pets/{pet_id}/chat": {
+      "post": {
+        "operationId": "chat_api_family_pets__pet_id__chat_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChatInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReplyView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Chat",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/pets/{pet_id}/context": {
+      "get": {
+        "operationId": "context_api_family_pets__pet_id__context_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetContextView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Context",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/pets/{pet_id}/diary/{record_id}": {
+      "delete": {
+        "operationId": "delete_diary_api_family_pets__pet_id__diary__record_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "record_id",
+            "required": true,
+            "schema": {
+              "title": "Record Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "version",
+            "required": true,
+            "schema": {
+              "title": "Version",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Delete Diary Api Family Pets  Pet Id  Diary  Record Id  Delete",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Delete Diary",
+        "tags": [
+          "Local family extension"
+        ]
+      },
+      "patch": {
+        "operationId": "revise_diary_api_family_pets__pet_id__diary__record_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "record_id",
+            "required": true,
+            "schema": {
+              "title": "Record Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaryRevision"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Revise Diary Api Family Pets  Pet Id  Diary  Record Id  Patch",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Revise Diary",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/pets/{pet_id}/lifecycle": {
+      "patch": {
+        "operationId": "pet_lifecycle_api_family_pets__pet_id__lifecycle_patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PetLifecycleInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Pet Lifecycle Api Family Pets  Pet Id  Lifecycle Patch",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Pet Lifecycle",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/pets/{pet_id}/measurements": {
+      "get": {
+        "operationId": "measurements_api_family_pets__pet_id__measurements_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeasurementListView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Measurements",
+        "tags": [
+          "Local family extension"
+        ]
+      },
+      "post": {
+        "operationId": "add_measurement_api_family_pets__pet_id__measurements_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MeasurementInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeasurementView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Measurement",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/pets/{pet_id}/measurements/{record_id}": {
+      "delete": {
+        "operationId": "delete_measurement_api_family_pets__pet_id__measurements__record_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "record_id",
+            "required": true,
+            "schema": {
+              "title": "Record Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "version",
+            "required": true,
+            "schema": {
+              "title": "Version",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Delete Measurement Api Family Pets  Pet Id  Measurements  Record Id  Delete",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Delete Measurement",
+        "tags": [
+          "Local family extension"
+        ]
+      },
+      "put": {
+        "operationId": "edit_measurement_api_family_pets__pet_id__measurements__record_id__put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "record_id",
+            "required": true,
+            "schema": {
+              "title": "Record Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MeasurementInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeasurementView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Edit Measurement",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/pets/{pet_id}/memories": {
+      "get": {
+        "operationId": "memories_api_family_pets__pet_id__memories_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MemoryListView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Memories",
+        "tags": [
+          "Local family extension"
+        ]
+      },
+      "post": {
+        "operationId": "add_memory_api_family_pets__pet_id__memories_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MemoryInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MemoryView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Memory",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/pets/{pet_id}/memories/{record_id}": {
+      "delete": {
+        "operationId": "delete_memory_api_family_pets__pet_id__memories__record_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "record_id",
+            "required": true,
+            "schema": {
+              "title": "Record Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "version",
+            "required": true,
+            "schema": {
+              "title": "Version",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Delete Memory Api Family Pets  Pet Id  Memories  Record Id  Delete",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Delete Memory",
+        "tags": [
+          "Local family extension"
+        ]
+      },
+      "patch": {
+        "operationId": "edit_memory_api_family_pets__pet_id__memories__record_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "record_id",
+            "required": true,
+            "schema": {
+              "title": "Record Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MemoryUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MemoryView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Edit Memory",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/pets/{pet_id}/notes/{record_id}": {
+      "delete": {
+        "operationId": "delete_note_api_family_pets__pet_id__notes__record_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "record_id",
+            "required": true,
+            "schema": {
+              "title": "Record Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "version",
+            "required": true,
+            "schema": {
+              "title": "Version",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Delete Note Api Family Pets  Pet Id  Notes  Record Id  Delete",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Delete Note",
+        "tags": [
+          "Local family extension"
+        ]
+      },
+      "patch": {
+        "operationId": "revise_note_api_family_pets__pet_id__notes__record_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "record_id",
+            "required": true,
+            "schema": {
+              "title": "Record Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NoteRevision"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Revise Note Api Family Pets  Pet Id  Notes  Record Id  Patch",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Revise Note",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/pets/{pet_id}/proposals": {
+      "post": {
+        "operationId": "propose_api_family_pets__pet_id__proposals_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProposalInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProposalView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Propose",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/pets/{pet_id}/proposals/{proposal_id}/confirm": {
+      "post": {
+        "operationId": "confirm_api_family_pets__pet_id__proposals__proposal_id__confirm_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "proposal_id",
+            "required": true,
+            "schema": {
+              "title": "Proposal Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmProposal"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProposalView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Confirm",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/pets/{pet_id}/reports": {
+      "get": {
+        "operationId": "reports_api_family_pets__pet_id__reports_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportListView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Reports",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/pets/{pet_id}/reports/generate": {
+      "post": {
+        "operationId": "generate_report_api_family_pets__pet_id__reports_generate_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReportInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Generate Report",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/pets/{pet_id}/visit-summary": {
+      "get": {
+        "operationId": "visit_summary_api_family_pets__pet_id__visit_summary_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pet_id",
+            "required": true,
+            "schema": {
+              "title": "Pet Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "days",
+            "required": false,
+            "schema": {
+              "default": 7,
+              "enum": [
+                7,
+                30,
+                90
+              ],
+              "title": "Days",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "include_demo",
+            "required": false,
+            "schema": {
+              "default": false,
+              "title": "Include Demo",
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VisitSummaryView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Visit Summary",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/register": {
+      "post": {
+        "operationId": "register_api_family_register_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountRegister"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FamilySessionView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Register",
+        "tags": [
+          "Local family extension"
+        ]
+      }
+    },
+    "/api/family/services": {
+      "get": {
+        "operationId": "services_api_family_services_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Services Api Family Services Get",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Services",
+        "tags": [
+          "Local family extension"
+        ]
       }
     },
     "/api/feedback": {

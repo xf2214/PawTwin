@@ -1,0 +1,24 @@
+
+
+[WebServer] INFO:     Started server process [155124]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8822 (Press CTRL+C to quit)
+
+
+Running 9 tests using 1 worker
+
+(node:152104) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/9] frontend\e2e\platform.spec.ts:33:1 › visit HTML download is a self-contained escaped pet snapshot and printing uses it
+[2/9] frontend\e2e\platform.spec.ts:75:1 › an administrator grants one pet and a separate visitor reads and chats until revocation
+[3/9] frontend\e2e\platform.spec.ts:106:1 › card download requires current household permission and cannot replace a frozen changed snapshot
+[4/9] frontend\e2e\platform.spec.ts:136:1 › invalid access ignores an owner cookie and never restores family session data
+[5/9] frontend\e2e\platform.spec.ts:146:1 › latest real weight outside the selected window retains its date and demo inclusion is explicit
+[6/9] frontend\e2e\platform.spec.ts:164:1 › closing a delayed card and switching pets isolates late data and allows an actual retry
+[7/9] frontend\e2e\platform.spec.ts:194:3 › visit preview and grant controls stay readable at 320px
+[8/9] frontend\e2e\platform.spec.ts:194:3 › visit preview and grant controls stay readable at 390px
+[9/9] frontend\e2e\platform.spec.ts:194:3 › visit preview and grant controls stay readable at 1440px
+  9 passed (24.2s)

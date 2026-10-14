@@ -1,0 +1,42 @@
+/* Final presentation layer: calmer type and consistent character framing. */
+.showcase { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", sans-serif; }
+.showcase :is(h1,h2,h3,h4) { letter-spacing: -.025em; word-break: normal; line-break: strict; }
+.showcase .pt-hero { padding-top: 84px; column-gap: 36px; }
+.showcase .pt-hero h1 { font-size: clamp(36px,3.65vw,52px); font-weight: 600; line-height: 1.3; letter-spacing: -.035em; }
+.showcase .pt-hero .pt-eyebrow { font-weight: 500; letter-spacing: .015em; margin-bottom: 22px; }
+.showcase .pt-hero .pt-lead { font-size: 16px; line-height: 1.9; margin-top: 23px; }
+.showcase .pt-section-heading h2 { font-size: clamp(30px,3.35vw,48px); line-height: 1.32; font-weight: 600; text-wrap: balance; }
+.showcase :is(.pt-world,.pt-memory,.pt-closing) h2 { font-size: clamp(34px,3.9vw,56px); line-height: 1.32; font-weight: 600; }
+.showcase .pt-benefits-heading h2, .showcase .pt-faq h2 { font-size: clamp(31px,3.3vw,46px); line-height: 1.32; font-weight: 600; }
+.showcase .pt-story-copy h3, .showcase .pt-case-intro h3, .showcase .pt-vision-copy > h3 { font-size: clamp(28px,2.65vw,36px); font-weight: 600; line-height: 1.38; text-wrap: balance; }
+.pt-title-phrase { display: inline-block; white-space: nowrap; }
+.showcase .pt-case-intro h3 { margin-top: 18px; margin-bottom: 20px; }
+.showcase .pt-benefit-grid h3 { font-weight: 600; line-height: 1.45; }
+.showcase .pt-case-copy, .showcase .pt-story-copy { padding: 44px; }
+.showcase .pt-hero-stage .pd-tablet { transform: perspective(1600px) rotateY(-4deg) rotateZ(-2deg); box-shadow: 0 24px 52px -22px #342b2940, 0 0 0 1px #8a8a8c, inset 0 0 0 3px #37383a; }
+.pg-gallery .pg-portrait, .pg-gallery .pt-world-cat { width: min(124px,100%); height: auto; aspect-ratio: 8 / 9; margin-top: 10px; margin-bottom: 18px; }
+.showcase .pg-pet { border-radius: 21px; }
+.pg-portrait::before { inset: 28px 0 0; }
+.showcase .pt-world .pg-current { font-size: 11px; line-height: 1.7; }
+@media (min-width: 701px) and (max-width: 1000px) {
+  .showcase .pt-hero { padding-top: 62px; }
+  .showcase .pt-hero h1 { font-size: 46px; }
+  .showcase .pt-hero-stage { width: min(710px,90%); }
+  .showcase .pt-story-copy { padding: 34px; }
+  .showcase .pt-story-copy h3 { font-size: 27px; }
+}
+@media (max-width: 700px) {
+  .showcase .pt-hero { padding-top: 48px; }
+  .showcase .pt-hero h1 { font-size: clamp(31px,7.4vw,46px); line-height: 1.32; }
+  .showcase .pt-hero .pt-lead { font-size: 14px; }
+  .showcase .pt-section-heading h2 { font-size: clamp(28px,6.7vw,39px); }
+  .showcase :is(.pt-world,.pt-memory,.pt-closing) h2 { font-size: clamp(32px,7.5vw,44px); }
+  .showcase .pt-story-copy h3, .showcase .pt-case-intro h3, .showcase .pt-vision-copy > h3 { font-size: clamp(24px,6.1vw,29px); line-height: 1.4; }
+  .showcase .pt-case-copy, .showcase .pt-story-copy { padding: 29px; }
+  .pg-gallery .pg-portrait, .pg-gallery .pt-world-cat { width: min(104px,100%); margin-bottom: 14px; }
+}
+@media (max-width: 360px) {
+  .showcase .pt-case-copy, .showcase .pt-story-copy { padding: 24px; }
+  .showcase .pt-hero h1 { font-size: 31px; }
+  .pg-gallery .pg-portrait, .pg-gallery .pt-world-cat { width: min(96px,100%); }
+}

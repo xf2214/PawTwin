@@ -1,5 +1,4 @@
 import base64
-import json
 from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime, timedelta
 from uuid import uuid4
@@ -234,20 +233,29 @@ def test_real_adapter_request_shape_and_draft_validation_offline(household, monk
                 "message": {
                     "content": [
                         {
-                            "text": json.dumps(
-                                {
+                            "toolUse": {
+                                "toolUseId": "offline-tool-1",
+                                "name": "return_photo_candidate",
+                                "input": {
                                     "species": "cat",
                                     "coat": "gray",
                                     "pattern": "stripes",
                                     "breed": "",
                                     "uncertainty": "品种不确定",
-                                }
-                            )
+                                },
+                            }
                         }
                     ]
                 }
             },
-            "ResponseMetadata": {"RequestId": "offline-test-only"},
+            "stopReason": "tool_use",
+            "usage": {"inputTokens": 1000, "outputTokens": 50, "totalTokens": 1050},
+            "metrics": {"latencyMs": 10},
+            "ResponseMetadata": {
+                "RequestId": "offline-test-only",
+                "HTTPStatusCode": 200,
+                "RetryAttempts": 0,
+            },
         }
 
     monkeypatch.setitem(
@@ -257,7 +265,7 @@ def test_real_adapter_request_shape_and_draft_validation_offline(household, monk
     )
     monkeypatch.setitem(sys.modules, "botocore.config", SimpleNamespace(Config=lambda **k: k))
     household.app.state.settings.photo_recognition_enabled = True
-    household.app.state.settings.bedrock_model_id = "offline-test"
+    household.app.state.settings.bedrock_model_id = "amazon.nova-lite-v1:0"
     household.app.state.settings.aws_region = "us-east-1"
     photo = household.post("/api/home/photos", json={"data_url": PNG}).json()["id"]
     result = household.post(f"/api/home/photos/{photo}/recognize")

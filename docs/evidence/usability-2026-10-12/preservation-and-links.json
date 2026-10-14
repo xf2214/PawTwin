@@ -1,0 +1,23 @@
+{
+  "baseline_files": 103,
+  "changed_existing_files": [
+    "backend/pawtwin/growth.py",
+    "frontend/e2e/alexa.spec.ts",
+    "frontend/e2e/showcase.spec.ts",
+    "frontend/src/FamilyApp.tsx",
+    "frontend/src/FamilyRecords.tsx",
+    "frontend/src/Showcase.tsx",
+    "frontend/src/family-api.ts",
+    "frontend/src/family-app.css",
+    "frontend/src/showcase.css",
+    "README.md",
+    "backend/pawtwin/home_api.py",
+    "docs/STATUS.md",
+    "docs/TASKBOARD.md",
+    "frontend/src/PetHome.tsx",
+    "frontend/src/main.tsx"
+  ],
+  "unexpected_changes": [],
+  "local_links_checked": 62,
+  "missing_links": []
+}

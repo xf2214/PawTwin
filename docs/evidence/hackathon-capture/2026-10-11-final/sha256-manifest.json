@@ -1,0 +1,358 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-11T13:21:54.8855894Z",
+  "completed_utc": "2026-10-11T13:22:37.3981095Z",
+  "test": "e2e/demo-rehearsal.spec.ts",
+  "port": 8813,
+  "node_version": "24.19.0",
+  "boundary": "Current product page and independent Alexa web simulation; local SQLite in memory; rule drafts with explicit manual-care confirmation; silent raw footage; no cloud call or publication. Screenshot test elapsed timestamps are not raw video seek positions.",
+  "collected_attachments": [
+    {
+      "file": "demo-evidence.json",
+      "attachment_name": "demo-evidence",
+      "content_type": "application/json"
+    },
+    {
+      "file": "owner.webm",
+      "attachment_name": "owner-recording",
+      "content_type": "video/webm"
+    },
+    {
+      "file": "carer.webm",
+      "attachment_name": "carer-recording",
+      "content_type": "video/webm"
+    },
+    {
+      "file": "00-product.png",
+      "attachment_name": "00-product.png",
+      "content_type": "image/png"
+    },
+    {
+      "file": "01-home.png",
+      "attachment_name": "01-home.png",
+      "content_type": "image/png"
+    },
+    {
+      "file": "02-growth.png",
+      "attachment_name": "02-growth.png",
+      "content_type": "image/png"
+    },
+    {
+      "file": "08-memory-confirmed.png",
+      "attachment_name": "08-memory-confirmed.png",
+      "content_type": "image/png"
+    },
+    {
+      "file": "03-assistant.png",
+      "attachment_name": "03-assistant.png",
+      "content_type": "image/png"
+    },
+    {
+      "file": "13-alexa-new-session.png",
+      "attachment_name": "13-alexa-new-session.png",
+      "content_type": "image/png"
+    },
+    {
+      "file": "09-alexa-draft.png",
+      "attachment_name": "09-alexa-draft.png",
+      "content_type": "image/png"
+    },
+    {
+      "file": "10-alexa-pending.png",
+      "attachment_name": "10-alexa-pending.png",
+      "content_type": "image/png"
+    },
+    {
+      "file": "11-alexa-confirmed.png",
+      "attachment_name": "11-alexa-confirmed.png",
+      "content_type": "image/png"
+    },
+    {
+      "file": "04-care.png",
+      "attachment_name": "04-care.png",
+      "content_type": "image/png"
+    },
+    {
+      "file": "07-completing-actor.png",
+      "attachment_name": "07-completing-actor.png",
+      "content_type": "image/png"
+    },
+    {
+      "file": "12-alexa-result.png",
+      "attachment_name": "12-alexa-result.png",
+      "content_type": "image/png"
+    },
+    {
+      "file": "05-daily.png",
+      "attachment_name": "05-daily.png",
+      "content_type": "image/png"
+    },
+    {
+      "file": "06-deleted-memory.png",
+      "attachment_name": "06-deleted-memory.png",
+      "content_type": "image/png"
+    }
+  ],
+  "files": [
+    {
+      "path": "00-product.png",
+      "bytes": 112746,
+      "sha256": "efe48a178f0f83f405a84dccdd703e1c3f4b5cb9c2eb4ffa7917a1b8213281fc"
+    },
+    {
+      "path": "01-home.png",
+      "bytes": 63769,
+      "sha256": "e418b4d2cd483b1ef7d1b80afd5104eb83437a8378a625a6e814d1ae6e1d984f"
+    },
+    {
+      "path": "02-growth.png",
+      "bytes": 66052,
+      "sha256": "c196aaf68f1ceabce00c6e5b814dca50c9349759843d84854c82e68ba05a1ee6"
+    },
+    {
+      "path": "03-assistant.png",
+      "bytes": 88580,
+      "sha256": "b49acb466791823a70504a695d59d7fe3cf4e55ac795cfddbee7a2e72d76fc9a"
+    },
+    {
+      "path": "04-care.png",
+      "bytes": 60576,
+      "sha256": "4a3f2022b5eb9fa078fd75a88e606709a3d2008850bc3f5996202249ed0b37e7"
+    },
+    {
+      "path": "05-daily.png",
+      "bytes": 59832,
+      "sha256": "4362884876e3904b5cd20bd920830938f63157aa19184693f95ed284f21aec55"
+    },
+    {
+      "path": "06-deleted-memory.png",
+      "bytes": 81569,
+      "sha256": "47d15485b1dbacbe28c7c1c41d5ca3a22d580f660f81c9b2bb625099af9acfd9"
+    },
+    {
+      "path": "07-completing-actor.png",
+      "bytes": 69129,
+      "sha256": "8831217d5286204cb9932ee0260936e6165e0e2429dc0974d3a5b78c8fbc2c2d"
+    },
+    {
+      "path": "08-memory-confirmed.png",
+      "bytes": 56273,
+      "sha256": "4ec6574e46194b11c52e1b433651ebce9a361dd8da55bb699d39a68937dfb63e"
+    },
+    {
+      "path": "09-alexa-draft.png",
+      "bytes": 61521,
+      "sha256": "4e456ac3b12b23a2fac6f68b2d248dee20fd17e5b2c8b2f471800bbfcd7782ad"
+    },
+    {
+      "path": "10-alexa-pending.png",
+      "bytes": 72742,
+      "sha256": "49b982fd5ce5c39554475a9983771367d1aa67ec8924824470f24541d9a8ed18"
+    },
+    {
+      "path": "11-alexa-confirmed.png",
+      "bytes": 71012,
+      "sha256": "fe6b818e825ec952ecba2ad9f99141b365588671ba8e03412cd8cac7c241d150"
+    },
+    {
+      "path": "12-alexa-result.png",
+      "bytes": 83946,
+      "sha256": "a57663b830e7ba97e87df0a91248baa9126820a9da3cf8b21b36be864733397f"
+    },
+    {
+      "path": "13-alexa-new-session.png",
+      "bytes": 82303,
+      "sha256": "c080156ecb601a4a50f449751b99d64f574ca570acf9a5d71fe0921985ca5866"
+    },
+    {
+      "path": "capture.log",
+      "bytes": 1451,
+      "sha256": "914aa7c1a22f54b11da873b5992b78ff805b15208ba05594d051db31f7b339cb"
+    },
+    {
+      "path": "carer.webm",
+      "bytes": 2599221,
+      "sha256": "3938f2739b811caa9592e8d183f1448ed378dc8b059b2795a0bcc45b9c939ca9"
+    },
+    {
+      "path": "demo-evidence.json",
+      "bytes": 20169,
+      "sha256": "97f4a500f8b672adae706b0cafaca0d52602d8787b4c9909d522ffb854ec3a75"
+    },
+    {
+      "path": "owner.webm",
+      "bytes": 2829690,
+      "sha256": "20cea3d3c4e85e028955713e362518fcf3d20e1617852eb65eeff1c9713e4845"
+    },
+    {
+      "path": "raw/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/00-product.png",
+      "bytes": 112746,
+      "sha256": "efe48a178f0f83f405a84dccdd703e1c3f4b5cb9c2eb4ffa7917a1b8213281fc"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/01-home.png",
+      "bytes": 63769,
+      "sha256": "e418b4d2cd483b1ef7d1b80afd5104eb83437a8378a625a6e814d1ae6e1d984f"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/02-growth.png",
+      "bytes": 66052,
+      "sha256": "c196aaf68f1ceabce00c6e5b814dca50c9349759843d84854c82e68ba05a1ee6"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/03-assistant.png",
+      "bytes": 88580,
+      "sha256": "b49acb466791823a70504a695d59d7fe3cf4e55ac795cfddbee7a2e72d76fc9a"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/04-care.png",
+      "bytes": 60576,
+      "sha256": "4a3f2022b5eb9fa078fd75a88e606709a3d2008850bc3f5996202249ed0b37e7"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/05-daily.png",
+      "bytes": 59832,
+      "sha256": "4362884876e3904b5cd20bd920830938f63157aa19184693f95ed284f21aec55"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/06-deleted-memory.png",
+      "bytes": 81569,
+      "sha256": "47d15485b1dbacbe28c7c1c41d5ca3a22d580f660f81c9b2bb625099af9acfd9"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/07-completing-actor.png",
+      "bytes": 69129,
+      "sha256": "8831217d5286204cb9932ee0260936e6165e0e2429dc0974d3a5b78c8fbc2c2d"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/08-memory-confirmed.png",
+      "bytes": 56273,
+      "sha256": "4ec6574e46194b11c52e1b433651ebce9a361dd8da55bb699d39a68937dfb63e"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/09-alexa-draft.png",
+      "bytes": 61521,
+      "sha256": "4e456ac3b12b23a2fac6f68b2d248dee20fd17e5b2c8b2f471800bbfcd7782ad"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/10-alexa-pending.png",
+      "bytes": 72742,
+      "sha256": "49b982fd5ce5c39554475a9983771367d1aa67ec8924824470f24541d9a8ed18"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/11-alexa-confirmed.png",
+      "bytes": 71012,
+      "sha256": "fe6b818e825ec952ecba2ad9f99141b365588671ba8e03412cd8cac7c241d150"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/12-alexa-result.png",
+      "bytes": 83946,
+      "sha256": "a57663b830e7ba97e87df0a91248baa9126820a9da3cf8b21b36be864733397f"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/13-alexa-new-session.png",
+      "bytes": 82303,
+      "sha256": "c080156ecb601a4a50f449751b99d64f574ca570acf9a5d71fe0921985ca5866"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/00-product-png-c2edf08bd62088e85dbf8ced2954de0ce0e67d8c.png",
+      "bytes": 112746,
+      "sha256": "efe48a178f0f83f405a84dccdd703e1c3f4b5cb9c2eb4ffa7917a1b8213281fc"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/01-home-png-39d95c0f0f39e924b26c9d9559cc7ba2617a243c.png",
+      "bytes": 63769,
+      "sha256": "e418b4d2cd483b1ef7d1b80afd5104eb83437a8378a625a6e814d1ae6e1d984f"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/02-growth-png-f2b564178541d56a4ff8b72f2119f1730c6ac8c5.png",
+      "bytes": 66052,
+      "sha256": "c196aaf68f1ceabce00c6e5b814dca50c9349759843d84854c82e68ba05a1ee6"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/03-assistant-png-aee927d03e38fb28ffa41a4b9f8b8d80b588d054.png",
+      "bytes": 88580,
+      "sha256": "b49acb466791823a70504a695d59d7fe3cf4e55ac795cfddbee7a2e72d76fc9a"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/04-care-png-88352059ede339439da990bce95511e1d30afd3f.png",
+      "bytes": 60576,
+      "sha256": "4a3f2022b5eb9fa078fd75a88e606709a3d2008850bc3f5996202249ed0b37e7"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/05-daily-png-20a1458d6b8ffb9c293a7b6204ffb9354d55d2e6.png",
+      "bytes": 59832,
+      "sha256": "4362884876e3904b5cd20bd920830938f63157aa19184693f95ed284f21aec55"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/06-deleted-memory-png-254a3a860608b51e1b62da857a8738b04cccf86b.png",
+      "bytes": 81569,
+      "sha256": "47d15485b1dbacbe28c7c1c41d5ca3a22d580f660f81c9b2bb625099af9acfd9"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/07-completing-actor-png-7dc25af22e7cc92da84d72449732a02ec3077743.png",
+      "bytes": 69129,
+      "sha256": "8831217d5286204cb9932ee0260936e6165e0e2429dc0974d3a5b78c8fbc2c2d"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/08-memory-confirmed-png-7ad0956d98795757134292b84d5a811426b9885b.png",
+      "bytes": 56273,
+      "sha256": "4ec6574e46194b11c52e1b433651ebce9a361dd8da55bb699d39a68937dfb63e"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/09-alexa-draft-png-a129794baf452b459edab70a0fed85fa194045c4.png",
+      "bytes": 61521,
+      "sha256": "4e456ac3b12b23a2fac6f68b2d248dee20fd17e5b2c8b2f471800bbfcd7782ad"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/10-alexa-pending-png-25186d77afeb7efeebe1a9197a73fe84d304139a.png",
+      "bytes": 72742,
+      "sha256": "49b982fd5ce5c39554475a9983771367d1aa67ec8924824470f24541d9a8ed18"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/11-alexa-confirmed-png-7cc4acb0e2d344a03ae0c5b4e7d8d326f2715a48.png",
+      "bytes": 71012,
+      "sha256": "fe6b818e825ec952ecba2ad9f99141b365588671ba8e03412cd8cac7c241d150"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/12-alexa-result-png-83f31e4080eb28de2c48225bcb7278c86e5356c7.png",
+      "bytes": 83946,
+      "sha256": "a57663b830e7ba97e87df0a91248baa9126820a9da3cf8b21b36be864733397f"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/13-alexa-new-session-png-7c7bc2b9f68b30b02d9129913e2c2fff60843f44.png",
+      "bytes": 82303,
+      "sha256": "c080156ecb601a4a50f449751b99d64f574ca570acf9a5d71fe0921985ca5866"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/carer-recording-8b751c010ff4078a2210815cbb6b0782d30ea792.webm",
+      "bytes": 2599221,
+      "sha256": "3938f2739b811caa9592e8d183f1448ed378dc8b059b2795a0bcc45b9c939ca9"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/attachments/owner-recording-3322ac0a3818dd1b6e2a38422f39e870ba5f30c8.webm",
+      "bytes": 2829690,
+      "sha256": "20cea3d3c4e85e028955713e362518fcf3d20e1617852eb65eeff1c9713e4845"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/carer-video/page@d770fc334e8feeb3bb4f5183604fda3f.webm",
+      "bytes": 2599221,
+      "sha256": "3938f2739b811caa9592e8d183f1448ed378dc8b059b2795a0bcc45b9c939ca9"
+    },
+    {
+      "path": "raw/demo-rehearsal-demonstrati-9a890-c-and-shared-memory-to-care/video.webm",
+      "bytes": 2829690,
+      "sha256": "20cea3d3c4e85e028955713e362518fcf3d20e1617852eb65eeff1c9713e4845"
+    },
+    {
+      "path": "results.json",
+      "bytes": 37658,
+      "sha256": "3206cfd2ee89a6aca457cf29340cce1a0923258353aac7061327037008738953"
+    }
+  ]
+}

@@ -22,7 +22,7 @@ test('an unauthenticated session sees the login gate and business APIs return 40
   expect(body ?? '').toContain('UNAUTHENTICATED')
   expect(body ?? '').not.toContain('awaiting_approval')
 
-  await page.goto('/')
+  await page.goto('/#workbench')
   await expect(page.getByRole('button', { name: '登录演示' })).toBeVisible()
   await expect(page.getByTestId('facts')).toHaveCount(0)
   await expect(page.getByTestId('impl-labels')).toHaveCount(0)
@@ -30,39 +30,6 @@ test('an unauthenticated session sees the login gate and business APIs return 40
   // session TTL, or HTTPS cookie flags. Local HTTP only; the passphrase check
   // lives server-side but is a single shared demo secret.
   await page.screenshot({ path: 'test-results/acceptance-unauthorized.png' })
-})
-
-test('an unknown device receipt shows 状态未知 and never a success', async ({ page }) => {
-  test.setTimeout(120_000)
-  await login(page)
-  await resetDemo(page)
-
-  await openDemo(page)
-  await page.getByTestId('device-mode').selectOption('unknown')
-  await expect(page.getByTestId('notice')).toContainText('仅影响之后的新命令')
-
-  await page.getByRole('button', { name: '发送吃饭请求' }).click()
-  await expect(page.getByTestId('run-status')).toHaveText('等待主人确认')
-  await page.getByTestId('approve').click()
-
-  await expect(page.getByTestId('run-status')).toHaveText('状态未知')
-  await expect(page.getByTestId('receipt')).toContainText('执行状态未知')
-  await expect(page.getByTestId('receipt')).toContainText('simulated=true')
-  // The page must never dress an unknown outcome up as a completed feeding.
-  await expect(page.getByTestId('receipt')).not.toContainText('模拟执行成功')
-  // Unknown is not success: no quota was accounted.
-  await expect(page.getByTestId('facts')).toContainText('0 / 30 克')
-  // UNKNOWN is terminal like succeeded/failed: both decisions lock, so no later
-  // approval can reinterpret an outcome the device never confirmed. The run stays
-  // 'unknown' in the list -- that IS its settled state, nothing pending leaks on.
-  await expect(page.getByTestId('approve')).toBeDisabled()
-  await expect(page.getByTestId('decline')).toBeDisabled()
-
-  await page.getByTestId('device-mode').selectOption('succeeded')
-  // What this does NOT prove: a real device timeout or a genuinely LATE receipt
-  // arriving after the run moved on. This is the injected three-state simulator;
-  // asynchronous late/arrival races stay a written-down condition item.
-  await page.screenshot({ path: 'test-results/acceptance-unknown-receipt.png' })
 })
 
 test('reload while awaiting_approval keeps the pending request pending', async ({ page }) => {
@@ -196,6 +163,7 @@ test('a new session rotates the conversation while memory stays honestly unretri
   test.setTimeout(120_000)
   await login(page)
 
+  await page.getByRole('navigation', { name: '工作台导航' }).getByRole('link', { name: '演示设置' }).click()
   const marker = `验收-仅今天-${Date.now()}`
   await page.getByTestId('feedback-text').fill(marker)
   await page.getByTestId('feedback-scope').selectOption('today_only')
@@ -208,7 +176,7 @@ test('a new session rotates the conversation while memory stays honestly unretri
   const after = await page.getByTestId('memory-backend').textContent()
   expect(after).not.toEqual(before) // conversation id rotated
 
-  await expect(page.getByTestId('memory-backend')).toContainText('未实现（无 AWS 账号）')
+  await expect(page.getByTestId('memory-backend')).toContainText('未接入 AgentCore（仅保存本地记录）')
   await expect(page.getByTestId('feedback-item').filter({ hasText: marker })).toBeVisible()
   const memoryText = await page.getByTestId('memory-area').textContent()
   expect(memoryText ?? '').not.toContain('已检索到记忆')

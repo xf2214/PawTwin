@@ -1,0 +1,45 @@
+.application-shell { min-height: 100vh; background: #f4f5ef; }
+.as-header { min-height: 76px; padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; gap: 20px; background: #fdfdf8; border-bottom: 1px solid #e3e7da; }
+.as-header a { text-decoration: none; color: #4c6545; }
+.as-brand { display: flex; align-items: center; gap: 9px; font-size: 23px; font-weight: 750; letter-spacing: -.7px; white-space: nowrap; }
+.as-brand svg { width: 29px; height: 29px; }
+.as-brand > span { margin-left: 14px; padding-left: 20px; border-left: 1px solid #dfe4d5; font-size: 11px; font-weight: 400; letter-spacing: .03em; color: #647356; }
+.as-header nav { display: flex; align-items: center; gap: 25px; font-size: 12px; }
+.as-header a:focus-visible { outline: 3px solid #d9a456; outline-offset: 5px; }
+.application-shell .family-app { width: min(1360px, 100%); background: transparent; padding-top: 30px; }
+.application-shell .fa-header { padding-bottom: 18px; border-bottom: 1px solid #e1e6d6; }
+.application-shell .fa-header h1 { font-family: inherit; letter-spacing: -.04em; line-height: 1.4; font-weight: 650; }
+.application-shell .fa-card { border-color: #e3e8d9; background: #fffef9; box-shadow: 0 4px 18px #354c3504; }
+.application-shell .fa-welcome { width: min(530px, calc(100% - 40px)); padding: 58px 0 50px; }
+.application-shell .fa-welcome h1 { font-family: inherit; font-size: 32px; letter-spacing: -.04em; line-height: 1.5; font-weight: 650; }
+.application-shell .fa-welcome > p:not(.fa-eyebrow) { color: #647356; font-size: 13px; }
+.application-shell .fa-welcome .fa-card { margin-top: 27px; padding: 30px; }
+.application-shell .fa-welcome .fa-card > h2 { margin-top: 0; }
+.application-shell .fa-welcome form > button { width: 100%; margin-top: 12px; }
+.application-shell .fa-welcome .fa-secondary { width: 100%; margin-top: 12px; }
+.application-shell .fa-welcome .fa-card > p { font-size: 11px; color: #647356; text-align: center; margin-top: 20px; }
+.application-shell .fa-welcome .fa-card > a { display: block; text-align: center; font-size: 11px; }
+.application-shell--workbench > main { padding-top: 35px; }
+.application-shell--workbench .hero h1 { font-size: clamp(27px, 3vw, 36px); }
+@media (min-width: 1000px) {
+  .application-shell .family-app:has(.fa-nav) { width: calc(100% - 238px); max-width: 1600px; margin-left: 238px; padding: 31px 42px 70px; }
+  .application-shell .fa-nav { top: 107px; left: 24px; bottom: auto; transform: none; width: 198px; padding: 12px; flex-direction: column; border: 0; box-shadow: none; background: transparent; gap: 7px; border-radius: 0; }
+  .application-shell .fa-nav::before { content: '你的宠物世界'; font-size: 10px; color: #647356; letter-spacing: .08em; padding: 8px 14px 15px; }
+  .application-shell .fa-nav button { display: flex; align-items: center; gap: 15px; text-align: left; padding: 15px 18px; font-size: 13px; color: #5f6e51; border-radius: 9px; }
+  .application-shell .fa-nav button[aria-current] { background: #e2e9d7; color: #3f6040; font-weight: 600; }
+  .application-shell .fa-nav button:hover { background: #eaf0e2; }
+  .application-shell .fa-nav span { width: 23px; text-align: center; }
+  .application-shell .fa-nav::after { content: '小小的日常，慢慢的了解。'; font-size: 10px; line-height: 1.8; color: #647356; padding: 30px 13px; border-top: 1px solid #e0e6d5; margin-top: 24px; }
+}
+@media (max-width: 700px) {
+  .as-header { min-height: 66px; padding: 15px 18px; gap: 12px; }
+  .as-brand { font-size: 20px; gap: 6px; }
+  .as-brand svg { width: 25px; }
+  .as-brand > span { display: none; }
+  .as-header nav { gap: 14px; font-size: 10px; }
+  .application-shell .family-app { padding-top: 22px; }
+  .application-shell .fa-welcome { padding-top: 36px; }
+  .application-shell .fa-welcome h1 { font-size: 26px; }
+  .application-shell .fa-welcome .fa-card { padding: 23px; }
+  .application-shell--workbench .hero { gap: 15px; }
+}

@@ -1,0 +1,15 @@
+{
+  "review_date_local": "2026-10-12",
+  "reviewer": "repair_review",
+  "scope": "Independent read-only source hashes, timeline/captions, actual decoded replay frames, script batching and delivery copies",
+  "source_files_checked": 20,
+  "source_hashes_and_sizes": "pass",
+  "scene_coverage": "13 scenes cover 0 to 170 seconds without gaps",
+  "subtitle_checks": "26 cues match SRT and scene bounds",
+  "replays": "8 normal-speed clips totaling 18.4 seconds",
+  "actual_picture_checks": "Draft to pending to arranged; named carer claim/completion; fresh answer after deleted memory",
+  "frame_batching": "8+8+8+8+5 actual decoded frames",
+  "delivery_copy_hash": "98e0d78fbb86d25f38085d5234e1ee476fc742d1a39e0d41bbf88e2a8abbd691",
+  "blocking_findings": [],
+  "complete_human_playback_or_listening": "not_performed"
+}

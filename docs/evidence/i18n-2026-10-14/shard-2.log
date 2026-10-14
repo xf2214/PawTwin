@@ -1,0 +1,41 @@
+
+[WebServer] INFO:     Started server process [160012]
+[WebServer] INFO:     Waiting for application startup.
+
+[WebServer] INFO:     Application startup complete.
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8817 (Press CTRL+C to quit)
+
+
+Running 26 tests using 1 worker, shard 2 of 4
+
+
+(node:133772) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/26] e2e\feedback.spec.ts:11:1 › owner feedback is saved honestly and never shown as retrieved memory
+[2/26] e2e\feedback.spec.ts:41:1 › today-only feedback is labelled as never becoming a permanent preference
+[3/26] e2e\feedback.spec.ts:57:1 › a new session rotates the conversation but keeps login and facts
+[4/26] e2e\i18n.spec.ts:5:1 › starts in English and keeps the chosen language across routes and reloads
+[5/26] e2e\i18n.spec.ts:27:1 › English workbench remains usable and switching language preserves entered data
+[6/26] e2e\i18n.spec.ts:45:1 › English family forms preserve original records and translate local assistant output
+[7/26] e2e\i18n.spec.ts:83:1 › language control stays reachable without horizontal overflow on mobile
+[8/26] e2e\pet-home.spec.ts:14:1 › pet profile, objects, bathing, nails, scoped preferences and photo diary are saved
+[9/26] e2e\pet-home.spec.ts:62:1 › pixel home stays usable at phone and desktop widths without sharing another pet data
+[10/26] e2e\pet-visual-upgrade.spec.ts:16:1 › a saved dog's editable coat, pattern and size appear in its accessible pet avatar after refresh
+[11/26] e2e\pet-visual-upgrade.spec.ts:39:1 › the embedded home has one pet selector and keeps object editing connected to family care
+[12/26] e2e\pet-visual-upgrade.spec.ts:54:1 › switching pets clears unsaved observation and diary fields before writing to the new pet
+[13/26] e2e\pet-visual-upgrade.spec.ts:82:3 › a late profile save preserves another pet's unsaved profile draft
+[14/26] e2e\pet-visual-upgrade.spec.ts:82:3 › a late profile save cannot unlock another pet's pending observation save
+[15/26] e2e\platform.spec.ts:33:1 › visit HTML download is a self-contained escaped pet snapshot and printing uses it
+[16/26] e2e\platform.spec.ts:75:1 › an administrator grants one pet and a separate visitor reads and chats until revocation
+[17/26] e2e\platform.spec.ts:107:1 › card download requires current household permission and cannot replace a frozen changed snapshot
+[18/26] e2e\platform.spec.ts:138:1 › invalid access ignores an owner cookie and never restores family session data
+[19/26] e2e\platform.spec.ts:148:1 › a family guest reads the overview with honest missing state while existing POST permissions stay enforced
+[20/26] e2e\platform.spec.ts:173:1 › manual copy fallback and a mobile visitor preserve real diet and completion meanings
+[21/26] e2e\platform.spec.ts:207:1 › a delayed visitor response cannot reveal the previously authorized pet after switching links
+[22/26] e2e\platform.spec.ts:233:1 › latest real weight outside the selected window retains its date and demo inclusion is explicit
+[23/26] e2e\platform.spec.ts:251:1 › closing a delayed card and switching pets isolates late data and allows an actual retry
+[24/26] e2e\platform.spec.ts:281:3 › visit preview and grant controls stay readable at 320px
+[25/26] e2e\platform.spec.ts:281:3 › visit preview and grant controls stay readable at 390px
+[26/26] e2e\platform.spec.ts:281:3 › visit preview and grant controls stay readable at 1440px
+  26 passed (1.1m)

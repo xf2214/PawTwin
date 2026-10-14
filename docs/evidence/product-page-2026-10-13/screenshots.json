@@ -1,0 +1,37 @@
+[
+  {
+    "file": "product-desktop-full.png",
+    "sha256": "C33E7194706DA1336AED87ED24CF021936E7025E385D70E970018206D59886CF",
+    "bytes": 1592688
+  },
+  {
+    "file": "product-hero-1440.png",
+    "sha256": "0CA1F5213FC604D414823B21B415D67F237B6826DCB3EACA29B09162FB153BC2",
+    "bytes": 553452
+  },
+  {
+    "file": "product-hero-320.png",
+    "sha256": "AAC538DCD24B00CA54C71F523BBADDBFFE49077CB4949EDB029F8A1015173633",
+    "bytes": 174279
+  },
+  {
+    "file": "product-hero-390.png",
+    "sha256": "0A588E8A92D004D0C8D3711B88D278D6CF2AFF5F904CF5159ED324909454F417",
+    "bytes": 197241
+  },
+  {
+    "file": "product-menu-320.png",
+    "sha256": "A2F940C9873527A0C1399DF5D3D7DA86BA28D6F2CE25BA87156EC411A8A2372C",
+    "bytes": 125798
+  },
+  {
+    "file": "product-menu-390.png",
+    "sha256": "0905AB935D5549DC7D65A47472FFF996FBD883029DBF1576A8F563BF42A7F878",
+    "bytes": 139689
+  },
+  {
+    "file": "product-mobile-full.png",
+    "sha256": "8CCF8371569E1F0157A509CA5FD239B87F46CE36289D2C9D54770745AC7A07F5",
+    "bytes": 986596
+  }
+]

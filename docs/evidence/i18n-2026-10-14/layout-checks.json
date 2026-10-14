@@ -1,0 +1,100 @@
+{
+  "checks": [
+    {
+      "route": "/",
+      "width": 1440,
+      "fits": true
+    },
+    {
+      "route": "/#workbench",
+      "width": 1440,
+      "fits": true
+    },
+    {
+      "route": "/#app",
+      "width": 1440,
+      "fits": true
+    },
+    {
+      "route": "/",
+      "width": 320,
+      "fits": true
+    },
+    {
+      "route": "/#app/home",
+      "width": 320,
+      "fits": true
+    },
+    {
+      "route": "/#app/care",
+      "width": 320,
+      "fits": true
+    },
+    {
+      "route": "/#app/growth",
+      "width": 320,
+      "fits": true
+    },
+    {
+      "route": "/#app/assistant",
+      "width": 320,
+      "fits": true
+    },
+    {
+      "route": "/#app/family",
+      "width": 320,
+      "fits": true
+    },
+    {
+      "route": "/#workbench",
+      "width": 320,
+      "fits": true
+    },
+    {
+      "route": "/#alexa",
+      "width": 320,
+      "fits": true
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "fits": true
+    },
+    {
+      "route": "/#app/home",
+      "width": 390,
+      "fits": true
+    },
+    {
+      "route": "/#app/care",
+      "width": 390,
+      "fits": true
+    },
+    {
+      "route": "/#app/growth",
+      "width": 390,
+      "fits": true
+    },
+    {
+      "route": "/#app/assistant",
+      "width": 390,
+      "fits": true
+    },
+    {
+      "route": "/#app/family",
+      "width": 390,
+      "fits": true
+    },
+    {
+      "route": "/#workbench",
+      "width": 390,
+      "fits": true
+    },
+    {
+      "route": "/#alexa",
+      "width": 390,
+      "fits": true
+    }
+  ],
+  "failures": []
+}

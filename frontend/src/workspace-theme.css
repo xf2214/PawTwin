@@ -1,0 +1,57 @@
+.application-shell {
+  --ws-primary: #0877e8;
+  --ws-primary-hover: #0068d3;
+  --ws-ink: #292e2b;
+  --ws-muted: #71766f;
+  --ws-line: #e5e8e1;
+  --ws-soft: #edf1e7;
+  --ws-surface: #fff;
+  --ws-radius: 18px;
+  color: var(--ws-ink);
+  background: #f8f9f5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei UI', 'Microsoft YaHei', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.application-shell :is(h1,h2,h3) { font-family: inherit; color: var(--ws-ink); letter-spacing: -.025em; line-height: 1.4; }
+.application-shell h1 { font-size: clamp(25px, 2.6vw, 36px); font-weight: 650; }
+.application-shell h2 { font-size: 21px; font-weight: 650; }
+.application-shell h3 { font-size: 17px; font-weight: 600; }
+.application-shell .as-header { min-height: 72px; padding: 15px 30px; background: #fff; border-color: var(--ws-line); position: sticky; top: 0; z-index: 60; }
+.application-shell .as-brand { color: #2d3630; font-size: 22px; font-weight: 700; letter-spacing: -.035em; }
+.application-shell .as-brand > span { color: var(--ws-muted); border-color: var(--ws-line); font-size: 12px; }
+.application-shell .as-header nav { font-size: 12px; gap: 22px; }
+.application-shell .as-header nav a { padding: 7px 0; color: #596357; }
+.application-shell .as-header nav a:last-child { color: var(--ws-primary); }
+.application-shell .family-app { --fa-green: var(--ws-primary); color: var(--ws-ink); background: transparent; font-family: inherit; }
+.application-shell :is(.fa-card,.ph-card,.panel) { background: var(--ws-surface); border-color: var(--ws-line); border-radius: var(--ws-radius); box-shadow: 0 4px 20px #303b3003; }
+.application-shell :is(.family-app,.pet-home) button:not(.fa-secondary):not(.ph-secondary):not([aria-pressed]):not(.fa-nav button):not(.ph-nav button):not(.ph-object) { background-color: var(--ws-primary); }
+.application-shell :is(.family-app,.pet-home) button:not(:disabled):hover { filter: brightness(.96); }
+.application-shell :is(.fa-secondary,.ph-secondary) { background: var(--ws-soft); color: #51624e; }
+.application-shell :is(input,textarea,select) { font: inherit; background: #fff; border-color: #d9dfd4; border-radius: 10px; }
+.application-shell :is(input,textarea,select):focus-visible { outline: 2px solid #a7cfff; outline-offset: 1px; border-color: var(--ws-primary); }
+.application-shell :is(button,a,summary):focus-visible { outline: 3px solid #87bfff; outline-offset: 3px; }
+.application-shell :is(.fa-eyebrow,.eyebrow,.section-label) { color: #7a8570; font-size: 10px; font-weight: 600; letter-spacing: .1em; }
+.application-shell :is(.fa-subtle,.fa-boundary,.muted) { color: var(--ws-muted); }
+.application-shell .fa-nav button { min-height: 48px; font-size: 13px; }
+.application-shell .fa-nav button[aria-current] { color: #37523d; background: #eaf0e3; }
+.application-shell .ws-icon { display: inline-block; width: 21px; height: 21px; flex: 0 0 21px; vertical-align: middle; }
+.application-shell .fa-nav .ws-icon { width: 20px; height: 20px; }
+.application-shell .fa-welcome .fa-card { background: #fff; }
+@media (min-width: 1000px) {
+  .application-shell .fa-nav { top: 98px; }
+  .application-shell .fa-nav::before { content: '家庭空间'; letter-spacing: .04em; font-size: 11px; }
+  .application-shell .family-app:has(.fa-nav) { padding-top: 28px; }
+}
+@media (max-width: 700px) {
+  .application-shell .as-header { padding: 12px 18px; min-height: 64px; flex-wrap: wrap; gap: 6px 16px; }
+  .application-shell .as-brand { font-size: 20px; }
+  .application-shell .as-header nav { gap: 15px; font-size: 11px; flex-wrap: wrap; }
+  .application-shell .as-header nav a { padding: 3px 0; }
+  .application-shell .family-app { padding-left: 18px; padding-right: 18px; }
+  .application-shell :is(.fa-card,.ph-card,.panel) { border-radius: 16px; }
+  .application-shell .family-app button { min-height: 42px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .application-shell *, .application-shell *::before, .application-shell *::after { scroll-behavior: auto !important; animation-duration: .001ms !important; transition-duration: .001ms !important; animation-iteration-count: 1 !important; }
+}

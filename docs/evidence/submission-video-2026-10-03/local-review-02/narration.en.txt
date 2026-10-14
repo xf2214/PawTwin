@@ -1,0 +1,32 @@
+One pet. A shared daily story.
+Paw Twin gives family members a shared pet record, helping them coordinate everyday care. This local review follows Mochi through two independent accounts, using fictional demonstration data.
+
+Start with records people can inspect.
+The owner records sample weights of one point two and one point three five kilograms, seven days apart. The weekly report calculates a hundred fifty gram increase, or twelve point five percent.
+
+Show the basis. Keep missing data visible.
+The report exposes its time window, record identifiers, and version, so people can inspect the calculation. Missing intake remains unrecorded, coverage is incomplete, and these sample measurements provide no medical diagnosis.
+
+An owner confirms the shared memory.
+The owner saves a preference candidate: Mochi likes a feather toy and rests after meals. Only explicit confirmation shares this database memory, while stored text never becomes an instruction.
+
+A second account sees the same context.
+After a separate login, the carer asks what Mochi likes through the labelled Alexa web simulator. The response uses confirmed context and local rules; no live Alexa or model call occurs.
+
+Turn a suggestion into manual care.
+The owner writes a proposal to rest after meals, then play with the feather toy. Explicit owner confirmation creates a shared manual care task, with no feeder execution.
+
+The carer claims and completes the task.
+The carer claims the task and records completion through the second account. This manual record proves an account action, without establishing physical device activity or real world care.
+
+Keep the completing person visible.
+Household activity visibly attributes the claim and completion events to the carer. The captured evidence verifies the actual completing account identifier, keeping labels separate from permissions.
+
+Close the loop with the daily report.
+The daily report now counts one completed manual care task, with none pending or overdue. Intake remains unrecorded and daily weight change remains unknown, preserving missing outcomes.
+
+Delete a memory. Check the next answer.
+After the owner deletes the preference, the carer asks again in the App. The next answer has no confirmed preference and an empty source list, showing deletion took effect.
+
+A verified local loop. Cloud work remains.
+This is a local rules review, with database memory, manual care, and simulated Alexa and hardware. AWS validation remains pending account verification, so this demo establishes neither live model behavior nor cloud readiness.

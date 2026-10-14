@@ -1,0 +1,77 @@
+
+[WebServer] INFO:     Started server process [148796]
+[WebServer] INFO:     Waiting for application startup.
+
+[WebServer] INFO:     Application startup complete.
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8831 (Press CTRL+C to quit)
+
+
+Running 29 tests using 1 worker
+
+
+(node:130516) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/29] e2e\platform.spec.ts:33:1 › visit HTML download is a self-contained escaped pet snapshot and printing uses it
+[2/29] e2e\platform.spec.ts:75:1 › an administrator grants one pet and a separate visitor reads and chats until revocation
+[3/29] e2e\platform.spec.ts:106:1 › card download requires current household permission and cannot replace a frozen changed snapshot
+[4/29] e2e\platform.spec.ts:136:1 › invalid access ignores an owner cookie and never restores family session data
+[5/29] e2e\platform.spec.ts:146:1 › a family guest reads the overview with honest missing state while existing POST permissions stay enforced
+[6/29] e2e\platform.spec.ts:170:1 › manual copy fallback and a mobile visitor preserve real diet and completion meanings
+[7/29] e2e\platform.spec.ts:203:1 › a delayed visitor response cannot reveal the previously authorized pet after switching links
+[8/29] e2e\platform.spec.ts:228:1 › latest real weight outside the selected window retains its date and demo inclusion is explicit
+[9/29] e2e\platform.spec.ts:246:1 › closing a delayed card and switching pets isolates late data and allows an actual retry
+[10/29] e2e\platform.spec.ts:276:3 › visit preview and grant controls stay readable at 320px
+[11/29] e2e\platform.spec.ts:276:3 › visit preview and grant controls stay readable at 390px
+[12/29] e2e\platform.spec.ts:276:3 › visit preview and grant controls stay readable at 1440px
+[13/29] e2e\usability.spec.ts:27:1 › growth deep link survives signup, refresh and browser navigation
+[14/29] e2e\usability.spec.ts:38:1 › editing only a recurring task title preserves its future time and interval
+[15/29] e2e\usability.spec.ts:54:1 › repeating care completion stays visible in completed history and keeps its next plan
+[16/29] e2e\usability.spec.ts:72:1 › daily queue uses household day and keeps completed care out of active filters
+[17/29] e2e\usability.spec.ts:107:1 › a failed measurement read preserves reports and retries the failed resource
+[18/29] e2e\usability.spec.ts:127:1 › a late growth read cannot replace the selected pet data
+[19/29] e2e\usability.spec.ts:149:1 › constant and dense real measurements remain accessible and range-filtered
+[20/29] e2e\usability.spec.ts:168:1 › equivalent timestamp offsets do not fabricate a zero-day weight change
+[21/29] e2e\usability.spec.ts:186:3 › care started from a toy preserves the intended play type
+[22/29] e2e\usability.spec.ts:186:3 › care started from a water preserves the intended water type
+[23/29] e2e\usability.spec.ts:186:3 › care started from a nest preserves the intended clean type
+[24/29] e2e\usability.spec.ts:203:1 › a forbidden child read removes previously shown household data
+[25/29] e2e\usability.spec.ts:216:1 › the observation shortcut focuses its real field after a delayed home read
+[26/29] e2e\usability.spec.ts:233:1 › changing care type preserves the chosen time, repetition and assignee
+[27/29] e2e\usability.spec.ts:256:3 › daily application at 320px stays readable and keyboard accessible
+[28/29] e2e\usability.spec.ts:256:3 › daily application at 390px stays readable and keyboard accessible
+[29/29] e2e\usability.spec.ts:256:3 › daily application at 1440px stays readable and keyboard accessible
+  1) e2e\usability.spec.ts:256:3 › daily application at 1440px stays readable and keyboard accessible 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.fill: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByLabel('家庭名称')
+
+
+      10 |   await page.getByLabel("昵称").fill("日常主人");
+      11 |   await page.getByRole("button", { name: "注册并登录", exact: true }).click();
+    > 12 |   await page.getByLabel("家庭名称").fill("我们的日常");
+         |                                 ^
+      13 |   await page.getByLabel("家庭时区", { exact: true }).fill(timezone);
+      14 |   await page.getByRole("button", { name: "创建家庭", exact: true }).click();
+      15 |   await expect(page.getByRole("navigation", { name: "App 主导航" })).toBeVisible();
+        at start (C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\usability.spec.ts:12:33)
+        at C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\usability.spec.ts:258:5
+
+    Error Context: ..\docs\evidence\platform-2026-10-12\final-features-results\usability-daily-applicatio-26d9c-ble-and-keyboard-accessible\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\docs\evidence\platform-2026-10-12\final-features-results\usability-daily-applicatio-26d9c-ble-and-keyboard-accessible\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\docs\evidence\platform-2026-10-12\final-features-results\usability-daily-applicatio-26d9c-ble-and-keyboard-accessible\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  1 failed
+    e2e\usability.spec.ts:256:3 › daily application at 1440px stays readable and keyboard accessible 
+  28 passed (1.6m)

@@ -1,0 +1,53 @@
+
+
+[WebServer] INFO:     Started server process [130964]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8822 (Press CTRL+C to quit)
+
+
+Running 1 test using 1 worker
+
+(node:138784) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/1] frontend\e2e\usability.spec.ts:168:1 › equivalent timestamp offsets do not fabricate a zero-day weight change
+  1) frontend\e2e\usability.spec.ts:168:1 › equivalent timestamp offsets do not fabricate a zero-day weight change 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('region', { name: '成长概览' })
+    Expected substring: "资料不足"
+    Received string:    "GROWING, ONE RECORD AT A TIME最近实测体重2 kg2026/10/1 12:00 · 主人实测与上一次实测比较+1000 g100% · 实际跨度 0 天仅比较实际保存的测量；体重变化不代表健康诊断。"
+    Timeout: 20000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('region', { name: '成长概览' }) with timeout 20000ms
+      - waiting for getByRole('region', { name: '成长概览' })
+        43 × locator resolved to <section aria-label="成长概览" class="fa-growth-overview">…</section>
+           - unexpected value "GROWING, ONE RECORD AT A TIME最近实测体重2 kg2026/10/1 12:00 · 主人实测与上一次实测比较+1000 g100% · 实际跨度 0 天仅比较实际保存的测量；体重变化不代表健康诊断。"
+
+
+      175 |   await page.getByRole("button", { name: "成长", exact: true }).click();
+      176 |   const overview = page.getByRole("region", { name: "成长概览" });
+    > 177 |   await expect(overview).toContainText("资料不足");
+          |                          ^
+      178 |   await expect(overview).not.toContainText("实际跨度 0 天");
+      179 |   await mutate(page, "/api/family/pets/mochi/measurements", { kind: "weight", unit: "kg", source: "owner_measured", value: 1.5, measured_at: "2026-09-30T04:00:00Z" });
+      180 |   await page.getByRole("button", { name: "同步最新记录" }).click();
+        at C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\usability.spec.ts:177:26
+
+    Error Context: docs\evidence\usability-2026-10-12\app-offset-red-results\usability-equivalent-times-2567c-te-a-zero-day-weight-change\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    docs\evidence\usability-2026-10-12\app-offset-red-results\usability-equivalent-times-2567c-te-a-zero-day-weight-change\trace.zip
+    Usage:
+
+        npx playwright show-trace docs\evidence\usability-2026-10-12\app-offset-red-results\usability-equivalent-times-2567c-te-a-zero-day-weight-change\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  1 failed
+    frontend\e2e\usability.spec.ts:168:1 › equivalent timestamp offsets do not fabricate a zero-day weight change 

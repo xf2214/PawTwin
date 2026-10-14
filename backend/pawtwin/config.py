@@ -1,3 +1,4 @@
+from decimal import Decimal
 from typing import Literal
 
 from pydantic import Field, model_validator
@@ -44,6 +45,16 @@ class Settings(BaseSettings):
     )
     photo_recognition_enabled: bool = Field(
         default=False, validation_alias="PAWTWIN_PHOTO_RECOGNITION_ENABLED"
+    )
+    # Family App and Alexa web share this backend, independently of legacy Strands.
+    family_model_backend: Literal["local_rules", "bedrock"] = Field(
+        default="local_rules", validation_alias="PAWTWIN_FAMILY_MODEL_BACKEND"
+    )
+    family_model_budget_usd: Decimal = Field(
+        default=Decimal("1"), gt=0, le=10, validation_alias="PAWTWIN_FAMILY_MODEL_BUDGET_USD"
+    )
+    family_model_max_calls: int = Field(
+        default=50, gt=0, validation_alias="PAWTWIN_FAMILY_MODEL_MAX_CALLS"
     )
 
     # --- Day-2: analyzer backend, worker and reliability budgets --------------
@@ -160,6 +171,22 @@ class Settings(BaseSettings):
         return "agentcore" if self.mode == "aws" else "not_implemented"
 
     @model_validator(mode="after")
+    def require_family_model_target(self) -> "Settings":
+        # One verified price/model/region tuple for the initial integration.
+        # Nova Lite has a 300K context; reserve the entire window before a call.
+        enabled = self.family_model_backend == "bedrock" or self.photo_recognition_enabled
+        if enabled and (not self.database_path or self.database_path == ":memory:"):
+            raise ValueError("Family billable services require a persistent PAWTWIN_DB_PATH")
+        if enabled and (
+            self.aws_region != "us-east-1" or self.bedrock_model_id != "amazon.nova-lite-v1:0"
+        ):
+            raise ValueError(
+                "Family Bedrock requires AWS_REGION=us-east-1 and "
+                "BEDROCK_MODEL_ID=amazon.nova-lite-v1:0 (verified price/model tuple)"
+            )
+        return self
+
+    @model_validator(mode="after")
     def require_aws_configuration(self) -> "Settings":
         if self.mode != "aws":
             # A real model backend always needs its target model and region, even
@@ -241,9 +268,10 @@ class Settings(BaseSettings):
         can never honestly assert a cloud connection.
 
         Day-5 ruling 8 moved the REAL flag to ``app.state.aws_connected``, which
-        ``create_app`` sets from the read-only startup probe (DynamoDB GetItem +
-        AgentCore GetMemory, with the model backend required to be ``bedrock``). The
-        API and bootstrap read that, not this. Keeping this False preserves the
+        API and bootstrap read instead of this. Read-only startup probes prove
+        only component access; the runtime flag remains False until inference,
+        extraction and family cloud storage have end-to-end evidence. Keeping this
+        False preserves the
         invariant that configuration alone is never mistaken for verified
         connectivity (AGENTS.md L18); the UI still shows each label separately.
         """

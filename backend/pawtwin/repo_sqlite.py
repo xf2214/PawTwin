@@ -36,6 +36,7 @@ from pawtwin.models import (
     Receipt,
     RunState,
 )
+from pawtwin.policy import Facts, evaluate_policy
 from pawtwin.repository import (
     CLAIMABLE_STATES,
     UNSET,
@@ -71,9 +72,7 @@ _V2_RUN_COLUMNS = (
     "telemetry_json TEXT",
     "model_calls_used INTEGER NOT NULL DEFAULT 0",
 )
-_V4_FEEDBACK_COLUMNS = (
-    "agentcore_session_id TEXT",
-)
+_V4_FEEDBACK_COLUMNS = ("agentcore_session_id TEXT",)
 
 _SCHEMA = """
 CREATE TABLE IF NOT EXISTS runs (
@@ -118,6 +117,13 @@ CREATE TABLE IF NOT EXISTS receipts (
     created_at TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_receipts_run ON receipts(run_id);
+CREATE TABLE IF NOT EXISTS feeding_reservations (
+    owner_id TEXT PRIMARY KEY,
+    run_id TEXT NOT NULL UNIQUE,
+    command_id TEXT NOT NULL,
+    grams INTEGER NOT NULL,
+    created_at TEXT NOT NULL
+);
 CREATE TABLE IF NOT EXISTS feedback (
     feedback_id TEXT PRIMARY KEY,
     owner_id TEXT NOT NULL,
@@ -318,12 +324,12 @@ class SqliteRepository:
             ).fetchone()
         return int(row["n"])
 
-    def save_run(self, record: RunRecord) -> None:
+    def save_run(self, record: RunRecord, *, expected_approval_version: int | None = None) -> bool:
         # Lease fields and attempt_count are deliberately NOT written here: they
         # belong to claim_run/renew_lease/release_run, so saving an analyzed
         # record can never clear the lease this worker just acquired.
         with self._lock, self._conn:
-            self._conn.execute(
+            cursor = self._conn.execute(
                 """
                 UPDATE runs SET
                     state = ?, facts_version = ?, proposal_json = ?,
@@ -331,7 +337,12 @@ class SqliteRepository:
                     expires_at = ?, policy_reason = ?, failure_reason = ?,
                     evidence_json = ?, telemetry_json = ?, model_calls_used = ?
                 WHERE run_id = ?
-                """,
+                """
+                + (
+                    " AND state = ? AND proposal_version = ?"
+                    if expected_approval_version is not None
+                    else ""
+                ),
                 (
                     record.state.value,
                     record.facts_version,
@@ -346,8 +357,14 @@ class SqliteRepository:
                     record.telemetry.model_dump_json() if record.telemetry else None,
                     record.model_calls_used,
                     str(record.run_id),
+                )
+                + (
+                    (RunState.AWAITING_APPROVAL.value, expected_approval_version)
+                    if expected_approval_version is not None
+                    else ()
                 ),
             )
+            return cursor.rowcount == 1
 
     def claim_run(
         self,
@@ -435,9 +452,7 @@ class SqliteRepository:
         )
 
     def _fetch_facts_row(self, owner_id: str) -> sqlite3.Row | None:
-        return self._conn.execute(
-            "SELECT * FROM facts WHERE owner_id = ?", (owner_id,)
-        ).fetchone()
+        return self._conn.execute("SELECT * FROM facts WHERE owner_id = ?", (owner_id,)).fetchone()
 
     def update_facts(
         self,
@@ -476,6 +491,78 @@ class SqliteRepository:
 
     # -- receipts -----------------------------------------------------------
 
+    def reserve_feeding(self, record: RunRecord) -> bool:
+        from pawtwin.models import make_command_id
+
+        # BEGIN IMMEDIATE protects both the policy read and the writes across
+        # independent connections/processes. The per-connection RLock is not the
+        # cross-process guard. This commits before calling the actuator.
+        with self._lock, self._conn:
+            self._conn.execute("BEGIN IMMEDIATE")
+            current = self.get_run(record.run_id)
+            if (
+                current is None
+                or current.owner_id != record.owner_id
+                or current.state != RunState.AWAITING_APPROVAL
+                or current.proposal_version != record.proposal_version
+                or current.action_digest != record.action_digest
+                or current.proposal is None
+                or current.proposal.action.kind != "dispense_food"
+                or current.expires_at is None
+                or current.expires_at <= _now()
+                or current.facts_version != record.facts_version
+            ):
+                return False
+            snapshot = self.get_facts(record.owner_id)
+            if snapshot.facts_version != record.facts_version:
+                return False
+            if not evaluate_policy(
+                current.proposal.action,
+                Facts(
+                    last_fed_minutes_ago=snapshot.last_fed_minutes_ago,
+                    daily_dispensed_grams=snapshot.daily_dispensed_grams,
+                    daily_limit_grams=snapshot.daily_limit_grams,
+                    minimum_interval_minutes=snapshot.minimum_interval_minutes,
+                    single_serving_grams=snapshot.single_serving_grams,
+                ),
+            ).allowed:
+                return False
+            if self._conn.execute(
+                "SELECT 1 FROM feeding_reservations WHERE owner_id = ?",
+                (record.owner_id,),
+            ).fetchone():
+                return False
+            # Old files may contain unresolved runs created before reservations
+            # existed. Never treat their unknown execution outcome as free quota.
+            unresolved = self._conn.execute(
+                "SELECT proposal_json FROM runs WHERE owner_id = ? AND state IN (?, ?)",
+                (record.owner_id, RunState.EXECUTING.value, RunState.UNKNOWN.value),
+            ).fetchall()
+            if any(
+                row["proposal_json"]
+                and Proposal.model_validate_json(row["proposal_json"]).action.kind
+                == "dispense_food"
+                for row in unresolved
+            ):
+                return False
+            command_id = make_command_id(current.run_id, current.proposal_version)
+            self._conn.execute(
+                "INSERT INTO feeding_reservations VALUES (?, ?, ?, ?, ?)",
+                (
+                    record.owner_id,
+                    str(record.run_id),
+                    str(command_id),
+                    current.proposal.action.grams,
+                    _dt(_now()),
+                ),
+            )
+            moved = self.transition_run(
+                record.run_id, RunState.AWAITING_APPROVAL, RunState.EXECUTING
+            )
+            if not moved:
+                self._conn.rollback()
+            return moved
+
     def record_receipt_once(
         self,
         *,
@@ -493,6 +580,17 @@ class SqliteRepository:
                 (str(command_id), str(run_id), receipt.model_dump_json(), _dt(_now())),
             )
             inserted = cursor.rowcount == 1
+            if inserted:
+                terminal = {
+                    "succeeded": RunState.SUCCEEDED,
+                    "failed": RunState.FAILED,
+                    "unknown": RunState.UNKNOWN,
+                }[receipt.status]
+                self._conn.execute(
+                    "UPDATE runs SET state = ?, receipt_json = ?, expires_at = NULL "
+                    "WHERE run_id = ?",
+                    (terminal.value, receipt.model_dump_json(), str(run_id)),
+                )
             if inserted and receipt.status == "succeeded" and dispense_grams > 0:
                 owner_row = self._conn.execute(
                     "SELECT owner_id FROM runs WHERE run_id = ?", (str(run_id),)
@@ -508,6 +606,11 @@ class SqliteRepository:
                         """,
                         (dispense_grams, owner_row["owner_id"]),
                     )
+            if inserted and receipt.status in {"succeeded", "failed"}:
+                self._conn.execute(
+                    "DELETE FROM feeding_reservations WHERE run_id = ? AND command_id = ?",
+                    (str(run_id), str(command_id)),
+                )
         return inserted
 
     def count_receipts(self, run_id: UUID) -> int:
@@ -610,9 +713,7 @@ class SqliteRepository:
         # L18). The literal lives in models.py (MEMORY_AVAILABLE), not here, so the
         # anti-forgery static guard's whitelist stays unchanged (ruling 12).
         if memory_status == MEMORY_AVAILABLE and not memory_record_ids:
-            raise ValueError(
-                "set_feedback_status(available) requires memory_record_ids"
-            )
+            raise ValueError("set_feedback_status(available) requires memory_record_ids")
         ids_json = json.dumps(memory_record_ids) if memory_record_ids is not None else None
         with self._lock, self._conn:
             cursor = self._conn.execute(

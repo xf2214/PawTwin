@@ -5,13 +5,17 @@ from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI, Response, status
+from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 
-from pawtwin import api, home_api
+from pawtwin import api, care_access, family_api, home_api
 from pawtwin.agent import AnalyzerProposer, build_analyzer
 from pawtwin.auth import AuthService, LoginRateLimiter
 from pawtwin.config import Settings
 from pawtwin.device_sim import DeviceSimulator
+from pawtwin.family_assistant import BedrockConverseService, FamilyAssistant, ModelLedger
+from pawtwin.family_store import FamilyStore, LegacyHomeView
+from pawtwin.family_worker import FamilyReportWorker
 from pawtwin.home_store import HomeStore
 from pawtwin.memory import MemoryService, build_memory
 from pawtwin.repo_sqlite import DEMO_OWNER_ID, SqliteRepository
@@ -54,6 +58,9 @@ def _build_proposer(
 
 @asynccontextmanager
 async def _lifespan(app: FastAPI) -> AsyncIterator[None]:
+    reporter = getattr(app.state, "family_reporter", None)
+    if reporter is not None:
+        reporter.start()
     worker: AnalysisWorker | None = getattr(app.state, "worker", None)
     if worker is not None:
         worker.start()
@@ -63,6 +70,8 @@ async def _lifespan(app: FastAPI) -> AsyncIterator[None]:
     try:
         yield
     finally:
+        if reporter is not None:
+            reporter.stop()
         # Order matters: stop the background threads BEFORE closing the repository,
         # otherwise a final pass would touch a closed database. Then release the
         # deadline pool without waiting, so a runaway model call can never block exit.
@@ -79,6 +88,12 @@ async def _lifespan(app: FastAPI) -> AsyncIterator[None]:
         home_store = getattr(app.state, "home_store", None)
         if home_store is not None:
             home_store.close()
+        family_store = getattr(app.state, "family_store", None)
+        if family_store is not None:
+            family_store.close()
+        source = getattr(app.state, "legacy_source_store", None)
+        if source is not None:
+            source.close()
 
 
 def create_app(
@@ -114,8 +129,10 @@ def create_app(
         # stand-in (AGENTS.md L22).
         repository.probe()  # type: ignore[attr-defined]  # DynamoRepository in aws mode
         memory.probe()  # type: ignore[attr-defined]  # AgentCoreMemory in aws mode
-        # Storage + memory really probed OK and the model backend is the real Bedrock.
-        aws_connected = resolved_settings.effective_model_backend == "bedrock"
+        # GetItem/GetMemory prove component access only. There is no Bedrock
+        # inference proof, correlated memory-extraction completion, or family cloud
+        # store yet. Do not upgrade the whole product based on configuration.
+        aws_connected = False
     else:
         repository = SqliteRepository(
             resolved_settings.database_path or ":memory:",
@@ -142,6 +159,23 @@ def create_app(
         HomeStore(resolved_settings.database_path or ":memory:")
         if resolved_settings.mode == "local" else None
     )
+    path = resolved_settings.database_path
+    app.state.family_store = (
+        FamilyStore(path + ".family.db" if path and path != ":memory:" else ":memory:")
+        if resolved_settings.mode == "local" else None
+    )
+    app.state.family_reporter = (
+        FamilyReportWorker(app.state.family_store) if app.state.family_store else None
+    )
+    app.state.bedrock_client = None  # SDK client is lazy; local mode never imports it.
+    app.state.family_model_ledger = ModelLedger(app.state.family_store, resolved_settings)
+    app.state.family_model_service = BedrockConverseService(app, app.state.family_model_ledger)
+    app.state.family_assistant = FamilyAssistant(resolved_settings, app.state.family_model_service)
+    app.state.care_access_limiter = care_access.CareAccessLimiter()
+    app.state.legacy_source_store = app.state.home_store
+    if app.state.family_store is not None:
+        app.state.family_store.device_source = app.state.legacy_source_store
+        app.state.home_store = LegacyHomeView(app.state.family_store, app.state.legacy_source_store)
     app.state.aws_connected = aws_connected
     app.state.storage_label = storage_label
     app.state.device = device
@@ -159,6 +193,7 @@ def create_app(
         max_failures=resolved_settings.login_max_failures,
         backoff_seconds=resolved_settings.login_backoff_seconds,
     )
+    app.state.registration_limiter = LoginRateLimiter(max_failures=30, backoff_seconds=60)
     app.state.workflow = workflow
     app.state.guard = guard
     app.state.worker = (
@@ -177,17 +212,32 @@ def create_app(
         else None
     )
 
+    @app.middleware("http")
+    async def private_care_responses(request, call_next):
+        path = request.url.path
+        private = path.startswith("/api/care-access/") or (
+            path.startswith("/api/family/pets/")
+            and ("/care-access" in path or path.endswith("/visit-summary"))
+        )
+        try:
+            response = await call_next(request)
+        except Exception:
+            if not private:
+                raise
+            response = JSONResponse(status_code=500, content={"detail": "Care data unavailable"})
+        if private:
+            response.headers["Cache-Control"] = "no-store"
+            response.headers["Referrer-Policy"] = "no-referrer"
+        return response
+
     @app.get("/healthz")
     def healthz() -> dict[str, str]:
         return {"status": "live"}
 
     @app.get("/readyz", status_code=status.HTTP_503_SERVICE_UNAVAILABLE)
     def readyz(response: Response) -> dict[str, Any]:
-        # Day-5 ruling 9 (a written revision of Day-4 ruling 7): once the storage and
-        # memory probes pass and the model backend is the real Bedrock, a perpetual
-        # 503 would UNDERSTATE readiness just as much as overstating it. The LB /
-        # target group and the container HEALTHCHECK still use /healthz, never
-        # /readyz -- that is unchanged. ``aws_connected`` is the real probe result.
+        # Container liveness uses /healthz. Product readiness requires verified
+        # inference, extraction and family storage, beyond read-only startup probes.
         if app.state.aws_connected:
             response.status_code = status.HTTP_200_OK
             return {
@@ -198,6 +248,21 @@ def create_app(
                 "storage": f"{app.state.storage_label}_connected",
                 "memory": resolved_settings.effective_memory_backend,
                 "cloud": "verified",
+            }
+        if resolved_settings.mode == "aws":
+            return {
+                "status": "degraded",
+                "reason": "cloud_end_to_end_not_verified",
+                "business": "cloud_components_only",
+                "model": resolved_settings.effective_model_backend,
+                "storage": f"{app.state.storage_label}_connected",
+                "memory": resolved_settings.effective_memory_backend,
+                "cloud": "not_verified",
+                "verification": {
+                    "model_inference": "not_verified",
+                    "memory_extraction": "unsupported",
+                    "family": "not_connected",
+                },
             }
         # Local / unverified: component-honest degraded. The local business loop IS
         # ready; what is missing is any verified cloud adapter.
@@ -215,7 +280,11 @@ def create_app(
     def bootstrap() -> dict[str, Any]:
         return {
             "project": "PawTwin",
-            "stage": "aws_business" if app.state.aws_connected else "local_business",
+            "stage": (
+                "aws_business" if app.state.aws_connected
+                else "aws_components" if resolved_settings.mode == "aws"
+                else "local_business"
+            ),
             "mode": resolved_settings.mode,
             "aws_connected": app.state.aws_connected,
             "analyzer": resolved_settings.effective_model_backend,
@@ -235,6 +304,8 @@ def create_app(
     # unknown /api/* path still returns a JSON 404 instead of the SPA HTML.
     app.include_router(api.router)
     app.include_router(home_api.router)
+    app.include_router(family_api.router)
+    app.include_router(care_access.router)
 
     static_root = (frontend_dist or _default_frontend_dist()).resolve()
     if (static_root / "index.html").is_file():

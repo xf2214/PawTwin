@@ -1,0 +1,85 @@
+
+[WebServer] INFO:     Started server process [37336]
+[WebServer] INFO:     Waiting for application startup.
+
+[WebServer] INFO:     Application startup complete.
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8815 (Press CTRL+C to quit)
+
+
+Running 27 tests using 1 worker
+
+(node:31900) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/27] frontend\e2e\acceptance.spec.ts:11:1 › an unauthenticated session sees the login gate and business APIs return 401 JSON
+[2/27] frontend\e2e\acceptance.spec.ts:35:1 › an unknown device receipt shows 状态未知 and never a success
+[3/27] frontend\e2e\acceptance.spec.ts:68:1 › reload while awaiting_approval keeps the pending request pending
+[4/27] frontend\e2e\acceptance.spec.ts:96:1 › desktop 1440px and narrow 390px show no overflow and states are not color-only
+[5/27] frontend\e2e\acceptance.spec.ts:167:1 › raising the daily dispensed amount shifts the proposed grams
+[6/27] frontend\e2e\acceptance.spec.ts:193:1 › a new session rotates the conversation while memory stays honestly unretrieved
+[7/27] frontend\e2e\approve.spec.ts:7:1 › approve executes once, shows real evidence and survives reload
+[8/27] frontend\e2e\approve.spec.ts:57:1 › an injected device failure never accounts quota
+[9/27] frontend\e2e\approve.spec.ts:81:1 › an unknown fact reaches needs-info and is never shown as zero
+[10/27] frontend\e2e\approve.spec.ts:99:1 › changing facts invalidates a pending approval with a readable notice
+[11/27] frontend\e2e\decline.spec.ts:5:1 › decline never becomes simulated execution and survives reload
+[12/27] frontend\e2e\demo-rehearsal.spec.ts:28:1 › demonstration rehearses two family accounts, real report arithmetic and shared memory to care
+[13/27] frontend\e2e\family.spec.ts:19:1 › independent account, shared navigation and refresh session
+[14/27] frontend\e2e\family.spec.ts:39:1 › real weight data, weekly report and correction
+[15/27] frontend\e2e\family.spec.ts:54:1 › memory confirmation shared with Alexa simulation and deletion
+[16/27] frontend\e2e\family.spec.ts:75:1 › care proposal needs explicit confirmation and creates manual task
+[17/27] frontend\e2e\family.spec.ts:89:3 › App at 390px preserves room and has no horizontal overflow
+[18/27] frontend\e2e\family.spec.ts:89:3 › App at 1440px preserves room and has no horizontal overflow
+[19/27] frontend\e2e\family.spec.ts:112:1 › new pet selection is immediately shared with growth and delayed replies stay scoped
+  1) frontend\e2e\family.spec.ts:112:1 › new pet selection is immediately shared with growth and delayed replies stay scoped 
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator: locator('.fa-petbar').getByLabel('当前宠物')
+    Expected pattern: /.{20}/
+    Received string:  "mochi"
+    Timeout: 1000ms
+
+    Call log:
+      - Expect "toHaveValue" locator('.fa-petbar').getByLabel('当前宠物') with timeout 1000ms
+      - waiting for locator('.fa-petbar').getByLabel('当前宠物')
+        11 × locator resolved to <select>…</select>
+           - unexpected value "mochi"
+
+
+      118 |   await page.getByRole("button", { name: "确认并保存档案" }).click();
+      119 |   await page.getByRole("button", { name: "成长", exact: true }).click();
+    > 120 |   await expect(page.locator(".fa-petbar").getByLabel("当前宠物")).toHaveValue(
+          |                                                               ^
+      121 |     /.{20}/,
+      122 |     { timeout: 1000 },
+      123 |   );
+        at C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\e2e\family.spec.ts:120:63
+
+    Error Context: frontend\test-results\family-new-pet-selection-i-7ac26-delayed-replies-stay-scoped\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    frontend\test-results\family-new-pet-selection-i-7ac26-delayed-replies-stay-scoped\trace.zip
+    Usage:
+
+        npx playwright show-trace frontend\test-results\family-new-pet-selection-i-7ac26-delayed-replies-stay-scoped\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:36992) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[20/27] frontend\e2e\family.spec.ts:163:1 › owner observation and diary can be corrected and removed from shared context
+[21/27] frontend\e2e\feedback.spec.ts:11:1 › owner feedback is saved honestly and never shown as retrieved memory
+[22/27] frontend\e2e\feedback.spec.ts:40:1 › today-only feedback is labelled as never becoming a permanent preference
+[23/27] frontend\e2e\feedback.spec.ts:55:1 › a new session rotates the conversation but keeps login and facts
+[24/27] frontend\e2e\pet-home.spec.ts:14:1 › pet profile, objects, bathing, nails, scoped preferences and photo diary are saved
+[25/27] frontend\e2e\pet-home.spec.ts:62:1 › pixel home stays usable at phone and desktop widths without sharing another pet data
+[26/27] frontend\e2e\shell.spec.ts:5:1 › gates business data behind the demo login
+[27/27] frontend\e2e\shell.spec.ts:15:1 › keeps simulation boundaries and the local/aws label visible after login
+  1 failed
+    frontend\e2e\family.spec.ts:112:1 › new pet selection is immediately shared with growth and delayed replies stay scoped 
+  26 passed (1.0m)

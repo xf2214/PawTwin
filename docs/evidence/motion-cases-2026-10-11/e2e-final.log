@@ -1,0 +1,53 @@
+
+> pawtwin-frontend@0.1.0 test:e2e
+> playwright test
+
+
+
+[WebServer] INFO:     Started server process [134332]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8810 (Press CTRL+C to quit)
+
+
+Running 33 tests using 1 worker
+
+(node:138244) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/33] e2e\acceptance.spec.ts:11:1 › an unauthenticated session sees the login gate and business APIs return 401 JSON
+[2/33] e2e\acceptance.spec.ts:35:1 › an unknown device receipt shows 状态未知 and never a success
+[3/33] e2e\acceptance.spec.ts:68:1 › reload while awaiting_approval keeps the pending request pending
+[4/33] e2e\acceptance.spec.ts:96:1 › desktop 1440px and narrow 390px show no overflow and states are not color-only
+[5/33] e2e\acceptance.spec.ts:167:1 › raising the daily dispensed amount shifts the proposed grams
+[6/33] e2e\acceptance.spec.ts:193:1 › a new session rotates the conversation while memory stays honestly unretrieved
+[7/33] e2e\approve.spec.ts:7:1 › approve executes once, shows real evidence and survives reload
+[8/33] e2e\approve.spec.ts:57:1 › an injected device failure never accounts quota
+[9/33] e2e\approve.spec.ts:81:1 › an unknown fact reaches needs-info and is never shown as zero
+[10/33] e2e\approve.spec.ts:99:1 › changing facts invalidates a pending approval with a readable notice
+[11/33] e2e\decline.spec.ts:5:1 › decline never becomes simulated execution and survives reload
+[12/33] e2e\demo-rehearsal.spec.ts:28:1 › demonstration rehearses two family accounts, real report arithmetic and shared memory to care
+[13/33] e2e\family.spec.ts:19:1 › independent account, shared navigation and refresh session
+[14/33] e2e\family.spec.ts:43:1 › real weight data, weekly report and correction
+[15/33] e2e\family.spec.ts:58:1 › memory confirmation shared with Alexa simulation and deletion
+[16/33] e2e\family.spec.ts:79:1 › care proposal needs explicit confirmation and creates manual task
+[17/33] e2e\family.spec.ts:93:3 › App at 390px preserves room and has no horizontal overflow
+[18/33] e2e\family.spec.ts:93:3 › App at 1440px preserves room and has no horizontal overflow
+[19/33] e2e\family.spec.ts:117:1 › new pet selection is immediately shared with growth and delayed replies stay scoped
+[20/33] e2e\family.spec.ts:189:1 › owner observation and diary can be corrected and removed from shared context
+[21/33] e2e\feedback.spec.ts:11:1 › owner feedback is saved honestly and never shown as retrieved memory
+[22/33] e2e\feedback.spec.ts:40:1 › today-only feedback is labelled as never becoming a permanent preference
+[23/33] e2e\feedback.spec.ts:55:1 › a new session rotates the conversation but keeps login and facts
+[24/33] e2e\pet-home.spec.ts:14:1 › pet profile, objects, bathing, nails, scoped preferences and photo diary are saved
+[25/33] e2e\pet-home.spec.ts:62:1 › pixel home stays usable at phone and desktop widths without sharing another pet data
+[26/33] e2e\shell.spec.ts:5:1 › gates business data behind the demo login
+[27/33] e2e\shell.spec.ts:15:1 › keeps simulation boundaries and the local/aws label visible after login
+[28/33] e2e\showcase.spec.ts:5:1 › explores illustrative care cases without writing business data
+[29/33] e2e\showcase.spec.ts:30:1 › can pause motion while retaining case interactions and reduced-motion readability
+[30/33] e2e\showcase.spec.ts:46:1 › introduces the product without requesting private business data, then opens the app
+[31/33] e2e\showcase.spec.ts:72:1 › keeps the showcase readable on mobile and the original workbench reachable
+[32/33] e2e\showcase.spec.ts:86:1 › supports direct product anchors and distinct preview panels at narrow widths
+[33/33] e2e\showcase.spec.ts:104:1 › supports keyboard exploration, reduced motion and the growth shortcut
+  33 passed (34.3s)

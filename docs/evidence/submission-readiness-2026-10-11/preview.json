@@ -1,0 +1,36 @@
+{
+  "base_url": "http://127.0.0.1:8816",
+  "fixture": "fictional_demo_only",
+  "username": "judge-owner",
+  "measurements": [
+    "70ff8f58-e6ce-46da-b8ae-746cf0b6176f",
+    "dc10ad32-ed6f-4403-a89e-32319f701a92"
+  ],
+  "weight_change_g": 150.0,
+  "services": {
+    "assistant": {
+      "backend": "local_rules",
+      "connection": "local"
+    },
+    "photo_recognition": {
+      "enabled": false,
+      "backend": "disabled"
+    },
+    "model_budget": {
+      "calls_reserved": 0,
+      "accounted_usd": "0",
+      "limit_usd": "1",
+      "scope": "family_chat_and_photo_only",
+      "responses_received": 0
+    },
+    "identity": "local_account",
+    "family_storage": "sqlite",
+    "photos": "private_backend_database",
+    "reports": "backend_worker",
+    "memory": "owner_confirmed_database",
+    "legacy_memory": "not_implemented",
+    "alexa_platform": "not_connected_partner_access_unavailable",
+    "device": "simulated",
+    "cloud_end_to_end_verified": false
+  }
+}

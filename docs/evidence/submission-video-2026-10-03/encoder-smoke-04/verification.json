@@ -1,0 +1,13 @@
+{
+  "duration_seconds": 6.0159636999999995,
+  "width": 1920,
+  "height": 1080,
+  "bitrate": 1045656,
+  "video_codec": "H264",
+  "audio_codec": "AAC",
+  "audio_channels": 1,
+  "audio_sample_rate": 44100,
+  "audio_bitrate": 96000,
+  "decoded_audio_duration": 6.013968253968254,
+  "decoded_audio_peak": 16039
+}

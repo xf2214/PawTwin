@@ -1,0 +1,33 @@
+........................................................................ [ 16%]
+........................................................................ [ 33%]
+........................................................................ [ 50%]
+........................................................................ [ 67%]
+........................................................................ [ 84%]
+......................s...........................................       [100%]
+============================== warnings summary ===============================
+.venv\Lib\site-packages\starlette\testclient.py:51
+  C:\Users\11831\Desktop\hks\outputs\pawtwin-app\.venv\Lib\site-packages\starlette\testclient.py:51: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+425 passed, 1 skipped, 21 deselected, 1 warning in 51.31s
+All checks passed!
+Contracts are current.
+
+> pawtwin-frontend@0.1.0 typecheck
+> tsc --noEmit
+
+
+> pawtwin-frontend@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v8.3.0 building client environment for production...
+transforming...
+✓ 52 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.98 kB │ gzip:   0.61 kB
+dist/assets/index-C0jlA3ng.css  138.44 kB │ gzip:  29.95 kB
+dist/assets/index-fjBDsc0O.js   456.10 kB │ gzip: 135.92 kB
+
+✓ built in 128ms
