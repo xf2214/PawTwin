@@ -1,0 +1,14 @@
+{
+  "continuousSourceTake": true,
+  "providerRate": "-10%",
+  "sourceWords": 324,
+  "postSpeechTimeOrPitchProcessing": false,
+  "internalEditedPauses": 0,
+  "sourceSamplePositionsRetained": 6763392,
+  "music": "Original locally synthesized sparse harmonic plucks and pad",
+  "externalMusicDownloads": false,
+  "musicRmsRelativeToActiveVoiceDb": -23.0,
+  "stereoNormalizationTargetLufs": -16,
+  "truePeakTargetDbtp": -1.8,
+  "humanListeningReview": "not_performed"
+}

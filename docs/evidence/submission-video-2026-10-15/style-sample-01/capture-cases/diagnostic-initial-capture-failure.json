@@ -1,0 +1,1946 @@
+{
+  "createdAt": "2026-10-15T03:36:26.259Z",
+  "url": "http://127.0.0.1:8807/#cases",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "deviceScaleFactor": 1,
+  "videoSize": {
+    "width": 1920,
+    "height": 1080
+  },
+  "language": "en-US",
+  "dataBoundary": "Public fictional showcase only. Preset replies, simulated activity and web Alexa simulation. No app/business data, real AI, actual tracking or clinical diagnosis.",
+  "actions": [
+    {
+      "seconds": 1.112,
+      "action": "opened_public_showcase"
+    },
+    {
+      "seconds": 1.19,
+      "action": "clicked_pause_animations"
+    },
+    {
+      "seconds": 1.253,
+      "action": "clicked_pet_concierge"
+    },
+    {
+      "seconds": 1.378,
+      "action": "capture_viewport",
+      "name": "01-dog-profile-question",
+      "file": "01-dog-profile-question.1920x1080.png"
+    },
+    {
+      "seconds": 2.79,
+      "action": "capture_native_crop",
+      "name": "01-dog-full-panel",
+      "file": "01-dog-full-panel.crop.png",
+      "selector": ".pc-preview"
+    },
+    {
+      "seconds": 2.851,
+      "action": "capture_native_crop",
+      "name": "01-dog-profile",
+      "file": "01-dog-profile.crop.png",
+      "selector": ".pc-profile"
+    },
+    {
+      "seconds": 2.899,
+      "action": "capture_native_crop",
+      "name": "01-dog-question",
+      "file": "01-dog-question.crop.png",
+      "selector": ".pc-owner-message"
+    },
+    {
+      "seconds": 3,
+      "action": "capture_viewport",
+      "name": "02-dog-reply",
+      "file": "02-dog-reply.1920x1080.png"
+    },
+    {
+      "seconds": 4.775,
+      "action": "capture_native_crop",
+      "name": "02-dog-reply",
+      "file": "02-dog-reply.crop.png",
+      "selector": ".pc-assistant-message"
+    },
+    {
+      "seconds": 4.835,
+      "action": "capture_native_crop",
+      "name": "02-dog-boundary",
+      "file": "02-dog-boundary.crop.png",
+      "selector": ".pc-demo-boundary"
+    }
+  ],
+  "shots": [
+    {
+      "name": "01-dog-profile-question",
+      "file": "01-dog-profile-question.1920x1080.png",
+      "seconds": 1.378,
+      "scroll": {
+        "x": 0,
+        "y": 3908
+      },
+      "window": {
+        "width": 1920,
+        "height": 1080
+      },
+      "dpr": 1,
+      "targets": {
+        "preview": {
+          "selector": ".pc-preview",
+          "viewport": {
+            "x": 455.5,
+            "y": 94.9375,
+            "width": 470,
+            "height": 863.515625
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4002.9375,
+            "width": 470,
+            "height": 863.515625
+          },
+          "text": "Pet Concierge · Product preview\nStep 1 / 3\nCan this dog eat chocolate?\nScripted conversation\nFictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken\nTheir context travels with the question\nOwner\n\nCan my dog eat chocolate?\n\nAlexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference\nHealth copy references\nMerck · Chocolate toxicity\nPDSA · Dog diet\n\nUse Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.\n\nDEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis.",
+          "fontSize": "12px"
+        },
+        "topline": {
+          "selector": ".pc-topline",
+          "viewport": {
+            "x": 455.5,
+            "y": 94.9375,
+            "width": 470,
+            "height": 37.59375
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4002.9375,
+            "width": 470,
+            "height": 37.59375
+          },
+          "text": "Pet Concierge · Product preview\nStep 1 / 3",
+          "fontSize": "11px"
+        },
+        "heading": {
+          "selector": ".pc-frame-heading",
+          "viewport": {
+            "x": 455.5,
+            "y": 132.53125,
+            "width": 470,
+            "height": 88.78125
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4040.53125,
+            "width": 470,
+            "height": 88.78125
+          },
+          "text": "Can this dog eat chocolate?\nScripted conversation",
+          "fontSize": "12px"
+        },
+        "profile": {
+          "selector": ".pc-profile",
+          "viewport": {
+            "x": 455.5,
+            "y": 221.3125,
+            "width": 470,
+            "height": 183.5625
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4129.3125,
+            "width": 470,
+            "height": 183.5625
+          },
+          "text": "Fictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken",
+          "fontSize": "12px"
+        },
+        "contextRibbon": {
+          "selector": ".pc-context-ribbon",
+          "viewport": {
+            "x": 455.5,
+            "y": 404.875,
+            "width": 470,
+            "height": 43.59375
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4312.875,
+            "width": 470,
+            "height": 43.59375
+          },
+          "text": "Their context travels with the question",
+          "fontSize": "11px"
+        },
+        "question": {
+          "selector": ".pc-owner-message",
+          "viewport": {
+            "x": 739.59375,
+            "y": 448.46875,
+            "width": 185.90625,
+            "height": 63.828125
+          },
+          "document": {
+            "x": 739.59375,
+            "y": 4356.46875,
+            "width": 185.90625,
+            "height": 63.828125
+          },
+          "text": "Owner\n\nCan my dog eat chocolate?",
+          "fontSize": "12px"
+        },
+        "reply": {
+          "selector": ".pc-assistant-message",
+          "viewport": {
+            "x": 455.5,
+            "y": 526.296875,
+            "width": 470,
+            "height": 228.046875
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4434.296875,
+            "width": 470,
+            "height": 228.046875
+          },
+          "text": "Alexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference",
+          "fontSize": "12px"
+        },
+        "answer": {
+          "selector": ".pc-answer",
+          "viewport": {
+            "x": 491.5,
+            "y": 526.296875,
+            "width": 434,
+            "height": 228.046875
+          },
+          "document": {
+            "x": 491.5,
+            "y": 4434.296875,
+            "width": 434,
+            "height": 228.046875
+          },
+          "text": "Alexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference",
+          "fontSize": "12px"
+        },
+        "basis": {
+          "selector": ".pc-answer-basis",
+          "viewport": {
+            "x": 506.5,
+            "y": 714.75,
+            "width": 404,
+            "height": 38.59375
+          },
+          "document": {
+            "x": 506.5,
+            "y": 4622.75,
+            "width": 404,
+            "height": 38.59375
+          },
+          "text": "Context used\nSample pet profile\nSample confirmed preference",
+          "fontSize": "11px"
+        },
+        "references": {
+          "selector": ".pc-references",
+          "viewport": {
+            "x": 491.5,
+            "y": 767.34375,
+            "width": 434,
+            "height": 50.1875
+          },
+          "document": {
+            "x": 491.5,
+            "y": 4675.34375,
+            "width": 434,
+            "height": 50.1875
+          },
+          "text": "Health copy references\nMerck · Chocolate toxicity\nPDSA · Dog diet",
+          "fontSize": "11px"
+        },
+        "detail": {
+          "selector": ".pc-frame-detail",
+          "viewport": {
+            "x": 455.5,
+            "y": 833.53125,
+            "width": 470,
+            "height": 38.5
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4741.53125,
+            "width": 470,
+            "height": 38.5
+          },
+          "text": "Use Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.",
+          "fontSize": "11px"
+        },
+        "boundary": {
+          "selector": ".pc-demo-boundary",
+          "viewport": {
+            "x": 455.5,
+            "y": 887.03125,
+            "width": 470,
+            "height": 71.421875
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4795.03125,
+            "width": 470,
+            "height": 71.421875
+          },
+          "text": "DEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis.",
+          "fontSize": "11px"
+        },
+        "caseLayout": {
+          "selector": ".pt-case-theme-3",
+          "viewport": {
+            "x": 420,
+            "y": 58.9375,
+            "width": 1080,
+            "height": 968.515625
+          },
+          "document": {
+            "x": 420,
+            "y": 3966.9375,
+            "width": 1080,
+            "height": 968.515625
+          },
+          "text": "Pet Concierge · Product preview\nStep 1 / 3\nCan this dog eat chocolate?\nScripted conversation\nFictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken\nTheir context travels with the question\nOwner\n\nCan my dog eat chocolate?\n\nAlexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference\nHealth copy references\nMerck · Chocolate toxicity\nPDSA · Dog diet\n\nUse Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.\n\nDEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis.\nFictional scenario · No real care tasks are created\nScenario 04 / Pet concierge\nJust ask. Your pet’s context comes along.\n\nAsk whether your dog can eat chocolate, or why your cat seems low on energy. Their saved breed, sex, age, confirmed preferences and recent records come along with the question.\n\n01\nDog food safety\n−\n02\nCat wellbeing\n+\n03\nContext included\n+\n\nUse Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.\n\nSave their details once. Ask naturally, with the context behind each answer.\n\nOpen the Alexa+ web simulator\n›",
+          "fontSize": "16px"
+        },
+        "steps": {
+          "selector": "#cases .pt-case-steps",
+          "viewport": {
+            "x": 1004,
+            "y": 502.78125,
+            "width": 451,
+            "height": 154.5625
+          },
+          "document": {
+            "x": 1004,
+            "y": 4410.78125,
+            "width": 451,
+            "height": 154.5625
+          },
+          "text": "01\nDog food safety\n−\n02\nCat wellbeing\n+\n03\nContext included\n+",
+          "fontSize": "16px"
+        }
+      }
+    },
+    {
+      "name": "01-dog-full-panel",
+      "file": "01-dog-full-panel.crop.png",
+      "kind": "native_element_crop",
+      "seconds": 2.786,
+      "selector": ".pc-preview",
+      "scroll": {
+        "x": 0,
+        "y": 3908
+      },
+      "window": {
+        "width": 1920,
+        "height": 1080
+      },
+      "dpr": 1,
+      "targets": {
+        "preview": {
+          "selector": ".pc-preview",
+          "viewport": {
+            "x": 455.5,
+            "y": 94.9375,
+            "width": 470,
+            "height": 863.515625
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4002.9375,
+            "width": 470,
+            "height": 863.515625
+          },
+          "text": "Pet Concierge · Product preview\nStep 1 / 3\nCan this dog eat chocolate?\nScripted conversation\nFictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken\nTheir context travels with the question\nOwner\n\nCan my dog eat chocolate?\n\nAlexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference\nHealth copy references\nMerck · Chocolate toxicity\nPDSA · Dog diet\n\nUse Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.\n\nDEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis.",
+          "fontSize": "12px"
+        },
+        "topline": {
+          "selector": ".pc-topline",
+          "viewport": {
+            "x": 455.5,
+            "y": 94.9375,
+            "width": 470,
+            "height": 37.59375
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4002.9375,
+            "width": 470,
+            "height": 37.59375
+          },
+          "text": "Pet Concierge · Product preview\nStep 1 / 3",
+          "fontSize": "11px"
+        },
+        "heading": {
+          "selector": ".pc-frame-heading",
+          "viewport": {
+            "x": 455.5,
+            "y": 132.53125,
+            "width": 470,
+            "height": 88.78125
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4040.53125,
+            "width": 470,
+            "height": 88.78125
+          },
+          "text": "Can this dog eat chocolate?\nScripted conversation",
+          "fontSize": "12px"
+        },
+        "profile": {
+          "selector": ".pc-profile",
+          "viewport": {
+            "x": 455.5,
+            "y": 221.3125,
+            "width": 470,
+            "height": 183.5625
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4129.3125,
+            "width": 470,
+            "height": 183.5625
+          },
+          "text": "Fictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken",
+          "fontSize": "12px"
+        },
+        "contextRibbon": {
+          "selector": ".pc-context-ribbon",
+          "viewport": {
+            "x": 455.5,
+            "y": 404.875,
+            "width": 470,
+            "height": 43.59375
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4312.875,
+            "width": 470,
+            "height": 43.59375
+          },
+          "text": "Their context travels with the question",
+          "fontSize": "11px"
+        },
+        "question": {
+          "selector": ".pc-owner-message",
+          "viewport": {
+            "x": 739.59375,
+            "y": 448.46875,
+            "width": 185.90625,
+            "height": 63.828125
+          },
+          "document": {
+            "x": 739.59375,
+            "y": 4356.46875,
+            "width": 185.90625,
+            "height": 63.828125
+          },
+          "text": "Owner\n\nCan my dog eat chocolate?",
+          "fontSize": "12px"
+        },
+        "reply": {
+          "selector": ".pc-assistant-message",
+          "viewport": {
+            "x": 455.5,
+            "y": 526.296875,
+            "width": 470,
+            "height": 228.046875
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4434.296875,
+            "width": 470,
+            "height": 228.046875
+          },
+          "text": "Alexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference",
+          "fontSize": "12px"
+        },
+        "answer": {
+          "selector": ".pc-answer",
+          "viewport": {
+            "x": 491.5,
+            "y": 526.296875,
+            "width": 434,
+            "height": 228.046875
+          },
+          "document": {
+            "x": 491.5,
+            "y": 4434.296875,
+            "width": 434,
+            "height": 228.046875
+          },
+          "text": "Alexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference",
+          "fontSize": "12px"
+        },
+        "basis": {
+          "selector": ".pc-answer-basis",
+          "viewport": {
+            "x": 506.5,
+            "y": 714.75,
+            "width": 404,
+            "height": 38.59375
+          },
+          "document": {
+            "x": 506.5,
+            "y": 4622.75,
+            "width": 404,
+            "height": 38.59375
+          },
+          "text": "Context used\nSample pet profile\nSample confirmed preference",
+          "fontSize": "11px"
+        },
+        "references": {
+          "selector": ".pc-references",
+          "viewport": {
+            "x": 491.5,
+            "y": 767.34375,
+            "width": 434,
+            "height": 50.1875
+          },
+          "document": {
+            "x": 491.5,
+            "y": 4675.34375,
+            "width": 434,
+            "height": 50.1875
+          },
+          "text": "Health copy references\nMerck · Chocolate toxicity\nPDSA · Dog diet",
+          "fontSize": "11px"
+        },
+        "detail": {
+          "selector": ".pc-frame-detail",
+          "viewport": {
+            "x": 455.5,
+            "y": 833.53125,
+            "width": 470,
+            "height": 38.5
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4741.53125,
+            "width": 470,
+            "height": 38.5
+          },
+          "text": "Use Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.",
+          "fontSize": "11px"
+        },
+        "boundary": {
+          "selector": ".pc-demo-boundary",
+          "viewport": {
+            "x": 455.5,
+            "y": 887.03125,
+            "width": 470,
+            "height": 71.421875
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4795.03125,
+            "width": 470,
+            "height": 71.421875
+          },
+          "text": "DEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis.",
+          "fontSize": "11px"
+        },
+        "caseLayout": {
+          "selector": ".pt-case-theme-3",
+          "viewport": {
+            "x": 420,
+            "y": 58.9375,
+            "width": 1080,
+            "height": 968.515625
+          },
+          "document": {
+            "x": 420,
+            "y": 3966.9375,
+            "width": 1080,
+            "height": 968.515625
+          },
+          "text": "Pet Concierge · Product preview\nStep 1 / 3\nCan this dog eat chocolate?\nScripted conversation\nFictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken\nTheir context travels with the question\nOwner\n\nCan my dog eat chocolate?\n\nAlexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference\nHealth copy references\nMerck · Chocolate toxicity\nPDSA · Dog diet\n\nUse Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.\n\nDEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis.\nFictional scenario · No real care tasks are created\nScenario 04 / Pet concierge\nJust ask. Your pet’s context comes along.\n\nAsk whether your dog can eat chocolate, or why your cat seems low on energy. Their saved breed, sex, age, confirmed preferences and recent records come along with the question.\n\n01\nDog food safety\n−\n02\nCat wellbeing\n+\n03\nContext included\n+\n\nUse Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.\n\nSave their details once. Ask naturally, with the context behind each answer.\n\nOpen the Alexa+ web simulator\n›",
+          "fontSize": "16px"
+        },
+        "steps": {
+          "selector": "#cases .pt-case-steps",
+          "viewport": {
+            "x": 1004,
+            "y": 502.78125,
+            "width": 451,
+            "height": 154.5625
+          },
+          "document": {
+            "x": 1004,
+            "y": 4410.78125,
+            "width": 451,
+            "height": 154.5625
+          },
+          "text": "01\nDog food safety\n−\n02\nCat wellbeing\n+\n03\nContext included\n+",
+          "fontSize": "16px"
+        }
+      }
+    },
+    {
+      "name": "01-dog-profile",
+      "file": "01-dog-profile.crop.png",
+      "kind": "native_element_crop",
+      "seconds": 2.845,
+      "selector": ".pc-profile",
+      "scroll": {
+        "x": 0,
+        "y": 3908
+      },
+      "window": {
+        "width": 1920,
+        "height": 1080
+      },
+      "dpr": 1,
+      "targets": {
+        "preview": {
+          "selector": ".pc-preview",
+          "viewport": {
+            "x": 455.5,
+            "y": 94.9375,
+            "width": 470,
+            "height": 863.515625
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4002.9375,
+            "width": 470,
+            "height": 863.515625
+          },
+          "text": "Pet Concierge · Product preview\nStep 1 / 3\nCan this dog eat chocolate?\nScripted conversation\nFictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken\nTheir context travels with the question\nOwner\n\nCan my dog eat chocolate?\n\nAlexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference\nHealth copy references\nMerck · Chocolate toxicity\nPDSA · Dog diet\n\nUse Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.\n\nDEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis.",
+          "fontSize": "12px"
+        },
+        "topline": {
+          "selector": ".pc-topline",
+          "viewport": {
+            "x": 455.5,
+            "y": 94.9375,
+            "width": 470,
+            "height": 37.59375
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4002.9375,
+            "width": 470,
+            "height": 37.59375
+          },
+          "text": "Pet Concierge · Product preview\nStep 1 / 3",
+          "fontSize": "11px"
+        },
+        "heading": {
+          "selector": ".pc-frame-heading",
+          "viewport": {
+            "x": 455.5,
+            "y": 132.53125,
+            "width": 470,
+            "height": 88.78125
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4040.53125,
+            "width": 470,
+            "height": 88.78125
+          },
+          "text": "Can this dog eat chocolate?\nScripted conversation",
+          "fontSize": "12px"
+        },
+        "profile": {
+          "selector": ".pc-profile",
+          "viewport": {
+            "x": 455.5,
+            "y": 221.3125,
+            "width": 470,
+            "height": 183.5625
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4129.3125,
+            "width": 470,
+            "height": 183.5625
+          },
+          "text": "Fictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken",
+          "fontSize": "12px"
+        },
+        "contextRibbon": {
+          "selector": ".pc-context-ribbon",
+          "viewport": {
+            "x": 455.5,
+            "y": 404.875,
+            "width": 470,
+            "height": 43.59375
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4312.875,
+            "width": 470,
+            "height": 43.59375
+          },
+          "text": "Their context travels with the question",
+          "fontSize": "11px"
+        },
+        "question": {
+          "selector": ".pc-owner-message",
+          "viewport": {
+            "x": 739.59375,
+            "y": 448.46875,
+            "width": 185.90625,
+            "height": 63.828125
+          },
+          "document": {
+            "x": 739.59375,
+            "y": 4356.46875,
+            "width": 185.90625,
+            "height": 63.828125
+          },
+          "text": "Owner\n\nCan my dog eat chocolate?",
+          "fontSize": "12px"
+        },
+        "reply": {
+          "selector": ".pc-assistant-message",
+          "viewport": {
+            "x": 455.5,
+            "y": 526.296875,
+            "width": 470,
+            "height": 228.046875
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4434.296875,
+            "width": 470,
+            "height": 228.046875
+          },
+          "text": "Alexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference",
+          "fontSize": "12px"
+        },
+        "answer": {
+          "selector": ".pc-answer",
+          "viewport": {
+            "x": 491.5,
+            "y": 526.296875,
+            "width": 434,
+            "height": 228.046875
+          },
+          "document": {
+            "x": 491.5,
+            "y": 4434.296875,
+            "width": 434,
+            "height": 228.046875
+          },
+          "text": "Alexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference",
+          "fontSize": "12px"
+        },
+        "basis": {
+          "selector": ".pc-answer-basis",
+          "viewport": {
+            "x": 506.5,
+            "y": 714.75,
+            "width": 404,
+            "height": 38.59375
+          },
+          "document": {
+            "x": 506.5,
+            "y": 4622.75,
+            "width": 404,
+            "height": 38.59375
+          },
+          "text": "Context used\nSample pet profile\nSample confirmed preference",
+          "fontSize": "11px"
+        },
+        "references": {
+          "selector": ".pc-references",
+          "viewport": {
+            "x": 491.5,
+            "y": 767.34375,
+            "width": 434,
+            "height": 50.1875
+          },
+          "document": {
+            "x": 491.5,
+            "y": 4675.34375,
+            "width": 434,
+            "height": 50.1875
+          },
+          "text": "Health copy references\nMerck · Chocolate toxicity\nPDSA · Dog diet",
+          "fontSize": "11px"
+        },
+        "detail": {
+          "selector": ".pc-frame-detail",
+          "viewport": {
+            "x": 455.5,
+            "y": 833.53125,
+            "width": 470,
+            "height": 38.5
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4741.53125,
+            "width": 470,
+            "height": 38.5
+          },
+          "text": "Use Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.",
+          "fontSize": "11px"
+        },
+        "boundary": {
+          "selector": ".pc-demo-boundary",
+          "viewport": {
+            "x": 455.5,
+            "y": 887.03125,
+            "width": 470,
+            "height": 71.421875
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4795.03125,
+            "width": 470,
+            "height": 71.421875
+          },
+          "text": "DEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis.",
+          "fontSize": "11px"
+        },
+        "caseLayout": {
+          "selector": ".pt-case-theme-3",
+          "viewport": {
+            "x": 420,
+            "y": 58.9375,
+            "width": 1080,
+            "height": 968.515625
+          },
+          "document": {
+            "x": 420,
+            "y": 3966.9375,
+            "width": 1080,
+            "height": 968.515625
+          },
+          "text": "Pet Concierge · Product preview\nStep 1 / 3\nCan this dog eat chocolate?\nScripted conversation\nFictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken\nTheir context travels with the question\nOwner\n\nCan my dog eat chocolate?\n\nAlexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference\nHealth copy references\nMerck · Chocolate toxicity\nPDSA · Dog diet\n\nUse Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.\n\nDEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis.\nFictional scenario · No real care tasks are created\nScenario 04 / Pet concierge\nJust ask. Your pet’s context comes along.\n\nAsk whether your dog can eat chocolate, or why your cat seems low on energy. Their saved breed, sex, age, confirmed preferences and recent records come along with the question.\n\n01\nDog food safety\n−\n02\nCat wellbeing\n+\n03\nContext included\n+\n\nUse Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.\n\nSave their details once. Ask naturally, with the context behind each answer.\n\nOpen the Alexa+ web simulator\n›",
+          "fontSize": "16px"
+        },
+        "steps": {
+          "selector": "#cases .pt-case-steps",
+          "viewport": {
+            "x": 1004,
+            "y": 502.78125,
+            "width": 451,
+            "height": 154.5625
+          },
+          "document": {
+            "x": 1004,
+            "y": 4410.78125,
+            "width": 451,
+            "height": 154.5625
+          },
+          "text": "01\nDog food safety\n−\n02\nCat wellbeing\n+\n03\nContext included\n+",
+          "fontSize": "16px"
+        }
+      }
+    },
+    {
+      "name": "01-dog-question",
+      "file": "01-dog-question.crop.png",
+      "kind": "native_element_crop",
+      "seconds": 2.895,
+      "selector": ".pc-owner-message",
+      "scroll": {
+        "x": 0,
+        "y": 3908
+      },
+      "window": {
+        "width": 1920,
+        "height": 1080
+      },
+      "dpr": 1,
+      "targets": {
+        "preview": {
+          "selector": ".pc-preview",
+          "viewport": {
+            "x": 455.5,
+            "y": 94.9375,
+            "width": 470,
+            "height": 863.515625
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4002.9375,
+            "width": 470,
+            "height": 863.515625
+          },
+          "text": "Pet Concierge · Product preview\nStep 1 / 3\nCan this dog eat chocolate?\nScripted conversation\nFictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken\nTheir context travels with the question\nOwner\n\nCan my dog eat chocolate?\n\nAlexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference\nHealth copy references\nMerck · Chocolate toxicity\nPDSA · Dog diet\n\nUse Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.\n\nDEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis.",
+          "fontSize": "12px"
+        },
+        "topline": {
+          "selector": ".pc-topline",
+          "viewport": {
+            "x": 455.5,
+            "y": 94.9375,
+            "width": 470,
+            "height": 37.59375
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4002.9375,
+            "width": 470,
+            "height": 37.59375
+          },
+          "text": "Pet Concierge · Product preview\nStep 1 / 3",
+          "fontSize": "11px"
+        },
+        "heading": {
+          "selector": ".pc-frame-heading",
+          "viewport": {
+            "x": 455.5,
+            "y": 132.53125,
+            "width": 470,
+            "height": 88.78125
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4040.53125,
+            "width": 470,
+            "height": 88.78125
+          },
+          "text": "Can this dog eat chocolate?\nScripted conversation",
+          "fontSize": "12px"
+        },
+        "profile": {
+          "selector": ".pc-profile",
+          "viewport": {
+            "x": 455.5,
+            "y": 221.3125,
+            "width": 470,
+            "height": 183.5625
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4129.3125,
+            "width": 470,
+            "height": 183.5625
+          },
+          "text": "Fictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken",
+          "fontSize": "12px"
+        },
+        "contextRibbon": {
+          "selector": ".pc-context-ribbon",
+          "viewport": {
+            "x": 455.5,
+            "y": 404.875,
+            "width": 470,
+            "height": 43.59375
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4312.875,
+            "width": 470,
+            "height": 43.59375
+          },
+          "text": "Their context travels with the question",
+          "fontSize": "11px"
+        },
+        "question": {
+          "selector": ".pc-owner-message",
+          "viewport": {
+            "x": 739.59375,
+            "y": 448.46875,
+            "width": 185.90625,
+            "height": 63.828125
+          },
+          "document": {
+            "x": 739.59375,
+            "y": 4356.46875,
+            "width": 185.90625,
+            "height": 63.828125
+          },
+          "text": "Owner\n\nCan my dog eat chocolate?",
+          "fontSize": "12px"
+        },
+        "reply": {
+          "selector": ".pc-assistant-message",
+          "viewport": {
+            "x": 455.5,
+            "y": 526.296875,
+            "width": 470,
+            "height": 228.046875
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4434.296875,
+            "width": 470,
+            "height": 228.046875
+          },
+          "text": "Alexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference",
+          "fontSize": "12px"
+        },
+        "answer": {
+          "selector": ".pc-answer",
+          "viewport": {
+            "x": 491.5,
+            "y": 526.296875,
+            "width": 434,
+            "height": 228.046875
+          },
+          "document": {
+            "x": 491.5,
+            "y": 4434.296875,
+            "width": 434,
+            "height": 228.046875
+          },
+          "text": "Alexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference",
+          "fontSize": "12px"
+        },
+        "basis": {
+          "selector": ".pc-answer-basis",
+          "viewport": {
+            "x": 506.5,
+            "y": 714.75,
+            "width": 404,
+            "height": 38.59375
+          },
+          "document": {
+            "x": 506.5,
+            "y": 4622.75,
+            "width": 404,
+            "height": 38.59375
+          },
+          "text": "Context used\nSample pet profile\nSample confirmed preference",
+          "fontSize": "11px"
+        },
+        "references": {
+          "selector": ".pc-references",
+          "viewport": {
+            "x": 491.5,
+            "y": 767.34375,
+            "width": 434,
+            "height": 50.1875
+          },
+          "document": {
+            "x": 491.5,
+            "y": 4675.34375,
+            "width": 434,
+            "height": 50.1875
+          },
+          "text": "Health copy references\nMerck · Chocolate toxicity\nPDSA · Dog diet",
+          "fontSize": "11px"
+        },
+        "detail": {
+          "selector": ".pc-frame-detail",
+          "viewport": {
+            "x": 455.5,
+            "y": 833.53125,
+            "width": 470,
+            "height": 38.5
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4741.53125,
+            "width": 470,
+            "height": 38.5
+          },
+          "text": "Use Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.",
+          "fontSize": "11px"
+        },
+        "boundary": {
+          "selector": ".pc-demo-boundary",
+          "viewport": {
+            "x": 455.5,
+            "y": 887.03125,
+            "width": 470,
+            "height": 71.421875
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4795.03125,
+            "width": 470,
+            "height": 71.421875
+          },
+          "text": "DEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis.",
+          "fontSize": "11px"
+        },
+        "caseLayout": {
+          "selector": ".pt-case-theme-3",
+          "viewport": {
+            "x": 420,
+            "y": 58.9375,
+            "width": 1080,
+            "height": 968.515625
+          },
+          "document": {
+            "x": 420,
+            "y": 3966.9375,
+            "width": 1080,
+            "height": 968.515625
+          },
+          "text": "Pet Concierge · Product preview\nStep 1 / 3\nCan this dog eat chocolate?\nScripted conversation\nFictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken\nTheir context travels with the question\nOwner\n\nCan my dog eat chocolate?\n\nAlexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference\nHealth copy references\nMerck · Chocolate toxicity\nPDSA · Dog diet\n\nUse Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.\n\nDEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis.\nFictional scenario · No real care tasks are created\nScenario 04 / Pet concierge\nJust ask. Your pet’s context comes along.\n\nAsk whether your dog can eat chocolate, or why your cat seems low on energy. Their saved breed, sex, age, confirmed preferences and recent records come along with the question.\n\n01\nDog food safety\n−\n02\nCat wellbeing\n+\n03\nContext included\n+\n\nUse Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.\n\nSave their details once. Ask naturally, with the context behind each answer.\n\nOpen the Alexa+ web simulator\n›",
+          "fontSize": "16px"
+        },
+        "steps": {
+          "selector": "#cases .pt-case-steps",
+          "viewport": {
+            "x": 1004,
+            "y": 502.78125,
+            "width": 451,
+            "height": 154.5625
+          },
+          "document": {
+            "x": 1004,
+            "y": 4410.78125,
+            "width": 451,
+            "height": 154.5625
+          },
+          "text": "01\nDog food safety\n−\n02\nCat wellbeing\n+\n03\nContext included\n+",
+          "fontSize": "16px"
+        }
+      }
+    },
+    {
+      "name": "02-dog-reply",
+      "file": "02-dog-reply.1920x1080.png",
+      "seconds": 3,
+      "scroll": {
+        "x": 0,
+        "y": 4114
+      },
+      "window": {
+        "width": 1920,
+        "height": 1080
+      },
+      "dpr": 1,
+      "targets": {
+        "preview": {
+          "selector": ".pc-preview",
+          "viewport": {
+            "x": 455.5,
+            "y": -111.0625,
+            "width": 470,
+            "height": 863.515625
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4002.9375,
+            "width": 470,
+            "height": 863.515625
+          },
+          "text": "Pet Concierge · Product preview\nStep 1 / 3\nCan this dog eat chocolate?\nScripted conversation\nFictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken\nTheir context travels with the question\nOwner\n\nCan my dog eat chocolate?\n\nAlexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference\nHealth copy references\nMerck · Chocolate toxicity\nPDSA · Dog diet\n\nUse Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.\n\nDEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis.",
+          "fontSize": "12px"
+        },
+        "topline": {
+          "selector": ".pc-topline",
+          "viewport": {
+            "x": 455.5,
+            "y": -111.0625,
+            "width": 470,
+            "height": 37.59375
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4002.9375,
+            "width": 470,
+            "height": 37.59375
+          },
+          "text": "Pet Concierge · Product preview\nStep 1 / 3",
+          "fontSize": "11px"
+        },
+        "heading": {
+          "selector": ".pc-frame-heading",
+          "viewport": {
+            "x": 455.5,
+            "y": -73.46875,
+            "width": 470,
+            "height": 88.78125
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4040.53125,
+            "width": 470,
+            "height": 88.78125
+          },
+          "text": "Can this dog eat chocolate?\nScripted conversation",
+          "fontSize": "12px"
+        },
+        "profile": {
+          "selector": ".pc-profile",
+          "viewport": {
+            "x": 455.5,
+            "y": 15.3125,
+            "width": 470,
+            "height": 183.5625
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4129.3125,
+            "width": 470,
+            "height": 183.5625
+          },
+          "text": "Fictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken",
+          "fontSize": "12px"
+        },
+        "contextRibbon": {
+          "selector": ".pc-context-ribbon",
+          "viewport": {
+            "x": 455.5,
+            "y": 198.875,
+            "width": 470,
+            "height": 43.59375
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4312.875,
+            "width": 470,
+            "height": 43.59375
+          },
+          "text": "Their context travels with the question",
+          "fontSize": "11px"
+        },
+        "question": {
+          "selector": ".pc-owner-message",
+          "viewport": {
+            "x": 739.59375,
+            "y": 242.46875,
+            "width": 185.90625,
+            "height": 63.828125
+          },
+          "document": {
+            "x": 739.59375,
+            "y": 4356.46875,
+            "width": 185.90625,
+            "height": 63.828125
+          },
+          "text": "Owner\n\nCan my dog eat chocolate?",
+          "fontSize": "12px"
+        },
+        "reply": {
+          "selector": ".pc-assistant-message",
+          "viewport": {
+            "x": 455.5,
+            "y": 320.296875,
+            "width": 470,
+            "height": 228.046875
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4434.296875,
+            "width": 470,
+            "height": 228.046875
+          },
+          "text": "Alexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference",
+          "fontSize": "12px"
+        },
+        "answer": {
+          "selector": ".pc-answer",
+          "viewport": {
+            "x": 491.5,
+            "y": 320.296875,
+            "width": 434,
+            "height": 228.046875
+          },
+          "document": {
+            "x": 491.5,
+            "y": 4434.296875,
+            "width": 434,
+            "height": 228.046875
+          },
+          "text": "Alexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference",
+          "fontSize": "12px"
+        },
+        "basis": {
+          "selector": ".pc-answer-basis",
+          "viewport": {
+            "x": 506.5,
+            "y": 508.75,
+            "width": 404,
+            "height": 38.59375
+          },
+          "document": {
+            "x": 506.5,
+            "y": 4622.75,
+            "width": 404,
+            "height": 38.59375
+          },
+          "text": "Context used\nSample pet profile\nSample confirmed preference",
+          "fontSize": "11px"
+        },
+        "references": {
+          "selector": ".pc-references",
+          "viewport": {
+            "x": 491.5,
+            "y": 561.34375,
+            "width": 434,
+            "height": 50.1875
+          },
+          "document": {
+            "x": 491.5,
+            "y": 4675.34375,
+            "width": 434,
+            "height": 50.1875
+          },
+          "text": "Health copy references\nMerck · Chocolate toxicity\nPDSA · Dog diet",
+          "fontSize": "11px"
+        },
+        "detail": {
+          "selector": ".pc-frame-detail",
+          "viewport": {
+            "x": 455.5,
+            "y": 627.53125,
+            "width": 470,
+            "height": 38.5
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4741.53125,
+            "width": 470,
+            "height": 38.5
+          },
+          "text": "Use Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.",
+          "fontSize": "11px"
+        },
+        "boundary": {
+          "selector": ".pc-demo-boundary",
+          "viewport": {
+            "x": 455.5,
+            "y": 681.03125,
+            "width": 470,
+            "height": 71.421875
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4795.03125,
+            "width": 470,
+            "height": 71.421875
+          },
+          "text": "DEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis.",
+          "fontSize": "11px"
+        },
+        "caseLayout": {
+          "selector": ".pt-case-theme-3",
+          "viewport": {
+            "x": 420,
+            "y": -147.0625,
+            "width": 1080,
+            "height": 968.515625
+          },
+          "document": {
+            "x": 420,
+            "y": 3966.9375,
+            "width": 1080,
+            "height": 968.515625
+          },
+          "text": "Pet Concierge · Product preview\nStep 1 / 3\nCan this dog eat chocolate?\nScripted conversation\nFictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken\nTheir context travels with the question\nOwner\n\nCan my dog eat chocolate?\n\nAlexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference\nHealth copy references\nMerck · Chocolate toxicity\nPDSA · Dog diet\n\nUse Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.\n\nDEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis.\nFictional scenario · No real care tasks are created\nScenario 04 / Pet concierge\nJust ask. Your pet’s context comes along.\n\nAsk whether your dog can eat chocolate, or why your cat seems low on energy. Their saved breed, sex, age, confirmed preferences and recent records come along with the question.\n\n01\nDog food safety\n−\n02\nCat wellbeing\n+\n03\nContext included\n+\n\nUse Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.\n\nSave their details once. Ask naturally, with the context behind each answer.\n\nOpen the Alexa+ web simulator\n›",
+          "fontSize": "16px"
+        },
+        "steps": {
+          "selector": "#cases .pt-case-steps",
+          "viewport": {
+            "x": 1004,
+            "y": 296.78125,
+            "width": 451,
+            "height": 154.5625
+          },
+          "document": {
+            "x": 1004,
+            "y": 4410.78125,
+            "width": 451,
+            "height": 154.5625
+          },
+          "text": "01\nDog food safety\n−\n02\nCat wellbeing\n+\n03\nContext included\n+",
+          "fontSize": "16px"
+        }
+      }
+    },
+    {
+      "name": "02-dog-reply",
+      "file": "02-dog-reply.crop.png",
+      "kind": "native_element_crop",
+      "seconds": 4.768,
+      "selector": ".pc-assistant-message",
+      "scroll": {
+        "x": 0,
+        "y": 4114
+      },
+      "window": {
+        "width": 1920,
+        "height": 1080
+      },
+      "dpr": 1,
+      "targets": {
+        "preview": {
+          "selector": ".pc-preview",
+          "viewport": {
+            "x": 455.5,
+            "y": -111.0625,
+            "width": 470,
+            "height": 863.515625
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4002.9375,
+            "width": 470,
+            "height": 863.515625
+          },
+          "text": "Pet Concierge · Product preview\nStep 1 / 3\nCan this dog eat chocolate?\nScripted conversation\nFictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken\nTheir context travels with the question\nOwner\n\nCan my dog eat chocolate?\n\nAlexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference\nHealth copy references\nMerck · Chocolate toxicity\nPDSA · Dog diet\n\nUse Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.\n\nDEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis.",
+          "fontSize": "12px"
+        },
+        "topline": {
+          "selector": ".pc-topline",
+          "viewport": {
+            "x": 455.5,
+            "y": -111.0625,
+            "width": 470,
+            "height": 37.59375
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4002.9375,
+            "width": 470,
+            "height": 37.59375
+          },
+          "text": "Pet Concierge · Product preview\nStep 1 / 3",
+          "fontSize": "11px"
+        },
+        "heading": {
+          "selector": ".pc-frame-heading",
+          "viewport": {
+            "x": 455.5,
+            "y": -73.46875,
+            "width": 470,
+            "height": 88.78125
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4040.53125,
+            "width": 470,
+            "height": 88.78125
+          },
+          "text": "Can this dog eat chocolate?\nScripted conversation",
+          "fontSize": "12px"
+        },
+        "profile": {
+          "selector": ".pc-profile",
+          "viewport": {
+            "x": 455.5,
+            "y": 15.3125,
+            "width": 470,
+            "height": 183.5625
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4129.3125,
+            "width": 470,
+            "height": 183.5625
+          },
+          "text": "Fictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken",
+          "fontSize": "12px"
+        },
+        "contextRibbon": {
+          "selector": ".pc-context-ribbon",
+          "viewport": {
+            "x": 455.5,
+            "y": 198.875,
+            "width": 470,
+            "height": 43.59375
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4312.875,
+            "width": 470,
+            "height": 43.59375
+          },
+          "text": "Their context travels with the question",
+          "fontSize": "11px"
+        },
+        "question": {
+          "selector": ".pc-owner-message",
+          "viewport": {
+            "x": 739.59375,
+            "y": 242.46875,
+            "width": 185.90625,
+            "height": 63.828125
+          },
+          "document": {
+            "x": 739.59375,
+            "y": 4356.46875,
+            "width": 185.90625,
+            "height": 63.828125
+          },
+          "text": "Owner\n\nCan my dog eat chocolate?",
+          "fontSize": "12px"
+        },
+        "reply": {
+          "selector": ".pc-assistant-message",
+          "viewport": {
+            "x": 455.5,
+            "y": 320.296875,
+            "width": 470,
+            "height": 228.046875
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4434.296875,
+            "width": 470,
+            "height": 228.046875
+          },
+          "text": "Alexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference",
+          "fontSize": "12px"
+        },
+        "answer": {
+          "selector": ".pc-answer",
+          "viewport": {
+            "x": 491.5,
+            "y": 320.296875,
+            "width": 434,
+            "height": 228.046875
+          },
+          "document": {
+            "x": 491.5,
+            "y": 4434.296875,
+            "width": 434,
+            "height": 228.046875
+          },
+          "text": "Alexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference",
+          "fontSize": "12px"
+        },
+        "basis": {
+          "selector": ".pc-answer-basis",
+          "viewport": {
+            "x": 506.5,
+            "y": 508.75,
+            "width": 404,
+            "height": 38.59375
+          },
+          "document": {
+            "x": 506.5,
+            "y": 4622.75,
+            "width": 404,
+            "height": 38.59375
+          },
+          "text": "Context used\nSample pet profile\nSample confirmed preference",
+          "fontSize": "11px"
+        },
+        "references": {
+          "selector": ".pc-references",
+          "viewport": {
+            "x": 491.5,
+            "y": 561.34375,
+            "width": 434,
+            "height": 50.1875
+          },
+          "document": {
+            "x": 491.5,
+            "y": 4675.34375,
+            "width": 434,
+            "height": 50.1875
+          },
+          "text": "Health copy references\nMerck · Chocolate toxicity\nPDSA · Dog diet",
+          "fontSize": "11px"
+        },
+        "detail": {
+          "selector": ".pc-frame-detail",
+          "viewport": {
+            "x": 455.5,
+            "y": 627.53125,
+            "width": 470,
+            "height": 38.5
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4741.53125,
+            "width": 470,
+            "height": 38.5
+          },
+          "text": "Use Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.",
+          "fontSize": "11px"
+        },
+        "boundary": {
+          "selector": ".pc-demo-boundary",
+          "viewport": {
+            "x": 455.5,
+            "y": 681.03125,
+            "width": 470,
+            "height": 71.421875
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4795.03125,
+            "width": 470,
+            "height": 71.421875
+          },
+          "text": "DEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis.",
+          "fontSize": "11px"
+        },
+        "caseLayout": {
+          "selector": ".pt-case-theme-3",
+          "viewport": {
+            "x": 420,
+            "y": -147.0625,
+            "width": 1080,
+            "height": 968.515625
+          },
+          "document": {
+            "x": 420,
+            "y": 3966.9375,
+            "width": 1080,
+            "height": 968.515625
+          },
+          "text": "Pet Concierge · Product preview\nStep 1 / 3\nCan this dog eat chocolate?\nScripted conversation\nFictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken\nTheir context travels with the question\nOwner\n\nCan my dog eat chocolate?\n\nAlexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference\nHealth copy references\nMerck · Chocolate toxicity\nPDSA · Dog diet\n\nUse Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.\n\nDEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis.\nFictional scenario · No real care tasks are created\nScenario 04 / Pet concierge\nJust ask. Your pet’s context comes along.\n\nAsk whether your dog can eat chocolate, or why your cat seems low on energy. Their saved breed, sex, age, confirmed preferences and recent records come along with the question.\n\n01\nDog food safety\n−\n02\nCat wellbeing\n+\n03\nContext included\n+\n\nUse Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.\n\nSave their details once. Ask naturally, with the context behind each answer.\n\nOpen the Alexa+ web simulator\n›",
+          "fontSize": "16px"
+        },
+        "steps": {
+          "selector": "#cases .pt-case-steps",
+          "viewport": {
+            "x": 1004,
+            "y": 296.78125,
+            "width": 451,
+            "height": 154.5625
+          },
+          "document": {
+            "x": 1004,
+            "y": 4410.78125,
+            "width": 451,
+            "height": 154.5625
+          },
+          "text": "01\nDog food safety\n−\n02\nCat wellbeing\n+\n03\nContext included\n+",
+          "fontSize": "16px"
+        }
+      }
+    },
+    {
+      "name": "02-dog-boundary",
+      "file": "02-dog-boundary.crop.png",
+      "kind": "native_element_crop",
+      "seconds": 4.831,
+      "selector": ".pc-demo-boundary",
+      "scroll": {
+        "x": 0,
+        "y": 4114
+      },
+      "window": {
+        "width": 1920,
+        "height": 1080
+      },
+      "dpr": 1,
+      "targets": {
+        "preview": {
+          "selector": ".pc-preview",
+          "viewport": {
+            "x": 455.5,
+            "y": -111.0625,
+            "width": 470,
+            "height": 863.515625
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4002.9375,
+            "width": 470,
+            "height": 863.515625
+          },
+          "text": "Pet Concierge · Product preview\nStep 1 / 3\nCan this dog eat chocolate?\nScripted conversation\nFictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken\nTheir context travels with the question\nOwner\n\nCan my dog eat chocolate?\n\nAlexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference\nHealth copy references\nMerck · Chocolate toxicity\nPDSA · Dog diet\n\nUse Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.\n\nDEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis.",
+          "fontSize": "12px"
+        },
+        "topline": {
+          "selector": ".pc-topline",
+          "viewport": {
+            "x": 455.5,
+            "y": -111.0625,
+            "width": 470,
+            "height": 37.59375
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4002.9375,
+            "width": 470,
+            "height": 37.59375
+          },
+          "text": "Pet Concierge · Product preview\nStep 1 / 3",
+          "fontSize": "11px"
+        },
+        "heading": {
+          "selector": ".pc-frame-heading",
+          "viewport": {
+            "x": 455.5,
+            "y": -73.46875,
+            "width": 470,
+            "height": 88.78125
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4040.53125,
+            "width": 470,
+            "height": 88.78125
+          },
+          "text": "Can this dog eat chocolate?\nScripted conversation",
+          "fontSize": "12px"
+        },
+        "profile": {
+          "selector": ".pc-profile",
+          "viewport": {
+            "x": 455.5,
+            "y": 15.3125,
+            "width": 470,
+            "height": 183.5625
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4129.3125,
+            "width": 470,
+            "height": 183.5625
+          },
+          "text": "Fictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken",
+          "fontSize": "12px"
+        },
+        "contextRibbon": {
+          "selector": ".pc-context-ribbon",
+          "viewport": {
+            "x": 455.5,
+            "y": 198.875,
+            "width": 470,
+            "height": 43.59375
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4312.875,
+            "width": 470,
+            "height": 43.59375
+          },
+          "text": "Their context travels with the question",
+          "fontSize": "11px"
+        },
+        "question": {
+          "selector": ".pc-owner-message",
+          "viewport": {
+            "x": 739.59375,
+            "y": 242.46875,
+            "width": 185.90625,
+            "height": 63.828125
+          },
+          "document": {
+            "x": 739.59375,
+            "y": 4356.46875,
+            "width": 185.90625,
+            "height": 63.828125
+          },
+          "text": "Owner\n\nCan my dog eat chocolate?",
+          "fontSize": "12px"
+        },
+        "reply": {
+          "selector": ".pc-assistant-message",
+          "viewport": {
+            "x": 455.5,
+            "y": 320.296875,
+            "width": 470,
+            "height": 228.046875
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4434.296875,
+            "width": 470,
+            "height": 228.046875
+          },
+          "text": "Alexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference",
+          "fontSize": "12px"
+        },
+        "answer": {
+          "selector": ".pc-answer",
+          "viewport": {
+            "x": 491.5,
+            "y": 320.296875,
+            "width": 434,
+            "height": 228.046875
+          },
+          "document": {
+            "x": 491.5,
+            "y": 4434.296875,
+            "width": 434,
+            "height": 228.046875
+          },
+          "text": "Alexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference",
+          "fontSize": "12px"
+        },
+        "basis": {
+          "selector": ".pc-answer-basis",
+          "viewport": {
+            "x": 506.5,
+            "y": 508.75,
+            "width": 404,
+            "height": 38.59375
+          },
+          "document": {
+            "x": 506.5,
+            "y": 4622.75,
+            "width": 404,
+            "height": 38.59375
+          },
+          "text": "Context used\nSample pet profile\nSample confirmed preference",
+          "fontSize": "11px"
+        },
+        "references": {
+          "selector": ".pc-references",
+          "viewport": {
+            "x": 491.5,
+            "y": 561.34375,
+            "width": 434,
+            "height": 50.1875
+          },
+          "document": {
+            "x": 491.5,
+            "y": 4675.34375,
+            "width": 434,
+            "height": 50.1875
+          },
+          "text": "Health copy references\nMerck · Chocolate toxicity\nPDSA · Dog diet",
+          "fontSize": "11px"
+        },
+        "detail": {
+          "selector": ".pc-frame-detail",
+          "viewport": {
+            "x": 455.5,
+            "y": 627.53125,
+            "width": 470,
+            "height": 38.5
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4741.53125,
+            "width": 470,
+            "height": 38.5
+          },
+          "text": "Use Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.",
+          "fontSize": "11px"
+        },
+        "boundary": {
+          "selector": ".pc-demo-boundary",
+          "viewport": {
+            "x": 455.5,
+            "y": 681.03125,
+            "width": 470,
+            "height": 71.421875
+          },
+          "document": {
+            "x": 455.5,
+            "y": 4795.03125,
+            "width": 470,
+            "height": 71.421875
+          },
+          "text": "DEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis.",
+          "fontSize": "11px"
+        },
+        "caseLayout": {
+          "selector": ".pt-case-theme-3",
+          "viewport": {
+            "x": 420,
+            "y": -147.0625,
+            "width": 1080,
+            "height": 968.515625
+          },
+          "document": {
+            "x": 420,
+            "y": 3966.9375,
+            "width": 1080,
+            "height": 968.515625
+          },
+          "text": "Pet Concierge · Product preview\nStep 1 / 3\nCan this dog eat chocolate?\nScripted conversation\nFictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken\nTheir context travels with the question\nOwner\n\nCan my dog eat chocolate?\n\nAlexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference\nHealth copy references\nMerck · Chocolate toxicity\nPDSA · Dog diet\n\nUse Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.\n\nDEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis.\nFictional scenario · No real care tasks are created\nScenario 04 / Pet concierge\nJust ask. Your pet’s context comes along.\n\nAsk whether your dog can eat chocolate, or why your cat seems low on energy. Their saved breed, sex, age, confirmed preferences and recent records come along with the question.\n\n01\nDog food safety\n−\n02\nCat wellbeing\n+\n03\nContext included\n+\n\nUse Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.\n\nSave their details once. Ask naturally, with the context behind each answer.\n\nOpen the Alexa+ web simulator\n›",
+          "fontSize": "16px"
+        },
+        "steps": {
+          "selector": "#cases .pt-case-steps",
+          "viewport": {
+            "x": 1004,
+            "y": 296.78125,
+            "width": 451,
+            "height": 154.5625
+          },
+          "document": {
+            "x": 1004,
+            "y": 4410.78125,
+            "width": 451,
+            "height": 154.5625
+          },
+          "text": "01\nDog food safety\n−\n02\nCat wellbeing\n+\n03\nContext included\n+",
+          "fontSize": "16px"
+        }
+      }
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:8807/",
+      "resourceType": "document"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:8807/assets/index-y4ayR7DB.js",
+      "resourceType": "script"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:8807/assets/index-f4GC1fl1.css",
+      "resourceType": "stylesheet"
+    }
+  ],
+  "mutatingRequests": [],
+  "consoleErrors": [],
+  "pageErrors": [],
+  "httpErrors": [],
+  "files": [
+    {
+      "file": "01-dog-full-panel.crop.png",
+      "bytes": 51973,
+      "sha256": "1ebda9b0b5990239128eac808b55cb7a8fb8ca05cecfebd09c0cd2a788319458"
+    },
+    {
+      "file": "01-dog-profile-question.1920x1080.png",
+      "bytes": 120081,
+      "sha256": "14a95765e21404dcc4e623c9fc66944961334a627556bb2d0ebe3147b1ddd756"
+    },
+    {
+      "file": "01-dog-profile.crop.png",
+      "bytes": 11250,
+      "sha256": "87fe0cb29fd0aeb1eb401b0e5d1b20323555c09daa3e7050feb2933662414af6"
+    },
+    {
+      "file": "01-dog-question.crop.png",
+      "bytes": 2530,
+      "sha256": "a1967574b41be6b472df8c57233dd4afbdffaca99fd53e1cfd838d75c4e52d16"
+    },
+    {
+      "file": "02-dog-boundary.crop.png",
+      "bytes": 4724,
+      "sha256": "28685a7384d1a11808a78c7d9f93501df77aa1b9883606d9ab0b84086fa295c4"
+    },
+    {
+      "file": "02-dog-reply.1920x1080.png",
+      "bytes": 111387,
+      "sha256": "c1ddb7dce41eef722c0a4fce05da797f5602ede4cb22050f313dc428f119cdf6"
+    },
+    {
+      "file": "02-dog-reply.crop.png",
+      "bytes": 15111,
+      "sha256": "90685a16de9f99861ce2a15208511a2ff1a35f16724cb333682b71424f19c792"
+    },
+    {
+      "file": "capture-cases.mjs",
+      "bytes": 7740,
+      "sha256": "a67f393354c7ef18c8b80a56717947791ff45b80ee7fd47e92eaacb69c89d2ed"
+    },
+    {
+      "file": "inspect-cases.mjs",
+      "bytes": 1181,
+      "sha256": "3765424d42b1a4d436041d9b089367f6d96a111f1cd633b58d9d4e965dc4e610"
+    },
+    {
+      "file": "inspection.png",
+      "bytes": 130769,
+      "sha256": "46b0fe0a9c030f987fd0c9a34c31fb7a0ce130cbaedd71bfe10afc4607f13170"
+    },
+    {
+      "file": "page@3212eab90219b8cd4e22683706e50ddc.webm",
+      "bytes": 2346084,
+      "sha256": "560350e0b5e0da1213e13a0c2ac4a7a09f5955caa50b85e38951d3369bbac3fc"
+    }
+  ],
+  "failure": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /02Cat wellbeing/ })\u001b[22m\n",
+  "elapsedSeconds": 41.557
+}

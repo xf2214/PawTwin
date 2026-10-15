@@ -1,0 +1,571 @@
+{
+  "duration_seconds": 150.25,
+  "fps": 24,
+  "source_capture": "docs\\evidence\\hackathon-cinematic-capture-2026-10-15\\attempt-03-native1920",
+  "scenes": [
+    {
+      "index": 0,
+      "start": 0.0,
+      "end": 12.0,
+      "scene": {
+        "id": "home",
+        "chapter": "KNOW MOCHI",
+        "title": "One pet. A shared routine.",
+        "actor": "Emma + Alex",
+        "source": "01-home.png",
+        "role": "owner",
+        "seconds": 12,
+        "focus": [
+          0.45,
+          0.75,
+          1.6
+        ],
+        "sentences": [
+          "Meet Mochi. Emma and Alex share the care.",
+          "Paw Twin brings their daily routine into one shared place."
+        ]
+      },
+      "seconds": 12.0
+    },
+    {
+      "index": 1,
+      "start": 12.0,
+      "end": 25.0,
+      "scene": {
+        "id": "growth",
+        "chapter": "KNOW MOCHI",
+        "title": "Start with recorded facts",
+        "actor": "Emma · Owner",
+        "source": "02-growth.png",
+        "role": "owner",
+        "seconds": 13,
+        "focus": [
+          0.58,
+          0.82,
+          1.75
+        ],
+        "tag": "FICTIONAL DEMO MEASUREMENTS",
+        "sentences": [
+          "Two sample weights, seven days apart, show a hundred fifty gram increase.",
+          "The report keeps the calculation tied to its records, and missing food intake stays unknown."
+        ],
+        "segments": [
+          {
+            "start": 25.8,
+            "duration": 1.85
+          },
+          {
+            "start": 34.346,
+            "duration": 8.3
+          }
+        ]
+      },
+      "seconds": 13.0
+    },
+    {
+      "index": 2,
+      "start": 25.0,
+      "end": 36.0,
+      "scene": {
+        "id": "memory",
+        "chapter": "KNOW MOCHI",
+        "title": "Remember only what the owner confirms",
+        "actor": "Emma · Owner",
+        "source": "08-memory-confirmed.png",
+        "role": "owner",
+        "seconds": 11,
+        "focus": [
+          0.77,
+          0.61,
+          1.6
+        ],
+        "sentences": [
+          "Mochi likes a feather toy and rests after meals.",
+          "Emma confirms that preference before it becomes part of their shared pet context."
+        ],
+        "segments": [
+          {
+            "start": 44.7,
+            "duration": 2.3
+          },
+          {
+            "start": 50.9,
+            "duration": 7.5
+          }
+        ]
+      },
+      "seconds": 11.0
+    },
+    {
+      "index": 3,
+      "start": 36.0,
+      "end": 48.0,
+      "scene": {
+        "id": "context",
+        "chapter": "KNOW MOCHI",
+        "title": "A new conversation. The same context.",
+        "actor": "Alex · Carer",
+        "source": "13-alexa-new-session.png",
+        "role": "carer",
+        "seconds": 12,
+        "focus": [
+          0.67,
+          0.47,
+          1.6
+        ],
+        "tag": "ALEXA WEB SIMULATION · LOCAL RULES",
+        "sentences": [
+          "Alex starts a fresh conversation in the Alexa web simulator.",
+          "The next answer reads the same confirmed preference and makes its source available to inspect."
+        ],
+        "segments": [
+          {
+            "start": 51.2,
+            "duration": 6.98
+          }
+        ]
+      },
+      "seconds": 12.0
+    },
+    {
+      "index": 4,
+      "start": 48.0,
+      "end": 57.083333333333336,
+      "scene": {
+        "id": "draft",
+        "chapter": "PLAN TOGETHER",
+        "title": "Ask for a plan",
+        "actor": "Emma · Owner",
+        "source": "09-alexa-draft.png",
+        "role": "owner",
+        "seconds": 9,
+        "focus": [
+          0.62,
+          0.78,
+          1.75
+        ],
+        "step": 1,
+        "sentences": [
+          "Emma asks for playtime and chooses a time.",
+          "The draft lets her review the plan before any care task exists."
+        ],
+        "segments": [
+          {
+            "start": 72.8,
+            "duration": 7.4
+          }
+        ]
+      },
+      "seconds": 9.083333333333334
+    },
+    {
+      "index": 5,
+      "start": 57.083333333333336,
+      "end": 65.08333333333334,
+      "scene": {
+        "id": "proposal",
+        "chapter": "PLAN TOGETHER",
+        "title": "Review the arrangement",
+        "actor": "Emma · Owner",
+        "source": "10-alexa-pending.png",
+        "role": "owner",
+        "seconds": 8,
+        "focus": [
+          0.62,
+          0.78,
+          1.75
+        ],
+        "step": 2,
+        "sentences": [
+          "The prepared proposal is ready for review.",
+          "It still needs an explicit confirmation."
+        ]
+      },
+      "seconds": 8.0
+    },
+    {
+      "index": 6,
+      "start": 65.08333333333334,
+      "end": 74.58333333333334,
+      "scene": {
+        "id": "confirm",
+        "chapter": "PLAN TOGETHER",
+        "title": "Confirm. Then hand it over.",
+        "actor": "Emma · Owner",
+        "source": "11-alexa-confirmed.png",
+        "role": "owner",
+        "seconds": 9,
+        "focus": [
+          0.62,
+          0.78,
+          1.75
+        ],
+        "step": 3,
+        "sentences": [
+          "Emma confirms one shared manual care task.",
+          "The result is clear: planned, and waiting for a person to complete it."
+        ]
+      },
+      "seconds": 9.5
+    },
+    {
+      "index": 7,
+      "start": 74.58333333333334,
+      "end": 86.58333333333334,
+      "scene": {
+        "id": "complete",
+        "chapter": "HAND OFF CLEARLY",
+        "title": "Alex takes over",
+        "actor": "Alex · Carer",
+        "source": "04-care.png",
+        "role": "carer",
+        "seconds": 12,
+        "focus": [
+          0.36,
+          0.64,
+          1.7
+        ],
+        "sentences": [
+          "Alex claims the task and records the playtime as completed.",
+          "His account is attached to the record, so the handoff stays traceable."
+        ],
+        "segments": [
+          {
+            "start": 82.7,
+            "duration": 2.35
+          },
+          {
+            "start": 91.7,
+            "duration": 7.4
+          }
+        ]
+      },
+      "seconds": 12.0
+    },
+    {
+      "index": 8,
+      "start": 86.58333333333334,
+      "end": 95.04166666666667,
+      "scene": {
+        "id": "history",
+        "chapter": "HAND OFF CLEARLY",
+        "title": "Know who recorded the result",
+        "actor": "Alex · Carer",
+        "source": "07-completing-actor.png",
+        "role": "carer",
+        "seconds": 8,
+        "focus": [
+          0.74,
+          0.71,
+          1.65
+        ],
+        "sentences": [
+          "The household history identifies Alex and the completed care.",
+          "Everyone can check the recorded result."
+        ]
+      },
+      "seconds": 8.458333333333334
+    },
+    {
+      "index": 9,
+      "start": 95.04166666666667,
+      "end": 105.125,
+      "scene": {
+        "id": "daily",
+        "chapter": "HAND OFF CLEARLY",
+        "title": "Close the loop",
+        "actor": "Emma · Owner",
+        "source": "05-daily.png",
+        "role": "owner",
+        "seconds": 10,
+        "focus": [
+          0.58,
+          0.8,
+          1.65
+        ],
+        "sentences": [
+          "Emma's daily report now counts one completed manual care task.",
+          "It summarizes the saved records without inventing a health outcome."
+        ]
+      },
+      "seconds": 10.083333333333334
+    },
+    {
+      "index": 10,
+      "start": 105.125,
+      "end": 113.54166666666667,
+      "scene": {
+        "id": "caregiver",
+        "chapter": "SHARE WITH CONTROL",
+        "title": "Limited access for a helper",
+        "actor": "Temporary caregiver",
+        "source": "14-caregiver.png",
+        "role": "caregiver",
+        "seconds": 8,
+        "focus": [
+          0.5,
+          0.34,
+          1.3
+        ],
+        "sentences": [
+          "A helper can receive temporary, read-only access to one selected pet.",
+          "The owner can revoke it."
+        ]
+      },
+      "seconds": 8.416666666666666
+    },
+    {
+      "index": 11,
+      "start": 113.54166666666667,
+      "end": 122.875,
+      "scene": {
+        "id": "visit",
+        "chapter": "SHARE WITH CONTROL",
+        "title": "Bring the records to a visit",
+        "actor": "Emma · Owner",
+        "source": "17-visit-records.png",
+        "role": "owner",
+        "seconds": 9,
+        "focus": [
+          0.5,
+          0.56,
+          1.3
+        ],
+        "tag": "RECORD SNAPSHOT · NOT A DIAGNOSIS",
+        "sentences": [
+          "The visit card organizes dated records and shows what is missing.",
+          "It can be printed or saved for review with a veterinarian."
+        ],
+        "segments": [
+          {
+            "start": 138.6,
+            "duration": 1.8
+          },
+          {
+            "start": 144.4,
+            "duration": 5.94
+          }
+        ]
+      },
+      "seconds": 9.333333333333334
+    },
+    {
+      "index": 12,
+      "start": 122.875,
+      "end": 132.875,
+      "scene": {
+        "id": "delete",
+        "chapter": "SHARE WITH CONTROL",
+        "title": "Keep the owner in control",
+        "actor": "Emma + Alex",
+        "source": "06-deleted-memory.png",
+        "role": "carer",
+        "seconds": 10,
+        "focus": [
+          0.67,
+          0.45,
+          1.6
+        ],
+        "sentences": [
+          "When Emma deletes a preference, the next answer stops using it.",
+          "A remembered fact is always subject to the owner's control."
+        ]
+      },
+      "seconds": 10.0
+    },
+    {
+      "index": 13,
+      "start": 132.875,
+      "end": 150.04166666666666,
+      "scene": {
+        "id": "close",
+        "chapter": "PAWTWIN",
+        "title": "A routine the family can follow",
+        "actor": "A working local prototype",
+        "source": "16-home-closing.png",
+        "role": "owner",
+        "seconds": 14,
+        "focus": [
+          0.43,
+          0.75,
+          1.55
+        ],
+        "sentences": [
+          "Paw Twin connects the pet's records, shared plans, and recorded care.",
+          "This prototype uses local rules and SQLite. Alexa is a web simulation; live cloud and hardware integrations remain unverified."
+        ]
+      },
+      "seconds": 17.166666666666668
+    }
+  ],
+  "cues": [
+    {
+      "start": 0.9,
+      "end": 5.364036281179139,
+      "text": "Meet Mochi. Emma and Alex share the care.",
+      "scene": 0
+    },
+    {
+      "start": 5.524036281179139,
+      "end": 9.820045351473924,
+      "text": "Paw Twin brings their daily routine into one shared place.",
+      "scene": 0
+    },
+    {
+      "start": 12.25,
+      "end": 17.578027210884354,
+      "text": "Two sample weights, seven days apart, show a hundred fifty gram increase.",
+      "scene": 1
+    },
+    {
+      "start": 17.738027210884354,
+      "end": 24.098027210884354,
+      "text": "The report keeps the calculation tied to its records, and missing food intake stays unknown.",
+      "scene": 1
+    },
+    {
+      "start": 25.25,
+      "end": 29.09,
+      "text": "Mochi likes a feather toy and rests after meals.",
+      "scene": 2
+    },
+    {
+      "start": 29.25,
+      "end": 34.41,
+      "text": "Emma confirms that preference before it becomes part of their shared pet context.",
+      "scene": 2
+    },
+    {
+      "start": 36.25,
+      "end": 40.78600907029478,
+      "text": "Alex starts a fresh conversation in the Alexa web simulator.",
+      "scene": 3
+    },
+    {
+      "start": 40.946009070294785,
+      "end": 46.82600907029479,
+      "text": "The next answer reads the same confirmed preference and makes its source available to inspect.",
+      "scene": 3
+    },
+    {
+      "start": 48.25,
+      "end": 51.634036281179135,
+      "text": "Emma asks for playtime and chooses a time.",
+      "scene": 4
+    },
+    {
+      "start": 51.79403628117914,
+      "end": 56.57004535147392,
+      "text": "The draft lets her review the plan before any care task exists.",
+      "scene": 4
+    },
+    {
+      "start": 57.333333333333336,
+      "end": 60.57333333333334,
+      "text": "The prepared proposal is ready for review.",
+      "scene": 5
+    },
+    {
+      "start": 60.733333333333334,
+      "end": 63.877369614512475,
+      "text": "It still needs an explicit confirmation.",
+      "scene": 5
+    },
+    {
+      "start": 65.33333333333334,
+      "end": 69.00535147392291,
+      "text": "Emma confirms one shared manual care task.",
+      "scene": 6
+    },
+    {
+      "start": 69.16535147392291,
+      "end": 74.08535147392291,
+      "text": "The result is clear: planned, and waiting for a person to complete it.",
+      "scene": 6
+    },
+    {
+      "start": 74.83333333333334,
+      "end": 79.0813605442177,
+      "text": "Alex claims the task and records the playtime as completed.",
+      "scene": 7
+    },
+    {
+      "start": 79.2413605442177,
+      "end": 83.89736961451248,
+      "text": "His account is attached to the record, so the handoff stays traceable.",
+      "scene": 7
+    },
+    {
+      "start": 86.83333333333334,
+      "end": 91.34535147392292,
+      "text": "The household history identifies Alex and the completed care.",
+      "scene": 8
+    },
+    {
+      "start": 91.50535147392291,
+      "end": 94.52938775510205,
+      "text": "Everyone can check the recorded result.",
+      "scene": 8
+    },
+    {
+      "start": 95.29166666666667,
+      "end": 100.01969387755102,
+      "text": "Emma's daily report now counts one completed manual care task.",
+      "scene": 9
+    },
+    {
+      "start": 100.17969387755103,
+      "end": 104.59570294784582,
+      "text": "It summarizes the saved records without inventing a health outcome.",
+      "scene": 9
+    },
+    {
+      "start": 105.375,
+      "end": 110.51100907029479,
+      "text": "A helper can receive temporary, read-only access to one selected pet.",
+      "scene": 10
+    },
+    {
+      "start": 110.67100907029479,
+      "end": 113.02302721088435,
+      "text": "The owner can revoke it.",
+      "scene": 10
+    },
+    {
+      "start": 113.79166666666667,
+      "end": 118.27969387755103,
+      "text": "The visit card organizes dated records and shows what is missing.",
+      "scene": 11
+    },
+    {
+      "start": 118.43969387755102,
+      "end": 122.37570294784581,
+      "text": "It can be printed or saved for review with a veterinarian.",
+      "scene": 11
+    },
+    {
+      "start": 123.125,
+      "end": 127.58903628117913,
+      "text": "When Emma deletes a preference, the next answer stops using it.",
+      "scene": 12
+    },
+    {
+      "start": 127.74903628117914,
+      "end": 132.04504535147393,
+      "text": "A remembered fact is always subject to the owner's control.",
+      "scene": 12
+    },
+    {
+      "start": 133.125,
+      "end": 138.285,
+      "text": "Paw Twin connects the pet's records, shared plans, and recorded care.",
+      "scene": 13
+    },
+    {
+      "start": 138.445,
+      "end": 148.38100907029477,
+      "text": "This prototype uses local rules and SQLite. Alexa is a web simulation; live cloud and hardware integrations remain unverified.",
+      "scene": 13
+    }
+  ]
+}

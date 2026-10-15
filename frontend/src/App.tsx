@@ -2,6 +2,7 @@ import { t, tf, locale, serverText } from './i18n'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import PetHome from './PetHome'
 import WorkspaceIcon from './WorkspaceIcon'
+import WorkbenchConcierge from './WorkbenchConcierge'
 import './workbench.css'
 
 import {
@@ -176,7 +177,8 @@ function factGrams(value: number | null | undefined, limit: number | undefined):
 
 function workbenchPage() {
   return window.location.hash === '#workbench/history' ? 'history'
-    : window.location.hash === '#workbench/settings' ? 'settings' : 'requests'
+    : window.location.hash === '#workbench/settings' ? 'settings'
+      : window.location.hash === '#workbench/concierge' ? 'concierge' : 'requests'
 }
 
 function waitForPoll(ms: number, signal: AbortSignal): Promise<void> {
@@ -615,7 +617,7 @@ export default function App() {
   )
 
   const requestDisabled = busy || polling || !!acceptedRunId || !canAct || !!state?.runs.some(run => !isSettled(run.state))
-  const pageTitle = page === 'history' ? '运行记录' : page === 'settings' ? '演示设置' : '请求与审批'
+  const pageTitle = page === 'history' ? '运行记录' : page === 'settings' ? '演示设置' : page === 'concierge' ? '宠物管家' : '请求与审批'
   const visibleRuns = (state?.runs ?? []).filter(run => page !== 'history' || runFilter === 'all' || run.state === runFilter)
     .slice().sort((a, b) => runOrder === 'oldest' ? Date.parse(a.created_at) - Date.parse(b.created_at) : Date.parse(b.created_at) - Date.parse(a.created_at))
   const runDetails = (
@@ -887,10 +889,11 @@ export default function App() {
         ['requests', '#workbench', '请求与审批', 'care'],
         ['history', '#workbench/history', '运行记录', 'history'],
         ['settings', '#workbench/settings', '演示设置', 'settings'],
+        ['concierge', '#workbench/concierge', '宠物管家', 'twin'],
       ] as const).map(([key, href, label, icon]) => <a key={key} href={href} aria-current={page === key ? 'page' : undefined}><WorkspaceIcon name={icon} /><span>{t(label)}</span></a>))}</nav><div className="wb-sidebar-foot"><span className="wb-pet-avatar" aria-hidden="true">🐱</span><strong>Mochi</strong><p>{t("虚构宠物 · 单一模拟执行器")}</p><a href="#home">{t("打开原宠物小屋 ")}<WorkspaceIcon name="arrow" /></a></div></aside>
       <div className="wb-content">
       <header className="wb-heading">
-        <div><p className="eyebrow">{t("PAWTWIN · 照护工作台")}</p><h1>{t(pageTitle)}</h1><p className="lede">{t(page === 'history' ? '回看每次请求的状态、依据与模拟回执。' : page === 'settings' ? '按场景核对事实，调整模拟条件与主人观察。' : '从当前事实出发，逐次确认可执行的照护建议。')}</p></div>
+        <div><p className="eyebrow">{t("PAWTWIN · 照护工作台")}</p><h1>{t(pageTitle)}</h1><p className="lede">{page === 'concierge' ? t('从一句自然的提问，看见宠物资料如何帮助照护。', 'See how pet context supports care, starting with a natural question.') : t(page === 'history' ? '回看每次请求的状态、依据与模拟回执。' : page === 'settings' ? '按场景核对事实，调整模拟条件与主人观察。' : '从当前事实出发，逐次确认可执行的照护建议。')}</p></div>
         <div className="connection"><span aria-hidden="true" /><div><strong data-testid="mode-badge">{t(state ? tf("{0} · {1}", state.mode.toUpperCase(), t(state.aws_connected ? 'AWS 已连接' : 'AWS 未连接')) : '加载中')}</strong><small>{t("状态来源 /api/state")}</small></div><button type="button" className="ghost" onClick={() => void onLogout()} disabled={busy}>{t("退出")}</button></div>
       </header>
       <section className="truth-strip" aria-label={t("实现边界")}><div><strong>{t("模拟传感器事件")}</strong><span>{t("事件来源固定为 simulator")}</span></div><div><strong>{t("模拟执行器")}</strong><span>{t("回执 simulated，不驱动真实硬件")}</span></div><div><strong>{t("项圈为概念设计")}</strong><span>{t("当前没有设备连接")}</span></div><div><strong>{t(state?.aws_connected ? 'AWS 已连接' : 'AWS 未连接')}</strong><span>{t("本地替身与云端状态分别标注")}</span></div></section>
@@ -912,13 +915,13 @@ export default function App() {
         <p className="warn" data-testid="reauth-hint">{t("会话可查看，但执行批准/拒绝需要操作令牌。请重新登录以继续操作。")}</p>
       ) : null)}
 
-      <section className="panel wb-facts" aria-label={t("当前宠物事实")}>
+      {page !== 'concierge' && <section className="panel wb-facts" aria-label={t("当前宠物事实")}>
         <div className="wb-card-heading"><div><p className="section-label">CURRENT FACTS</p><h2>{t("Mochi 的当前事实")}</h2></div><button type="button" className="ghost" disabled={busy} onClick={() => { const runId = acceptedRunIdRef.current ?? activeRun?.run_id; void refresh(); if (runId && !pollingRef.current) void trackRun(runId) }}>{t("刷新状态")}</button></div>
         <dl className="facts" data-testid="facts"><div><dt>{t("上次喂食距今")}</dt><dd>{t(factMinutes(facts?.last_fed_minutes_ago))}</dd></div><div><dt>{t("当日已出粮")}</dt><dd>{t(factGrams(facts?.daily_dispensed_grams, facts?.daily_limit_grams))}</dd></div><div><dt>{t("单次上限")}</dt><dd>{t(facts?.single_serving_grams ?? '—')}{t(" 克")}</dd></div><div><dt>{t("最短间隔")}</dt><dd>{t(facts?.minimum_interval_minutes ?? '—')}{t(" 分钟")}</dd></div></dl>
         <p className="hint">{t("来源：应用存储 · 未知事实保持未知 · 出粮不代表实际摄入 · 硬性限额不能由批准或演示设置提高")}</p>
-      </section>
+      </section>}
       {t(page === 'requests' && <section className="panel wb-request" aria-label={t("宠物与请求")}><div className="wb-card-heading"><div><p className="section-label">ONE REQUEST AT A TIME</p><h2>{t("发起一次模拟请求")}</h2></div><span className="wb-soft-badge">{t("仅 Mochi")}</span></div><p>{t("请求进入分析和策略检查。有可执行建议时，你仍需明确批准；本页为软件测试演示，非喂养建议。")}</p><div className="wb-flow" aria-label={t("请求流程")}><span>{t("01 请求与分析")}</span><WorkspaceIcon name="arrow" /><span>{t("02 主人确认")}</span><WorkspaceIcon name="arrow" /><span>{t("03 模拟回执")}</span></div><div className="actions"><button type="button" onClick={() => void sendEvent('food_request')} disabled={requestDisabled}>{t("发送吃饭请求")}</button><button type="button" className="ghost" onClick={() => void sendEvent('attention_request')} disabled={requestDisabled}>{t("发送互动请求")}</button></div>{t((polling || acceptedRunId || state?.runs.some(run => !isSettled(run.state))) && <p className="hint">{t("还有请求正在处理，结束后可发起下一次；演示事实与回执设置仍可修改。")}<a href="#workbench/history">{t("查看运行记录")}</a></p>)}</section>)}
-      {t(page !== 'settings' ? <><div className={`wb-run-layout wb-run-layout--${page}`}>{t(page === 'history' ? <>{t(runList)}{t(runDetails)}</> : <>{t(runDetails)}{t(runList)}</>)}</div>{t(page === 'requests' && demoControls)}</> : <div className="wb-settings-layout">{t(demoControls)}{t(memoryPanel)}</div>)}
+      {page === 'concierge' ? <WorkbenchConcierge /> : t(page !== 'settings' ? <><div className={`wb-run-layout wb-run-layout--${page}`}>{t(page === 'history' ? <>{t(runList)}{t(runDetails)}</> : <>{t(runDetails)}{t(runList)}</>)}</div>{t(page === 'requests' && demoControls)}</> : <div className="wb-settings-layout">{t(demoControls)}{t(memoryPanel)}</div>)}
       <footer>{t("Local prototype · 传感器与执行器均为模拟 · 本地演示身份 · 非家庭账号 · 真实云端能力以证据为准")}</footer>
       </div>
     </main>

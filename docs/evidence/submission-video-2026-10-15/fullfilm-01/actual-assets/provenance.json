@@ -1,0 +1,279 @@
+{
+  "status": "derived_from_actual_local_capture",
+  "boundary": "Fictional household; real local prototype UI, local rules and SQLite. Alexa is a web text simulator. No live cloud or hardware.",
+  "clips": [
+    {
+      "id": "owner-draft-prepare",
+      "role": "owner",
+      "start": 76.0,
+      "duration": 8.0,
+      "crop": [
+        780,
+        304,
+        1000,
+        720
+      ],
+      "operation": "Review draft, prepare proposal, observe confirmation required",
+      "source_path": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-cinematic-capture-2026-10-15\\attempt-03-native1920\\owner.webm",
+      "source_sha256": "cb0d21468161783923c572d034807b407bb7effedcd2fcf3abd333995f9a91ce",
+      "source_resolution": [
+        1920,
+        1080
+      ],
+      "source_frame_rate": "25/1",
+      "speed": 1.0,
+      "transformation": "Spatial crop only; no time scaling or synthesized interface",
+      "file": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-video-studio-2026-10-15\\public\\fullfilm\\owner-draft-prepare.mp4",
+      "sha256": "958d6d69556566b34db9b9bd13bd52e6d2df5c2d19c82f68b28ac268a3ac16fc",
+      "hold": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-video-studio-2026-10-15\\public\\fullfilm\\owner-draft-prepare-hold.png",
+      "hold_encoded_timestamp": 7.96,
+      "hold_sha256": "a43a886281a2fca11f3a9c4254fc2b73e52c9c150e71e05e961caf15b12266d6",
+      "encoded": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 1000,
+            "height": 720,
+            "r_frame_rate": "25/1",
+            "nb_frames": "200"
+          }
+        ],
+        "format": {
+          "duration": "8.000000"
+        }
+      },
+      "full_decode_check": "passed"
+    },
+    {
+      "id": "owner-explicit-confirm",
+      "role": "owner",
+      "start": 84.0,
+      "duration": 10.0,
+      "crop": [
+        780,
+        304,
+        1000,
+        720
+      ],
+      "operation": "Explicitly confirm manual care, observe planned awaiting manual completion",
+      "source_path": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-cinematic-capture-2026-10-15\\attempt-03-native1920\\owner.webm",
+      "source_sha256": "cb0d21468161783923c572d034807b407bb7effedcd2fcf3abd333995f9a91ce",
+      "source_resolution": [
+        1920,
+        1080
+      ],
+      "source_frame_rate": "25/1",
+      "speed": 1.0,
+      "transformation": "Spatial crop only; no time scaling or synthesized interface",
+      "file": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-video-studio-2026-10-15\\public\\fullfilm\\owner-explicit-confirm.mp4",
+      "sha256": "41da2b930c1eceae169bba7d421ea3e7d81b2657e077da40569792f014b23a9b",
+      "hold": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-video-studio-2026-10-15\\public\\fullfilm\\owner-explicit-confirm-hold.png",
+      "hold_encoded_timestamp": 9.96,
+      "hold_sha256": "599208e870d9afbca40f520b87362113ba64fd5e4b1b95eb416ab738b4ccddf3",
+      "encoded": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 1000,
+            "height": 720,
+            "r_frame_rate": "25/1",
+            "nb_frames": "250"
+          }
+        ],
+        "format": {
+          "duration": "10.000000"
+        }
+      },
+      "full_decode_check": "passed"
+    },
+    {
+      "id": "alex-claim-complete",
+      "role": "carer",
+      "start": 82.7,
+      "duration": 16.0,
+      "crop": [
+        304,
+        244,
+        736,
+        630
+      ],
+      "operation": "Claim manual care as Alex, record completion, view Completed result",
+      "source_path": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-cinematic-capture-2026-10-15\\attempt-03-native1920\\carer.webm",
+      "source_sha256": "9c60659db5dbe771a6c6ea22a529a2238b006df734c8353558d2a59dba944457",
+      "source_resolution": [
+        1920,
+        1080
+      ],
+      "source_frame_rate": "25/1",
+      "speed": 1.0,
+      "transformation": "Spatial crop only; no time scaling or synthesized interface",
+      "file": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-video-studio-2026-10-15\\public\\fullfilm\\alex-claim-complete.mp4",
+      "sha256": "5eee935ea9130c04081b5e3d6deaf2a768506913809df3a70ca994ae527fea2f",
+      "hold": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-video-studio-2026-10-15\\public\\fullfilm\\alex-claim-complete-hold.png",
+      "hold_encoded_timestamp": 15.92,
+      "hold_sha256": "887791ab90bb0c49c2bc2846f2920f8ca9b804bf85056280118b9190fe2aa76b",
+      "encoded": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 736,
+            "height": 630,
+            "r_frame_rate": "25/1",
+            "nb_frames": "399"
+          }
+        ],
+        "format": {
+          "duration": "15.960000"
+        }
+      },
+      "full_decode_check": "passed"
+    },
+    {
+      "id": "alex-household-activity",
+      "role": "carer",
+      "start": 99.8,
+      "duration": 5.0,
+      "crop": [
+        1048,
+        518,
+        750,
+        550
+      ],
+      "operation": "Read saved household activity attribution to Alex",
+      "source_path": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-cinematic-capture-2026-10-15\\attempt-03-native1920\\carer.webm",
+      "source_sha256": "9c60659db5dbe771a6c6ea22a529a2238b006df734c8353558d2a59dba944457",
+      "source_resolution": [
+        1920,
+        1080
+      ],
+      "source_frame_rate": "25/1",
+      "speed": 1.0,
+      "transformation": "Spatial crop only; no time scaling or synthesized interface",
+      "file": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-video-studio-2026-10-15\\public\\fullfilm\\alex-household-activity.mp4",
+      "sha256": "4d35f630eaaeef6d11fd41cb7f047d387c0249097584e2d5c391b3e86d14c3c2",
+      "hold": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-video-studio-2026-10-15\\public\\fullfilm\\alex-household-activity-hold.png",
+      "hold_encoded_timestamp": 4.96,
+      "hold_sha256": "bc3485e09b141b18f7e205f2c83861722ede0fd1924ee3c736ccda419fd0b674",
+      "encoded": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 750,
+            "height": 550,
+            "r_frame_rate": "25/1",
+            "nb_frames": "125"
+          }
+        ],
+        "format": {
+          "duration": "5.000000"
+        }
+      },
+      "full_decode_check": "passed"
+    },
+    {
+      "id": "emma-daily-report",
+      "role": "owner",
+      "start": 128.0,
+      "duration": 7.0,
+      "crop": [
+        300,
+        334,
+        1100,
+        734
+      ],
+      "operation": "Generate daily report after completion, show one manual care completion and missing data",
+      "source_path": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-cinematic-capture-2026-10-15\\attempt-03-native1920\\owner.webm",
+      "source_sha256": "cb0d21468161783923c572d034807b407bb7effedcd2fcf3abd333995f9a91ce",
+      "source_resolution": [
+        1920,
+        1080
+      ],
+      "source_frame_rate": "25/1",
+      "speed": 1.0,
+      "transformation": "Spatial crop only; no time scaling or synthesized interface",
+      "file": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-video-studio-2026-10-15\\public\\fullfilm\\emma-daily-report.mp4",
+      "sha256": "bde94a99674c85548a07b487d08bc4b214aec858b76d02aeb4fcefe7e55d9e55",
+      "hold": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-video-studio-2026-10-15\\public\\fullfilm\\emma-daily-report-hold.png",
+      "hold_encoded_timestamp": 6.96,
+      "hold_sha256": "cfba5c6d3d09c583c997cc4b096c7c26d8716c04b4fb6a3f2d438fc16d66ddb3",
+      "encoded": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 1100,
+            "height": 734,
+            "r_frame_rate": "25/1",
+            "nb_frames": "175"
+          }
+        ],
+        "format": {
+          "duration": "7.000000"
+        }
+      },
+      "full_decode_check": "passed"
+    }
+  ],
+  "stills": [
+    {
+      "id": "owner-draft-state",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-cinematic-capture-2026-10-15\\attempt-03-native1920\\owner.webm",
+      "source_timestamp": 77.0,
+      "crop": [
+        784,
+        644,
+        992,
+        324
+      ],
+      "meaning": "Review draft; no task created yet",
+      "file": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-video-studio-2026-10-15\\public\\fullfilm\\owner-draft-state.png",
+      "sha256": "761beff000de87a33aab963720d5b4530f04574a1fde3a3b2445742b3a75f0dc"
+    },
+    {
+      "id": "owner-pending-state",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-cinematic-capture-2026-10-15\\attempt-03-native1920\\owner.webm",
+      "source_timestamp": 84.0,
+      "crop": [
+        784,
+        734,
+        992,
+        234
+      ],
+      "meaning": "Prepared care proposal; explicit confirmation needed",
+      "file": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-video-studio-2026-10-15\\public\\fullfilm\\owner-pending-state.png",
+      "sha256": "45f0789dc58e6bb2b877c20f63dae13ad46bc1c62f83bdfd555016c08330c858"
+    },
+    {
+      "id": "owner-confirmed-state",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-cinematic-capture-2026-10-15\\attempt-03-native1920\\owner.webm",
+      "source_timestamp": 92.0,
+      "crop": [
+        780,
+        728,
+        1000,
+        280
+      ],
+      "meaning": "Planned; awaiting manual completion",
+      "file": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-video-studio-2026-10-15\\public\\fullfilm\\owner-confirmed-state.png",
+      "sha256": "9238c164ef42813f29840308324033ea65af1d0c5461a5da8bf5eec3975df2e3"
+    },
+    {
+      "id": "alex-history-attribution",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-cinematic-capture-2026-10-15\\attempt-03-native1920\\carer.webm",
+      "source_timestamp": 102.8,
+      "crop": [
+        1048,
+        654,
+        750,
+        374
+      ],
+      "meaning": "Saved recent household activity identifies Alex completed and claimed care",
+      "file": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-video-studio-2026-10-15\\public\\fullfilm\\alex-history-attribution.png",
+      "sha256": "a288dcb705cf95e36f8a928a151df3b6915fdfa02d9421df0b979d5c178d49dd"
+    }
+  ]
+}

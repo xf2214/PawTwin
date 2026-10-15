@@ -1,5 +1,11 @@
 # PawTwin
 
+**2026-10-16：本地提交修复验收**：修复新增视频制作脚本的216项静态检查问题，统一当前142.379秒英文成片、材料和可编辑Word；保留旧视频和原数据。当前 **495 backend passed / 1 skipped / 21 live-AWS deselected；122 browser passed，0 retries**，Ruff、契约、类型与生产构建通过。
+
+当前提交材料从[最终本地材料入口](docs/submission/2026-10-15/README.md)进入；源码身份见[release-source.json](docs/submission/2026-10-15/release-source.json)，完整命令与限制见[修复验证](docs/evidence/submission-repairs-2026-10-15/verification.json)。完整源码和最终视频材料分别使用`PawTwin-source-2026-10-15.final.zip`及`PawTwin-submission-materials-2026-10-15.final.zip`，最终Git提交和逐文件哈希由各包外置manifest记录。
+
+源码包包含运行应用所需的当前代码、资源、配置、锁文件和说明；原始录屏、用户数据、依赖、缓存及大型渲染中间文件保留本地。历史证据文档中的部分媒体只存在于完整本地研究材料，不是源码包的运行依赖。当前仍为本地规则、SQLite和Alexa/设备模拟；人工完整听审、外部发布及正式申报另行完成。
+
 **2026-10-14：当前版本代码与应用审查通过**：修复家庭账号切换时的迟到数据/邀请码残留、跨宠物测量草稿、读取超时和记忆空值错误；本地测试隔离 `.env`，源码包与 Git 排除会话追踪和数据库备份。最终 **447 backend passed / 1 skipped / 21 live-AWS deselected；115 browser passed（四个独立服务分片，0 retries）**，Ruff、契约、类型和生产构建通过。审查范围、修复依据与保留限制见[当前版本审查](docs/reviews/current-version-2026-10-14.md)。这是本地规则/模拟设备版本的 Git 快照，真实 AWS、Alexa 和硬件仍未验证；下方数字保留为历史记录。
 
 **2026-10-14：英语 / 中文界面**：展示页、家庭应用、原工作台、Alexa 网页模拟、临时只读访问及就诊信息卡已支持双语。首次打开默认英语，页头 **English / 中文** 可即时切换并记住选择。用户填写的名称、任务、观察和日记保留原文。构建通过，完整浏览器回归 107 passed，详见[双语验证](docs/evidence/i18n-2026-10-14.md)。

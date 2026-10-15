@@ -1,0 +1,44 @@
+{
+  "status": "passed",
+  "video": "C:\\Users\\11831\\Desktop\\hks\\outputs\\PawTwin-hackathon-submission-2026-10-15.en.mp4",
+  "actual_duration_seconds": 142.379,
+  "under_180_seconds": true,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "fps": 30,
+  "video_frames": 4271,
+  "codec": [
+    "H264",
+    "AAC"
+  ],
+  "full_stream_decode": "passed",
+  "actual_encoded_stereo_audio": {
+    "duration_seconds": 142.37866666666667,
+    "integrated_lufs": -16.01,
+    "true_peak_dbtp": -1.82,
+    "loudness_range_lu": 2.7,
+    "sample_peak_dbfs": -1.832,
+    "clipped_samples": 0
+  },
+  "caption_cues": 51,
+  "caption_text_matches_full_narration": true,
+  "no_caption_overlap": true,
+  "actual_encoded_frames_extracted": 48,
+  "visual_review": "passed: 48 actual encoded frames inspected; independent reviewer checked 14 critical frames; report title crop corrected before render",
+  "independent_audio_review": "passed: AAC stereo -16.01 LUFS, -1.82 dBTP, no clipping or duration truncation",
+  "human_full_listening": "not_performed",
+  "source_ui_speed": 1,
+  "application_boundary": "Local prototype and Alexa text web simulator; Miso/Luna are labelled fictional scripted presets",
+  "previous_deliveries_preserved": [
+    "PawTwin-style-sample-2026-10-15.en.mp4",
+    "PawTwin-style-sample-2026-10-15.en.v2.mp4",
+    "PawTwin-demo-2026-10-15.en.mp4",
+    "PawTwin-demo-2026-10-15.en.v2.mp4",
+    "PawTwin-submission-2026-10-15.en.docx"
+  ],
+  "bytes": 10522694,
+  "sha256": "47c412da677666bc49d16b39d20d4bfed1ec619b1d2b46cda496ad9a86e6cbe5",
+  "external_upload_or_submission": "not_performed"
+}

@@ -1,0 +1,75 @@
+{
+  "status": "passed",
+  "screenshot_count": 22,
+  "all_screenshots_1920x1080": true,
+  "all_cjk_checks_passed": true,
+  "backend": "local_rules",
+  "cloud_calls": 0,
+  "recordings": {
+    "owner": {
+      "width": 1920,
+      "height": 1080,
+      "duration_seconds": 173.44,
+      "sha256": "cb0d21468161783923c572d034807b407bb7effedcd2fcf3abd333995f9a91ce",
+      "bytes": 15653415
+    },
+    "carer": {
+      "width": 1920,
+      "height": 1080,
+      "duration_seconds": 157.2,
+      "sha256": "9c60659db5dbe771a6c6ea22a529a2238b006df734c8353558d2a59dba944457",
+      "bytes": 13446400
+    },
+    "caregiver": {
+      "width": 1920,
+      "height": 1080,
+      "duration_seconds": 25.76,
+      "sha256": "ecb5a3c47fb309123c3b1a9d2b5befdffaa8eecf0b8cc25250529baa7ad86599",
+      "bytes": 1764293
+    }
+  },
+  "operations": [
+    {
+      "name": "weekly-report-generate",
+      "role": "owner",
+      "start_ms": 34346,
+      "end_ms": 42790
+    },
+    {
+      "name": "owner-confirms-preference",
+      "role": "owner",
+      "start_ms": 43665,
+      "end_ms": 58825
+    },
+    {
+      "name": "prepare-care-proposal",
+      "role": "owner",
+      "start_ms": 80310,
+      "end_ms": 87219
+    },
+    {
+      "name": "confirm-manual-care",
+      "role": "owner",
+      "start_ms": 87221,
+      "end_ms": 95664
+    },
+    {
+      "name": "alex-claims-and-completes-care",
+      "role": "carer",
+      "start_ms": 81544,
+      "end_ms": 99306
+    },
+    {
+      "name": "generate-daily-report-after-completion",
+      "role": "owner",
+      "start_ms": 127667,
+      "end_ms": 136775
+    },
+    {
+      "name": "generate-vet-snapshot-and-read-records",
+      "role": "owner",
+      "start_ms": 137235,
+      "end_ms": 150440
+    }
+  ]
+}

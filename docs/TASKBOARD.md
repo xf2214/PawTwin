@@ -1,5 +1,30 @@
 # PawTwin 开发任务看板
 
+## 2026-10-15：工作台宠物管家演示
+
+WORK-CASE-01 done_local：工作台新增 `/#workbench/concierge`“宠物管家”，复用宣传页的三步案例：Miso 小狗饮食、Luna 猫咪状态和上下文随行。新入口保留演示口令保护；预设对话、虚构档案和模拟轨迹不读写家庭记录或调用模型。返回原请求时继续保留审批与运行追踪。
+
+沿用当前完整工作区，修改前 7 文件已保存至仓库外 `outputs/PawTwin-before-workbench-concierge-2026-10-15`。Coordinator 独占 App.tsx、Showcase.tsx（仅共用步骤引用）、workbench.css、新 WorkbenchConcierge.tsx/concierge-scenario.ts 与文档；concierge_tests 独占新增 e2e/workbench-concierge.spec.ts；reviewer 只读。
+
+最终 **35 项相关浏览器测试通过（19 + 16，0 retries）**，类型/生产构建与 diff 检查通过。覆盖深链、键盘、双语、320/390/768/1440、案例零业务写入及原审批/运行追踪和公开页回归。16 张截图已保存，独立代码与完整页视觉复核无开放 P1/P2。保留既有构建分块警告；无后端、依赖或业务数据库变更，未提交或发布。当前预览 `8807/#workbench/concierge`。[验收与截图](evidence/workbench-concierge-2026-10-15.md)。
+
+## 2026-10-15：宠物管家宣传场景
+
+PRODUCT-05 done_local：用户要求在现有宣传页新增第四个场景“宠物管家”，以具体品种、性别、年龄、食物和观察项替换占位符，用小狗饮食、猫咪精神状态两段示例对话及新会话对比，呈现已保存的宠物上下文随问题带入。保持英语默认/中文切换；Alexa 与轨迹明确为预设网页模拟，不能宣称活动正常便排除疾病。
+
+基线 `chore/bootstrap` / `6342b96`，保留既有提交和视频资料；修改前文件保存至仓库外 `%TEMP%/pawtwin-concierge-20261015`。Coordinator 串行整合共享文件；此包只改宣传展示，不接业务或模型调用。
+
+| Owner | 独占写路径 |
+| --- | --- |
+| concierge_visual | 新增 `frontend/src/PetConciergePreview.tsx`、`pet-concierge.css` |
+| concierge_tests | 新增 `frontend/e2e/pet-concierge.spec.ts`；不构建或启动服务 |
+| Coordinator | `Showcase.tsx`、`CasePreview.tsx`、`showcase.css`、`showcase-messages.ts`；文档、整合和验证 |
+| concierge_review | 只读代码、双语和视觉复核 |
+
+验收覆盖第四场景及三步切换、具体内容、宠物身份/偏好/记录依据、模拟边界、双语、键盘、减少动画、320/390/768/1440 和公开页零业务请求。健康文案参考 Merck Veterinary Manual、VCA 与 PDSA，保留实际应用的既有能力边界。
+
+最终 **30 项相关浏览器测试通过（26 + 4，独立内存服务，0 retries）**，TypeScript/生产构建及 diff 检查通过。7 张新截图保存，独立代码与视觉复核无开放 P1/P2。原有构建分块体积警告仍在；本次不改依赖、后端或数据。内置浏览器 `8807/#cases` 已打开中文新场景；未提交或发布。[完整证据](evidence/pet-concierge-2026-10-15.md)。
+
 ## 2026-10-14：当前版本代码、逻辑与应用审查
 
 REVIEW-01 done_local。用户授权检查当前完整版本，问题修复并验证后提交本地 Git。基线为 `chore/bootstrap` / `31da349` 加完整既有工作区；保留原源码、演示库和媒体，不从 HEAD 另起缺失功能的版本。Coordinator 串行整合与提交；审查阶段只读，确认缺陷后再分配互不重叠的修复范围。
@@ -459,3 +484,8 @@ HOME-05 家庭显示名与交接、HOME-06 照片日记与摘要。以上本地�
 - BE-CLOUD-01（2026-10-11）：`/root` Coordinator，`chore/bootstrap` @ `31da349`，保留当前完整 dirty checkout，串行修改后端服务/测试/配置/生成契约/前端标签/部署脚本和文档；只读 Agent 研究与审查。计划见 [backend-services-2026-10-11](plans/backend-services-2026-10-11.md)。用户确认 AWS 已审核通过；总预算 $10 沿用；Alexa+ 平台比赛不开放。真实 AWS 接入仍须短期凭证与现场往返验证。
 
 每项开始前追加：任务 ID、Agent/任务名称、起始提交、工作树路径、分支、允许写的文件、预计交付、接口变更需求。完成后填写交付提交和验证证据链接。不要让多个 Agent 同时改此表。
+## 2026-10-16 本地提交修复
+
+SUBMIT-LOCAL-01：用户指定修复静态检查、完整源码冻结和最终材料同步，随后明确先完成本地。lint_repair修复10个视频Python脚本；material_sync同步英文材料并生成/逐页验证六页Word；source_audit只读复核过滤、版本与失败边界；Coordinator完成打包工具、48项回归、综合验证与本地Git整合。工作范围互不重叠，保留既有宠物管家改动和全部原媒体。
+
+验证：495 backend passed /1 skipped /21 live-AWS deselected，122 browser passed（0 retries），Ruff/契约/类型/build通过。独立解压安装/构建/API门控通过，24份原输出哈希不变。最终源码提交与两个ZIP的CRC/逐文件哈希由外置manifest记录；外部仓库、视频上传和正式提交保留为后续任务。

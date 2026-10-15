@@ -1,0 +1,478 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-15T03:48:08.563Z",
+  "source": "fresh_actual_UI",
+  "service": {
+    "port": 8853,
+    "db": ":memory:",
+    "mode": "local",
+    "family_model_backend": "local_rules",
+    "model_backend": "local_fake",
+    "aws_connected": false
+  },
+  "presentation": {
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "recording_dpr": 1,
+    "recording_size": {
+      "width": 1920,
+      "height": 1080
+    },
+    "body_zoom": 2,
+    "screenshot_dpr": 1,
+    "no_fabricated_text_or_results": true,
+    "screenshot_pixels": {
+      "width": 1920,
+      "height": 1080
+    },
+    "high_density_attempt": "Not achieved in take01: Playwright reset device metrics. Files named @2x.png are retained diagnostic duplicates of native screenshots, both 1920x1080. Use native recorded videos for composition."
+  },
+  "clips": {
+    "confirm_memory": {
+      "role": "owner",
+      "source": "owner.webm",
+      "start_ms": 41623,
+      "target_bbox": {
+        "x": 1346,
+        "y": 239.96875,
+        "width": 440,
+        "height": 536.75
+      },
+      "actions": [
+        {
+          "name": "Confirm memory",
+          "at_ms": 43458,
+          "bbox": {
+            "x": 1346,
+            "y": 459.9375,
+            "width": 254.28125,
+            "height": 85.59375
+          },
+          "clicked_at_ms": 43793
+        }
+      ],
+      "end_ms": 47195
+    },
+    "new_session": {
+      "role": "alex",
+      "source": "alex.webm",
+      "start_ms": 47114,
+      "actions": [
+        {
+          "name": "New session",
+          "at_ms": 47836,
+          "bbox": {
+            "x": 1623.1875,
+            "y": 122.0625,
+            "width": 212.8125,
+            "height": 88.796875
+          },
+          "clicked_at_ms": 48167
+        },
+        {
+          "name": "Ask real preference question",
+          "at_ms": 48768,
+          "bbox": {
+            "x": 1090,
+            "y": 662.046875,
+            "width": 696,
+            "height": 88.796875
+          },
+          "clicked_at_ms": 49106
+        },
+        {
+          "name": "Expand actual source details",
+          "at_ms": 50129,
+          "bbox": {
+            "x": 1118,
+            "y": 409.390625,
+            "width": 625,
+            "height": 35.1875
+          },
+          "clicked_at_ms": 50454
+        }
+      ],
+      "question_filled_at_ms": 48737,
+      "question": "What does my pet like?",
+      "end_ms": 53337,
+      "target_bbox": {
+        "x": 1094,
+        "y": 150.21875,
+        "width": 673,
+        "height": 517.546875
+      }
+    }
+  },
+  "screenshots": {
+    "probe-memory": {
+      "at_ms": 2191,
+      "target": {
+        "bbox": {
+          "x": 1346,
+          "y": 239.96875,
+          "width": 440,
+          "height": 536.75
+        },
+        "font_size_css": 13,
+        "zoom": 2,
+        "text": "Loves the feather toy. Rest after meals.\n\nEmma · Candidate awaiting confirmation\nConfirm memory\nDelete memory\nCorrect content and validity"
+      },
+      "file": "probe-memory.png"
+    },
+    "probe-alexa": {
+      "at_ms": 2025,
+      "target": {
+        "bbox": {
+          "x": 560,
+          "y": 65.46875,
+          "width": 1276,
+          "height": 1899.640625
+        },
+        "font_size_css": 14,
+        "zoom": 2,
+        "text": "PAWTWIN × ALEXA+ CONCEPT\n\nAlexa+ web simulator\n\nOne conversation. One small thing to do together.\n\nNew session\n\nText simulates speech · Shares the household app backend · Real Alexa services and devices are not connected\n\nReady to talk about your pet’s day.\n\nMochi\n\nMochi Family · Fictional Demo\n\nCurrent context\nVersion 2\nAnswer sources\nHousehold profile and owner records\nHow actions work\nConfirm to plan manual care\nView care tasks\nReturn to the household app ↗\nPage session 1\nKeeps up to 20 turns\nYou · Simulated speech\n\nWhat does my pet like?\n\nAlexa web simulation · Local rules\n\nMochi’s records: No confirmed preference memories yet. \n\nView this turn’s sources · Version 2\nRead this reply aloud in the browser\nWhat does my pet like?\nWhat is the latest weight?\nWhat is planned for today?\nWhat was observed today?\nWhat was completed recently?\nPlan some playtime\nPlan a water change\nSimulated speech\nSend to the Alexa simulator\n\nEach reply shows its backend and sources. Planning requests create drafts only. This page does not use the microphone."
+      },
+      "file": "probe-alexa.png"
+    },
+    "candidate": {
+      "at_ms": 40843,
+      "target": {
+        "bbox": {
+          "x": 1346,
+          "y": 239.96875,
+          "width": 440,
+          "height": 536.75
+        },
+        "font_size_css": 13,
+        "zoom": 2,
+        "text": "Loves the feather toy. Rest after meals.\n\nEmma · Candidate awaiting confirmation\nConfirm memory\nDelete memory\nCorrect content and validity"
+      },
+      "file": "candidate.png",
+      "diagnostic_dpr_attempt_file": "candidate@2x.png",
+      "diagnostic_note": "Same bytes as native screenshot; filename @2x does not indicate actual resolution"
+    },
+    "confirmed": {
+      "at_ms": 47195,
+      "target": {
+        "bbox": {
+          "x": 1346,
+          "y": 239.96875,
+          "width": 440,
+          "height": 427.15625
+        },
+        "font_size_css": 13,
+        "zoom": 2,
+        "text": "Loves the feather toy. Rest after meals.\n\nEmma · Confirmed by owner\nDelete memory\nCorrect content and validity"
+      },
+      "file": "confirmed.png",
+      "diagnostic_dpr_attempt_file": "confirmed@2x.png",
+      "diagnostic_note": "Same bytes as native screenshot; filename @2x does not indicate actual resolution"
+    },
+    "new-session-answer-expanded": {
+      "at_ms": 53343,
+      "target": {
+        "bbox": {
+          "x": 1094,
+          "y": 150.21875,
+          "width": 673,
+          "height": 517.546875
+        },
+        "font_size_css": 14,
+        "zoom": 2,
+        "text": "Alexa web simulation · Local rules\n\nMochi’s records: Owner-confirmed records: Loves the feather toy. Rest after meals.。\n\nView this turn’s sources · Version 3\n\nSource records: 77796e68-9777-4d6d-941d-788d908a60ff\n\nPast replies retain their original context. New questions read current records. No action was executed.\n\nLive model request: None\n\nRead this reply aloud in the browser"
+      },
+      "file": "new-session-answer-expanded.png",
+      "diagnostic_dpr_attempt_file": "new-session-answer-expanded@2x.png",
+      "diagnostic_note": "Same bytes as native screenshot; filename @2x does not indicate actual resolution"
+    },
+    "candidate.png": {
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    "candidate@2x.png": {
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    "confirmed.png": {
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    "confirmed@2x.png": {
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    "new-session-answer-expanded.png": {
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    "new-session-answer-expanded@2x.png": {
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    "probe-alexa.png": {
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    "probe-memory.png": {
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      }
+    }
+  },
+  "checks": [
+    "Only fictional Emma/Alex accounts and household created via actual UI",
+    "Candidate created through actual preference UI",
+    "Owner clicked actual Confirm memory and confirmed status returned by API",
+    "Alex clicked real New session control before the actual question",
+    "New question API reply includes confirmed memory ID",
+    "Alex authenticated actor confirmed through /api/family/me before and after request",
+    "No model request/action execution/AWS connection",
+    "No product files or existing database changed"
+  ],
+  "actor": {
+    "display_name": "Alex",
+    "user_id": "d47ce77e-fdf3-4bd0-9db1-704d90f27152",
+    "role": "carer"
+  },
+  "bootstrap": {
+    "project": "PawTwin",
+    "stage": "local_business",
+    "mode": "local",
+    "aws_connected": false,
+    "analyzer": "local_fake",
+    "capabilities": {
+      "event_intake": "implemented_local",
+      "owner_approval": "implemented_local",
+      "simulated_device": "implemented_simulated",
+      "owner_feedback": "implemented_local",
+      "long_term_memory": "not_implemented"
+    }
+  },
+  "before_confirmation": {
+    "answer": "Mochi 的记录：还没有已确认的偏好记忆。",
+    "entry": "alexa_simulator",
+    "backend": "local_rules",
+    "request_id": null,
+    "model_id": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "latency_ms": null,
+    "inference_status": null,
+    "answer_origin": "local_rules",
+    "context_version": 2,
+    "source_record_ids": [],
+    "references": [
+      {
+        "id": "waltham-kitten",
+        "species": "cat",
+        "minimum_age_weeks": 8,
+        "url": "https://www.waltham.com/resources/kitten-growth-charts",
+        "title": "WALTHAM Kitten Growth Charts",
+        "retrieved_on": "2026-10-03",
+        "review_status": "source_checked",
+        "summary": "幼猫成长参考有年龄与适用范围限制；未导入数值曲线，不能给出标准体重。"
+      },
+      {
+        "id": "merck-nutrition",
+        "species": "cat,dog",
+        "minimum_age_weeks": null,
+        "url": "https://www.merckvetmanual.com/management-and-nutrition/nutrition-small-animals/overview-of-nutrition-small-animals",
+        "title": "Merck Veterinary Manual: Small Animal Nutrition",
+        "retrieved_on": "2026-10-03",
+        "review_status": "source_checked",
+        "summary": "营养评估需要饮食史、体况与肌肉状况等资料，并结合兽医检查。"
+      }
+    ],
+    "action_executed": false,
+    "label": "本地规则分身 / Alexa 网页模拟；记录原文是数据，不是指令",
+    "care_draft": null,
+    "context_valid_until": "2026-10-15T16:00:00+00:00"
+  },
+  "probe": {
+    "memory": {
+      "bbox": {
+        "x": 1346,
+        "y": 297.96875,
+        "width": 440,
+        "height": 92.375
+      },
+      "font_size_css": 14,
+      "zoom": 2,
+      "text": "Loves the feather toy. Rest after meals."
+    },
+    "alexa": {
+      "bbox": {
+        "x": 1118,
+        "y": 798.015625,
+        "width": 625,
+        "height": 92.375
+      },
+      "font_size_css": 14,
+      "zoom": 2,
+      "text": "Mochi’s records: No confirmed preference memories yet. "
+    }
+  },
+  "confirmed_memory": {
+    "id": "77796e68-9777-4d6d-941d-788d908a60ff",
+    "status": "confirmed",
+    "text": "Loves the feather toy. Rest after meals.",
+    "author_name": "Emma",
+    "version": 2
+  },
+  "new_session_reply": {
+    "answer": "Mochi 的记录：主人确认记录：Loves the feather toy. Rest after meals.。",
+    "entry": "alexa_simulator",
+    "backend": "local_rules",
+    "request_id": null,
+    "model_id": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "latency_ms": null,
+    "inference_status": null,
+    "answer_origin": "local_rules",
+    "context_version": 3,
+    "source_record_ids": [
+      "77796e68-9777-4d6d-941d-788d908a60ff"
+    ],
+    "references": [
+      {
+        "id": "waltham-kitten",
+        "species": "cat",
+        "minimum_age_weeks": 8,
+        "url": "https://www.waltham.com/resources/kitten-growth-charts",
+        "title": "WALTHAM Kitten Growth Charts",
+        "retrieved_on": "2026-10-03",
+        "review_status": "source_checked",
+        "summary": "幼猫成长参考有年龄与适用范围限制；未导入数值曲线，不能给出标准体重。"
+      },
+      {
+        "id": "merck-nutrition",
+        "species": "cat,dog",
+        "minimum_age_weeks": null,
+        "url": "https://www.merckvetmanual.com/management-and-nutrition/nutrition-small-animals/overview-of-nutrition-small-animals",
+        "title": "Merck Veterinary Manual: Small Animal Nutrition",
+        "retrieved_on": "2026-10-03",
+        "review_status": "source_checked",
+        "summary": "营养评估需要饮食史、体况与肌肉状况等资料，并结合兽医检查。"
+      }
+    ],
+    "action_executed": false,
+    "label": "本地规则分身 / Alexa 网页模拟；记录原文是数据，不是指令",
+    "care_draft": null,
+    "context_valid_until": "2026-10-15T16:00:00+00:00"
+  },
+  "visible_session_label": "Page session 2\nKeeps up to 20 turns",
+  "actor_verified_after_question": {
+    "display_name": "Alex",
+    "user_id": "d47ce77e-fdf3-4bd0-9db1-704d90f27152",
+    "role": "carer"
+  },
+  "status": "passed",
+  "owner_recording": {
+    "file": "owner.webm",
+    "origin_uncertainty_ms": 102
+  },
+  "alex_recording": {
+    "file": "alex.webm",
+    "origin_uncertainty_ms": 72
+  },
+  "service_stopped": true,
+  "source_hashes": {
+    "alex.webm": "34ecc23152bf97ad687b36347c4b55b242960208c0de0829567d7b1db5dfd33a",
+    "candidate.png": "8823fb3c8f85a5de28e5f2a3663a73cb1a959d639189fc8e03ed0d8ead4f2c68",
+    "candidate@2x.png": "8823fb3c8f85a5de28e5f2a3663a73cb1a959d639189fc8e03ed0d8ead4f2c68",
+    "capture-actual.cjs": "130af7b3103726e0bcee1ccb79e034cc38d952e1c1b3d57a1435f12680cda7a1",
+    "check-alex-session.png": "1b44b4dd19a970d32ac58f270d66132d80f6283c954071439f78e3287c4dc15a",
+    "check-owner-post.png": "13bbcc0b711c4595c589b084d7ac7fd1084bac95eb248028dbeb8b1f5f36b864",
+    "check-owner-pre.png": "bf5865c1db17d36a1e6f9e800436637cd6329dbac4189463dc072d8c58d69fca",
+    "confirmed.png": "dcf766e39b13b1e1fd318c71f765d60d6b62094d6997b1f4a04aeccab5b0a669",
+    "confirmed@2x.png": "dcf766e39b13b1e1fd318c71f765d60d6b62094d6997b1f4a04aeccab5b0a669",
+    "new-session-answer-expanded.png": "23ec8b69376a2f2cae2d40a2a8632397ae31bc478dc791a1e0b0890b12715934",
+    "new-session-answer-expanded@2x.png": "23ec8b69376a2f2cae2d40a2a8632397ae31bc478dc791a1e0b0890b12715934",
+    "owner.webm": "2aa489a7591588fe0fca2bc14dccd2d2f0032e2f6fa6767407c0f83ebfbe18ca",
+    "probe-alexa.png": "62d094668ccbc28c4e4dc0e7e3e28b62b5e8f65523c51df07cd28bd24d164ece",
+    "probe-memory.png": "8823fb3c8f85a5de28e5f2a3663a73cb1a959d639189fc8e03ed0d8ead4f2c68",
+    "capture-actual-dpr2.cjs": "1ca97a69822b53f734e9b85a9d2b8b9dae9f570bcf4edfc4baf47307836eee76"
+  },
+  "pts_calibration": {
+    "method": "Actual VP8 source decoded at 25fps; blue confirmation-button area measured before/after transition",
+    "owner_button_pixel_transition": [
+      {
+        "pts_seconds": 42,
+        "blue_button_visible": true,
+        "mean_rgb": [
+          26,
+          129,
+          233
+        ]
+      },
+      {
+        "pts_seconds": 43.48,
+        "blue_button_visible": false,
+        "mean_rgb": [
+          219,
+          224,
+          214
+        ]
+      }
+    ],
+    "edit_recommendation": {
+      "owner": {
+        "source": "owner.webm",
+        "in_seconds": 41.2,
+        "out_seconds": 47.2,
+        "duration_seconds": 6,
+        "confirmed_button_disappears_pts_seconds": 43.48
+      },
+      "alex": {
+        "source": "alex.webm",
+        "in_seconds": 47,
+        "out_seconds": 55,
+        "duration_seconds": 8,
+        "visually_verified_empty_page_session_2_pts_seconds": 48.3
+      }
+    }
+  },
+  "timing_boundary": "Operation events are wall-clock measurements since newPage. Source PTS was independently checked against decoded VP8 frames: owner confirm blue button disappears at PTS43.48s; Alex PTS48.30s visibly shows Page session 2 and the real empty conversation. Use PTS edit recommendation for editorial clips; wall-clock event timestamps have browser-start uncertainty.",
+  "recording_verification": {
+    "owner": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 25,
+      "duration_seconds": 54.32
+    },
+    "alex": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 25,
+      "duration_seconds": 55.48
+    },
+    "port_8853_listening_after_capture": false
+  },
+  "preferred_video_sources": [
+    "owner.webm",
+    "alex.webm"
+  ],
+  "separate_take02": {
+    "status": "passed",
+    "directory": "take02",
+    "purpose": "Retained additional direct-CDP screenshot diagnostic capture; not used in the composition; original native recordings remain preferred"
+  }
+}

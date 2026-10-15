@@ -1,0 +1,29 @@
+Captured 00-product (owner) at 2013..7156 ms
+Captured 01-home (owner) at 8417..13480 ms
+Captured 02-growth (owner) at 16061..21138 ms
+Captured 08-memory-confirmed (owner) at 22094..27144 ms
+Captured 03-assistant (carer) at 14682..19741 ms
+Captured 13-alexa-new-session (carer) at 20517..25584 ms
+Captured 09-alexa-draft (owner) at 39996..45051 ms
+Captured 10-alexa-pending (owner) at 45829..50896 ms
+Captured 11-alexa-confirmed (owner) at 51690..56736 ms
+Captured 04-care (carer) at 44102..49167 ms
+Captured 07-completing-actor (carer) at 49930..55002 ms
+Captured 12-alexa-result (carer) at 55804..60878 ms
+Error: expect(locator).toContainText(expected) failed
+
+Locator: locator('article').filter({ has: getByRole('heading', { name: /^Daily report.*10\/15\/2026/ }) })
+Expected substring: "Manual care completions 1"
+Error: strict mode violation: locator('article').filter({ has: getByRole('heading', { name: /^Daily report.*10\/15\/2026/ }) }) resolved to 2 elements:
+    1) <article class="fa-report-card">…</article> aka getByText('Daily report · 10/15/2026, 00:00 — 10/16/2026, 00:00Manual care completions 1')
+    2) <article class="fa-report-card">…</article> aka getByText('Daily report · 10/14/2026, 00:00 — 10/15/2026, 00:00Manual care completions 0')
+
+Call log:
+  - Expect "toContainText" locator('article').filter({ has: getByRole('heading', { name: /^Daily report.*10\/15\/2026/ }) }) with timeout 5000ms
+  - waiting for locator('article').filter({ has: getByRole('heading', { name: /^Daily report.*10\/15\/2026/ }) })
+
+    at captureRawStack (C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\node_modules\playwright-core\lib\coreBundle.js:8588:17)
+    at callMatcherAsStep (C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\node_modules\playwright\lib\matchers\expect.js:13310:57)
+    at Object.toContainText (C:\Users\11831\Desktop\hks\outputs\pawtwin-app\frontend\node_modules\playwright\lib\matchers\expect.js:13302:23)
+    at main (C:\Users\11831\Desktop\hks\outputs\pawtwin-app\docs\submission\2026-10-15\production\capture-english.cjs:144:377)
+Capture failed; evidence written to C:\Users\11831\Desktop\hks\outputs\pawtwin-app\docs\evidence\hackathon-capture\2026-10-15-english\attempt-04

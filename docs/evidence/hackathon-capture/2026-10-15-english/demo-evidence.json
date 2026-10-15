@@ -1,0 +1,81 @@
+{
+  "schema_version": 2,
+  "captured_at": "2026-10-14T16:29:35.919Z",
+  "source": "actual_local_ui_and_api",
+  "identity_backend": "local_account",
+  "backend": "local_rules",
+  "cloud_calls": 0,
+  "pet_id": "mochi",
+  "screenshots": [
+    {
+      "file": "00-product.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8845/",
+      "raw_video_elapsed_hold_ms": {
+        "start": 2003,
+        "screenshot": 4503,
+        "end": 7130
+      },
+      "suggested_clip_ms": {
+        "start": 1403,
+        "end": 7130
+      },
+      "cjk_text_except_language_toggle": []
+    },
+    {
+      "file": "01-home.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8845/#app",
+      "raw_video_elapsed_hold_ms": {
+        "start": 8395,
+        "screenshot": 10895,
+        "end": 13471
+      },
+      "suggested_clip_ms": {
+        "start": 7795,
+        "end": 13471
+      },
+      "cjk_text_except_language_toggle": []
+    }
+  ],
+  "recordings": {
+    "owner": {
+      "video": "owner.webm",
+      "recording_origin_before_new_page_utc": "2026-10-14T16:29:37.337Z",
+      "recording_origin_after_new_page_utc": "2026-10-14T16:29:37.441Z",
+      "origin_uncertainty_ms": 104,
+      "first_blank_hold_ms": 600,
+      "timing_note": "Raw WebM starts with the first blank page. Elapsed ranges are role-specific wall clock since before newPage; visually calibrate the small startup uncertainty against raw frames.",
+      "bytes": 2019596
+    },
+    "carer": {
+      "video": "carer.webm",
+      "recording_origin_before_new_page_utc": "2026-10-14T16:29:50.911Z",
+      "recording_origin_after_new_page_utc": "2026-10-14T16:29:50.999Z",
+      "origin_uncertainty_ms": 88,
+      "first_blank_hold_ms": 600,
+      "timing_note": "Raw WebM starts with the first blank page. Elapsed ranges are role-specific wall clock since before newPage; visually calibrate the small startup uncertainty against raw frames.",
+      "bytes": 855053
+    }
+  },
+  "staging": [
+    "Fictional seeded object names changed to English through the local API before capture."
+  ],
+  "checks": [],
+  "bootstrap": {
+    "project": "PawTwin",
+    "stage": "local_business",
+    "mode": "local",
+    "aws_connected": false,
+    "analyzer": "local_fake",
+    "capabilities": {
+      "event_intake": "implemented_local",
+      "owner_approval": "implemented_local",
+      "simulated_device": "implemented_simulated",
+      "owner_feedback": "implemented_local",
+      "long_term_memory": "not_implemented"
+    }
+  },
+  "status": "failed",
+  "error": "locator.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Measured at', { exact: true })\u001b[22m\n\n    at main (C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\submission\\2026-10-15\\production\\capture-english.cjs:121:77)"
+}

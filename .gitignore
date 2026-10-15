@@ -36,3 +36,20 @@ infra/deploy_state.json
 infra/deploy_state.json.tmp
 .DS_Store
 Thumbs.db
+# Keep new video production intermediates local; source and verification stay tracked.
+/docs/evidence/submission-video-2026-10-15/**/*.mp4
+/docs/evidence/submission-video-2026-10-15/**/*.webm
+/docs/evidence/submission-video-2026-10-15/**/*.wav
+/docs/evidence/submission-video-2026-10-15/**/*.mp3
+/docs/evidence/submission-video-2026-10-15/**/*.png
+/docs/evidence/submission-video-2026-10-15/**/*.jpg
+!/docs/evidence/submission-video-2026-10-15/fullfilm-01/encoded-review/contact-*.jpg
+!/docs/evidence/submission-video-2026-10-15/fullfilm-01/encoded-review/actual-0054.png
+!/docs/evidence/submission-video-2026-10-15/fullfilm-01/encoded-review/actual-2140.png
+!/docs/evidence/submission-video-2026-10-15/fullfilm-01/encoded-review/actual-3510.png
+/docs/evidence/hackathon-cinematic-capture-2026-10-15/**/*.webm
+/docs/evidence/hackathon-cinematic-capture-2026-10-15/**/*.png
+/docs/evidence/hackathon-cinematic-capture-2026-10-15/**/*.jpg
+/docs/evidence/hackathon-capture/2026-10-15-english/**/*.webm
+/docs/evidence/hackathon-capture/2026-10-15-english/**/*.png
+/docs/evidence/hackathon-capture/2026-10-15-english/**/*.jpg

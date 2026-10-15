@@ -1,0 +1,58 @@
+[
+  {
+    "file": "full-zh-1440-step-1.png",
+    "language": "zh",
+    "step": 0,
+    "width": 1440,
+    "document": 1440
+  },
+  {
+    "file": "full-zh-1440-step-2.png",
+    "language": "zh",
+    "step": 1,
+    "width": 1440,
+    "document": 1440
+  },
+  {
+    "file": "full-zh-390-step-1.png",
+    "language": "zh",
+    "step": 0,
+    "width": 390,
+    "document": 390
+  },
+  {
+    "file": "full-zh-390-step-2.png",
+    "language": "zh",
+    "step": 1,
+    "width": 390,
+    "document": 390
+  },
+  {
+    "file": "full-en-1440-step-1.png",
+    "language": "en",
+    "step": 0,
+    "width": 1440,
+    "document": 1440
+  },
+  {
+    "file": "full-en-1440-step-2.png",
+    "language": "en",
+    "step": 1,
+    "width": 1440,
+    "document": 1440
+  },
+  {
+    "file": "full-en-390-step-1.png",
+    "language": "en",
+    "step": 0,
+    "width": 390,
+    "document": 390
+  },
+  {
+    "file": "full-en-390-step-2.png",
+    "language": "en",
+    "step": 1,
+    "width": 390,
+    "document": 390
+  }
+]

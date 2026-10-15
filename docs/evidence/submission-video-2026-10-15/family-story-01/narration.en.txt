@@ -1,0 +1,38 @@
+Who is looking after Mochi today?
+When everyone loves the same pet, care can still get lost between family members. Paw Twin gives Emma and Alex a shared daily routine for their fictional cat, Mochi.
+
+Start with a shared view of the day
+Emma opens the household application to see Mochi's records and today's care. Alex has a separate account, so family actions can be attributed to the person who records them.
+
+Keep measurements tied to their source
+Two sample weights, seven days apart, produce a report showing a hundred fifty gram increase. The calculation links to its records, while actual food intake stays unknown until someone records it.
+
+Let the owner confirm what is remembered
+Emma records that Mochi likes a feather toy and rests after meals. She confirms this preference before it becomes part of the shared context for future answers.
+
+Alex can pick up the same context
+Alex opens a new conversation in the Alexa web simulator and asks what Mochi likes. The reply reads the confirmed preference from the shared record and exposes the source for inspection.
+
+Turn a request into a care draft
+Emma asks the simulator to plan playtime and reviews the proposed care. She chooses a time, keeping the request as a draft while she checks the details.
+
+Review before adding a task
+The prepared proposal shows what will be arranged for Mochi. At this stage, no care task has been created; Emma still controls the final confirmation.
+
+Confirm the shared care arrangement
+Emma confirms the arrangement, creating one shared manual care task. The result says it is waiting for a person, keeping a planned action distinct from a completed one.
+
+Alex takes over and records completion
+Alex claims the task and records the playtime as completed through his own account. The household history identifies who recorded the result, helping the next family member understand the handoff.
+
+See the result in the daily report
+Emma's daily report now counts one completed manual care task. The report summarizes recorded care without inventing food intake or making a clinical diagnosis.
+
+Share limited access with a caregiver
+When someone else helps, Emma can issue time-limited, read-only access for one selected pet. The caregiver can inspect the shared context, while the owner keeps control over changes and revocation.
+
+Bring the recorded story to a vet visit
+Before a vet visit, Emma creates a dated information card from Mochi's records. It separates known facts from missing information and can be printed or saved as an offline document.
+
+A shared routine the family can follow
+Paw Twin connects records, confirmed care, family handoffs, and reports in one inspectable routine. This demonstration runs locally with rules and SQLite; Alexa and devices are simulated, and live cloud integration remains unverified.

@@ -1,0 +1,69 @@
+{
+  "createdAt": "2026-10-15T03:39:10.779Z",
+  "deviceScaleFactor": 2,
+  "viewportCss": {
+    "width": 1920,
+    "height": 1080
+  },
+  "method": "Actual page screenshot using fullPage:true with document clip, from scrollY=0 to avoid fixed header occlusion.",
+  "shots": [
+    {
+      "file": "01-dog-full-panel.safe@2x.png",
+      "selector": ".pc-preview",
+      "documentCssBox": {
+        "x": 455.5,
+        "y": 4002.9375,
+        "width": 470,
+        "height": 863.515625
+      },
+      "physicalPixels": {
+        "width": 940,
+        "height": 1726
+      },
+      "sha256": "e3092ca9ee37832c33a4af0cb31bd96913fa4b76f5bc88bffc26cad409aad84b"
+    },
+    {
+      "file": "03-cat-full-panel.safe@2x.png",
+      "selector": ".pc-preview",
+      "documentCssBox": {
+        "x": 455.5,
+        "y": 4002.9375,
+        "width": 470,
+        "height": 1086.0625
+      },
+      "physicalPixels": {
+        "width": 940,
+        "height": 2172
+      },
+      "sha256": "1920db587f468ff7ed319d8f3fb2f56f3ac0b323ac7a533e536bfeaa9f120ccb"
+    },
+    {
+      "file": "05-context-full-panel.safe@2x.png",
+      "selector": ".pc-preview",
+      "documentCssBox": {
+        "x": 455.5,
+        "y": 4002.9375,
+        "width": 470,
+        "height": 851.28125
+      },
+      "physicalPixels": {
+        "width": 940,
+        "height": 1702
+      },
+      "sha256": "a16e6ffe840724dbcc5e552e6dd3f6e058ee566965a817d932e433cc14b82aad"
+    }
+  ],
+  "mutatingRequests": [],
+  "consoleErrors": [],
+  "pageErrors": [],
+  "httpErrors": [],
+  "mochi": {
+    "file": "pet-mochi.actual-dom.svg",
+    "source": "Unmodified outerHTML from actual .pg-pet-mochi .pg-portrait svg",
+    "viewBox": "0 0 128 144"
+  },
+  "verification": {
+    "zeroBusinessPOST": true,
+    "zeroErrors": true
+  }
+}

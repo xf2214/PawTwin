@@ -1,0 +1,335 @@
+{
+  "text": "Meet Mochi. Care is a team effort. Emma knows the little things, like that favorite feather toy. She confirms the detail once, and it stays with the family. Later, Alex starts a fresh conversation. That same confirmed memory is already there, with its source. Our scripted concierge preview explores everyday questions for Miso and Luna, from food preferences to illustrative activity records. Less repeating. More caring.",
+  "words": [
+    {
+      "text": "Meet",
+      "start": 0.075,
+      "end": 0.4125
+    },
+    {
+      "text": "Mochi",
+      "start": 0.425,
+      "end": 1.0375
+    },
+    {
+      "text": "Care",
+      "start": 1.4375,
+      "end": 1.8375
+    },
+    {
+      "text": "is",
+      "start": 1.9625,
+      "end": 2.225
+    },
+    {
+      "text": "a",
+      "start": 2.2375,
+      "end": 2.3125
+    },
+    {
+      "text": "team",
+      "start": 2.325,
+      "end": 2.7
+    },
+    {
+      "text": "effort",
+      "start": 2.7625,
+      "end": 3.2125
+    },
+    {
+      "text": "Emma",
+      "start": 3.6,
+      "end": 3.8
+    },
+    {
+      "text": "knows",
+      "start": 3.8125,
+      "end": 4.1375
+    },
+    {
+      "text": "the",
+      "start": 4.15,
+      "end": 4.25
+    },
+    {
+      "text": "little",
+      "start": 4.2625,
+      "end": 4.45
+    },
+    {
+      "text": "things",
+      "start": 4.4625,
+      "end": 4.8875
+    },
+    {
+      "text": "like",
+      "start": 4.9,
+      "end": 5.1125
+    },
+    {
+      "text": "that",
+      "start": 5.125,
+      "end": 5.3
+    },
+    {
+      "text": "favorite",
+      "start": 5.3125,
+      "end": 5.7
+    },
+    {
+      "text": "feather",
+      "start": 5.7125,
+      "end": 6.0
+    },
+    {
+      "text": "toy",
+      "start": 6.0125,
+      "end": 6.4
+    },
+    {
+      "text": "She",
+      "start": 6.8,
+      "end": 7.0
+    },
+    {
+      "text": "confirms",
+      "start": 7.0125,
+      "end": 7.5125
+    },
+    {
+      "text": "the",
+      "start": 7.525,
+      "end": 7.6375
+    },
+    {
+      "text": "detail",
+      "start": 7.65,
+      "end": 8.1125
+    },
+    {
+      "text": "once",
+      "start": 8.125,
+      "end": 8.5625
+    },
+    {
+      "text": "and",
+      "start": 8.9375,
+      "end": 9.2
+    },
+    {
+      "text": "it",
+      "start": 9.2125,
+      "end": 9.2875
+    },
+    {
+      "text": "stays",
+      "start": 9.3,
+      "end": 9.6625
+    },
+    {
+      "text": "with",
+      "start": 9.6625,
+      "end": 9.7625
+    },
+    {
+      "text": "the",
+      "start": 9.775,
+      "end": 9.85
+    },
+    {
+      "text": "family",
+      "start": 9.8625,
+      "end": 10.3875
+    },
+    {
+      "text": "Later",
+      "start": 10.775,
+      "end": 11.25
+    },
+    {
+      "text": "Alex",
+      "start": 11.475,
+      "end": 11.8875
+    },
+    {
+      "text": "starts",
+      "start": 12.0,
+      "end": 12.35
+    },
+    {
+      "text": "a",
+      "start": 12.3625,
+      "end": 12.475
+    },
+    {
+      "text": "fresh",
+      "start": 12.4875,
+      "end": 12.875
+    },
+    {
+      "text": "conversation",
+      "start": 12.8875,
+      "end": 13.6875
+    },
+    {
+      "text": "That",
+      "start": 14.075,
+      "end": 14.2625
+    },
+    {
+      "text": "same",
+      "start": 14.2625,
+      "end": 14.6
+    },
+    {
+      "text": "confirmed",
+      "start": 14.6125,
+      "end": 15.025
+    },
+    {
+      "text": "memory",
+      "start": 15.0375,
+      "end": 15.575
+    },
+    {
+      "text": "is",
+      "start": 15.5875,
+      "end": 15.7875
+    },
+    {
+      "text": "already",
+      "start": 15.85,
+      "end": 16.1875
+    },
+    {
+      "text": "there",
+      "start": 16.2,
+      "end": 16.475
+    },
+    {
+      "text": "with",
+      "start": 16.625,
+      "end": 16.7625
+    },
+    {
+      "text": "its",
+      "start": 16.7625,
+      "end": 16.8875
+    },
+    {
+      "text": "source",
+      "start": 16.8875,
+      "end": 17.425
+    },
+    {
+      "text": "Our",
+      "start": 17.8,
+      "end": 18.0
+    },
+    {
+      "text": "scripted",
+      "start": 18.0125,
+      "end": 18.475
+    },
+    {
+      "text": "concierge",
+      "start": 18.4875,
+      "end": 19.1875
+    },
+    {
+      "text": "preview",
+      "start": 19.2,
+      "end": 19.65
+    },
+    {
+      "text": "explores",
+      "start": 19.6625,
+      "end": 20.2625
+    },
+    {
+      "text": "everyday",
+      "start": 20.325,
+      "end": 20.7125
+    },
+    {
+      "text": "questions",
+      "start": 20.725,
+      "end": 21.225
+    },
+    {
+      "text": "for",
+      "start": 21.2375,
+      "end": 21.3375
+    },
+    {
+      "text": "Miso",
+      "start": 21.35,
+      "end": 21.95
+    },
+    {
+      "text": "and",
+      "start": 21.9625,
+      "end": 22.1625
+    },
+    {
+      "text": "Luna",
+      "start": 22.175,
+      "end": 22.525
+    },
+    {
+      "text": "from",
+      "start": 22.875,
+      "end": 23.0875
+    },
+    {
+      "text": "food",
+      "start": 23.1,
+      "end": 23.45
+    },
+    {
+      "text": "preferences",
+      "start": 23.45,
+      "end": 24.1
+    },
+    {
+      "text": "to",
+      "start": 24.375,
+      "end": 24.525
+    },
+    {
+      "text": "illustrative",
+      "start": 24.6,
+      "end": 25.15
+    },
+    {
+      "text": "activity",
+      "start": 25.1625,
+      "end": 25.65
+    },
+    {
+      "text": "records",
+      "start": 25.65,
+      "end": 26.25
+    },
+    {
+      "text": "Less",
+      "start": 26.625,
+      "end": 26.9125
+    },
+    {
+      "text": "repeating",
+      "start": 26.9125,
+      "end": 27.4875
+    },
+    {
+      "text": "More",
+      "start": 27.825,
+      "end": 28.1
+    },
+    {
+      "text": "caring",
+      "start": 28.1,
+      "end": 28.6375
+    }
+  ]
+}

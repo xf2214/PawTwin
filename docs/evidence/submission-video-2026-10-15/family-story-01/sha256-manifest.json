@@ -1,0 +1,389 @@
+{
+  "files": [
+    {
+      "path": "build.log",
+      "size": 5856,
+      "sha256": "9c77163c528da278cce4bad74497afd0f22ecc60658167e0938f210d55e9d40f"
+    },
+    {
+      "path": "captions.en.srt",
+      "size": 3309,
+      "sha256": "537742aba2de8e71f939c27ca8eb8ac4f6a071d0ce54bd7f6655640dd926cf04"
+    },
+    {
+      "path": "clip-map.json",
+      "size": 2421,
+      "sha256": "0111c1b0c6b70c4c3e3fe2ed11c8378fd305ad38ebd98b53c6266b30b84690a3"
+    },
+    {
+      "path": "delivery.json",
+      "size": 564,
+      "sha256": "fbeb869c004e2f1226eb91a4b663d129b85046dc4e781cf9ffb0e8c663e0e51b"
+    },
+    {
+      "path": "narration.en.txt",
+      "size": 2852,
+      "sha256": "fe8e1fb76698beff91cb0e80f7fce56d181174481222d455721c75fd9daea2b2"
+    },
+    {
+      "path": "narration.en.wav",
+      "size": 7497044,
+      "sha256": "7e118ab5287debbaac4f74003130d8c4a566f1d69967d7edc396bb7e099c1cb1"
+    },
+    {
+      "path": "pawtwin-local-review.en.mp4",
+      "size": 33226192,
+      "sha256": "ff878c137e1141aacd7f738edf2e13e9684cd52fff3a8a36160df133a2f24ebb"
+    },
+    {
+      "path": "review-frames\\actual-01.jpg",
+      "size": 213413,
+      "sha256": "cc3e07bdadfa400842ce0e4ff48103428b5199ae28d85460116089e071487942"
+    },
+    {
+      "path": "review-frames\\actual-02.jpg",
+      "size": 216489,
+      "sha256": "4648c332db38eb475e49d0e703763fa76935a09053b15c07a97ec855a77f3474"
+    },
+    {
+      "path": "review-frames\\actual-03.jpg",
+      "size": 191711,
+      "sha256": "3e7ce2b6e35d772f0851ec1f7075a35de72cec8c0397b53ea0271a1378dd20fb"
+    },
+    {
+      "path": "review-frames\\actual-04.jpg",
+      "size": 205384,
+      "sha256": "f7a148eaa14ec57d68ac2c4d4ddb8cd01a6fb2cdde443a318ab8d3294dbc8794"
+    },
+    {
+      "path": "review-frames\\actual-05.jpg",
+      "size": 196692,
+      "sha256": "b495ff117fd998f63e3d6d1aa5656d3592eb50456442d66aa5d269927d0edb85"
+    },
+    {
+      "path": "review-frames\\actual-06.jpg",
+      "size": 180145,
+      "sha256": "699adf82dcf833ed31f3ff179027244e5570eaeba2c69be28b795fac390c7622"
+    },
+    {
+      "path": "review-frames\\actual-07.jpg",
+      "size": 184674,
+      "sha256": "56d26fef4559c638881637e6c5b36ed1eae25cd699406ea3cad9cb399542850c"
+    },
+    {
+      "path": "review-frames\\actual-08.jpg",
+      "size": 185005,
+      "sha256": "735990de05fc00a3e3b9be64ce42cd8163808f367cbd1e81bc8ac9b3d7c1e3e5"
+    },
+    {
+      "path": "review-frames\\actual-09.jpg",
+      "size": 177474,
+      "sha256": "cefa7500859cd7f59c781e82799464e1b65d4772c2f5d7d41fa66d6d468cc023"
+    },
+    {
+      "path": "review-frames\\actual-10.jpg",
+      "size": 189460,
+      "sha256": "8bb21b3893de0e2153b39da711a18975561b24a151b962de3bf83708c9d2898d"
+    },
+    {
+      "path": "review-frames\\actual-11.jpg",
+      "size": 212600,
+      "sha256": "631f98d419a98a652df64ed33028859ea978a54a9d1aab6198a480f3282ce1a8"
+    },
+    {
+      "path": "review-frames\\actual-12.jpg",
+      "size": 212387,
+      "sha256": "fc4cb0b3e31e8d88a2cf219b0daaa5b4a02f63112054cb5bc9c48832505ba5b8"
+    },
+    {
+      "path": "review-frames\\actual-13.jpg",
+      "size": 214809,
+      "sha256": "ee8f707dc4a7c9fa12fdac08d66f03885841b006017340de2078724734dd34f1"
+    },
+    {
+      "path": "review-frames\\actual-contact-sheet.png",
+      "size": 4480550,
+      "sha256": "b14945daaed9ad7445c7310a5b7488ff73312c5011c21937ae249a3783e836b7"
+    },
+    {
+      "path": "review-frames\\actual-replay-01-owner-end.jpg",
+      "size": 215604,
+      "sha256": "d79bdc119f6071692cd637cc5b918951013df757cfab105bb9ecc43bb23f11bc"
+    },
+    {
+      "path": "review-frames\\actual-replay-01-owner-middle.jpg",
+      "size": 213574,
+      "sha256": "2e745ace04185cc5662c7b4deb24e6dd4e435922df59b4b4c7c16ef254c60844"
+    },
+    {
+      "path": "review-frames\\actual-replay-01-owner-start.jpg",
+      "size": 207070,
+      "sha256": "b029da6cec34ea6683a10fae76206b8c6f3d47ce227eb81223296fe2fffe54c6"
+    },
+    {
+      "path": "review-frames\\actual-replay-02-owner-end.jpg",
+      "size": 213144,
+      "sha256": "935b08236c9911b42ed8ad4887bf68883377cc02891caa0f3b962986f7335a3e"
+    },
+    {
+      "path": "review-frames\\actual-replay-02-owner-middle.jpg",
+      "size": 211954,
+      "sha256": "eff42f510525addaffa8afa9f9302a5b11cf8e99792e81a5b3eef386734eef49"
+    },
+    {
+      "path": "review-frames\\actual-replay-02-owner-start.jpg",
+      "size": 215641,
+      "sha256": "14a41c2a2a08ca939a6be4a65127a233afc0e3831fe82f5f456a0873fa6c3163"
+    },
+    {
+      "path": "review-frames\\actual-replay-03-owner-end.jpg",
+      "size": 190934,
+      "sha256": "3d9ecc9896ade56f7782f718dac9ee828d1bb344110f8da77fd5ea91063d1482"
+    },
+    {
+      "path": "review-frames\\actual-replay-03-owner-middle.jpg",
+      "size": 191714,
+      "sha256": "c0dd2dd99ce6d9ea5155e9244418a66fe7bd4f0af008eecc8496b0a0eb286d42"
+    },
+    {
+      "path": "review-frames\\actual-replay-03-owner-start.jpg",
+      "size": 189694,
+      "sha256": "26f742ee35acedb9a98aa5e3fc7b786834078e5b6a848b0a6d6ce5aba4ca64fa"
+    },
+    {
+      "path": "review-frames\\actual-replay-04-owner-end.jpg",
+      "size": 210693,
+      "sha256": "9c6317a0e48d030e14af0992e18bfd5d9fc6d3aec4db187796d625a3dacc5803"
+    },
+    {
+      "path": "review-frames\\actual-replay-04-owner-middle.jpg",
+      "size": 206097,
+      "sha256": "dbfaeac1d1e56341ed1fe4dd75e0d440cb974ab2e420782e8fd56de8b7e057ef"
+    },
+    {
+      "path": "review-frames\\actual-replay-04-owner-start.jpg",
+      "size": 205027,
+      "sha256": "cb7c295c0e3ddb8dbf8f4f44024bacf6f3ff5d50b0d0bb29c5c5396d03f88bcf"
+    },
+    {
+      "path": "review-frames\\actual-replay-05-carer-end.jpg",
+      "size": 201197,
+      "sha256": "7b45a2c771fb339a26d521d49775388af3f8e077ece75bc1b9730f9576585022"
+    },
+    {
+      "path": "review-frames\\actual-replay-05-carer-middle.jpg",
+      "size": 195428,
+      "sha256": "517bfae398f41fda6c92d3946d5caac3b24307fabbb861e12d8dca5e6ae4b480"
+    },
+    {
+      "path": "review-frames\\actual-replay-05-carer-start.jpg",
+      "size": 210846,
+      "sha256": "24ca099ba60f9297dc66c32739a81308fd0330ef0948867824721d13a8a59717"
+    },
+    {
+      "path": "review-frames\\actual-replay-06-owner-end.jpg",
+      "size": 181791,
+      "sha256": "b6c25964351820eee4680834c5f8bd49cb38e69829620763a28302b473d9147e"
+    },
+    {
+      "path": "review-frames\\actual-replay-06-owner-middle.jpg",
+      "size": 181438,
+      "sha256": "8890ea014f0f3faf6f7a8fbc045e7eea6372c8c4dbabe4f592e55469215b36c9"
+    },
+    {
+      "path": "review-frames\\actual-replay-06-owner-start.jpg",
+      "size": 178981,
+      "sha256": "ea0c3319dba04b85b083c53ef015c71451f7d824740d04bcc295d0159925e503"
+    },
+    {
+      "path": "review-frames\\actual-replay-07-owner-end.jpg",
+      "size": 188384,
+      "sha256": "a001ef532fe6c6b6800bfa5201a82a3d5bbcdf78c9abd6e1760c47c98fea57ac"
+    },
+    {
+      "path": "review-frames\\actual-replay-07-owner-middle.jpg",
+      "size": 185060,
+      "sha256": "3c76d041d90b9d9dd4918ce249a52c6e71d9a0590e265b0e6a1dfe250ef6285f"
+    },
+    {
+      "path": "review-frames\\actual-replay-07-owner-start.jpg",
+      "size": 185165,
+      "sha256": "b926adbc454020d9e7647fd21feaf899fcff8d3d77ee158e6ca04f62ece99d97"
+    },
+    {
+      "path": "review-frames\\actual-replay-08-owner-end.jpg",
+      "size": 185159,
+      "sha256": "94e5cb44465b2a62f7d75eb95d6afd44224db10b0d43754434efd0c774816c51"
+    },
+    {
+      "path": "review-frames\\actual-replay-08-owner-middle.jpg",
+      "size": 185304,
+      "sha256": "252cfd0b888deecbaeb64da12d5b1a970b8a350c03e7050fcda0d843124282ff"
+    },
+    {
+      "path": "review-frames\\actual-replay-08-owner-start.jpg",
+      "size": 184594,
+      "sha256": "5580e0eee0fdc242794fdbda12fc284bc136182f5c7b88ad701399bd3fd21380"
+    },
+    {
+      "path": "review-frames\\actual-replay-09-carer-end.jpg",
+      "size": 177773,
+      "sha256": "1ddcc97a6302ddd5deec9b4f7433556753d3e6c6018160049e43bb866c9d16a5"
+    },
+    {
+      "path": "review-frames\\actual-replay-09-carer-middle.jpg",
+      "size": 177416,
+      "sha256": "4d35752635ff82c314464b099435dd72b2873485c0d1c22def2a4625d61309fa"
+    },
+    {
+      "path": "review-frames\\actual-replay-09-carer-start.jpg",
+      "size": 184005,
+      "sha256": "297ae9d50a3c3a9f48a157824749ee0edfb2ae22721305dfd48ba79cd34caa51"
+    },
+    {
+      "path": "review-frames\\actual-replay-10-owner-end.jpg",
+      "size": 195433,
+      "sha256": "efa9b88a2338b2da5754483d817decfe798538aaf4103e117950e751ad3095c1"
+    },
+    {
+      "path": "review-frames\\actual-replay-10-owner-middle.jpg",
+      "size": 189039,
+      "sha256": "9ec971bedc7f18ffe49eb5a30d5f8a26f89ea6b36db083c1b71c7274a4120275"
+    },
+    {
+      "path": "review-frames\\actual-replay-10-owner-start.jpg",
+      "size": 189497,
+      "sha256": "e00a9aa771b3bbeacb1b383c383e62847c0755f4c681a20e0617dfbc20472d0c"
+    },
+    {
+      "path": "review-frames\\actual-replay-11-caregiver-end.jpg",
+      "size": 209351,
+      "sha256": "c00b350f8faa78befa8cd930b6eb50ef6954e69517769c47489770e6249972bb"
+    },
+    {
+      "path": "review-frames\\actual-replay-11-caregiver-middle.jpg",
+      "size": 212262,
+      "sha256": "5a4ece20f8cf6ef09552a30a84cc279351867a099212bbd8160a892e3912c7cc"
+    },
+    {
+      "path": "review-frames\\actual-replay-11-caregiver-start.jpg",
+      "size": 212352,
+      "sha256": "04fcf8824b6a02d56bed9386c30fa26fe3f05d9c197ef5319e2c8bdddaeafb66"
+    },
+    {
+      "path": "review-frames\\actual-replay-12-owner-end.jpg",
+      "size": 212913,
+      "sha256": "4aa468c608f53cbd270be1cab0d31829cf5ac9e067bf3b980f3926ac3108d8ef"
+    },
+    {
+      "path": "review-frames\\actual-replay-12-owner-middle.jpg",
+      "size": 211555,
+      "sha256": "7ae63e71d7dfd5e95eda7a229fdafaa5bee4d2c47970e3bc801d7a613817dc08"
+    },
+    {
+      "path": "review-frames\\actual-replay-12-owner-start.jpg",
+      "size": 210869,
+      "sha256": "da613247e0c04ea2dffe0619e4488d6fa02cb78aff11d0a8e4d8a48277169720"
+    },
+    {
+      "path": "review-frames\\planned-01.png",
+      "size": 607955,
+      "sha256": "d40033774c1dd078f646b21994c7ee0ac78ebe94837cddf72c0b2e2c53a2a426"
+    },
+    {
+      "path": "review-frames\\planned-02.png",
+      "size": 238752,
+      "sha256": "479791ecedaa350fdac80468fc8f578b3150dbb5e3f1b015934a80226b6d465a"
+    },
+    {
+      "path": "review-frames\\planned-03.png",
+      "size": 196489,
+      "sha256": "0f51320246e7bdd8c724d9e6ece4b62608e5ed79437734b2ab7eafb2f68377ca"
+    },
+    {
+      "path": "review-frames\\planned-04.png",
+      "size": 230681,
+      "sha256": "765dee7a88fc71ec1af913923ab42e81225e70bbe674b45d02c2bcdd5a392c64"
+    },
+    {
+      "path": "review-frames\\planned-05.png",
+      "size": 233173,
+      "sha256": "afe0e4f07ff48b37c2050b82ff5eb5d54b3a89e024348cd872d20a402a32daec"
+    },
+    {
+      "path": "review-frames\\planned-06.png",
+      "size": 180903,
+      "sha256": "9f986cb135b6a394b03655303f0110098a88dbd13a3ef3dabd1e25986fc7b588"
+    },
+    {
+      "path": "review-frames\\planned-07.png",
+      "size": 205060,
+      "sha256": "f40b02f49c3a585be46f3ce7639e9dc75c15624b39238c7823bef30b8f892c27"
+    },
+    {
+      "path": "review-frames\\planned-08.png",
+      "size": 198969,
+      "sha256": "6bc292f5808555d6489d0f041e56f54cbb41631878ebe991a5528d9411776451"
+    },
+    {
+      "path": "review-frames\\planned-09.png",
+      "size": 183462,
+      "sha256": "ea4301e1ad59bd6ac216225d3d121a017171abbcf6dff055de6e211d80261f46"
+    },
+    {
+      "path": "review-frames\\planned-10.png",
+      "size": 204594,
+      "sha256": "3812550c09564061a7dfd9f85f78c01b955582e8444087459162c78a78bb21ce"
+    },
+    {
+      "path": "review-frames\\planned-11.png",
+      "size": 361673,
+      "sha256": "291ea13f6d9212699db1d9a16895c3524d9ebe4c162d233e5c4b9b83419dc5af"
+    },
+    {
+      "path": "review-frames\\planned-12.png",
+      "size": 244134,
+      "sha256": "0b359ff1ea74b45c7788dac94d0ff86639f964fb4e9de95fa2ea5a68f1eb4b54"
+    },
+    {
+      "path": "review-frames\\planned-13.png",
+      "size": 241450,
+      "sha256": "73f465504fb4225eb763eef9e0fd3fbd5a2fa6c2b52d9dffcdf11924f85d9073"
+    },
+    {
+      "path": "review-frames\\scene-review-1.jpg",
+      "size": 252214,
+      "sha256": "02a7b89ffd4a1a705ad6c8d5a19fba92f3f92cd20533f528f05768cf12b42fc7"
+    },
+    {
+      "path": "review-frames\\scene-review-2.jpg",
+      "size": 177629,
+      "sha256": "1df1bf6681a942ba4496fef70d56450ab0b2d2200a29e0bac3d1b1e2f78cc729"
+    },
+    {
+      "path": "review-frames\\scene-review-3.jpg",
+      "size": 198558,
+      "sha256": "89e24267a520c271d47b528c502369aeaa7c45a07180e2ab947d90e88689cd44"
+    },
+    {
+      "path": "source-manifest.json",
+      "size": 4023,
+      "sha256": "e422afc83474d69528d2125841fab3c08479d2b8bbc4af40e0718b71cc23e177"
+    },
+    {
+      "path": "timeline.json",
+      "size": 14604,
+      "sha256": "28c129e86ed76d7b24401f5185176a785f2e8717e5b3e3e943296978bb131d4f"
+    },
+    {
+      "path": "verification.json",
+      "size": 1328,
+      "sha256": "bc5cd212d694b09a170668653fee33b9e17d953b72e81a1e9181440ab71cf035"
+    },
+    {
+      "path": "visual-review.json",
+      "size": 572,
+      "sha256": "08360e150b00817db145e91eaf9ca588576162c6772ea10a1036ecff387a2dfc"
+    }
+  ]
+}

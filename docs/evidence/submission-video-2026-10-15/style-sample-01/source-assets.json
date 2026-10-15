@@ -1,0 +1,173 @@
+{
+  "sources": [
+    {
+      "asset": "memory-result.png",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-cinematic-capture-2026-10-15\\attempt-03-native1920\\08-memory-confirmed.png",
+      "sha256": "c9ba8103a11af4b42f66ec894e18bf71e37db7550696629466113d10c8ac492e"
+    },
+    {
+      "asset": "alexa-result.png",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-cinematic-capture-2026-10-15\\attempt-03-native1920\\13-alexa-new-session.png",
+      "sha256": "27d82b479876778e3c70fe88dd475cbfe052486c0774e30fe52f59d99882cbf1"
+    },
+    {
+      "asset": "home.png",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-cinematic-capture-2026-10-15\\attempt-03-native1920\\01-home.png",
+      "sha256": "1bb410114bdcfec01a8ed871c9d30879b656a65faf46b6a00a671640589c1c82"
+    },
+    {
+      "asset": "memory-action.mp4",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-cinematic-capture-2026-10-15\\attempt-03-native1920\\owner.webm",
+      "start_seconds": 48.0,
+      "duration_seconds": 6.3,
+      "speed": 1,
+      "sha256": "cb0d21468161783923c572d034807b407bb7effedcd2fcf3abd333995f9a91ce"
+    },
+    {
+      "asset": "alexa-action.mp4",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-cinematic-capture-2026-10-15\\attempt-03-native1920\\carer.webm",
+      "start_seconds": 50.5,
+      "duration_seconds": 5.8,
+      "speed": 1,
+      "sha256": "9c60659db5dbe771a6c6ea22a529a2238b006df734c8353558d2a59dba944457"
+    },
+    {
+      "asset": "memory-fresh.mp4",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\submission-video-2026-10-15\\style-sample-01\\capture-actual\\owner.webm",
+      "start_seconds": 41.1,
+      "duration_seconds": 6.3,
+      "speed": 1,
+      "presentation": "Actual browser body zoom 2; native 1920x1080",
+      "sha256": "2aa489a7591588fe0fca2bc14dccd2d2f0032e2f6fa6767407c0f83ebfbe18ca"
+    },
+    {
+      "asset": "alexa-fresh.mp4",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\submission-video-2026-10-15\\style-sample-01\\capture-actual\\alex.webm",
+      "start_seconds": 47.4,
+      "duration_seconds": 5.8,
+      "speed": 1,
+      "presentation": "Actual browser body zoom 2; native 1920x1080",
+      "sha256": "34ecc23152bf97ad687b36347c4b55b242960208c0de0829567d7b1db5dfd33a"
+    },
+    {
+      "asset": "memory-crop.mp4",
+      "source_asset": "memory-fresh.mp4",
+      "crop": "476:276:1330:284",
+      "speed": 1,
+      "reason": "Pre-crop identical source pixels to bound compositor memory."
+    },
+    {
+      "asset": "alexa-crop.mp4",
+      "source_asset": "alexa-fresh.mp4",
+      "crop": "800:650:1040:110",
+      "speed": 1,
+      "reason": "Pre-crop identical source pixels to bound compositor memory."
+    },
+    {
+      "asset": "01-dog-full-panel.safe@2x.png",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\submission-video-2026-10-15\\style-sample-01\\capture-cases\\01-dog-full-panel.safe@2x.png",
+      "sha256": "e3092ca9ee37832c33a4af0cb31bd96913fa4b76f5bc88bffc26cad409aad84b"
+    },
+    {
+      "asset": "01-dog-full-panel@2x.png",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\submission-video-2026-10-15\\style-sample-01\\capture-cases\\01-dog-full-panel@2x.png",
+      "sha256": "0850f3c3e654f536a6da5328c7ffd23c8414ba8f521f9aaea5d7ddce6a5baca8"
+    },
+    {
+      "asset": "01-dog-profile@2x.png",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\submission-video-2026-10-15\\style-sample-01\\capture-cases\\01-dog-profile@2x.png",
+      "sha256": "d955931b1efa2d4fb3f045f6d8dec02684c2ce4c7e86d4cfc9fc86ded0a51f88"
+    },
+    {
+      "asset": "01-dog-question@2x.png",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\submission-video-2026-10-15\\style-sample-01\\capture-cases\\01-dog-question@2x.png",
+      "sha256": "b3969ebbf91f8ca0fd8fc65387e4ca365750294c8ade9d20b9b04b9f8b6e2fbe"
+    },
+    {
+      "asset": "02-dog-boundary@2x.png",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\submission-video-2026-10-15\\style-sample-01\\capture-cases\\02-dog-boundary@2x.png",
+      "sha256": "9965d2499cbab485c3eb8cda3cd8bd127d48544e32d58cce13a8916a1525e005"
+    },
+    {
+      "asset": "02-dog-reply@2x.png",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\submission-video-2026-10-15\\style-sample-01\\capture-cases\\02-dog-reply@2x.png",
+      "sha256": "715a0537507b381c8a1a827b258eef18630c99d6239b7700b38974cc9c4ac99c"
+    },
+    {
+      "asset": "03-cat-full-panel.safe@2x.png",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\submission-video-2026-10-15\\style-sample-01\\capture-cases\\03-cat-full-panel.safe@2x.png",
+      "sha256": "1920db587f468ff7ed319d8f3fb2f56f3ac0b323ac7a533e536bfeaa9f120ccb"
+    },
+    {
+      "asset": "03-cat-full-panel@2x.png",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\submission-video-2026-10-15\\style-sample-01\\capture-cases\\03-cat-full-panel@2x.png",
+      "sha256": "70b1d96182fbd37e206da76a81c83d17e283ee2ef9f4ee25850d8e9dd4f7d740"
+    },
+    {
+      "asset": "03-cat-profile@2x.png",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\submission-video-2026-10-15\\style-sample-01\\capture-cases\\03-cat-profile@2x.png",
+      "sha256": "ccaed76daa9dd9d9d8092d1e46cb1ae31c8881538534e3c838e3be188911657b"
+    },
+    {
+      "asset": "03-cat-question@2x.png",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\submission-video-2026-10-15\\style-sample-01\\capture-cases\\03-cat-question@2x.png",
+      "sha256": "0cc1e0764ef0421a89f4aa1a2e0adb130bb29ea86f0040e07eb994a332118f1f"
+    },
+    {
+      "asset": "03-cat-simulated-map@2x.png",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\submission-video-2026-10-15\\style-sample-01\\capture-cases\\03-cat-simulated-map@2x.png",
+      "sha256": "27f5cae9d96cbc61124dc76680d1bd41e4dcd2c26c615b8597b40dba9234b1de"
+    },
+    {
+      "asset": "04-cat-boundary@2x.png",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\submission-video-2026-10-15\\style-sample-01\\capture-cases\\04-cat-boundary@2x.png",
+      "sha256": "385f36955277574ad04f38dd12b0b325424365897fe5b83d2edfe973861943e0"
+    },
+    {
+      "asset": "04-cat-reply@2x.png",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\submission-video-2026-10-15\\style-sample-01\\capture-cases\\04-cat-reply@2x.png",
+      "sha256": "c80e412830c031f724acbf910db598044e5d4ffdda0c18f1f8159257a7ef0361"
+    },
+    {
+      "asset": "05-context-boundary@2x.png",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\submission-video-2026-10-15\\style-sample-01\\capture-cases\\05-context-boundary@2x.png",
+      "sha256": "60531c3ad857a2e9f884f07ce9c8b3f81b421dabe00165fd786b8cb275f3622a"
+    },
+    {
+      "asset": "05-context-full-panel.safe@2x.png",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\submission-video-2026-10-15\\style-sample-01\\capture-cases\\05-context-full-panel.safe@2x.png",
+      "sha256": "a16e6ffe840724dbcc5e552e6dd3f6e058ee566965a817d932e433cc14b82aad"
+    },
+    {
+      "asset": "05-context-full-panel@2x.png",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\submission-video-2026-10-15\\style-sample-01\\capture-cases\\05-context-full-panel@2x.png",
+      "sha256": "56c81cb1c7153c46a02e17cd8c146fb7050152aec2e90bf5ceab770b2fa47479"
+    },
+    {
+      "asset": "05-context-included@2x.png",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\submission-video-2026-10-15\\style-sample-01\\capture-cases\\05-context-included@2x.png",
+      "sha256": "6e41ca63eefeb90dc435f234be5345e9047ad67426a607a1869acf9655162aaa"
+    },
+    {
+      "asset": "05-context-new-chat@2x.png",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\submission-video-2026-10-15\\style-sample-01\\capture-cases\\05-context-new-chat@2x.png",
+      "sha256": "f27a16aa6b1859d1b63ee28bcc94f32a35a343a9090bd4d2fc7de2215137b8d4"
+    },
+    {
+      "asset": "body.ttf",
+      "source": "C:\\Windows\\Fonts\\segoeui.ttf",
+      "sha256": "8134dbcd09e7b123c9a7f229d49cffbcb01352cc72ea5e1076b65d0dca9f73cd"
+    },
+    {
+      "asset": "body-semibold.ttf",
+      "source": "C:\\Windows\\Fonts\\seguisb.ttf",
+      "sha256": "2d9b22d71f72de2823fee5d9c8bc1b0fc32b2577c4c27b9ec6abdbb8df0e1731"
+    },
+    {
+      "asset": "display.ttf",
+      "source": "C:\\Windows\\Fonts\\georgia.ttf",
+      "sha256": "38dffcaf1fac89492f7c56c600a14daf36ae42f7c21985cd4134ae113124a58f"
+    }
+  ],
+  "artwork": "Exact existing PetPortrait SVG paths; decorative brand artwork only"
+}

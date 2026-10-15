@@ -1,0 +1,23 @@
+{
+  "method": "Actual VP8 source decoded at 25fps; blue confirmation-button area measured before/after transition",
+  "owner_button_pixel_transition": [
+    {
+      "pts_seconds": 42,
+      "blue_button_visible": true,
+      "mean_rgb": [
+        26,
+        129,
+        233
+      ]
+    },
+    {
+      "pts_seconds": 43.48,
+      "blue_button_visible": false,
+      "mean_rgb": [
+        219,
+        224,
+        214
+      ]
+    }
+  ]
+}

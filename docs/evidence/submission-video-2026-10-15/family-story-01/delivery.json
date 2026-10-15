@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-15",
+  "duration_seconds": 170.0185034,
+  "video": "PawTwin-demo-2026-10-15.en.mp4",
+  "replay_seconds": 58.8,
+  "source_commit": "6342b96a874daa595b2150080ab64adad70b3d7b",
+  "files": [
+    {
+      "file": "PawTwin-demo-2026-10-15.en.mp4",
+      "bytes": 33226192,
+      "sha256": "ff878c137e1141aacd7f738edf2e13e9684cd52fff3a8a36160df133a2f24ebb"
+    },
+    {
+      "file": "PawTwin-demo-2026-10-15.en.srt",
+      "bytes": 3309,
+      "sha256": "537742aba2de8e71f939c27ca8eb8ac4f6a071d0ce54bd7f6655640dd926cf04"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+PawTwin — Care, with context
+Full-film editorial draft, 15 October 2026. Target: approximately 152 seconds.
+All people, pets and records in this demonstration are fictional.
+
+00:00–00:08 — A household handoff
+Alex is taking over Mochi's care today. What should he know?
+The useful details should not get lost between family members.
+
+00:08–00:25 — The owner decides what stays
+Emma records a simple preference: Mochi loves the feather toy and rests after meals.
+It starts as a candidate. Emma reviews it and confirms it.
+Only then does it become part of their shared pet context.
+
+00:25–00:45 — A fresh conversation, the same context
+Alex opens a fresh conversation in the Alexa web simulator.
+He asks what Mochi likes. The local app uses that same confirmed record.
+The source remains available to inspect. Alex can pick up the context without asking Emma to repeat it.
+
+00:45–01:18 — From a suggestion to an agreed plan
+Emma asks for a playtime plan.
+The first response is a draft. No care task exists yet.
+She reviews the details, prepares a proposal, and explicitly confirms it.
+The confirmed plan becomes a manual care task. It still needs a person to carry it out.
+
+01:18–01:48 — The other member takes over
+Alex claims the task and records its completion.
+Emma sees the updated household record, and the daily report includes the completed care.
+This is a recorded action by a family member; it does not independently verify physical care.
+The handoff stays visible, from the agreed plan to the saved result.
+
+01:48–02:24 — Pet Concierge, a scripted product preview
+The same idea also shapes our Pet Concierge preview: ask a short question with this pet's context alongside it.
+Miso's scripted example combines a food question with his profile and a confirmed preference.
+Luna's example presents illustrative activity records and observation guidance.
+These conversations and traces are presets. They are not live model responses, actual tracking or a diagnosis.
+The comparison shows the goal: less repeated background, with the relevant context kept visible.
+
+02:24–02:32 — Close
+PawTwin. Less repeating. More caring.
+Local records, with an Alexa web simulation.
+
+Editorial notes:
+- Show actual consequential UI transitions continuously at normal speed.
+- Use the existing pixel pet artwork and cream/forest brand palette.
+- Product-preview labels stay visible throughout the new concierge chapter.
+- Narration and picture timing will be adjusted together after the short style sample is accepted.
+- This is a script draft, not a claim of finished film or competition submission.

@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-15",
+  "status": "30-second style sample exported; user creative review pending; full film not rendered",
+  "engine": {"name":"Remotion","version":"4.0.535","react":"19.3.1","fps":30,"resolution":[1920,1080],"native_browser":"Existing Chrome"},
+  "official_skills_installed": ["remotion-best-practices","remotion-create","remotion-markup","remotion-studio","remotion-render","remotion-captions"],
+  "official_skill_source": "https://github.com/remotion-dev/skills",
+  "isolation": "Independent sibling studio; no application dependency, source or persistent database changes. Fresh UI capture used port 8853 with :memory: and local_rules; service stopped.",
+  "actual_ui": "Fresh native recordings with actual browser body zoom 2, normal speed, exact source crops. Candidate confirmation and Alex's real New session/question/source expansion are visible.",
+  "new_cases": "Actual source pixels from the fixed Miso/Luna product-preview UI. Source profiles, questions, reply and simulated record labels preserved; editorial movement and reading highlights are not live app operations or real tracking.",
+  "audio": "JennyNeural public-fictional-text narration via existing isolated edge-tts client; original synthesized music and quiet original accents. Digital-zero tail edits only; no speech speed compression. Final mono mix loudness normalization preserved in audio-normalization.log; actual encoded AAC measured separately.",
+  "rendering": "Initial concurrency 4 hit native compositor memory allocation failure. Successful export pre-crops the same source pixels, uses concurrency 1, media cache 256 MiB and offthread cache 64 MiB. No change to OS memory settings or unrelated processes.",
+  "visual_review": "Root reviewed all 15 decoded sample frames; independent reviewer checked new session, expanded source, Miso reply and Luna simulation label. No material encoding regression; a peripheral source header is briefly cut at the left edge during the new-session scroll.",
+  "review_limits": "Full human listening and user judgement of creative quality remain pending. Mechanical verification does not establish acceptance.",
+  "originals": "The first and v2 delivered videos and the English Word document remain unchanged. No upload or competition submission.",
+  "rebuild": "Run prepare-assets.py, retain pinned dependencies and final-soundtrack.wav, then ./render-local.ps1 and verify-sample.py from this studio. Studio: bundled node node_modules/@remotion/cli/remotion-cli.js studio src/index.tsx --no-open --port=3097."
+}

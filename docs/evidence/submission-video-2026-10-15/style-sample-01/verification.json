@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "actual_duration_seconds": 30.016,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "fps": 30,
+  "video_frames": 900,
+  "codec": [
+    "H264",
+    "AAC"
+  ],
+  "decoded_all_streams_without_error": true,
+  "actual_audio": {
+    "duration_seconds": 30.016,
+    "sample_rate": 48000,
+    "peak_dbfs": -1.447,
+    "clipped_samples": 0,
+    "integrated_lufs": "-13.63"
+  },
+  "decoded_review_frames": 15,
+  "caption_cues": 6,
+  "previous_deliveries_preserved": true,
+  "creative_user_review": "pending",
+  "full_human_listening": "not_performed",
+  "video_bytes": 3171164,
+  "sha256": "4f7634c05d46fb885d45d913ddbc8076bfa7baee5b98ac5fdae26c7ec2bbf337"
+}

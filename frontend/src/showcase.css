@@ -165,11 +165,12 @@
 .showcase .pt-motion-toggle { position: fixed; z-index: 40; right: 20px; bottom: 20px; display: inline-flex; align-items: center; gap: 9px; padding: 10px 15px; border: 1px solid #d9d9df; border-radius: 999px; background: #fffffff0; color: #505059; box-shadow: 0 4px 20px #0000000d; backdrop-filter: blur(12px); font-size: 11px; line-height: 1.3; }
 .pt-motion-toggle span { font-size: 15px; }.showcase .pt-motion-toggle:disabled { opacity: 1; cursor: default; }
 .pt-cases { background: #fff; padding: 110px 32px 120px; }
-.pt-case-tabs { display: flex; justify-content: center; gap: 30px; margin: 0 auto 42px; }
+.pt-case-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 30px; margin: 0 auto 42px; }
 .showcase .pt-case-tabs button { border: 0; border-bottom: 2px solid transparent; padding: 12px 2px; color: #6b6b73; background: transparent; font-size: 15px; font-weight: 600; line-height: 1.5; border-radius: 0; transition: color .2s, border-color .2s; }
 .showcase .pt-case-tabs button[aria-pressed=true] { color: #0066cc; border-color: #0066cc; }
 .pt-case-layout { --case-accent: #42634e; --case-tint: #edf3ee; display: grid; grid-template-columns: 1fr 1fr; width: min(1080px,100%); margin: auto; border-radius: 32px; overflow: hidden; border: 1px solid #e8e8ec; }
 .pt-case-theme-1 { --case-accent: #775738; --case-tint: #f4eee7; }.pt-case-theme-2 { --case-accent: #655480; --case-tint: #efedf6; }
+.pt-case-theme-3 { --case-accent: #3b6c63; --case-tint: #edf4f0; }
 .pt-case-art { position: relative; padding: 20px 40px 35px; background: var(--case-tint); display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 0; }
 .pt-case-scene { position: relative; height: 195px; width: min(300px,100%); }
 .pt-case-halo { position: absolute; width: 180px; height: 130px; top: 35px; left: 50%; translate: -50% 0; border-radius: 50%; background: #ffffff99; box-shadow: 0 0 0 22px #ffffff40,0 0 0 45px #ffffff20; }
@@ -210,7 +211,7 @@
 @media (max-width: 700px) {
   .pt-nav nav > a:first-child { display: none; }
   .showcase .pt-motion-toggle { right: 12px; bottom: 12px; padding: 9px 12px; font-size: 10px; }
-  .pt-cases { padding: 75px 20px 80px; }.pt-case-tabs { gap: 25px; margin-bottom: 25px; }.showcase .pt-case-tabs button { font-size: 13px; }
+  .pt-cases { padding: 75px 20px 80px; }.pt-case-tabs { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); max-width: 390px; gap: 5px 20px; margin-bottom: 25px; }.showcase .pt-case-tabs button { font-size: 13px; }
   .pt-case-layout { grid-template-columns: 1fr; border-radius: 25px; }.pt-case-art { padding: 10px 24px 27px; }.pt-case-scene { height: 175px; }.pt-case-frame { padding: 22px; min-height: 225px; }.pt-case-frame h3 { font-size: 22px; }
   .pt-case-copy { padding: 30px; }.pt-case-intro h3 { font-size: 30px; margin: 18px 0; }.pt-case-intro > p { font-size: 14px; }.pt-case-copy .pt-case-active { min-height: 70px; }
 }

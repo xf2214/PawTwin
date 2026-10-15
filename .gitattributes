@@ -7,3 +7,4 @@
 docs/evidence/**/*.log -text -whitespace
 docs/evidence/**/error-context.md -text -whitespace
 docs/evidence/current-version-2026-10-14/*.txt -text -whitespace
+docs/evidence/**/failure-*.txt -text -whitespace

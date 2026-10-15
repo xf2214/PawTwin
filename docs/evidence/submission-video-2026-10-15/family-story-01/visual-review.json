@@ -1,0 +1,11 @@
+{
+  "all_13_actual_scenes_visually_inspected": true,
+  "source_clip_calibration_review": "12 real WebM ranges,58.8seconds at1x; actual midpoint contact sheet and selected boundaries inspected",
+  "selected_finished_replay_boundaries": [
+    "actual-replay-05-carer-end.jpg",
+    "actual-replay-12-owner-end.jpg"
+  ],
+  "caption_and_frame_layout": "No observed overlap,clipping,missing glyphs or visible credentials in inspected frames",
+  "full_human_playback_listening": "not_performed",
+  "scope": "Sampled frame review,not a complete video listening review"
+}

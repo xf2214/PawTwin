@@ -1,0 +1,20 @@
+[
+  {
+    "path": "docs/evidence/submission-video-2026-10-15/style-sample-01/capture-actual/capture-actual-dpr2.cjs",
+    "before_sha256": "1ca97a69822b53f734e9b85a9d2b8b9dae9f570bcf4edfc4baf47307836eee76",
+    "after_sha256": "4a5f4605a8c75e2d06c8ba2edd32921db25b4891ec8789ea58d0a2687fbc8ea0",
+    "reason": "Remove only extra EOF blank lines; preserve all source statements and media."
+  },
+  {
+    "path": "docs/evidence/submission-video-2026-10-15/style-sample-01/capture-actual/capture-actual.cjs",
+    "before_sha256": "130af7b3103726e0bcee1ccb79e034cc38d952e1c1b3d57a1435f12680cda7a1",
+    "after_sha256": "f7e4d51a8a36a8e646d1d8ea2b5f7c2d3a9c3357d7d30c58c14e83db502b72f8",
+    "reason": "Remove only extra EOF blank lines; preserve all source statements and media."
+  },
+  {
+    "path": "docs/evidence/submission-video-2026-10-15/style-sample-01/capture-cases/capture-cases.mjs",
+    "before_sha256": "796cbe595282b132c49dc0181cb1226d5be4c2c54c3873228d6b43a0fe6fb2df",
+    "after_sha256": "bc34838f45de8f5cc6cc1fb6f4ce99862e2bec1c0196170543b61b714a921b1d",
+    "reason": "Remove only extra EOF blank lines; preserve all source statements and media."
+  }
+]

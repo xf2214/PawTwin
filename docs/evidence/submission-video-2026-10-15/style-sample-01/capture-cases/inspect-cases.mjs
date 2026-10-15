@@ -1,0 +1,14 @@
+import { chromium } from '../../../../../frontend/node_modules/playwright/index.mjs';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+const dir=path.dirname(new URL(import.meta.url).pathname.replace(/^\//,''));
+const browser=await chromium.launch({channel:'chrome',headless:true});
+const context=await browser.newContext({viewport:{width:1920,height:1080},deviceScaleFactor:1,locale:'en-US'});
+const page=await context.newPage();
+await page.goto('http://127.0.0.1:8807/#cases',{waitUntil:'networkidle'});
+console.log(JSON.stringify({title:await page.title(),buttons:await page.locator('#cases button').allTextContents(),lang:await page.locator('.language-switch').allTextContents(),body:(await page.locator('#cases').innerText()).slice(0,2000)}));
+await page.getByRole('button',{name:'Pet concierge',exact:true}).click();
+await page.locator('.pc-preview').scrollIntoViewIfNeeded();
+await page.screenshot({path:path.join(dir,'inspection.png')});
+console.log(JSON.stringify({preview:await page.locator('.pc-preview').boundingBox(),text:await page.locator('.pc-preview').innerText(),scroll:await page.evaluate(()=>({x:scrollX,y:scrollY}))}));
+await browser.close();

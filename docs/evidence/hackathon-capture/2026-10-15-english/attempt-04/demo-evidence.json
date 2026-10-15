@@ -1,0 +1,232 @@
+{
+  "schema_version": 2,
+  "captured_at": "2026-10-14T16:32:37.108Z",
+  "source": "actual_local_ui_and_api",
+  "identity_backend": "local_account",
+  "backend": "local_rules",
+  "cloud_calls": 0,
+  "pet_id": "mochi",
+  "screenshots": [
+    {
+      "file": "00-product.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8845/",
+      "raw_video_elapsed_hold_ms": {
+        "start": 2013,
+        "screenshot": 4513,
+        "end": 7156
+      },
+      "suggested_clip_ms": {
+        "start": 1413,
+        "end": 7156
+      },
+      "cjk_text_except_language_toggle": []
+    },
+    {
+      "file": "01-home.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8845/#app",
+      "raw_video_elapsed_hold_ms": {
+        "start": 8417,
+        "screenshot": 10917,
+        "end": 13480
+      },
+      "suggested_clip_ms": {
+        "start": 7817,
+        "end": 13480
+      },
+      "cjk_text_except_language_toggle": []
+    },
+    {
+      "file": "02-growth.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8845/#app/growth",
+      "raw_video_elapsed_hold_ms": {
+        "start": 16061,
+        "screenshot": 18561,
+        "end": 21138
+      },
+      "suggested_clip_ms": {
+        "start": 15461,
+        "end": 21138
+      },
+      "cjk_text_except_language_toggle": []
+    },
+    {
+      "file": "08-memory-confirmed.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8845/#app/assistant",
+      "raw_video_elapsed_hold_ms": {
+        "start": 22094,
+        "screenshot": 24594,
+        "end": 27144
+      },
+      "suggested_clip_ms": {
+        "start": 21494,
+        "end": 27144
+      },
+      "cjk_text_except_language_toggle": []
+    },
+    {
+      "file": "03-assistant.png",
+      "role": "carer",
+      "url": "http://127.0.0.1:8845/#alexa",
+      "raw_video_elapsed_hold_ms": {
+        "start": 14682,
+        "screenshot": 17182,
+        "end": 19741
+      },
+      "suggested_clip_ms": {
+        "start": 14082,
+        "end": 19741
+      },
+      "cjk_text_except_language_toggle": []
+    },
+    {
+      "file": "13-alexa-new-session.png",
+      "role": "carer",
+      "url": "http://127.0.0.1:8845/#alexa",
+      "raw_video_elapsed_hold_ms": {
+        "start": 20517,
+        "screenshot": 23017,
+        "end": 25584
+      },
+      "suggested_clip_ms": {
+        "start": 19917,
+        "end": 25584
+      },
+      "cjk_text_except_language_toggle": []
+    },
+    {
+      "file": "09-alexa-draft.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8845/#alexa",
+      "raw_video_elapsed_hold_ms": {
+        "start": 39996,
+        "screenshot": 42496,
+        "end": 45051
+      },
+      "suggested_clip_ms": {
+        "start": 39396,
+        "end": 45051
+      },
+      "cjk_text_except_language_toggle": []
+    },
+    {
+      "file": "10-alexa-pending.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8845/#alexa",
+      "raw_video_elapsed_hold_ms": {
+        "start": 45829,
+        "screenshot": 48329,
+        "end": 50896
+      },
+      "suggested_clip_ms": {
+        "start": 45229,
+        "end": 50896
+      },
+      "cjk_text_except_language_toggle": []
+    },
+    {
+      "file": "11-alexa-confirmed.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8845/#alexa",
+      "raw_video_elapsed_hold_ms": {
+        "start": 51690,
+        "screenshot": 54190,
+        "end": 56736
+      },
+      "suggested_clip_ms": {
+        "start": 51090,
+        "end": 56736
+      },
+      "cjk_text_except_language_toggle": []
+    },
+    {
+      "file": "04-care.png",
+      "role": "carer",
+      "url": "http://127.0.0.1:8845/#app/care",
+      "raw_video_elapsed_hold_ms": {
+        "start": 44102,
+        "screenshot": 46602,
+        "end": 49167
+      },
+      "suggested_clip_ms": {
+        "start": 43502,
+        "end": 49167
+      },
+      "cjk_text_except_language_toggle": []
+    },
+    {
+      "file": "07-completing-actor.png",
+      "role": "carer",
+      "url": "http://127.0.0.1:8845/#app/family",
+      "raw_video_elapsed_hold_ms": {
+        "start": 49930,
+        "screenshot": 52430,
+        "end": 55002
+      },
+      "suggested_clip_ms": {
+        "start": 49330,
+        "end": 55002
+      },
+      "cjk_text_except_language_toggle": []
+    },
+    {
+      "file": "12-alexa-result.png",
+      "role": "carer",
+      "url": "http://127.0.0.1:8845/#alexa",
+      "raw_video_elapsed_hold_ms": {
+        "start": 55804,
+        "screenshot": 58304,
+        "end": 60878
+      },
+      "suggested_clip_ms": {
+        "start": 55204,
+        "end": 60878
+      },
+      "cjk_text_except_language_toggle": []
+    }
+  ],
+  "recordings": {
+    "owner": {
+      "video": "owner.webm",
+      "recording_origin_before_new_page_utc": "2026-10-14T16:32:38.460Z",
+      "recording_origin_after_new_page_utc": "2026-10-14T16:32:38.564Z",
+      "origin_uncertainty_ms": 104,
+      "first_blank_hold_ms": 600,
+      "timing_note": "Raw WebM starts with the first blank page. Elapsed ranges are role-specific wall clock since before newPage; visually calibrate the small startup uncertainty against raw frames.",
+      "bytes": 4253641
+    },
+    "carer": {
+      "video": "carer.webm",
+      "recording_origin_before_new_page_utc": "2026-10-14T16:32:52.043Z",
+      "recording_origin_after_new_page_utc": "2026-10-14T16:32:52.136Z",
+      "origin_uncertainty_ms": 93,
+      "first_blank_hold_ms": 600,
+      "timing_note": "Raw WebM starts with the first blank page. Elapsed ranges are role-specific wall clock since before newPage; visually calibrate the small startup uncertainty against raw frames.",
+      "bytes": 3815774
+    }
+  },
+  "staging": [
+    "Fictional seeded object names changed to English through the local API before capture.",
+    "Carer used the real Care UI to rename the server-generated rule title to Playtime with Mochi, before claiming and completing. The original rule title is preserved in proposal evidence."
+  ],
+  "checks": [],
+  "bootstrap": {
+    "project": "PawTwin",
+    "stage": "local_business",
+    "mode": "local",
+    "aws_connected": false,
+    "analyzer": "local_fake",
+    "capabilities": {
+      "event_intake": "implemented_local",
+      "owner_approval": "implemented_local",
+      "simulated_device": "implemented_simulated",
+      "owner_feedback": "implemented_local",
+      "long_term_memory": "not_implemented"
+    }
+  },
+  "status": "failed",
+  "error": "Error: expect(locator).toContainText(expected) failed\n\nLocator: locator('article').filter({ has: getByRole('heading', { name: /^Daily report.*10\\/15\\/2026/ }) })\nExpected substring: \"Manual care completions 1\"\nError: strict mode violation: locator('article').filter({ has: getByRole('heading', { name: /^Daily report.*10\\/15\\/2026/ }) }) resolved to 2 elements:\n    1) <article class=\"fa-report-card\">…</article> aka getByText('Daily report · 10/15/2026, 00:00 — 10/16/2026, 00:00Manual care completions 1')\n    2) <article class=\"fa-report-card\">…</article> aka getByText('Daily report · 10/14/2026, 00:00 — 10/15/2026, 00:00Manual care completions 0')\n\nCall log:\n  - Expect \"toContainText\" locator('article').filter({ has: getByRole('heading', { name: /^Daily report.*10\\/15\\/2026/ }) }) with timeout 5000ms\n  - waiting for locator('article').filter({ has: getByRole('heading', { name: /^Daily report.*10\\/15\\/2026/ }) })\n\n    at captureRawStack (C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\frontend\\node_modules\\playwright-core\\lib\\coreBundle.js:8588:17)\n    at callMatcherAsStep (C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\frontend\\node_modules\\playwright\\lib\\matchers\\expect.js:13310:57)\n    at Object.toContainText (C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\frontend\\node_modules\\playwright\\lib\\matchers\\expect.js:13302:23)\n    at main (C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\submission\\2026-10-15\\production\\capture-english.cjs:144:377)"
+}

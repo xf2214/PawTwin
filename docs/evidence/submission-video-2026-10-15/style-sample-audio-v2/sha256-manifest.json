@@ -1,0 +1,272 @@
+[
+  {
+    "path": "build-voice-revision.py",
+    "bytes": 9022,
+    "sha256": "d26ed45210b2b5b23b55a8e16e92be8bf2a6765023c00fa00b562de99ebbecf4"
+  },
+  {
+    "path": "production-record.json",
+    "bytes": 1185,
+    "sha256": "789a76712530e318aac263a4cd975f4ae630167a88e8cec2db41d463dfff7477"
+  },
+  {
+    "path": "render-voice-revision.ps1",
+    "bytes": 808,
+    "sha256": "ed9ce433baf9589206b42fc26e3446da843f68265f4dcb57a3936af06a713795"
+  },
+  {
+    "path": "timing-plan.json",
+    "bytes": 10439,
+    "sha256": "f5328b39dc564af74158d89f11bb62b10fdf821432adc4ebc7ccc4dafb8f47b7"
+  },
+  {
+    "path": "verification.json",
+    "bytes": 1354,
+    "sha256": "e6cb4dc30d7aa566a6dd615e133cb42371d369b1863c173fdff4ca0273606978"
+  },
+  {
+    "path": "verify-voice-revision.py",
+    "bytes": 7198,
+    "sha256": "ccf004eda29f7d7cb63f12297b824450f8e812ae97e3ed54a768c1ebc3135688"
+  },
+  {
+    "path": "audio\\narration-continuous.mp3",
+    "bytes": 127872,
+    "sha256": "385268c371f0cac7c38e0726c3aa711fefc8f4dc7b89560868485d4073984188"
+  },
+  {
+    "path": "audio\\narration-continuous.wav",
+    "bytes": 2045996,
+    "sha256": "be90adf231af0d2b5b836f240eb04af71ed896be41c89493b654b82ee2d8a9b8"
+  },
+  {
+    "path": "audio\\narration-take-info.json",
+    "bytes": 4272,
+    "sha256": "739f993a5dd93bab6f00b96f09cf387e5e76c5d1c8b841a8b71974a66c82eb80"
+  },
+  {
+    "path": "audio\\narration-words.json",
+    "bytes": 4413,
+    "sha256": "f69f9a43288b73cdff1545523fd5c0845f50f3b70b6145172d2087c34c557188"
+  },
+  {
+    "path": "audio\\story-take\\captions-remotion.json",
+    "bytes": 2110,
+    "sha256": "526326b0dd2695cce9f0d5b0323bca510d37ef943ff3cfe88d1fb1bdf5469386"
+  },
+  {
+    "path": "audio\\story-take\\mix-pre-normalize.stereo.wav",
+    "bytes": 5779244,
+    "sha256": "737df77776a519360b565491ddad9670f8fd5867980aea30103b9b3d4f0d1acf"
+  },
+  {
+    "path": "audio\\story-take\\music-quiet.wav",
+    "bytes": 2889644,
+    "sha256": "ab1983e50a6d1c18ec6bb02db183a34f2153500090f5c30920469fc2c29fdab0"
+  },
+  {
+    "path": "audio\\story-take\\narration-continuous.mp3",
+    "bytes": 173952,
+    "sha256": "033739af477b0c8c3b76dc9958f2753d4c0f01a572e2295cdf4a13c591a94ae2"
+  },
+  {
+    "path": "audio\\story-take\\narration-continuous.wav",
+    "bytes": 2783276,
+    "sha256": "25fb093e67548fbdc6f80a09215e44eec744dd702f38e6aac1707eeda0c05da7"
+  },
+  {
+    "path": "audio\\story-take\\narration-edited.wav",
+    "bytes": 2889644,
+    "sha256": "38b7d76198c503a07de77cf9e6a69fc0e77a1229615754a2dbadd19506fde43d"
+  },
+  {
+    "path": "audio\\story-take\\narration-words.json",
+    "bytes": 5961,
+    "sha256": "fc98254786f8e08b14690b8067b83160c634e771311f6aba111ba4af79c6197c"
+  },
+  {
+    "path": "audio\\story-take\\normalization-pass1.log",
+    "bytes": 1283,
+    "sha256": "aa2d93fba13bdebc33545c5e33b26f488b48f3b270f3a4797fd38f5533b6a602"
+  },
+  {
+    "path": "audio\\story-take\\normalization-pass2.log",
+    "bytes": 1415,
+    "sha256": "e13972e3e7e7666738f5f48331c18372124f358acb612ad09e773a335f58022d"
+  },
+  {
+    "path": "audio\\story-take\\soundtrack-v2.stereo.wav",
+    "bytes": 5779278,
+    "sha256": "a715430b7d2418e422fc3af3d0608bfa1fe40e257210f99903849ca3c122344e"
+  },
+  {
+    "path": "encoded-review\\actual-01.png",
+    "bytes": 365713,
+    "sha256": "439afa90bae042ff484e11c30bcad47d9f34cc17139ca0e53d461802ea57f584"
+  },
+  {
+    "path": "encoded-review\\actual-02.png",
+    "bytes": 586025,
+    "sha256": "c029c79ad7ee4ccdf973cbb8d459d0c2bee93b19855d894ee04159f40cd6b5b7"
+  },
+  {
+    "path": "encoded-review\\actual-03.png",
+    "bytes": 523349,
+    "sha256": "111404d191ef7d62b5e67d02f5c710737b6a192407f683cd9f01cef97dc51912"
+  },
+  {
+    "path": "encoded-review\\actual-04.png",
+    "bytes": 517521,
+    "sha256": "9265b3aa2aa018185e9d6c342bec29362a830f840f32d9c55cf3f4dbbe3afdd2"
+  },
+  {
+    "path": "encoded-review\\actual-05.png",
+    "bytes": 459959,
+    "sha256": "725e490e2a69dd0ead93175544e1eb5520dcb94a52556a263b76dea25e75d633"
+  },
+  {
+    "path": "encoded-review\\actual-06.png",
+    "bytes": 639370,
+    "sha256": "f067adca54600238e6cc0008de14b288929161201d3f34e12bf96eede235942a"
+  },
+  {
+    "path": "encoded-review\\actual-07.png",
+    "bytes": 648178,
+    "sha256": "3bff43ad6bade322e901a79c23e4944e8ed3af1828760b284622aadafc2f69b5"
+  },
+  {
+    "path": "encoded-review\\actual-08.png",
+    "bytes": 420084,
+    "sha256": "4348630304ec71388326de6dad95bdf46294409f8f40232574c9cbbb07a4121b"
+  },
+  {
+    "path": "encoded-review\\actual-09.png",
+    "bytes": 590604,
+    "sha256": "820eeac1e063a181c76d801894d0292e0d5aaf62d5ea53cb2707d4c512bcfa9d"
+  },
+  {
+    "path": "encoded-review\\actual-10.png",
+    "bytes": 591155,
+    "sha256": "82c5e9a5bb314407c2f27aeaedf8e73b6992b2410ca9f13b7719cb5fa9495f55"
+  },
+  {
+    "path": "encoded-review\\actual-11.png",
+    "bytes": 507635,
+    "sha256": "4cf9e6303e04cd07889ae3ccd13b0eeeb0a67e2078e3c0fe796b44b153125e2c"
+  },
+  {
+    "path": "encoded-review\\actual-12.png",
+    "bytes": 428238,
+    "sha256": "6a4d41e003d76c4a90b0d7ce6b6717d2e7f2d156aa5989121f005dbb72ccec88"
+  },
+  {
+    "path": "encoded-review\\actual-13.png",
+    "bytes": 334518,
+    "sha256": "bf26d77193b6c7ac746c0edb783d04441b1324b445a2f05fb7a3b57124df7fb4"
+  },
+  {
+    "path": "encoded-review\\actual-14.png",
+    "bytes": 334660,
+    "sha256": "4b6d2acf5ca6973d47dcd02b828c33884873968dc0ea65f959457f402d2e5248"
+  },
+  {
+    "path": "encoded-review\\actual-15.png",
+    "bytes": 334733,
+    "sha256": "0cbf89aeda3a4212cd5ebcab8167bf5911080496471d7cc1b4601bd0ac5ab43f"
+  },
+  {
+    "path": "encoded-review\\contact-1.jpg",
+    "bytes": 259915,
+    "sha256": "50ef37e20d3a17df174aa0a0dc1b4871586548b4ce3790d7133048e19973714e"
+  },
+  {
+    "path": "encoded-review\\contact-2.jpg",
+    "bytes": 323887,
+    "sha256": "6231574186701361b251a0fa8f4b4c21d1265f28e0d237012fdf2377997fd627"
+  },
+  {
+    "path": "encoded-review\\contact-3.jpg",
+    "bytes": 238987,
+    "sha256": "f16545d7ca58b12a51c44f5c5f879ce916415e4f5fae8a5e32024cc40178d9bc"
+  },
+  {
+    "path": "encoded-review\\encoded-audio.stereo.wav",
+    "bytes": 5779570,
+    "sha256": "f48bb067b31c04828e283b78058851079b4e5ad389342b3d1df686bf421e82b0"
+  },
+  {
+    "path": "encoded-review\\encoded-loudness.log",
+    "bytes": 2025,
+    "sha256": "59a61bdf7e613451b055847142ad3726c3a533cb9e5e581e6aaf201cdaf485b0"
+  },
+  {
+    "path": "encoded-review\\ffprobe.json",
+    "bytes": 3837,
+    "sha256": "7ac9b4d744bfb9a32e4d79d2ebbff9890cdd0fbbe1a99bdf745376e83da05f9b"
+  },
+  {
+    "path": "encoded-review\\full-decode.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "source\\Closing.tsx",
+    "bytes": 708,
+    "sha256": "09b92e5746701cc4471313365d6cb24202b6952ebcc2d3d9ef15feb3388a88ee"
+  },
+  {
+    "path": "source\\Concierge.tsx",
+    "bytes": 3661,
+    "sha256": "d7e90e9cb9e7fc057d564ac6bad725082be05e44297cb7ea3fc23edbefb24a24"
+  },
+  {
+    "path": "source\\Context.tsx",
+    "bytes": 1304,
+    "sha256": "f146e8dfbb8de306d33a899981830bef6330c2397bb3f9c22d795b3a41c68111"
+  },
+  {
+    "path": "source\\design.tsx",
+    "bytes": 4547,
+    "sha256": "503011963f3500c0f42552dd8de8967a09d9ea33ae9351533e198186d4c75f63"
+  },
+  {
+    "path": "source\\index.tsx",
+    "bytes": 89,
+    "sha256": "a58f804bf74bab68b4549aa5c715eb4a89ec5835206d198fc79b462b4fc71ef9"
+  },
+  {
+    "path": "source\\Memory.tsx",
+    "bytes": 2291,
+    "sha256": "7a756ad899436bb2b2d082f0ca24cdd86424d1dd0a9f229e9d27714545004ae8"
+  },
+  {
+    "path": "source\\Opening.tsx",
+    "bytes": 1790,
+    "sha256": "6bddf8d22955619d1cf948264b2c5b503b6f70eb79741fd92b4eb852e682038d"
+  },
+  {
+    "path": "source\\Root.tsx",
+    "bytes": 1302,
+    "sha256": "80f84acce9b8010ca8b1541e30848deec456b23ed503c1ee2a13551c768533cc"
+  },
+  {
+    "path": "source\\Sample.tsx",
+    "bytes": 1208,
+    "sha256": "3938c49ce7000157cbee4fb66a04e3cde317b01905a50dd1729c5d7204ba089f"
+  },
+  {
+    "path": "source\\voice-revision-captions.json",
+    "bytes": 2110,
+    "sha256": "526326b0dd2695cce9f0d5b0323bca510d37ef943ff3cfe88d1fb1bdf5469386"
+  },
+  {
+    "path": "source\\voice-revision-plan.json",
+    "bytes": 178,
+    "sha256": "23872fd5eb60bddfe654cb7b714b7f97ac971ccab6875543141bbff6e1f37752"
+  },
+  {
+    "path": "source\\VoiceRevision.tsx",
+    "bytes": 2194,
+    "sha256": "dd0f1fe9e1d40cf88a614ceb3f21774c3de7d44b98732ea8847c06007a7ce163"
+  }
+]

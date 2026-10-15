@@ -1,0 +1,36 @@
+{
+  "source": "Microsoft Edge provider WordBoundary metadata",
+  "units": "seconds relative to full untrimmed WAV",
+  "timing_review": "provider timing only; no human listening alignment performed",
+  "text": "Less repeating. More caring.",
+  "words": [
+    {
+      "text": "Less",
+      "start": 0.101,
+      "end": 0.39437500000000003,
+      "offset_100ns": 1010000,
+      "duration_100ns": 2933750
+    },
+    {
+      "text": "repeating",
+      "start": 0.407125,
+      "end": 1.044875,
+      "offset_100ns": 4071250,
+      "duration_100ns": 6377500
+    },
+    {
+      "text": "More",
+      "start": 1.926,
+      "end": 2.219375,
+      "offset_100ns": 19260000,
+      "duration_100ns": 2933750
+    },
+    {
+      "text": "caring",
+      "start": 2.232125,
+      "end": 2.767833,
+      "offset_100ns": 22321250,
+      "duration_100ns": 5357080
+    }
+  ]
+}

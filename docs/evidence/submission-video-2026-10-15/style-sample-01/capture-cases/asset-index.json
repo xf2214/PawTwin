@@ -1,0 +1,746 @@
+{
+  "createdAt": "2026-10-15T03:40:10.195Z",
+  "source": "http://127.0.0.1:8807/#cases",
+  "approvedNativeVideo": "page@d5aac8ba53aafec96b788648c594ee41.webm",
+  "excludedDiagnostics": [
+    "inspection.png",
+    "page@3212eab90219b8cd4e22683706e50ddc.webm",
+    "diagnostic-initial-capture-failure.json",
+    "01-dog-full-panel@2x.png",
+    "03-cat-full-panel@2x.png",
+    "05-context-full-panel@2x.png"
+  ],
+  "notes": [
+    "Use *.safe@2x.png for tall full panels. Earlier locator full-panel crops can contain the fixed header at the top; focused @2x crops are clear.",
+    "DSF2 stills retain 1920x1080 CSS viewport; they are high-density screenshot crops, not native recordings.",
+    "DSF1 video has real public showcase clicks, native 1920x1080 viewport and recording size.",
+    "Focused 940px-wide reply crops are readable at 940-1120px presentation width. All full-window frames have small 11-13px UI text.",
+    "Keep Product preview, Preset reply, simulated and DEMO boundaries visible in the composition. Separate boundary crops supplied."
+  ],
+  "verification": {
+    "native": {
+      "zeroBusinessPOST": true,
+      "zeroBusinessRequests": true,
+      "zeroConsoleErrors": true,
+      "zeroPageErrors": true,
+      "zeroHttpErrors": true,
+      "nativeDprOne": true
+    },
+    "highDensity": {
+      "zeroBusinessPOST": true,
+      "zeroBusinessRequests": true,
+      "zeroConsoleErrors": true,
+      "zeroPageErrors": true,
+      "zeroHttpErrors": true,
+      "englishOnly": true
+    },
+    "safePanels": {
+      "zeroBusinessPOST": true,
+      "zeroErrors": true
+    }
+  },
+  "relativeBoundingBoxes": {
+    "dog": {
+      "units": "CSS px relative to preview panel; multiply by 2 for high density stills",
+      "panel": {
+        "width": 470,
+        "height": 863.515625
+      },
+      "targets": {
+        "preview": {
+          "x": 0,
+          "y": 0,
+          "width": 470,
+          "height": 863.515625
+        },
+        "topline": {
+          "x": 0,
+          "y": 0,
+          "width": 470,
+          "height": 37.59375
+        },
+        "heading": {
+          "x": 0,
+          "y": 37.59375,
+          "width": 470,
+          "height": 88.78125
+        },
+        "profile": {
+          "x": 0,
+          "y": 126.375,
+          "width": 470,
+          "height": 183.5625
+        },
+        "contextRibbon": {
+          "x": 0,
+          "y": 309.9375,
+          "width": 470,
+          "height": 43.59375
+        },
+        "question": {
+          "x": 284.09375,
+          "y": 353.53125,
+          "width": 185.90625,
+          "height": 63.828125
+        },
+        "reply": {
+          "x": 0,
+          "y": 431.359375,
+          "width": 470,
+          "height": 228.046875
+        },
+        "answer": {
+          "x": 36,
+          "y": 431.359375,
+          "width": 434,
+          "height": 228.046875
+        },
+        "basis": {
+          "x": 51,
+          "y": 619.8125,
+          "width": 404,
+          "height": 38.59375
+        },
+        "references": {
+          "x": 36,
+          "y": 672.40625,
+          "width": 434,
+          "height": 50.1875
+        },
+        "detail": {
+          "x": 0,
+          "y": 738.59375,
+          "width": 470,
+          "height": 38.5
+        },
+        "boundary": {
+          "x": 0,
+          "y": 792.09375,
+          "width": 470,
+          "height": 71.421875
+        },
+        "caseLayout": {
+          "x": -35.5,
+          "y": -36,
+          "width": 1080,
+          "height": 968.515625
+        },
+        "steps": {
+          "x": 548.5,
+          "y": 407.84375,
+          "width": 451,
+          "height": 154.5625
+        }
+      }
+    },
+    "cat": {
+      "units": "CSS px relative to preview panel; multiply by 2 for high density stills",
+      "panel": {
+        "width": 470,
+        "height": 1086.0625
+      },
+      "targets": {
+        "preview": {
+          "x": 0,
+          "y": 0,
+          "width": 470,
+          "height": 1086.0625
+        },
+        "topline": {
+          "x": 0,
+          "y": 0,
+          "width": 470,
+          "height": 37.59375
+        },
+        "heading": {
+          "x": 0,
+          "y": 37.59375,
+          "width": 470,
+          "height": 88.78125
+        },
+        "profile": {
+          "x": 0,
+          "y": 126.375,
+          "width": 470,
+          "height": 136.5625
+        },
+        "contextRibbon": {
+          "x": 0,
+          "y": 262.9375,
+          "width": 470,
+          "height": 43.59375
+        },
+        "question": {
+          "x": 127.234375,
+          "y": 306.53125,
+          "width": 342.765625,
+          "height": 63.828125
+        },
+        "activity": {
+          "x": 36,
+          "y": 384.359375,
+          "width": 434,
+          "height": 236.859375
+        },
+        "reply": {
+          "x": 0,
+          "y": 635.21875,
+          "width": 470,
+          "height": 246.734375
+        },
+        "answer": {
+          "x": 36,
+          "y": 635.21875,
+          "width": 434,
+          "height": 246.734375
+        },
+        "basis": {
+          "x": 51,
+          "y": 842.359375,
+          "width": 404,
+          "height": 38.59375
+        },
+        "references": {
+          "x": 36,
+          "y": 894.953125,
+          "width": 434,
+          "height": 50.1875
+        },
+        "detail": {
+          "x": 0,
+          "y": 961.140625,
+          "width": 470,
+          "height": 38.5
+        },
+        "boundary": {
+          "x": 0,
+          "y": 1014.640625,
+          "width": 470,
+          "height": 71.421875
+        },
+        "caseLayout": {
+          "x": -35.5,
+          "y": -36,
+          "width": 1080,
+          "height": 1191.0625
+        },
+        "steps": {
+          "x": 548.5,
+          "y": 519.125,
+          "width": 451,
+          "height": 154.5625
+        }
+      }
+    },
+    "context": {
+      "units": "CSS px relative to preview panel; multiply by 2 for high density stills",
+      "panel": {
+        "width": 470,
+        "height": 851.28125
+      },
+      "targets": {
+        "preview": {
+          "x": 0,
+          "y": 0,
+          "width": 470,
+          "height": 851.28125
+        },
+        "topline": {
+          "x": 0,
+          "y": 0,
+          "width": 470,
+          "height": 37.59375
+        },
+        "heading": {
+          "x": 0,
+          "y": 37.59375,
+          "width": 470,
+          "height": 88.78125
+        },
+        "detail": {
+          "x": 0,
+          "y": 726.359375,
+          "width": 470,
+          "height": 38.5
+        },
+        "boundary": {
+          "x": 0,
+          "y": 779.859375,
+          "width": 470,
+          "height": 71.421875
+        },
+        "comparison": {
+          "x": 0,
+          "y": 126.375,
+          "width": 470,
+          "height": 583.984375
+        },
+        "summary": {
+          "x": 0,
+          "y": 126.375,
+          "width": 470,
+          "height": 85.5
+        },
+        "newSession": {
+          "x": 0,
+          "y": 211.875,
+          "width": 470,
+          "height": 164.171875
+        },
+        "contextSession": {
+          "x": 0,
+          "y": 416.546875,
+          "width": 470,
+          "height": 263.671875
+        },
+        "contextChips": {
+          "x": 18,
+          "y": 532.125,
+          "width": 434,
+          "height": 103.5
+        },
+        "caseLayout": {
+          "x": -35.5,
+          "y": -36,
+          "width": 1080,
+          "height": 956.28125
+        },
+        "steps": {
+          "x": 548.5,
+          "y": 401.734375,
+          "width": 451,
+          "height": 154.5625
+        }
+      }
+    }
+  },
+  "assets": [
+    {
+      "file": "01-dog-full-panel.crop.png",
+      "bytes": 51973,
+      "sha256": "1ebda9b0b5990239128eac808b55cb7a8fb8ca05cecfebd09c0cd2a788319458",
+      "recommended": true,
+      "pixelWidth": 471,
+      "pixelHeight": 865
+    },
+    {
+      "file": "01-dog-full-panel.safe@2x.png",
+      "bytes": 171536,
+      "sha256": "e3092ca9ee37832c33a4af0cb31bd96913fa4b76f5bc88bffc26cad409aad84b",
+      "recommended": true,
+      "pixelWidth": 940,
+      "pixelHeight": 1726
+    },
+    {
+      "file": "01-dog-full-panel@2x.png",
+      "bytes": 171863,
+      "sha256": "0850f3c3e654f536a6da5328c7ffd23c8414ba8f521f9aaea5d7ddce6a5baca8",
+      "recommended": false,
+      "pixelWidth": 942,
+      "pixelHeight": 1730
+    },
+    {
+      "file": "01-dog-profile-question.1920x1080.png",
+      "bytes": 120081,
+      "sha256": "14a95765e21404dcc4e623c9fc66944961334a627556bb2d0ebe3147b1ddd756",
+      "recommended": true,
+      "pixelWidth": 1920,
+      "pixelHeight": 1080
+    },
+    {
+      "file": "01-dog-profile.crop.png",
+      "bytes": 11250,
+      "sha256": "87fe0cb29fd0aeb1eb401b0e5d1b20323555c09daa3e7050feb2933662414af6",
+      "recommended": true,
+      "pixelWidth": 471,
+      "pixelHeight": 184
+    },
+    {
+      "file": "01-dog-profile@2x.png",
+      "bytes": 30776,
+      "sha256": "d955931b1efa2d4fb3f045f6d8dec02684c2ce4c7e86d4cfc9fc86ded0a51f88",
+      "recommended": true,
+      "pixelWidth": 942,
+      "pixelHeight": 368
+    },
+    {
+      "file": "01-dog-question.crop.png",
+      "bytes": 2530,
+      "sha256": "a1967574b41be6b472df8c57233dd4afbdffaca99fd53e1cfd838d75c4e52d16",
+      "recommended": true,
+      "pixelWidth": 187,
+      "pixelHeight": 65
+    },
+    {
+      "file": "01-dog-question@2x.png",
+      "bytes": 8706,
+      "sha256": "b3969ebbf91f8ca0fd8fc65387e4ca365750294c8ade9d20b9b04b9f8b6e2fbe",
+      "recommended": true,
+      "pixelWidth": 374,
+      "pixelHeight": 130
+    },
+    {
+      "file": "02-dog-boundary.crop.png",
+      "bytes": 4724,
+      "sha256": "28685a7384d1a11808a78c7d9f93501df77aa1b9883606d9ab0b84086fa295c4",
+      "recommended": true,
+      "pixelWidth": 471,
+      "pixelHeight": 72
+    },
+    {
+      "file": "02-dog-boundary@2x.png",
+      "bytes": 20158,
+      "sha256": "9965d2499cbab485c3eb8cda3cd8bd127d48544e32d58cce13a8916a1525e005",
+      "recommended": true,
+      "pixelWidth": 942,
+      "pixelHeight": 144
+    },
+    {
+      "file": "02-dog-reply.1920x1080.png",
+      "bytes": 111387,
+      "sha256": "c1ddb7dce41eef722c0a4fce05da797f5602ede4cb22050f313dc428f119cdf6",
+      "recommended": true,
+      "pixelWidth": 1920,
+      "pixelHeight": 1080
+    },
+    {
+      "file": "02-dog-reply.crop.png",
+      "bytes": 15111,
+      "sha256": "90685a16de9f99861ce2a15208511a2ff1a35f16724cb333682b71424f19c792",
+      "recommended": true,
+      "pixelWidth": 471,
+      "pixelHeight": 229
+    },
+    {
+      "file": "02-dog-reply@2x.png",
+      "bytes": 55705,
+      "sha256": "715a0537507b381c8a1a827b258eef18630c99d6239b7700b38974cc9c4ac99c",
+      "recommended": true,
+      "pixelWidth": 942,
+      "pixelHeight": 458
+    },
+    {
+      "file": "03-cat-full-panel.crop.png",
+      "bytes": 61988,
+      "sha256": "752e0f892725b39b20e0d60826d671622704be517b698fafd943f4981c24f8f8",
+      "recommended": true,
+      "pixelWidth": 471,
+      "pixelHeight": 1087
+    },
+    {
+      "file": "03-cat-full-panel.safe@2x.png",
+      "bytes": 210865,
+      "sha256": "1920db587f468ff7ed319d8f3fb2f56f3ac0b323ac7a533e536bfeaa9f120ccb",
+      "recommended": true,
+      "pixelWidth": 940,
+      "pixelHeight": 2172
+    },
+    {
+      "file": "03-cat-full-panel@2x.png",
+      "bytes": 195850,
+      "sha256": "70b1d96182fbd37e206da76a81c83d17e283ee2ef9f4ee25850d8e9dd4f7d740",
+      "recommended": false,
+      "pixelWidth": 942,
+      "pixelHeight": 2174
+    },
+    {
+      "file": "03-cat-profile-question-map.1920x1080.png",
+      "bytes": 126263,
+      "sha256": "52718f629f7d63160eea1d90d9afb3a5f4c0061ff72cf5b2200fef1dfa37b9e2",
+      "recommended": true,
+      "pixelWidth": 1920,
+      "pixelHeight": 1080
+    },
+    {
+      "file": "03-cat-profile.crop.png",
+      "bytes": 7521,
+      "sha256": "08b352f5416dbe4c37f60fd8108d66b8fb5b2a655aadfc5b07e677682ba7faae",
+      "recommended": true,
+      "pixelWidth": 471,
+      "pixelHeight": 137
+    },
+    {
+      "file": "03-cat-profile@2x.png",
+      "bytes": 20302,
+      "sha256": "ccaed76daa9dd9d9d8092d1e46cb1ae31c8881538534e3c838e3be188911657b",
+      "recommended": true,
+      "pixelWidth": 942,
+      "pixelHeight": 274
+    },
+    {
+      "file": "03-cat-question.crop.png",
+      "bytes": 3510,
+      "sha256": "299c25f450610394e97ce6aa862db67b99968c6cb80c186c09e088b87c349d6b",
+      "recommended": true,
+      "pixelWidth": 344,
+      "pixelHeight": 65
+    },
+    {
+      "file": "03-cat-question@2x.png",
+      "bytes": 11914,
+      "sha256": "0cc1e0764ef0421a89f4aa1a2e0adb130bb29ea86f0040e07eb994a332118f1f",
+      "recommended": true,
+      "pixelWidth": 688,
+      "pixelHeight": 130
+    },
+    {
+      "file": "03-cat-simulated-map.crop.png",
+      "bytes": 16222,
+      "sha256": "8301eb1357a9f22e9f77cffabffc6b1cb990356b2b9537cabee47936322bc1fe",
+      "recommended": true,
+      "pixelWidth": 435,
+      "pixelHeight": 238
+    },
+    {
+      "file": "03-cat-simulated-map@2x.png",
+      "bytes": 42923,
+      "sha256": "27f5cae9d96cbc61124dc76680d1bd41e4dcd2c26c615b8597b40dba9234b1de",
+      "recommended": true,
+      "pixelWidth": 870,
+      "pixelHeight": 476
+    },
+    {
+      "file": "04-cat-boundary.crop.png",
+      "bytes": 4726,
+      "sha256": "bbd2c207d4cbcd0e29b421b53b822538f2964577f54a6f417895da9454e6f8a6",
+      "recommended": true,
+      "pixelWidth": 471,
+      "pixelHeight": 72
+    },
+    {
+      "file": "04-cat-boundary@2x.png",
+      "bytes": 20154,
+      "sha256": "385f36955277574ad04f38dd12b0b325424365897fe5b83d2edfe973861943e0",
+      "recommended": true,
+      "pixelWidth": 942,
+      "pixelHeight": 144
+    },
+    {
+      "file": "04-cat-reply.1920x1080.png",
+      "bytes": 102598,
+      "sha256": "fd6fff6c9b5abeab8161c7ca214439b0e3e1098ad165ffadb965efdff240d418",
+      "recommended": true,
+      "pixelWidth": 1920,
+      "pixelHeight": 1080
+    },
+    {
+      "file": "04-cat-reply.crop.png",
+      "bytes": 15680,
+      "sha256": "983f4b43af06c22246a9f4c8f16468633271dbe0d419225c3e15fde9c7a71c19",
+      "recommended": true,
+      "pixelWidth": 471,
+      "pixelHeight": 247
+    },
+    {
+      "file": "04-cat-reply@2x.png",
+      "bytes": 56871,
+      "sha256": "c80e412830c031f724acbf910db598044e5d4ffdda0c18f1f8159257a7ef0361",
+      "recommended": true,
+      "pixelWidth": 942,
+      "pixelHeight": 494
+    },
+    {
+      "file": "05-context-boundary.crop.png",
+      "bytes": 4732,
+      "sha256": "b365773bf631eb2cc135722dabe5656f6389193c07041143cb4347907ba39e39",
+      "recommended": true,
+      "pixelWidth": 471,
+      "pixelHeight": 73
+    },
+    {
+      "file": "05-context-boundary@2x.png",
+      "bytes": 20175,
+      "sha256": "60531c3ad857a2e9f884f07ce9c8b3f81b421dabe00165fd786b8cb275f3622a",
+      "recommended": true,
+      "pixelWidth": 942,
+      "pixelHeight": 146
+    },
+    {
+      "file": "05-context-comparison.1920x1080.png",
+      "bytes": 122636,
+      "sha256": "4035f861abbca20e54c252792e3e2c610825211e4689ec933ea52a7e4da93ceb",
+      "recommended": true,
+      "pixelWidth": 1920,
+      "pixelHeight": 1080
+    },
+    {
+      "file": "05-context-full-panel.crop.png",
+      "bytes": 54114,
+      "sha256": "a2d9b2c7b842c13ec5dd5b1242e982162de252470d750937201e644f1ec3a5bd",
+      "recommended": true,
+      "pixelWidth": 471,
+      "pixelHeight": 853
+    },
+    {
+      "file": "05-context-full-panel.safe@2x.png",
+      "bytes": 176381,
+      "sha256": "a16e6ffe840724dbcc5e552e6dd3f6e058ee566965a817d932e433cc14b82aad",
+      "recommended": true,
+      "pixelWidth": 940,
+      "pixelHeight": 1702
+    },
+    {
+      "file": "05-context-full-panel@2x.png",
+      "bytes": 165673,
+      "sha256": "56c81cb1c7153c46a02e17cd8c146fb7050152aec2e90bf5ceab770b2fa47479",
+      "recommended": false,
+      "pixelWidth": 942,
+      "pixelHeight": 1706
+    },
+    {
+      "file": "05-context-included.crop.png",
+      "bytes": 14483,
+      "sha256": "bc901ca53cb14e21e5ef34f7a1d81b1c0f8f033d3eb7eb5e7aee9b646da8d109",
+      "recommended": true,
+      "pixelWidth": 471,
+      "pixelHeight": 265
+    },
+    {
+      "file": "05-context-included@2x.png",
+      "bytes": 45959,
+      "sha256": "6e41ca63eefeb90dc435f234be5345e9047ad67426a607a1869acf9655162aaa",
+      "recommended": true,
+      "pixelWidth": 942,
+      "pixelHeight": 530
+    },
+    {
+      "file": "05-context-new-chat.crop.png",
+      "bytes": 11491,
+      "sha256": "c47cc6a57c62b530f3b41d279ec530c515769ed2a21a8ba86104a4e8a68d9bc3",
+      "recommended": true,
+      "pixelWidth": 471,
+      "pixelHeight": 165
+    },
+    {
+      "file": "05-context-new-chat@2x.png",
+      "bytes": 39060,
+      "sha256": "f27a16aa6b1859d1b63ee28bcc94f32a35a343a9090bd4d2fc7de2215137b8d4",
+      "recommended": true,
+      "pixelWidth": 942,
+      "pixelHeight": 330
+    },
+    {
+      "file": "06-context-comparison-lower.1920x1080.png",
+      "bytes": 118268,
+      "sha256": "0f52a580aff92cb1dda28850b8640a93c2cc4abae77b918cb0dd3398e65404c1",
+      "recommended": true,
+      "pixelWidth": 1920,
+      "pixelHeight": 1080
+    },
+    {
+      "file": "capture-cases.mjs",
+      "bytes": 7738,
+      "sha256": "796cbe595282b132c49dc0181cb1226d5be4c2c54c3873228d6b43a0fe6fb2df",
+      "recommended": true
+    },
+    {
+      "file": "capture-high-density-metadata.json",
+      "bytes": 16818,
+      "sha256": "18f9820592ea0ce20f11a1d8439f39f5f6a786364d9e3a0d90f1c7f04ab45bc1",
+      "recommended": true
+    },
+    {
+      "file": "capture-high-density.mjs",
+      "bytes": 4833,
+      "sha256": "9c0d2cee589ebbc21ca99e7f5e56d10ee716a3c832ce871a3b0a6314590ad6c5",
+      "recommended": true
+    },
+    {
+      "file": "capture-metadata.json",
+      "bytes": 246049,
+      "sha256": "c01a1d560204edf0a5dc8366beebbd5fba35ef095aea0ed0f89cb7fc71815783",
+      "recommended": true
+    },
+    {
+      "file": "capture-safe-panels-metadata.json",
+      "bytes": 1771,
+      "sha256": "e475cb6e0532dbad341d68151d29c201fca8d6b650f2b81286e8358038db8eda",
+      "recommended": true
+    },
+    {
+      "file": "capture-safe-panels.mjs",
+      "bytes": 3137,
+      "sha256": "ed873633058f383df25eea181487496567f7b2b315533b88f0c52f08f7c86ed6",
+      "recommended": true
+    },
+    {
+      "file": "diagnostic-initial-capture-failure.json",
+      "bytes": 78131,
+      "sha256": "86aa3e1b3d618fc9e43d9a155674123de78edfc90ffd494dcf1953d5b22457f1",
+      "recommended": false
+    },
+    {
+      "file": "index-assets.mjs",
+      "bytes": 3648,
+      "sha256": "e44e5f9277e512ffaad46cc2984c6f0f5d123979f3ed98bd6e5068c7a8971baf",
+      "recommended": true
+    },
+    {
+      "file": "inspect-cases.mjs",
+      "bytes": 1181,
+      "sha256": "3765424d42b1a4d436041d9b089367f6d96a111f1cd633b58d9d4e965dc4e610",
+      "recommended": true
+    },
+    {
+      "file": "inspection.png",
+      "bytes": 130769,
+      "sha256": "46b0fe0a9c030f987fd0c9a34c31fb7a0ce130cbaedd71bfe10afc4607f13170",
+      "recommended": false,
+      "pixelWidth": 1920,
+      "pixelHeight": 1080
+    },
+    {
+      "file": "page@3212eab90219b8cd4e22683706e50ddc.webm",
+      "bytes": 2346084,
+      "sha256": "560350e0b5e0da1213e13a0c2ac4a7a09f5955caa50b85e38951d3369bbac3fc",
+      "recommended": false
+    },
+    {
+      "file": "page@d5aac8ba53aafec96b788648c594ee41.webm",
+      "bytes": 1590486,
+      "sha256": "869dcc60cfe99d5c81c376547a48cddc56ebe555791994faf04ef2659314013c",
+      "recommended": true
+    },
+    {
+      "file": "pet-luna.actual-dom.svg",
+      "bytes": 1843,
+      "sha256": "581d074e250082e0892a3d2bbb08a78ea7bc7ffdf9719111af242e1bb735e16c",
+      "recommended": true
+    },
+    {
+      "file": "pet-luna.standalone.svg",
+      "bytes": 1878,
+      "sha256": "5c4d4a32252adc1f37310212c8a30ac750ba308ccee593049eafcee72e797f40",
+      "recommended": true
+    },
+    {
+      "file": "pet-miso.actual-dom.svg",
+      "bytes": 1809,
+      "sha256": "d848c048afad83d164f9703057c427d8b10fc44fe5fac69605e670e40c8c95a5",
+      "recommended": true
+    },
+    {
+      "file": "pet-miso.standalone.svg",
+      "bytes": 1844,
+      "sha256": "64239edb8187111e6ec7ae9b7e6a9ce0eb1ca167a62e1b94bebce8e4da9ef9d9",
+      "recommended": true
+    },
+    {
+      "file": "pet-mochi.actual-dom.svg",
+      "bytes": 1777,
+      "sha256": "9f05f4dc34543491c1891457c9d6e1245d2b6912ba3d2a5c0c50b7b7a54077c6",
+      "recommended": true
+    },
+    {
+      "file": "pet-mochi.standalone.svg",
+      "bytes": 1812,
+      "sha256": "4f7ac3568857e7cfc11f30a3acdb908d55e725bddb157e1ec958e44fbbf27875",
+      "recommended": true
+    }
+  ],
+  "videoProbe": {
+    "width": 1920,
+    "height": 1080,
+    "duration": 11.8
+  }
+}

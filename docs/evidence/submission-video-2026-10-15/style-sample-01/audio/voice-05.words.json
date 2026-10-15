@@ -1,0 +1,71 @@
+{
+  "source": "Microsoft Edge provider WordBoundary metadata",
+  "units": "seconds relative to full untrimmed WAV",
+  "timing_review": "provider timing only; no human listening alignment performed",
+  "text": "These scripted previews explore food questions and activity records.",
+  "words": [
+    {
+      "text": "These",
+      "start": 0.101,
+      "end": 0.35608300000000004,
+      "offset_100ns": 1010000,
+      "duration_100ns": 2550830
+    },
+    {
+      "text": "scripted",
+      "start": 0.368875,
+      "end": 0.764291,
+      "offset_100ns": 3688750,
+      "duration_100ns": 3954160
+    },
+    {
+      "text": "previews",
+      "start": 0.777041,
+      "end": 1.248999,
+      "offset_100ns": 7770410,
+      "duration_100ns": 4719580
+    },
+    {
+      "text": "explore",
+      "start": 1.26175,
+      "end": 1.733708,
+      "offset_100ns": 12617500,
+      "duration_100ns": 4719580
+    },
+    {
+      "text": "food",
+      "start": 1.746416,
+      "end": 2.014291,
+      "offset_100ns": 17464160,
+      "duration_100ns": 2678750
+    },
+    {
+      "text": "questions",
+      "start": 2.027041,
+      "end": 2.613791,
+      "offset_100ns": 20270410,
+      "duration_100ns": 5867500
+    },
+    {
+      "text": "and",
+      "start": 2.626541,
+      "end": 2.817874,
+      "offset_100ns": 26265410,
+      "duration_100ns": 1913330
+    },
+    {
+      "text": "activity",
+      "start": 2.830625,
+      "end": 3.302583,
+      "offset_100ns": 28306250,
+      "duration_100ns": 4719580
+    },
+    {
+      "text": "records",
+      "start": 3.315291,
+      "end": 3.9785410000000003,
+      "offset_100ns": 33152910,
+      "duration_100ns": 6632500
+    }
+  ]
+}

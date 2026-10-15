@@ -1,0 +1,13 @@
+{
+  "fps": 30,
+  "durationInFrames": 903,
+  "durationSeconds": 30.1,
+  "boundariesInFrames": [
+    0,
+    116,
+    331,
+    542,
+    806
+  ],
+  "misoSeconds": 4.5
+}

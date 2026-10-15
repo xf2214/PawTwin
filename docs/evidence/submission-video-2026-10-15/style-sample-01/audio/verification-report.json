@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "pcm_wav_files": 20,
+  "full_length_stems": 5,
+  "full_stem_duration_seconds": 30,
+  "sample_rate": 22050,
+  "channels": 1,
+  "bits_per_sample": 16,
+  "clipped_samples_all_wavs": 0,
+  "sentence_cues": 6,
+  "provider_word_cues": 41,
+  "all_raw_source_hashes_match": true,
+  "all_edit_trims_exact_digital_zero_only": true,
+  "all_caption_speech_ends_inside_requested_end_windows": true,
+  "closing_wav_start_seconds": 26.95,
+  "combined_peak_dbfs": -5.484047673920033,
+  "human_listening_review": "not_performed"
+}

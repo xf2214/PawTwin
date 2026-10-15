@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-15",
+  "artifact": "PawTwin-submission-2026-10-15.en.docx",
+  "sha256": "898853181c58f4be5d2e9959b6d048791c0681dca36531c7e822fe0e50e383bb",
+  "size_bytes": 46592,
+  "source_baseline": "6342b96",
+  "authoring_runtime": "Codex bundled Python",
+  "authoring_library": "python-docx 1.2.0",
+  "operation_marker": "create --expected-output-count 1 --output-format docx executed successfully exactly once",
+  "canonical_renderer": {
+    "command": "render_docx.py --emit_pdf --verbose",
+    "result": "unavailable",
+    "diagnostic": "FileNotFoundError: LibreOffice soffice.exe was not found on PATH",
+    "installed_libreoffice_used": false
+  },
+  "alternate_renderer": {
+    "method": "Microsoft Word hidden read-only automation ExportAsFixedFormat PDF; bundled Poppler pdftoppm PNG",
+    "word_visible": false,
+    "page_count": 6,
+    "raster_dpi": 150,
+    "every_page_visually_inspected": true,
+    "reviewed_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "final_layout": "No clipping, overlap, missing glyphs, broken tables, blank pages or title border",
+    "qa_pdf_delivered": false,
+    "qa_pngs_delivered": false
+  },
+  "structural_checks": {
+    "docx_zip_integrity": "PASS",
+    "paragraph_border_count": 0,
+    "numbering": "Restarted for each walkthrough",
+    "metadata_author": "empty",
+    "editable": true
+  },
+  "limitations": [
+    "Layout may vary in a different editor.",
+    "Product Feedback personal onboarding and Yes/No reuse responses remain participant fields.",
+    "Video production and final human playback/listening are tracked separately."
+  ]
+}

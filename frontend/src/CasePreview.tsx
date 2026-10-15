@@ -1,9 +1,10 @@
 import { t } from './i18n'
 import { PetPortrait } from './PetPortrait'
 import { GrowthTrend, demoGrowthSummary, formatDemoWeight, formatDemoChange } from './ProductGrowth'
+import { PetConciergePreview } from './PetConciergePreview'
 import './case-preview.css'
 
-type CaseScenario = 'handoff' | 'growth' | 'preferences'
+type CaseScenario = 'handoff' | 'growth' | 'preferences' | 'concierge'
 type PreviewFrame = { title: string; status: string; detail: string }
 type PreviewIcon = 'water' | 'check' | 'book' | 'message' | 'source' | 'spark' | 'arrow'
 
@@ -116,6 +117,6 @@ function PreferencesPreview({ step, frame }: { step: number; frame: PreviewFrame
 
 export function CasePreview({ scenario, step, frame }: { scenario: CaseScenario; step: number; frame: PreviewFrame }) {
   return <div className="pt-case-preview" data-case={scenario}>
-    {scenario === 'handoff' ? <HandoffPreview step={step} frame={frame} /> : scenario === 'growth' ? <GrowthPreview step={step} frame={frame} /> : <PreferencesPreview step={step} frame={frame} />}
+    {scenario === 'handoff' ? <HandoffPreview step={step} frame={frame} /> : scenario === 'growth' ? <GrowthPreview step={step} frame={frame} /> : scenario === 'concierge' ? <PetConciergePreview step={step} frame={frame} /> : <PreferencesPreview step={step} frame={frame} />}
   </div>
 }

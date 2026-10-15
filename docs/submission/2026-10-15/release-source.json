@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "release_id": "pawtwin-local-final-2026-10-15",
+  "baseline_commit": "6342b96a874daa595b2150080ab64adad70b3d7b",
+  "source_archive": "PawTwin-source-2026-10-15.final.zip",
+  "source_commit_manifest": "PawTwin-source-2026-10-15.final.manifest.json",
+  "source_commit_note": "The final archive manifest records the frozen Git commit. This identity file avoids a self-referential commit hash.",
+  "application_sha256": "1ce9d0ba3c2221d58268f4704dd417d955edf3e35387e42644f4986791ca96be",
+  "active_video": {
+    "file": "PawTwin-hackathon-submission-2026-10-15.en.mp4",
+    "duration_seconds": 142.379,
+    "sha256": "47c412da677666bc49d16b39d20d4bfed1ec619b1d2b46cda496ad9a86e6cbe5"
+  },
+  "scope": "Local source and materials only; public release and participant declarations remain separate.",
+  "source_profile": "All runnable application code/config/locks/assets and current instructions; raw capture data, user data, credentials, dependencies and rendered intermediates excluded.",
+  "application_digest_text_encoding": "UTF-8 source bytes with CRLF normalized to LF, matching .gitattributes; binary assets retain exact bytes."
+}

@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "completed_on": "2026-10-16",
+  "scope": "Repaired source and application reproducibility. Final ZIP bytes/CRC/member checks are in the external archive manifests after local Git freeze.",
+  "baseline": {
+    "command": "./scripts/verify.ps1",
+    "exit_code": 0,
+    "backend_passed": 495,
+    "skipped": 1,
+    "live_aws_deselected": 21,
+    "ruff": "passed",
+    "contracts": "current",
+    "typescript": "passed",
+    "production_build": "passed",
+    "log": "verify.log"
+  },
+  "browser": {
+    "command": "./scripts/test-e2e.ps1",
+    "exit_code": 0,
+    "passed": 122,
+    "files": 24,
+    "shards": [
+      32,
+      37,
+      23,
+      30
+    ],
+    "retries": 0,
+    "log": "e2e.log"
+  },
+  "release_helper_tests": {
+    "passed": 48,
+    "module": "tests/test_submission_release.py",
+    "checks": [
+      "dirty and untracked sources",
+      "runtime/secret exclusions",
+      "path traversal",
+      "no overwrite",
+      "failure cleanup",
+      "stale source identity",
+      "exact links and fragments",
+      "Git line ending normalization"
+    ]
+  },
+  "clean_extracted_source": {
+    "routes": {
+      "/healthz": 200,
+      "/": 200,
+      "/api/bootstrap": 200,
+      "/api/state": 401
+    },
+    "bootstrap": {
+      "project": "PawTwin",
+      "stage": "local_business",
+      "mode": "local",
+      "aws_connected": false,
+      "analyzer": "local_fake",
+      "capabilities": {
+        "event_intake": "implemented_local",
+        "owner_approval": "implemented_local",
+        "simulated_device": "implemented_simulated",
+        "owner_feedback": "implemented_local",
+        "long_term_memory": "not_implemented"
+      }
+    },
+    "frontend_build": "passed",
+    "locked_setup": "passed",
+    "application_sha256": "1ce9d0ba3c2221d58268f4704dd417d955edf3e35387e42644f4986791ca96be"
+  },
+  "original_outputs": {
+    "sha256_checked": 24,
+    "changed": 0,
+    "snapshot": "PawTwin-before-submission-fixes-2026-10-15-4b2615/baseline.json"
+  },
+  "repaired_video_scripts": {
+    "files": 10,
+    "original_ruff_diagnostics": 216,
+    "current_ruff_diagnostics": 0,
+    "provenance": "script-revisions.json",
+    "media_rerendered": false
+  },
+  "independent_review": {
+    "blocking_findings": 0,
+    "earlier_findings_resolved": [
+      "failure cleanup",
+      "source inclusions",
+      "identity drift",
+      "portable links"
+    ]
+  },
+  "source_identity": "../../submission/2026-10-15/release-source.json",
+  "archive_manifests": [
+    "PawTwin-source-2026-10-15.final.manifest.json",
+    "PawTwin-submission-materials-2026-10-15.final.manifest.json"
+  ],
+  "remaining_external_steps": [
+    "complete human video listening",
+    "GitHub destination/publication/reviewer access",
+    "public video upload",
+    "participant feedback/eligibility/rights",
+    "Devpost submission"
+  ],
+  "limitations": [
+    "One best-effort running-server kill/relaunch test skipped;21 live AWS tests excluded.",
+    "Existing604.61kB frontend chunk warning remains.",
+    "Canonical Word renderer lacks soffice; hidden Word/Poppler passed all6 pages.",
+    "Film reconstruction needs the separate Remotion studio; source ZIP reproduces the local application."
+  ]
+}

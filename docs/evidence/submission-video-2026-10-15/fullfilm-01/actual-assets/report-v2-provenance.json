@@ -1,0 +1,36 @@
+{
+  "id": "emma-daily-report-v2",
+  "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-cinematic-capture-2026-10-15\\attempt-03-native1920\\owner.webm",
+  "source_sha256": "cb0d21468161783923c572d034807b407bb7effedcd2fcf3abd333995f9a91ce",
+  "start": 128.0,
+  "requested_duration": 7.0,
+  "crop": [
+    280,
+    334,
+    1100,
+    734
+  ],
+  "speed": 1.0,
+  "file": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-video-studio-2026-10-15\\public\\fullfilm\\emma-daily-report-v2.mp4",
+  "sha256": "ed4fc26b97b12ae1de1b49b9c85953250a71ad3065c06beaaba4875f55fa476c",
+  "hold": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-video-studio-2026-10-15\\public\\fullfilm\\emma-daily-report-v2-hold.png",
+  "hold_encoded_timestamp": 6.96,
+  "hold_sha256": "87424ee08c0c4b8c9eefbfc6bbde96199cf97d2dd0ae3b004d7941fb334e3b17",
+  "encoded": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "width": 1100,
+        "height": 734,
+        "r_frame_rate": "25/1",
+        "nb_frames": "175"
+      }
+    ],
+    "format": {
+      "duration": "7.000000"
+    }
+  },
+  "full_decode": "passed",
+  "change": "Spatial crop shifted 20 source pixels left to preserve the full Mochi heading. Original assets unchanged."
+}

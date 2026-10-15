@@ -1,0 +1,180 @@
+{
+  "schema_version": 2,
+  "date": "2026-10-15",
+  "artifact": "PawTwin-submission-2026-10-15.final.en.docx",
+  "sha256": "f850f770326909afa14341327c582cd0bb0dd4ebbbf4c89f93bdbcbe4a4c0843",
+  "size_bytes": 46543,
+  "source_identity": {
+    "record": "release-source.json",
+    "historical_audit_baseline": "6342b96",
+    "final_freeze_commit_source": "matching external final source manifest"
+  },
+  "reference_document": {
+    "path": "PawTwin-submission-2026-10-15.en.docx",
+    "sha256": "898853181c58f4be5d2e9959b6d048791c0681dca36531c7e822fe0e50e383bb",
+    "unchanged": true,
+    "layout": "Six Letter pages; Calibri 10.5 pt; source styles, section geometry and page footer retained"
+  },
+  "authoring_runtime": "C:\\Users\\11831\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "authoring_library": "python-docx 1.2.0",
+  "operation_marker": "create --expected-output-count 1 --output-format docx executed successfully exactly once for this new output",
+  "canonical_renderer": {
+    "command": "render_docx.py PawTwin-submission-2026-10-15.final.en.docx --output_dir <temporary QA directory>/canonical --emit_pdf --verbose",
+    "result": "unavailable",
+    "exit_code": 1,
+    "diagnostic": "FileNotFoundError: LibreOffice soffice.exe was not found on PATH",
+    "installed_libreoffice_used": false
+  },
+  "alternate_renderer": {
+    "method": "Microsoft Word hidden read-only automation ExportAsFixedFormat PDF; bundled Poppler pdftoppm PNG",
+    "word_visible": false,
+    "source_opened_read_only": true,
+    "source_saved_by_word": false,
+    "page_count": 6,
+    "raster_dpi": 150,
+    "every_page_visually_inspected": true,
+    "reviewed_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "reviewer": "Codex page-image visual review; not participant human video review",
+    "final_layout": "No clipping, overlap, missing glyphs, broken tables, blank pages or title border",
+    "qa_pdf_delivered": false,
+    "qa_pngs_delivered": false,
+    "internal_qa_directory": "C:\\Users\\11831\\AppData\\Local\\Temp\\pawtwin-final-docx-20261015-4f7d",
+    "rendered_pdf_sha256": "279f0d3de1b135cb231c1008e166a2fd332b1944453185749103b571c8e1b8f5",
+    "page_images": [
+      {
+        "page": 1,
+        "sha256": "c398238be1169a1973f8c82c4248f65f394ca2d8dc6272513913b8954c49c6ac"
+      },
+      {
+        "page": 2,
+        "sha256": "84fbb07abb6f429a0569f9a35e32072b40304f84c0648e63409c2892a7b8749d"
+      },
+      {
+        "page": 3,
+        "sha256": "bb0a28b4641b695b7300ff11c0984fdcf5c7aea374c0a100d4b7f6b79d8957b3"
+      },
+      {
+        "page": 4,
+        "sha256": "5070815970ea39bc40019a27c6d0ede41f41efb2d939ff2a71c4825eed3e1afe"
+      },
+      {
+        "page": 5,
+        "sha256": "0d663f2cb33190a169eda02ea9bb71254920a80c30cfa847bc50cde16ba26bdc"
+      },
+      {
+        "page": 6,
+        "sha256": "53ec347534bd48cfc06204a99138b3f99ea973404d72b1873428849c63cdac72"
+      }
+    ]
+  },
+  "structural_checks": {
+    "docx_zip_integrity": "PASS",
+    "paragraph_border_count": 0,
+    "metadata_author": "",
+    "metadata_last_modified_by": "",
+    "editable": true,
+    "section_count": 1,
+    "tables": 3,
+    "body_paragraphs": 73,
+    "active_film_duration_present": true,
+    "active_film_hash_present": true,
+    "source_identity_record_named": true,
+    "historical_baseline_explicit": true,
+    "human_listening_pending": true,
+    "page_count": 6,
+    "all_pages_have_content": true,
+    "original_docx_unchanged": true
+  },
+  "rendered_pages": [
+    {
+      "page": 1,
+      "width_points": 612,
+      "height_points": 792,
+      "text_characters": 2398,
+      "first_line": "PawTwin final English hackathon submission"
+    },
+    {
+      "page": 2,
+      "width_points": 612,
+      "height_points": 792,
+      "text_characters": 2611,
+      "first_line": "Implementation and verified scope"
+    },
+    {
+      "page": 3,
+      "width_points": 612,
+      "height_points": 792,
+      "text_characters": 2854,
+      "first_line": "Judge setup and walkthrough"
+    },
+    {
+      "page": 4,
+      "width_points": 612,
+      "height_points": 792,
+      "text_characters": 2895,
+      "first_line": "Final film and development results"
+    },
+    {
+      "page": 5,
+      "width_points": 612,
+      "height_points": 792,
+      "text_characters": 2932,
+      "first_line": "Product Feedback participant completion"
+    },
+    {
+      "page": 6,
+      "width_points": 612,
+      "height_points": 792,
+      "text_characters": 3036,
+      "first_line": "Submission checklist and source identity"
+    }
+  ],
+  "source_content_snapshots": [
+    {
+      "path": "README.md",
+      "sha256": "8ad435bf3ee303c5cadce3055abb9ac68a1a177d28dbe15dc8ec4c7d13df61b6"
+    },
+    {
+      "path": "project-description.en.md",
+      "sha256": "364368e52dc1303c8259d0eea50188190f4671d34290e72e7146dc0732f14de3"
+    },
+    {
+      "path": "judge-guide.en.md",
+      "sha256": "f13e5d0804f5bf57021c7582d887fc3ef705e2f290e7e63512d26bf6a6c20d52"
+    },
+    {
+      "path": "submission-checklist.md",
+      "sha256": "e2d1c117c14fee11a9fb7fdda5ffd6d64323b51e672abe0418717d3c3b26acc6"
+    },
+    {
+      "path": "final-video-production.md",
+      "sha256": "633d76496e56a354cdaef12a607898c848a3b51d368186ab090dbab6adb6c546"
+    },
+    {
+      "path": "product-feedback.en.md",
+      "sha256": "ccff1ee450c0e94b8f1d751fb183416380c16b4a292fde29ee1f0ab9b7cfab7e"
+    },
+    {
+      "path": "video-feedback-addendum.en.md",
+      "sha256": "1c89a7fe15a261a40c22df1c61eb31c75bd0d42e58caff6d24e35d7ff41f762e"
+    },
+    {
+      "path": "production/build-final-document.py",
+      "sha256": "a0eede9ae19b2981627608fa3904c19a4d1fe6098a9e85f2462f7a807cf64364"
+    }
+  ],
+  "limitations": [
+    "Canonical LibreOffice renderer unavailable; page rendering used installed Microsoft Word read-only export plus bundled Poppler.",
+    "Layout may vary in another editor.",
+    "Final whole-tree repair verification and archive/freeze identities are separate coordinator records.",
+    "Product Feedback personal onboarding and individual Yes/No reuse answers remain participant fields.",
+    "Complete human video playback/listening, public upload, eligibility and rights declarations, reviewer source access and Devpost submission remain pending."
+  ]
+}

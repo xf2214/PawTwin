@@ -1,0 +1,502 @@
+{
+  "createdAt": "2026-10-15T03:37:56.065Z",
+  "url": "http://127.0.0.1:8807/#cases",
+  "viewportCss": {
+    "width": 1920,
+    "height": 1080
+  },
+  "deviceScaleFactor": 2,
+  "physicalViewport": {
+    "width": 3840,
+    "height": 2160
+  },
+  "kind": "High density stills; no video in this context.",
+  "shots": [
+    {
+      "name": "01-dog-full-panel",
+      "file": "01-dog-full-panel@2x.png",
+      "selector": ".pc-preview",
+      "cssBox": {
+        "x": 455.5,
+        "y": 216.9375,
+        "width": 470,
+        "height": 863.515625
+      },
+      "pixelSize": {
+        "width": 940,
+        "height": 1727
+      },
+      "text": "Pet Concierge · Product preview\nStep 1 / 3\nCan this dog eat chocolate?\nScripted conversation\nFictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken\nTheir context travels with the question\nOwner\n\nCan my dog eat chocolate?\n\nAlexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference\nHealth copy references\nMerck · Chocolate toxicity\nPDSA · Dog diet\n\nUse Miso’s Corgi profile, explain the chocolate risk, then suggest an alternative based on his confirmed preference for chicken.\n\nDEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis."
+    },
+    {
+      "name": "01-dog-profile",
+      "file": "01-dog-profile@2x.png",
+      "selector": ".pc-profile",
+      "cssBox": {
+        "x": 455.5,
+        "y": 343.3125,
+        "width": 470,
+        "height": 183.5625
+      },
+      "pixelSize": {
+        "width": 940,
+        "height": 367
+      },
+      "text": "Fictional pet profile\nMiso\nPembroke Welsh Corgi\nMale\n2 years\n9.40 kg\nOwner-confirmed preference\nLikes chicken"
+    },
+    {
+      "name": "01-dog-question",
+      "file": "01-dog-question@2x.png",
+      "selector": ".pc-owner-message",
+      "cssBox": {
+        "x": 739.59375,
+        "y": 570.46875,
+        "width": 185.90625,
+        "height": 63.828125
+      },
+      "pixelSize": {
+        "width": 372,
+        "height": 128
+      },
+      "text": "Owner\n\nCan my dog eat chocolate?"
+    },
+    {
+      "name": "02-dog-reply",
+      "file": "02-dog-reply@2x.png",
+      "selector": ".pc-assistant-message",
+      "cssBox": {
+        "x": 455.5,
+        "y": 648.296875,
+        "width": 470,
+        "height": 228.046875
+      },
+      "pixelSize": {
+        "width": 940,
+        "height": 456
+      },
+      "text": "Alexa · Preset reply\n\nMiso is your Pembroke Welsh Corgi. No. Chocolate can poison dogs, regardless of breed.\n\nSince you confirmed he likes chicken, a small plain, fully cooked, boneless piece may suit his tastes. Check for allergies before offering it as a treat.\n\nIf he has already eaten chocolate, contact a vet immediately.\n\nContext used\nSample pet profile\nSample confirmed preference"
+    },
+    {
+      "name": "02-dog-boundary",
+      "file": "02-dog-boundary@2x.png",
+      "selector": ".pc-demo-boundary",
+      "cssBox": {
+        "x": 455.5,
+        "y": 1009.03125,
+        "width": 470,
+        "height": 71.421875
+      },
+      "pixelSize": {
+        "width": 940,
+        "height": 143
+      },
+      "text": "DEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis."
+    },
+    {
+      "name": "03-cat-full-panel",
+      "file": "03-cat-full-panel@2x.png",
+      "selector": ".pc-preview",
+      "cssBox": {
+        "x": 455.5,
+        "y": -0.0625,
+        "width": 470,
+        "height": 1086.0625
+      },
+      "pixelSize": {
+        "width": 940,
+        "height": 2172
+      },
+      "text": "Pet Concierge · Product preview\nStep 2 / 3\nA low-energy cat: which records help?\nSimulated records\nFictional pet profile\nLuna\nDomestic shorthair · Bicolor\nFemale\n3 years\n3.68 kg\nTheir context travels with the question\nOwner\n\nMy cat seems a little low on energy. What should I do?\n\nToday’s household activity\nSimulated trace\n07:40\nWindow\n12:20\nLiving room\n18:10\nWater area\n\nA visit to the water area does not confirm drinking. A path cannot establish health.\n\nAlexa · Preset reply\n\nLuna is a 3-year-old female domestic shorthair. Her simulated activity is close to her usual pattern, but that cannot rule out illness.\n\nCheck her eating, drinking, urination and breathing, and look for vomiting or diarrhea.\n\nSee a vet promptly if low energy persists. Difficulty breathing or urinating needs immediate veterinary care.\n\nContext used\nSample pet profile\nSimulated activity\nHealth copy references\nVCA · Signs of illness in cats\n\nUse Luna’s profile and simulated activity records to suggest what to observe. Usual activity cannot rule out illness.\n\nDEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis."
+    },
+    {
+      "name": "03-cat-profile",
+      "file": "03-cat-profile@2x.png",
+      "selector": ".pc-profile",
+      "cssBox": {
+        "x": 455.5,
+        "y": 126.3125,
+        "width": 470,
+        "height": 136.5625
+      },
+      "pixelSize": {
+        "width": 940,
+        "height": 273
+      },
+      "text": "Fictional pet profile\nLuna\nDomestic shorthair · Bicolor\nFemale\n3 years\n3.68 kg"
+    },
+    {
+      "name": "03-cat-question",
+      "file": "03-cat-question@2x.png",
+      "selector": ".pc-owner-message",
+      "cssBox": {
+        "x": 582.734375,
+        "y": 306.46875,
+        "width": 342.765625,
+        "height": 63.828125
+      },
+      "pixelSize": {
+        "width": 686,
+        "height": 128
+      },
+      "text": "Owner\n\nMy cat seems a little low on energy. What should I do?"
+    },
+    {
+      "name": "03-cat-simulated-map",
+      "file": "03-cat-simulated-map@2x.png",
+      "selector": ".pc-activity",
+      "cssBox": {
+        "x": 491.5,
+        "y": 384.296875,
+        "width": 434,
+        "height": 236.859375
+      },
+      "pixelSize": {
+        "width": 868,
+        "height": 474
+      },
+      "text": "Today’s household activity\nSimulated trace\n07:40\nWindow\n12:20\nLiving room\n18:10\nWater area\n\nA visit to the water area does not confirm drinking. A path cannot establish health."
+    },
+    {
+      "name": "04-cat-reply",
+      "file": "04-cat-reply@2x.png",
+      "selector": ".pc-assistant-message",
+      "cssBox": {
+        "x": 455.5,
+        "y": 635.15625,
+        "width": 470,
+        "height": 246.734375
+      },
+      "pixelSize": {
+        "width": 940,
+        "height": 493
+      },
+      "text": "Alexa · Preset reply\n\nLuna is a 3-year-old female domestic shorthair. Her simulated activity is close to her usual pattern, but that cannot rule out illness.\n\nCheck her eating, drinking, urination and breathing, and look for vomiting or diarrhea.\n\nSee a vet promptly if low energy persists. Difficulty breathing or urinating needs immediate veterinary care.\n\nContext used\nSample pet profile\nSimulated activity"
+    },
+    {
+      "name": "04-cat-boundary",
+      "file": "04-cat-boundary@2x.png",
+      "selector": ".pc-demo-boundary",
+      "cssBox": {
+        "x": 455.5,
+        "y": 1008.578125,
+        "width": 470,
+        "height": 71.421875
+      },
+      "pixelSize": {
+        "width": 940,
+        "height": 143
+      },
+      "text": "DEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis."
+    },
+    {
+      "name": "05-context-full-panel",
+      "file": "05-context-full-panel@2x.png",
+      "selector": ".pc-preview",
+      "cssBox": {
+        "x": 455.5,
+        "y": -0.0625,
+        "width": 470,
+        "height": 851.28125
+      },
+      "pixelSize": {
+        "width": 940,
+        "height": 1703
+      },
+      "text": "Pet Concierge · Product preview\nStep 3 / 3\nLess repetition. More understanding.\nContext illustration\nSame question. Same Miso.\nLess repeating. More understanding.\nA new chat without a pet profile\nOwner · Repeating the context\n\nMy dog Miso is a male Pembroke Welsh Corgi, 2 years old, weighing 9.40 kg. He likes chicken. Can he eat chocolate?\n\nPet details must be repeated in the question\nThe context comes with the question\nPawTwin Pet Concierge\nOwner\n\nCan my dog eat chocolate?\n\nAutomatically included context · Preview\nMiso\nPembroke Welsh Corgi\nMale · 2 years · 9.40 kg\nLikes chicken · Owner confirmed\nProfile and confirmed preferences accompany the question\n\nSaved details accompany the question; switching pets uses that pet’s profile.\n\nCompare a new conversation with no pet details: the same question here can carry saved profile information, confirmed preferences and record sources.\n\nDEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis."
+    },
+    {
+      "name": "05-context-new-chat",
+      "file": "05-context-new-chat@2x.png",
+      "selector": ".pc-new-session",
+      "cssBox": {
+        "x": 455.5,
+        "y": 211.8125,
+        "width": 470,
+        "height": 164.171875
+      },
+      "pixelSize": {
+        "width": 940,
+        "height": 328
+      },
+      "text": "A new chat without a pet profile\nOwner · Repeating the context\n\nMy dog Miso is a male Pembroke Welsh Corgi, 2 years old, weighing 9.40 kg. He likes chicken. Can he eat chocolate?\n\nPet details must be repeated in the question"
+    },
+    {
+      "name": "05-context-included",
+      "file": "05-context-included@2x.png",
+      "selector": ".pc-pawtwin-session",
+      "cssBox": {
+        "x": 455.5,
+        "y": 416.484375,
+        "width": 470,
+        "height": 263.671875
+      },
+      "pixelSize": {
+        "width": 940,
+        "height": 527
+      },
+      "text": "PawTwin Pet Concierge\nOwner\n\nCan my dog eat chocolate?\n\nAutomatically included context · Preview\nMiso\nPembroke Welsh Corgi\nMale · 2 years · 9.40 kg\nLikes chicken · Owner confirmed\nProfile and confirmed preferences accompany the question"
+    },
+    {
+      "name": "05-context-boundary",
+      "file": "05-context-boundary@2x.png",
+      "selector": ".pc-demo-boundary",
+      "cssBox": {
+        "x": 455.5,
+        "y": 779.796875,
+        "width": 470,
+        "height": 71.421875
+      },
+      "pixelSize": {
+        "width": 940,
+        "height": 143
+      },
+      "text": "DEMO\nPreset conversations and activity traces are fictional illustrations · Alexa is a web simulation\nNo real-time AI, actual tracking or clinical diagnosis."
+    }
+  ],
+  "svgExports": [
+    {
+      "name": "miso",
+      "file": "pet-miso.actual-dom.svg",
+      "selector": ".pc-pet-art svg",
+      "viewBox": "0 0 128 144",
+      "source": "Unmodified outerHTML from the actual local showcase DOM."
+    },
+    {
+      "name": "luna",
+      "file": "pet-luna.actual-dom.svg",
+      "selector": ".pc-pet-art svg",
+      "viewBox": "0 0 128 144",
+      "source": "Unmodified outerHTML from the actual local showcase DOM."
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:8807/"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:8807/assets/index-y4ayR7DB.js"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:8807/assets/index-f4GC1fl1.css"
+    }
+  ],
+  "mutatingRequests": [],
+  "consoleErrors": [],
+  "pageErrors": [],
+  "httpErrors": [],
+  "mochiCandidateInfo": [
+    {
+      "viewBox": "0 0 24 24",
+      "class": null,
+      "length": 261
+    },
+    {
+      "viewBox": "0 0 24 24",
+      "class": null,
+      "length": 249
+    },
+    {
+      "viewBox": "0 0 24 24",
+      "class": null,
+      "length": 261
+    },
+    {
+      "viewBox": "0 0 24 24",
+      "class": null,
+      "length": 222
+    },
+    {
+      "viewBox": "0 0 24 24",
+      "class": null,
+      "length": 225
+    },
+    {
+      "viewBox": "0 0 128 144",
+      "class": null,
+      "length": 1777
+    },
+    {
+      "viewBox": "0 0 24 24",
+      "class": null,
+      "length": 180
+    },
+    {
+      "viewBox": "0 0 580 420",
+      "class": null,
+      "length": 5227
+    },
+    {
+      "viewBox": "0 0 128 144",
+      "class": null,
+      "length": 1817
+    },
+    {
+      "viewBox": "0 0 24 24",
+      "class": null,
+      "length": 249
+    },
+    {
+      "viewBox": "0 0 24 24",
+      "class": null,
+      "length": 269
+    },
+    {
+      "viewBox": "0 0 24 24",
+      "class": null,
+      "length": 230
+    },
+    {
+      "viewBox": "0 0 24 24",
+      "class": null,
+      "length": 261
+    },
+    {
+      "viewBox": "0 0 24 24",
+      "class": null,
+      "length": 182
+    },
+    {
+      "viewBox": "0 0 24 24",
+      "class": null,
+      "length": 244
+    },
+    {
+      "viewBox": "0 0 24 24",
+      "class": null,
+      "length": 182
+    },
+    {
+      "viewBox": "0 0 24 24",
+      "class": null,
+      "length": 269
+    },
+    {
+      "viewBox": "0 0 128 144",
+      "class": null,
+      "length": 1843
+    },
+    {
+      "viewBox": "0 0 24 24",
+      "class": null,
+      "length": 180
+    },
+    {
+      "viewBox": "0 0 24 24",
+      "class": null,
+      "length": 230
+    },
+    {
+      "viewBox": "0 0 24 24",
+      "class": null,
+      "length": 249
+    },
+    {
+      "viewBox": "0 0 24 24",
+      "class": null,
+      "length": 261
+    },
+    {
+      "viewBox": "0 0 24 24",
+      "class": null,
+      "length": 222
+    }
+  ],
+  "verification": {
+    "zeroBusinessPOST": true,
+    "zeroBusinessRequests": true,
+    "zeroConsoleErrors": true,
+    "zeroPageErrors": true,
+    "zeroHttpErrors": true,
+    "englishOnly": true
+  },
+  "files": [
+    {
+      "file": "01-dog-full-panel@2x.png",
+      "bytes": 171863,
+      "sha256": "0850f3c3e654f536a6da5328c7ffd23c8414ba8f521f9aaea5d7ddce6a5baca8"
+    },
+    {
+      "file": "01-dog-profile@2x.png",
+      "bytes": 30776,
+      "sha256": "d955931b1efa2d4fb3f045f6d8dec02684c2ce4c7e86d4cfc9fc86ded0a51f88"
+    },
+    {
+      "file": "01-dog-question@2x.png",
+      "bytes": 8706,
+      "sha256": "b3969ebbf91f8ca0fd8fc65387e4ca365750294c8ade9d20b9b04b9f8b6e2fbe"
+    },
+    {
+      "file": "02-dog-boundary@2x.png",
+      "bytes": 20158,
+      "sha256": "9965d2499cbab485c3eb8cda3cd8bd127d48544e32d58cce13a8916a1525e005"
+    },
+    {
+      "file": "02-dog-reply@2x.png",
+      "bytes": 55705,
+      "sha256": "715a0537507b381c8a1a827b258eef18630c99d6239b7700b38974cc9c4ac99c"
+    },
+    {
+      "file": "03-cat-full-panel@2x.png",
+      "bytes": 195850,
+      "sha256": "70b1d96182fbd37e206da76a81c83d17e283ee2ef9f4ee25850d8e9dd4f7d740"
+    },
+    {
+      "file": "03-cat-profile@2x.png",
+      "bytes": 20302,
+      "sha256": "ccaed76daa9dd9d9d8092d1e46cb1ae31c8881538534e3c838e3be188911657b"
+    },
+    {
+      "file": "03-cat-question@2x.png",
+      "bytes": 11914,
+      "sha256": "0cc1e0764ef0421a89f4aa1a2e0adb130bb29ea86f0040e07eb994a332118f1f"
+    },
+    {
+      "file": "03-cat-simulated-map@2x.png",
+      "bytes": 42923,
+      "sha256": "27f5cae9d96cbc61124dc76680d1bd41e4dcd2c26c615b8597b40dba9234b1de"
+    },
+    {
+      "file": "04-cat-boundary@2x.png",
+      "bytes": 20154,
+      "sha256": "385f36955277574ad04f38dd12b0b325424365897fe5b83d2edfe973861943e0"
+    },
+    {
+      "file": "04-cat-reply@2x.png",
+      "bytes": 56871,
+      "sha256": "c80e412830c031f724acbf910db598044e5d4ffdda0c18f1f8159257a7ef0361"
+    },
+    {
+      "file": "05-context-boundary@2x.png",
+      "bytes": 20175,
+      "sha256": "60531c3ad857a2e9f884f07ce9c8b3f81b421dabe00165fd786b8cb275f3622a"
+    },
+    {
+      "file": "05-context-full-panel@2x.png",
+      "bytes": 165673,
+      "sha256": "56c81cb1c7153c46a02e17cd8c146fb7050152aec2e90bf5ceab770b2fa47479"
+    },
+    {
+      "file": "05-context-included@2x.png",
+      "bytes": 45959,
+      "sha256": "6e41ca63eefeb90dc435f234be5345e9047ad67426a607a1869acf9655162aaa"
+    },
+    {
+      "file": "05-context-new-chat@2x.png",
+      "bytes": 39060,
+      "sha256": "f27a16aa6b1859d1b63ee28bcc94f32a35a343a9090bd4d2fc7de2215137b8d4"
+    },
+    {
+      "file": "pet-luna.actual-dom.svg",
+      "bytes": 1843,
+      "sha256": "581d074e250082e0892a3d2bbb08a78ea7bc7ffdf9719111af242e1bb735e16c"
+    },
+    {
+      "file": "pet-miso.actual-dom.svg",
+      "bytes": 1809,
+      "sha256": "d848c048afad83d164f9703057c427d8b10fc44fe5fac69605e670e40c8c95a5"
+    }
+  ]
+}

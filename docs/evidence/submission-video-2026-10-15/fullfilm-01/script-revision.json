@@ -1,0 +1,47 @@
+{
+  "scope": "Python lint-only repairs after the film was rendered. Media bytes, timing, crops, captions and narration were not regenerated. Original script bytes are preserved in the pre-repair snapshot. The adjacent hash manifest now describes the current repaired script bytes.",
+  "changes": [
+    {
+      "path": "docs/evidence/submission-video-2026-10-15/fullfilm-01/build-fullfilm.py",
+      "before_sha256": "895bff36a58e1e187401dd797c29dff2bbe48aaa92761735c03bbee73c8783cb",
+      "after_sha256": "ff2ff78651bfe9bcba91af2efd714520b74baf1bac8ecbbe35cf070d8cfbe553",
+      "before_bytes": 7976,
+      "after_bytes": 9760
+    },
+    {
+      "path": "docs/evidence/submission-video-2026-10-15/fullfilm-01/verify-fullfilm.py",
+      "before_sha256": "2388e0d117cc9dd2fb7c0b4cd9c889d95ec0c29c759a469c0806c4cb62972e17",
+      "after_sha256": "25ba4545a023155339f9e3ef5eae8f770236a816900f6b5f82a245d9a45c1c74",
+      "before_bytes": 6204,
+      "after_bytes": 7937
+    },
+    {
+      "path": "docs/evidence/submission-video-2026-10-15/fullfilm-01/actual-assets/build-clips.py",
+      "before_sha256": "33cf539b21e92bc97d8c8112291143d5797642a75935b421e8066b592cc283e1",
+      "after_sha256": "5e87e81170f07c9046314013ceee3bc562fdb97d4db8d5396bbd545c97d2858c",
+      "before_bytes": 4832,
+      "after_bytes": 7563
+    },
+    {
+      "path": "docs/evidence/submission-video-2026-10-15/fullfilm-01/actual-assets/build-report-v2.py",
+      "before_sha256": "b73e20ebea4bd95cb8c3169cb667cbf06f45aab15f992edf2768f23bc8798aef",
+      "after_sha256": "4c09f87d39cf0cb0b2332db5189e067ad809ab310a55a5393bf0b7703bfe33e2",
+      "before_bytes": 2167,
+      "after_bytes": 3082
+    },
+    {
+      "path": "docs/evidence/submission-video-2026-10-15/fullfilm-01/actual-assets/build-short-actions.py",
+      "before_sha256": "0cbd1820d3de771e6f94d003632f9705dd40503853fcf0d62e867c467b709ea3",
+      "after_sha256": "120d42d979868f77dd9cbe1ce41869fed8012379d0c414dccf94ad7ac3e20f68",
+      "before_bytes": 2400,
+      "after_bytes": 4093
+    },
+    {
+      "path": "docs/evidence/submission-video-2026-10-15/fullfilm-01/actual-assets/inspect-sources.py",
+      "before_sha256": "34f26f9ba90accadc4190826f651e991108348684aa54c062ed63ffd96546899",
+      "after_sha256": "93b3317160ab8a33837d65f3d7412e7078270d093ad7958d7209e18fe00c5e32",
+      "before_bytes": 967,
+      "after_bytes": 1391
+    }
+  ]
+}

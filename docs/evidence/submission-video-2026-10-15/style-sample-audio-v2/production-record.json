@@ -1,0 +1,19 @@
+{
+  "scope": "Approved visual direction; revise sample narration and pacing only",
+  "output": "C:\\Users\\11831\\Desktop\\hks\\outputs\\PawTwin-style-sample-2026-10-15.en.v2.mp4",
+  "narration": "One continuous AvaMultilingualNeural story take; default rate and pitch",
+  "duration_seconds": 30.101,
+  "story": "Mochi feather-toy detail, Emma confirmation, Alex fresh conversation, Miso and Luna scripted previews",
+  "added_phrase_pauses": 0,
+  "video_playback_rate": 1,
+  "master_stereo_lufs": -16.01,
+  "encoded_true_peak_dbtp": -2.26,
+  "audio_clipped_samples": 0,
+  "review": "Full encoded streams decoded; 15 encoded frames visually reviewed; independent audio timing and metering review passed",
+  "sample_preservation": "All source voice sample positions retained; re-quantized PCM differs by at most 1 LSB before mixing",
+  "human_listening": "Not performed; user review pending",
+  "full_film": "Not rendered in this revision",
+  "boundaries": "Local prototype and scripted fictional case labels remain visible",
+  "previous_deliveries": "Hashes verified unchanged",
+  "application_code_database_dependencies": "Not modified for this artifact revision"
+}

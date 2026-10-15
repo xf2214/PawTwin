@@ -1,0 +1,25 @@
+{
+  "atoms": [
+    {
+      "type": "ftyp",
+      "offset": 0,
+      "bytes": 32
+    },
+    {
+      "type": "moov",
+      "offset": 32,
+      "bytes": 157875
+    },
+    {
+      "type": "free",
+      "offset": 157907,
+      "bytes": 8
+    },
+    {
+      "type": "mdat",
+      "offset": 157915,
+      "bytes": 10364779
+    }
+  ],
+  "fast_start": true
+}

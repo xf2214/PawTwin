@@ -1,0 +1,43 @@
+{
+  "source": "Microsoft Edge provider WordBoundary metadata",
+  "units": "seconds relative to full untrimmed WAV",
+  "timing_review": "provider timing only; no human listening alignment performed",
+  "text": "Emma confirms what Mochi loves.",
+  "words": [
+    {
+      "text": "Emma",
+      "start": 0.101,
+      "end": 0.381625,
+      "offset_100ns": 1010000,
+      "duration_100ns": 2806250
+    },
+    {
+      "text": "confirms",
+      "start": 0.394375,
+      "end": 0.930083,
+      "offset_100ns": 3943750,
+      "duration_100ns": 5357080
+    },
+    {
+      "text": "what",
+      "start": 0.942875,
+      "end": 1.070416,
+      "offset_100ns": 9428750,
+      "duration_100ns": 1275410
+    },
+    {
+      "text": "Mochi",
+      "start": 1.083166,
+      "end": 1.4402910000000002,
+      "offset_100ns": 10831660,
+      "duration_100ns": 3571250
+    },
+    {
+      "text": "loves",
+      "start": 1.453041,
+      "end": 2.052541,
+      "offset_100ns": 14530410,
+      "duration_100ns": 5995000
+    }
+  ]
+}

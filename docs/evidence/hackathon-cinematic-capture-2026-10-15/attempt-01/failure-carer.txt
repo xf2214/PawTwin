@@ -1,0 +1,76 @@
+PawTwin
+Household app
+Product
+Alexa+ simulator
+Original workbench ↗
+English
+中文
+
+PAWTWIN · HOME TOGETHER
+
+Mochi Family · Fictional Demo
+AlexSign out
+
+Local account · Cloud authentication is not connected
+
+Saved
+
+Selected pet
+Mochi
+Recorded by: Alex · Dad
+Refresh records
+Visit pet twin
+
+PAWTWIN × ALEXA+ CONCEPT
+
+Alexa+ web simulator
+
+One conversation. One small thing to do together.
+
+New session
+
+Text simulates speech · Shares the household app backend · Real Alexa services and devices are not connected
+
+Ready to talk about your pet’s day.
+
+Mochi
+
+Mochi Family · Fictional Demo
+
+Current context
+Version 7
+Answer sources
+Household profile and owner records
+How actions work
+Confirm to plan manual care
+View care tasks
+Return to the household app ↗
+Page session 1
+Keeps up to 20 turns
+You · Simulated speech
+
+What does my pet like?
+
+Alexa web simulation · Local rules
+
+Mochi’s records: No confirmed preference memories yet. 
+
+View this turn’s sources · Version 5
+Read this reply aloud in the browser
+What does my pet like?
+What is the latest weight?
+What is planned for today?
+What was observed today?
+What was completed recently?
+Plan some playtime
+Plan a water change
+Simulated speech
+Send to the Alexa simulator
+
+Each reply shows its backend and sources. Planning requests create drafts only. This page does not use the microphone.
+
+Today
+Care
+Growth
+Twin
+Family

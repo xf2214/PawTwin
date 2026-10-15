@@ -1,0 +1,27 @@
+{
+  "status": "complete",
+  "duration_seconds": 142.379,
+  "resolution": "1920x1080",
+  "fps": 30,
+  "language": "English",
+  "files": [
+    {
+      "path": "C:\\Users\\11831\\Desktop\\hks\\outputs\\PawTwin-hackathon-submission-2026-10-15.en.mp4",
+      "bytes": 10522694,
+      "sha256": "47c412da677666bc49d16b39d20d4bfed1ec619b1d2b46cda496ad9a86e6cbe5"
+    },
+    {
+      "path": "C:\\Users\\11831\\Desktop\\hks\\outputs\\PawTwin-hackathon-submission-2026-10-15.en.srt",
+      "bytes": 3879,
+      "sha256": "ba0206992fb335f6dbc143c45e43119a2e0d8d67d9b994c2082577a45bc92d27"
+    },
+    {
+      "path": "C:\\Users\\11831\\Desktop\\hks\\outputs\\PawTwin-hackathon-submission-2026-10-15.en.poster.png",
+      "bytes": 379627,
+      "sha256": "0714251a5970a4e5cbf60360bbe4046b0625d266ad0eee568e020b5f163f0949"
+    }
+  ],
+  "previous_deliveries": "Hash-verified unchanged",
+  "upload_or_submission": "Not performed",
+  "source_and_review": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\submission-video-2026-10-15\\fullfilm-01"
+}

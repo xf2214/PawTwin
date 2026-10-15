@@ -1,0 +1,17 @@
+{
+  "alex.webm": "34ecc23152bf97ad687b36347c4b55b242960208c0de0829567d7b1db5dfd33a",
+  "candidate.png": "8823fb3c8f85a5de28e5f2a3663a73cb1a959d639189fc8e03ed0d8ead4f2c68",
+  "candidate@2x.png": "8823fb3c8f85a5de28e5f2a3663a73cb1a959d639189fc8e03ed0d8ead4f2c68",
+  "capture-actual.cjs": "130af7b3103726e0bcee1ccb79e034cc38d952e1c1b3d57a1435f12680cda7a1",
+  "check-alex-session.png": "1b44b4dd19a970d32ac58f270d66132d80f6283c954071439f78e3287c4dc15a",
+  "check-owner-post.png": "13bbcc0b711c4595c589b084d7ac7fd1084bac95eb248028dbeb8b1f5f36b864",
+  "check-owner-pre.png": "bf5865c1db17d36a1e6f9e800436637cd6329dbac4189463dc072d8c58d69fca",
+  "confirmed.png": "dcf766e39b13b1e1fd318c71f765d60d6b62094d6997b1f4a04aeccab5b0a669",
+  "confirmed@2x.png": "dcf766e39b13b1e1fd318c71f765d60d6b62094d6997b1f4a04aeccab5b0a669",
+  "new-session-answer-expanded.png": "23ec8b69376a2f2cae2d40a2a8632397ae31bc478dc791a1e0b0890b12715934",
+  "new-session-answer-expanded@2x.png": "23ec8b69376a2f2cae2d40a2a8632397ae31bc478dc791a1e0b0890b12715934",
+  "owner.webm": "2aa489a7591588fe0fca2bc14dccd2d2f0032e2f6fa6767407c0f83ebfbe18ca",
+  "probe-alexa.png": "62d094668ccbc28c4e4dc0e7e3e28b62b5e8f65523c51df07cd28bd24d164ece",
+  "probe-memory.png": "8823fb3c8f85a5de28e5f2a3663a73cb1a959d639189fc8e03ed0d8ead4f2c68",
+  "capture-actual-dpr2.cjs": "1ca97a69822b53f734e9b85a9d2b8b9dae9f570bcf4edfc4baf47307836eee76"
+}

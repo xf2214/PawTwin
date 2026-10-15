@@ -1,0 +1,47 @@
+{
+  "status": "passed_local_capture",
+  "all22_screenshot_dimensions_verified": true,
+  "native_webm_dimensions_verified": true,
+  "decoded_video_content_fills_1920x1080": true,
+  "no_gray_padding_in_native_video": true,
+  "decoded_frames_visually_inspected": [
+    "native-home-frame.png",
+    "native-memory-confirm-action.png",
+    "native-memory-confirmed-frame.png",
+    "native-care-complete-action.png",
+    "native-visit-records-frame.png"
+  ],
+  "source_screenshots_visually_inspected": [
+    "01-home.png",
+    "02-growth.png",
+    "19-memory-candidate.png",
+    "08-memory-confirmed.png",
+    "09-alexa-draft.png",
+    "10-alexa-pending.png",
+    "11-alexa-confirmed.png",
+    "04-care.png",
+    "07-completing-actor.png",
+    "15-visit-card.png",
+    "17-visit-records.png",
+    "14-caregiver.png"
+  ],
+  "credential_checks": {
+    "csrf_payload_present": false,
+    "password_payload_present": false,
+    "unredacted_caregiver_link_present": false,
+    "visible_auth_fields_masked": true
+  },
+  "local_port8846_listening_after_capture": false,
+  "editorial_constraints": [
+    "01/16 room bottom is near viewport edge; use intentional closeup rather than claiming a whole-page view.",
+    "08/19 page-level title is partly behind the sticky navigation; confirmed/candidate record remains entirely visible in the right card.",
+    "Native1920 layout differs from prior1280 screenshots; normalize camera targets against final source images.",
+    "17 records frame includes complete manual-care and owner-confirmed preference rows;15 is the separate dated snapshot/non-diagnosis/demo-label view.",
+    "14 shows expiry and read-only restrictions, plus confirmed records; clinical measurements remain absent by design.",
+    "Mouse actions and clip timings are real browser events; raw wall-clock bounds require visually calibrated cut ranges.",
+    "Prior attempt01/02 and quality-probe01 are retained separately and must not be used as final native1920 proof."
+  ],
+  "backend": "local_rules",
+  "cloud_calls": 0,
+  "physical_care_independently_verified": false
+}

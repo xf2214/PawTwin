@@ -1,0 +1,64 @@
+{
+  "source": "Microsoft Edge provider WordBoundary metadata",
+  "units": "seconds relative to full untrimmed WAV",
+  "timing_review": "provider timing only; no human listening alignment performed",
+  "text": "Care feels easier when everyone knows your pet.",
+  "words": [
+    {
+      "text": "Care",
+      "start": 0.101,
+      "end": 0.343333,
+      "offset_100ns": 1010000,
+      "duration_100ns": 2423330
+    },
+    {
+      "text": "feels",
+      "start": 0.356125,
+      "end": 0.6495,
+      "offset_100ns": 3561250,
+      "duration_100ns": 2933750
+    },
+    {
+      "text": "easier",
+      "start": 0.66225,
+      "end": 1.121416,
+      "offset_100ns": 6622500,
+      "duration_100ns": 4591660
+    },
+    {
+      "text": "when",
+      "start": 1.134166,
+      "end": 1.350999,
+      "offset_100ns": 11341660,
+      "duration_100ns": 2168330
+    },
+    {
+      "text": "everyone",
+      "start": 1.363791,
+      "end": 1.746457,
+      "offset_100ns": 13637910,
+      "duration_100ns": 3826660
+    },
+    {
+      "text": "knows",
+      "start": 1.759166,
+      "end": 2.001499,
+      "offset_100ns": 17591660,
+      "duration_100ns": 2423330
+    },
+    {
+      "text": "your",
+      "start": 2.014291,
+      "end": 2.129082,
+      "offset_100ns": 20142910,
+      "duration_100ns": 1147910
+    },
+    {
+      "text": "pet",
+      "start": 2.141833,
+      "end": 2.639291,
+      "offset_100ns": 21418330,
+      "duration_100ns": 4974580
+    }
+  ]
+}

@@ -1,0 +1,495 @@
+{
+  "title": "PawTwin local English review demo",
+  "duration_seconds": 170.0,
+  "source_capture": "docs\\evidence\\hackathon-capture\\2026-10-15-english\\attempt-05",
+  "source_captured_at": "2026-10-14T16:34:55.688Z",
+  "backend": "local_rules",
+  "cloud_calls": 0,
+  "presentation": "Actual WebM operation clips with actual screenshot result holds",
+  "replays": [
+    {
+      "scene": 1,
+      "role": "owner",
+      "source_start": 2.141,
+      "source_duration": 4.6,
+      "output_start": 0.0,
+      "output_visible_duration": 4.6,
+      "speed": 1.0
+    },
+    {
+      "scene": 2,
+      "role": "owner",
+      "source_start": 8.563,
+      "source_duration": 4.6,
+      "output_start": 12.533333333333333,
+      "output_visible_duration": 4.6,
+      "speed": 1.0
+    },
+    {
+      "scene": 3,
+      "role": "owner",
+      "source_start": 15.021,
+      "source_duration": 5.0,
+      "output_start": 25.266666666666666,
+      "output_visible_duration": 5.0,
+      "speed": 1.0
+    },
+    {
+      "scene": 4,
+      "role": "owner",
+      "source_start": 21.099,
+      "source_duration": 5.0,
+      "output_start": 39.86666666666667,
+      "output_visible_duration": 5.0,
+      "speed": 1.0
+    },
+    {
+      "scene": 5,
+      "role": "carer",
+      "source_start": 19.6,
+      "source_duration": 5.0,
+      "output_start": 51.46666666666667,
+      "output_visible_duration": 5.0,
+      "speed": 1.0
+    },
+    {
+      "scene": 6,
+      "role": "owner",
+      "source_start": 39.113,
+      "source_duration": 5.0,
+      "output_start": 64.2,
+      "output_visible_duration": 5.0,
+      "speed": 1.0
+    },
+    {
+      "scene": 7,
+      "role": "owner",
+      "source_start": 44.935,
+      "source_duration": 5.0,
+      "output_start": 75.86666666666666,
+      "output_visible_duration": 5.0,
+      "speed": 1.0
+    },
+    {
+      "scene": 8,
+      "role": "owner",
+      "source_start": 50.78,
+      "source_duration": 5.0,
+      "output_start": 87.66666666666667,
+      "output_visible_duration": 5.0,
+      "speed": 1.0
+    },
+    {
+      "scene": 9,
+      "role": "carer",
+      "source_start": 43.22,
+      "source_duration": 5.0,
+      "output_start": 100.06666666666666,
+      "output_visible_duration": 5.0,
+      "speed": 1.0
+    },
+    {
+      "scene": 10,
+      "role": "owner",
+      "source_start": 74.407,
+      "source_duration": 5.0,
+      "output_start": 113.53333333333333,
+      "output_visible_duration": 5.0,
+      "speed": 1.0
+    },
+    {
+      "scene": 11,
+      "role": "caregiver",
+      "source_start": 1.906,
+      "source_duration": 4.6,
+      "output_start": 125.66666666666667,
+      "output_visible_duration": 4.6,
+      "speed": 1.0
+    },
+    {
+      "scene": 12,
+      "role": "owner",
+      "source_start": 80.336,
+      "source_duration": 5.0,
+      "output_start": 140.13333333333333,
+      "output_visible_duration": 5.0,
+      "speed": 1.0
+    }
+  ],
+  "screenshot_timing_boundary": "Role-specific WebM starts at the first blank page. Holds have approximate raw seek ranges measured from newPage creation; calibrate first-frame uncertainty and transitions visually. API credentials and caregiver link are excluded; screenshots do not show invitation codes.",
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "end": 12.533333333333333,
+      "title": "Who is looking after Mochi today?",
+      "source": "00-product.png",
+      "clip": {
+        "role": "owner",
+        "start": 2.141,
+        "duration": 4.6
+      },
+      "proofs": [
+        "Emma and Alex share care",
+        "One pet record",
+        "A clear next step"
+      ],
+      "cues": [
+        {
+          "start": 0.35,
+          "end": 5.158662131519274,
+          "text": "When everyone loves the same pet, care can still get lost between family members."
+        },
+        {
+          "start": 5.358662131519274,
+          "end": 10.377256235827664,
+          "text": "Paw Twin gives Emma and Alex a shared daily routine for their fictional cat, Mochi."
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "start": 12.533333333333333,
+      "end": 25.266666666666666,
+      "title": "Start with a shared view of the day",
+      "source": "01-home.png",
+      "clip": {
+        "role": "owner",
+        "start": 8.563,
+        "duration": 4.6
+      },
+      "proofs": [
+        "Today's care",
+        "Pet records and history",
+        "Separate family accounts"
+      ],
+      "cues": [
+        {
+          "start": 12.883333333333333,
+          "end": 17.292131519274378,
+          "text": "Emma opens the household application to see Mochi's records and today's care."
+        },
+        {
+          "start": 17.492131519274377,
+          "end": 23.055532879818593,
+          "text": "Alex has a separate account, so family actions can be attributed to the person who records them."
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "start": 25.266666666666666,
+      "end": 39.86666666666667,
+      "title": "Keep measurements tied to their source",
+      "source": "02-growth.png",
+      "clip": {
+        "role": "owner",
+        "start": 15.021,
+        "duration": 5.0
+      },
+      "proofs": [
+        "1.20 to 1.35 kilograms",
+        "150 grams over seven days",
+        "Unrecorded intake stays unknown"
+      ],
+      "cues": [
+        {
+          "start": 25.616666666666667,
+          "end": 31.59485260770975,
+          "text": "Two sample weights, seven days apart, produce a report showing a hundred fifty gram increase."
+        },
+        {
+          "start": 31.79485260770975,
+          "end": 37.68818594104308,
+          "text": "The calculation links to its records, while actual food intake stays unknown until someone records it."
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "start": 39.86666666666667,
+      "end": 51.46666666666667,
+      "title": "Let the owner confirm what is remembered",
+      "source": "08-memory-confirmed.png",
+      "clip": {
+        "role": "owner",
+        "start": 21.099,
+        "duration": 5.0
+      },
+      "proofs": [
+        "Mochi likes a feather toy",
+        "Owner reviews the candidate",
+        "Confirmed per-pet record"
+      ],
+      "cues": [
+        {
+          "start": 40.21666666666667,
+          "end": 44.10038548752835,
+          "text": "Emma records that Mochi likes a feather toy and rests after meals."
+        },
+        {
+          "start": 44.30038548752835,
+          "end": 49.31371882086169,
+          "text": "She confirms this preference before it becomes part of the shared context for future answers."
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "start": 51.46666666666667,
+      "end": 64.2,
+      "title": "Alex can pick up the same context",
+      "source": "13-alexa-new-session.png",
+      "clip": {
+        "role": "carer",
+        "start": 19.6,
+        "duration": 5.0
+      },
+      "proofs": [
+        "A separate family account",
+        "A new conversation",
+        "The same confirmed source"
+      ],
+      "cues": [
+        {
+          "start": 51.81666666666667,
+          "end": 56.800068027210884,
+          "text": "Alex opens a new conversation in the Alexa web simulator and asks what Mochi likes."
+        },
+        {
+          "start": 57.00006802721089,
+          "end": 62.00356009070295,
+          "text": "The reply reads the confirmed preference from the shared record and exposes the source for inspection."
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "start": 64.2,
+      "end": 75.86666666666666,
+      "title": "Turn a request into a care draft",
+      "source": "09-alexa-draft.png",
+      "clip": {
+        "role": "owner",
+        "start": 39.113,
+        "duration": 5.0
+      },
+      "proofs": [
+        "Plan playtime",
+        "Review the proposed care",
+        "Choose a specific time"
+      ],
+      "cues": [
+        {
+          "start": 64.55,
+          "end": 68.7787074829932,
+          "text": "Emma asks the simulator to plan playtime and reviews the proposed care."
+        },
+        {
+          "start": 68.9787074829932,
+          "end": 73.70238095238096,
+          "text": "She chooses a time, keeping the request as a draft while she checks the details."
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "start": 75.86666666666666,
+      "end": 87.66666666666667,
+      "title": "Review before adding a task",
+      "source": "10-alexa-pending.png",
+      "clip": {
+        "role": "owner",
+        "start": 44.935,
+        "duration": 5.0
+      },
+      "proofs": [
+        "Prepared proposal",
+        "Current pet context",
+        "No care task created yet"
+      ],
+      "cues": [
+        {
+          "start": 76.21666666666665,
+          "end": 79.59058956916098,
+          "text": "The prepared proposal shows what will be arranged for Mochi."
+        },
+        {
+          "start": 79.79058956916099,
+          "end": 85.51408163265305,
+          "text": "At this stage, no care task has been created; Emma still controls the final confirmation."
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "start": 87.66666666666667,
+      "end": 100.06666666666666,
+      "title": "Confirm the shared care arrangement",
+      "source": "11-alexa-confirmed.png",
+      "clip": {
+        "role": "owner",
+        "start": 50.78,
+        "duration": 5.0
+      },
+      "proofs": [
+        "Emma confirms",
+        "One shared task",
+        "Waiting for a person"
+      ],
+      "cues": [
+        {
+          "start": 88.01666666666667,
+          "end": 92.4104081632653,
+          "text": "Emma confirms the arrangement, creating one shared manual care task."
+        },
+        {
+          "start": 92.6104081632653,
+          "end": 97.86374149659864,
+          "text": "The result says it is waiting for a person, keeping a planned action distinct from a completed one."
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "start": 100.06666666666666,
+      "end": 113.53333333333333,
+      "title": "Alex takes over and records completion",
+      "source": "04-care.png",
+      "clip": {
+        "role": "carer",
+        "start": 43.22,
+        "duration": 5.0
+      },
+      "proofs": [
+        "Alex claims the task",
+        "Completion is recorded",
+        "The actor is traceable"
+      ],
+      "cues": [
+        {
+          "start": 100.41666666666666,
+          "end": 104.94029478458049,
+          "text": "Alex claims the task and records the playtime as completed through his own account."
+        },
+        {
+          "start": 105.14029478458049,
+          "end": 111.37839002267573,
+          "text": "The household history identifies who recorded the result, helping the next family member understand the handoff."
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "start": 113.53333333333333,
+      "end": 125.66666666666667,
+      "title": "See the result in the daily report",
+      "source": "05-daily.png",
+      "clip": {
+        "role": "owner",
+        "start": 74.407,
+        "duration": 5.0
+      },
+      "proofs": [
+        "One completed care task",
+        "Shared report sources",
+        "No invented health outcome"
+      ],
+      "cues": [
+        {
+          "start": 113.88333333333333,
+          "end": 117.83716553287981,
+          "text": "Emma's daily report now counts one completed manual care task."
+        },
+        {
+          "start": 118.03716553287981,
+          "end": 123.49566893424036,
+          "text": "The report summarizes recorded care without inventing food intake or making a clinical diagnosis."
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "start": 125.66666666666667,
+      "end": 140.13333333333333,
+      "title": "Share limited access with a caregiver",
+      "source": "14-caregiver.png",
+      "clip": {
+        "role": "caregiver",
+        "start": 1.906,
+        "duration": 4.6
+      },
+      "proofs": [
+        "Selected pet only",
+        "Time-limited access",
+        "Read-only and revocable"
+      ],
+      "cues": [
+        {
+          "start": 126.01666666666667,
+          "end": 131.84015873015872,
+          "text": "When someone else helps, Emma can issue time-limited, read-only access for one selected pet."
+        },
+        {
+          "start": 132.0401587301587,
+          "end": 137.9684580498866,
+          "text": "The caregiver can inspect the shared context, while the owner keeps control over changes and revocation."
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "start": 140.13333333333333,
+      "end": 153.13333333333333,
+      "title": "Bring the recorded story to a vet visit",
+      "source": "15-visit-card.png",
+      "clip": {
+        "role": "owner",
+        "start": 80.336,
+        "duration": 5.0
+      },
+      "proofs": [
+        "A dated snapshot",
+        "Known facts and missing fields",
+        "Printable or offline HTML"
+      ],
+      "cues": [
+        {
+          "start": 140.48333333333332,
+          "end": 145.3218820861678,
+          "text": "Before a vet visit, Emma creates a dated information card from Mochi's records."
+        },
+        {
+          "start": 145.52188208616778,
+          "end": 150.9252380952381,
+          "text": "It separates known facts from missing information and can be printed or saved as an offline document."
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "start": 153.13333333333333,
+      "end": 170.0,
+      "title": "A shared routine the family can follow",
+      "source": "16-home-closing.png",
+      "clip": null,
+      "proofs": [
+        "Records to confirmed care",
+        "Family handoff to report",
+        "Local rules and SQLite"
+      ],
+      "cues": [
+        {
+          "start": 153.48333333333332,
+          "end": 159.3415192743764,
+          "text": "Paw Twin connects records, confirmed care, family handoffs, and reports in one inspectable routine."
+        },
+        {
+          "start": 159.54151927437638,
+          "end": 167.71435374149655,
+          "text": "This demonstration runs locally with rules and SQLite; Alexa and devices are simulated, and live cloud integration remains unverified."
+        }
+      ]
+    }
+  ]
+}

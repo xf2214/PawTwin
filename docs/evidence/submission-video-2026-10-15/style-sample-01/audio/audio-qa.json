@@ -1,0 +1,151 @@
+{
+  "duration_seconds": 30.0,
+  "sample_rate": 22050,
+  "channels": 1,
+  "bits_per_sample": 16,
+  "voice": "en-US-JennyNeural",
+  "voice_rate": "-2%",
+  "narration_gain_per_cue": [
+    {
+      "id": 1,
+      "linear_gain": 0.8761789204779251,
+      "gain_db": -1.1481439898366597
+    },
+    {
+      "id": 2,
+      "linear_gain": 0.7168591695949654,
+      "gain_db": -2.8913231035245484
+    },
+    {
+      "id": 3,
+      "linear_gain": 0.6120187682437738,
+      "gain_db": -4.264705190431072
+    },
+    {
+      "id": 4,
+      "linear_gain": 0.7632177189734141,
+      "gain_db": -2.3470311108630053
+    },
+    {
+      "id": 5,
+      "linear_gain": 0.9501558147673071,
+      "gain_db": -0.4441033901215114
+    },
+    {
+      "id": 6,
+      "linear_gain": 0.8132782360243584,
+      "gain_db": -1.7952169922362011
+    }
+  ],
+  "no_time_compression": true,
+  "no_speech_truncation": true,
+  "raw_wavs_silence_trimmed": false,
+  "edit_wavs_and_mix_trim": "Only trailing exact digital zero samples removed, with 100 ms zero tail retained; no nonzero samples removed",
+  "cue_start_override": {
+    "6": {
+      "requested": 27.2,
+      "edit": 26.95,
+      "reason": "Natural closing phrase plus 100 ms digital-zero tail needs 3.0326 s; preserve voice speed and complete phrase within 30 s"
+    }
+  },
+  "music": {
+    "composition": "Original sparse warm harmonic plucks and sine pad; six-phrase Cmaj9, Am7, Fmaj7, Cmaj9, Gsus2, Cmaj9 variation",
+    "bpm": 84,
+    "stock_audio_or_recordings": false,
+    "external_downloads": false,
+    "peak_limit_dbfs": -24,
+    "voice_duck_db": -8,
+    "duck_attack_seconds": 0.16,
+    "duck_release_seconds": 0.36
+  },
+  "accents": {
+    "composition": "Three original synthesized smoothed-noise and soft sine transients",
+    "seed": 2026101501,
+    "individual_peak_dbfs": -36,
+    "events": [
+      {
+        "id": 1,
+        "start": 10.35,
+        "duration_seconds": 0.24,
+        "wav": "edit-accent-01.wav"
+      },
+      {
+        "id": 2,
+        "start": 20.43,
+        "duration_seconds": 0.24,
+        "wav": "edit-accent-02.wav"
+      },
+      {
+        "id": 3,
+        "start": 26.93,
+        "duration_seconds": 0.24,
+        "wav": "edit-accent-03.wav"
+      }
+    ]
+  },
+  "safety_gain": 1.0,
+  "human_listening_review": "not_performed",
+  "caption_timing_review": "Provider metadata only; no human alignment review",
+  "stems": {
+    "narration-30s.wav": {
+      "duration_seconds": 30.0,
+      "sample_rate": 22050,
+      "channels": 1,
+      "bits_per_sample": 16,
+      "sample_count": 661500,
+      "peak_dbfs": -5.500510037522204,
+      "rms_dbfs": -25.09442073000136,
+      "clipped_samples": 0,
+      "dc_offset": -3.6300463110591457e-06,
+      "sha256": "80f8fc6d9737ee0da8e1d980d565eb2284302048cf1d9f75e404295026f8fb67"
+    },
+    "music-original-30s.wav": {
+      "duration_seconds": 30.0,
+      "sample_rate": 22050,
+      "channels": 1,
+      "bits_per_sample": 16,
+      "sample_count": 661500,
+      "peak_dbfs": -24.00218916664859,
+      "rms_dbfs": -37.47992237478188,
+      "clipped_samples": 0,
+      "dc_offset": -5.674470308956916e-09,
+      "sha256": "eaf164b8bf1ba89d410733926a5b45d40f87a2d41d1a5383ef639b8d10d23ecb"
+    },
+    "music-ducked-30s.wav": {
+      "duration_seconds": 30.0,
+      "sample_rate": 22050,
+      "channels": 1,
+      "bits_per_sample": 16,
+      "sample_count": 661500,
+      "peak_dbfs": -24.00218916664859,
+      "rms_dbfs": -40.7604152001838,
+      "clipped_samples": 0,
+      "dc_offset": 4.1981853505291004e-09,
+      "sha256": "22ebe338b59f528251763b31ffbbd20cd1d55da707225b5376aaa548109a82bc"
+    },
+    "edit-accents-30s.wav": {
+      "duration_seconds": 30.0,
+      "sample_rate": 22050,
+      "channels": 1,
+      "bits_per_sample": 16,
+      "sample_count": 661500,
+      "peak_dbfs": -36.0056515422252,
+      "rms_dbfs": -66.25539793314712,
+      "clipped_samples": 0,
+      "dc_offset": -1.4163108819916856e-08,
+      "sha256": "a412efc716183e1f615caa2a1b4e7b9680c5f16d6950bf6a155fc95a7426086c"
+    },
+    "combined-narration-music-30s.wav": {
+      "duration_seconds": 30.0,
+      "sample_rate": 22050,
+      "channels": 1,
+      "bits_per_sample": 16,
+      "sample_count": 661500,
+      "peak_dbfs": -5.484047673920033,
+      "rms_dbfs": -24.973156153572482,
+      "clipped_samples": 0,
+      "dc_offset": -3.58940234079743e-06,
+      "sha256": "b2cfabef6dbf6ebd60be8745d1f68fe90cdfb425956bdff527c6792879d2d698"
+    }
+  }
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "paragraph": 1,
+    "opening": "Meet Mochi. Emma knows the little habits: a",
+    "word_count": 32,
+    "start": 0.069458,
+    "end": 13.847207
+  },
+  {
+    "paragraph": 2,
+    "opening": "Emma adds that preference to PawTwin. It begins",
+    "word_count": 27,
+    "start": 14.277791,
+    "end": 24.861125
+  },
+  {
+    "paragraph": 3,
+    "opening": "Alex opens a fresh conversation in the Alexa",
+    "word_count": 35,
+    "start": 25.291666,
+    "end": 39.999999
+  },
+  {
+    "paragraph": 4,
+    "opening": "Next, Emma asks for a playtime plan. She",
+    "word_count": 45,
+    "start": 40.416666,
+    "end": 58.541666
+  },
+  {
+    "paragraph": 5,
+    "opening": "Alex claims the task through his own account,",
+    "word_count": 43,
+    "start": 58.986125,
+    "end": 75.069416
+  },
+  {
+    "paragraph": 6,
+    "opening": "When Emma generates the daily report, it includes",
+    "word_count": 28,
+    "start": 75.472208,
+    "end": 87.333333
+  },
+  {
+    "paragraph": 7,
+    "opening": "Our scripted Pet Concierge preview explores the same",
+    "word_count": 50,
+    "start": 87.763875,
+    "end": 113.65275
+  },
+  {
+    "paragraph": 8,
+    "opening": "The working prototype stores family records locally in",
+    "word_count": 32,
+    "start": 114.111125,
+    "end": 128.069416
+  },
+  {
+    "paragraph": 9,
+    "opening": "For this family, the aim is a clearer",
+    "word_count": 27,
+    "start": 128.527791,
+    "end": 136.652791
+  },
+  {
+    "paragraph": 10,
+    "opening": "PawTwin. Less repeating. More caring.",
+    "word_count": 5,
+    "start": 137.097208,
+    "end": 140.497208
+  }
+]

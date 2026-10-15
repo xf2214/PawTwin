@@ -1,0 +1,24 @@
+{
+  "memory": {
+    "bbox": {
+      "x": 1346,
+      "y": 297.96875,
+      "width": 440,
+      "height": 92.375
+    },
+    "font_size_css": 14,
+    "zoom": 2,
+    "text": "Loves the feather toy. Rest after meals."
+  },
+  "alexa": {
+    "bbox": {
+      "x": 1118,
+      "y": 798.015625,
+      "width": 625,
+      "height": 92.375
+    },
+    "font_size_css": 14,
+    "zoom": 2,
+    "text": "Mochi’s records: No confirmed preference memories yet. "
+  }
+}

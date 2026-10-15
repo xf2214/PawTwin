@@ -1,0 +1,359 @@
+[
+  {
+    "text": "Meet Mochi.",
+    "startMs": 669,
+    "endMs": 1809,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Emma knows the little habits: a favorite feather toy,",
+    "startMs": 2197,
+    "endMs": 5767,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "and a quiet rest after meals.",
+    "startMs": 5933,
+    "endMs": 8142,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Today, Alex is taking over.",
+    "startMs": 8503,
+    "endMs": 10781,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "The question is simple: what does Alex need to know?",
+    "startMs": 11156,
+    "endMs": 14517,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Emma adds that preference to PawTwin.",
+    "startMs": 14878,
+    "endMs": 17198,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "It begins as a candidate memory.",
+    "startMs": 17531,
+    "endMs": 19531,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "She checks it and confirms it, so the detail can stay",
+    "startMs": 19892,
+    "endMs": 23752,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "with Mochi's shared record.",
+    "startMs": 23753,
+    "endMs": 25531,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Alex opens a fresh conversation in the Alexa web",
+    "startMs": 25892,
+    "endMs": 29071,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "simulator and asks what Mochi likes.",
+    "startMs": 29072,
+    "endMs": 31892,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "The reply uses the confirmed preference,",
+    "startMs": 32267,
+    "endMs": 34684,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "with its source available to inspect.",
+    "startMs": 35044,
+    "endMs": 37198,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "A new conversation, with a familiar starting point.",
+    "startMs": 37531,
+    "endMs": 40670,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Next, Emma asks for a playtime plan.",
+    "startMs": 41017,
+    "endMs": 43517,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "She gets a draft to review, chooses the time,",
+    "startMs": 43892,
+    "endMs": 46920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "and prepares a proposal.",
+    "startMs": 47072,
+    "endMs": 48698,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "At this point, it is still a suggestion.",
+    "startMs": 49058,
+    "endMs": 52017,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Only her explicit confirmation creates a shared manual",
+    "startMs": 52378,
+    "endMs": 55918,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "care task, waiting for someone to carry it out.",
+    "startMs": 55919,
+    "endMs": 59212,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Alex claims the task through his own account,",
+    "startMs": 59586,
+    "endMs": 62156,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "then records it as completed.",
+    "startMs": 62558,
+    "endMs": 64198,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Each family member is working from the same agreed plan.",
+    "startMs": 64544,
+    "endMs": 68170,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "His name and the saved result stay visible in the",
+    "startMs": 68531,
+    "endMs": 71293,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "household history, so Emma can see who recorded the",
+    "startMs": 71294,
+    "endMs": 74988,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "completion.",
+    "startMs": 74989,
+    "endMs": 75739,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "When Emma generates the daily report,",
+    "startMs": 76072,
+    "endMs": 78295,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "it includes that care record.",
+    "startMs": 78753,
+    "endMs": 80531,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "This is a summary of saved household records;",
+    "startMs": 80864,
+    "endMs": 83864,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "it does not independently verify that physical care",
+    "startMs": 84336,
+    "endMs": 87349,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "happened.",
+    "startMs": 87350,
+    "endMs": 88003,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Our scripted Pet Concierge preview explores the same idea",
+    "startMs": 88364,
+    "endMs": 92420,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "with different pets.",
+    "startMs": 92697,
+    "endMs": 93851,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Miso's example pairs a food question with his profile and",
+    "startMs": 94211,
+    "endMs": 97948,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "a confirmed preference.",
+    "startMs": 97975,
+    "endMs": 99392,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Luna's example shows illustrative activity records",
+    "startMs": 99753,
+    "endMs": 102989,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "alongside observation guidance.",
+    "startMs": 103017,
+    "endMs": 105392,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "These replies and traces are preset scenarios,",
+    "startMs": 105767,
+    "endMs": 109045,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "with no live model inference, actual tracking,",
+    "startMs": 109378,
+    "endMs": 112642,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "or diagnosis.",
+    "startMs": 112961,
+    "endMs": 114323,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "The working prototype stores family records locally in",
+    "startMs": 114711,
+    "endMs": 117793,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "SQLite and uses local rules.",
+    "startMs": 117794,
+    "endMs": 120545,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Its Alexa page is a text web simulator;",
+    "startMs": 120933,
+    "endMs": 123587,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "live cloud inference and real Alexa integration are not",
+    "startMs": 124100,
+    "endMs": 127613,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "demonstrated here.",
+    "startMs": 127614,
+    "endMs": 128739,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "For this family, the aim is a clearer place to pick up",
+    "startMs": 129128,
+    "endMs": 132224,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "the next step: what Mochi likes,",
+    "startMs": 132225,
+    "endMs": 134641,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "what has been agreed, and what someone has recorded.",
+    "startMs": 134642,
+    "endMs": 137323,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "PawTwin.",
+    "startMs": 137697,
+    "endMs": 138489,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Less repeating.",
+    "startMs": 138822,
+    "endMs": 139864,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "More caring.",
+    "startMs": 140181,
+    "endMs": 141167,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

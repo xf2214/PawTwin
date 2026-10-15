@@ -1,0 +1,18 @@
+{
+  "duration_seconds": 150.2583219,
+  "fps": 24,
+  "replay_seconds_planned": 101.837,
+  "version": "v2",
+  "files": [
+    {
+      "file": "PawTwin-demo-2026-10-15.en.v2.mp4",
+      "bytes": 71906162,
+      "sha256": "51129a97a67efe2cde8b21abf6b6bb62990b62b7ee3f1576422d98bf9daa97dc"
+    },
+    {
+      "file": "PawTwin-demo-2026-10-15.en.v2.srt",
+      "bytes": 2818,
+      "sha256": "c30ca48a8935500a464e86545e25a3287a0e3ee6c462b9c0caca9876189314c9"
+    }
+  ]
+}

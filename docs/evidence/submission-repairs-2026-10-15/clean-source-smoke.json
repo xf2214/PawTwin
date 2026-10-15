@@ -1,0 +1,25 @@
+{
+  "routes": {
+    "/healthz": 200,
+    "/": 200,
+    "/api/bootstrap": 200,
+    "/api/state": 401
+  },
+  "bootstrap": {
+    "project": "PawTwin",
+    "stage": "local_business",
+    "mode": "local",
+    "aws_connected": false,
+    "analyzer": "local_fake",
+    "capabilities": {
+      "event_intake": "implemented_local",
+      "owner_approval": "implemented_local",
+      "simulated_device": "implemented_simulated",
+      "owner_feedback": "implemented_local",
+      "long_term_memory": "not_implemented"
+    }
+  },
+  "frontend_build": "passed",
+  "locked_setup": "passed",
+  "application_sha256": "1ce9d0ba3c2221d58268f4704dd417d955edf3e35387e42644f4986791ca96be"
+}

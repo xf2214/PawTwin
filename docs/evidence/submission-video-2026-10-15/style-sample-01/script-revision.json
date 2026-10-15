@@ -1,0 +1,19 @@
+{
+  "scope": "Python lint-only repairs after the film was rendered. Media bytes, timing, crops, captions and narration were not regenerated. Original script bytes are preserved in the pre-repair snapshot. The adjacent hash manifest now describes the current repaired script bytes.",
+  "changes": [
+    {
+      "path": "docs/evidence/submission-video-2026-10-15/style-sample-01/audio/build-style-audio.py",
+      "before_sha256": "2ba5103e8eabdbeee9741fce7d1cd0937acdc97fdc3bc3ce149b88dd343e19c8",
+      "after_sha256": "00fe0f1df2904091e59b75308af6d7fe0f113234875a53811416d66660886745",
+      "before_bytes": 15952,
+      "after_bytes": 18639
+    },
+    {
+      "path": "docs/evidence/submission-video-2026-10-15/style-sample-01/audio/verify-audio.py",
+      "before_sha256": "eea18de7f17af56dd59008e3c0c0bbd27efc7bad9027be59a7f5d947fa9d0df1",
+      "after_sha256": "7bd611caeedd51ff272aedfc738c1cb2874af4f8fbe950df2be6643b203b1465",
+      "before_bytes": 3350,
+      "after_bytes": 3579
+    }
+  ]
+}

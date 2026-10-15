@@ -1,0 +1,76 @@
+PawTwin
+Household app
+Product
+Alexa+ simulator
+Original workbench ↗
+English
+中文
+
+PAWTWIN · HOME TOGETHER
+
+Mochi Family · Fictional Demo
+EmmaSign out
+
+Local account · Cloud authentication is not connected
+
+Saved
+
+Selected pet
+Mochi
+Recorded by: Emma · Household member
+Refresh records
+Visit pet twin
+
+A LITTLE MORE ABOUT YOU
+
+Mochi's growth records
+
+Follow their changes through measurements and everyday observations.
+
+Record weight
+Photo diary and owner observations
+Overview
+Measurements and diet
+Diary & observations
+Reports
+Bring the records to the vet
+
+Organize Mochi’s profile, measurements and original owner notes into a card you can review.
+
+Export a vet visit card (clinical background)
+Record measurements and diet
+Record type
+Measured weight
+Diet record
+Measured value
+Unit
+kg
+g
+Measurement time
+Record source
+Owner measurement
+Veterinary record
+Demo sample
+Notes
+
+Time entry uses your device time zone. Records use the household time zone (Asia/Shanghai).
+
+Save growth record
+Growth record details
+1.2 kg · Demo sample
+
+9/25/2026, 12:00 · Measured weight
+
+Correct record
+Delete record
+1.35 kg · Demo sample
+
+10/2/2026, 12:00 · Measured weight
+
+Correct record
+Delete record
+Today
+Care
+Growth
+Twin
+Family

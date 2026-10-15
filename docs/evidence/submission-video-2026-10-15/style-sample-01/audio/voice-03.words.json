@@ -1,0 +1,64 @@
+{
+  "source": "Microsoft Edge provider WordBoundary metadata",
+  "units": "seconds relative to full untrimmed WAV",
+  "timing_review": "provider timing only; no human listening alignment performed",
+  "text": "Alex starts fresh. The same context comes along.",
+  "words": [
+    {
+      "text": "Alex",
+      "start": 0.101,
+      "end": 0.509166,
+      "offset_100ns": 1010000,
+      "duration_100ns": 4081660
+    },
+    {
+      "text": "starts",
+      "start": 0.521958,
+      "end": 0.8790830000000001,
+      "offset_100ns": 5219580,
+      "duration_100ns": 3571250
+    },
+    {
+      "text": "fresh",
+      "start": 0.891833,
+      "end": 1.440291,
+      "offset_100ns": 8918330,
+      "duration_100ns": 5484580
+    },
+    {
+      "text": "The",
+      "start": 2.321416,
+      "end": 2.461707,
+      "offset_100ns": 23214160,
+      "duration_100ns": 1402910
+    },
+    {
+      "text": "same",
+      "start": 2.4745,
+      "end": 2.767875,
+      "offset_100ns": 24745000,
+      "duration_100ns": 2933750
+    },
+    {
+      "text": "context",
+      "start": 2.780625,
+      "end": 3.405625,
+      "offset_100ns": 27806250,
+      "duration_100ns": 6250000
+    },
+    {
+      "text": "comes",
+      "start": 3.418375,
+      "end": 3.660708,
+      "offset_100ns": 34183750,
+      "duration_100ns": 2423330
+    },
+    {
+      "text": "along",
+      "start": 3.673458,
+      "end": 4.170916,
+      "offset_100ns": 36734580,
+      "duration_100ns": 4974580
+    }
+  ]
+}

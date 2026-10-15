@@ -1,0 +1,291 @@
+{
+  "duration_seconds": 30.0,
+  "timing_source": "Microsoft Edge provider WordBoundary timestamps offset by scheduled cue WAV starts",
+  "human_listening_alignment": "not_performed",
+  "cues": [
+    {
+      "id": 1,
+      "start": 0.501,
+      "end": 3.039291,
+      "text": "Care feels easier when everyone knows your pet."
+    },
+    {
+      "id": 2,
+      "start": 4.501,
+      "end": 6.452541,
+      "text": "Emma confirms what Mochi loves."
+    },
+    {
+      "id": 3,
+      "start": 11.001,
+      "end": 15.070916,
+      "text": "Alex starts fresh. The same context comes along."
+    },
+    {
+      "id": 4,
+      "start": 16.601,
+      "end": 19.190291,
+      "text": "And everyday questions can start there, too."
+    },
+    {
+      "id": 5,
+      "start": 20.901,
+      "end": 24.778541,
+      "text": "These scripted previews explore food questions and activity records."
+    },
+    {
+      "id": 6,
+      "start": 27.051,
+      "end": 29.717833,
+      "text": "Less repeating. More caring."
+    }
+  ],
+  "words": [
+    {
+      "cue_id": 1,
+      "text": "Care",
+      "start": 0.501,
+      "end": 0.743333
+    },
+    {
+      "cue_id": 1,
+      "text": "feels",
+      "start": 0.756125,
+      "end": 1.0495
+    },
+    {
+      "cue_id": 1,
+      "text": "easier",
+      "start": 1.06225,
+      "end": 1.521416
+    },
+    {
+      "cue_id": 1,
+      "text": "when",
+      "start": 1.534166,
+      "end": 1.750999
+    },
+    {
+      "cue_id": 1,
+      "text": "everyone",
+      "start": 1.763791,
+      "end": 2.146457
+    },
+    {
+      "cue_id": 1,
+      "text": "knows",
+      "start": 2.159166,
+      "end": 2.401499
+    },
+    {
+      "cue_id": 1,
+      "text": "your",
+      "start": 2.414291,
+      "end": 2.529082
+    },
+    {
+      "cue_id": 1,
+      "text": "pet",
+      "start": 2.541833,
+      "end": 3.039291
+    },
+    {
+      "cue_id": 2,
+      "text": "Emma",
+      "start": 4.501,
+      "end": 4.781625
+    },
+    {
+      "cue_id": 2,
+      "text": "confirms",
+      "start": 4.794375,
+      "end": 5.330083
+    },
+    {
+      "cue_id": 2,
+      "text": "what",
+      "start": 5.342875,
+      "end": 5.470416
+    },
+    {
+      "cue_id": 2,
+      "text": "Mochi",
+      "start": 5.483166,
+      "end": 5.840291
+    },
+    {
+      "cue_id": 2,
+      "text": "loves",
+      "start": 5.853041,
+      "end": 6.452541
+    },
+    {
+      "cue_id": 3,
+      "text": "Alex",
+      "start": 11.001,
+      "end": 11.409166
+    },
+    {
+      "cue_id": 3,
+      "text": "starts",
+      "start": 11.421958,
+      "end": 11.779083
+    },
+    {
+      "cue_id": 3,
+      "text": "fresh",
+      "start": 11.791833,
+      "end": 12.340291
+    },
+    {
+      "cue_id": 3,
+      "text": "The",
+      "start": 13.221416,
+      "end": 13.361707
+    },
+    {
+      "cue_id": 3,
+      "text": "same",
+      "start": 13.3745,
+      "end": 13.667875
+    },
+    {
+      "cue_id": 3,
+      "text": "context",
+      "start": 13.680625,
+      "end": 14.305625
+    },
+    {
+      "cue_id": 3,
+      "text": "comes",
+      "start": 14.318375,
+      "end": 14.560708
+    },
+    {
+      "cue_id": 3,
+      "text": "along",
+      "start": 14.573458,
+      "end": 15.070916
+    },
+    {
+      "cue_id": 4,
+      "text": "And",
+      "start": 16.601,
+      "end": 16.817833
+    },
+    {
+      "cue_id": 4,
+      "text": "everyday",
+      "start": 16.830625,
+      "end": 17.200541
+    },
+    {
+      "cue_id": 4,
+      "text": "questions",
+      "start": 17.21325,
+      "end": 17.748958
+    },
+    {
+      "cue_id": 4,
+      "text": "can",
+      "start": 17.76175,
+      "end": 17.927583
+    },
+    {
+      "cue_id": 4,
+      "text": "start",
+      "start": 17.940291,
+      "end": 18.220916
+    },
+    {
+      "cue_id": 4,
+      "text": "there",
+      "start": 18.233666,
+      "end": 18.590791
+    },
+    {
+      "cue_id": 4,
+      "text": "too",
+      "start": 18.756625,
+      "end": 19.190291
+    },
+    {
+      "cue_id": 5,
+      "text": "These",
+      "start": 20.901,
+      "end": 21.156083
+    },
+    {
+      "cue_id": 5,
+      "text": "scripted",
+      "start": 21.168875,
+      "end": 21.564291
+    },
+    {
+      "cue_id": 5,
+      "text": "previews",
+      "start": 21.577041,
+      "end": 22.048999
+    },
+    {
+      "cue_id": 5,
+      "text": "explore",
+      "start": 22.06175,
+      "end": 22.533708
+    },
+    {
+      "cue_id": 5,
+      "text": "food",
+      "start": 22.546416,
+      "end": 22.814291
+    },
+    {
+      "cue_id": 5,
+      "text": "questions",
+      "start": 22.827041,
+      "end": 23.413791
+    },
+    {
+      "cue_id": 5,
+      "text": "and",
+      "start": 23.426541,
+      "end": 23.617874
+    },
+    {
+      "cue_id": 5,
+      "text": "activity",
+      "start": 23.630625,
+      "end": 24.102583
+    },
+    {
+      "cue_id": 5,
+      "text": "records",
+      "start": 24.115291,
+      "end": 24.778541
+    },
+    {
+      "cue_id": 6,
+      "text": "Less",
+      "start": 27.051,
+      "end": 27.344375
+    },
+    {
+      "cue_id": 6,
+      "text": "repeating",
+      "start": 27.357125,
+      "end": 27.994875
+    },
+    {
+      "cue_id": 6,
+      "text": "More",
+      "start": 28.876,
+      "end": 29.169375
+    },
+    {
+      "cue_id": 6,
+      "text": "caring",
+      "start": 29.182125,
+      "end": 29.717833
+    }
+  ]
+}

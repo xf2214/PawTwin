@@ -1,0 +1,116 @@
+{
+  "duration_seconds": 30.0,
+  "sample_rate": 22050,
+  "cues": [
+    {
+      "id": 1,
+      "wav": "voice-01.edit.wav",
+      "raw_wav": "voice-01.wav",
+      "requested_start": 0.4,
+      "start": 0.4,
+      "end": 3.304081632653061,
+      "duration_seconds": 2.904081632653061,
+      "raw_duration_seconds": 3.528027210884354,
+      "digital_zero_tail_removed_seconds": 0.6239455782312925,
+      "target_end": 3.8,
+      "speech_start": 0.501,
+      "speech_end": 3.039291,
+      "raw_window_overrun_seconds": 0.12802721088435387
+    },
+    {
+      "id": 2,
+      "wav": "voice-02.edit.wav",
+      "raw_wav": "voice-02.wav",
+      "requested_start": 4.4,
+      "start": 4.4,
+      "end": 6.719954648526077,
+      "duration_seconds": 2.319954648526077,
+      "raw_duration_seconds": 2.952018140589569,
+      "digital_zero_tail_removed_seconds": 0.6320634920634921,
+      "target_end": 9.8,
+      "speech_start": 4.501,
+      "speech_end": 6.452541,
+      "raw_window_overrun_seconds": 0
+    },
+    {
+      "id": 3,
+      "wav": "voice-03.edit.wav",
+      "raw_wav": "voice-03.wav",
+      "requested_start": 10.9,
+      "start": 10.9,
+      "end": 15.341405895691612,
+      "duration_seconds": 4.44140589569161,
+      "raw_duration_seconds": 5.064036281179138,
+      "digital_zero_tail_removed_seconds": 0.6226303854875284,
+      "target_end": 15.8,
+      "speech_start": 11.001000000000001,
+      "speech_end": 15.070916,
+      "raw_window_overrun_seconds": 0.16403628117913804
+    },
+    {
+      "id": 4,
+      "wav": "voice-04.edit.wav",
+      "raw_wav": "voice-04.wav",
+      "requested_start": 16.5,
+      "start": 16.5,
+      "end": 19.45487528344671,
+      "duration_seconds": 2.954875283446712,
+      "raw_duration_seconds": 3.5760090702947847,
+      "digital_zero_tail_removed_seconds": 0.6211337868480725,
+      "target_end": 20.2,
+      "speech_start": 16.601,
+      "speech_end": 19.190291000000002,
+      "raw_window_overrun_seconds": 0
+    },
+    {
+      "id": 5,
+      "wav": "voice-05.edit.wav",
+      "raw_wav": "voice-05.wav",
+      "requested_start": 20.8,
+      "start": 20.8,
+      "end": 25.04326530612245,
+      "duration_seconds": 4.243265306122449,
+      "raw_duration_seconds": 4.872018140589569,
+      "digital_zero_tail_removed_seconds": 0.6287528344671202,
+      "target_end": 26.7,
+      "speech_start": 20.901,
+      "speech_end": 24.778541,
+      "raw_window_overrun_seconds": 0
+    },
+    {
+      "id": 6,
+      "wav": "voice-06.edit.wav",
+      "raw_wav": "voice-06.wav",
+      "requested_start": 27.2,
+      "start": 26.95,
+      "end": 29.982562358276642,
+      "duration_seconds": 3.032562358276644,
+      "raw_duration_seconds": 3.648027210884354,
+      "digital_zero_tail_removed_seconds": 0.6154648526077098,
+      "target_end": 29.8,
+      "speech_start": 27.051,
+      "speech_end": 29.717833,
+      "raw_window_overrun_seconds": 1.0480272108843525
+    }
+  ],
+  "edit_accents": [
+    {
+      "id": 1,
+      "start": 10.35,
+      "duration_seconds": 0.24,
+      "wav": "edit-accent-01.wav"
+    },
+    {
+      "id": 2,
+      "start": 20.43,
+      "duration_seconds": 0.24,
+      "wav": "edit-accent-02.wav"
+    },
+    {
+      "id": 3,
+      "start": 26.93,
+      "duration_seconds": 0.24,
+      "wav": "edit-accent-03.wav"
+    }
+  ]
+}

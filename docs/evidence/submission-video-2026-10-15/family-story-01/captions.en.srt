@@ -1,0 +1,103 @@
+1
+00:00:00,350 --> 00:00:05,159
+When everyone loves the same pet, care can still get lost between family members.
+
+2
+00:00:05,359 --> 00:00:10,377
+Paw Twin gives Emma and Alex a shared daily routine for their fictional cat, Mochi.
+
+3
+00:00:12,883 --> 00:00:17,292
+Emma opens the household application to see Mochi's records and today's care.
+
+4
+00:00:17,492 --> 00:00:23,056
+Alex has a separate account, so family actions can be attributed to the person who records them.
+
+5
+00:00:25,617 --> 00:00:31,595
+Two sample weights, seven days apart, produce a report showing a hundred fifty gram increase.
+
+6
+00:00:31,795 --> 00:00:37,688
+The calculation links to its records, while actual food intake stays unknown until someone records it.
+
+7
+00:00:40,217 --> 00:00:44,100
+Emma records that Mochi likes a feather toy and rests after meals.
+
+8
+00:00:44,300 --> 00:00:49,314
+She confirms this preference before it becomes part of the shared context for future answers.
+
+9
+00:00:51,817 --> 00:00:56,800
+Alex opens a new conversation in the Alexa web simulator and asks what Mochi likes.
+
+10
+00:00:57,000 --> 00:01:02,004
+The reply reads the confirmed preference from the shared record and exposes the source for inspection.
+
+11
+00:01:04,550 --> 00:01:08,779
+Emma asks the simulator to plan playtime and reviews the proposed care.
+
+12
+00:01:08,979 --> 00:01:13,702
+She chooses a time, keeping the request as a draft while she checks the details.
+
+13
+00:01:16,217 --> 00:01:19,591
+The prepared proposal shows what will be arranged for Mochi.
+
+14
+00:01:19,791 --> 00:01:25,514
+At this stage, no care task has been created; Emma still controls the final confirmation.
+
+15
+00:01:28,017 --> 00:01:32,410
+Emma confirms the arrangement, creating one shared manual care task.
+
+16
+00:01:32,610 --> 00:01:37,864
+The result says it is waiting for a person, keeping a planned action distinct from a completed one.
+
+17
+00:01:40,417 --> 00:01:44,940
+Alex claims the task and records the playtime as completed through his own account.
+
+18
+00:01:45,140 --> 00:01:51,378
+The household history identifies who recorded the result, helping the next family member understand the handoff.
+
+19
+00:01:53,883 --> 00:01:57,837
+Emma's daily report now counts one completed manual care task.
+
+20
+00:01:58,037 --> 00:02:03,496
+The report summarizes recorded care without inventing food intake or making a clinical diagnosis.
+
+21
+00:02:06,017 --> 00:02:11,840
+When someone else helps, Emma can issue time-limited, read-only access for one selected pet.
+
+22
+00:02:12,040 --> 00:02:17,968
+The caregiver can inspect the shared context, while the owner keeps control over changes and revocation.
+
+23
+00:02:20,483 --> 00:02:25,322
+Before a vet visit, Emma creates a dated information card from Mochi's records.
+
+24
+00:02:25,522 --> 00:02:30,925
+It separates known facts from missing information and can be printed or saved as an offline document.
+
+25
+00:02:33,483 --> 00:02:39,342
+Paw Twin connects records, confirmed care, family handoffs, and reports in one inspectable routine.
+
+26
+00:02:39,542 --> 00:02:47,714
+This demonstration runs locally with rules and SQLite; Alexa and devices are simulated, and live cloud integration remains unverified.

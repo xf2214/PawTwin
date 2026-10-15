@@ -1,0 +1,207 @@
+{
+  "provider": "Microsoft Edge online speech service via third-party edge-tts client",
+  "official_azure_sdk": false,
+  "voice": {
+    "Name": "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
+    "ShortName": "en-US-JennyNeural",
+    "Gender": "Female",
+    "Locale": "en-US",
+    "LocaleName": "English (United States)",
+    "SuggestedCodec": "audio-24khz-48kbitrate-mono-mp3",
+    "FriendlyName": "Microsoft Jenny Online (Natural) - English (United States)",
+    "Status": "GA",
+    "VoiceTag": {
+      "ContentCategories": [
+        "General"
+      ],
+      "VoicePersonalities": [
+        "Friendly",
+        "Considerate",
+        "Comfort"
+      ]
+    }
+  },
+  "rate": "-2%",
+  "edge_tts_version": "7.3.1",
+  "miniaudio_version": "1.71",
+  "isolated_dependencies": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\.cache\\submission-video\\audio-study-20261015\\deps",
+  "source_urls": {
+    "edge_tts": "https://github.com/rany2/edge-tts",
+    "mp3_decoder": "https://github.com/irmen/pyminiaudio",
+    "online_voice_privacy": "https://learn.microsoft.com/en-us/microsoft-edge/privacy-whitepaper/"
+  },
+  "text_scope": "User-authorized public fictional demonstration narration only",
+  "application_cloud_calls": "Separate from artifact narration; not changed by this helper",
+  "billable_resources_created": 0,
+  "credentials_used": false,
+  "sentences": [
+    {
+      "index": 0,
+      "text": "Meet Mochi. Emma and Alex share the care.",
+      "wav": "voice-00.wav",
+      "mp3_sha256": "056ecbc24fed0f8bda152d765fb25c0dfaaef1636b244a38b1af70630b0b0ea2"
+    },
+    {
+      "index": 1,
+      "text": "Paw Twin brings their daily routine into one shared place.",
+      "wav": "voice-01.wav",
+      "mp3_sha256": "a8c84a8b0090fb74734ffd2ec66a3c8679385890d1bd74f786b3096afda2c0ce"
+    },
+    {
+      "index": 2,
+      "text": "Two sample weights, seven days apart, show a hundred fifty gram increase.",
+      "wav": "voice-02.wav",
+      "mp3_sha256": "7d2d7465bf1d49f14d73d45cd9ee66fef12253d75d4ee5e29f0124077a8a5a0a"
+    },
+    {
+      "index": 3,
+      "text": "The report keeps the calculation tied to its records, and missing food intake stays unknown.",
+      "wav": "voice-03.wav",
+      "mp3_sha256": "1997b4ce2fb7e4f799c4b1ccf2c4fd91611410b92a510383cb90b90c22eafb37"
+    },
+    {
+      "index": 4,
+      "text": "Mochi likes a feather toy and rests after meals.",
+      "wav": "voice-04.wav",
+      "mp3_sha256": "710067e83296924f6ff1e3b47f0f8b35e1557a0426afa678a998585fd085ff04"
+    },
+    {
+      "index": 5,
+      "text": "Emma confirms that preference before it becomes part of their shared pet context.",
+      "wav": "voice-05.wav",
+      "mp3_sha256": "f545d457098688429e7c6faf18d608b83ad34424bb777b2bf7a8e7134c8aa4a4"
+    },
+    {
+      "index": 6,
+      "text": "Alex starts a fresh conversation in the Alexa web simulator.",
+      "wav": "voice-06.wav",
+      "mp3_sha256": "6a01949860b757c0e390cf4caa5d82fe92c123f41d860a6216c69ac40d4984a4"
+    },
+    {
+      "index": 7,
+      "text": "The next answer reads the same confirmed preference and makes its source available to inspect.",
+      "wav": "voice-07.wav",
+      "mp3_sha256": "056cfdee98f3f45b88955f693c5f7e7817d93c50ae5053431023efaf0b800e6b"
+    },
+    {
+      "index": 8,
+      "text": "Emma asks for playtime and chooses a time.",
+      "wav": "voice-08.wav",
+      "mp3_sha256": "4a623bc1dba6760445eb396d0357e6dcc3e4c98dce076af4a97a0f5f858a6751"
+    },
+    {
+      "index": 9,
+      "text": "The draft lets her review the plan before any care task exists.",
+      "wav": "voice-09.wav",
+      "mp3_sha256": "d0efb233abea603e03351dd623c5beeff436800422f2dd8415c7dab58a84a7c1"
+    },
+    {
+      "index": 10,
+      "text": "The prepared proposal is ready for review.",
+      "wav": "voice-10.wav",
+      "mp3_sha256": "a5e9c6371df26f685e2faac1b1c648a4fabd24ec8f16ee674003042375adeca9"
+    },
+    {
+      "index": 11,
+      "text": "It still needs an explicit confirmation.",
+      "wav": "voice-11.wav",
+      "mp3_sha256": "650feaa4ba890cac5f5b41c706d5e38fbb277cac7235ebbcaf9cfe44e398be7b"
+    },
+    {
+      "index": 12,
+      "text": "Emma confirms one shared manual care task.",
+      "wav": "voice-12.wav",
+      "mp3_sha256": "1b9c24547d283a8fd5997b79fbe1016e86accd4783bdfc6873751985fdef3f04"
+    },
+    {
+      "index": 13,
+      "text": "The result is clear: planned, and waiting for a person to complete it.",
+      "wav": "voice-13.wav",
+      "mp3_sha256": "f33a0164ee6e61e53fc0553c25602d21fe3ef64f31647681939864634f13c4a0"
+    },
+    {
+      "index": 14,
+      "text": "Alex claims the task and records the playtime as completed.",
+      "wav": "voice-14.wav",
+      "mp3_sha256": "ceea7b13982a0c396bed7db605ad0e46c84428c02e0083341de4fc646273d58d"
+    },
+    {
+      "index": 15,
+      "text": "His account is attached to the record, so the handoff stays traceable.",
+      "wav": "voice-15.wav",
+      "mp3_sha256": "3a876a764c3ce8f03909aed905516a84133516b9f2631ee411bd814de0b8430a"
+    },
+    {
+      "index": 16,
+      "text": "The household history identifies Alex and the completed care.",
+      "wav": "voice-16.wav",
+      "mp3_sha256": "9565ddad02b6c76cef81e461bd9dfc7c98f3b21ef8ffd5ae0838923bdcb02d98"
+    },
+    {
+      "index": 17,
+      "text": "Everyone can check the recorded result.",
+      "wav": "voice-17.wav",
+      "mp3_sha256": "297099a011e5aa37c3072a62d7c74ea01ec4c2fb342483f642cc9fa497ddf2c7"
+    },
+    {
+      "index": 18,
+      "text": "Emma's daily report now counts one completed manual care task.",
+      "wav": "voice-18.wav",
+      "mp3_sha256": "bf9d31ff9aaab493d70a99e7462fc3bc0694ce97729573c9a88039ac4ce5ee1f"
+    },
+    {
+      "index": 19,
+      "text": "It summarizes the saved records without inventing a health outcome.",
+      "wav": "voice-19.wav",
+      "mp3_sha256": "b73dee8d3e5c4c393b60e5fee0a398f122c15885719747301772319d5962accf"
+    },
+    {
+      "index": 20,
+      "text": "A helper can receive temporary, read-only access to one selected pet.",
+      "wav": "voice-20.wav",
+      "mp3_sha256": "6c47f7afcbd4ffe553c2fedd1c366fb58fb47c36fae6842b16ee603308b92e05"
+    },
+    {
+      "index": 21,
+      "text": "The owner can revoke it.",
+      "wav": "voice-21.wav",
+      "mp3_sha256": "1199b95b0b6e48cafc429e18956bcfa5b5d845d68a50af1e99f0ca975ad0f218"
+    },
+    {
+      "index": 22,
+      "text": "The visit card organizes dated records and shows what is missing.",
+      "wav": "voice-22.wav",
+      "mp3_sha256": "4f220edd81a58817e9b8f0f9dc5e1a2c64c7e1ec3b09b00d47b0008711888374"
+    },
+    {
+      "index": 23,
+      "text": "It can be printed or saved for review with a veterinarian.",
+      "wav": "voice-23.wav",
+      "mp3_sha256": "ae34d42f60c4f6ff205e1e94fe2b45b03b1f543dd92d105681be229c31ff88a8"
+    },
+    {
+      "index": 24,
+      "text": "When Emma deletes a preference, the next answer stops using it.",
+      "wav": "voice-24.wav",
+      "mp3_sha256": "9a4625441f9523358efa34183016ce82efd860bf5b64bd0a2c42f4baa2253635"
+    },
+    {
+      "index": 25,
+      "text": "A remembered fact is always subject to the owner's control.",
+      "wav": "voice-25.wav",
+      "mp3_sha256": "3fc4456791600482b4363c2398b75830bd0f162b170374a508f4ab0fbe0e9cd5"
+    },
+    {
+      "index": 26,
+      "text": "Paw Twin connects the pet's records, shared plans, and recorded care.",
+      "wav": "voice-26.wav",
+      "mp3_sha256": "0e523075cf22842d90a68113986931b5aa6d0941074fc9b322684c353884f513"
+    },
+    {
+      "index": 27,
+      "text": "This prototype uses local rules and SQLite. Alexa is a web simulation; live cloud and hardware integrations remain unverified.",
+      "wav": "voice-27.wav",
+      "mp3_sha256": "e64c1d01952e0cf4a4d4cd6790599d1fadd9010996ec7d1a88245dd72788b450"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+PawTwin
+Household app
+Product
+Alexa+ simulator
+Original workbench ↗
+English
+中文
+
+PAWTWIN · HOME TOGETHER
+
+Mochi Family · Fictional Demo
+EmmaSign out
+
+Local account · Cloud authentication is not connected
+
+Saved
+
+Selected pet
+Mochi
+Recorded by: Emma · Household member
+Refresh records
+Visit pet twin
+
+A LITTLE MORE ABOUT YOU
+
+Mochi's growth records
+
+Follow their changes through measurements and everyday observations.
+
+Record weight
+Photo diary and owner observations
+Overview
+Measurements and diet
+Diary & observations
+Reports
+Bring the records to the vet
+
+Organize Mochi’s profile, measurements and original owner notes into a card you can review.
+
+Export a vet visit card (clinical background)
+
+A LOOK BACK
+
+Daily and weekly reports
+Report period
+All periods
+Daily report
+Weekly report
+Report date
+Generate daily report
+Generate weekly report
+
+Reports use the household time zone (Asia/Shanghai). They generate while the service runs and catch up after restart. Generated reports have not sent notifications.
+
+Daily report · 10/15/2026, 00:00 — 10/16/2026, 00:00
+Manual care completions
+1 times
+To do
+0
+Overdue
+0
+
+At least two valid measurements are needed
+
+Actual intake: Not recorded · Recorded dispensing: Not recorded
+
+Source records and version
+
+Simulated device: Not connected; Simulated dispensing Not recorded. Dispensing does not represent actual intake.
+
+Daily report · 10/14/2026, 00:00 — 10/15/2026, 00:00
+Manual care completions
+0 times
+To do
+0
+Overdue
+0
+
+At least two valid measurements are needed
+
+Actual intake: Not recorded · Recorded dispensing: Not recorded
+
+Source records and version
+
+Simulated device: Not connected; Simulated dispensing Not recorded. Dispensing does not represent actual intake.
+
+Today
+Care
+Growth
+Twin
+Family

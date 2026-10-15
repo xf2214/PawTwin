@@ -1,0 +1,73 @@
+{
+  "clips": [
+    {
+      "id": "alex-claim-action",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-cinematic-capture-2026-10-15\\attempt-03-native1920\\carer.webm",
+      "source_sha256": "9c60659db5dbe771a6c6ea22a529a2238b006df734c8353558d2a59dba944457",
+      "start": 82.7,
+      "requested_duration": 2.4,
+      "crop": [
+        304,
+        244,
+        736,
+        630
+      ],
+      "speed": 1.0,
+      "file": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-video-studio-2026-10-15\\public\\fullfilm\\alex-claim-action.mp4",
+      "sha256": "9232e1403590f07c9c04246890eef7ce171fe48bffb593d8963c2d393edf41b6",
+      "hold": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-video-studio-2026-10-15\\public\\fullfilm\\alex-claim-action-hold.png",
+      "hold_sha256": "9e3815c71a69a253a8ed384789da07ab6423af45f21ce0462a3283da91b33688",
+      "encoded": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 736,
+            "height": 630,
+            "r_frame_rate": "25/1",
+            "nb_frames": "59"
+          }
+        ],
+        "format": {
+          "duration": "2.360000"
+        }
+      },
+      "full_decode": "passed"
+    },
+    {
+      "id": "alex-complete-action",
+      "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\evidence\\hackathon-cinematic-capture-2026-10-15\\attempt-03-native1920\\carer.webm",
+      "source_sha256": "9c60659db5dbe771a6c6ea22a529a2238b006df734c8353558d2a59dba944457",
+      "start": 91.7,
+      "requested_duration": 7.0,
+      "crop": [
+        304,
+        244,
+        736,
+        630
+      ],
+      "speed": 1.0,
+      "file": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-video-studio-2026-10-15\\public\\fullfilm\\alex-complete-action.mp4",
+      "sha256": "ad0e6de89ccc664aad386a0fe8459264e110a239f0c8458c51a2a535cfec788b",
+      "hold": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-video-studio-2026-10-15\\public\\fullfilm\\alex-complete-action-hold.png",
+      "hold_sha256": "f25a7688150044b8c1d3a22238e5476566cbbab7c26240d03a5ba0ef9efd3000",
+      "encoded": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 736,
+            "height": 630,
+            "r_frame_rate": "25/1",
+            "nb_frames": "174"
+          }
+        ],
+        "format": {
+          "duration": "6.960000"
+        }
+      },
+      "full_decode": "passed"
+    }
+  ],
+  "edit_note": "The full original clip remains unchanged. The separate normal-speed excerpts omit only the between-action expanded form waiting section; this is an explicit editorial cut, with no synthesized UI."
+}

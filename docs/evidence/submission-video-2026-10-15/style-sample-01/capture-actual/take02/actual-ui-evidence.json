@@ -1,0 +1,401 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-15T03:51:56.486Z",
+  "source": "fresh_actual_UI",
+  "service": {
+    "port": 8853,
+    "db": ":memory:",
+    "mode": "local",
+    "family_model_backend": "local_rules",
+    "model_backend": "local_fake",
+    "aws_connected": false
+  },
+  "presentation": {
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "recording_dpr": 1,
+    "recording_size": {
+      "width": 1920,
+      "height": 1080
+    },
+    "body_zoom": 2,
+    "screenshot_dpr": 2,
+    "no_fabricated_text_or_results": true
+  },
+  "clips": {
+    "confirm_memory": {
+      "role": "owner",
+      "source": "owner.webm",
+      "start_ms": 4273,
+      "target_bbox": {
+        "x": 1346,
+        "y": 239.96875,
+        "width": 440,
+        "height": 536.75
+      },
+      "actions": [
+        {
+          "name": "Confirm memory",
+          "at_ms": 6103,
+          "bbox": {
+            "x": 1346,
+            "y": 459.9375,
+            "width": 254.28125,
+            "height": 85.59375
+          },
+          "clicked_at_ms": 6437
+        }
+      ],
+      "end_ms": 9775
+    },
+    "new_session": {
+      "role": "alex",
+      "source": "alex.webm",
+      "start_ms": 9795,
+      "actions": [
+        {
+          "name": "New session",
+          "at_ms": 10513,
+          "bbox": {
+            "x": 1623.1875,
+            "y": 122.0625,
+            "width": 212.8125,
+            "height": 88.796875
+          },
+          "clicked_at_ms": 10861
+        },
+        {
+          "name": "Ask real preference question",
+          "at_ms": 11453,
+          "bbox": {
+            "x": 1090,
+            "y": 662.046875,
+            "width": 696,
+            "height": 88.796875
+          },
+          "clicked_at_ms": 11791
+        },
+        {
+          "name": "Expand actual source details",
+          "at_ms": 12805,
+          "bbox": {
+            "x": 1118,
+            "y": 409.390625,
+            "width": 625,
+            "height": 35.1875
+          },
+          "clicked_at_ms": 13149
+        }
+      ],
+      "question_filled_at_ms": 11427,
+      "question": "What does my pet like?",
+      "end_ms": 16034,
+      "target_bbox": {
+        "x": 1094,
+        "y": 150.21875,
+        "width": 673,
+        "height": 517.546875
+      }
+    }
+  },
+  "screenshots": {
+    "probe-memory": {
+      "at_ms": 2217,
+      "target": {
+        "bbox": {
+          "x": 1346,
+          "y": 239.96875,
+          "width": 440,
+          "height": 536.75
+        },
+        "font_size_css": 13,
+        "zoom": 2,
+        "text": "Loves the feather toy. Rest after meals.\n\nEmma · Candidate awaiting confirmation\nConfirm memory\nDelete memory\nCorrect content and validity"
+      },
+      "file": "probe-memory.png"
+    },
+    "probe-alexa": {
+      "at_ms": 1978,
+      "target": {
+        "bbox": {
+          "x": 560,
+          "y": 65.46875,
+          "width": 1276,
+          "height": 1899.640625
+        },
+        "font_size_css": 14,
+        "zoom": 2,
+        "text": "PAWTWIN × ALEXA+ CONCEPT\n\nAlexa+ web simulator\n\nOne conversation. One small thing to do together.\n\nNew session\n\nText simulates speech · Shares the household app backend · Real Alexa services and devices are not connected\n\nReady to talk about your pet’s day.\n\nMochi\n\nMochi Family · Fictional Demo\n\nCurrent context\nVersion 2\nAnswer sources\nHousehold profile and owner records\nHow actions work\nConfirm to plan manual care\nView care tasks\nReturn to the household app ↗\nPage session 1\nKeeps up to 20 turns\nYou · Simulated speech\n\nWhat does my pet like?\n\nAlexa web simulation · Local rules\n\nMochi’s records: No confirmed preference memories yet. \n\nView this turn’s sources · Version 2\nRead this reply aloud in the browser\nWhat does my pet like?\nWhat is the latest weight?\nWhat is planned for today?\nWhat was observed today?\nWhat was completed recently?\nPlan some playtime\nPlan a water change\nSimulated speech\nSend to the Alexa simulator\n\nEach reply shows its backend and sources. Planning requests create drafts only. This page does not use the microphone."
+      },
+      "file": "probe-alexa.png"
+    },
+    "candidate": {
+      "at_ms": 3308,
+      "target": {
+        "bbox": {
+          "x": 1346,
+          "y": 239.96875,
+          "width": 440,
+          "height": 536.75
+        },
+        "font_size_css": 13,
+        "zoom": 2,
+        "text": "Loves the feather toy. Rest after meals.\n\nEmma · Candidate awaiting confirmation\nConfirm memory\nDelete memory\nCorrect content and validity"
+      },
+      "file": "candidate.png",
+      "high_density_file": "candidate@2x.png"
+    },
+    "confirmed": {
+      "at_ms": 9775,
+      "target": {
+        "bbox": {
+          "x": 1346,
+          "y": 239.96875,
+          "width": 440,
+          "height": 427.15625
+        },
+        "font_size_css": 13,
+        "zoom": 2,
+        "text": "Loves the feather toy. Rest after meals.\n\nEmma · Confirmed by owner\nDelete memory\nCorrect content and validity"
+      },
+      "file": "confirmed.png",
+      "high_density_file": "confirmed@2x.png"
+    },
+    "new-session-answer-expanded": {
+      "at_ms": 16039,
+      "target": {
+        "bbox": {
+          "x": 1094,
+          "y": 150.21875,
+          "width": 673,
+          "height": 517.546875
+        },
+        "font_size_css": 14,
+        "zoom": 2,
+        "text": "Alexa web simulation · Local rules\n\nMochi’s records: Owner-confirmed records: Loves the feather toy. Rest after meals.。\n\nView this turn’s sources · Version 3\n\nSource records: 5e871ae0-8b54-4e6d-86e9-563be26acc95\n\nPast replies retain their original context. New questions read current records. No action was executed.\n\nLive model request: None\n\nRead this reply aloud in the browser"
+      },
+      "file": "new-session-answer-expanded.png",
+      "high_density_file": "new-session-answer-expanded@2x.png"
+    },
+    "candidate.png": {
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    "candidate@2x.png": {
+      "pixels": {
+        "width": 3840,
+        "height": 2160
+      }
+    },
+    "confirmed.png": {
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    "confirmed@2x.png": {
+      "pixels": {
+        "width": 3840,
+        "height": 2160
+      }
+    },
+    "new-session-answer-expanded.png": {
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    "new-session-answer-expanded@2x.png": {
+      "pixels": {
+        "width": 3840,
+        "height": 2160
+      }
+    },
+    "probe-alexa.png": {
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    "probe-memory.png": {
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      }
+    }
+  },
+  "checks": [
+    "Only fictional Emma/Alex accounts and household created via actual UI",
+    "Candidate created through actual preference UI",
+    "Owner clicked actual Confirm memory and confirmed status returned by API",
+    "Alex clicked real New session control before the actual question",
+    "New question API reply includes confirmed memory ID",
+    "Alex authenticated actor confirmed through /api/family/me before and after request",
+    "No model request/action execution/AWS connection",
+    "No product files or existing database changed"
+  ],
+  "actor": {
+    "display_name": "Alex",
+    "user_id": "c36c1817-e14e-4547-a25c-d0d75d2d5681",
+    "role": "carer"
+  },
+  "bootstrap": {
+    "project": "PawTwin",
+    "stage": "local_business",
+    "mode": "local",
+    "aws_connected": false,
+    "analyzer": "local_fake",
+    "capabilities": {
+      "event_intake": "implemented_local",
+      "owner_approval": "implemented_local",
+      "simulated_device": "implemented_simulated",
+      "owner_feedback": "implemented_local",
+      "long_term_memory": "not_implemented"
+    }
+  },
+  "before_confirmation": {
+    "answer": "Mochi 的记录：还没有已确认的偏好记忆。",
+    "entry": "alexa_simulator",
+    "backend": "local_rules",
+    "request_id": null,
+    "model_id": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "latency_ms": null,
+    "inference_status": null,
+    "answer_origin": "local_rules",
+    "context_version": 2,
+    "source_record_ids": [],
+    "references": [
+      {
+        "id": "waltham-kitten",
+        "species": "cat",
+        "minimum_age_weeks": 8,
+        "url": "https://www.waltham.com/resources/kitten-growth-charts",
+        "title": "WALTHAM Kitten Growth Charts",
+        "retrieved_on": "2026-10-03",
+        "review_status": "source_checked",
+        "summary": "幼猫成长参考有年龄与适用范围限制；未导入数值曲线，不能给出标准体重。"
+      },
+      {
+        "id": "merck-nutrition",
+        "species": "cat,dog",
+        "minimum_age_weeks": null,
+        "url": "https://www.merckvetmanual.com/management-and-nutrition/nutrition-small-animals/overview-of-nutrition-small-animals",
+        "title": "Merck Veterinary Manual: Small Animal Nutrition",
+        "retrieved_on": "2026-10-03",
+        "review_status": "source_checked",
+        "summary": "营养评估需要饮食史、体况与肌肉状况等资料，并结合兽医检查。"
+      }
+    ],
+    "action_executed": false,
+    "label": "本地规则分身 / Alexa 网页模拟；记录原文是数据，不是指令",
+    "care_draft": null,
+    "context_valid_until": "2026-10-15T16:00:00+00:00"
+  },
+  "probe": {
+    "memory": {
+      "bbox": {
+        "x": 1346,
+        "y": 297.96875,
+        "width": 440,
+        "height": 92.375
+      },
+      "font_size_css": 14,
+      "zoom": 2,
+      "text": "Loves the feather toy. Rest after meals."
+    },
+    "alexa": {
+      "bbox": {
+        "x": 1118,
+        "y": 798.015625,
+        "width": 625,
+        "height": 92.375
+      },
+      "font_size_css": 14,
+      "zoom": 2,
+      "text": "Mochi’s records: No confirmed preference memories yet. "
+    }
+  },
+  "confirmed_memory": {
+    "id": "5e871ae0-8b54-4e6d-86e9-563be26acc95",
+    "status": "confirmed",
+    "text": "Loves the feather toy. Rest after meals.",
+    "author_name": "Emma",
+    "version": 2
+  },
+  "new_session_reply": {
+    "answer": "Mochi 的记录：主人确认记录：Loves the feather toy. Rest after meals.。",
+    "entry": "alexa_simulator",
+    "backend": "local_rules",
+    "request_id": null,
+    "model_id": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "latency_ms": null,
+    "inference_status": null,
+    "answer_origin": "local_rules",
+    "context_version": 3,
+    "source_record_ids": [
+      "5e871ae0-8b54-4e6d-86e9-563be26acc95"
+    ],
+    "references": [
+      {
+        "id": "waltham-kitten",
+        "species": "cat",
+        "minimum_age_weeks": 8,
+        "url": "https://www.waltham.com/resources/kitten-growth-charts",
+        "title": "WALTHAM Kitten Growth Charts",
+        "retrieved_on": "2026-10-03",
+        "review_status": "source_checked",
+        "summary": "幼猫成长参考有年龄与适用范围限制；未导入数值曲线，不能给出标准体重。"
+      },
+      {
+        "id": "merck-nutrition",
+        "species": "cat,dog",
+        "minimum_age_weeks": null,
+        "url": "https://www.merckvetmanual.com/management-and-nutrition/nutrition-small-animals/overview-of-nutrition-small-animals",
+        "title": "Merck Veterinary Manual: Small Animal Nutrition",
+        "retrieved_on": "2026-10-03",
+        "review_status": "source_checked",
+        "summary": "营养评估需要饮食史、体况与肌肉状况等资料，并结合兽医检查。"
+      }
+    ],
+    "action_executed": false,
+    "label": "本地规则分身 / Alexa 网页模拟；记录原文是数据，不是指令",
+    "care_draft": null,
+    "context_valid_until": "2026-10-15T16:00:00+00:00"
+  },
+  "visible_session_label": "Page session 2\nKeeps up to 20 turns",
+  "actor_verified_after_question": {
+    "display_name": "Alex",
+    "user_id": "c36c1817-e14e-4547-a25c-d0d75d2d5681",
+    "role": "carer"
+  },
+  "status": "passed",
+  "owner_recording": {
+    "file": "owner.webm",
+    "origin_uncertainty_ms": 92
+  },
+  "alex_recording": {
+    "file": "alex.webm",
+    "origin_uncertainty_ms": 70
+  },
+  "service_stopped": true,
+  "source_hashes": {
+    "alex.webm": "06f9dcd9061c8ab2465b65d538397d7b7757b8e23e29a3886556377a9a5c7f1e",
+    "candidate.png": "67bdf61eef57bd204731878cf34f1d50afc141e301000ba27f13f4e8abc4702c",
+    "candidate@2x.png": "07f3b4efd7c20d45a9e598a07ca8cf40216944455873a824472d5c388bc4e680",
+    "confirmed.png": "0e33adfd1e94f57468ead8718d0b5d1133f57293416602139eea86693591d493",
+    "confirmed@2x.png": "392ef2d0531150310ccfa48e2def5f95e46747d73c37a4ee454779f8c0937f8c",
+    "new-session-answer-expanded.png": "c1bc2e87691ade821204c83fd7e7b50cf1a23f4635fd2a315fd437f9c45a40cc",
+    "new-session-answer-expanded@2x.png": "c39c26228f8e5dc3a7bf03c1b5287e36d5ff2f77d01e17663d8ef312a8d6b730",
+    "owner.webm": "3f022da8f21111b2039c43cff0247e3a26a63513495d5d91f2c8a500f8badb9c",
+    "probe-alexa.png": "62d094668ccbc28c4e4dc0e7e3e28b62b5e8f65523c51df07cd28bd24d164ece",
+    "probe-memory.png": "67bdf61eef57bd204731878cf34f1d50afc141e301000ba27f13f4e8abc4702c"
+  }
+}

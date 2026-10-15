@@ -1,0 +1,52 @@
+{
+  "composition": "Original 88 BPM deterministic sine electric-piano pluck, warm pad and muted synthesized percussion",
+  "chords": [
+    "Cadd9",
+    "Am7",
+    "Fmaj7",
+    "Gsus2"
+  ],
+  "music_seed": 20261015,
+  "stock_audio_or_recordings": false,
+  "bpm": 88.0,
+  "music_peak_limit_between_cues_dbfs": -22,
+  "music_peak_limit_under_voice_dbfs": -28,
+  "intro_outro_fade_seconds": 2,
+  "voice_gain": 0.7933155378980694,
+  "mix_safety_gain": 1,
+  "cue_count": 28,
+  "narration_before_mix": {
+    "duration_seconds": 150.24997732426303,
+    "sample_rate": 22050,
+    "channels": 1,
+    "bits_per_sample": 16,
+    "sample_count": 3313012,
+    "peak_dbfs": -0.14702715563278876,
+    "rms_dbfs": -22.488255616990447,
+    "clipped_samples": 0,
+    "dc_offset": -3.825037095799268e-06
+  },
+  "music_stem": {
+    "duration_seconds": 150.24997732426303,
+    "sample_rate": 22050,
+    "channels": 1,
+    "bits_per_sample": 16,
+    "sample_count": 3313012,
+    "peak_dbfs": -22.006191655276904,
+    "rms_dbfs": -39.093914237753125,
+    "clipped_samples": 0,
+    "dc_offset": 1.6037578623224878e-05
+  },
+  "mixed_audio": {
+    "duration_seconds": 150.24997732426303,
+    "sample_rate": 22050,
+    "channels": 1,
+    "bits_per_sample": 16,
+    "sample_count": 3313012,
+    "peak_dbfs": -2.091430370792626,
+    "rms_dbfs": -24.354870825185266,
+    "clipped_samples": 0,
+    "dc_offset": 1.3007736644979327e-05
+  },
+  "human_listening_review": "not_performed"
+}

@@ -1,0 +1,1244 @@
+{
+  "schema_version": 2,
+  "captured_at": "2026-10-14T17:06:36.874Z",
+  "source": "actual_local_ui_and_api",
+  "identity_backend": "local_account",
+  "backend": "local_rules",
+  "cloud_calls": 0,
+  "pet_id": "mochi",
+  "screenshots": [
+    {
+      "file": "00-product.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8846/",
+      "raw_video_elapsed_hold_ms": {
+        "start": 2043,
+        "screenshot": 4543,
+        "end": 7244
+      },
+      "suggested_clip_ms": {
+        "start": 1443,
+        "end": 7244
+      },
+      "operation": null,
+      "cjk_text_except_language_toggle": [],
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sha256": "95f8e0a76a0dec25979e042d5673a094bdd8fb2b86be0c32548f0c0cea2d7564"
+    },
+    {
+      "file": "01-home.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8846/#app",
+      "raw_video_elapsed_hold_ms": {
+        "start": 9840,
+        "screenshot": 12340,
+        "end": 14921
+      },
+      "suggested_clip_ms": {
+        "start": 9240,
+        "end": 14921
+      },
+      "operation": null,
+      "cjk_text_except_language_toggle": [],
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sha256": "1bb410114bdcfec01a8ed871c9d30879b656a65faf46b6a00a671640589c1c82"
+    },
+    {
+      "file": "18-growth-inputs.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8846/#app/growth",
+      "raw_video_elapsed_hold_ms": {
+        "start": 21373,
+        "screenshot": 23873,
+        "end": 26472
+      },
+      "suggested_clip_ms": {
+        "start": 20773,
+        "end": 26472
+      },
+      "operation": null,
+      "cjk_text_except_language_toggle": [],
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sha256": "52b1d03ffe32347f11346c1bf4c73b62b687583b081876f58f8fb98f43c5fcc6"
+    },
+    {
+      "file": "21-growth-curve.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8846/#app/growth",
+      "raw_video_elapsed_hold_ms": {
+        "start": 28740,
+        "screenshot": 31240,
+        "end": 33907
+      },
+      "suggested_clip_ms": {
+        "start": 28140,
+        "end": 33907
+      },
+      "operation": null,
+      "cjk_text_except_language_toggle": [],
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sha256": "0fecd6733d92a8c03e796005f8d5f71eafe250579d2ea09834899d7b92986dca"
+    },
+    {
+      "file": "02-growth.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8846/#app/growth",
+      "raw_video_elapsed_hold_ms": {
+        "start": 37694,
+        "screenshot": 40194,
+        "end": 42790
+      },
+      "suggested_clip_ms": {
+        "start": 34346,
+        "end": 42790
+      },
+      "operation": "weekly-report-generate",
+      "cjk_text_except_language_toggle": [],
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sha256": "a081f6ae273a6e92e4772537a8871ec11a2f8bbb56afd27d6d4da5d00e95e3c1"
+    },
+    {
+      "file": "19-memory-candidate.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8846/#app/assistant",
+      "raw_video_elapsed_hold_ms": {
+        "start": 44510,
+        "screenshot": 47010,
+        "end": 49867
+      },
+      "suggested_clip_ms": {
+        "start": 43910,
+        "end": 49867
+      },
+      "operation": null,
+      "cjk_text_except_language_toggle": [],
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sha256": "e0ebbdbc581ddac8b6887d68465b646b89d40df59856f004cd90d73ed9290a39"
+    },
+    {
+      "file": "08-memory-confirmed.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8846/#app/assistant",
+      "raw_video_elapsed_hold_ms": {
+        "start": 53254,
+        "screenshot": 55754,
+        "end": 58825
+      },
+      "suggested_clip_ms": {
+        "start": 43665,
+        "end": 58825
+      },
+      "operation": "owner-confirms-preference",
+      "cjk_text_except_language_toggle": [],
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sha256": "c9ba8103a11af4b42f66ec894e18bf71e37db7550696629466113d10c8ac492e"
+    },
+    {
+      "file": "03-assistant.png",
+      "role": "carer",
+      "url": "http://127.0.0.1:8846/#alexa",
+      "raw_video_elapsed_hold_ms": {
+        "start": 46032,
+        "screenshot": 48532,
+        "end": 51440
+      },
+      "suggested_clip_ms": {
+        "start": 45432,
+        "end": 51440
+      },
+      "operation": null,
+      "cjk_text_except_language_toggle": [],
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sha256": "455f598a2fb9077516b1f639b837b5aded526d4a43711d6770ba989e1a1a3148"
+    },
+    {
+      "file": "13-alexa-new-session.png",
+      "role": "carer",
+      "url": "http://127.0.0.1:8846/#alexa",
+      "raw_video_elapsed_hold_ms": {
+        "start": 52742,
+        "screenshot": 55242,
+        "end": 58282
+      },
+      "suggested_clip_ms": {
+        "start": 52142,
+        "end": 58282
+      },
+      "operation": null,
+      "cjk_text_except_language_toggle": [],
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sha256": "27d82b479876778e3c70fe88dd475cbfe052486c0774e30fe52f59d99882cbf1"
+    },
+    {
+      "file": "09-alexa-draft.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8846/#alexa",
+      "raw_video_elapsed_hold_ms": {
+        "start": 74971,
+        "screenshot": 77471,
+        "end": 80308
+      },
+      "suggested_clip_ms": {
+        "start": 74371,
+        "end": 80308
+      },
+      "operation": null,
+      "cjk_text_except_language_toggle": [],
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sha256": "8bf02d6a60ad589d56053204e96c9227701675823faa9c115b5def84bf67610a"
+    },
+    {
+      "file": "10-alexa-pending.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8846/#alexa",
+      "raw_video_elapsed_hold_ms": {
+        "start": 82122,
+        "screenshot": 84622,
+        "end": 87219
+      },
+      "suggested_clip_ms": {
+        "start": 80310,
+        "end": 87219
+      },
+      "operation": "prepare-care-proposal",
+      "cjk_text_except_language_toggle": [],
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sha256": "708fb3ecb90bb3c691c7743bb370de2841638fa0d4737b46d3b498e58d2769b4"
+    },
+    {
+      "file": "11-alexa-confirmed.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8846/#alexa",
+      "raw_video_elapsed_hold_ms": {
+        "start": 90577,
+        "screenshot": 93077,
+        "end": 95664
+      },
+      "suggested_clip_ms": {
+        "start": 87221,
+        "end": 95664
+      },
+      "operation": "confirm-manual-care",
+      "cjk_text_except_language_toggle": [],
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sha256": "99a79b2a781a1b88c30e65a51bff8df2e7a6527031bad11dcfb7c993a2ac5e8a"
+    },
+    {
+      "file": "20-care-claimed.png",
+      "role": "carer",
+      "url": "http://127.0.0.1:8846/#app/care",
+      "raw_video_elapsed_hold_ms": {
+        "start": 85313,
+        "screenshot": 87813,
+        "end": 90723
+      },
+      "suggested_clip_ms": {
+        "start": 84713,
+        "end": 90723
+      },
+      "operation": null,
+      "cjk_text_except_language_toggle": [],
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sha256": "15dfcbf8d3f60649d7c31d652902e4f42355616945369f419d62f34695291811"
+    },
+    {
+      "file": "04-care.png",
+      "role": "carer",
+      "url": "http://127.0.0.1:8846/#app/care",
+      "raw_video_elapsed_hold_ms": {
+        "start": 94229,
+        "screenshot": 96729,
+        "end": 99306
+      },
+      "suggested_clip_ms": {
+        "start": 81544,
+        "end": 99306
+      },
+      "operation": "alex-claims-and-completes-care",
+      "cjk_text_except_language_toggle": [],
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sha256": "7f83c3fd6ecde15fe232bd2bd51168e488c4bf2a61b5c8e95cb0488c876b3914"
+    },
+    {
+      "file": "07-completing-actor.png",
+      "role": "carer",
+      "url": "http://127.0.0.1:8846/#app/family",
+      "raw_video_elapsed_hold_ms": {
+        "start": 100314,
+        "screenshot": 102814,
+        "end": 105404
+      },
+      "suggested_clip_ms": {
+        "start": 99714,
+        "end": 105404
+      },
+      "operation": null,
+      "cjk_text_except_language_toggle": [],
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sha256": "abd2a9549fa186270393d31a098d7002347c0b240358faf90d0676e8e1d72e4e"
+    },
+    {
+      "file": "12-alexa-result.png",
+      "role": "carer",
+      "url": "http://127.0.0.1:8846/#alexa",
+      "raw_video_elapsed_hold_ms": {
+        "start": 106737,
+        "screenshot": 109237,
+        "end": 111993
+      },
+      "suggested_clip_ms": {
+        "start": 106137,
+        "end": 111993
+      },
+      "operation": null,
+      "cjk_text_except_language_toggle": [],
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sha256": "444c2ac8190ed6f5d7cd7b3fe5ed92e2b2f41396a3f86df3891452d3232ffb18"
+    },
+    {
+      "file": "05-daily.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8846/#app/growth",
+      "raw_video_elapsed_hold_ms": {
+        "start": 131674,
+        "screenshot": 134174,
+        "end": 136775
+      },
+      "suggested_clip_ms": {
+        "start": 127667,
+        "end": 136775
+      },
+      "operation": "generate-daily-report-after-completion",
+      "cjk_text_except_language_toggle": [],
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sha256": "1d3214084901707ef202ab56d2bed201a90890143969640e21b89065fabda2f6"
+    },
+    {
+      "file": "15-visit-card.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8846/#app/growth",
+      "raw_video_elapsed_hold_ms": {
+        "start": 139092,
+        "screenshot": 141592,
+        "end": 144292
+      },
+      "suggested_clip_ms": {
+        "start": 138492,
+        "end": 144292
+      },
+      "operation": null,
+      "cjk_text_except_language_toggle": [],
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sha256": "0a6aea0d85d43a62a0554d1f11e9733e6160e51dc0c0fe18fb210230b56f242a"
+    },
+    {
+      "file": "17-visit-records.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8846/#app/growth",
+      "raw_video_elapsed_hold_ms": {
+        "start": 145308,
+        "screenshot": 147808,
+        "end": 150440
+      },
+      "suggested_clip_ms": {
+        "start": 137235,
+        "end": 150440
+      },
+      "operation": "generate-vet-snapshot-and-read-records",
+      "cjk_text_except_language_toggle": [],
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sha256": "2c9d1be153cc7fa09404ba0e754e81ee57140113a54122c7b36170e5ec5d6464"
+    },
+    {
+      "file": "14-caregiver.png",
+      "role": "caregiver",
+      "url": "http://127.0.0.1:8846/#pet-access=[redacted]",
+      "raw_video_elapsed_hold_ms": {
+        "start": 1978,
+        "screenshot": 4478,
+        "end": 7085
+      },
+      "suggested_clip_ms": {
+        "start": 1378,
+        "end": 7085
+      },
+      "operation": null,
+      "cjk_text_except_language_toggle": [],
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sha256": "03c2041c40736f3e886fb46d76bfaa37674125b7338a6e5edca562f49859a718"
+    },
+    {
+      "file": "06-deleted-memory.png",
+      "role": "carer",
+      "url": "http://127.0.0.1:8846/#alexa",
+      "raw_video_elapsed_hold_ms": {
+        "start": 145267,
+        "screenshot": 147767,
+        "end": 150355
+      },
+      "suggested_clip_ms": {
+        "start": 144667,
+        "end": 150355
+      },
+      "operation": null,
+      "cjk_text_except_language_toggle": [],
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sha256": "ce66e2008d7f24e32eca322d80115bba0dea7379a1893e3af9b3e2617a087d01"
+    },
+    {
+      "file": "16-home-closing.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8846/#app/home",
+      "raw_video_elapsed_hold_ms": {
+        "start": 166589,
+        "screenshot": 169089,
+        "end": 171680
+      },
+      "suggested_clip_ms": {
+        "start": 165989,
+        "end": 171680
+      },
+      "operation": null,
+      "cjk_text_except_language_toggle": [],
+      "pixels": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sha256": "c4bc15c9c632b7847d9a6991d1fda80e48a659435a25111a5abbb138221c4215"
+    }
+  ],
+  "recordings": {
+    "owner": {
+      "video": "owner.webm",
+      "recording_origin_before_new_page_utc": "2026-10-14T17:06:38.193Z",
+      "recording_origin_after_new_page_utc": "2026-10-14T17:06:38.276Z",
+      "origin_uncertainty_ms": 83,
+      "first_blank_hold_ms": 600,
+      "timing_note": "Raw WebM starts with the first blank page. Elapsed ranges are role-specific wall clock since before newPage; visually calibrate the small startup uncertainty against raw frames.",
+      "bytes": 15653415,
+      "sha256": "cb0d21468161783923c572d034807b407bb7effedcd2fcf3abd333995f9a91ce"
+    },
+    "carer": {
+      "video": "carer.webm",
+      "recording_origin_before_new_page_utc": "2026-10-14T17:06:53.443Z",
+      "recording_origin_after_new_page_utc": "2026-10-14T17:06:53.510Z",
+      "origin_uncertainty_ms": 67,
+      "first_blank_hold_ms": 600,
+      "timing_note": "Raw WebM starts with the first blank page. Elapsed ranges are role-specific wall clock since before newPage; visually calibrate the small startup uncertainty against raw frames.",
+      "bytes": 13446400,
+      "sha256": "9c60659db5dbe771a6c6ea22a529a2238b006df734c8353558d2a59dba944457"
+    },
+    "caregiver": {
+      "video": "caregiver.webm",
+      "recording_origin_before_new_page_utc": "2026-10-14T17:09:09.214Z",
+      "recording_origin_after_new_page_utc": "2026-10-14T17:09:09.279Z",
+      "origin_uncertainty_ms": 65,
+      "first_blank_hold_ms": 600,
+      "timing_note": "Raw WebM starts with the first blank page. Elapsed ranges are role-specific wall clock since before newPage; visually calibrate the small startup uncertainty against raw frames.",
+      "bytes": 1764293,
+      "sha256": "ecb5a3c47fb309123c3b1a9d2b5befdffaa8eecf0b8cc25250529baa7ad86599"
+    }
+  },
+  "staging": [
+    "Fictional seeded object names changed to English through the local API before capture.",
+    "Carer used the real Care UI to rename the server-generated rule title to Playtime with Mochi, before claiming and completing. The original rule title is preserved in proposal evidence."
+  ],
+  "checks": [],
+  "operations": [
+    {
+      "name": "weekly-report-generate",
+      "role": "owner",
+      "start_ms": 34346,
+      "end_ms": 42790
+    },
+    {
+      "name": "owner-confirms-preference",
+      "role": "owner",
+      "start_ms": 43665,
+      "end_ms": 58825
+    },
+    {
+      "name": "prepare-care-proposal",
+      "role": "owner",
+      "start_ms": 80310,
+      "end_ms": 87219
+    },
+    {
+      "name": "confirm-manual-care",
+      "role": "owner",
+      "start_ms": 87221,
+      "end_ms": 95664
+    },
+    {
+      "name": "alex-claims-and-completes-care",
+      "role": "carer",
+      "start_ms": 81544,
+      "end_ms": 99306
+    },
+    {
+      "name": "generate-daily-report-after-completion",
+      "role": "owner",
+      "start_ms": 127667,
+      "end_ms": 136775
+    },
+    {
+      "name": "generate-vet-snapshot-and-read-records",
+      "role": "owner",
+      "start_ms": 137235,
+      "end_ms": 150440
+    }
+  ],
+  "mouse_actions": [
+    {
+      "name": "Save fictional weight 1.20 kg",
+      "role": "owner",
+      "start_ms": 19103,
+      "end_ms": 19949,
+      "position_css": {
+        "x": 1273.6640625,
+        "y": 947.5546875
+      },
+      "real_browser_pointer": true
+    },
+    {
+      "name": "Save fictional weight 1.35 kg",
+      "role": "owner",
+      "start_ms": 26620,
+      "end_ms": 27449,
+      "position_css": {
+        "x": 1273.6640625,
+        "y": 947.6484375
+      },
+      "real_browser_pointer": true
+    },
+    {
+      "name": "Generate weekly report",
+      "role": "owner",
+      "start_ms": 35995,
+      "end_ms": 36830,
+      "position_css": {
+        "x": 712.0703125,
+        "y": 879.4296875
+      },
+      "real_browser_pointer": true
+    },
+    {
+      "name": "Confirm owner preference",
+      "role": "owner",
+      "start_ms": 51539,
+      "end_ms": 52377,
+      "position_css": {
+        "x": 1286.9609375,
+        "y": 716.8515625
+      },
+      "real_browser_pointer": true
+    },
+    {
+      "name": "Prepare care proposal",
+      "role": "owner",
+      "start_ms": 80453,
+      "end_ms": 81278,
+      "position_css": {
+        "x": 877.578125,
+        "y": 921.6796875
+      },
+      "real_browser_pointer": true
+    },
+    {
+      "name": "Confirm manual care plan",
+      "role": "owner",
+      "start_ms": 88874,
+      "end_ms": 89718,
+      "position_css": {
+        "x": 898.7890625,
+        "y": 921.8984375
+      },
+      "real_browser_pointer": true
+    },
+    {
+      "name": "Alex claims care",
+      "role": "carer",
+      "start_ms": 83194,
+      "end_ms": 84228,
+      "position_css": {
+        "x": 355.84375,
+        "y": 397.75
+      },
+      "real_browser_pointer": true
+    },
+    {
+      "name": "Alex records care completion",
+      "role": "carer",
+      "start_ms": 92380,
+      "end_ms": 93222,
+      "position_css": {
+        "x": 441.0703125,
+        "y": 455.546875
+      },
+      "real_browser_pointer": true
+    },
+    {
+      "name": "Generate daily report after completion",
+      "role": "owner",
+      "start_ms": 129318,
+      "end_ms": 130587,
+      "position_css": {
+        "x": 532.53125,
+        "y": 935.4296875
+      },
+      "real_browser_pointer": true
+    },
+    {
+      "name": "Generate dated visit snapshot",
+      "role": "owner",
+      "start_ms": 137381,
+      "end_ms": 138236,
+      "position_css": {
+        "x": 1054.390625,
+        "y": 608.5
+      },
+      "real_browser_pointer": true
+    }
+  ],
+  "capture_geometry": {
+    "viewport_css": {
+      "width": 1920,
+      "height": 1080
+    },
+    "device_scale_factor": 1,
+    "screenshot_pixels": {
+      "width": 1920,
+      "height": 1080
+    },
+    "requested_video_pixels": {
+      "width": 1920,
+      "height": 1080
+    },
+    "browser_slow_mo_ms": 120,
+    "timing": "Real browser actions at normal speed; no fabricated UI or cursor is drawn.",
+    "quality_decision": "A measured 1280 CSS viewport with 1.5 device scale produced padded 1280-detail video in a 1920 container. Final capture uses a true 1920 CSS viewport and deviceScaleFactor 1; prior trial directories are separate."
+  },
+  "bootstrap": {
+    "project": "PawTwin",
+    "stage": "local_business",
+    "mode": "local",
+    "aws_connected": false,
+    "analyzer": "local_fake",
+    "capabilities": {
+      "event_intake": "implemented_local",
+      "owner_approval": "implemented_local",
+      "simulated_device": "implemented_simulated",
+      "owner_feedback": "implemented_local",
+      "long_term_memory": "not_implemented"
+    }
+  },
+  "caregiver": {
+    "pet_id": "mochi",
+    "read_only": true,
+    "token_redacted": true,
+    "context": {
+      "grant": {
+        "id": "fca7afaf-1bf2-4ce0-b6d0-932c1e9851d7",
+        "pet_name": "Mochi",
+        "created_at": "2026-10-14T17:09:09.085227+00:00",
+        "expires_at": "2026-10-15T17:09:09.085227+00:00",
+        "revoked_at": null,
+        "status": "active"
+      },
+      "pet": {
+        "name": "Mochi",
+        "species": "cat",
+        "breed": "",
+        "gender": "unknown",
+        "birthday": null,
+        "birthday_estimated": false,
+        "neutered": null,
+        "expected_adult_weight_kg": null,
+        "age_years": null,
+        "coat": "gold",
+        "pattern": "solid",
+        "size": "medium",
+        "likes": "",
+        "dislikes": ""
+      },
+      "as_of": "2026-10-14T17:09:16.306118+00:00",
+      "timezone": "Asia/Shanghai",
+      "context_version": 14,
+      "read_only": true,
+      "preferences": [
+        {
+          "id": "9cb4c783-ad7a-4abe-a1c9-34195d48ba0c",
+          "text": "Loves the feather toy. Rest after meals.",
+          "topic": "play",
+          "created_at": "2026-10-14T17:07:21.286513+00:00",
+          "valid_until": null,
+          "active": true,
+          "version": 2,
+          "source": "owner_confirmed"
+        }
+      ],
+      "observations": [],
+      "completed_care": [
+        {
+          "id": "6eab6520-63c3-4057-b55d-c9a74f063871",
+          "title": "Playtime with Mochi",
+          "kind": "play",
+          "due_at": "2026-10-14T17:06:00Z",
+          "completed_at": "2026-10-14T17:08:26.543349+00:00",
+          "version": 1,
+          "source": "manual_care"
+        }
+      ],
+      "tasks": [],
+      "measurements": [],
+      "label": "仅该宠物的临时只读照护资料；本地规则分身，无设备或修改权限"
+    },
+    "revocation_verified": true
+  },
+  "shared_memory": {
+    "memory_id": "9cb4c783-ad7a-4abe-a1c9-34195d48ba0c",
+    "before": {
+      "answer": "Mochi 的记录：还没有已确认的偏好记忆。",
+      "entry": "alexa_simulator",
+      "backend": "local_rules",
+      "request_id": null,
+      "model_id": null,
+      "input_tokens": null,
+      "output_tokens": null,
+      "latency_ms": null,
+      "inference_status": null,
+      "answer_origin": "local_rules",
+      "context_version": 5,
+      "source_record_ids": [],
+      "references": [
+        {
+          "id": "waltham-kitten",
+          "species": "cat",
+          "minimum_age_weeks": 8,
+          "url": "https://www.waltham.com/resources/kitten-growth-charts",
+          "title": "WALTHAM Kitten Growth Charts",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "幼猫成长参考有年龄与适用范围限制；未导入数值曲线，不能给出标准体重。"
+        },
+        {
+          "id": "merck-nutrition",
+          "species": "cat,dog",
+          "minimum_age_weeks": null,
+          "url": "https://www.merckvetmanual.com/management-and-nutrition/nutrition-small-animals/overview-of-nutrition-small-animals",
+          "title": "Merck Veterinary Manual: Small Animal Nutrition",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "营养评估需要饮食史、体况与肌肉状况等资料，并结合兽医检查。"
+        }
+      ],
+      "action_executed": false,
+      "label": "本地规则分身 / Alexa 网页模拟；记录原文是数据，不是指令",
+      "care_draft": null,
+      "context_valid_until": "2026-10-15T16:00:00+00:00"
+    },
+    "candidate": {
+      "answer": "Mochi 的记录：还没有已确认的偏好记忆。",
+      "entry": "alexa_simulator",
+      "backend": "local_rules",
+      "request_id": null,
+      "model_id": null,
+      "input_tokens": null,
+      "output_tokens": null,
+      "latency_ms": null,
+      "inference_status": null,
+      "answer_origin": "local_rules",
+      "context_version": 8,
+      "source_record_ids": [],
+      "references": [
+        {
+          "id": "waltham-kitten",
+          "species": "cat",
+          "minimum_age_weeks": 8,
+          "url": "https://www.waltham.com/resources/kitten-growth-charts",
+          "title": "WALTHAM Kitten Growth Charts",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "幼猫成长参考有年龄与适用范围限制；未导入数值曲线，不能给出标准体重。"
+        },
+        {
+          "id": "merck-nutrition",
+          "species": "cat,dog",
+          "minimum_age_weeks": null,
+          "url": "https://www.merckvetmanual.com/management-and-nutrition/nutrition-small-animals/overview-of-nutrition-small-animals",
+          "title": "Merck Veterinary Manual: Small Animal Nutrition",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "营养评估需要饮食史、体况与肌肉状况等资料，并结合兽医检查。"
+        }
+      ],
+      "action_executed": false,
+      "label": "本地规则分身 / Alexa 网页模拟；记录原文是数据，不是指令",
+      "care_draft": null,
+      "context_valid_until": "2026-10-15T16:00:00+00:00"
+    },
+    "confirmed_in_new_login": {
+      "answer": "Mochi 的记录：主人确认记录：Loves the feather toy. Rest after meals.。",
+      "entry": "alexa_simulator",
+      "backend": "local_rules",
+      "request_id": null,
+      "model_id": null,
+      "input_tokens": null,
+      "output_tokens": null,
+      "latency_ms": null,
+      "inference_status": null,
+      "answer_origin": "local_rules",
+      "context_version": 9,
+      "source_record_ids": [
+        "9cb4c783-ad7a-4abe-a1c9-34195d48ba0c"
+      ],
+      "references": [
+        {
+          "id": "waltham-kitten",
+          "species": "cat",
+          "minimum_age_weeks": 8,
+          "url": "https://www.waltham.com/resources/kitten-growth-charts",
+          "title": "WALTHAM Kitten Growth Charts",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "幼猫成长参考有年龄与适用范围限制；未导入数值曲线，不能给出标准体重。"
+        },
+        {
+          "id": "merck-nutrition",
+          "species": "cat,dog",
+          "minimum_age_weeks": null,
+          "url": "https://www.merckvetmanual.com/management-and-nutrition/nutrition-small-animals/overview-of-nutrition-small-animals",
+          "title": "Merck Veterinary Manual: Small Animal Nutrition",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "营养评估需要饮食史、体况与肌肉状况等资料，并结合兽医检查。"
+        }
+      ],
+      "action_executed": false,
+      "label": "本地规则分身 / Alexa 网页模拟；记录原文是数据，不是指令",
+      "care_draft": null,
+      "context_valid_until": "2026-10-15T16:00:00+00:00"
+    },
+    "confirmed_in_new_page_session": {
+      "answer": "Mochi 的记录：主人确认记录：Loves the feather toy. Rest after meals.。",
+      "entry": "alexa_simulator",
+      "backend": "local_rules",
+      "request_id": null,
+      "model_id": null,
+      "input_tokens": null,
+      "output_tokens": null,
+      "latency_ms": null,
+      "inference_status": null,
+      "answer_origin": "local_rules",
+      "context_version": 9,
+      "source_record_ids": [
+        "9cb4c783-ad7a-4abe-a1c9-34195d48ba0c"
+      ],
+      "references": [
+        {
+          "id": "waltham-kitten",
+          "species": "cat",
+          "minimum_age_weeks": 8,
+          "url": "https://www.waltham.com/resources/kitten-growth-charts",
+          "title": "WALTHAM Kitten Growth Charts",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "幼猫成长参考有年龄与适用范围限制；未导入数值曲线，不能给出标准体重。"
+        },
+        {
+          "id": "merck-nutrition",
+          "species": "cat,dog",
+          "minimum_age_weeks": null,
+          "url": "https://www.merckvetmanual.com/management-and-nutrition/nutrition-small-animals/overview-of-nutrition-small-animals",
+          "title": "Merck Veterinary Manual: Small Animal Nutrition",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "营养评估需要饮食史、体况与肌肉状况等资料，并结合兽医检查。"
+        }
+      ],
+      "action_executed": false,
+      "label": "本地规则分身 / Alexa 网页模拟；记录原文是数据，不是指令",
+      "care_draft": null,
+      "context_valid_until": "2026-10-15T16:00:00+00:00"
+    },
+    "after_deletion": {
+      "answer": "Mochi 的记录：还没有已确认的偏好记忆。",
+      "entry": "alexa_simulator",
+      "backend": "local_rules",
+      "request_id": null,
+      "model_id": null,
+      "input_tokens": null,
+      "output_tokens": null,
+      "latency_ms": null,
+      "inference_status": null,
+      "answer_origin": "local_rules",
+      "context_version": 15,
+      "source_record_ids": [],
+      "references": [
+        {
+          "id": "waltham-kitten",
+          "species": "cat",
+          "minimum_age_weeks": 8,
+          "url": "https://www.waltham.com/resources/kitten-growth-charts",
+          "title": "WALTHAM Kitten Growth Charts",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "幼猫成长参考有年龄与适用范围限制；未导入数值曲线，不能给出标准体重。"
+        },
+        {
+          "id": "merck-nutrition",
+          "species": "cat,dog",
+          "minimum_age_weeks": null,
+          "url": "https://www.merckvetmanual.com/management-and-nutrition/nutrition-small-animals/overview-of-nutrition-small-animals",
+          "title": "Merck Veterinary Manual: Small Animal Nutrition",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "营养评估需要饮食史、体况与肌肉状况等资料，并结合兽医检查。"
+        }
+      ],
+      "action_executed": false,
+      "label": "本地规则分身 / Alexa 网页模拟；记录原文是数据，不是指令",
+      "care_draft": null,
+      "context_valid_until": "2026-10-15T16:00:00+00:00"
+    }
+  },
+  "alexa_care": {
+    "draft": {
+      "answer": "Mochi 的记录：已整理人工照护草案，请选择时间并明确确认。尚未创建任务或执行设备。主人确认的陪玩记录：Loves the feather toy. Rest after meals.。",
+      "entry": "alexa_simulator",
+      "backend": "local_rules",
+      "request_id": null,
+      "model_id": null,
+      "input_tokens": null,
+      "output_tokens": null,
+      "latency_ms": null,
+      "inference_status": null,
+      "answer_origin": "local_rules",
+      "context_version": 9,
+      "source_record_ids": [
+        "9cb4c783-ad7a-4abe-a1c9-34195d48ba0c"
+      ],
+      "references": [
+        {
+          "id": "waltham-kitten",
+          "species": "cat",
+          "minimum_age_weeks": 8,
+          "url": "https://www.waltham.com/resources/kitten-growth-charts",
+          "title": "WALTHAM Kitten Growth Charts",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "幼猫成长参考有年龄与适用范围限制；未导入数值曲线，不能给出标准体重。"
+        },
+        {
+          "id": "merck-nutrition",
+          "species": "cat,dog",
+          "minimum_age_weeks": null,
+          "url": "https://www.merckvetmanual.com/management-and-nutrition/nutrition-small-animals/overview-of-nutrition-small-animals",
+          "title": "Merck Veterinary Manual: Small Animal Nutrition",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "营养评估需要饮食史、体况与肌肉状况等资料，并结合兽医检查。"
+        }
+      ],
+      "action_executed": false,
+      "label": "本地规则分身 / Alexa 网页模拟；记录原文是数据，不是指令",
+      "care_draft": {
+        "kind": "play",
+        "title": "陪 Mochi 玩耍"
+      },
+      "context_valid_until": "2026-10-15T16:00:00+00:00"
+    },
+    "proposal": {
+      "id": "8cf96bcf-db78-4644-9ccd-d7d3b3c45cd4",
+      "household_id": "44390fad-907a-4f2e-81c3-272d3de45df9",
+      "pet_id": "mochi",
+      "author_user_id": "a692a9f5-b3be-4b22-8d81-31c191e328d6",
+      "kind": "play",
+      "title": "陪 Mochi 玩耍",
+      "due_at": "2026-10-14T17:06:00Z",
+      "version": 1,
+      "context_version": 10,
+      "status": "awaiting_confirmation",
+      "created_at": "2026-10-14T17:07:59.349055+00:00",
+      "device_action": false,
+      "task_id": null,
+      "confirmed_by": null,
+      "context_valid_until": "2026-10-15T16:00:00+00:00"
+    },
+    "confirmed_proposal": {
+      "id": "8cf96bcf-db78-4644-9ccd-d7d3b3c45cd4",
+      "household_id": "44390fad-907a-4f2e-81c3-272d3de45df9",
+      "pet_id": "mochi",
+      "author_user_id": "a692a9f5-b3be-4b22-8d81-31c191e328d6",
+      "kind": "play",
+      "title": "陪 Mochi 玩耍",
+      "due_at": "2026-10-14T17:06:00Z",
+      "version": 2,
+      "context_version": 10,
+      "status": "confirmed",
+      "created_at": "2026-10-14T17:07:59.349055+00:00",
+      "device_action": false,
+      "task_id": "eabcb9a2-ed3a-485a-bdeb-ee926b023620",
+      "confirmed_by": "a692a9f5-b3be-4b22-8d81-31c191e328d6",
+      "context_valid_until": "2026-10-15T16:00:00+00:00"
+    },
+    "result_reply": {
+      "answer": "Mochi 的记录：最近七天的人工完成记录：Playtime with Mochi（2026-10-14T17:08:26.543349+00:00）。",
+      "entry": "alexa_simulator",
+      "backend": "local_rules",
+      "request_id": null,
+      "model_id": null,
+      "input_tokens": null,
+      "output_tokens": null,
+      "latency_ms": null,
+      "inference_status": null,
+      "answer_origin": "local_rules",
+      "context_version": 14,
+      "source_record_ids": [
+        "6eab6520-63c3-4057-b55d-c9a74f063871"
+      ],
+      "references": [
+        {
+          "id": "waltham-kitten",
+          "species": "cat",
+          "minimum_age_weeks": 8,
+          "url": "https://www.waltham.com/resources/kitten-growth-charts",
+          "title": "WALTHAM Kitten Growth Charts",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "幼猫成长参考有年龄与适用范围限制；未导入数值曲线，不能给出标准体重。"
+        },
+        {
+          "id": "merck-nutrition",
+          "species": "cat,dog",
+          "minimum_age_weeks": null,
+          "url": "https://www.merckvetmanual.com/management-and-nutrition/nutrition-small-animals/overview-of-nutrition-small-animals",
+          "title": "Merck Veterinary Manual: Small Animal Nutrition",
+          "retrieved_on": "2026-10-03",
+          "review_status": "source_checked",
+          "summary": "营养评估需要饮食史、体况与肌肉状况等资料，并结合兽医检查。"
+        }
+      ],
+      "action_executed": false,
+      "label": "本地规则分身 / Alexa 网页模拟；记录原文是数据，不是指令",
+      "care_draft": null,
+      "context_valid_until": "2026-10-15T16:00:00+00:00"
+    }
+  },
+  "weekly_report": {
+    "report_id": "a79a2f2a-caf9-4bba-9361-b02d022a4c7c",
+    "household_id": "44390fad-907a-4f2e-81c3-272d3de45df9",
+    "pet_id": "mochi",
+    "period": "weekly",
+    "date": "2026-10-02",
+    "window_start": "2026-09-27T16:00:00+00:00",
+    "window_end": "2026-10-04T16:00:00+00:00",
+    "cutoff": "2026-10-04T16:00:00+00:00",
+    "generated_at": "2026-10-14T17:07:14.901859+00:00",
+    "stat_version": 7,
+    "status": "current",
+    "notification": "not_sent",
+    "source_record_ids": [
+      "ba5f92f0-0a39-4f96-8b91-ad6ab1f70661",
+      "23b736fc-5fb7-4b37-9a1a-353ed5b2c94e"
+    ],
+    "source_versions": {
+      "23b736fc-5fb7-4b37-9a1a-353ed5b2c94e": 1,
+      "ba5f92f0-0a39-4f96-8b91-ad6ab1f70661": 1
+    },
+    "coverage": {
+      "weight_measurements": 1,
+      "diet_records": 0,
+      "incomplete_window": false,
+      "tasks_without_creation_time": 0
+    },
+    "weight": {
+      "change_g": 150,
+      "change_percent": 12.5,
+      "span_days": 7,
+      "source_record_ids": [
+        "23b736fc-5fb7-4b37-9a1a-353ed5b2c94e",
+        "ba5f92f0-0a39-4f96-8b91-ad6ab1f70661"
+      ],
+      "latest_g": 1350,
+      "description": "实际测量跨度；群体参考不能用于诊断"
+    },
+    "diet": {
+      "actual_intake_g": null,
+      "food_offered_g": null,
+      "dispensed_g": null,
+      "remaining_g": null,
+      "simulated_device_dispensed_g": null
+    },
+    "care": {
+      "manual_completed": 0,
+      "device_success": null,
+      "device_failed": 0,
+      "device_unknown": 0,
+      "device_results_simulated": true,
+      "pending": 0,
+      "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+      "overdue": 0,
+      "by_member": {}
+    },
+    "growth": {
+      "diary_count": 0
+    }
+  },
+  "daily_report": {
+    "report_id": "d39be0b4-06c5-40e0-8960-eea9f72bd85e",
+    "household_id": "44390fad-907a-4f2e-81c3-272d3de45df9",
+    "pet_id": "mochi",
+    "period": "daily",
+    "date": "2026-10-15",
+    "window_start": "2026-10-14T16:00:00+00:00",
+    "window_end": "2026-10-15T16:00:00+00:00",
+    "cutoff": "2026-10-14T17:08:48.652388+00:00",
+    "generated_at": "2026-10-14T17:08:48.652388+00:00",
+    "stat_version": 14,
+    "status": "current",
+    "notification": "not_sent",
+    "source_record_ids": [
+      "ba5f92f0-0a39-4f96-8b91-ad6ab1f70661",
+      "89ac978f-129e-478d-ad24-0609625e1301",
+      "c675a338-5144-443f-b8af-811a3d546039",
+      "875b3cda-4d49-4840-b923-bafda37ca1e1",
+      "835d7f48-56ab-43cf-9992-f2f856995d16",
+      "f0add76a-a53c-45cf-a40b-82063d64b887",
+      "df07fe20-c1c7-458e-87e2-c5b14c3bace4",
+      "7b29a3a0-d14c-47e5-ae51-1986512ac47b",
+      "6eab6520-63c3-4057-b55d-c9a74f063871"
+    ],
+    "source_versions": {
+      "ba5f92f0-0a39-4f96-8b91-ad6ab1f70661": 1,
+      "89ac978f-129e-478d-ad24-0609625e1301": 1,
+      "c675a338-5144-443f-b8af-811a3d546039": 1,
+      "875b3cda-4d49-4840-b923-bafda37ca1e1": 1,
+      "835d7f48-56ab-43cf-9992-f2f856995d16": 1,
+      "f0add76a-a53c-45cf-a40b-82063d64b887": 1,
+      "df07fe20-c1c7-458e-87e2-c5b14c3bace4": 1,
+      "7b29a3a0-d14c-47e5-ae51-1986512ac47b": 1,
+      "6eab6520-63c3-4057-b55d-c9a74f063871": 1
+    },
+    "coverage": {
+      "weight_measurements": 0,
+      "diet_records": 0,
+      "incomplete_window": true,
+      "tasks_without_creation_time": 0
+    },
+    "weight": {
+      "change_g": null,
+      "change_percent": null,
+      "span_days": null,
+      "source_record_ids": [
+        "ba5f92f0-0a39-4f96-8b91-ad6ab1f70661"
+      ],
+      "latest_g": 1350,
+      "description": "实际测量跨度；群体参考不能用于诊断"
+    },
+    "diet": {
+      "actual_intake_g": null,
+      "food_offered_g": null,
+      "dispensed_g": null,
+      "remaining_g": null,
+      "simulated_device_dispensed_g": null
+    },
+    "care": {
+      "manual_completed": 1,
+      "device_success": null,
+      "device_failed": 0,
+      "device_unknown": 0,
+      "device_results_simulated": true,
+      "pending": 0,
+      "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+      "overdue": 0,
+      "by_member": {
+        "5b30acf2-35b8-42c5-ae71-9d03057420cd": 1
+      }
+    },
+    "growth": {
+      "diary_count": 0
+    }
+  },
+  "manual_care": {
+    "occurrence_id": "6eab6520-63c3-4057-b55d-c9a74f063871",
+    "source": "manual_care",
+    "completed_by": "5b30acf2-35b8-42c5-ae71-9d03057420cd",
+    "expected_actor_id": "5b30acf2-35b8-42c5-ae71-9d03057420cd"
+  },
+  "boundaries": [
+    "fictional Emma/Alex household",
+    "demo_sample measurements",
+    "owner-confirmed SQLite database memory",
+    "independent Alexa web simulation",
+    "rule draft with explicit manual-care confirmation",
+    "no live model or hardware",
+    "caregiver read-only scoped access",
+    "vet card is a frozen record summary, not diagnosis"
+  ],
+  "timing_boundary": "Role-specific WebM starts at the first blank page. Holds have approximate raw seek ranges measured from newPage creation; calibrate first-frame uncertainty and transitions visually. API credentials and caregiver link are excluded; screenshots do not show invitation codes.",
+  "status": "passed"
+}

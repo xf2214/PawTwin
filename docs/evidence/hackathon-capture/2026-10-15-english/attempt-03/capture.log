@@ -1,0 +1,8 @@
+Captured 00-product (owner) at 2008..7133 ms
+Captured 01-home (owner) at 8382..13433 ms
+locator.selectOption: Timeout 10000ms exceeded.
+Call log:
+  - waiting for getByLabel('Record source', { exact: true })
+
+    at main (C:\Users\11831\Desktop\hks\outputs\pawtwin-app\docs\submission\2026-10-15\production\capture-english.cjs:121:182)
+Capture failed; evidence written to C:\Users\11831\Desktop\hks\outputs\pawtwin-app\docs\evidence\hackathon-capture\2026-10-15-english\attempt-03

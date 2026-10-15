@@ -1,0 +1,19 @@
+{
+  "objective": "Complete English hackathon submission video under 180 seconds",
+  "direction": "Approved warm family story, polished product demonstration, continuous Ava narration",
+  "write_scope": [
+    "independent Remotion studio",
+    "new fullfilm-01 evidence",
+    "new versioned output video/captions/poster"
+  ],
+  "preserve": "All previous deliveries, app source, dependencies, and databases",
+  "stages": [
+    "Source audit and final English script",
+    "Continuous narration and timed captions",
+    "Actual normal-speed workflow clips and complete film composition",
+    "Render, full decode, encoded frame/audio review, final package"
+  ],
+  "external_publication": "Not part of this media creation request",
+  "status": "complete",
+  "result": "142.379-second 1080p H264/AAC English film, burned captions, matching SRT, poster; complete decode and independent audio/visual technical review passed"
+}

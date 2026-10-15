@@ -1,0 +1,112 @@
+[
+  {
+    "file": "00-product.png",
+    "bytes": 410758,
+    "sha256": "6f9be9ed1568e30d99aaae9a97e7ee6e14c4acf492e32609b74b9c970ce107b1"
+  },
+  {
+    "file": "01-home.png",
+    "bytes": 77757,
+    "sha256": "b15cce72865e03d94d8a59a6e99e3b14be2831df7dae64e251ec9c3ea65e431b"
+  },
+  {
+    "file": "02-growth.png",
+    "bytes": 52160,
+    "sha256": "c4774279adac272cc21bc99ff82dc60cce6294ae4210b0d3c08fa982d02cf751"
+  },
+  {
+    "file": "03-assistant.png",
+    "bytes": 70030,
+    "sha256": "f22c9c708591f1fa35f3466910d08cd50ad7574cf24a3ab17b2356947f04c2dc"
+  },
+  {
+    "file": "04-care.png",
+    "bytes": 49812,
+    "sha256": "4021a9cebdd5d6f99db009a04fff290b14744f66fa43f48e1c72dd84527fbf5f"
+  },
+  {
+    "file": "05-daily.png",
+    "bytes": 56549,
+    "sha256": "5219c03e453ecd8928f7b316bd76465e2ca96f272456023c9aa0b24710c375e7"
+  },
+  {
+    "file": "06-deleted-memory.png",
+    "bytes": 63572,
+    "sha256": "ebe7c96b44d16beeb67f564a1cac0bcb63c926a69c0ef15610ff9c8bc15bc974"
+  },
+  {
+    "file": "07-completing-actor.png",
+    "bytes": 55428,
+    "sha256": "ffd43399d9880171c6f0263ecd3273eb01310335f770c159f237eb1e0f36dc56"
+  },
+  {
+    "file": "08-memory-confirmed.png",
+    "bytes": 65921,
+    "sha256": "c78da0df730dd75b284255cb07f361befec238d3706dde9cdaf2595f48d693ca"
+  },
+  {
+    "file": "09-alexa-draft.png",
+    "bytes": 48349,
+    "sha256": "db5e15b7d5031df2f6d945aaa1624daccf92119984c711fbd5955dccbf4a3a6f"
+  },
+  {
+    "file": "10-alexa-pending.png",
+    "bytes": 53954,
+    "sha256": "27ff1b19d42e3604077a348ad2ba3ccb501d8ebf995d6c98fa0ef8be4870c9fb"
+  },
+  {
+    "file": "11-alexa-confirmed.png",
+    "bytes": 52265,
+    "sha256": "5e0aab80323c57f033be8feb12348a511da4cf5038cab0519d2ab1fd301b95e4"
+  },
+  {
+    "file": "12-alexa-result.png",
+    "bytes": 66269,
+    "sha256": "85d8737292bbd85656d8ed1081e139c864152dec2553d57a89a51c8d5f7f2fdf"
+  },
+  {
+    "file": "13-alexa-new-session.png",
+    "bytes": 64204,
+    "sha256": "e7112064a9637a7140f4fe4914340cfbbbb1002a06013c2766e8dbf0969c9434"
+  },
+  {
+    "file": "14-caregiver.png",
+    "bytes": 140993,
+    "sha256": "f639377e3e6ee4f32394d320689fa6ca69ba1df6b96f274cdd8c32eb3eeb1556"
+  },
+  {
+    "file": "15-visit-card.png",
+    "bytes": 91281,
+    "sha256": "7a4c6877ba1034613a0a34d09b3f9d9ea4a3e16dd55ea5b1b39b1b4e88c7f3cc"
+  },
+  {
+    "file": "16-home-closing.png",
+    "bytes": 77502,
+    "sha256": "9747fe227e2c8bbedfca29d6b690e00d25f95d1669972791489c6069bd6e139f"
+  },
+  {
+    "file": "caregiver.webm",
+    "bytes": 1196741,
+    "sha256": "1269e5f66d2f1a514e54fc5cbab78840e7655f310018f0ecd85d268235ca9136"
+  },
+  {
+    "file": "carer.webm",
+    "bytes": 4847275,
+    "sha256": "a33ae48208f812bd1b8d03f3c50e5895da978aeadfee7eb1766bf70a1aa4487f"
+  },
+  {
+    "file": "clip-suggestions.json",
+    "bytes": 5160,
+    "sha256": "726cb56a650220de968dfe2482c5781f0f519ccd78f68400d5e8e82a2f67fc59"
+  },
+  {
+    "file": "demo-evidence.json",
+    "bytes": 29291,
+    "sha256": "2884a8dfb8da682d8eced83de1480421b46071b37c6ebe7dadebe30dcff7a47e"
+  },
+  {
+    "file": "owner.webm",
+    "bytes": 6279919,
+    "sha256": "ee803cd64f9ce34421a216e4487a679232dae061ccfe565011401e4955efa1d6"
+  }
+]

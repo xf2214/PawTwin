@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "owner": {
+      "sha256": "ee803cd64f9ce34421a216e4487a679232dae061ccfe565011401e4955efa1d6",
+      "duration_seconds": 107.44
+    },
+    "carer": {
+      "sha256": "a33ae48208f812bd1b8d03f3c50e5895da978aeadfee7eb1766bf70a1aa4487f",
+      "duration_seconds": 91.92
+    },
+    "caregiver": {
+      "sha256": "1269e5f66d2f1a514e54fc5cbab78840e7655f310018f0ecd85d268235ca9136",
+      "duration_seconds": 23.32
+    }
+  },
+  "clips": [
+    {
+      "scene_source": "00-product.png",
+      "role": "owner",
+      "start": 2.141,
+      "duration": 4.6,
+      "speed": 1.0
+    },
+    {
+      "scene_source": "01-home.png",
+      "role": "owner",
+      "start": 8.563,
+      "duration": 4.6,
+      "speed": 1.0
+    },
+    {
+      "scene_source": "02-growth.png",
+      "role": "owner",
+      "start": 15.021,
+      "duration": 5.0,
+      "speed": 1.0
+    },
+    {
+      "scene_source": "08-memory-confirmed.png",
+      "role": "owner",
+      "start": 21.099,
+      "duration": 5.0,
+      "speed": 1.0
+    },
+    {
+      "scene_source": "13-alexa-new-session.png",
+      "role": "carer",
+      "start": 19.6,
+      "duration": 5.0,
+      "speed": 1.0
+    },
+    {
+      "scene_source": "09-alexa-draft.png",
+      "role": "owner",
+      "start": 39.113,
+      "duration": 5.0,
+      "speed": 1.0
+    },
+    {
+      "scene_source": "10-alexa-pending.png",
+      "role": "owner",
+      "start": 44.935,
+      "duration": 5.0,
+      "speed": 1.0
+    },
+    {
+      "scene_source": "11-alexa-confirmed.png",
+      "role": "owner",
+      "start": 50.78,
+      "duration": 5.0,
+      "speed": 1.0
+    },
+    {
+      "scene_source": "04-care.png",
+      "role": "carer",
+      "start": 43.22,
+      "duration": 5.0,
+      "speed": 1.0
+    },
+    {
+      "scene_source": "05-daily.png",
+      "role": "owner",
+      "start": 74.407,
+      "duration": 5.0,
+      "speed": 1.0
+    },
+    {
+      "scene_source": "14-caregiver.png",
+      "role": "caregiver",
+      "start": 1.906,
+      "duration": 4.6,
+      "speed": 1.0
+    },
+    {
+      "scene_source": "15-visit-card.png",
+      "role": "owner",
+      "start": 80.336,
+      "duration": 5.0,
+      "speed": 1.0
+    }
+  ],
+  "timing_note": "Ranges decoded from the actual role-specific WebM; inspect calibration frames before rendering."
+}

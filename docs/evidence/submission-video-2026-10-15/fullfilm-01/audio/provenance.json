@@ -1,0 +1,26 @@
+{
+  "source": "C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-video-studio-2026-10-15\\fullfilm-script.final.en.txt",
+  "source_sha256": "338f086bb1eed7654db62393b2ed88234f93cc2d5855f134d4e9b0cae582ed29",
+  "voice": "en-US-AvaMultilingualNeural",
+  "rate": "+0%",
+  "pitch": "+0Hz",
+  "volume": "+0%",
+  "synthesis_calls": 1,
+  "text_sent": "Meet Mochi. Emma knows the little habits: a favorite feather toy, and a quiet rest after meals. Today, Alex is taking over. The question is simple: what does Alex need to know?\n\nEmma adds that preference to PawTwin. It begins as a candidate memory. She checks it and confirms it, so the detail can stay with Mochi's shared record.\n\nAlex opens a fresh conversation in the Alexa web simulator and asks what Mochi likes. The reply uses the confirmed preference, with its source available to inspect. A new conversation, with a familiar starting point.\n\nNext, Emma asks for a playtime plan. She gets a draft to review, chooses the time, and prepares a proposal. At this point, it is still a suggestion. Only her explicit confirmation creates a shared manual care task, waiting for someone to carry it out.\n\nAlex claims the task through his own account, then records it as completed. Each family member is working from the same agreed plan. His name and the saved result stay visible in the household history, so Emma can see who recorded the completion.\n\nWhen Emma generates the daily report, it includes that care record. This is a summary of saved household records; it does not independently verify that physical care happened.\n\nOur scripted Pet Concierge preview explores the same idea with different pets. Miso's example pairs a food question with his profile and a confirmed preference. Luna's example shows illustrative activity records alongside observation guidance. These replies and traces are preset scenarios, with no live model inference, actual tracking, or diagnosis.\n\nThe working prototype stores family records locally in SQLite and uses local rules. Its Alexa page is a text web simulator; live cloud inference and real Alexa integration are not demonstrated here.\n\nFor this family, the aim is a clearer place to pick up the next step: what Mochi likes, what has been agreed, and what someone has recorded.\n\nPawTwin. Less repeating. More caring.",
+  "duration_seconds": 127.632,
+  "word_boundaries": 324,
+  "format": {
+    "sample_rate": 48000,
+    "channels": 1,
+    "encoding": "PCM16"
+  },
+  "time_stretch": false,
+  "music_mixed": false,
+  "created_utc": "2026-10-15T14:34:11.251678+00:00",
+  "edge_tts_version": "7.3.1",
+  "files": {
+    "narration-continuous.mp3": "006d6957b55c5b12e49407fadf842c94479ea7735cf562a5c11c707818f81efb",
+    "narration-continuous.wav": "419898fc5c210026b66d2f0a995fba939f34a28d1cdeb758c30bf3414be22cc0",
+    "narration-words.json": "1a7f80fb6e3c72f32ab15d1b88c51fc3d50e93bfbce13542beaee4453410d799"
+  }
+}

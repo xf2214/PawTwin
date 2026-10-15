@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "source": "demo-evidence.json",
+  "status": "uncalibrated_proposals",
+  "clips": [
+    {
+      "screenshot": "00-product.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 0,
+      "duration_ms": 5000,
+      "hold_ms": {
+        "start": 1991,
+        "screenshot": 4491,
+        "end": 7143
+      },
+      "calibration": "Proposed role-specific wall-clock seek. Visually calibrate to raw frames before publishing."
+    },
+    {
+      "screenshot": "01-home.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 6413,
+      "duration_ms": 5000,
+      "hold_ms": {
+        "start": 8413,
+        "screenshot": 10913,
+        "end": 13484
+      },
+      "calibration": "Proposed role-specific wall-clock seek. Visually calibrate to raw frames before publishing."
+    },
+    {
+      "screenshot": "02-growth.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 14121,
+      "duration_ms": 5000,
+      "hold_ms": {
+        "start": 16121,
+        "screenshot": 18621,
+        "end": 21174
+      },
+      "calibration": "Proposed role-specific wall-clock seek. Visually calibrate to raw frames before publishing."
+    },
+    {
+      "screenshot": "08-memory-confirmed.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 20199,
+      "duration_ms": 5000,
+      "hold_ms": {
+        "start": 22199,
+        "screenshot": 24699,
+        "end": 27271
+      },
+      "calibration": "Proposed role-specific wall-clock seek. Visually calibrate to raw frames before publishing."
+    },
+    {
+      "screenshot": "13-alexa-new-session.png",
+      "role": "carer",
+      "video": "carer.webm",
+      "start_ms": 18700,
+      "duration_ms": 5000,
+      "hold_ms": {
+        "start": 20700,
+        "screenshot": 23200,
+        "end": 25773
+      },
+      "calibration": "Proposed role-specific wall-clock seek. Visually calibrate to raw frames before publishing."
+    },
+    {
+      "screenshot": "09-alexa-draft.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 38213,
+      "duration_ms": 5000,
+      "hold_ms": {
+        "start": 40213,
+        "screenshot": 42713,
+        "end": 45269
+      },
+      "calibration": "Proposed role-specific wall-clock seek. Visually calibrate to raw frames before publishing."
+    },
+    {
+      "screenshot": "10-alexa-pending.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 44035,
+      "duration_ms": 5000,
+      "hold_ms": {
+        "start": 46035,
+        "screenshot": 48535,
+        "end": 51100
+      },
+      "calibration": "Proposed role-specific wall-clock seek. Visually calibrate to raw frames before publishing."
+    },
+    {
+      "screenshot": "11-alexa-confirmed.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 49880,
+      "duration_ms": 5000,
+      "hold_ms": {
+        "start": 51880,
+        "screenshot": 54380,
+        "end": 56933
+      },
+      "calibration": "Proposed role-specific wall-clock seek. Visually calibrate to raw frames before publishing."
+    },
+    {
+      "screenshot": "04-care.png",
+      "role": "carer",
+      "video": "carer.webm",
+      "start_ms": 42320,
+      "duration_ms": 5000,
+      "hold_ms": {
+        "start": 44320,
+        "screenshot": 46820,
+        "end": 49391
+      },
+      "calibration": "Proposed role-specific wall-clock seek. Visually calibrate to raw frames before publishing."
+    },
+    {
+      "screenshot": "05-daily.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 73507,
+      "duration_ms": 5000,
+      "hold_ms": {
+        "start": 75507,
+        "screenshot": 78007,
+        "end": 80572
+      },
+      "calibration": "Proposed role-specific wall-clock seek. Visually calibrate to raw frames before publishing."
+    },
+    {
+      "screenshot": "14-caregiver.png",
+      "role": "caregiver",
+      "video": "caregiver.webm",
+      "start_ms": 0,
+      "duration_ms": 5000,
+      "hold_ms": {
+        "start": 1756,
+        "screenshot": 4256,
+        "end": 6823
+      },
+      "calibration": "Proposed role-specific wall-clock seek. Visually calibrate to raw frames before publishing."
+    },
+    {
+      "screenshot": "15-visit-card.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 79436,
+      "duration_ms": 5000,
+      "hold_ms": {
+        "start": 81436,
+        "screenshot": 83936,
+        "end": 86509
+      },
+      "calibration": "Proposed role-specific wall-clock seek. Visually calibrate to raw frames before publishing."
+    },
+    {
+      "screenshot": "16-home-closing.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 98248,
+      "duration_ms": 5000,
+      "hold_ms": {
+        "start": 100248,
+        "screenshot": 102748,
+        "end": 105313
+      },
+      "calibration": "Proposed role-specific wall-clock seek. Visually calibrate to raw frames before publishing."
+    }
+  ]
+}

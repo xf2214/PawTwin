@@ -1,0 +1,141 @@
+{
+  "schema_version": 2,
+  "captured_at": "2026-10-14T17:00:20.853Z",
+  "source": "actual_local_ui_and_api",
+  "identity_backend": "local_account",
+  "backend": "local_rules",
+  "cloud_calls": 0,
+  "pet_id": "mochi",
+  "screenshots": [
+    {
+      "file": "00-product.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8846/",
+      "raw_video_elapsed_hold_ms": {
+        "start": 2236,
+        "screenshot": 4736,
+        "end": 7589
+      },
+      "suggested_clip_ms": {
+        "start": 1636,
+        "end": 7589
+      },
+      "operation": null,
+      "cjk_text_except_language_toggle": []
+    },
+    {
+      "file": "01-home.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8846/#app",
+      "raw_video_elapsed_hold_ms": {
+        "start": 9781,
+        "screenshot": 12281,
+        "end": 14929
+      },
+      "suggested_clip_ms": {
+        "start": 9181,
+        "end": 14929
+      },
+      "operation": null,
+      "cjk_text_except_language_toggle": []
+    },
+    {
+      "file": "18-growth-inputs.png",
+      "role": "owner",
+      "url": "http://127.0.0.1:8846/#app/growth",
+      "raw_video_elapsed_hold_ms": {
+        "start": 21104,
+        "screenshot": 23604,
+        "end": 26207
+      },
+      "suggested_clip_ms": {
+        "start": 20504,
+        "end": 26207
+      },
+      "operation": null,
+      "cjk_text_except_language_toggle": []
+    }
+  ],
+  "recordings": {
+    "owner": {
+      "video": "owner.webm",
+      "recording_origin_before_new_page_utc": "2026-10-14T17:00:22.727Z",
+      "recording_origin_after_new_page_utc": "2026-10-14T17:00:22.822Z",
+      "origin_uncertainty_ms": 95,
+      "first_blank_hold_ms": 600,
+      "timing_note": "Raw WebM starts with the first blank page. Elapsed ranges are role-specific wall clock since before newPage; visually calibrate the small startup uncertainty against raw frames.",
+      "bytes": 2513695
+    },
+    "carer": {
+      "video": "carer.webm",
+      "recording_origin_before_new_page_utc": "2026-10-14T17:00:38.009Z",
+      "recording_origin_after_new_page_utc": "2026-10-14T17:00:38.086Z",
+      "origin_uncertainty_ms": 77,
+      "first_blank_hold_ms": 600,
+      "timing_note": "Raw WebM starts with the first blank page. Elapsed ranges are role-specific wall clock since before newPage; visually calibrate the small startup uncertainty against raw frames.",
+      "bytes": 1827161
+    }
+  },
+  "staging": [
+    "Fictional seeded object names changed to English through the local API before capture."
+  ],
+  "checks": [],
+  "operations": [],
+  "mouse_actions": [
+    {
+      "name": "Save fictional weight 1.20 kg",
+      "role": "owner",
+      "start_ms": 18908,
+      "end_ms": 19713,
+      "position_css": {
+        "x": 948.1484375,
+        "y": 680.8046875
+      },
+      "real_browser_pointer": true
+    },
+    {
+      "name": "Save fictional weight 1.35 kg",
+      "role": "owner",
+      "start_ms": 26353,
+      "end_ms": 27171,
+      "position_css": {
+        "x": 948.1484375,
+        "y": 680.8984375
+      },
+      "real_browser_pointer": true
+    }
+  ],
+  "capture_geometry": {
+    "viewport_css": {
+      "width": 1280,
+      "height": 720
+    },
+    "device_scale_factor": 1.5,
+    "screenshot_pixels": {
+      "width": 1920,
+      "height": 1080
+    },
+    "requested_video_pixels": {
+      "width": 1920,
+      "height": 1080
+    },
+    "browser_slow_mo_ms": 120,
+    "timing": "Real browser actions at normal speed; no fabricated UI or cursor is drawn."
+  },
+  "bootstrap": {
+    "project": "PawTwin",
+    "stage": "local_business",
+    "mode": "local",
+    "aws_connected": false,
+    "analyzer": "local_fake",
+    "capabilities": {
+      "event_intake": "implemented_local",
+      "owner_approval": "implemented_local",
+      "simulated_device": "implemented_simulated",
+      "owner_feedback": "implemented_local",
+      "long_term_memory": "not_implemented"
+    }
+  },
+  "status": "failed",
+  "error": "locator.scrollIntoViewIfNeeded: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.fa-chart')\u001b[22m\n\n    at capture (C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\submission\\2026-10-15\\production\\capture-cinematic.cjs:82:26)\n    at main (C:\\Users\\11831\\Desktop\\hks\\outputs\\pawtwin-app\\docs\\submission\\2026-10-15\\production\\capture-cinematic.cjs:142:9)"
+}

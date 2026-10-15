@@ -1,0 +1,315 @@
+{
+  "schema_version": 1,
+  "status": "native_source_operation_ranges_require_visual_calibration",
+  "source": "demo-evidence.json",
+  "clips": [
+    {
+      "screenshot": "00-product.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 1443,
+      "end_ms": 7244,
+      "operation": null,
+      "hold_ms": {
+        "start": 2043,
+        "screenshot": 4543,
+        "end": 7244
+      },
+      "calibration": "Source-relative wall clock; inspect transition frames before final cut. Native source content is1920x1080."
+    },
+    {
+      "screenshot": "01-home.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 9240,
+      "end_ms": 14921,
+      "operation": null,
+      "hold_ms": {
+        "start": 9840,
+        "screenshot": 12340,
+        "end": 14921
+      },
+      "calibration": "Source-relative wall clock; inspect transition frames before final cut. Native source content is1920x1080."
+    },
+    {
+      "screenshot": "18-growth-inputs.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 20773,
+      "end_ms": 26472,
+      "operation": null,
+      "hold_ms": {
+        "start": 21373,
+        "screenshot": 23873,
+        "end": 26472
+      },
+      "calibration": "Source-relative wall clock; inspect transition frames before final cut. Native source content is1920x1080."
+    },
+    {
+      "screenshot": "21-growth-curve.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 28140,
+      "end_ms": 33907,
+      "operation": null,
+      "hold_ms": {
+        "start": 28740,
+        "screenshot": 31240,
+        "end": 33907
+      },
+      "calibration": "Source-relative wall clock; inspect transition frames before final cut. Native source content is1920x1080."
+    },
+    {
+      "screenshot": "02-growth.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 34346,
+      "end_ms": 42790,
+      "operation": "weekly-report-generate",
+      "hold_ms": {
+        "start": 37694,
+        "screenshot": 40194,
+        "end": 42790
+      },
+      "calibration": "Source-relative wall clock; inspect transition frames before final cut. Native source content is1920x1080."
+    },
+    {
+      "screenshot": "19-memory-candidate.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 43910,
+      "end_ms": 49867,
+      "operation": null,
+      "hold_ms": {
+        "start": 44510,
+        "screenshot": 47010,
+        "end": 49867
+      },
+      "calibration": "Source-relative wall clock; inspect transition frames before final cut. Native source content is1920x1080."
+    },
+    {
+      "screenshot": "08-memory-confirmed.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 43665,
+      "end_ms": 58825,
+      "operation": "owner-confirms-preference",
+      "hold_ms": {
+        "start": 53254,
+        "screenshot": 55754,
+        "end": 58825
+      },
+      "calibration": "Source-relative wall clock; inspect transition frames before final cut. Native source content is1920x1080."
+    },
+    {
+      "screenshot": "03-assistant.png",
+      "role": "carer",
+      "video": "carer.webm",
+      "start_ms": 45432,
+      "end_ms": 51440,
+      "operation": null,
+      "hold_ms": {
+        "start": 46032,
+        "screenshot": 48532,
+        "end": 51440
+      },
+      "calibration": "Source-relative wall clock; inspect transition frames before final cut. Native source content is1920x1080."
+    },
+    {
+      "screenshot": "13-alexa-new-session.png",
+      "role": "carer",
+      "video": "carer.webm",
+      "start_ms": 52142,
+      "end_ms": 58282,
+      "operation": null,
+      "hold_ms": {
+        "start": 52742,
+        "screenshot": 55242,
+        "end": 58282
+      },
+      "calibration": "Source-relative wall clock; inspect transition frames before final cut. Native source content is1920x1080."
+    },
+    {
+      "screenshot": "09-alexa-draft.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 74371,
+      "end_ms": 80308,
+      "operation": null,
+      "hold_ms": {
+        "start": 74971,
+        "screenshot": 77471,
+        "end": 80308
+      },
+      "calibration": "Source-relative wall clock; inspect transition frames before final cut. Native source content is1920x1080."
+    },
+    {
+      "screenshot": "10-alexa-pending.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 80310,
+      "end_ms": 87219,
+      "operation": "prepare-care-proposal",
+      "hold_ms": {
+        "start": 82122,
+        "screenshot": 84622,
+        "end": 87219
+      },
+      "calibration": "Source-relative wall clock; inspect transition frames before final cut. Native source content is1920x1080."
+    },
+    {
+      "screenshot": "11-alexa-confirmed.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 87221,
+      "end_ms": 95664,
+      "operation": "confirm-manual-care",
+      "hold_ms": {
+        "start": 90577,
+        "screenshot": 93077,
+        "end": 95664
+      },
+      "calibration": "Source-relative wall clock; inspect transition frames before final cut. Native source content is1920x1080."
+    },
+    {
+      "screenshot": "20-care-claimed.png",
+      "role": "carer",
+      "video": "carer.webm",
+      "start_ms": 84713,
+      "end_ms": 90723,
+      "operation": null,
+      "hold_ms": {
+        "start": 85313,
+        "screenshot": 87813,
+        "end": 90723
+      },
+      "calibration": "Source-relative wall clock; inspect transition frames before final cut. Native source content is1920x1080."
+    },
+    {
+      "screenshot": "04-care.png",
+      "role": "carer",
+      "video": "carer.webm",
+      "start_ms": 81544,
+      "end_ms": 99306,
+      "operation": "alex-claims-and-completes-care",
+      "hold_ms": {
+        "start": 94229,
+        "screenshot": 96729,
+        "end": 99306
+      },
+      "calibration": "Source-relative wall clock; inspect transition frames before final cut. Native source content is1920x1080."
+    },
+    {
+      "screenshot": "07-completing-actor.png",
+      "role": "carer",
+      "video": "carer.webm",
+      "start_ms": 99714,
+      "end_ms": 105404,
+      "operation": null,
+      "hold_ms": {
+        "start": 100314,
+        "screenshot": 102814,
+        "end": 105404
+      },
+      "calibration": "Source-relative wall clock; inspect transition frames before final cut. Native source content is1920x1080."
+    },
+    {
+      "screenshot": "12-alexa-result.png",
+      "role": "carer",
+      "video": "carer.webm",
+      "start_ms": 106137,
+      "end_ms": 111993,
+      "operation": null,
+      "hold_ms": {
+        "start": 106737,
+        "screenshot": 109237,
+        "end": 111993
+      },
+      "calibration": "Source-relative wall clock; inspect transition frames before final cut. Native source content is1920x1080."
+    },
+    {
+      "screenshot": "05-daily.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 127667,
+      "end_ms": 136775,
+      "operation": "generate-daily-report-after-completion",
+      "hold_ms": {
+        "start": 131674,
+        "screenshot": 134174,
+        "end": 136775
+      },
+      "calibration": "Source-relative wall clock; inspect transition frames before final cut. Native source content is1920x1080."
+    },
+    {
+      "screenshot": "15-visit-card.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 138492,
+      "end_ms": 144292,
+      "operation": null,
+      "hold_ms": {
+        "start": 139092,
+        "screenshot": 141592,
+        "end": 144292
+      },
+      "calibration": "Source-relative wall clock; inspect transition frames before final cut. Native source content is1920x1080."
+    },
+    {
+      "screenshot": "17-visit-records.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 137235,
+      "end_ms": 150440,
+      "operation": "generate-vet-snapshot-and-read-records",
+      "hold_ms": {
+        "start": 145308,
+        "screenshot": 147808,
+        "end": 150440
+      },
+      "calibration": "Source-relative wall clock; inspect transition frames before final cut. Native source content is1920x1080."
+    },
+    {
+      "screenshot": "14-caregiver.png",
+      "role": "caregiver",
+      "video": "caregiver.webm",
+      "start_ms": 1378,
+      "end_ms": 7085,
+      "operation": null,
+      "hold_ms": {
+        "start": 1978,
+        "screenshot": 4478,
+        "end": 7085
+      },
+      "calibration": "Source-relative wall clock; inspect transition frames before final cut. Native source content is1920x1080."
+    },
+    {
+      "screenshot": "06-deleted-memory.png",
+      "role": "carer",
+      "video": "carer.webm",
+      "start_ms": 144667,
+      "end_ms": 150355,
+      "operation": null,
+      "hold_ms": {
+        "start": 145267,
+        "screenshot": 147767,
+        "end": 150355
+      },
+      "calibration": "Source-relative wall clock; inspect transition frames before final cut. Native source content is1920x1080."
+    },
+    {
+      "screenshot": "16-home-closing.png",
+      "role": "owner",
+      "video": "owner.webm",
+      "start_ms": 165989,
+      "end_ms": 171680,
+      "operation": null,
+      "hold_ms": {
+        "start": 166589,
+        "screenshot": 169089,
+        "end": 171680
+      },
+      "calibration": "Source-relative wall clock; inspect transition frames before final cut. Native source content is1920x1080."
+    }
+  ]
+}

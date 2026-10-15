@@ -1,0 +1,28 @@
+[aist#0:0/pcm_s16le @ 000002515db82c80] Guessed Channel Layout: stereo
+Input #0, wav, from 'C:\Users\11831\Desktop\hks\outputs\pawtwin-app\docs\evidence\submission-video-2026-10-15\style-sample-audio-v2\audio\story-take\mix-pre-normalize.stereo.wav':
+  Duration: 00:00:30.10, bitrate: 1536 kb/s
+  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, stereo, s16, 1536 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_s16le (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, wav, to 'C:\Users\11831\Desktop\hks\outputs\pawtwin-app\docs\evidence\submission-video-2026-10-15\style-sample-audio-v2\audio\story-take\soundtrack-v2.stereo.wav':
+  Metadata:
+    ISFT            : Lavf61.7.100
+  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, stereo, s16, 1536 kb/s
+      Metadata:
+        encoder         : Lavc61.19.100 pcm_s16le
+[Parsed_loudnorm_0 @ 000002515ddd4000] 
+{
+	"input_i" : "-16.29",
+	"input_tp" : "-2.65",
+	"input_lra" : "2.60",
+	"input_thresh" : "-26.94",
+	"output_i" : "-15.91",
+	"output_tp" : "-2.27",
+	"output_lra" : "2.50",
+	"output_thresh" : "-26.55",
+	"normalization_type" : "linear",
+	"target_offset" : "-0.09"
+}
+[out#0/wav @ 000002515dad4d00] video:0KiB audio:5644KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.001350%
+size=    5644KiB time=00:00:30.10 bitrate=1536.0kbits/s speed= 402x    

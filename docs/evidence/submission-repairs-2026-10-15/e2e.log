@@ -1,0 +1,227 @@
+
+> pawtwin-frontend@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v8.3.0 building client environment for production...
+transforming...
+✓ 65 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.96 kB │ gzip:   0.48 kB
+dist/assets/index-f4GC1fl1.css  155.08 kB │ gzip:  33.40 kB
+dist/assets/index-y4ayR7DB.js   604.61 kB │ gzip: 189.66 kB
+
+✓ built in 143ms
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+> pawtwin-frontend@0.1.0 test:e2e
+> playwright test --shard=1/4 --output=test-results/shard-1
+
+[WebServer] INFO:     Started server process [156116]
+[WebServer] INFO:     Waiting for application startup.
+
+[WebServer] INFO:     Application startup complete.
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8842 (Press CTRL+C to quit)
+
+
+Running 32 tests using 1 worker, shard 1 of 4
+
+
+
+(node:164280) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1/32] e2e\acceptance.spec.ts:11:1 › an unauthenticated session sees the login gate and business APIs return 401 JSON
+[2/32] e2e\acceptance.spec.ts:35:1 › reload while awaiting_approval keeps the pending request pending
+[3/32] e2e\acceptance.spec.ts:63:1 › desktop 1440px and narrow 390px show no overflow and states are not color-only
+[4/32] e2e\acceptance.spec.ts:134:1 › raising the daily dispensed amount shifts the proposed grams
+[5/32] e2e\acceptance.spec.ts:160:1 › a new session rotates the conversation while memory stays honestly unretrieved
+[6/32] e2e\alexa.spec.ts:14:1 › Alexa simulator reads shared memory and confirms manual care exactly once
+[7/32] e2e\alexa.spec.ts:45:1 › new session clears transcript and stale drafts require a fresh question
+[8/32] e2e\alexa.spec.ts:67:3 › Alexa simulator is usable at 320px
+[9/32] e2e\alexa.spec.ts:67:3 › Alexa simulator is usable at 390px
+[10/32] e2e\alexa.spec.ts:67:3 › Alexa simulator is usable at 1440px
+[11/32] e2e\alexa.spec.ts:81:1 › pet switching drops a delayed response and resets draft scope
+[12/32] e2e\alexa.spec.ts:115:1 › a failed chat restores the input and can be retried without inventing a reply
+[13/32] e2e\alexa.spec.ts:128:1 › keyboard input and account navigation can return to Alexa
+[14/32] e2e\alexa.spec.ts:149:1 › Alexa displays the response backend and same-response model evidence
+[15/32] e2e\application-upgrade.spec.ts:30:1 › today uses one application navigation while profile and room operations remain discoverable
+
+[WebServer] Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+[WebServer] handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+[WebServer] Traceback (most recent call last):
+[WebServer]   File "C:\Users\11831\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\events.py", line 88, in _run
+[WebServer]     self._context.run(self._callback, *self._args)
+[WebServer]   File "C:\Users\11831\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+[WebServer]     self._sock.shutdown(socket.SHUT_RDWR)
+[WebServer] ConnectionResetError: [WinError 10054] Զ������ǿ�ȹر���һ�����е����ӡ�
+[16/32] e2e\application-upgrade.spec.ts:45:1 › my care includes an unassigned task claimed by the current member
+[17/32] e2e\application-upgrade.spec.ts:60:1 › growth sections preserve actual measurement recording and report generation
+[18/32] e2e\application-upgrade.spec.ts:79:1 › a family guest reads the twin overview without unavailable write interactions
+[19/32] e2e\approve.spec.ts:7:1 › approve executes once, shows real evidence and survives reload
+[20/32] e2e\approve.spec.ts:57:1 › an injected device failure never accounts quota
+[21/32] e2e\approve.spec.ts:81:1 › an unknown fact reaches needs-info and is never shown as zero
+[22/32] e2e\approve.spec.ts:99:1 › changing facts invalidates a pending approval with a readable notice
+[23/32] e2e\decline.spec.ts:5:1 › decline never becomes simulated execution and survives reload
+[24/32] e2e\demo-rehearsal.spec.ts:29:1 › demonstration rehearses two family accounts, real report arithmetic and shared memory to care
+[25/32] e2e\family-session-isolation.spec.ts:50:1 › a fresh signed-out visit opens the login form without an expired-session warning
+[26/32] e2e\family-session-isolation.spec.ts:56:1 › a stuck initial refresh reaches its deadline and offers a working retry despite background polling
+[27/32] e2e\family-session-isolation.spec.ts:80:1 › signing into another household clears the previous household's raw invitation token
+[28/32] e2e\family-session-isolation.spec.ts:99:1 › a late invitation creation cannot expose its raw token after switching accounts
+[29/32] e2e\family-session-isolation.spec.ts:129:1 › switching pets clears an unsaved new measurement before it can be saved for another pet
+[30/32] e2e\family-session-isolation.spec.ts:149:1 › a delayed previous household response cannot reveal records after signing into another account
+[31/32] e2e\family-session-isolation.spec.ts:173:1 › a superseded refresh cannot replace a newer owner observation
+[32/32] e2e\family-session-isolation.spec.ts:189:1 › superseding a stuck refresh releases the Alexa response instead of leaving its controls busy
+  32 passed (42.3s)
+
+> pawtwin-frontend@0.1.0 test:e2e
+> playwright test --shard=2/4 --output=test-results/shard-2
+
+
+[WebServer] INFO:     Started server process [158792]
+
+
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8842 (Press CTRL+C to quit)
+
+Running 37 tests using 1 worker, shard 2 of 4
+
+(node:162020) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/37] e2e\family.spec.ts:19:1 › independent account, shared navigation and refresh session
+[2/37] e2e\family.spec.ts:43:1 › real weight data, weekly report and correction
+[3/37] e2e\family.spec.ts:61:1 › memory confirmation shared with Alexa simulation and deletion
+[4/37] e2e\family.spec.ts:81:1 › care proposal needs explicit confirmation and creates manual task
+[5/37] e2e\family.spec.ts:95:3 › App at 390px preserves room and has no horizontal overflow
+[6/37] e2e\family.spec.ts:95:3 › App at 1440px preserves room and has no horizontal overflow
+[7/37] e2e\family.spec.ts:119:1 › new pet selection is immediately shared with growth and delayed replies stay scoped
+[8/37] e2e\family.spec.ts:191:1 › owner observation and diary can be corrected and removed from shared context
+[9/37] e2e\feedback.spec.ts:11:1 › owner feedback is saved honestly and never shown as retrieved memory
+[10/37] e2e\feedback.spec.ts:41:1 › today-only feedback is labelled as never becoming a permanent preference
+[11/37] e2e\feedback.spec.ts:57:1 › a new session rotates the conversation but keeps login and facts
+[12/37] e2e\i18n.spec.ts:5:1 › starts in English and keeps the chosen language across routes and reloads
+[13/37] e2e\i18n.spec.ts:27:1 › English workbench remains usable and switching language preserves entered data
+[14/37] e2e\i18n.spec.ts:45:1 › English family forms preserve original records and translate local assistant output
+[15/37] e2e\i18n.spec.ts:83:1 › language control stays reachable without horizontal overflow on mobile
+[16/37] e2e\pet-concierge.spec.ts:78:1 › adds a fourth illustrative case with keyboard steps, concrete pet context and preset safety replies
+[17/37] e2e\pet-concierge.spec.ts:156:1 › keeps every concierge step readable at four widths with reduced motion
+[18/37] e2e\pet-concierge.spec.ts:183:3 › English default and language continuity › keeps the active pet example and values when switching between English and Chinese
+[19/37] e2e\pet-home.spec.ts:14:1 › pet profile, objects, bathing, nails, scoped preferences and photo diary are saved
+[20/37] e2e\pet-home.spec.ts:62:1 › pixel home stays usable at phone and desktop widths without sharing another pet data
+[21/37] e2e\pet-visual-upgrade.spec.ts:16:1 › a saved dog's editable coat, pattern and size appear in its accessible pet avatar after refresh
+[22/37] e2e\pet-visual-upgrade.spec.ts:39:1 › the embedded home has one pet selector and keeps object editing connected to family care
+[23/37] e2e\pet-visual-upgrade.spec.ts:54:1 › switching pets clears unsaved observation and diary fields before writing to the new pet
+[24/37] e2e\pet-visual-upgrade.spec.ts:82:3 › a late profile save preserves another pet's unsaved profile draft
+[25/37] e2e\pet-visual-upgrade.spec.ts:82:3 › a late profile save cannot unlock another pet's pending observation save
+[26/37] e2e\platform.spec.ts:33:1 › visit HTML download is a self-contained escaped pet snapshot and printing uses it
+[27/37] e2e\platform.spec.ts:75:1 › an administrator grants one pet and a separate visitor reads and chats until revocation
+[28/37] e2e\platform.spec.ts:107:1 › card download requires current household permission and cannot replace a frozen changed snapshot
+[29/37] e2e\platform.spec.ts:138:1 › invalid access ignores an owner cookie and never restores family session data
+[30/37] e2e\platform.spec.ts:148:1 › a family guest reads the overview with honest missing state while existing POST permissions stay enforced
+[31/37] e2e\platform.spec.ts:173:1 › manual copy fallback and a mobile visitor preserve real diet and completion meanings
+[32/37] e2e\platform.spec.ts:207:1 › a delayed visitor response cannot reveal the previously authorized pet after switching links
+[33/37] e2e\platform.spec.ts:233:1 › latest real weight outside the selected window retains its date and demo inclusion is explicit
+[34/37] e2e\platform.spec.ts:251:1 › closing a delayed card and switching pets isolates late data and allows an actual retry
+[35/37] e2e\platform.spec.ts:281:3 › visit preview and grant controls stay readable at 320px
+[36/37] e2e\platform.spec.ts:281:3 › visit preview and grant controls stay readable at 390px
+[37/37] e2e\platform.spec.ts:281:3 › visit preview and grant controls stay readable at 1440px
+  37 passed (1.0m)
+
+> pawtwin-frontend@0.1.0 test:e2e
+> playwright test --shard=3/4 --output=test-results/shard-3
+
+[WebServer] INFO:     Started server process [130468]
+[WebServer] INFO:     Waiting for application startup.
+
+[WebServer] INFO:     Application startup complete.
+
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8842 (Press CTRL+C to quit)
+
+Running 23 tests using 1 worker, shard 3 of 4
+
+(node:139384) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/23] e2e\product-growth.spec.ts:73:1 › uses pet-specific simulated records and derives summaries from the displayed samples without business requests
+[2/23] e2e\product-growth.spec.ts:95:1 › keeps the growth case first measurement, latest measurement, and final curve consistent
+[3/23] e2e\product-growth.spec.ts:127:1 › keeps populated growth previews readable at supported widths
+[4/23] e2e\product-page.spec.ts:18:1 › explains the product and opens native FAQs with the keyboard without business requests
+[5/23] e2e\product-page.spec.ts:64:1 › reveals mobile navigation, restores focus on close and supports FAQ deep links at 320 and 390 pixels
+[6/23] e2e\product-page.spec.ts:111:1 › starts a pet profile from the care section through the login gate and returns to the product
+[7/23] e2e\product-visuals.spec.ts:37:1 › shows distinct tablet and phone interfaces and synchronizes the selected pet across previews
+[8/23] e2e\product-visuals.spec.ts:100:1 › exposes three distinct case previews with nine readable keyboard steps at supported widths
+[9/23] e2e\product-visuals.spec.ts:144:1 › retains pet and case keyboard interactions while motion is paused or dynamically reduced
+[10/23] e2e\shell.spec.ts:5:1 › gates business data behind the demo login
+[11/23] e2e\shell.spec.ts:15:1 › keeps simulation boundaries and the local/aws label visible after login
+[12/23] e2e\showcase.spec.ts:5:1 › explores illustrative care cases without writing business data
+[13/23] e2e\showcase.spec.ts:30:1 › can pause motion while retaining case interactions and reduced-motion readability
+[14/23] e2e\showcase.spec.ts:46:1 › introduces the product without requesting private business data, then opens the app
+[15/23] e2e\showcase.spec.ts:72:1 › keeps the showcase readable on mobile and the original workbench reachable
+[16/23] e2e\showcase.spec.ts:86:1 › supports direct product anchors and distinct preview panels at narrow widths
+[17/23] e2e\showcase.spec.ts:104:1 › supports keyboard exploration, reduced motion and the growth shortcut
+[18/23] e2e\showcase.spec.ts:124:1 › routes each product experience to its application feature with the keyboard
+[19/23] e2e\showcase.spec.ts:142:1 › opens the relevant application feature from each illustrative case
+[20/23] e2e\showcase.spec.ts:157:1 › makes the Alexa web simulation discoverable on mobile before opening it by keyboard
+[21/23] e2e\showcase.spec.ts:171:1 › explores handoff and visit demonstrations without business requests at all supported widths
+[22/23] e2e\showcase.spec.ts:208:1 › routes real access management and visit-card export from their demonstration
+[23/23] e2e\showcase.spec.ts:224:1 › keeps new demonstration steps usable while motion is paused or reduced
+  23 passed (47.9s)
+
+> pawtwin-frontend@0.1.0 test:e2e
+> playwright test --shard=4/4 --output=test-results/shard-4
+
+
+[WebServer] INFO:     Started server process [144568]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8842 (Press CTRL+C to quit)
+
+
+Running 30 tests using 1 worker, shard 4 of 4
+
+
+(node:139028) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/30] e2e\usability.spec.ts:27:1 › growth deep link survives signup, refresh and browser navigation
+[2/30] e2e\usability.spec.ts:38:1 › editing only a recurring task title preserves its future time and interval
+[3/30] e2e\usability.spec.ts:54:1 › repeating care completion stays visible in completed history and keeps its next plan
+[4/30] e2e\usability.spec.ts:72:1 › daily queue uses household day and keeps completed care out of active filters
+[5/30] e2e\usability.spec.ts:107:1 › a failed measurement read preserves reports and retries the failed resource
+[6/30] e2e\usability.spec.ts:129:1 › a late growth read cannot replace the selected pet data
+[7/30] e2e\usability.spec.ts:151:1 › constant and dense real measurements remain accessible and range-filtered
+[8/30] e2e\usability.spec.ts:170:1 › equivalent timestamp offsets do not fabricate a zero-day weight change
+[9/30] e2e\usability.spec.ts:188:3 › care started from a toy preserves the intended play type
+[10/30] e2e\usability.spec.ts:188:3 › care started from a water preserves the intended water type
+[11/30] e2e\usability.spec.ts:188:3 › care started from a nest preserves the intended clean type
+[12/30] e2e\usability.spec.ts:206:1 › a forbidden child read removes previously shown household data
+[13/30] e2e\usability.spec.ts:219:1 › the observation shortcut focuses its real field after a delayed home read
+[14/30] e2e\usability.spec.ts:236:1 › changing care type preserves the chosen time, repetition and assignee
+[15/30] e2e\usability.spec.ts:259:3 › daily application at 320px stays readable and keyboard accessible
+[16/30] e2e\usability.spec.ts:259:3 › daily application at 390px stays readable and keyboard accessible
+[17/30] e2e\usability.spec.ts:259:3 › daily application at 1440px stays readable and keyboard accessible
+[18/30] e2e\workbench-concierge.spec.ts:49:3 › English default at the protected deep link › requires demo login and opens the requested case without the Mochi facts card
+[19/30] e2e\workbench-concierge.spec.ts:69:1 › keyboard scenarios and language changes preserve pet context without writing business records
+[20/30] e2e\workbench-concierge.spec.ts:115:1 › visiting the concierge preserves ownership of an accepted request until its real state returns
+[21/30] e2e\workbench-concierge.spec.ts:163:1 › all three workbench examples remain readable and keyboard reachable at four widths
+[22/30] e2e\workbench-upgrade.spec.ts:33:1 › workbench navigation keeps demo settings and run decisions in their own pages
+[23/30] e2e\workbench-upgrade.spec.ts:59:1 › a pending run blocks duplicate requests while demo controls remain available and the next run is tracked
+[24/30] e2e\workbench-upgrade.spec.ts:84:1 › choosing a history run and logging out invalidate delayed updates from the previously tracked run
+[25/30] e2e\workbench-upgrade.spec.ts:124:1 › a stalled run read reaches the client deadline without inventing failure and can be queried again
+[26/30] e2e\workbench-upgrade.spec.ts:161:1 › a 401 invalidates the session before an older state response can reopen the workbench
+[27/30] e2e\workbench-upgrade.spec.ts:203:1 › an accepted request keeps history selection locked until its first real state read returns
+[28/30] e2e\workspace-shell.spec.ts:3:1 › workbench deep links preserve their own login gate and stay separate from family accounts
+[29/30] e2e\workspace-shell.spec.ts:17:1 › application navigation stays reachable at narrow widths
+[30/30] e2e\zz-unknown.spec.ts:6:1 › an unknown device receipt shows 状态未知 and never a success
+  30 passed (59.2s)

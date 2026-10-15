@@ -1,0 +1,142 @@
+[
+  {
+    "asset": "body.ttf",
+    "bytes": 959752,
+    "sha256": "8134dbcd09e7b123c9a7f229d49cffbcb01352cc72ea5e1076b65d0dca9f73cd"
+  },
+  {
+    "asset": "body-semibold.ttf",
+    "bytes": 974500,
+    "sha256": "2d9b22d71f72de2823fee5d9c8bc1b0fc32b2577c4c27b9ec6abdbb8df0e1731"
+  },
+  {
+    "asset": "display.ttf",
+    "bytes": 219712,
+    "sha256": "38dffcaf1fac89492f7c56c600a14daf36ae42f7c21985cd4134ae113124a58f"
+  },
+  {
+    "asset": "mochi.svg",
+    "bytes": 1735,
+    "sha256": "753ff3d86ae92b3df96b98ddd6ce1d92153e9cac05ec11d014a656d8844a5c1d"
+  },
+  {
+    "asset": "memory-crop.mp4",
+    "bytes": 67968,
+    "sha256": "22875d9165f3e0d2c0f6756da47e61c101739ce6a7e1ddb7a79154961009217d"
+  },
+  {
+    "asset": "memory-hold.png",
+    "bytes": 52284,
+    "sha256": "6040c9697deabe2f445502eb2600ac28d6118823afdf9c8199b2491d75cb6eaf"
+  },
+  {
+    "asset": "alexa-crop.mp4",
+    "bytes": 420550,
+    "sha256": "7bdd96d713cf647c1de449efe2461de77a126f1c9a3a896799249d24827c4bdc"
+  },
+  {
+    "asset": "alexa-hold.png",
+    "bytes": 225218,
+    "sha256": "0606082b2f74115671061d07a72f8263fac585b2e35df6b871053c0b31c9c01f"
+  },
+  {
+    "asset": "01-dog-profile@2x.png",
+    "bytes": 30776,
+    "sha256": "d955931b1efa2d4fb3f045f6d8dec02684c2ce4c7e86d4cfc9fc86ded0a51f88"
+  },
+  {
+    "asset": "01-dog-question@2x.png",
+    "bytes": 8706,
+    "sha256": "b3969ebbf91f8ca0fd8fc65387e4ca365750294c8ade9d20b9b04b9f8b6e2fbe"
+  },
+  {
+    "asset": "02-dog-reply@2x.png",
+    "bytes": 55705,
+    "sha256": "715a0537507b381c8a1a827b258eef18630c99d6239b7700b38974cc9c4ac99c"
+  },
+  {
+    "asset": "03-cat-profile@2x.png",
+    "bytes": 20302,
+    "sha256": "ccaed76daa9dd9d9d8092d1e46cb1ae31c8881538534e3c838e3be188911657b"
+  },
+  {
+    "asset": "03-cat-simulated-map@2x.png",
+    "bytes": 42923,
+    "sha256": "27f5cae9d96cbc61124dc76680d1bd41e4dcd2c26c615b8597b40dba9234b1de"
+  },
+  {
+    "asset": "05-context-new-chat@2x.png",
+    "bytes": 39060,
+    "sha256": "f27a16aa6b1859d1b63ee28bcc94f32a35a343a9090bd4d2fc7de2215137b8d4"
+  },
+  {
+    "asset": "05-context-included@2x.png",
+    "bytes": 45959,
+    "sha256": "6e41ca63eefeb90dc435f234be5345e9047ad67426a607a1869acf9655162aaa"
+  },
+  {
+    "asset": "fullfilm\\memory-candidate.png",
+    "bytes": 64625,
+    "sha256": "560be5777f28dc134f855db127beb5ca2f037483adc8b9867025b3a010332d51"
+  },
+  {
+    "asset": "fullfilm\\owner-draft-prepare.mp4",
+    "bytes": 275721,
+    "sha256": "958d6d69556566b34db9b9bd13bd52e6d2df5c2d19c82f68b28ac268a3ac16fc"
+  },
+  {
+    "asset": "fullfilm\\owner-draft-prepare-hold.png",
+    "bytes": 198692,
+    "sha256": "a43a886281a2fca11f3a9c4254fc2b73e52c9c150e71e05e961caf15b12266d6"
+  },
+  {
+    "asset": "fullfilm\\owner-explicit-confirm.mp4",
+    "bytes": 239090,
+    "sha256": "41da2b930c1eceae169bba7d421ea3e7d81b2657e077da40569792f014b23a9b"
+  },
+  {
+    "asset": "fullfilm\\owner-explicit-confirm-hold.png",
+    "bytes": 201156,
+    "sha256": "599208e870d9afbca40f520b87362113ba64fd5e4b1b95eb416ab738b4ccddf3"
+  },
+  {
+    "asset": "fullfilm\\alex-claim-action.mp4",
+    "bytes": 69244,
+    "sha256": "9232e1403590f07c9c04246890eef7ce171fe48bffb593d8963c2d393edf41b6"
+  },
+  {
+    "asset": "fullfilm\\alex-claim-action-hold.png",
+    "bytes": 142528,
+    "sha256": "9e3815c71a69a253a8ed384789da07ab6423af45f21ce0462a3283da91b33688"
+  },
+  {
+    "asset": "fullfilm\\alex-complete-action.mp4",
+    "bytes": 207267,
+    "sha256": "ad0e6de89ccc664aad386a0fe8459264e110a239f0c8458c51a2a535cfec788b"
+  },
+  {
+    "asset": "fullfilm\\alex-complete-action-hold.png",
+    "bytes": 151789,
+    "sha256": "f25a7688150044b8c1d3a22238e5476566cbbab7c26240d03a5ba0ef9efd3000"
+  },
+  {
+    "asset": "fullfilm\\alex-history-attribution.png",
+    "bytes": 52604,
+    "sha256": "a288dcb705cf95e36f8a928a151df3b6915fdfa02d9421df0b979d5c178d49dd"
+  },
+  {
+    "asset": "fullfilm\\emma-daily-report-v2.mp4",
+    "bytes": 257029,
+    "sha256": "ed4fc26b97b12ae1de1b49b9c85953250a71ad3065c06beaaba4875f55fa476c"
+  },
+  {
+    "asset": "fullfilm\\emma-daily-report-v2-hold.png",
+    "bytes": 219348,
+    "sha256": "87424ee08c0c4b8c9eefbfc6bbde96199cf97d2dd0ae3b004d7941fb334e3b17"
+  },
+  {
+    "asset": "fullfilm\\soundtrack.stereo.wav",
+    "bytes": 27334478,
+    "sha256": "a47a10b18f9dcf424c329e27459ef5e188e81b6e2ddef6f2124963cd7d4fba86"
+  }
+]

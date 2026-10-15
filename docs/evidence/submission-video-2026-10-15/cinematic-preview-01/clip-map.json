@@ -1,0 +1,217 @@
+{
+  "clips": [
+    {
+      "scene": 0,
+      "source": "owner.webm",
+      "start": 9.94,
+      "duration": 4.881,
+      "segments": [
+        {
+          "start": 9.94,
+          "duration": 4.881
+        }
+      ],
+      "speed": 1.0,
+      "sha256": "cb0d21468161783923c572d034807b407bb7effedcd2fcf3abd333995f9a91ce"
+    },
+    {
+      "scene": 1,
+      "source": "owner.webm",
+      "start": 34.346,
+      "duration": 10.15,
+      "segments": [
+        {
+          "start": 25.8,
+          "duration": 1.85
+        },
+        {
+          "start": 34.346,
+          "duration": 8.3
+        }
+      ],
+      "speed": 1.0,
+      "sha256": "cb0d21468161783923c572d034807b407bb7effedcd2fcf3abd333995f9a91ce"
+    },
+    {
+      "scene": 2,
+      "source": "owner.webm",
+      "start": 43.665,
+      "duration": 9.8,
+      "segments": [
+        {
+          "start": 44.7,
+          "duration": 2.3
+        },
+        {
+          "start": 50.9,
+          "duration": 7.5
+        }
+      ],
+      "speed": 1.0,
+      "sha256": "cb0d21468161783923c572d034807b407bb7effedcd2fcf3abd333995f9a91ce"
+    },
+    {
+      "scene": 3,
+      "source": "carer.webm",
+      "start": 52.142,
+      "duration": 6.98,
+      "segments": [
+        {
+          "start": 51.2,
+          "duration": 6.98
+        }
+      ],
+      "speed": 1.0,
+      "sha256": "9c60659db5dbe771a6c6ea22a529a2238b006df734c8353558d2a59dba944457"
+    },
+    {
+      "scene": 4,
+      "source": "owner.webm",
+      "start": 74.371,
+      "duration": 7.4,
+      "segments": [
+        {
+          "start": 72.8,
+          "duration": 7.4
+        }
+      ],
+      "speed": 1.0,
+      "sha256": "cb0d21468161783923c572d034807b407bb7effedcd2fcf3abd333995f9a91ce"
+    },
+    {
+      "scene": 5,
+      "source": "owner.webm",
+      "start": 80.31,
+      "duration": 6.808999999999992,
+      "segments": [
+        {
+          "start": 80.31,
+          "duration": 6.808999999999992
+        }
+      ],
+      "speed": 1.0,
+      "sha256": "cb0d21468161783923c572d034807b407bb7effedcd2fcf3abd333995f9a91ce"
+    },
+    {
+      "scene": 6,
+      "source": "owner.webm",
+      "start": 87.221,
+      "duration": 8.342999999999998,
+      "segments": [
+        {
+          "start": 87.221,
+          "duration": 8.342999999999998
+        }
+      ],
+      "speed": 1.0,
+      "sha256": "cb0d21468161783923c572d034807b407bb7effedcd2fcf3abd333995f9a91ce"
+    },
+    {
+      "scene": 7,
+      "source": "carer.webm",
+      "start": 81.544,
+      "duration": 9.75,
+      "segments": [
+        {
+          "start": 82.7,
+          "duration": 2.35
+        },
+        {
+          "start": 91.7,
+          "duration": 7.4
+        }
+      ],
+      "speed": 1.0,
+      "sha256": "9c60659db5dbe771a6c6ea22a529a2238b006df734c8353558d2a59dba944457"
+    },
+    {
+      "scene": 8,
+      "source": "carer.webm",
+      "start": 99.714,
+      "duration": 5.589999999999998,
+      "segments": [
+        {
+          "start": 99.714,
+          "duration": 5.589999999999998
+        }
+      ],
+      "speed": 1.0,
+      "sha256": "9c60659db5dbe771a6c6ea22a529a2238b006df734c8353558d2a59dba944457"
+    },
+    {
+      "scene": 9,
+      "source": "owner.webm",
+      "start": 127.667,
+      "duration": 9.008000000000004,
+      "segments": [
+        {
+          "start": 127.667,
+          "duration": 9.008000000000004
+        }
+      ],
+      "speed": 1.0,
+      "sha256": "cb0d21468161783923c572d034807b407bb7effedcd2fcf3abd333995f9a91ce"
+    },
+    {
+      "scene": 10,
+      "source": "caregiver.webm",
+      "start": 2.078,
+      "duration": 4.907,
+      "segments": [
+        {
+          "start": 2.078,
+          "duration": 4.907
+        }
+      ],
+      "speed": 1.0,
+      "sha256": "ecb5a3c47fb309123c3b1a9d2b5befdffaa8eecf0b8cc25250529baa7ad86599"
+    },
+    {
+      "scene": 11,
+      "source": "owner.webm",
+      "start": 137.235,
+      "duration": 7.74,
+      "segments": [
+        {
+          "start": 138.6,
+          "duration": 1.8
+        },
+        {
+          "start": 144.4,
+          "duration": 5.94
+        }
+      ],
+      "speed": 1.0,
+      "sha256": "cb0d21468161783923c572d034807b407bb7effedcd2fcf3abd333995f9a91ce"
+    },
+    {
+      "scene": 12,
+      "source": "carer.webm",
+      "start": 144.667,
+      "duration": 5.5879999999999885,
+      "segments": [
+        {
+          "start": 144.667,
+          "duration": 5.5879999999999885
+        }
+      ],
+      "speed": 1.0,
+      "sha256": "9c60659db5dbe771a6c6ea22a529a2238b006df734c8353558d2a59dba944457"
+    },
+    {
+      "scene": 13,
+      "source": "owner.webm",
+      "start": 166.689,
+      "duration": 4.891000000000014,
+      "segments": [
+        {
+          "start": 166.689,
+          "duration": 4.891000000000014
+        }
+      ],
+      "speed": 1.0,
+      "sha256": "cb0d21468161783923c572d034807b407bb7effedcd2fcf3abd333995f9a91ce"
+    }
+  ],
+  "presentation": "Real UI clips at 1x plus animated source-preserving result views"
+}

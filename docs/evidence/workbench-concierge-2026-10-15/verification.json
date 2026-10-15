@@ -1,0 +1,18 @@
+{
+  "horizontal_overflow": false,
+  "steps": 3,
+  "screenshots": 16,
+  "side_effects": "No business POST during scenario or language selection",
+  "tracker": "A real stored run response is held in transport; scenario route changes preserve its ID and request ownership",
+  "checks": "35 passed in two independent memory-service groups (19 in 31.9s, 16 in 23.2s), retries=0; TypeScript and production build passed",
+  "widths": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "languages": [
+    "zh",
+    "en"
+  ]
+}

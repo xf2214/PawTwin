@@ -1,0 +1,33 @@
+{
+  "actual_mp4": {
+    "duration_seconds": 150.2583219,
+    "width": 1920,
+    "height": 1080,
+    "bitrate": 3830928,
+    "video_codec": "H264",
+    "audio_codec": "AAC",
+    "audio_channels": 1,
+    "audio_sample_rate": 44100,
+    "audio_bitrate": 96000
+  },
+  "actual_decoded_audio": {
+    "duration_seconds": 150.25632653061226,
+    "sample_rate": 44100,
+    "peak_pcm16": 25545,
+    "peak_dbfs": -2.163,
+    "rms_dbfs": -24.37,
+    "clipped_samples": 0,
+    "last_nonzero_seconds": 150.24628117913832
+  },
+  "caption_count": 28,
+  "all_sentences_fit": true,
+  "caption_lines_max": 2,
+  "actual_decoded_frames": 57,
+  "fps_requested": 24,
+  "real_replay_seconds": 101.837,
+  "source_app_backend": "local_rules",
+  "source_app_cloud_calls": 0,
+  "production_narration": "JennyNeural online public-fictional-text synthesis",
+  "music": "Original synthesized 88 BPM bed with speech ducking",
+  "full_human_playback_listening": "not_performed"
+}

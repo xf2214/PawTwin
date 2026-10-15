@@ -6,6 +6,7 @@ import { PET_PROFILES, PetArtwork, PetPortrait, type PetKind } from './PetPortra
 import { PhonePreview, TabletPreview } from './ProductDevices'
 import { CasePreview } from './CasePreview'
 import { ProductGrowth } from './ProductGrowth'
+import { CONCIERGE_STEPS } from './concierge-scenario'
 import './pet-gallery.css'
 import './visual-polish.css'
 
@@ -122,6 +123,7 @@ const CASES = [
     { label: '主人确认', title: '主人确认了这条偏好', status: '已确认偏好', detail: '确认后的偏好可以复用，也可以修改、失效或删除。' },
     { label: '接续对话', title: '按确认偏好提出陪玩计划', status: '待主人确认', detail: '本地规则助手引用确认偏好提出人工照护计划，不自动执行。' },
   ] },
+  { label: '宠物管家', route: '#alexa', title: '你只管问，它记得是哪一只。', intro: '问小狗能不能吃巧克力，也问猫咪为什么没精神。已保存的品种、性别、年龄、确认偏好和近期记录，随这只宠物的提问一起带入。', icon: '✧', outcome: '资料先保存，提问更自然；回答始终带着依据。', steps: CONCIERGE_STEPS },
 ]
 
 function CaseShowcase() {
@@ -130,15 +132,15 @@ function CaseShowcase() {
   const scenario = CASES[selected]
   const frame = scenario.steps[step]
   return <section className="pt-cases" id="cases" aria-labelledby="cases-title">
-    <div className="pt-section-heading" data-reveal><p className="pt-eyebrow">{t("三个场景，一起看看。")}</p><h2 id="cases-title">{t("把功能，放进日常。")}</h2><p>{t("不是功能清单，是你和它的一天。")}</p></div>
+    <div className="pt-section-heading" data-reveal><p className="pt-eyebrow">{t("四个场景，一起看看。")}</p><h2 id="cases-title">{t("把功能，放进日常。")}</h2><p>{t("不是功能清单，是你和它的一天。")}</p></div>
     <div className="pt-case-tabs" role="group" aria-label={t("选择日常案例")}>{CASES.map((item, index) => <button key={item.label} aria-pressed={selected === index} onClick={() => { setSelected(index); setStep(0) }}>{t(item.label)}</button>)}</div>
     <div className={`pt-case-layout pt-case-theme-${selected}`}>
-      <div className="pt-case-art pt-case-art-rich" aria-label={t("案例画面")}><CasePreview key={selected} scenario={(['handoff', 'growth', 'preferences'] as const)[selected]} step={step} frame={frame} />
+      <div className="pt-case-art pt-case-art-rich" aria-label={t("案例画面")}><CasePreview key={selected} scenario={(['handoff', 'growth', 'preferences', 'concierge'] as const)[selected]} step={step} frame={frame} />
         <small>{t("虚构情景演示 · 不会创建真实照护任务")}</small>
       </div>
       <div className="pt-case-copy"><div className="pt-case-intro" key={selected}><span className="pt-story-number">{t("案例 0")}{selected + 1} / {t(scenario.label)}</span><h3 aria-label={t(scenario.title)}><TitlePhrases text={scenario.title} /></h3><p>{t(scenario.intro)}</p></div>
         <div className="pt-case-steps" role="group" aria-label={t("查看案例步骤")}>{scenario.steps.map((item, index) => <button key={item.label} aria-pressed={step === index} onClick={() => setStep(index)}><span>0{index + 1}</span><strong>{t(item.label)}</strong><span aria-hidden="true">{step === index ? '−' : '+'}</span></button>)}</div>
-        <p className="pt-case-active" aria-live="polite" aria-atomic="true">{t(frame.detail)}</p><p className="pt-case-outcome">{t(scenario.outcome)}</p><a className="pt-text-link" href={scenario.route}>{t("在应用中开始")} <span aria-hidden="true">›</span></a>
+        <p className="pt-case-active" aria-live="polite" aria-atomic="true">{t(frame.detail)}</p><p className="pt-case-outcome">{t(scenario.outcome)}</p><a className="pt-text-link" href={scenario.route}>{t(selected === 3 ? '打开 Alexa+ 网页模拟器' : '在应用中开始')} <span aria-hidden="true">›</span></a>
       </div>
     </div>
   </section>

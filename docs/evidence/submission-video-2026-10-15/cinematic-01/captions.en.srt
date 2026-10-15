@@ -1,0 +1,111 @@
+1
+00:00:00,900 --> 00:00:05,364
+Meet Mochi. Emma and Alex share the care.
+
+2
+00:00:05,524 --> 00:00:09,820
+Paw Twin brings their daily routine into one shared place.
+
+3
+00:00:12,250 --> 00:00:17,578
+Two sample weights, seven days apart, show a hundred fifty gram increase.
+
+4
+00:00:17,738 --> 00:00:24,098
+The report keeps the calculation tied to its records, and missing food intake stays unknown.
+
+5
+00:00:25,250 --> 00:00:29,090
+Mochi likes a feather toy and rests after meals.
+
+6
+00:00:29,250 --> 00:00:34,410
+Emma confirms that preference before it becomes part of their shared pet context.
+
+7
+00:00:36,250 --> 00:00:40,786
+Alex starts a fresh conversation in the Alexa web simulator.
+
+8
+00:00:40,946 --> 00:00:46,826
+The next answer reads the same confirmed preference and makes its source available to inspect.
+
+9
+00:00:48,250 --> 00:00:51,634
+Emma asks for playtime and chooses a time.
+
+10
+00:00:51,794 --> 00:00:56,570
+The draft lets her review the plan before any care task exists.
+
+11
+00:00:57,333 --> 00:01:00,573
+The prepared proposal is ready for review.
+
+12
+00:01:00,733 --> 00:01:03,877
+It still needs an explicit confirmation.
+
+13
+00:01:05,333 --> 00:01:09,005
+Emma confirms one shared manual care task.
+
+14
+00:01:09,165 --> 00:01:14,085
+The result is clear: planned, and waiting for a person to complete it.
+
+15
+00:01:14,833 --> 00:01:19,081
+Alex claims the task and records the playtime as completed.
+
+16
+00:01:19,241 --> 00:01:23,897
+His account is attached to the record, so the handoff stays traceable.
+
+17
+00:01:26,833 --> 00:01:31,345
+The household history identifies Alex and the completed care.
+
+18
+00:01:31,505 --> 00:01:34,529
+Everyone can check the recorded result.
+
+19
+00:01:35,292 --> 00:01:40,020
+Emma's daily report now counts one completed manual care task.
+
+20
+00:01:40,180 --> 00:01:44,596
+It summarizes the saved records without inventing a health outcome.
+
+21
+00:01:45,375 --> 00:01:50,511
+A helper can receive temporary, read-only access to one selected pet.
+
+22
+00:01:50,671 --> 00:01:53,023
+The owner can revoke it.
+
+23
+00:01:53,792 --> 00:01:58,280
+The visit card organizes dated records and shows what is missing.
+
+24
+00:01:58,440 --> 00:02:02,376
+It can be printed or saved for review with a veterinarian.
+
+25
+00:02:03,125 --> 00:02:07,589
+When Emma deletes a preference, the next answer stops using it.
+
+26
+00:02:07,749 --> 00:02:12,045
+A remembered fact is always subject to the owner's control.
+
+27
+00:02:13,125 --> 00:02:18,285
+Paw Twin connects the pet's records, shared plans, and recorded care.
+
+28
+00:02:18,445 --> 00:02:28,381
+This prototype uses local rules and SQLite. Alexa is a web simulation; live cloud and hardware integrations remain unverified.

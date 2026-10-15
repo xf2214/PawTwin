@@ -1,0 +1,57 @@
+{
+  "source": "Microsoft Edge provider WordBoundary metadata",
+  "units": "seconds relative to full untrimmed WAV",
+  "timing_review": "provider timing only; no human listening alignment performed",
+  "text": "And everyday questions can start there, too.",
+  "words": [
+    {
+      "text": "And",
+      "start": 0.101,
+      "end": 0.31783300000000003,
+      "offset_100ns": 1010000,
+      "duration_100ns": 2168330
+    },
+    {
+      "text": "everyday",
+      "start": 0.330625,
+      "end": 0.7005410000000001,
+      "offset_100ns": 3306250,
+      "duration_100ns": 3699160
+    },
+    {
+      "text": "questions",
+      "start": 0.71325,
+      "end": 1.248958,
+      "offset_100ns": 7132500,
+      "duration_100ns": 5357080
+    },
+    {
+      "text": "can",
+      "start": 1.26175,
+      "end": 1.4275829999999998,
+      "offset_100ns": 12617500,
+      "duration_100ns": 1658330
+    },
+    {
+      "text": "start",
+      "start": 1.440291,
+      "end": 1.720916,
+      "offset_100ns": 14402910,
+      "duration_100ns": 2806250
+    },
+    {
+      "text": "there",
+      "start": 1.733666,
+      "end": 2.090791,
+      "offset_100ns": 17336660,
+      "duration_100ns": 3571250
+    },
+    {
+      "text": "too",
+      "start": 2.256625,
+      "end": 2.690291,
+      "offset_100ns": 22566250,
+      "duration_100ns": 4336660
+    }
+  ]
+}

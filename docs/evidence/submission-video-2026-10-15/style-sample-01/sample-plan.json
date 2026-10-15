@@ -1,0 +1,31 @@
+{
+  "approved_direction": "Warm family story with a polished product demonstration; make a short style sample before the full film.",
+  "sample": {"seconds":30,"width":1920,"height":1080,"fps":30,"purpose":"Review visual language, pacing, readable actual interactions and sound before full production."},
+  "shots": [
+    {"from":0,"to":4.2,"type":"brand opening","focus":"Mochi and shared care","narration":"Care feels easier when everyone knows your pet."},
+    {"from":4.2,"to":10.5,"type":"actual continuous interaction","source":"fresh capture owner.webm, 41.1 to 47.4 seconds, normal speed, actual body zoom 2","focus":"Emma confirms a candidate memory","narration":"Emma confirms what Mochi loves."},
+    {"from":10.5,"to":16.3,"type":"actual new-session interaction and result","source":"fresh capture alex.webm, 47.4 to 53.2 seconds, normal speed, actual body zoom 2","focus":"Alex's fresh session uses confirmed records and expands its source","narration":"Alex starts fresh. The same context comes along."},
+    {"from":16.3,"to":22.6,"type":"clearly labelled scripted product preview","focus":"Miso's profile, preference and food question","narration":"And everyday questions can start there, too."},
+    {"from":22.6,"to":27,"type":"clearly labelled scripted product preview","focus":"Luna's profile and illustrative activity record","narration":"These scripted previews explore food questions and activity records."},
+    {"from":27,"to":30,"type":"brand close","focus":"Less repeating. More caring.","narration":"Less repeating. More caring."}
+  ],
+  "quality_gates": [
+    "Clearly distinguish actual local UI from the scripted concierge scenarios.",
+    "No fabricated application actions, answers or physical care outcomes.",
+    "Stop camera movement while consequential UI text is read.",
+    "Keep captions outside important application controls and results.",
+    "Check representative actual encoded frames, complete audio decode and uninterrupted playback behaviour.",
+    "User reviews this sample's creative quality before any full-film render."
+  ],
+  "full_film_outline": [
+    {"from":0,"to":8,"beat":"Alex takes over Mochi's care. What should he know?"},
+    {"from":8,"to":25,"beat":"Emma confirms a preference; show who decides what enters shared context."},
+    {"from":25,"to":45,"beat":"Alex's fresh conversation uses that same confirmed source."},
+    {"from":45,"to":78,"beat":"Emma reviews and explicitly confirms a manual-care plan."},
+    {"from":78,"to":108,"beat":"Alex claims and completes it; the family report updates."},
+    {"from":108,"to":144,"beat":"Clearly labelled concierge preview: Miso, Luna, and context comparison."},
+    {"from":144,"to":152,"beat":"One benefit and concise implementation boundary."}
+  ],
+  "boundaries": "App is local accounts/SQLite/local_rules, Alexa is a text web simulator; concierge answers/traces are scripted fictional previews, without live inference, actual tracking or clinical diagnosis.",
+  "write_scope": "New independent video studio and new style-sample-01 evidence only; preserve existing application edits and all delivered videos."
+}

@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "actual_duration_seconds": 30.101,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "fps": 30,
+  "video_frames": 903,
+  "decoded_all_streams_without_error": true,
+  "actual_stereo_audio": {
+    "duration_seconds": 30.101333333333333,
+    "integrated_lufs": -16.01,
+    "true_peak_dbtp": -2.26,
+    "loudness_range_lu": 3.3,
+    "sample_peak_dbfs": -2.261,
+    "clipped_samples": 0
+  },
+  "narration": "one continuous Ava story take; default rate and pitch",
+  "additional_phrase_pauses": [],
+  "original_pcm_retained_before_mix": true,
+  "normal_speed_ui_seconds": [
+    6.3,
+    5.8
+  ],
+  "result_frame_holds_seconds": [
+    0.8666666666666671,
+    1.2333333333333334
+  ],
+  "caption_cues": 14,
+  "encoded_frames_for_visual_review": [
+    54,
+    146,
+    251,
+    330,
+    343,
+    436,
+    537,
+    587,
+    647,
+    676,
+    717,
+    802,
+    826,
+    856,
+    901
+  ],
+  "previous_deliveries_preserved": [
+    "PawTwin-style-sample-2026-10-15.en.mp4",
+    "PawTwin-demo-2026-10-15.en.mp4",
+    "PawTwin-demo-2026-10-15.en.v2.mp4",
+    "PawTwin-submission-2026-10-15.en.docx"
+  ],
+  "human_listening_review": "not_performed",
+  "creative_user_review": "pending",
+  "video_bytes": 3175345,
+  "sha256": "7426a38abc17dbfea78520de806259736e32752cedf4091338d79d31ce2e3f01"
+}

@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-15",
+  "source_snapshot": "PawTwin-before-submission-fixes-2026-10-15-4b2615/editable-source.zip",
+  "changes": [
+    {
+      "path": "docs/evidence/submission-video-2026-10-15/fullfilm-01/build-fullfilm.py",
+      "before_sha256": "895bff36a58e1e187401dd797c29dff2bbe48aaa92761735c03bbee73c8783cb",
+      "after_sha256": "ff2ff78651bfe9bcba91af2efd714520b74baf1bac8ecbbe35cf070d8cfbe553",
+      "before_bytes": 7976,
+      "after_bytes": 9760
+    },
+    {
+      "path": "docs/evidence/submission-video-2026-10-15/fullfilm-01/verify-fullfilm.py",
+      "before_sha256": "2388e0d117cc9dd2fb7c0b4cd9c889d95ec0c29c759a469c0806c4cb62972e17",
+      "after_sha256": "25ba4545a023155339f9e3ef5eae8f770236a816900f6b5f82a245d9a45c1c74",
+      "before_bytes": 6204,
+      "after_bytes": 7937
+    },
+    {
+      "path": "docs/evidence/submission-video-2026-10-15/fullfilm-01/actual-assets/build-clips.py",
+      "before_sha256": "33cf539b21e92bc97d8c8112291143d5797642a75935b421e8066b592cc283e1",
+      "after_sha256": "5e87e81170f07c9046314013ceee3bc562fdb97d4db8d5396bbd545c97d2858c",
+      "before_bytes": 4832,
+      "after_bytes": 7563
+    },
+    {
+      "path": "docs/evidence/submission-video-2026-10-15/fullfilm-01/actual-assets/build-report-v2.py",
+      "before_sha256": "b73e20ebea4bd95cb8c3169cb667cbf06f45aab15f992edf2768f23bc8798aef",
+      "after_sha256": "4c09f87d39cf0cb0b2332db5189e067ad809ab310a55a5393bf0b7703bfe33e2",
+      "before_bytes": 2167,
+      "after_bytes": 3082
+    },
+    {
+      "path": "docs/evidence/submission-video-2026-10-15/fullfilm-01/actual-assets/build-short-actions.py",
+      "before_sha256": "0cbd1820d3de771e6f94d003632f9705dd40503853fcf0d62e867c467b709ea3",
+      "after_sha256": "120d42d979868f77dd9cbe1ce41869fed8012379d0c414dccf94ad7ac3e20f68",
+      "before_bytes": 2400,
+      "after_bytes": 4093
+    },
+    {
+      "path": "docs/evidence/submission-video-2026-10-15/fullfilm-01/actual-assets/inspect-sources.py",
+      "before_sha256": "34f26f9ba90accadc4190826f651e991108348684aa54c062ed63ffd96546899",
+      "after_sha256": "93b3317160ab8a33837d65f3d7412e7078270d093ad7958d7209e18fe00c5e32",
+      "before_bytes": 967,
+      "after_bytes": 1391
+    },
+    {
+      "path": "docs/evidence/submission-video-2026-10-15/style-sample-01/audio/build-style-audio.py",
+      "before_sha256": "2ba5103e8eabdbeee9741fce7d1cd0937acdc97fdc3bc3ce149b88dd343e19c8",
+      "after_sha256": "00fe0f1df2904091e59b75308af6d7fe0f113234875a53811416d66660886745",
+      "before_bytes": 15952,
+      "after_bytes": 18639
+    },
+    {
+      "path": "docs/evidence/submission-video-2026-10-15/style-sample-01/audio/verify-audio.py",
+      "before_sha256": "eea18de7f17af56dd59008e3c0c0bbd27efc7bad9027be59a7f5d947fa9d0df1",
+      "after_sha256": "7bd611caeedd51ff272aedfc738c1cb2874af4f8fbe950df2be6643b203b1465",
+      "before_bytes": 3350,
+      "after_bytes": 3579
+    },
+    {
+      "path": "docs/evidence/submission-video-2026-10-15/style-sample-audio-v2/build-voice-revision.py",
+      "before_sha256": "0e3ebd80535a43cca97d44cef2b6461935a34b78d19498794649598a12a04851",
+      "after_sha256": "d26ed45210b2b5b23b55a8e16e92be8bf2a6765023c00fa00b562de99ebbecf4",
+      "before_bytes": 7267,
+      "after_bytes": 9022
+    },
+    {
+      "path": "docs/evidence/submission-video-2026-10-15/style-sample-audio-v2/verify-voice-revision.py",
+      "before_sha256": "64077e7046b9398edd982e4a00cf9d1c170b69ff3e7736d125e06307f71b9760",
+      "after_sha256": "ccf004eda29f7d7cb63f12297b824450f8e812ae97e3ed54a768c1ebc3135688",
+      "before_bytes": 5797,
+      "after_bytes": 7198
+    }
+  ]
+}
