@@ -105,5 +105,6 @@
     "Existing604.61kB frontend chunk warning remains.",
     "Canonical Word renderer lacks soffice; hidden Word/Poppler passed all6 pages.",
     "Film reconstruction needs the separate Remotion studio; source ZIP reproduces the local application."
-  ]
+  ],
+  "archive_preflight": "archive-preflight.json"
 }

@@ -20,15 +20,15 @@ The film follows Emma and Alex caring for Mochi: a candidate preference becomes 
 
 ## Source freeze and final package
 
-The complete repaired working tree, including the 15 October Pet Concierge additions, is the source to freeze. **`6342b96` is the 14 October audited baseline, not the identity of the current working tree.** Final local source identity and consolidated checks are recorded by the finalization step in [release-source.json](release-source.json) and [repair verification](../../evidence/submission-repairs-2026-10-15/verification.json).
+The complete repaired source, including the 15 October Pet Concierge additions, is frozen locally. **`6342b96` is the historical 14 October baseline.** Current application identity and repaired checks are recorded in [release-source.json](release-source.json) and [repair verification](../../evidence/submission-repairs-2026-10-15/verification.json). The external source manifest identifies the exact final Git commit without a self-referential commit hash in this document.
 
 | Final deliverable | Preparation status |
 | --- | --- |
-| [Runnable source ZIP](../../../../PawTwin-source-2026-10-15.final.zip) | Prepared by finalization step; verify identity against `release-source.json` and the matching external JSON manifest. |
-| [Submission materials ZIP](../../../../PawTwin-submission-materials-2026-10-15.final.zip) | Prepared by finalization step; contains the final film and matching current text. |
+| [Runnable source ZIP](../../../../PawTwin-source-2026-10-15.final.zip) | Complete application source, locks, assets and instructions; external manifest records source commit, portable application identity and every member hash. |
+| [Submission materials ZIP](../../../../PawTwin-submission-materials-2026-10-15.final.zip) | Final film, SRT/poster, editable Word, current text, source ZIP and matching source manifest. |
 | [Editable English submission document](../../../../PawTwin-submission-2026-10-15.final.en.docx) | Generated locally; six-page hidden Word/Poppler render reviewed on every page. See [new document QA](document-final-qa.json) for its hash and canonical-renderer limitation. |
 
-These planned names identify the active finalization outputs. Their existence, hashes, archive CRC, source identity and combined repair verification must be established by the finalization records; this document alone does not mark those checks complete. Original media, DOCX files and earlier archives are preserved.
+Archive preflight passed CRC, member hashes, standalone links and matching film/source identity; [preflight record](../../evidence/submission-repairs-2026-10-15/archive-preflight.json). Canonical ZIPs are generated after the final documentation commit and repeat those checks; their external manifests record the actual final bytes. Original media, DOCX files and earlier archives are preserved. Human listening and external publication/submission remain pending.
 
 ## Scope and release status
 

@@ -139,6 +139,47 @@
   "source_content_snapshots": [
     {
       "path": "README.md",
+      "sha256": "98387274347f79255d0a37dbe74a80ccedbbd26b2e3fd47873af5b173d1b95d2"
+    },
+    {
+      "path": "project-description.en.md",
+      "sha256": "364368e52dc1303c8259d0eea50188190f4671d34290e72e7146dc0732f14de3"
+    },
+    {
+      "path": "judge-guide.en.md",
+      "sha256": "f13e5d0804f5bf57021c7582d887fc3ef705e2f290e7e63512d26bf6a6c20d52"
+    },
+    {
+      "path": "submission-checklist.md",
+      "sha256": "62111863b0ef35634b3d9d73331685b0d65062e949eb55a052933d9c6f0e9218"
+    },
+    {
+      "path": "final-video-production.md",
+      "sha256": "633d76496e56a354cdaef12a607898c848a3b51d368186ab090dbab6adb6c546"
+    },
+    {
+      "path": "product-feedback.en.md",
+      "sha256": "ccff1ee450c0e94b8f1d751fb183416380c16b4a292fde29ee1f0ab9b7cfab7e"
+    },
+    {
+      "path": "video-feedback-addendum.en.md",
+      "sha256": "1c89a7fe15a261a40c22df1c61eb31c75bd0d42e58caff6d24e35d7ff41f762e"
+    },
+    {
+      "path": "production/build-final-document.py",
+      "sha256": "a0eede9ae19b2981627608fa3904c19a4d1fe6098a9e85f2462f7a807cf64364"
+    }
+  ],
+  "limitations": [
+    "Canonical LibreOffice renderer unavailable; page rendering used installed Microsoft Word read-only export plus bundled Poppler.",
+    "Layout may vary in another editor.",
+    "Final whole-tree repair verification and archive/freeze identities are separate coordinator records.",
+    "Product Feedback personal onboarding and individual Yes/No reuse answers remain participant fields.",
+    "Complete human video playback/listening, public upload, eligibility and rights declarations, reviewer source access and Devpost submission remain pending."
+  ],
+  "authoring_source_content_snapshots": [
+    {
+      "path": "README.md",
       "sha256": "8ad435bf3ee303c5cadce3055abb9ac68a1a177d28dbe15dc8ec4c7d13df61b6"
     },
     {
@@ -170,11 +211,13 @@
       "sha256": "a0eede9ae19b2981627608fa3904c19a4d1fe6098a9e85f2462f7a807cf64364"
     }
   ],
-  "limitations": [
-    "Canonical LibreOffice renderer unavailable; page rendering used installed Microsoft Word read-only export plus bundled Poppler.",
-    "Layout may vary in another editor.",
-    "Final whole-tree repair verification and archive/freeze identities are separate coordinator records.",
-    "Product Feedback personal onboarding and individual Yes/No reuse answers remain participant fields.",
-    "Complete human video playback/listening, public upload, eligibility and rights declarations, reviewer source access and Devpost submission remain pending."
-  ]
+  "post_authoring_release_activation": {
+    "date": "2026-10-16",
+    "updated_source_records": [
+      "README.md",
+      "submission-checklist.md"
+    ],
+    "document_bytes_changed": false,
+    "reason": "Local archive/checklist status advanced after observed checks; film story and rendered Word content are unchanged. The Word document points to external identity and verification records rather than embedding a future commit."
+  }
 }

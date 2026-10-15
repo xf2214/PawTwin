@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "source_commit": "11586f8469332e6eea543281cd3f1d45debfa016",
+  "application_sha256": "1ce9d0ba3c2221d58268f4704dd417d955edf3e35387e42644f4986791ca96be",
+  "source_archive_sha256": "9d75ef5514e7b7a95251e3d840603bed1337e59a100adcb594e93dde8e674264",
+  "materials_archive_sha256": "3abfd10a4a8eec343a1d3dd52e1ffbf3e75ab8cc381570eb68c881d9a73b0cba",
+  "member_crc": "passed",
+  "member_hashes": "passed",
+  "standalone_links_checked": 41,
+  "broken_links": [],
+  "video_count": 1,
+  "source_files": 491,
+  "scope": "Archive preflight on frozen source; canonical output files are generated after documentation activation."
+}
