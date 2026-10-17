@@ -24,7 +24,8 @@ function Get-PawTwinNodeRuntime {
             }
         }
         if (-not $nodeExe) {
-            $nodeCommand = Get-Command node -CommandType Application -ErrorAction Stop
+            $nodeCommand = Get-Command node -CommandType Application -ErrorAction Stop |
+                Select-Object -First 1
             $nodeExe = $nodeCommand.Source
             $NodeDirectory = Split-Path -Parent $nodeExe
         }

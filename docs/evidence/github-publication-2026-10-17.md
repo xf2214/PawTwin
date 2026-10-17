@@ -31,3 +31,11 @@ Existing warnings: Starlette/AnyIO deprecation and a Vite bundle above 500 kB. L
 The public repository description and nine topics were set. Issues remain enabled, the unused Wiki is disabled, merged branches can be deleted automatically, and private vulnerability reporting is enabled. The baseline CI is retained for Ubuntu/Windows. The ECR image workflow remains manual and was not invoked.
 
 Push permission was verified with `git push --dry-run origin HEAD:refs/heads/main`. GitHub Actions is enabled. The final remote commit, rendered README, detected license and workflow outcome are checked through GitHub after upload; current results are available from the repository and its Actions page. Source publication does not publish the final film, deploy AWS resources, send messages, or submit the competition.
+
+## First upload and remote CI portability repair
+
+The first upload, `809cbcdae9e3dee376f43dbb10b18821f02a1f74`, was verified against remote `main`; the remote README blob matched the local commit, GitHub detected MIT, and all 1,576 remote files were listed without a truncated tree or sensitive runtime-path match. The rendered README returned HTTP 200 and contained the quick start, prototype boundary and screenshot. Description/topics and private vulnerability reporting were read back successfully.
+
+The [first remote workflow](https://github.com/xf2214/PawTwin/actions/runs/38999098136) exposed an existing Linux launcher defect: `Get-Command node` returned both the setup-node installation and `/usr/local/bin/node`. Reading `.Source` produced an array, which PowerShell then treated as one invalid executable path. The fix selects the first application, preserving PATH precedence; npm discovery already does this. This changes runtime discovery only, not product behavior.
+
+A subprocess regression returns two Node matches and checks actual discovery, version execution and npm resolution. It reproduced the same invalid combined-path failure before the fix. Afterward **50 targeted tests passed**, full Ruff and whitespace checks passed, and the local runtime preflight selected Node 24/npm successfully without an AWS call. An independent reviewer confirmed the cause and fix. The follow-up push reruns the full Ubuntu/Windows matrix; its current result is visible on [Actions](https://github.com/xf2214/PawTwin/actions).
