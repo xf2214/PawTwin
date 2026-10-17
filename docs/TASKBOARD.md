@@ -1,5 +1,11 @@
 # PawTwin 开发任务看板
 
+## 2026-10-17：GitHub 源码发布与仓库整理
+
+PUB-01：用户授权上传既有 Git 历史至 `xf2214/PawTwin` 的 `main`，并明确选择 MIT。Coordinator 串行维护 README/许可/社区配置、源码导出清单、打包回归和状态记录；publication_audit 与 docs_audit 只读独立审查，无并行源码写入。保留本地 `chore/bootstrap`、原 README、用户数据与既有媒体包。
+
+验收要求为仓库描述/主题、双语文档和有效运行入口、许可、敏感内容排除、完整验证、远端提交核对与 CI 结果；详细证据见 [发布记录](evidence/github-publication-2026-10-17.md)和[仓库说明](REPOSITORY.md)。本次不部署 AWS、不发布最终视频或提交比赛；以下各日期条目保留其历史事实。
+
 ## 2026-10-15：工作台宠物管家演示
 
 WORK-CASE-01 done_local：工作台新增 `/#workbench/concierge`“宠物管家”，复用宣传页的三步案例：Miso 小狗饮食、Luna 猫咪状态和上下文随行。新入口保留演示口令保护；预设对话、虚构档案和模拟轨迹不读写家庭记录或调用模型。返回原请求时继续保留审批与运行追踪。

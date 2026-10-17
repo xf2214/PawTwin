@@ -47,13 +47,19 @@ RUNTIME_DIRS = {
     "playwright-report",
 }
 ROOT_FILES = {
+    ".editorconfig",
     ".gitattributes",
     ".env.example",
     ".python-version",
     ".gitignore",
     ".dockerignore",
     "dockerfile",
+    "license",
     "readme.md",
+    "readme.zh-cn.md",
+    "readme.history.zh-cn.md",
+    "contributing.md",
+    "security.md",
     "agents.md",
     "pyproject.toml",
     "uv.lock",
@@ -102,6 +108,9 @@ def include_source(name: str) -> bool:
         return True
     if len(path.parts) == 1:
         return filename in ROOT_FILES
+    # Keep the image referenced by the public READMEs in standalone source exports.
+    if lower == "docs/evidence/i18n-2026-10-14/product-en.png":
+        return True
     if lower.startswith("docs/") and path.suffix.casefold() == ".md":
         return True
     if lower.startswith("docs/") and path.suffix.casefold() in {

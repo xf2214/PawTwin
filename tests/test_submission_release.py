@@ -69,6 +69,31 @@ def test_source_selection_keeps_runnable_assets_and_release_instructions(name):
     assert release.include_source(name)
 
 
+def test_source_archive_keeps_license_and_public_readme_dependencies(tmp_path, monkeypatch):
+    names = {
+        "LICENSE",
+        "README.md",
+        "README.zh-CN.md",
+        "README.history.zh-CN.md",
+        "CONTRIBUTING.md",
+        "SECURITY.md",
+        ".editorconfig",
+        "docs/evidence/i18n-2026-10-14/product-en.png",
+    }
+    for name in names:
+        path = tmp_path / name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(name.encode())
+    monkeypatch.setattr(release, "git", lambda *_: b"\0".join(n.encode() for n in names))
+    monkeypatch.setattr(release, "REQUIRED", names)
+    payload = release.source_payload(tmp_path)
+    target = tmp_path / "source.zip"
+    release.write_archive(target, payload, {})
+    with zipfile.ZipFile(target) as archive:
+        assert names <= set(archive.namelist())
+        assert archive.read("LICENSE") == b"LICENSE"
+
+
 def test_archive_records_actual_bytes_and_preserves_existing_delivery(tmp_path):
     target = tmp_path / "release.zip"
     payload = {"README.md": b"setup", "frontend/public/logo.png": b"asset"}
