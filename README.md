@@ -50,7 +50,7 @@ The launcher explicitly selects local rules and simulated services. Records pers
 | `http://127.0.0.1:8000/#workbench` | Original approval/device simulation workbench |
 | `http://127.0.0.1:8000/#workbench/concierge` | Scripted Pet Concierge demonstration |
 
-The workbench uses the demo gate configured by `PAWTWIN_DEMO_PASSPHRASE`; its built-in local value is documented in [configuration source](backend/pawtwin/config.py). Keep any replacement private. Household registration uses a separate account flow. Local addresses require a running server; no hosted app or public video URL is provided here.
+The workbench's default local demo passphrase is **`local-demo-passphrase`**. Enter it on the workbench sign-in screen. If `PAWTWIN_DEMO_PASSPHRASE` is set, use that value instead; keep any replacement private. See [configuration source](backend/pawtwin/config.py). Household registration uses a separate account flow. Local addresses require a running server; no hosted app or public video URL is provided here.
 
 For development, run `./scripts/dev-backend.ps1` and `./scripts/dev-frontend.ps1` in separate terminals. Vite serves port `5173` and proxies `/api` to `8000`. Configuration options are in [.env.example](.env.example); never commit a real `.env`. On Windows, `PAWTWIN_NODE_DIR` can point to a compatible Node installation.
 

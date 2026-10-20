@@ -50,7 +50,7 @@ cd PawTwin
 | `http://127.0.0.1:8000/#workbench` | 原审批与设备模拟工作台 |
 | `http://127.0.0.1:8000/#workbench/concierge` | 预设宠物管家演示 |
 
-工作台使用 `PAWTWIN_DEMO_PASSPHRASE` 演示门禁，本地默认值见[配置源码](backend/pawtwin/config.py)；替换口令应私下保存。家庭账号注册是独立流程。以上地址需要本机服务运行，仓库目前未提供托管应用或公开视频地址。
+工作台的本地默认演示口令是 **`local-demo-passphrase`**，在工作台登录页输入即可。如果设置了环境变量 `PAWTWIN_DEMO_PASSPHRASE`，则使用该变量的值；替换口令应私下保存。详见[配置源码](backend/pawtwin/config.py)。家庭账号注册是独立流程。以上地址需要本机服务运行，仓库目前未提供托管应用或公开视频地址。
 
 开发时可分别运行 `./scripts/dev-backend.ps1` 与 `./scripts/dev-frontend.ps1`：后端使用 `8000`，前端 `5173` 将 `/api` 代理至后端。配置见 [.env.example](.env.example)，真实 `.env` 不应入库；Windows 可用 `PAWTWIN_NODE_DIR` 指定兼容的 Node 目录。
 

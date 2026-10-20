@@ -588,10 +588,15 @@ export default function App() {
             <input
               id="passphrase"
               type="password"
+              aria-describedby="demo-passphrase-hint"
               value={passphrase}
               autoComplete="current-password"
               onChange={(e) => setPassphrase(e.target.value)}
             />
+            <p id="demo-passphrase-hint" className="wb-login-hint">
+              {t('本地默认演示口令：', 'Default local demo passphrase: ')}<code>local-demo-passphrase</code>
+              <span>{t('若已设置自定义演示口令，请使用配置后的口令。', 'If a custom demo passphrase is configured, use that value instead.')}</span>
+            </p>
             <button type="submit" disabled={busy || passphrase.length === 0}>{t("登录演示")}</button>
           </form>
           {t(error ? <p className="error" role="alert">{t(error)}</p> : null)}
