@@ -1,5 +1,27 @@
 # PawTwin 开发任务看板
 
+## 2026-10-21：PUB-02 继续验收
+
+PUB-02 done_local：用户要求继续。Coordinator 接管导入器剩余中断窗口修复，三个新回归先失败后通过，确定事件意图先于 POST 保存。独立复核确认原 P2 关闭。最终 539 后端通过/1 skipped/21 live-AWS deselected，129 浏览器通过（五分片，0 retries），静态检查/契约/锁文件/类型/构建/diff 通过；真实 HTTP 日期 2026-10-21 导入/重放通过，现有预览资料保留。本地验收后按用户授权更新现有 main，实际提交与远端检查由 Git 历史/Actions 核对。[完整验收](evidence/github-update-2026-10-21.md)。
+
+## 2026-10-20：完整检查与 GitHub 更新
+
+PUB-02 in_progress：用户明确要求仔细检查并更新现有 GitHub。Coordinator 串行整合当前 `chore/bootstrap` 完整工作区、修复已复现问题、验证、审定提交清单并快进推送现有 `origin/main`；保留本地演示数据库、备份和未提交功能。release_frontend_review 只读检查 UI/前端差异，release_backend_review 只读检查后端/数据，release_publication_review 只读检查可复现性与发布清单。共享文件和发现修复均由 Coordinator 串行处理，审查 Agent 不写文件、不操作当前演示数据或服务。验收包括完整本地测试、独立复核、无敏感运行文件、远端提交匹配及 GitHub Actions；本轮不部署云或提交比赛。
+
+复现后的有界修复分工：Coordinator 独占回复来源投影、生成契约与文档整合；release_frontend_review 后续独占 `i18n.tsx`、`family-api.ts`、FamilyApp/AlexaSimulator/CareAccess 的回复显示及新增英文来源浏览器回归；release_publication_review 后续独占新增 `scripts/seed_demo.py` 与 `tests/test_seed_demo.py`（可新增仅其消费的 helper），提供显式、仅本地、全新演示家庭的可重复导入。其他既有文件不交叉写入；修复先复现失败后验证。既有两个预览数据库不用于测试。
+
+## 2026-10-20：当前 App 与工作台使用数据
+
+DEMO-02 done_local：用户要求当前 `8000` App 和工作台补充可展示的使用记录。Coordinator 串行拥有新 `docs/evidence/demo-usage-2026-10-20/` 复现脚本、证据、文档及两份当前预览数据库的认证 API 写入；先备份，保留原记录和现有未提交源码。usage_family_audit 与 usage_workbench_audit 只读检查既有接口/场景；usage_final_review 只读验收数据与报告。全部新增资料使用英文、明确虚构，设备仅模拟，不读取私密配置、不调用云、不推送。
+
+最终：2 只宠物、20 条测量、13 个计划/5 次人工演示完成、6 篇日记/4 条观察、6 条确认/2 条待确认偏好、8 份当前报告、6 条工作台运行/3 条反馈。独立重算报告、来源同宠、偏好检索、完整性/备份哈希及实际页面刷新通过；同日重放记录 ID/版本/事实不变，隔离中断审批续跑不改事实；Ruff/diff 通过，无开放审查发现。[完整证据](evidence/demo-usage-2026-10-20.md)。
+
+## 2026-10-20：英文界面完整性检查
+
+I18N-AUDIT-01 done_local：修复英文界面的系统文案、默认演示资料、称呼建议、动态空值/观察提示和 Alexa 生成任务标题。用户原始记录保持原文。Coordinator 串行整合语言、默认值辅助组件、受控本地化输入、FamilyApp/FamilyRecords、导出/只读访问、生成契约、已有测试及文档；english_components_audit 独占 PetHome.tsx；english_ui_tests 只新增 english-ui.spec.ts；english_family_audit 后续独占历史标题投影、对应视图与新回归；english_final_review 只读最终复核。修改前 55 文件快照 SHA256 全部一致。
+
+最终 **502 backend passed / 1 skipped / 21 live-AWS deselected；127 browser passed（37 + 37 + 23 + 30，0 retries）**，Ruff、契约、类型/生产构建及 diff 检查通过。新五项浏览器回归覆盖页面/表单/导出英文扫描、320/390/1440、用户原文、语言切换中的草稿、连续创建重置和旧回复快照；五项后端回归验证历史标题缺省来源。独立复核无开放 P1/P2，当前浏览器页面无中文字符。重启前在线备份两份数据库，重启后原业务表内容一致，仅 report_worker 运行元数据自然更新。本地 `8000` 已加载修复，未提交或发布本轮变更。[验收与截图](evidence/english-ui-audit-2026-10-20.md)。
+
 ## 2026-10-20：演示口令可见提示
 
 DEMO-GATE-01 done_local：用户明确要求 README 与网页工作台写出已有公开的本地默认演示口令，并重新提交 GitHub。Coordinator 串行修改两份 README、App.tsx 登录提示、局部工作台样式及状态记录；login_hint_review 只读复核。提示关联口令输入框，支持中英文，并说明自定义配置覆盖。认证、后端配置与私密口令保持原逻辑；仅发布本地默认值。

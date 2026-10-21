@@ -130,6 +130,20 @@ class CareDraftView(BaseModel):
     title: str
 
 
+class CareReplyRecordView(BaseModel):
+    id: str
+    title: str
+    title_is_fallback: bool = False
+    completed_at: str | None = None
+
+
+class CareReplySummaryView(BaseModel):
+    kind: Literal["pending", "completed"]
+    pet_name: str | None = None
+    total_count: int
+    records: list[CareReplyRecordView]
+
+
 class ReplyView(BaseModel):
     answer: str
     entry: Literal["app", "alexa_simulator"]
@@ -147,6 +161,7 @@ class ReplyView(BaseModel):
     action_executed: Literal[False]
     label: str
     care_draft: CareDraftView | None = None
+    care_summary: CareReplySummaryView | None = None
     context_valid_until: str
 
 
@@ -223,6 +238,7 @@ class VisitPreferenceView(BaseModel):
 class VisitCareView(BaseModel):
     id: str
     title: str
+    title_is_fallback: bool = False
     kind: str | None = None
     due_at: str | None = None
     completed_at: str
@@ -322,4 +338,5 @@ class CareAccessReplyView(BaseModel):
     as_of: str
     context_version: int
     source_record_ids: list[str]
+    care_summary: CareReplySummaryView | None = None
     label: str

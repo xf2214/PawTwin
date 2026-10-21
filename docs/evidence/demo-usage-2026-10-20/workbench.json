@@ -1,0 +1,32 @@
+{
+  "approved-meal": {
+    "run_id": "c1b10c28-0c47-577e-ad04-b1f833ba2e7d",
+    "expected": "succeeded",
+    "scenario": "Owner reviewed and approved a simulated 15 g meal."
+  },
+  "recent-meal-block": {
+    "run_id": "83bf2894-d355-5a86-a583-d1673ff1a08f",
+    "expected": "blocked",
+    "scenario": "A second request soon after feeding is stopped by the interval rule."
+  },
+  "missing-feed-time": {
+    "run_id": "a760b739-9ff8-53df-a5c0-a72d39e8b538",
+    "expected": "needs_info",
+    "scenario": "The last feeding time is missing, so the system asks for more information."
+  },
+  "owner-declined": {
+    "run_id": "14c3e56f-2a7f-56c1-a639-ecc4a4551975",
+    "expected": "declined",
+    "scenario": "Owner chooses to review the manual meal plan instead."
+  },
+  "device-failure": {
+    "run_id": "fb8afdf3-c227-5788-bfbd-d8c003135eb2",
+    "expected": "failed",
+    "scenario": "Simulated feeder failure produces a failed receipt without adding food."
+  },
+  "approved-play": {
+    "run_id": "29513275-7bcf-51e7-aadb-88114bfae225",
+    "expected": "succeeded",
+    "scenario": "An attention request becomes an owner-approved simulated play task."
+  }
+}

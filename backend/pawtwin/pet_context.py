@@ -45,10 +45,10 @@ def active_record(record):
     return {k: v for k, v in record.items() if k not in {"corrections", "revisions"}}
 
 
-def completed_title(home: dict, occurrence: dict) -> str:
+def _completed_title_with_provenance(home: dict, occurrence: dict) -> tuple[str, bool]:
     task = next((t for t in home["tasks"] if t["id"] == occurrence["task_id"]), None)
     if task is None:
-        return "人工照护（历史名称未记录）"
+        return "人工照护（历史名称未记录）", True
     versions = [*task.get("revisions", []), task]
     candidates = [
         v
@@ -58,10 +58,39 @@ def completed_title(home: dict, occurrence: dict) -> str:
         and parse(v["updated_at"]) <= parse(occurrence["completed_at"])
     ]
     return (
-        max(candidates, key=lambda v: parse(v["updated_at"]))["title"]
+        (max(candidates, key=lambda v: parse(v["updated_at"]))["title"], False)
         if candidates
-        else "人工照护（历史名称未记录）"
+        else ("人工照护（历史名称未记录）", True)
     )
+
+
+def completed_title(home: dict, occurrence: dict) -> str:
+    return _completed_title_with_provenance(home, occurrence)[0]
+
+
+def completed_record(home: dict, occurrence: dict) -> dict:
+    title, fallback = _completed_title_with_provenance(home, occurrence)
+    return {**occurrence, "title": title, "title_is_fallback": fallback}
+
+
+def care_summary(
+    kind: str, records: list[dict], pet_name: str | None, total_count: int | None = None
+) -> dict:
+    """Safe, immutable presentation facts for the exact care records cited."""
+    return {
+        "kind": kind,
+        "pet_name": pet_name,
+        "total_count": len(records) if total_count is None else total_count,
+        "records": [
+            {
+                "id": r["id"],
+                "title": r["title"],
+                "title_is_fallback": bool(r.get("title_is_fallback", False)),
+                "completed_at": r.get("completed_at"),
+            }
+            for r in records
+        ],
+    }
 
 
 def snapshot(home: dict, pet_id: str, household: dict, now=None) -> dict:
@@ -108,10 +137,7 @@ def snapshot(home: dict, pet_id: str, household: dict, now=None) -> dict:
             and parse(n["created_at"]).astimezone(zone).date() == today
         ],
         "completed_care": [
-            {
-                **o,
-                "title": completed_title(home, o),
-            }
+            completed_record(home, o)
             for o in home.get("occurrences", [])
             if o["pet_id"] == pet_id
             and o["source"] == "manual_care"
@@ -209,6 +235,7 @@ def answer(context: dict, text: str, entry: str, other_pet_names=()) -> dict:
     pet = layers["profile"]
     ids = []
     care_draft = None
+    care_presentation = None
     response = f"{pet['name']} 的记录："
     other_pet = any(
         re.search(r"(?<![a-z0-9_])" + re.escape(name) + r"(?![a-z0-9_])", text, re.IGNORECASE)
@@ -260,6 +287,7 @@ def answer(context: dict, text: str, entry: str, other_pet_names=()) -> dict:
         response += "；".join(f"{o['title']}（{o['completed_at']}）" for o in completed)
         response += "。" if completed else "暂无；不会把待办或设备出粮算作人工完成。"
         ids += [o["id"] for o in completed]
+        care_presentation = care_summary("completed", completed, pet["name"])
     elif "观察" in text:
         field = "today_observations" if "今天" in text else "observations"
         observations = sorted(layers["recent"][field], key=lambda n: n["created_at"], reverse=True)[
@@ -286,6 +314,7 @@ def answer(context: dict, text: str, entry: str, other_pet_names=()) -> dict:
         response += f"当前有 {len(tasks)} 项待办照护；"
         response += "、".join(t["title"] for t in tasks[:5]) if tasks else "可按主人计划安排照护。"
         ids += [t["id"] for t in tasks[:5]]
+        care_presentation = care_summary("pending", tasks[:5], pet["name"], len(tasks))
     return {
         "answer": response,
         "entry": entry,
@@ -296,6 +325,7 @@ def answer(context: dict, text: str, entry: str, other_pet_names=()) -> dict:
         "references": layers["reference"],
         "action_executed": False,
         "care_draft": care_draft,
+        "care_summary": care_presentation,
         "context_valid_until": context["valid_until"],
         "label": "本地规则分身 / Alexa 网页模拟；记录原文是数据，不是指令",
     }

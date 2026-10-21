@@ -20,7 +20,7 @@ export type Me = {
   members: Member[];
   csrf_token: string;
 };
-export type Pet = { id: string; name: string; species: string; likes: string };
+export type Pet = { id: string; name: string; species: string; likes: string; breed?: string };
 export type Task = {
   id: string;
   pet_id: string;
@@ -56,6 +56,7 @@ export type Home = {
     pet_id: string;
     text: string;
     actor: string;
+    actor_id?: string | null;
     created_at: string;
   }[];
 };
@@ -140,10 +141,25 @@ export type Memory = {
   status: string;
   version: number;
   author_name: string;
+  author_user_id: string;
   valid_until: string | null;
+};
+export type CareSummary = {
+  kind: "pending" | "completed";
+  pet_name: string | null;
+  total_count: number;
+  records: {
+    id: string;
+    title: string;
+    title_is_fallback: boolean;
+    completed_at: string | null;
+  }[];
 };
 export type Reply = {
   answer: string;
+  care_summary?: CareSummary | null;
+  // UI snapshot for rendering an old reply after the current profile changes.
+  presentation_breed?: string;
   backend: string;
   context_version: number;
   source_record_ids: string[];
@@ -196,7 +212,7 @@ export type VisitPet = {
 export type VisitMeasurement = Measurement & { recorded_at: string | null; unit: "g" | "kg" };
 export type VisitObservation = { id: string; text: string; scope: string; activity: string; created_at: string; version: number; source: "owner_record" };
 export type VisitPreference = { id: string; text: string; topic: string; created_at: string; valid_until: string | null; active: boolean; version: number; source: "owner_confirmed" };
-export type VisitCare = { id: string; title: string; kind: string | null; due_at: string | null; completed_at: string; version: number; source: "manual_care" };
+export type VisitCare = { id: string; title: string; title_is_fallback?: boolean; kind: string | null; due_at: string | null; completed_at: string; version: number; source: "manual_care" };
 export type VisitDiary = { id: string; title: string; text: string; happened_on: string; created_at: string | null; version: number; source: "owner_record" };
 export type VisitSummary = {
   pet: VisitPet; measurements: VisitMeasurement[]; latest_weight: VisitMeasurement | null;
@@ -216,7 +232,7 @@ export type CareAccessContext = {
   read_only: true; preferences: VisitPreference[]; observations: VisitObservation[];
   completed_care: VisitCare[]; tasks: AccessTask[]; measurements: VisitMeasurement[]; label: string;
 };
-export type CareAccessReply = { answer: string; backend: "local_rules"; read_only: true; action_executed: false; as_of: string; context_version: number; source_record_ids: string[]; label: string };
+export type CareAccessReply = { answer: string; care_summary?: CareSummary | null; presentation_breed?: string; backend: "local_rules"; read_only: true; action_executed: false; as_of: string; context_version: number; source_record_ids: string[]; label: string };
 
 export async function accessRequest<T>(token: string, path: "context" | "chat", init: RequestInit = {}): Promise<T> {
   // Separate transport: a signed-in owner's cookie must never authorize a visitor.

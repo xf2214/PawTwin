@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-21",
+  "base_commit": "5c6a56cdbcf37031c609914be23a28e43a9e2d3b",
+  "backend": { "passed": 539, "skipped": 1, "live_aws_deselected": 21, "seconds": 161.70 },
+  "browser": { "passed": 129, "shards": [26, 28, 25, 37, 13], "retries": 0 },
+  "typecheck": "passed",
+  "production_build": "passed",
+  "ruff": "passed",
+  "contracts": "current",
+  "dependency_lock": "current",
+  "diff_check": "passed",
+  "real_http_seed_and_replay": "passed",
+  "sample_day": "2026-10-21",
+  "preview_business_records_preserved": true,
+  "event_interruption_windows_tested": ["before_submission", "accepted_response_lost", "postcommit_checkpoint"],
+  "unresolved_material_review_findings": 0,
+  "cloud_calls": false,
+  "publication_target": "xf2214/PawTwin/main",
+  "publication_state_at_preparation": "verified_locally_before_push"
+}

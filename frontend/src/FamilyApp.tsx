@@ -1,4 +1,6 @@
 import { t, serverText, chatInput } from "./i18n";
+import { actorName, localizeDemoMe } from "./system-defaults";
+import { LocalizedInput, storedInputValue } from "./LocalizedInput";
 import { useCallback, useEffect, useRef, useState } from "react";
 import PetHome from "./PetHome";
 import FamilyRecords from "./FamilyRecords";
@@ -38,8 +40,9 @@ const AVATARS: Record<string, string> = {
 const NAV_ICONS: Record<string, WorkspaceIconName> = { 小屋: "today", 照护: "care", 成长: "growth", 助手: "twin", 家庭: "family" };
 
 export default function FamilyApp({ alexaMode = false }: { alexaMode?: boolean }) {
-  const [me, setMe] = useState<Me | null>(null),
+  const [storedMe, setMe] = useState<Me | null>(null),
     [home, setHome] = useState<Home | null>(null);
+  const me = storedMe ? localizeDemoMe(storedMe) : null;
   const [loading, setLoading] = useState(true),
     [busy, setBusy] = useState(false);
   const [tab, setTab] = useState(() => alexaMode ? "Alexa+" : appTab()),
@@ -125,7 +128,7 @@ export default function FamilyApp({ alexaMode = false }: { alexaMode?: boolean }
       method: "POST",
       body: JSON.stringify(body),
     });
-    if (mounted.current && session === sessionEpoch.current && before === generation.current) setter(response);
+    if (mounted.current && session === sessionEpoch.current && before === generation.current) setter({ ...response, presentation_breed: pet?.breed });
   }
 
   const failure = useCallback((e: unknown) => {
@@ -225,6 +228,17 @@ export default function FamilyApp({ alexaMode = false }: { alexaMode?: boolean }
   const mutate = (path: string, body?: object, method = "POST") =>
     request(path, { method, ...(body ? { body: JSON.stringify(body) } : {}) });
   function sourceSummary(id: string) {
+    const careSummary = reply?.care_summary;
+    const care = careSummary?.records.find(record => record.id === id);
+    if (care && careSummary) {
+      // Care citations describe the same snapshot as the answer, even after an
+      // editable task has been renamed or a later occurrence has been completed.
+      const title = care.title_is_fallback
+        ? t("人工照护（历史名称未记录）", "Manual care (historical title not recorded)") : care.title;
+      const label = careSummary.kind === "pending"
+        ? t("照护计划 · ", "Care plan · ") : t("人工完成记录 · ", "Manual completion record · ");
+      return `${label}${title}${care.completed_at ? ` · ${timeText(care.completed_at)}` : ""}`;
+    }
     const measurement = records.find(record => record.id === id);
     if (measurement) return `${measurement.kind === "weight" ? t("实测体重") : t("饮食记录")} · ${measurement.value} ${measurement.unit} · ${timeText(measurement.measured_at)} · ${t(SOURCE[measurement.source])}`;
     const note = home?.notes.find(record => record.id === id);
@@ -713,7 +727,7 @@ export default function FamilyApp({ alexaMode = false }: { alexaMode?: boolean }
                 </>}
                 {reply && (
                   <article aria-label={t("分身回复")} className="fa-record">
-                    <p>{serverText(reply.answer)}</p>
+                    <p>{serverText(reply.answer, [], { breed: reply.presentation_breed, care_summary: reply.care_summary })}</p>
                     <small>{t("上下文版本")} {reply.context_version} · {reply.backend === "bedrock" ? t("Bedrock 模型回答") : t("本地规则")}</small>
                     <details>
                       <summary>{t("查看依据")}</summary>
@@ -831,7 +845,7 @@ export default function FamilyApp({ alexaMode = false }: { alexaMode?: boolean }
                   <article className="fa-record" key={m.id}>
                     <p>{m.text}</p>
                     <small>
-                      {m.author_name} ·{" "}
+                      {actorName(m.author_name, m.author_user_id)} ·{" "}
                       {m.status === "confirmed" ? t("主人已确认") : m.status === "rejected" ? t("已拒绝") : t("候选待确认")}{m.valid_until && ` · ${Date.parse(m.valid_until) <= Date.now() ? t("已过期") : t("有效至")} ${timeText(m.valid_until)}`}
                     </small>
                     {canWrite && <div className="fa-actions">
@@ -917,8 +931,8 @@ export default function FamilyApp({ alexaMode = false }: { alexaMode?: boolean }
                       mutate(
                         "/api/family/me",
                         {
-                          display_name: val(d, "name"),
-                          family_label: val(d, "label"),
+                          display_name: storedInputValue(e.currentTarget, "name", storedMe!.user.display_name),
+                          family_label: storedInputValue(e.currentTarget, "label", storedMe!.membership?.family_label ?? ""),
                           avatar_ref: val(d, "avatar"),
                         },
                         "PATCH",
@@ -937,16 +951,18 @@ export default function FamilyApp({ alexaMode = false }: { alexaMode?: boolean }
                       ))}
                     </select>
                   </label>
-                  <label>{t("个人昵称")} <input
+                  <label>{t("个人昵称")} <LocalizedInput
                       name="name"
-                      defaultValue={me.user.display_name}
+                      storedValue={storedMe!.user.display_name}
+                      displayValue={me.user.display_name}
                       required
                       maxLength={40}
                     />
                   </label>
-                  <label>{t("家庭称呼")} <input
+                  <label>{t("家庭称呼")} <LocalizedInput
                       name="label"
-                      defaultValue={me.membership?.family_label}
+                      storedValue={storedMe!.membership?.family_label ?? ""}
+                      displayValue={me.membership?.family_label ?? ""}
                       maxLength={40}
                       list="family-labels"
                     />
@@ -954,7 +970,7 @@ export default function FamilyApp({ alexaMode = false }: { alexaMode?: boolean }
                   <datalist id="family-labels">
                     {["爸爸", "妈妈", "姐姐", "哥哥", "室友", "照护人"].map(
                       (n) => (
-                        <option key={n} value={n} label={t(n)} />
+                        <option key={n} value={t(n)} label={t(n)} />
                       ),
                     )}
                   </datalist>
@@ -1202,7 +1218,7 @@ export default function FamilyApp({ alexaMode = false }: { alexaMode?: boolean }
                             mutate(
                               "/api/family/household",
                               {
-                                name: val(d, "name"),
+                                name: storedInputValue(e.currentTarget, "name", storedMe!.household!.name),
                                 timezone: val(d, "timezone"),
                               },
                               "PATCH",
@@ -1210,9 +1226,10 @@ export default function FamilyApp({ alexaMode = false }: { alexaMode?: boolean }
                           );
                         }}
                       >
-                        <label>{t("新家庭名称")} <input
+                        <label>{t("新家庭名称")} <LocalizedInput
                             name="name"
-                            defaultValue={me.household.name}
+                            storedValue={storedMe!.household!.name}
+                            displayValue={me.household.name}
                             required
                           />
                         </label>
@@ -1237,7 +1254,7 @@ export default function FamilyApp({ alexaMode = false }: { alexaMode?: boolean }
                   .map((h) => (
                     <article className="fa-record" key={h.id}>
                       <p>
-                        {h.actor} · {serverText(h.text)}
+                        {actorName(h.actor, h.actor_id)} · {serverText(h.text)}
                       </p>
                       <small>{timeText(h.created_at)}</small>
                     </article>

@@ -399,6 +399,16 @@
             "title": "Backend",
             "type": "string"
           },
+          "care_summary": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CareReplySummaryView"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "context_version": {
             "title": "Context Version",
             "type": "integer"
@@ -457,6 +467,81 @@
           "title"
         ],
         "title": "CareDraftView",
+        "type": "object"
+      },
+      "CareReplyRecordView": {
+        "properties": {
+          "completed_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completed At"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "title_is_fallback": {
+            "default": false,
+            "title": "Title Is Fallback",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "title"
+        ],
+        "title": "CareReplyRecordView",
+        "type": "object"
+      },
+      "CareReplySummaryView": {
+        "properties": {
+          "kind": {
+            "enum": [
+              "pending",
+              "completed"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "pet_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pet Name"
+          },
+          "records": {
+            "items": {
+              "$ref": "#/components/schemas/CareReplyRecordView"
+            },
+            "title": "Records",
+            "type": "array"
+          },
+          "total_count": {
+            "title": "Total Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "kind",
+          "total_count",
+          "records"
+        ],
+        "title": "CareReplySummaryView",
         "type": "object"
       },
       "CareTaskView": {
@@ -2603,6 +2688,16 @@
               }
             ]
           },
+          "care_summary": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CareReplySummaryView"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "context_valid_until": {
             "title": "Context Valid Until",
             "type": "string"
@@ -3455,6 +3550,11 @@
           "title": {
             "title": "Title",
             "type": "string"
+          },
+          "title_is_fallback": {
+            "default": false,
+            "title": "Title Is Fallback",
+            "type": "boolean"
           },
           "version": {
             "default": 1,

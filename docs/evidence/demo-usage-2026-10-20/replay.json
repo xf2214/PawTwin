@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "records_revisions_facts_unchanged": true,
+  "revision": 76,
+  "counts": {
+    "pets": 2,
+    "members": 1,
+    "objects": 7,
+    "tasks": 13,
+    "notes": 4,
+    "diary": 6,
+    "history": 39,
+    "processed_actions": 11,
+    "legacy_members": 1,
+    "measurements": 20,
+    "reports": 146,
+    "memories": 8,
+    "proposals": 0,
+    "occurrences": 5,
+    "device_receipts": 3
+  },
+  "workbench_counts": {
+    "runs": 6,
+    "feedback": 3
+  }
+}

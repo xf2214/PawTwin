@@ -21,7 +21,7 @@ from pawtwin.family_views import (
     VisitObservationView,
 )
 from pawtwin.growth import parse
-from pawtwin.pet_context import answer, care_request, snapshot
+from pawtwin.pet_context import answer, care_request, care_summary, snapshot
 from pawtwin.visit_summary import care_record, measurement, preferences, profile
 
 router = APIRouter(prefix="/api/care-access", tags=["Temporary read-only care access"])
@@ -173,6 +173,7 @@ def context(request: Request, token: AccessKey):
 def chat(body: CareAccessChat, request: Request, token: AccessKey):
     repo, grant, home = resolve(request, token)
     public, current = public_context(repo, grant, home)
+    care_presentation = None
     if care_request(body.text, public["pet"]["name"])[1] is not None:
         text = "此入口仅能查看照护记录；安排、完成、修改或设备操作需主人在家庭应用中进行。"
         ids = []
@@ -211,9 +212,11 @@ def chat(body: CareAccessChat, request: Request, token: AccessKey):
             else "暂无人工完成记录；待办与设备出粮不计为人工完成。"
         )
         ids = [r["id"] for r in records]
+        care_presentation = care_summary("completed", records, None)
     else:
         result = answer(current, body.text, "app")
         text, ids = result["answer"], result["source_record_ids"]
+        care_presentation = result["care_summary"]
     repo.resolve_care_access(token)
     return {
         "answer": text,
@@ -223,5 +226,6 @@ def chat(body: CareAccessChat, request: Request, token: AccessKey):
         "as_of": public["as_of"],
         "context_version": public["context_version"],
         "source_record_ids": ids,
+        "care_summary": care_presentation,
         "label": public["label"],
     }

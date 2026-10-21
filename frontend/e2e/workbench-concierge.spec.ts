@@ -105,7 +105,7 @@ test('keyboard scenarios and language changes preserve pet context without writi
   await expect(preview.getByRole('heading', { level: 4, name: 'PawTwin Pet Concierge', exact: true })).toBeVisible()
   const context = preview.locator('.pc-carried-context')
   for (const value of ['Miso', '9.40 kg', 'chicken', 'Owner confirmed']) await expect(context).toContainText(value)
-  await page.getByRole('button', { name: '中文', exact: true }).click()
+  await page.getByRole('button', { name: 'Chinese', exact: true }).click()
   await expect(choices(region).nth(2)).toHaveAttribute('aria-pressed', 'true')
   await expect(region).toContainText('主人已确认')
   expect(mutations, 'illustrative case selection and language changes must not create tasks, memories or model calls').toEqual([])

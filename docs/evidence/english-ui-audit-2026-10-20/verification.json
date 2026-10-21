@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-20",
+  "backend": { "passed": 502, "skipped": 1, "live_aws_deselected": 21, "seconds": 52.02 },
+  "browser": { "passed": 127, "shards": [37, 37, 23, 30], "retries": 0, "new_english_cases": 5 },
+  "build": "TypeScript and production build passed",
+  "ruff": "passed",
+  "contracts": "current",
+  "diff_check": "passed",
+  "english_layout_widths": [320, 390, 1440],
+  "english_layouts": 6,
+  "horizontal_overflow": false,
+  "current_page_han_characters": false,
+  "snapshot_files": 55,
+  "snapshot_files_changed": 0,
+  "workbench_database_content_unchanged": true,
+  "family_business_tables_unchanged": true,
+  "startup_metadata_changed": ["report_worker"],
+  "cloud_calls": false,
+  "published": false
+}

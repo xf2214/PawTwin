@@ -1,0 +1,174 @@
+{
+  "home": {
+    "version": 1,
+    "pets": [
+      {
+        "id": "mochi",
+        "name": "Mochi",
+        "species": "cat",
+        "breed": "",
+        "gender": "unknown",
+        "birthday": null,
+        "age_years": null,
+        "coat": "gold",
+        "pattern": "solid",
+        "size": "medium",
+        "likes": "",
+        "dislikes": "",
+        "photo_id": null,
+        "source": "demo"
+      }
+    ],
+    "members": [
+      {
+        "user_id": "00000000-0000-4000-8000-000000000001",
+        "username": "legacy-demo",
+        "display_name": "主人",
+        "avatar_ref": "",
+        "created_at": "2026-10-20T06:29:39.260840+00:00",
+        "role": "admin",
+        "family_label": "主人",
+        "status": "active",
+        "feeding_pet_ids": [
+          "mochi"
+        ],
+        "joined_at": "2026-10-20T06:29:39.260840+00:00",
+        "id": "00000000-0000-4000-8000-000000000001",
+        "name": "主人"
+      }
+    ],
+    "objects": [
+      {
+        "id": "a0e93a29-632b-45c7-9953-2681692c4f49",
+        "pet_id": "mochi",
+        "kind": "nest",
+        "name": "窗边小窝",
+        "x": 19,
+        "y": 74,
+        "note": "初始展示物品，可修改"
+      },
+      {
+        "id": "3bf4cb9d-7bd1-45e8-ba5a-2ae675744694",
+        "pet_id": "mochi",
+        "kind": "toy",
+        "name": "羽毛棒",
+        "x": 38,
+        "y": 70,
+        "note": "初始展示物品，可修改"
+      },
+      {
+        "id": "92133ded-65c9-467c-952f-cf03f994d672",
+        "pet_id": "mochi",
+        "kind": "feeder",
+        "name": "模拟喂食器",
+        "x": 82,
+        "y": 48,
+        "note": "模拟设备，不连接真实硬件"
+      },
+      {
+        "id": "97cec058-4bfc-40f3-8ffc-9a67111fc040",
+        "pet_id": "mochi",
+        "kind": "water",
+        "name": "水碗",
+        "x": 81,
+        "y": 72,
+        "note": "初始展示物品，可修改"
+      }
+    ],
+    "tasks": [],
+    "notes": [],
+    "diary": [],
+    "history": [],
+    "processed_actions": [],
+    "household_id": "demo-owner",
+    "legacy_members": [
+      {
+        "id": "47146f27-dc9a-416c-8d67-973bc7e87645",
+        "name": "主人"
+      }
+    ],
+    "measurements": [],
+    "reports": [
+      {
+        "report_id": "6e002591-3c3b-40e4-b4d6-ddab210e9264",
+        "household_id": "demo-owner",
+        "pet_id": "mochi",
+        "period": "daily",
+        "date": "2026-10-19",
+        "window_start": "2026-10-18T16:00:00+00:00",
+        "window_end": "2026-10-19T16:00:00+00:00",
+        "cutoff": "2026-10-19T16:00:00+00:00",
+        "generated_at": "2026-10-20T06:29:39.296877+00:00",
+        "stat_version": 1,
+        "status": "current",
+        "notification": "not_sent",
+        "source_record_ids": [],
+        "source_versions": {},
+        "coverage": {
+          "weight_measurements": 0,
+          "diet_records": 0,
+          "incomplete_window": false,
+          "tasks_without_creation_time": 0
+        },
+        "weight": {
+          "change_g": null,
+          "change_percent": null,
+          "span_days": null,
+          "source_record_ids": [],
+          "latest_g": null,
+          "description": "实际测量跨度；群体参考不能用于诊断"
+        },
+        "diet": {
+          "actual_intake_g": null,
+          "food_offered_g": null,
+          "dispensed_g": null,
+          "remaining_g": null,
+          "simulated_device_dispensed_g": null
+        },
+        "care": {
+          "manual_completed": 0,
+          "device_success": 0,
+          "device_failed": 0,
+          "device_unknown": 0,
+          "device_results_simulated": true,
+          "pending": 0,
+          "pending_definition": "截止时仍待照护且应在窗口结束前完成；缺创建时间不补算",
+          "overdue": 0,
+          "by_member": {}
+        },
+        "growth": {
+          "diary_count": 0
+        }
+      }
+    ],
+    "memories": [],
+    "proposals": [],
+    "occurrences": [],
+    "revision": 1,
+    "device_receipts": [],
+    "simulated_device_connected": true,
+    "photo_recognition_enabled": false,
+    "storage": "sqlite_local",
+    "member_identity": "local_account"
+  },
+  "workbench": {
+    "pet_id": "mochi",
+    "mode": "local",
+    "aws_connected": false,
+    "analyzer": "local_fake",
+    "storage": "sqlite",
+    "memory": "not_implemented",
+    "device_mode": "succeeded",
+    "conversation_id": "a16871006edf4175",
+    "facts": {
+      "last_fed_minutes_ago": 360,
+      "daily_dispensed_grams": 0,
+      "daily_limit_grams": 30,
+      "single_serving_grams": 15,
+      "minimum_interval_minutes": 120,
+      "facts_version": 0
+    },
+    "runs": [],
+    "feedback": []
+  }
+}

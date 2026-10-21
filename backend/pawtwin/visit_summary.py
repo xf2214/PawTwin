@@ -22,10 +22,10 @@ def measurement(record: dict) -> dict:
     return VisitMeasurementView.model_validate(record).model_dump()
 
 
-def historical_title(home: dict, occurrence: dict) -> str:
+def _historical_title_with_provenance(home: dict, occurrence: dict) -> tuple[str, bool]:
     task = next((t for t in home["tasks"] if t["id"] == occurrence["task_id"]), None)
     if task is None:
-        return "人工照护（历史名称未记录）"
+        return "人工照护（历史名称未记录）", True
     matching = [
         v for v in [*task.get("revisions", []), task] if v.get("occurrence_id") == occurrence["id"]
     ]
@@ -35,17 +35,24 @@ def historical_title(home: dict, occurrence: dict) -> str:
         if v.get("updated_at") and parse(v["updated_at"]) <= parse(occurrence["completed_at"])
     ]
     if dated:
-        return max(dated, key=lambda pair: (parse(pair[1]["updated_at"]), pair[0]))[1]["title"]
+        title = max(dated, key=lambda pair: (parse(pair[1]["updated_at"]), pair[0]))[1]["title"]
+        return title, False
     undated = [v for v in task.get("revisions", []) if v in matching and not v.get("updated_at")]
-    return undated[-1]["title"] if undated else "人工照护（历史名称未记录）"
+    return (undated[-1]["title"], False) if undated else ("人工照护（历史名称未记录）", True)
+
+
+def historical_title(home: dict, occurrence: dict) -> str:
+    return _historical_title_with_provenance(home, occurrence)[0]
 
 
 def care_record(home: dict, occurrence: dict) -> dict:
     task = next((t for t in home["tasks"] if t["id"] == occurrence["task_id"]), {})
+    title, title_is_fallback = _historical_title_with_provenance(home, occurrence)
     return VisitCareView.model_validate(
         {
             **occurrence,
-            "title": historical_title(home, occurrence),
+            "title": title,
+            "title_is_fallback": title_is_fallback,
             "kind": task.get("kind"),
         }
     ).model_dump()

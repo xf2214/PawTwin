@@ -337,6 +337,7 @@ class FamilyAssistant:
             "backend": "bedrock",
             "answer": result.answer,
             "answer_origin": "model",
+            "care_summary": None,
             "source_record_ids": result.source_record_ids,
             "label": "Bedrock 模型回答；照护与健康边界由服务端控制 / Alexa 网页模拟",
         }

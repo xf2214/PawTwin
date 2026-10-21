@@ -38,7 +38,7 @@ cd PawTwin
 ./scripts/dev-home.ps1 -Port 8000 -DatabasePath ./data/local-demo.db
 ```
 
-Open **http://127.0.0.1:8000/#app/home**, register a local account with a password of at least 12 characters, then create or join a household. The first visit defaults to English; use **English / 中文** in the header to switch. User-authored names and records keep their original text.
+Open **http://127.0.0.1:8000/#app/home**, register a local account with a password of at least 12 characters, then create or join a household. The first visit defaults to English; use **English / Chinese** in the header to switch. User-authored names and records keep their original text.
 
 The launcher explicitly selects local rules and simulated services. Records persist in the chosen database and its adjacent `<DatabasePath>.family.db`; sessions are held in process memory, so sign in again after restarting the server. An unset database path in other launch methods may use in-memory storage.
 
@@ -54,6 +54,31 @@ The workbench's default local demo passphrase is **`local-demo-passphrase`**. En
 
 For development, run `./scripts/dev-backend.ps1` and `./scripts/dev-frontend.ps1` in separate terminals. Vite serves port `5173` and proxies `/api` to `8000`. Configuration options are in [.env.example](.env.example); never commit a real `.env`. On Windows, `PAWTWIN_NODE_DIR` can point to a compatible Node installation.
 
+## Try the populated demonstration
+
+To explore saved profiles, growth records, care plans, confirmed preferences,
+reports and workbench outcomes, start a **separate, fresh local demo**:
+
+```powershell
+./scripts/dev-home.ps1 -Port 8861 -DatabasePath ./data/showcase-demo.db
+```
+
+Keep that terminal running. From another terminal in the repository, run:
+
+```powershell
+uv run --frozen python scripts/seed_demo.py --base-url http://127.0.0.1:8861 --state-dir data/portable-demo-state
+```
+
+Open **http://127.0.0.1:8861/#workbench**, sign in with the public default demo
+passphrase shown on the page, then use **Household app** to view Mochi and Miso.
+The importer saves English **fictional demo samples** through the existing APIs;
+reports are calculated from those records. Dates follow the household day. It
+refuses existing user records, cloud targets and a journal belonging to another
+instance. Keep the ignored state directory for replay; rerunning a completed
+import makes no business writes. Custom demo passphrases fail closed. See the
+[demo walkthrough](docs/DEMO.md) for counts, scenarios and limitations. Databases
+and session files are not distributed through GitHub.
+
 ## Verify the project
 
 ```powershell
@@ -63,7 +88,7 @@ $env:PAWTWIN_E2E_PORT = '8001' # choose an unused port
 ./scripts/test-e2e.ps1 -InstallBrowser
 ```
 
-`verify.ps1` runs backend tests, Ruff, generated-contract checks, TypeScript and the production build. Browser regression builds first, then runs four shards with fresh isolated services. Omit `-InstallBrowser` after installing Chromium, or set `PAWTWIN_BROWSER_EXECUTABLE` to an existing compatible Chromium executable. Default tests exclude billable live AWS checks.
+`verify.ps1` runs backend tests, Ruff, generated-contract checks, TypeScript and the production build. Browser regression builds first, then runs five shards with fresh isolated services. Omit `-InstallBrowser` after installing Chromium, or set `PAWTWIN_BROWSER_EXECUTABLE` to an existing compatible Chromium executable. Default tests exclude billable live AWS checks.
 
 GitHub Actions runs the baseline and browser suite on Ubuntu and Windows. The separate ECR image workflow is manual and requires separately authorized AWS configuration; ordinary pushes do not deploy the application.
 

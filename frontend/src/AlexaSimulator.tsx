@@ -92,7 +92,7 @@ export default function AlexaSimulator({ pet, householdName, revision, tasks, ca
           method: "POST", body: JSON.stringify({ text: chatInput(value), entry: "alexa_simulator" }), signal,
         });
         if (!alive.current || signal.aborted) return;
-        setTurns((old) => old.map((t) => t.id === id ? { ...t, reply } : t));
+        setTurns((old) => old.map((t) => t.id === id ? { ...t, reply: { ...reply, presentation_breed: pet.breed } } : t));
         setDraft(reply.care_draft ? reply : null);
         setDue(localTime());
         await onChanged();
@@ -108,10 +108,11 @@ export default function AlexaSimulator({ pet, householdName, revision, tasks, ca
 
   function prepare() {
     if (!draft?.care_draft || !due) return;
+    const careDraft = draft.care_draft;
     void run(async (signal) => {
       const proposal = await request<Proposal>(`/api/family/pets/${pet.id}/proposals`, {
         method: "POST", signal, body: JSON.stringify({
-          ...draft.care_draft, due_at: new Date(due).toISOString(),
+          ...careDraft, title: serverText(careDraft.title), due_at: new Date(due).toISOString(),
           context_version: draft.context_version, context_valid_until: draft.context_valid_until,
         }),
       });
@@ -144,9 +145,9 @@ export default function AlexaSimulator({ pet, householdName, revision, tasks, ca
     setNotice("已开始新会话。家庭档案、确认记忆和照护任务仍保留。");
   }
 
-  function speak(text: string) {
+  function speak(reply: Reply) {
     window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(serverText(text));
+    const utterance = new SpeechSynthesisUtterance(serverText(reply.answer, [], { breed: reply.presentation_breed, care_summary: reply.care_summary }));
     utterance.lang = locale();
     utterance.onerror = () => { if (alive.current) setNotice("浏览器未能朗读，可以直接阅读回复。"); };
     window.speechSynthesis.speak(utterance);
@@ -173,9 +174,9 @@ export default function AlexaSimulator({ pet, householdName, revision, tasks, ca
           {!turns.length && <div className="alx-empty"><span aria-hidden="true">✦</span><h3>{t("“它喜欢什么？”")}</h3><p>{t("试试快捷提问，或输入照护需求。每轮读取当前宠物的最新记录；本页对话在离开或刷新后清空。")}</p></div>}
           {turns.map((turn) => <div className="alx-turn" key={turn.id}>
             <div className="alx-user"><small>{t("你 · 模拟口述")}</small><p>{turn.quickPrompt ? t(turn.text) : turn.text}</p></div>
-            {turn.reply && <article className="alx-reply" aria-label={t("Alexa 分身回复")}><small>{t("Alexa 网页模拟 ·")} {turn.reply.backend === "bedrock" ? t("Bedrock 模型回答") : t("本地规则")}</small><p>{serverText(turn.reply.answer)}</p>
+            {turn.reply && <article className="alx-reply" aria-label={t("Alexa 分身回复")}><small>{t("Alexa 网页模拟 ·")} {turn.reply.backend === "bedrock" ? t("Bedrock 模型回答") : t("本地规则")}</small><p>{serverText(turn.reply.answer, [], { breed: turn.reply.presentation_breed, care_summary: turn.reply.care_summary })}</p>
               <details><summary>{t("查看这轮依据 · 版本")} {turn.reply.context_version}</summary><p>{t("源记录：")}{turn.reply.source_record_ids.join(t("、", ", ")) || t("暂无相关记录")}</p><p>{t("历史回复保留当时的记录；新提问会重新读取。未执行动作。")}</p><p>{t("真实模型请求：")}{turn.reply.request_id || t("无")}</p>{turn.reply.model_id && <p>{t("模型：")}{turn.reply.model_id} {t("· 输入")} {turn.reply.input_tokens} {t("/ 输出")} {turn.reply.output_tokens} tokens</p>}</details>
-              {canSpeak && <button className="fa-secondary alx-read" onClick={() => speak(turn.reply!.answer)}>{t("浏览器朗读这条回复")}</button>}
+              {canSpeak && <button className="fa-secondary alx-read" onClick={() => speak(turn.reply!)}>{t("浏览器朗读这条回复")}</button>}
             </article>}
             {turn.failed && <p className="alx-failed">{t("这轮未获得回复，内容已放回输入框，可重新发送。")}</p>}
           </div>)}

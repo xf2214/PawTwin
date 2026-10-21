@@ -9,7 +9,7 @@ test('starts in English and keeps the chosen language across routes and reloads'
   await expect(page.locator('html')).toHaveAttribute('lang', 'en')
   await expect(page.getByRole('link', { name: /^Open (?:the )?app$/ }).first()).toBeVisible()
   expect(business).toEqual([])
-  await page.getByRole('button', { name: '中文', exact: true }).click()
+  await page.getByRole('button', { name: 'Chinese', exact: true }).click()
   await expect(page.locator('html')).toHaveAttribute('lang', 'zh-CN')
   await expect(page.getByRole('link', { name: '进入应用', exact: true }).first()).toBeVisible()
   await page.getByRole('link', { name: '进入应用', exact: true }).first().click()
@@ -30,7 +30,7 @@ test('English workbench remains usable and switching language preserves entered 
   await page.getByRole('button', { name: 'Sign in to demo', exact: true }).click()
   await expect(page.getByTestId('facts')).toBeVisible()
   await expect(page.getByTestId('facts')).toContainText('minutes')
-  await page.getByRole('button', { name: '中文', exact: true }).click()
+  await page.getByRole('button', { name: 'Chinese', exact: true }).click()
   await expect(page.getByTestId('facts')).toContainText('分钟')
   await page.getByRole('button', { name: 'English', exact: true }).click()
   await expect(page.getByTestId('facts')).toContainText('minutes')
@@ -38,7 +38,7 @@ test('English workbench remains usable and switching language preserves entered 
   await page.getByRole('button', { name: 'Sign out', exact: true }).click()
   await page.getByRole('button', { name: 'Create local account', exact: true }).click()
   await page.getByLabel('Display name', { exact: true }).fill('中文宠物主人')
-  await page.getByRole('button', { name: '中文', exact: true }).click()
+  await page.getByRole('button', { name: 'Chinese', exact: true }).click()
   await expect(page.getByLabel('昵称', { exact: true })).toHaveValue('中文宠物主人')
 })
 
@@ -52,7 +52,7 @@ test('English family forms preserve original records and translate local assista
   await page.getByLabel('Household name', { exact: true }).fill('我的中文家庭')
   await page.getByRole('button', { name: 'Create household', exact: true }).click()
   await expect(page.getByRole('heading', { name: '我的中文家庭', exact: true })).toBeVisible()
-  await page.getByRole('button', { name: '中文', exact: true }).click()
+  await page.getByRole('button', { name: 'Chinese', exact: true }).click()
   await expect(page.getByRole('heading', { name: '我的中文家庭', exact: true })).toBeVisible()
   await page.getByRole('button', { name: 'English', exact: true }).click()
   await page.goto('/#app/assistant')
@@ -84,8 +84,8 @@ test('language control stays reachable without horizontal overflow on mobile', a
   await page.setViewportSize({ width: 320, height: 844 })
   for (const route of ['/', '/#app', '/#workbench', '/#pet-access=invalid']) {
     await page.goto(route)
-    await expect(page.getByRole('button', { name: '中文', exact: true })).toBeVisible()
-    for (const name of ['English', '中文']) {
+    await expect(page.getByRole('button', { name: 'Chinese', exact: true })).toBeVisible()
+    for (const name of ['English', 'Chinese']) {
       const bounds = await page.getByRole('button', { name, exact: true }).boundingBox()
       expect(bounds && bounds.x >= 0 && bounds.x + bounds.width <= 320).toBe(true)
     }

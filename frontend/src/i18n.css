@@ -15,4 +15,8 @@ html[lang="en"] .pt-title-phrase { white-space: normal; }
   .showcase .pt-nav-actions { flex-basis: 100%; margin-left: 0; justify-content: space-between; }
   .showcase .pt-nav-actions > .pt-button { white-space: nowrap; }
 }
+@media (max-width: 360px) {
+  .showcase .pt-nav-actions { gap: 6px; }
+  .showcase .pt-nav-actions .language-switch button { padding-inline: 5px; }
+}
 @media print { .language-switch, .access-language { display: none !important; } }

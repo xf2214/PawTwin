@@ -1,7 +1,7 @@
 param(
     [switch]$InstallBrowser,
     [string]$NodeDirectory,
-    [ValidateRange(1, 64)][int]$ShardCount = 4
+    [ValidateRange(1, 64)][int]$ShardCount = 5
 )
 
 $ErrorActionPreference = 'Stop'
@@ -20,8 +20,9 @@ try {
         }
     }
     Invoke-PawTwinNpm -Runtime $runtime -NpmArguments @('run', 'build')
-    # Each invocation creates a fresh isolated server. A single full-suite server
-    # exceeds the real registration rate limit; do not weaken production policy.
+    # Each invocation creates a fresh isolated server. Five shards keep the
+    # expanded account/provenance scenarios below the real registration limit.
+    # Do not weaken production policy or add retries to hide rate-limit failures.
     for ($shard = 1; $shard -le $ShardCount; $shard++) {
         Write-Host "Browser shard $shard/$ShardCount"
         Invoke-PawTwinNpm -Runtime $runtime -NpmArguments @(

@@ -38,7 +38,7 @@ cd PawTwin
 ./scripts/dev-home.ps1 -Port 8000 -DatabasePath ./data/local-demo.db
 ```
 
-打开 **http://127.0.0.1:8000/#app/home**，注册本地账号（密码至少 12 字符），创建或加入家庭。首次访问默认英语，可通过页头 **English / 中文** 切换；用户填写的内容保留原文。
+打开 **http://127.0.0.1:8000/#app/home**，注册本地账号（密码至少 12 字符），创建或加入家庭。首次访问默认英语，可通过页头语言按钮切换；用户填写的内容保留原文。
 
 启动脚本明确使用本地规则与模拟服务。资料保存在指定数据库及其相邻的 `<DatabasePath>.family.db` 中；会话保存在进程内，服务重启后需重新登录。其他启动方式未指定数据库时可能使用内存库。
 
@@ -54,6 +54,22 @@ cd PawTwin
 
 开发时可分别运行 `./scripts/dev-backend.ps1` 与 `./scripts/dev-frontend.ps1`：后端使用 `8000`，前端 `5173` 将 `/api` 代理至后端。配置见 [.env.example](.env.example)，真实 `.env` 不应入库；Windows 可用 `PAWTWIN_NODE_DIR` 指定兼容的 Node 目录。
 
+## 体验已填充的演示
+
+如需查看已经保存的档案、成长、照护计划、确认偏好、报告和工作台结果，先启动一个**独立的全新本地演示库**：
+
+```powershell
+./scripts/dev-home.ps1 -Port 8861 -DatabasePath ./data/showcase-demo.db
+```
+
+保持该终端运行，在项目目录的另一个终端执行：
+
+```powershell
+uv run --frozen python scripts/seed_demo.py --base-url http://127.0.0.1:8861 --state-dir data/portable-demo-state
+```
+
+打开 **http://127.0.0.1:8861/#workbench**，使用网页显示的公开默认演示口令登录，再从顶部进入 **Household app** 查看 Mochi 和 Miso。导入内容均为英文、明确标注的**虚构演示样本**，通过已有业务 API 保存，报告由系统计算，日期随家庭当天生成。工具会拒绝已有用户资料、云服务和属于其他实例的导入日志；保留被 Git 忽略的状态目录，完成后重放不会再写业务记录。自定义演示口令会被拒绝，不会尝试绕过。场景和边界见[演示指南](docs/DEMO.md)；数据库与会话文件不上传 GitHub。
+
 ## 验证
 
 ```powershell
@@ -63,7 +79,7 @@ $env:PAWTWIN_E2E_PORT = '8001' # 使用空闲端口
 ./scripts/test-e2e.ps1 -InstallBrowser
 ```
 
-基线验证涵盖后端、Ruff、生成契约、类型和生产构建。浏览器测试先构建，再通过四个独立服务分片执行；浏览器已安装时省略 `-InstallBrowser`，也可用 `PAWTWIN_BROWSER_EXECUTABLE` 指定现有 Chromium。默认测试排除真实计费 AWS 检查。
+基线验证涵盖后端、Ruff、生成契约、类型和生产构建。浏览器测试先构建，再通过五个独立服务分片执行；浏览器已安装时省略 `-InstallBrowser`，也可用 `PAWTWIN_BROWSER_EXECUTABLE` 指定现有 Chromium。默认测试排除真实计费 AWS 检查。
 
 GitHub Actions 在 Ubuntu 和 Windows 上执行基线及浏览器回归；单独的 ECR 工作流为手动触发，需另行授权配置 AWS。普通代码推送不会部署应用。
 

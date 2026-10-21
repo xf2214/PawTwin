@@ -1,4 +1,5 @@
 import { t } from "./i18n";
+import { actorName } from "./system-defaults";
 import type { Diary, Home, Note } from "./family-api";
 import { familyDay, familyTime } from "./family-time";
 
@@ -52,7 +53,7 @@ export default function FamilyRecords({
         <article className="fa-record" key={n.id}>
           <strong>{n.text}</strong>
           <p>
-            {n.author_name || t("历史记录")} ·{" "}
+            {actorName(n.author_name, n.author_user_id) || t("历史记录")} ·{" "}
             {{
               today: t("仅今天"),
               preference: t("确认偏好"),
@@ -112,7 +113,7 @@ export default function FamilyRecords({
           <strong>{d.title}</strong>
           <p>{d.text}</p>
           <small>
-            {d.happened_on} · {d.author_name || t("历史记录")}
+            {d.happened_on} · {actorName(d.author_name, d.author_user_id) || t("历史记录")}
           </small>
           {editable(d) && (
             <details>

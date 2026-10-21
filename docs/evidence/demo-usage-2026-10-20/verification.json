@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-20",
+  "fictional": true,
+  "household": "demo-owner",
+  "pets": 2,
+  "measurements": 20,
+  "care_plans": 13,
+  "manual_demo_completions": 5,
+  "diary": 6,
+  "notes": 4,
+  "confirmed_preferences": 6,
+  "candidate_preferences": 2,
+  "current_reports": 8,
+  "retained_report_versions": 146,
+  "workbench_runs": 6,
+  "workbench_feedback": 3,
+  "original_record_ids_preserved": true
+}

@@ -4,6 +4,7 @@ import { showcaseMessages } from './showcase-messages'
 import { familyMessages } from './family-messages'
 import { supportMessages } from './support-messages'
 import { serverMessages } from './server-messages'
+import type { CareSummary } from './family-api'
 import './i18n.css'
 
 export type Language = 'en' | 'zh'
@@ -41,9 +42,35 @@ export function chatInput(text: string): string {
   const prompts = ['它喜欢什么', '最近体重是多少', '今天有哪些待办', '今天有什么观察', '最近完成了什么', '安排陪玩', '安排换水', '最近吃了什么', '做过哪些照护', '做了哪些照护', '照护记录', '现在有哪些待办', '最近饮食记录']
   return prompts.find(prompt => messages[prompt] && normalize(messages[prompt]) === input) ?? text
 }
-export function serverText(value: string): string {
+function careSummaryText(summary: CareSummary): string {
+  const english = language === 'en'
+  const prefix = summary.pet_name === null ? '' : `${summary.pet_name}${english ? '’s records: ' : ' 的记录：'}`
+  const records = summary.records.map(record => {
+    // Titles and pet names are the reply's original source snapshot. Only an
+    // explicit server fallback flag authorizes translating a record title.
+    const title = record.title_is_fallback
+      ? t('人工照护（历史名称未记录）', 'Manual care (historical title not recorded)') : record.title
+    return summary.kind === 'completed' && record.completed_at
+      ? `${title}${english ? ` (${record.completed_at})` : `（${record.completed_at}）`}` : title
+  }).join(english ? '; ' : '；')
+  if (summary.kind === 'pending') {
+    return prefix + (english ? `There are ${summary.total_count} pending care tasks; ` : `当前有 ${summary.total_count} 项待办照护；`)
+      + (records || t('可按主人计划安排照护。'))
+  }
+  const heading = summary.pet_name === null
+    ? (english ? 'Completed manual care in the last 7 days: ' : '近七天实际人工完成记录：')
+    : (english ? 'Manual care completed in the last 7 days: ' : '最近七天的人工完成记录：')
+  const empty = summary.pet_name === null
+    ? t('暂无人工完成记录；待办与设备出粮不计为人工完成。')
+    : t('暂无；不会把待办或设备出粮算作人工完成。')
+  return prefix + heading + (records ? records + (english ? '.' : '。') : empty)
+}
+export function serverText(value: string, items: { name: string; displayName: string }[] = [], facts?: { breed?: string; care_summary?: CareSummary | null }): string {
+  if (facts?.care_summary) return careSummaryText(facts.care_summary)
   if (language === 'zh') return originals.get(value) ?? value
   if (messages[value]) return messages[value]
+  const todayObservation = ' 今天有相关主人观察，请先参考下方原文。'
+  if (value.endsWith(todayObservation)) return serverText(value.slice(0, -todayObservation.length), items, facts) + t(todayObservation)
   if (value.startsWith('近期饮食记录：')) {
     return 'Recent diet records: ' + value.slice('近期饮食记录：'.length)
       .replace(/(主人记录实际摄入|提供食物|记录出粮|剩余食物|含义未说明) ([\d.]+) g（([^；]+)；原备注：([\s\S]*?)）(?=；|。提供食物)/g, (_, kind: string, grams: string, time: string, note: string) => `${({ 主人记录实际摄入: 'Owner-recorded actual intake', 提供食物: 'Food offered', 记录出粮: 'Recorded dispensing', 剩余食物: 'Food remaining', 含义未说明: 'Meaning not specified' } as Record<string,string>)[kind]} ${grams} g (${time}; original note: ${note === '未填写' ? t('未填写') : note})`)
@@ -52,13 +79,13 @@ export function serverText(value: string): string {
   }
   if (value.startsWith('近七天实际人工完成记录：')) return 'Completed manual care in the last 7 days: ' + serverText(value.slice('近七天实际人工完成记录：'.length))
   const insightStart = '按主人设置的计划安排照护，先查看近期完成记录。'
-  if (value.startsWith(insightStart)) return serverMessages[insightStart] + serverText(value.slice(insightStart.length))
+  if (value.startsWith(insightStart)) return serverMessages[insightStart] + serverText(value.slice(insightStart.length), items, facts)
   // System templates use captured data verbatim, including names and notes.
   const patterns: [RegExp, (...parts: string[]) => string][] = [
     [/^过去 7 天有 (\d+) 条主人完成记录、(\d+) 篇成长日记。$/, (care, diary) => `Over the last 7 days: ${care} owner-completed care records and ${diary} diary entries.`],
     [/^\[本地替身\] 依据当前事实（上次喂食距今 (\d+) 分钟、当日已出粮 (\d+) 克、日配额 (\d+) 克）生成建议；最终是否执行由硬性策略与主人审批决定。$/, (minutes, dispensed, limit) => `[Local stand-in] Suggested from current facts: ${minutes} minutes since feeding, ${dispensed} g dispensed today, daily quota ${limit} g. Execution depends on hard policy checks and owner approval.`],
     [/^\[本地替身\] 缺少必要事实（(.+)），无法给出喂食建议，仅建议观察。补全事实后重新发送请求即可。$/, fields => `[Local stand-in] Required facts missing (${fields.replace('上次喂食时间', 'last feeding time').replace('当日已出粮量', 'food dispensed today').replaceAll('、', ', ')}). Observe only; complete the facts and send another request.`],
-    [/^可选择(.+)安排陪玩。(.*)$/, (toys, rest) => `Plan playtime with ${toys === '添加一个喜欢的玩具' ? 'a favorite toy you add' : toys}.${serverText(rest)}`],
+    [/^可选择(.+)安排陪玩。(.*)$/, (toys, rest) => `Plan playtime with ${toys === '添加一个喜欢的玩具' ? 'a favorite toy you add' : items.length && toys === items.map(item => item.name).join('、') ? items.map(item => item.displayName).join(', ') : toys}.${serverText(rest, items, facts)}`],
     [/^ 主人记录的喜好：([\s\S]*)。$/, likes => ` Owner-recorded preferences: ${likes}.`],
     [/^陪 (.+) 玩耍$/, name => `Play with ${name}`],
     [/^为 (.+) (人工喂食|换水|玩耍|梳毛|洗澡|剪指甲|清洁|散步)$/, (name, care) => `${t(care === '玩耍' ? '陪玩' : care)} for ${name}`],
@@ -71,6 +98,8 @@ export function serverText(value: string): string {
   const answer = value.match(/^([\s\S]+?) 的记录：([\s\S]*)$/)
   if (!answer) return value
   let body = answer[2]
+  if (body === '主人观察原文：暂无相关记录。') return `${answer[1]}’s records: Original owner observations: No related records yet.`
+  if (facts?.breed === '') body = body.replace(/^主人确认的品种：未填写。/, 'Owner-confirmed breed: Not provided. ')
   const protectedValues: string[] = []
   // The local assistant inserts owner content after these explicit labels.
   const labels: Record<string, string> = { '档案喜好：': 'Profile preferences: ', '主人确认记录：': 'Owner-confirmed records: ', '主人确认的陪玩记录：': 'Owner-confirmed play records: ', '主人观察原文：': 'Original owner observations: ', '主人确认的品种：': 'Owner-confirmed breed: ' }
@@ -107,6 +136,6 @@ export function LanguageSwitch() {
   const selected = useLanguage()
   return <div className="language-switch" role="group" aria-label={selected === 'en' ? 'Language' : '语言'}>
     <button type="button" lang="en" aria-pressed={selected === 'en'} onClick={() => setLanguage('en')}>English</button>
-    <button type="button" lang="zh-CN" aria-pressed={selected === 'zh'} onClick={() => setLanguage('zh')}>中文</button>
+    <button type="button" lang={selected === 'zh' ? 'zh-CN' : 'en'} aria-pressed={selected === 'zh'} onClick={() => setLanguage('zh')}>{selected === 'zh' ? '中文' : 'Chinese'}</button>
   </div>
 }
