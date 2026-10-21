@@ -1,6 +1,7 @@
 # PawTwin — Developer Friction Log
 
-Prepared: 21 October 2026  
+Prepared: 21 October 2026
+
 Project: [PawTwin](https://github.com/xf2214/PawTwin)
 
 This log records four issues encountered while developing and verifying PawTwin. Each entry identifies the task, steps, expected and actual results, project impact, workaround or fix, validation and an actionable suggestion.
@@ -20,13 +21,16 @@ These entries concern local configuration, project scripts and application test 
 
 ## FL-01 — Multiple runtime paths broke CI startup
 
-**Recorded date:** 17 October 2026  
-**Severity:** High — blocked the Linux verification workflow.  
+**Recorded date:** 17 October 2026
+
+**Severity:** High — blocked the Linux verification workflow.
+
 **Issue ownership:** PawTwin's runtime-discovery script.
 
 **Task attempted:** Run the project's verification workflow in GitHub Actions on Ubuntu and Windows.
 
 **Steps taken:**
+
 1. Publish the source and run the cross-platform workflow.
 2. Let the project's PowerShell launcher discover Node using `Get-Command node`.
 3. Use the discovered executable to run the development checks.
@@ -45,13 +49,16 @@ These entries concern local configuration, project scripts and application test 
 
 ## FL-02 — Browser revision mismatch prevented test startup
 
-**Recorded date:** 17 October 2026  
-**Severity:** Medium — browser verification could not start until the environment was corrected.  
+**Recorded date:** 17 October 2026
+
+**Severity:** Medium — browser verification could not start until the environment was corrected.
+
 **Issue ownership:** Local browser installation and test configuration.
 
 **Task attempted:** Run the browser regression suite before source publication.
 
 **Steps taken:**
+
 1. Build the frontend and start the project's browser-test runner.
 2. Attempt to launch the browser expected by the installed Playwright test package.
 3. Inspect the launch failure before changing the application tests.
@@ -70,13 +77,16 @@ These entries concern local configuration, project scripts and application test 
 
 ## FL-03 — Developer configuration leaked into local tests
 
-**Recorded date:** 14 October 2026  
-**Severity:** Medium — undermined local test isolation and reproducibility.  
+**Recorded date:** 14 October 2026
+
+**Severity:** Medium — undermined local test isolation and reproducibility.
+
 **Issue ownership:** PawTwin's test-fixture configuration.
 
 **Task attempted:** Keep local backend tests on the explicitly selected local response path when a developer configuration file is present.
 
 **Steps taken:**
+
 1. Review local test fixtures that construct application settings.
 2. Exercise them with a temporary `.env` file selecting the optional Bedrock response path.
 3. Add a guard that fails if a local test tries to initialize the cloud client.
@@ -95,13 +105,16 @@ These entries concern local configuration, project scripts and application test 
 
 ## FL-04 — Expanded browser tests reached registration limits
 
-**Recorded date:** 21 October 2026  
-**Severity:** Medium — interrupted complete browser verification.  
+**Recorded date:** 21 October 2026
+
+**Severity:** Medium — interrupted complete browser verification.
+
 **Issue ownership:** Test workload and service isolation; the application limit remained in force.
 
 **Task attempted:** Run the expanded account-isolation and response-provenance browser scenarios.
 
 **Steps taken:**
+
 1. Add the new scenarios to the browser suite.
 2. Run the existing four-shard setup, creating test accounts through the normal registration API.
 3. Inspect later registration failures and compare them with the service's registration limit.
@@ -121,4 +134,3 @@ These entries concern local configuration, project scripts and application test 
 ## Scope of the results
 
 The fixes and workarounds above were validated as described in the dated evidence. This document does not claim live AWS inference, AgentCore memory extraction, real Alexa access, physical-device operation or production deployment. The older [engineering friction record](product-feedback.en.md#evidence-backed-friction-log) remains available as historical context.
-
