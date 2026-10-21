@@ -109,7 +109,7 @@ def include_source(name: str) -> bool:
     if len(path.parts) == 1:
         return filename in ROOT_FILES
     # Keep the image referenced by the public READMEs in standalone source exports.
-    if lower == "docs/evidence/i18n-2026-10-14/product-en.png":
+    if lower == "docs/readme/pawtwin-overview.jpg":
         return True
     if lower.startswith("docs/") and path.suffix.casefold() == ".md":
         return True

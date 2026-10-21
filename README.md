@@ -9,7 +9,7 @@
 
 PawTwin brings pet profiles, shared care tasks, observations, confirmed preferences and growth records into one household workspace. Its Alexa-style web simulator shows how saved context can support a care conversation: review the sources, confirm a proposed task, and let another household member record completion.
 
-![PawTwin product page with illustrative tablet and phone interfaces](docs/evidence/i18n-2026-10-14/product-en.png)
+![PawTwin overview with shared pet care features and illustrative tablet and phone interfaces](docs/readme/pawtwin-overview.jpg)
 
 *Recorded interface preview; the product-page examples use fictional pets and illustrative data.*
 

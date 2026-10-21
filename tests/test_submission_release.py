@@ -78,7 +78,7 @@ def test_source_archive_keeps_license_and_public_readme_dependencies(tmp_path, m
         "CONTRIBUTING.md",
         "SECURITY.md",
         ".editorconfig",
-        "docs/evidence/i18n-2026-10-14/product-en.png",
+        "docs/readme/pawtwin-overview.jpg",
     }
     for name in names:
         path = tmp_path / name

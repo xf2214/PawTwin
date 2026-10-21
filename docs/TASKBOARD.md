@@ -1,5 +1,9 @@
 # PawTwin 开发任务看板
 
+## 2026-10-21：README 配图范围修正
+
+DOCS-README-01：用户要求优化 GitHub README 中截取过多的画面。Coordinator 串行维护双语 README、新配图、导出精确路径和既有打包回归；docs_audit 只读检查图片构图与引用，无并行源码写入。新图从本地公开产品页实际截取，原图保留；49 项相关测试与 53 个本地链接通过，无产品行为或数据变化。
+
 ## 2026-10-21：PUB-02 继续验收
 
 PUB-02 done_local：用户要求继续。Coordinator 接管导入器剩余中断窗口修复，三个新回归先失败后通过，确定事件意图先于 POST 保存。独立复核确认原 P2 关闭。最终 539 后端通过/1 skipped/21 live-AWS deselected，129 浏览器通过（五分片，0 retries），静态检查/契约/锁文件/类型/构建/diff 通过；真实 HTTP 日期 2026-10-21 导入/重放通过，现有预览资料保留。本地验收后按用户授权更新现有 main，实际提交与远端检查由 Git 历史/Actions 核对。[完整验收](evidence/github-update-2026-10-21.md)。
